@@ -11,6 +11,9 @@ router.post("/create", function (req, res) {
 router.post("/edit/:id", function (req, res) {
   res.json({ success: true });
 });
+router.get("/search", function (req, res) {
+  res.json({ success: true });
+});
 router.get("/:id", function (req, res) {
   const postID = req.params.id;
   res.json({ success: true });
