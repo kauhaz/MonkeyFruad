@@ -29,3 +29,34 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.Navbar {
+  background-color: #8B0000;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
+}
+
+.link {
+  color:white;
+}
+
+.link:hover{ 
+  color: #DCDCDC;
+}
+
+.button {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+}
+
+.button:hover {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+}
+
+.head{
+  font-size: 30px;
+}
