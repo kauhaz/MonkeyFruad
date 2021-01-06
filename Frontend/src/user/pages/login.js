@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
-import 'bootstrap/dist/css/bootstrap.min.css'
 import "./login.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import { FacebookLoginButton, GoogleLoginButton  } from "react-social-login-buttons";
@@ -37,7 +37,7 @@ const Login = () => {
         </button>
 
         <div className="Signup text-center pt-3" >
-            <span></span><a href="#">สมัครสมาชิก</a>
+            <span></span><a href="./signup">สมัครสมาชิก</a>
             <hr></hr>
         </div>
 
