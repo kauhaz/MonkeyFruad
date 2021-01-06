@@ -10,7 +10,7 @@ import Signup from "./user/pages/signup";
 import Prevent from "./user/pages/prevent";
 import Help from "./user/pages/help";
 import Rank from "./user/pages/ranking";
-
+import "./app.css";
 import Axios from "axios"
 
 // ที่รวม Routh ต่างๆ
