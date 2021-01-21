@@ -42,7 +42,7 @@ router.post("/signup", async (req, res) => {
               role: "user",
               type:"On web"
             });
-            return res.json({ msg: "signup success" });
+            return res.json({ user: result });
           }
         })
         .catch((err) => {
@@ -120,7 +120,7 @@ router.post("/remember", function (req, res) {
   res.json({ success: true });
 });
 
-router.post("/userdata", function (req, res) {
+router.post("/session", function (req, res) {
   const { user } = req.body;
    firestore.collection("User").doc(user.uid).get().then((doc)=>{
     if(doc.exists){
@@ -167,33 +167,6 @@ router.post("/userid",(req,res)=>{
 console.log(err)
   }}
 })
-
-// router.post("/session",(req,res)=>{
-//   try{
-//     const {
-//       result
-//       } = req.body;
-      
-//     const userRef = firestore.collection("Post").where("useruid" , "==" ,result.uid).onSnapshot((doc)=>{
-//      let item = []
-//      doc.forEach(doc2 =>{
-//       item.push(doc2.data())
-//      })
-//         res.json({
-//           item
-//         })
-//      })
-    
-
-
-//   }catch{(err)=>{
-// console.log(err)
-//   }}
-// })
-
-
-
-
 router.get("/:id", function (req, res) {
   const userID = req.params.id;
   res.json({ success: true });

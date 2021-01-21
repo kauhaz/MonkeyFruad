@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState, Component , useContext } from "react";
 import { Form, Col, FormControl } from "react-bootstrap";
 import {useParams , useHistory } from "react-router-dom"
 import {
@@ -12,8 +12,8 @@ import "./formedit.css";
 import Axios from "axios"
 import _ from "lodash"
 import Chatbot from "../components/chatbot";
+import usercontext from "../context/usercontext"
 // import image from "D:/PROJECT ALL/MonkeyFruad/Frontend/src/uploads/logo192.png"
-
 
 const Formedit = () => {
 
@@ -34,6 +34,7 @@ const Formedit = () => {
   const [datetime, setDatetime] = useState();
   const [social, setSocial] = useState();
   const [other, setOther] = useState("");
+  const [error, Seterror] = useState();
   // const [files, setfiles] = useState();
    
 
@@ -45,6 +46,7 @@ const Formedit = () => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setphoto(files[0])
+    Seterror()
     let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
     reader.readAsDataURL(files[0]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
     reader.onload = (event) => {
@@ -59,7 +61,7 @@ const Formedit = () => {
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles(files)
-
+    Seterror()
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
@@ -104,8 +106,9 @@ const Formedit = () => {
 
 
   const handlesubmit = async (e) =>{
+    e.preventDefault()
     try{
-      e.preventDefault()
+    
       let formdata = new FormData()
       _.forEach(files , file => {
         formdata.append("eiei" ,file)
@@ -126,9 +129,9 @@ const Formedit = () => {
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
       let data = await Axios.post(`http://localhost:7000/post/edit/${uid}`,formdata)
       history.push(`/mypost/${uid}`)
-      
+    
     }catch(err){
-      console.log("ok")
+      err && Seterror(err.response.data.msg)
     }
   }
   return (
@@ -139,7 +142,7 @@ const Formedit = () => {
       <div className="container-formpost">
       <div className="container-formpost1">
         <div className="profile-badformpost-img">
-          {imagesProfile ? <img className="img-circle" src={imagesProfile} /> : ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`} /> : <img className="img-circle" src={"/img/profile.png"} />}
+          {imagesProfile ? <img className="img-circle" src={imagesProfile} /> : ok.resultfileitem ? <img className="img-circle" src={`${ok.resultfileitem.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />}
           <div className="rank-label-container-edit">
             <span className="label label-default rank-label">
               <div className="formedit-ImageUpload">
@@ -372,8 +375,12 @@ const Formedit = () => {
 
           <Form.File.Label>
             <span className="spanformedit">
-              **กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น ภาพถ่ายหน้าจอ
+              * กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น ภาพถ่ายหน้าจอ
               (แชท)
+            </span>
+            <br></br>
+            <span className="spanformpost">
+            **ต้องเป็นไฟล์ png หรือ jpeg เท่านั้น
             </span>
           </Form.File.Label>
            
@@ -386,6 +393,9 @@ const Formedit = () => {
             accept="image/png, image/jpeg , image/jpg"
             
           />
+
+           <h1 className="h1-formpostfileerror">{error}</h1> 
+
           <div className="container-img-holder-imgpreviewedit">
             {imagesFile ? imagesFile.map((imagePreviewUrl) => {
               return (
@@ -399,9 +409,9 @@ const Formedit = () => {
                   onMouseOut={(e) => (e.currentTarget.style = { transform: "scale(1)", overflow: "hidden" })}
                 />
               );
-            }) :    ok.files ? ok.files.map(res => { 
+            }) :    ok.item ? ok.item.map(res => { 
               return ( 
-                <img className="imgpreviewedit" src={`/uploads/${res.filename}`}  /> 
+                <img className="imgpreviewedit" src={`${res.url}`}  /> 
            )
            }) : null }
              

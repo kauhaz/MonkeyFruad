@@ -4,7 +4,6 @@ const express = require("express"),
   flash = require("connect-flash"),
    cors = require('cors')
   // passportLocal = require('passport-local'),
-  indexRoutes = require("./routes/index"),
   userRoutes = require("./routes/User"),
   postRoutes = require("./routes/Post"),
   adminRoutes = require("./routes/Admin"),
@@ -17,7 +16,6 @@ const express = require("express"),
 
 // app
 // Set Route
-app.use("/", indexRoutes);
 app.use("/user", userRoutes);
 app.use("/post", postRoutes);
 app.use("/admin", adminRoutes);

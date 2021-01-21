@@ -14,19 +14,25 @@ const History = () => {
     setIsActive(!isActive);
   }
   const [mypost,   Setmypost] = useState();
+  const [error,   Seterror] = useState();
   // let { user , setUser} = useContext(usercontext)
 
   let user = auth.currentUser;
 
     const deleted = async(uid) =>{
-      if(user){
-      const postdelete = await Axios.post(`http://localhost:7000/post/delete/${uid}`)
-      console.log(postdelete.data)
-
-      const ok = await Axios.post("http://localhost:7000/post/postapi", {result:user})
-      console.log(ok.data.item)
-      Setmypost(ok.data.item) 
-    }
+      try{
+        if(user){
+          const postdelete = await Axios.post(`http://localhost:7000/post/delete/${uid}`)
+          console.log(postdelete.data)
+    
+          const ok = await Axios.post("http://localhost:7000/post/postapi", {result:user})
+          console.log(ok.data.item)
+          Setmypost(ok.data.item) 
+        }
+      }catch(err){
+        console.log(err)
+      }
+   
     }
      
 const ok =async () =>{
@@ -44,8 +50,10 @@ ok()
 }, [user])    
 
   return (
+  
     <div>
       <Navbar />
+   
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">{mypost ? <h2 className="h2-history2">ทั้งหมด {mypost.length} โพสต์</h2> : null}</div>
       {mypost ? mypost.map((ok,index) =>{

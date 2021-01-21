@@ -24,7 +24,7 @@ const Home = () => {
       <h1 className="h1-index">หน้าหลัก</h1>
       {/* <a onClick={submit}>enter</a>
       <button onClick={test}>test user data</button> */}
-      <Chatbot/>
+      <Chatbot />
     </div>
   );
 };

@@ -45,6 +45,7 @@ const Formpost = () => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setphoto(files[0])
+    Seterror()
     let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
     reader.readAsDataURL(files[0]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
     reader.onloadend = () => {
@@ -76,11 +77,9 @@ const Formpost = () => {
 var user = auth.currentUser
 let history = useHistory()
   const handlesubmit = async (e) =>{
-
     try{
       e.preventDefault()
       let formdata = new FormData()
-      console.log(user.uid)
       let useruid = user.uid
       _.forEach(files ,file =>{
         formdata.append("eiei" , file)
@@ -99,15 +98,15 @@ let history = useHistory()
       formdata.append("other" , other)
       formdata.append("useruid" , useruid)
       
-       await Axios.post("http://localhost:7000/post/create", formdata ) 
-     
+      const a = await Axios.post("http://localhost:7000/post/create", formdata ) 
+      console.log("eiei")
         history.push("/post/history")
     }catch(err){
       err && Seterror(err.response.data.msg)
     }
   
   }
-  console.log(user.uid)
+ 
   return (
   
     <div className="container-formpost">
@@ -318,8 +317,12 @@ let history = useHistory()
 
           <Form.File.Label>
             <span className="spanformpost">
-              **กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น ภาพถ่ายหน้าจอ
+              *กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น ภาพถ่ายหน้าจอ
               (แชท)
+            </span>
+            <br></br>
+            <span className="spanformpost">
+            **ต้องเป็นไฟล์ png หรือ jpeg เท่านั้น
             </span>
           </Form.File.Label>
                 

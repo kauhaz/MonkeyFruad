@@ -1,49 +1,44 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
-import Axios from "axios"
+import Axios from "axios";
 import "./post.css";
-import { Link , useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import {
   auth,
   googleProvider,
   facebookProvider,
-  firestore
+  firestore,
 } from "../Frontfirebase";
 const Post = () => {
-  const [data,Setdata] = useState()
-  const [show,Setshow] = useState()
-  const history = useHistory()
-  
-  const ok = async () =>{
-    
-    const showdata = await firestore.collection("Post").onSnapshot((querySnapshot) =>{
-     
-      let item = []
-      querySnapshot.forEach((doc) =>{
-        
-        item.push(doc.data())
-        console.log(item)
-      })
-      Setshow(item)
-    })
-  
+  const [data, Setdata] = useState();
+  const [show, Setshow] = useState();
+  const history = useHistory();
 
-    
-  }
+  const ok = async () => {
+    const showdata = await firestore
+      .collection("Post")
+      .onSnapshot((querySnapshot) => {
+        let item = [];
+        querySnapshot.forEach((doc) => {
+          item.push(doc.data());
+          console.log(item);
+        });
+        Setshow(item);
+      });
+  };
 
   useEffect(() => {
-    ok()
-}, [])
+    ok();
+  }, []);
 
-
-const deleted = async(uid) =>{
-  const postdelete = await Axios.post(`http://localhost:7000/post/delete/${uid}`)
-  console.log(postdelete.data)
-}
- 
-
+  const deleted = async (uid) => {
+    const postdelete = await Axios.post(
+      `http://localhost:7000/post/delete/${uid}`
+    );
+    console.log(postdelete.data);
+  };
 
   return (
     <div>
@@ -62,13 +57,10 @@ const deleted = async(uid) =>{
         </div>
       )
       }) : null} */}
-    
-    <Chatbot/>
+
+      <Chatbot />
     </div>
   );
 };
-
-
-
 
 export default Post;
