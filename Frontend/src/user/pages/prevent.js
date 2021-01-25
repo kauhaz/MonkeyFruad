@@ -1,22 +1,21 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
 import "./prevent.css";
 import { Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Prevent = () => {
   return (
-    <div>
-      <Navbar />
+    <div className="bg-prevent-page">
+      <NavbarPage />
       <div className="h1-prevent">รู้ไว้ไม่โดนโกง</div>
-      <div className="container-prevent">
+      <div className="container-prevent ">
         <div className="row-prevent">
           <div className="column-prevent">
             <img src="/img/prevent1.png" className="image1-prevent" />
             <div className="text-content-prevent">
               ซื้อสินค้าออนไลน์แล้วไม่ได้รับสินค้าตามกำหนด
               <span className="text-none-prevent textwhite-prevent">
-                <br />a<br />
               </span>
             </div>
           </div>
@@ -31,7 +30,6 @@ const Prevent = () => {
             <div className="text-content-prevent">
               เมื่อโอนเงินแล้วผู้ขายจะหายตัวไปปิดช่องทางการติดต่อทุกทาง
               <span className="text-none-prevent textwhite-prevent">
-                <br />a
               </span>
             </div>
           </div>

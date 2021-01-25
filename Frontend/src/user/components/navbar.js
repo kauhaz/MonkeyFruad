@@ -5,6 +5,9 @@ import "./navbar.css";
 import { firestore, auth} from "../Frontfirebase";
 import usercontext from "../context/usercontext"
 import axios from "axios";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
+  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const Usernvabar = () => {
   var { user , setUser} = useContext(usercontext)
@@ -63,9 +66,8 @@ useMemo(()=>{
                 <FormControl type="text" placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี" className="boxsearch" />
                 <button className="buttonnavbarsearch"><i className="material-icons">search</i></button>
               </Form>
-              <Nav.Link onClick={logout} className="link" href="/login">ออกจากระบบ</Nav.Link>
           </Navbar.Collapse>
-        </Navbar>
+        </Navbar> 
       </div>
     )
     : 
@@ -106,6 +108,7 @@ useMemo(()=>{
             }
         </Navbar.Collapse>
       </Navbar>
+      
     </div>
 )
   )

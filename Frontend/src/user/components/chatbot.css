@@ -35,7 +35,9 @@
 }
 
 .card-chatbot-header{
-    background-color: #8B0000;
+    /* background-color: #8B0000; */
+    /* background-image: linear-gradient(90deg,  #f43b47 0%, #453a94 100%); */
+    background-color: #D55E2D;
     border-radius: 10px 10px 0px 0px;
     padding-top: 10px;
     padding-bottom: 10px;

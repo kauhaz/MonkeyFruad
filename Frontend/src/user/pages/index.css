@@ -1,7 +1,43 @@
-.h1-index { 
+/* .h1-index { 
     margin-top: 50px;
     text-align: center;
     font-size: 30px;
     font-family: 'Kanit', sans-serif;
     color: #8B0000;
+} */
+
+.container1-index{
+    width: 70%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.74);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.column1-index{
+    width: 48%;
+    background-color: teal;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.column2-index{
+    width: 48%;
+    background-color:rebeccapurple;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.left-index{
+    background-color: teal;
+}
+
+.text1-index{
+    font-family: 'Kanit', sans-serif;
+    font-size: 23px;
+    text-align: center;
+}
+.button1-index{
+
 }
