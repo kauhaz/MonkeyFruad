@@ -1,13 +1,12 @@
 import React, { useState, useParams, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import Navbar from "../components/navbar";
 import "./login.css";
 import Chatbot from "../components/chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import { MDBInput } from "mdbreact";
 import axios from "axios";
-
+import NavbarPage from "../components/navnew";
 const Login = () => {
   const location = useLocation();
   let history = useHistory();
@@ -83,7 +82,7 @@ const Login = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarPage />
       <Chatbot />
       <div className="container-login">
         <form className="LoginForm">

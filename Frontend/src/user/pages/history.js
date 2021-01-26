@@ -1,13 +1,12 @@
 import React, { useEffect, useState ,useContext} from "react";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import {Link} from "react-router-dom"
-import Navbar from "../components/navbar";
 import "./history.css";
 import usercontext from "../context/usercontext"
 import Axios from "axios"
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
-
+import NavbarPage from "../components/navnew";
 const History = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => {
@@ -52,7 +51,7 @@ ok()
   return (
   
     <div>
-      <Navbar />
+      <NavbarPage/>
    
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">{mypost ? <h2 className="h2-history2">ทั้งหมด {mypost.length} โพสต์</h2> : null}</div>

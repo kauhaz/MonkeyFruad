@@ -9,8 +9,8 @@ import {
   firestore,
 } from "../Frontfirebase";
 import Axios from "axios";
-import Navbar from "../components/navbar";
 
+import NavbarPage from "../components/navnew";
 import "./mypost.css";
 import usercontext from "../context/usercontext";
 const Mypost = () => {
@@ -78,7 +78,7 @@ const Mypost = () => {
 
   return (
     <div className="allpage">
-      <Navbar />
+      <NavbarPage />
       <h1 className="h1-mypost">โพสต์ของฉัน</h1>
       {mypost
         ? mypost.map((ok) => {

@@ -196,9 +196,8 @@
 body{
     background-attachment:fixed;
     background-size: cover;
-    background-image: url("bg.gif");
+    background-image: url("bg2.png");
     font-family: 'Kanit', sans-serif;
-    
 }
 
 
@@ -214,6 +213,6 @@ body{
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #969696;
+    background: #c0c0c0;
     border-radius: 10px;
   }

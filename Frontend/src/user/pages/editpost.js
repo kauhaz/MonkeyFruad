@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/navbar";
 import Formedit from "../components/formedit"
 import "./editpost.css";
+import NavbarPage from "../components/navnew";
 const Editpost = () => {
   return (
     <div>
-      <Navbar />
+      <NavbarPage />
       <h1 className="h1-editpost">แก้ไขโพสต์</h1>
       <Formedit/>
     </div>

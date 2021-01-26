@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/navbar";
 import "./forgetpass.css";
 import Chatbot from "../components/chatbot";
 // import { Form } from "react-bootstrap";
@@ -15,7 +14,7 @@ import {
 } from "../Frontfirebase";
 // import { MDBInput } from "mdbreact";
 import axios from "axios";
-
+import NavbarPage from "../components/navnew";
 
 const Forgetpass = () => {
   const [email, setEmail] = useState("");
@@ -67,7 +66,7 @@ const Forgetpass = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarPage/>
       <div className="container-forget">
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-forget" />

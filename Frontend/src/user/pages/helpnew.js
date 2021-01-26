@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/navbar";
 import { Card , Button } from 'react-bootstrap';
 import Chatbot from "../components/chatbot";
 import "./helpnew.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarPage from "../components/navnew";
 const Helpnew = () => {
   return (
     <div className="page">
-      <Navbar />
+      <NavbarPage />
       <div className="h1-helpnew">ทำอย่างไรเมื่อโดนโกง</div>
       <div className="container-helpnew">
         <div className="row-helpnew1">

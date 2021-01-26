@@ -54,13 +54,17 @@ useMemo(()=>{
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+              
               <Nav.Link href="/managepost">จัดการโพส</Nav.Link>
+
               <NavDropdown title="ดูรายงาน" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/non_verifypost">ตรวจสอบแล้ว</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/verifypost">ยังไม่ตรวจสอบ</NavDropdown.Item>
               </NavDropdown>
+
               <Nav.Link href="/contractus">ติดต่อเรา</Nav.Link>
+
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี" className="boxsearch" />

@@ -1,11 +1,45 @@
 .navbarnew{
     font-family: 'Kanit', sans-serif;
-    font-size: 23px;
+    font-size: 22px;
 }
+
 .logo-nav{
     margin-top: -10px;
 }
-/* .center-nav{
-    margin-left: auto;
-    margin-right: auto;
-} */
+
+.nav-item , .nav-link{
+    color: #5c5c5c !important; 
+}
+
+.box-nav{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 250px;
+    height: 40px;
+    border-radius: 0.4rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 17px;
+    color: #5c5c5c;
+    margin-top: 5px;
+}
+
+.button-nav{
+    background-color: #5c83cc;
+    border-radius: 0.5rem;
+    color: white;
+    width: 65px;
+    height: 40px;
+    border: 0px;
+    font-size: 17px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.button-nav:hover{
+    background-color: #3c6fce;
+}
+
+.dropdown-menu-right{
+    position: fixed !important;
+    margin-left: -160px !important;
+}

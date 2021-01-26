@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/navbar";
 import "./signup.css";
 import Chatbot from "../components/chatbot";
 import styled from "styled-components";
@@ -8,7 +7,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
-
+import NavbarPage from "../components/navnew";
 const Signup = () => {
   let history = useHistory();
 
@@ -167,7 +166,7 @@ const Signup = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarPage />
       <div className="container-signup">
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-signup" />
