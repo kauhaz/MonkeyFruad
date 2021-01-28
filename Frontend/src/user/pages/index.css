@@ -1,13 +1,14 @@
-/* .h1-index { 
+.h1-index { 
     margin-top: 50px;
     text-align: center;
     font-size: 30px;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
-} */
+    margin-top: 80px;
+}
 
 .container1-index{
-    width: 70%;
+    width: 60%;
     height: 350px;
     background-color: white;
     /* background-color: tomato; */
@@ -87,57 +88,284 @@
 }
 
 .container2-index{
-    width: 70%;
-    height: 750px;
-    /* background-color: white; */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 70px;
-    font-family: 'Kanit', sans-serif;
-    /* box-shadow: 10px 20px 50px rgba(0,0,0,.2); */
-    border-radius: 10px;
-    padding-top: 25px;
-}
-
-.container3-index{
     width: 60%;
-    background-color: teal;
+    height: 560px;
+    /* background-color: teal; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 .column3-index{
     width: 30%;
-}
-.box2-index{
-    background-color: #ff4d00;
-    height: 250px;
-    margin-top: 50px;
-    margin-left: 15px;
-}
-
-.box3-index{
-    background-color: #ff0000;
-    height: 300px;
-}
-
-.box4-index{
-    background-color: #ffae00;
-    height: 200px;
-    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 
 .image2-index{
-    display: block;
-    width: 150px;
-    height: auto;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    border-radius: 50%;
-    background-color: white;
+    width: 409px;
+    height: 270px;
+    object-fit: cover;
 }
-.image3-index{
-    width: 100%;
+
+.rank-index{
+    font-size: 28px;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    color: #f7766f;
+}
+
+.text2-index{
+    font-family: 'Kanit', sans-serif;
+}
+
+.text3-index{
+    text-align: center;
+    color: #5c83cc;
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px ;
+}
+.text4-index{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 16px ;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-bottom: 30px;
+}
+
+.container3-index {
+    width: 60%;
+    height: 3280px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
+    font-size: 16px ;
+    font-family: 'Kanit', sans-serif;
+}
+
+/*Facebook*/ 
+.headfacebook-index{
+    background-color: #3b5999;
+    width: 30%;
+    font-size: 25px;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+}
+
+.facebookbox-index{
+    background-color: white;
+    border: 5px solid  #3b5999;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.column4-index{
+    width: 24.7%;
+    padding: 20px 10px 20px 10px;
+}
+
+.image3-index{
+    width: 296px;
+    height: 195px;
+    object-fit: cover;
+}
+
+.text5-index{
+    font-size: 25px;
+    text-align: center;
     display: block;
+}
+
+.text6-index{
+    font-size: 20px;
+    display: block;
+}
+
+.text7-index{
+    text-align: left;
+    font-size: 15px ;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.time-index{
+    background-color: #3b5999;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 0px 0px 2px 0px;
+}
+
+.readmore1-index{
+    color:  #3b5999;
+}
+.readmore1-index:hover{
+    color:  #2b406d;
+}
+
+/*instargram*/
+.headinstargram-index{
+    /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
+    background-color: #ec3d77;
+    width: 30%;
+    font-size: 25px;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+}
+.instargrambox-index{
+    background-color: white;
+    border: 5px solid #ec3d77;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.time2-index{
+    background: #ec3d77;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 0px 0px 2px 0px;
+}
+
+.readmore2-index{
+    color:  #ec3d77;
+}
+.readmore2-index:hover{
+    color:  #ac2c57;
+}
+
+
+/*Line*/
+.headline-index{
+    background: #099b09;
+    width: 30%;
+    font-size: 25px;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+}
+.linebox-index{
+    background-color: white;
+    border: 5px solid#099b09;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.time3-index{
+    background:#099b09;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 0px 0px 2px 0px;
+}
+
+.readmore3-index{
+    color:#099b09;
+}
+.readmore3-index:hover{
+    color:#077407;
+}
+
+/*Twitter*/
+.headtwitter-index{
+    background: #00acee;
+    width: 30%;
+    font-size: 25px;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+}
+.twitterbox-index{
+    background-color: white;
+    border: 5px solid #00acee;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.time4-index{
+    background:#00acee;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 0px 0px 2px 0px;
+}
+
+.readmore4-index{
+    color:#00acee;
+}
+.readmore4-index:hover{
+    color:#0373a0;
+}
+
+/*Other*/
+.headother-index{
+    background: #727171;
+    width: 30%;
+    font-size: 25px;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+}
+.otherbox-index{
+    background-color: white;
+    border: 5px solid #727171;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.time5-index{
+    background:#727171;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 0px 0px 2px 0px;
+}
+
+.readmore5-index{
+    color:#727171;
+}
+.readmore5-index:hover{
+    color:#414040;
+}
+
+.seemore{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
 }
