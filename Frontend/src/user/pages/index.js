@@ -53,12 +53,12 @@ const Home = () => {
                 <MDBCardBody cascade className='text-center'>
                 <p className="rank-index">อันดับ 1</p>
                   <MDBCardTitle className='card-title'>
-                    <strong className="text2-index">บวรศักดิ์ เหลือจันทร์</strong>
+                    <strong className="text2-index">ข้าวเหนียว หมูปิ้ง</strong>
                   </MDBCardTitle>
                   <p className='text3-index'>เลขที่บัญชีธนาคาร : 11111111111 <br/>ธนาคาร : กสิกร</p>
                   <p className="text4-index">
                     จำนวนครั้งที่ถูกแจ้ง : 160 ครั้ง <br/>
-                    จำนวนเงินที่โกงไปทั้งหมด : 1,980,460 บาท<br/>
+                    จำนวนเงินทั้งหมด : 1,980,460 บาท<br/>
                     วันที่โกงล่าสุด : 18/01/2021 08:53pm
                   </p>
                   <a href='!#' className='orange-text mt-1 d-flex justify-content-end align-items-center'>
@@ -77,12 +77,12 @@ const Home = () => {
                 <MDBCardBody cascade className='text-center'>
                 <p className="rank-index">อันดับ 2</p>
                   <MDBCardTitle className='card-title'>
-                    <strong className="text2-index">บวรศักดิ์ เหลือจันทร์</strong>
+                    <strong className="text2-index">ข้าวเหนียว หมูปิ้ง</strong>
                   </MDBCardTitle>
                   <p className='text3-index'>เลขที่บัญชีธนาคาร : 11111111111 <br/>ธนาคาร : กสิกร</p>
                   <p className="text4-index">
                     จำนวนครั้งที่ถูกแจ้ง : 160 ครั้ง <br/>
-                    จำนวนเงินที่โกงไปทั้งหมด : 1,980,460 บาท<br/>
+                    จำนวนเงินทั้งหมด : 1,980,460 บาท<br/>
                     วันที่โกงล่าสุด : 18/01/2021 08:53pm
                   </p>
                   <a href='!#' className='orange-text mt-1 d-flex justify-content-end align-items-center'>
@@ -100,12 +100,12 @@ const Home = () => {
                 <MDBCardBody cascade className='text-center'>
                 <p className="rank-index">อันดับ 3</p>
                   <MDBCardTitle className='card-title'>
-                    <strong className="text2-index">บวรศักดิ์ เหลือจันทร์</strong>
+                    <strong className="text2-index">ข้าวเหนียว หมูปิ้ง</strong>
                   </MDBCardTitle>
                   <p className='text3-index'>เลขที่บัญชีธนาคาร : 11111111111 <br/>ธนาคาร : กสิกร</p>
                   <p className="text4-index">
                     จำนวนครั้งที่ถูกแจ้ง : 160 ครั้ง <br/>
-                    จำนวนเงินที่โกงไปทั้งหมด : 1,980,460 บาท<br/>
+                    จำนวนเงินทั้งหมด : 1,980,460 บาท<br/>
                     วันที่โกงล่าสุด : 18/01/2021 08:53pm
                   </p>
                   <a href='!#' className='orange-text mt-1 d-flex justify-content-end align-items-center'>
@@ -131,7 +131,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -155,7 +155,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -179,7 +179,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -203,7 +203,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -242,7 +242,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -265,31 +265,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
-                  <p className="text7-index">
-                    เลขที่บัญชี : 1111111111<br/>
-                    จำนวนเงิน : 30000 บาท <br/> 
-                  </p>
-                  <a href='!#' className='d-flex justify-content-end readmore2-index'>
-                    <h5 className=''>
-                    อ่านเพิ่มเติม{' '}
-                      <MDBIcon icon='chevron-right' className='ml-2' size='sm'></MDBIcon>
-                    </h5>
-                  </a>
-                </MDBCardBody>
-                <div className='time2-index'>
-                      <MDBIcon far icon='clock' /><span> 05/10/2015 08:57 pm</span>
-                </div>
-              </MDBCard>
-              </div>
-
-              <div className="column4-index">
-                <MDBCard>
-                <MDBCardImage src='https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg' className="image3-index" hover/>
-                <MDBCardBody>
-                <strong className="text5-index">กระเป๋า CHANEL</strong>
-                  <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -313,7 +289,31 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
+                  <p className="text7-index">
+                    เลขที่บัญชี : 1111111111<br/>
+                    จำนวนเงิน : 30000 บาท <br/> 
+                  </p>
+                  <a href='!#' className='d-flex justify-content-end readmore2-index'>
+                    <h5 className=''>
+                    อ่านเพิ่มเติม{' '}
+                      <MDBIcon icon='chevron-right' className='ml-2' size='sm'></MDBIcon>
+                    </h5>
+                  </a>
+                </MDBCardBody>
+                <div className='time2-index'>
+                      <MDBIcon far icon='clock' /><span> 05/10/2015 08:57 pm</span>
+                </div>
+              </MDBCard>
+              </div>
+
+              <div className="column4-index">
+                <MDBCard>
+                <MDBCardImage src='https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg' className="image3-index" hover/>
+                <MDBCardBody>
+                <strong className="text5-index">กระเป๋า CHANEL</strong>
+                  <hr />
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -352,7 +352,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -376,7 +376,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -400,7 +400,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -424,7 +424,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -463,7 +463,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -487,7 +487,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -511,7 +511,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -535,7 +535,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -575,7 +575,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -599,7 +599,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -623,7 +623,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
@@ -647,7 +647,7 @@ const Home = () => {
                 <MDBCardBody>
                 <strong className="text5-index">กระเป๋า CHANEL</strong>
                   <hr />
-                  <strong className="text6-index">บวรศักดิ์ เหลือจันทร์</strong>
+                  <strong className="text6-index">ข้าวเหนียว หมูปิ้ง</strong>
                   <p className="text7-index">
                     เลขที่บัญชี : 1111111111<br/>
                     จำนวนเงิน : 30000 บาท <br/> 
