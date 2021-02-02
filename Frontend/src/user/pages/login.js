@@ -12,14 +12,12 @@ const Login = () => {
   let history = useHistory();
 
   // ที่เก็บ state
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
   const [isLogin, setIslogin] = useState(false);
 
   // ฟังกชันสำหรับ Login ผ่านเว็บ
-
   const LoginSubmit = (e) => {
     e.preventDefault();
     auth
@@ -33,8 +31,8 @@ const Login = () => {
         setIslogin(false);
       });
   };
-  // ฟังกชันสำหรับ Login ผ่าน Google
 
+  // ฟังกชันสำหรับ Login ผ่าน Google
   const googleLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(googleProvider);
@@ -49,8 +47,8 @@ const Login = () => {
         console.log(err);
       });
   };
-  // ฟังกชันสำหรับ Login ผ่าน Facebook
 
+  // ฟังกชันสำหรับ Login ผ่าน Facebook
   const facebookLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(facebookProvider);
@@ -65,8 +63,8 @@ const Login = () => {
         console.log(err);
       });
   };
-  // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
 
+  // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
   const Islogin = () => {
     if (location.state !== undefined) {
       setIslogin(true);

@@ -9,9 +9,10 @@ import {
   firestore,
 } from "../Frontfirebase";
 import Axios from "axios";
-
 import NavbarPage from "../components/navnew";
+import Commentitem from "../components/commentitem";
 import "./mypost.css";
+
 import usercontext from "../context/usercontext";
 const Mypost = () => {
   const [isActive, setIsActive] = useState(false);
@@ -32,56 +33,71 @@ const Mypost = () => {
   const [other, setOther] = useState();
   const [mypost, Setmypost] = useState();
   const [data, Setdata] = useState();
+  const [textcomment, Settextcomment] = useState();
+  const [allcomment, Setallcomment] = useState();
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
-
   const ImageHoverZoom = ({ imagePreviewUrl }) => {};
-
-  let user2 = auth.currentUser;
+  // let user2 = auth.currentUser;
 
   const deleted = async (uid) => {
-    if (user2) {
-   
-      const postdelete = await Axios.post(
-        `http://localhost:7000/post/delete/${uid}`
-      );
-      console.log(postdelete.data);
-      const ok = await Axios.post("http://localhost:7000/post/postapi", {
-        result: user2,
-      });
-      console.log(ok.data.item);
-      Setmypost(ok.data.item);
-      history.push("/post/history");
-    }
-  };
 
+    const postdelete = await Axios.post(
+      `http://localhost:7000/post/delete/${uid}`
+    );
+    // console.log(postdelete.data);
+    // const ok = await Axios.post("http://localhost:7000/post/postapi", {
+    //   result: user,
+    // });
+    // console.log(ok.data.item);
+    // Setmypost(ok.data.item);
+    history.push("/post/history");
+  
+};
   const ok = async () => {
     try {
+      const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
-      const name = await Axios.post("http://localhost:7000/user/userid", {
+      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
         result: user,
       });
+    
+      Setallcomment(getcomment.data.item)
       Setmypost(ok.data.item);
-      Setdata(name.data.item);
+      Setdata(nameuser.data.item);
+      
+     
+   
     } catch (err) {
       console.log("error");
     }
   };
-
+console.log(allcomment)
   useEffect(() => {
     ok();
-  }, [user]);
+  }, []);
 
-  console.log(data);
+  const handlecomment = async (e) =>{
+    try{
+      e.preventDefault()
+      let sentdata = {textcomment , username : data[0].username , userid : user.uid}
+      
+      const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
+      // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
+      // Setallcomment(getcomment.data.item)
+      
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   return (
     <div className="allpage">
       <NavbarPage />
       <h1 className="h1-mypost">โพสต์ของฉัน</h1>
-      {mypost
-        ? mypost.map((ok) => {
+      {mypost ? mypost.map((ok) => {
             return (
               <div>
                 <div className="container-mypost">
@@ -90,7 +106,7 @@ const Mypost = () => {
                       {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
                       <img className="img-circle" src="/img/profile.png" />
                       <div className="mypost-name">
-                        {data ? data[0].username : null}
+                         {data ? "@" : null}{data ? data[0].username : null}
                       </div>
                       <br />
                       <div className="mypost-date">
@@ -99,11 +115,11 @@ const Mypost = () => {
                       </div>
                     </div>
 
-                    <div className="mypostbuttonshared">
+                    {/* <div className="mypostbuttonshared">
                       <a className="mypostbuttonshare" href="/post/edit">
                         <i class="fa fa-share"></i>
                       </a>
-                    </div>
+                    </div> */}
 
                     <div className="container-mypostsetiing">
                       <div className="menu-containermypostsetting">
@@ -155,7 +171,7 @@ const Mypost = () => {
                           <img className="img-circle" src="/img/profile.png" />
                         )}
                       </div>
-                      <Form className="formsize-mypost">
+                      <Form className="formsize-mypost" onSubmit={handlecomment}>
                         <Form.Row>
                           <Form.Group
                             as={Col}
@@ -297,61 +313,49 @@ const Mypost = () => {
                               })
                             : null}
                         </div>
-                      </Form>
-                    </div>
-                  </div>
-                </div>
-                <div className="container-mypost4">
-                  <div class="vl"></div>
-                  <div className="mypost-comment-img1">
-                    <img className="img-circle1" src="/img/profile.png" />
-                    <div className="mypost-comment-name1">
-                      @Nuitychibiko{" "}
-                      <span className="mypost-comment-time1"> 40 นาที </span>
-                    </div>
-                    <br />
-                    <div className="mypost-comment-comments1">
-                      ไอนี้อีกแล้วหรอ น่าโดนจริงๆ อย่าให้เจอตัวบอกก่อน
-                    </div>
-                  </div>
-                  <div className="mypost-comment-img2">
-                    <img className="img-circle2" src="/img/profile.png" />
-                    <div className="mypost-comment-name2">
-                      @Nuitychibiko{" "}
-                      <span className="mypost-comment-time2"> 40 นาที </span>
-                    </div>
-                    <br />
-                    <div className="mypost-comment-comments2">
-                      โดนโกงไป5000 เจ็บใจจริงๆ TT ถ้าเจอจะซัดหน้าให้หมอบ
-                    </div>
-                  </div>
-                  <div className="mypost-comment-img3">
-                    <img className="img-circle3" src="/img/profile.png" />
-                    <div className="mypost-comment-name3">
-                      @Nuitychibiko{" "}
-                      <span className="mypost-comment-time3"> 40 นาที </span>
-                    </div>
-                    <br />
-                    <div className="mypost-comment-comments3">
-                      <Form.Row>
-                        <Form.Group
-                          className="mypost-writecommemt col-lg-6 col-10"
-                          controlId="exampleForm.ControlTextarea1"
-                        >
-                          <Form.Control placeholder="เขียนความคิดเห็น..." />
-                        </Form.Group>
+                      
+                      <div className="line-comment1"></div>
+                      <div className="container-mypost4">
+                        {allcomment ? (
+                          allcomment.map((value, index) => {
+                            return (
+                              <Commentitem data={value} ok={ok} key={index} uid={uid} />
+                            );
+                          })
+                        ) : null}
 
-                        <Form.Group
-                          className="mypost-writecommemt col-lg-6 col-1"
-                          controlId="exampleForm.ControlTextarea1"
-                        >
-                          <div className="mypostbuttonsend">
-                            <a className="mypostbuttonsends" href="">
-                              <i className="fa fa-paper-plane"></i>
-                            </a>
+                        {/* <div className="line-comment2"></div> */}
+                      </div>
+                      <h2 className="commentother">ดูอีก 3 ความคิดเห็น</h2>
+                      <div className="row mypost-comment-comments2">
+                        <div className="mypost-profilecomment-img">
+                          {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
+                          <img className="img-circle" src="/img/profile.png" />
+                        </div>
+                     
+                        <div className="row mypost-comment-commentsall">
+                       
+                          <div
+                            className="mypost-writecommemt col-lg-6 col-10"
+                            controlId="exampleForm.ControlTextarea1"
+                          >
+                         
+                            <input className="inputcomment" placeholder="เขียนความคิดเห็น..." value={textcomment} onChange={(e) =>{Settextcomment(e.target.value)}}/>
                           </div>
-                        </Form.Group>
-                      </Form.Row>
+
+                          <div>
+                            <div className="column2 mypostbuttonsend">
+                              <button className="mypostbuttonsends" type="submit">
+                                <i className="fa fa-paper-plane"></i>
+                              </button>
+                            </div>
+                       
+                          </div>
+                       
+                        </div>
+                       
+                      </div>
+                      </Form>
                     </div>
                   </div>
                 </div>

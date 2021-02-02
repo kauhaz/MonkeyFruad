@@ -128,6 +128,7 @@ const Formedit = () => {
       
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
       let data = await Axios.post(`http://localhost:7000/post/edit/${uid}`,formdata)
+      
       history.push(`/mypost/${uid}`)
     
     }catch(err){
@@ -139,9 +140,9 @@ const Formedit = () => {
       {show ? show.map(ok=>{
         return (
           <div>
-      <div className="container-formpost">
-      <div className="container-formpost1">
-        <div className="profile-badformpost-img">
+      <div className="container-formedit">
+      <div className="container-formedit1">
+        <div className="profile-badformedit-img">
           {imagesProfile ? <img className="img-circle" src={imagesProfile} /> : ok.resultfileitem ? <img className="img-circle" src={`${ok.resultfileitem.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />}
           <div className="rank-label-container-edit">
             <span className="label label-default rank-label">

@@ -14,7 +14,6 @@ import Chatbot from "../components/chatbot";
 const Formpost = () => {
 
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
-  
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagesProfile, setImagesProfile] = useState("/img/profile.png"); //สร้าง State เพื่อเก็บรูปโปรไฟล์
   const [files, Setfiles] = useState("");
@@ -53,9 +52,10 @@ const Formpost = () => {
     };
 
   };
+
 // ฟังก์ชันอัพโหลดไฟล์ 
   const FileUpload = (event) => { 
-
+    
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
@@ -241,7 +241,7 @@ let history = useHistory()
               <Form.Label className="text-formpost">
                 จำนวนเงิน (บาท)<span className="spanformpost">*</span>
               </Form.Label>
-              <Form.Control type="text" id="nameproduct" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" placeholder="" required onChange={(event)=>{
+              <Form.Control type="number" id="nameproduct" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" placeholder="" required onChange={(event)=>{
                 setMoney(event.target.value)
               }}/>
             </Form.Group>
@@ -358,7 +358,7 @@ let history = useHistory()
             <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
           </Form.Row> */}
 
-          <button className="buttonformpost" variant="success" type="submit" >
+          <button className="buttonformpost" type="submit" >
             โพสต์
           </button>
        

@@ -1,266 +1,99 @@
-.h1-mypost { 
-    margin-top: 50px;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+.h1-mypost {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Kanit", sans-serif;
+  color: #5c5c5c;
+}
+
+.commentother {
+  color: blue;
+  font-size: 15px;
+  margin-top: -25px;
+  margin-bottom: 30px;
 }
 
 .container-mypost {
-    width: 70%;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .mypost-profile-img img.img-circle {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    object-position: center; 
-    border-radius: 50%;
-}
-
-.mypost-name{
-    margin-left: 60px;
-    margin-top: -55px;
-}
-
-.mypost-date{
-    margin-left: 60px;
-    margin-top: -25px;
-    color: grey;
-    font-size: 18px
-}
-
-.mypost-time{
-    margin-left: 5px;
-    color: grey;
-}
-
-.mypostbuttonshared, .mypostbuttonshare {
-    color: grey;
-}
-
-.mypostbuttonshared, .mypostbuttonshare:hover{
-    color: grey;
-}
-
-.mypostbuttonshared{
-    margin-top: -65px;
-    width: 30px;
-    background: #ffffff;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1px 5px;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
-    border: none;
-    vertical-align: middle;
-    transition: box-shadow 0.4s ease;
-    margin-left: auto; /* Strictly for positioning */
-    margin-right: 40px;
-}
-
-.mypostbuttonshared:hover {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mypostimg-setting {
-    width: 30px;
-}
-
-.menu-containermypostsetting {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-.mypostbuttonsetting {
-    margin-top: -33px;
-    width: 30px;
-    background: #ffffff;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1px 0px;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
-    border: none;
-    vertical-align: middle;
-    transition: box-shadow 0.4s ease;
-    margin-left: auto; /* Strictly for positioning */
-}
-  
-.mypostbuttonsetting:hover {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-  
-.mypostmenusetting {
-    background: #ffffff;
-    border-radius: 7px;
-    position: absolute;
-    top: 0px;
-    right: 0;
-    font-size: 15px;
-    width: 110px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
- }
-  
-.mypostmenusetting.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-  
-.mypostmenusetting .ul-mypostmenusetting {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-  
-.mypostmenusetting .li-mypostmenusetting {
-    border-bottom: 1px solid #dddddd;
-}
- 
-.mypostmenusetting .li-mypostmenusetting .a-mypostmenusetting {
-    text-decoration: none;
-    color: black;
-    padding: 15px 20px;
-    display: block;
-}
-
-.mypostmenusetting .li-mypostmenusetting .a-mypostmenusetting .a-mypostmenusetting1 {
-    color: black;
-}
-
-.mypostmenusetting .li-mypostmenusetting .a-mypostmenusetting .a-mypostmenusetting1:hover {
-    color: black;
-}
-  
-.container-mypost3 {
-    width: 80%;
-    margin-top: -10px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    /* padding-left: 10px;
-    padding-right: 10px; */
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-}
-
-.mypostprofile-bad-img {
-    text-align: center;
-    margin-top: 50px;
-    padding-bottom: 20px;
-}
-
-.mypostprofile-bad-img img.img-circle {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    object-position: center; 
-    border-radius: 50%;
-}
-
-.mypost-left { 
-    margin-right: 15px;
-}
-
-.spanmypost { 
-    color: red;
-}
-
-.img-bad{
-    transition: all 0.3s ease 0s;
-    width: 100px;
-    overflow: hidden;
-    margin-left: 10px;
-    background-color: white;
-    margin-right: 10px;
-    margin-bottom: 15px;
-}
-
-.img-bad:hover{
-    transform: scale(2.5);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.container-mypost4{
-    width: 70%;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: -10px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 30px;
-    padding-left: 60px;
-    padding-right: 60px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-}
-
-.mypost-comment-img1 img.img-circle1,
-.mypost-comment-img2 img.img-circle2,
-.mypost-comment-img3 img.img-circle3 {
   width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 50%;
 }
 
-.mypost-comment-name1,
-.mypost-comment-name2,
-.mypost-comment-name3 {
+.mypost-name {
   margin-left: 60px;
   margin-top: -55px;
 }
 
-.mypost-comment-name1 .mypost-comment-time1,
-.mypost-comment-name2 .mypost-comment-time2,
-.mypost-comment-name3 .mypost-comment-time3 {
-  margin-left: 5px;
-  margin-top: -55px;
-  font-size: 14px;
-  color: grey;
-}
-
-.mypost-comment-comments1,
-.mypost-comment-comments2,
-.mypost-comment-comments3 {
+.mypost-date {
   margin-left: 60px;
   margin-top: -25px;
-  margin-bottom: 30px;
-  font-size: 18px
+  color: grey;
+  font-size: 18px;
 }
 
-.mypostbuttonsends, .mypostbuttonsends:hover{
+.mypost-time {
+  margin-left: 5px;
   color: grey;
 }
 
-.mypostbuttonsend{
+/* .mypostbuttonshared, .mypostbuttonshare {
+      color: grey;
+  }
+  .mypostbuttonshared, .mypostbuttonshare:hover{
+      color: grey;
+  }
+  .mypostbuttonshared{
+      margin-top: -65px;
+      width: 30px;
+      background: #ffffff;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1px 5px;
+      border: none;
+      vertical-align: middle;
+      transition: box-shadow 0.4s ease;
+      margin-left: auto;
+      margin-right: 40px;
+  }
+  .mypostbuttonshared:hover {
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  } */
+
+.mypostimg-setting {
+  width: 30px;
+}
+
+.menu-containermypostsetting {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mypostbuttonsetting {
+  margin-top: -70px;
   width: 30px;
   background: #ffffff;
   border-radius: 50px;
@@ -268,7 +101,214 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 5px;
+  padding: 1px 0px;
+  border: none;
+  vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+  margin-left: auto;
+}
+
+.mypostbuttonsetting:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mypostmenusetting {
+  background: #ffffff;
+  border-radius: 7px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  font-size: 15px;
+  width: 110px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.mypostmenusetting.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mypostmenusetting .ul-mypostmenusetting {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mypostmenusetting .li-mypostmenusetting {
+  border-bottom: 1px solid #dddddd;
+}
+
+.mypostmenusetting .li-mypostmenusetting .a-mypostmenusetting {
+  text-decoration: none;
+  color: black;
+  padding: 15px 20px;
+  display: block;
+}
+
+.mypostmenusetting
+  .li-mypostmenusetting
+  .a-mypostmenusetting
+  .a-mypostmenusetting1 {
+  color: black;
+}
+
+.mypostmenusetting
+  .li-mypostmenusetting
+  .a-mypostmenusetting
+  .a-mypostmenusetting1:hover {
+  color: black;
+}
+
+.container-mypost3 {
+  width: 80%;
+  margin-top: -10px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* padding-left: 10px;
+      padding-right: 10px; */
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+}
+
+.mypostprofile-bad-img {
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+
+.mypostprofile-bad-img img.img-circle {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.mypost-left {
+  margin-right: 15px;
+}
+
+.spanmypost {
+  color: #ff392e;
+}
+
+.img-bad {
+  transition: all 0.3s ease 0s;
+  width: 100px;
+  overflow: hidden;
+  margin-left: 10px;
+  background-color: white;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.img-bad:hover {
+  transform: scale(2.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.container-mypost4 {
+  width: 100%;
+  /* background-color: white; */
+  border-radius: 10px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  /* box-shadow: 10px 20px 50px rgba(0,0,0,.2); */
+}
+
+.mypost-comment-img2 img.img-circle2 {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.mypost-comment-name2 {
+  margin-left: 60px;
+  margin-top: -55px;
+}
+
+.mypost-comment-name2 .mypost-comment-time2 {
+  margin-left: 5px;
+  margin-top: -55px;
+  font-size: 14px;
+  color: grey;
+}
+
+.mypost-comment-comments2 {
+  /* background-color: rgb(245, 245, 245); */
+  width: 80%;
+  height: 10%;
+  margin-left: 250px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  /* box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.row .mypost-comment-commentsall {
+  background-color: rgb(245, 245, 245);
+  width: 80%;
+  margin-left: 20px;
+  margin-top: -15px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.inputcomment {
+  background-color: rgb(245, 245, 245);
+  border: none;
+}
+
+.mypost-profilecomment-img img.img-circle {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin-top: -10px;
+}
+
+.line-comment1,
+.line-comment2 {
+  border-bottom: 2px solid rgba(146, 146, 146, 0.3);
+  /* width: 700px; */
+  align: center;
+  margin-top: 50px;
+}
+
+.mypostbuttonsends,
+.mypostbuttonsends:hover {
+  color: grey;
+}
+
+.mypostbuttonsend {
+  width: 30px;
+  margin-left: 80px;
+  background: rgb(245, 245, 245);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5px 4px;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
   border: none;
   vertical-align: middle;
@@ -276,173 +316,185 @@
 }
 
 .mypostbuttonsend:hover {
+  margin-left: 80px;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.formsize-mypost{
-    margin-top: 30px;
+.formsize-mypost {
+  margin-top: 30px;
 }
 
 .vl {
-    width: 100%;
-    height: 50px;
-    border-top: 3px  solid rgba(146, 146, 146, 0.479);
-    display: none;
-  }
+  width: 100%;
+  height: 50px;
+  border-top: 3px solid rgba(146, 146, 146, 0.479);
+  display: none;
+}
 
-/*Responsive*/ 
+/*Responsive*/
 @media only screen and (max-width: 1920px) {
-
 }
 
 @media only screen and (max-width: 1024px) {
-    .container-mypost{
-        width: 80%;
-    }
-    .container-mypost4{
-        width: 80%;
-    }
+  .container-mypost {
+    width: 80%;
+  }
+  .container-mypost4 {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .container-mypost{
-        width: 88%;
-    }
-    .container-mypost3{
-        width: 95%;
-    }
-    .container-mypost4{
-        width: 88%;
-    }
+  .container-mypost {
+    width: 88%;
+  }
+  .container-mypost3 {
+    width: 95%;
+  }
+  .container-mypost4 {
+    width: 88%;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-    .h1-mypost{
-        font-size: 25px;
-    }
-    .container-mypost{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-    }
-    .container-mypost3{
-        width: 85%;
-    }
-    .img-bad{
-        width: 100px;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    .vl{
-        display: block;
-    }
-    .container-mypost4{
-        margin-top: -100px;
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -100px;
-        margin-bottom: 0px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    .text-mypost ,.spanmypost{
-        font-size: 19px;
-    }
-    .mypost-comment-name1 , .mypost-comment-name2 ,.mypost-comment-name3{
-        font-size: 19px;
-    }
-    .mypost-comment-comments1 , .mypost-comment-comments2{
-        font-size: 16px;
-    }
-    .mypostprofile-bad-img img.img-circle {
-        width: 120px;
-        height: 120px;
-    }
+  .h1-mypost {
+    font-size: 25px;
+  }
+  .container-mypost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+  }
+  .container-mypost3 {
+    width: 85%;
+  }
+  .img-bad {
+    width: 100px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .vl {
+    display: block;
+  }
+  .container-mypost4 {
+    margin-top: -100px;
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -100px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .text-mypost,
+  .spanmypost {
+    font-size: 19px;
+  }
+  .mypost-comment-name1,
+  .mypost-comment-name2,
+  .mypost-comment-name3 {
+    font-size: 19px;
+  }
+  .mypost-comment-comments1,
+  .mypost-comment-comments2 {
+    font-size: 16px;
+  }
+  .mypostprofile-bad-img img.img-circle {
+    width: 120px;
+    height: 120px;
+  }
 }
 @media only screen and (max-width: 414px) {
-    .h1-mypost{
-        font-size: 25px;
-    }
-    .container-mypost{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-    }
-    .container-mypost3{
-        width: 85%;
-    }
-    .img-bad{
-        width: 100px;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    .vl{
-        display: block;
-    }
-    .container-mypost4{
-        margin-top: -100px;
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -100px;
-        margin-bottom: 0px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    .text-mypost ,.spanmypost{
-        font-size: 19px;
-    }
-    .mypost-comment-name1 , .mypost-comment-name2 ,.mypost-comment-name3{
-        font-size: 19px;
-    }
-    .mypost-comment-comments1 , .mypost-comment-comments2{
-        font-size: 16px;
-    }
-    .mypostprofile-bad-img img.img-circle {
-        width: 120px;
-        height: 120px;
-    }
-    .formsize-mypost{
-        margin-top: 15px;
-    }
+  .h1-mypost {
+    font-size: 25px;
+  }
+  .container-mypost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+  }
+  .container-mypost3 {
+    width: 85%;
+  }
+  .img-bad {
+    width: 100px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .vl {
+    display: block;
+  }
+  .container-mypost4 {
+    margin-top: -100px;
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -100px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .text-mypost,
+  .spanmypost {
+    font-size: 19px;
+  }
+  .mypost-comment-name1,
+  .mypost-comment-name2,
+  .mypost-comment-name3 {
+    font-size: 19px;
+  }
+  .mypost-comment-comments1,
+  .mypost-comment-comments2 {
+    font-size: 16px;
+  }
+  .mypostprofile-bad-img img.img-circle {
+    width: 120px;
+    height: 120px;
+  }
+  .formsize-mypost {
+    margin-top: 15px;
+  }
 }
 @media only screen and (max-width: 375px) {
-    .img-bad{
-        width: 90px;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    .mypost-name{
-        font-size: 19px;
-    }
-    .mypost-date{
-        font-size: 15px;
-    }
-
+  .img-bad {
+    width: 90px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .mypost-name {
+    font-size: 19px;
+  }
+  .mypost-date {
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-    .text-mypost ,.spanmypost{
-        font-size: 16px;
-    }
-    .img-bad{
-        width: 75px;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    .container-mypost4{
-        margin-top: -120px;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    .mypost-comment-img1 img.img-circle1,
-    .mypost-comment-img2 img.img-circle2,
-    .mypost-comment-img3 img.img-circle3 {
-        width: 40px;
-    }
-    .mypost-comment-name1 , .mypost-comment-name2 ,.mypost-comment-name3{
-        font-size: 16px;
-    }
-    .mypost-comment-comments1 , .mypost-comment-comments2{
-        font-size: 15px;
-    }
+  .text-mypost,
+  .spanmypost {
+    font-size: 16px;
+  }
+  .img-bad {
+    width: 75px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .container-mypost4 {
+    margin-top: -120px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .mypost-comment-img1 img.img-circle1,
+  .mypost-comment-img2 img.img-circle2,
+  .mypost-comment-img3 img.img-circle3 {
+    width: 40px;
+  }
+  .mypost-comment-name1,
+  .mypost-comment-name2,
+  .mypost-comment-name3 {
+    font-size: 16px;
+  }
+  .mypost-comment-comments1,
+  .mypost-comment-comments2 {
+    font-size: 15px;
+  }
 }

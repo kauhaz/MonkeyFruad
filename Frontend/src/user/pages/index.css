@@ -120,6 +120,17 @@
     font-family: 'Kanit', sans-serif;
 }
 
+.search-index {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    width: 100%;
+}
+
 .text3-index{
     text-align: center;
     color: #5c83cc;

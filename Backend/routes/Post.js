@@ -5,11 +5,12 @@ router = express.Router();
 const {firestore} = require("../models/index")
 const admin = require("firebase-admin");
 const moment = require("moment")
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4, NIL } = require('uuid');
 const cloudinary = require("../utils/cloudinary")
 const multer = require("multer");
 const path = require("path");
 const e = require("express");
+const { text } = require("body-parser");
 
 
 let storage = multer.diskStorage({
@@ -68,9 +69,11 @@ router.post("/create",uploadFile,async(req, res) => {
     
     const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,useruid} = req.body
     const uid = uuidv4()
-    const date = moment().format('MM/DD/YYYY, h:mm:ss a')
-    // console.log(file)
-    // console.log(files)
+    const newmoney = Number(money)
+    
+    // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
+    moment.locale("th")
+    const date = moment().format('lll')
     if(!files){
       return res.status(400).json({msg : "** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **"})
     }
@@ -85,14 +88,60 @@ router.post("/create",uploadFile,async(req, res) => {
         let {url,public_id} = resultfiles
         item.push({url,public_id})
       }
-      console.log(item)
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,resultfileitem,item})
+     
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfileitem,item})
+
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+       const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path)
       const {url,public_id} = resultfile
       const resultfileitem = {url,public_id}
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,resultfileitem})
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfileitem})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
     }
     else if(files){
       let item = []
@@ -103,16 +152,61 @@ router.post("/create",uploadFile,async(req, res) => {
         item.push({url,public_id})
       }
       console.log(item)
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,item})
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,item})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
     }
     else if(!file && !files){
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date})
-    }
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
-   
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
+    }
       return res.json({ success: "สร้างโพสสำเร็จ" });
   }catch(err){
-    // console.log(err)
+    console.log(err)
     return res.status(500).json({msg : err})
   } 
   
@@ -122,10 +216,11 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     let file = req.files.photo
     let files = req.files.eiei
   let uid = req.params.uid
-  const date = moment().format('MM/DD/YYYY, h:mm:ss a')
+  // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
+  moment.locale("th")
+  const date = moment().format('lll')
   const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other} = req.body
-    // console.log(file)
-    // console.log(files)
+  const newmoney = Number(money)
     if(file && files){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
       let item = []
@@ -136,11 +231,58 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         item.push({url,public_id})
       }
       console.log(item)
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,date,resultfile,item})
+      
+      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,date,resultfile})
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
     }
     else if(files){
       let item = []
@@ -151,10 +293,57 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         item.push({url,public_id})
       }
       console.log(item)
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,date,item})
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,item})
+      const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+      getpost.get().then((doc)=>{
+     
+        let items = []
+     
+        doc.forEach(doc2 =>{
+         items.push(doc2.data())    
+        })
+        let sum = 0
+        items.forEach(res =>{
+          sum += res.money
+        })
+
+        let count = 0
+        for(i=1 ; i<=items.length ; i++){
+          count++
+        }
+      
+        const wanteedon = items[0].datetime
+        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      })
+
     }
    else if(!file && !files){
-    const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,date})
+    const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date})
+    const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
+      
+    getpost.get().then((doc)=>{
+   
+      let items = []
+   
+      doc.forEach(doc2 =>{
+       items.push(doc2.data())    
+      })
+      let sum = 0
+      items.forEach(res =>{
+        sum += res.money
+      })
+
+      let count = 0
+      for(i=1 ; i<=items.length ; i++){
+        count++
+      }
+    
+      const wanteedon = items[0].datetime
+
+      const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+    })
+
    } 
    return res.json({
       success : "แก้ไขสำเร็จ"
@@ -168,52 +357,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 
 
 
-// router.post("/create" ,async(req, res) => { 
-//   try{
-//     upload.fields([{name: "photo" ,maxCount:1} , {name: "eiei" , maxCount:10} ]) async(req , res , (err => {
-//       if (err) {
-//         console.log(err)
-//        }
-//     }) 
-     
-//     )
-//     const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,useruid} = req.body
-//     const uid = uuidv4()
-//     const date = moment().format('MM/DD/YYYY, h:mm:ss')
-//     let file = req.files.photo 
-//     let files = req.files.eiei 
-//     console.log(file)
-//     console.log(files)
-//     if(!files){
-//       return res.status(400).json({msg : "กรุณาใส่ไฟลล์หลักฐาน"})
-//     }
 
-//     else if(file && files ){
-//       const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,file,files})
-//     }
-//     else if(file){
-//       const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,file})
-//     }
-//     else if(files){
-
-//       const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date,files})
-//     }else{
-//       const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other,uid,useruid,date})
-//     }
-    
-      
-//   return res.json({ success: "สร้างโพสสำเร็จ" });
-//   }catch(err){
-//     console.log("ok")
-//     return res.status(500).json({msg : err})
-//   } 
-  
-// });
-
-
-// router.get("/search", function (req, res) {
-//   res.json({ success: true });
-// });
 
 router.get("/edit/:uid",async (req, res) => {
   let uid = req.params.uid
@@ -265,7 +409,7 @@ router.post("/delete/:uid",async(req, res) => {
 
 router.get("/mypost/:uid",async(req, res) => {
   try{
-    console.log("ok")
+    
     let getid = req.params.uid
   
     const postdelete =await firestore.collection("Post").where("uid" , "==" , getid).get()
@@ -304,6 +448,8 @@ console.log(err)
   }}
 })
 
+
+
 // router.post("/upload", upload.array("eiei"), async(req, res) => {
 //   try{
 //         console.log(req.files.path)
@@ -312,12 +458,86 @@ console.log(err)
 //   }
   
 // });
-// router.post("/comment/:id", function (req, res) {
-//     res.json({ success: true });
-//   });
+router.post("/comment/:id", async (req, res) => {
+   try{
+    
+    const { textcomment , username , userid} = req.body
+      const postid = req.params.id
+      const uuid = uuidv4()
+      moment.locale()
+      const datetime = moment().format('LTS')
+   
+      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid })
+      
+   }catch(err){
+     console.log(err)
+   }
+  });
+
+  router.get("/comment/:id", async (req, res) => {
+    try{  
+
+      let idpost = req.params.id
+      
+       const getcomment = await firestore.collection("Comment").where("postid" , "==" , idpost ).orderBy("datetime", "desc")
+    
+      //  const userpost = await firestore.collection("User").where(uid , "==" ,  ).get()
+      getcomment.get().then((doc)=>{
+        let item = []
+        doc.forEach( doc2 =>{
+         item.push(doc2.data())
+
+        })
+       
+        
+          return res.json({
+             item
+           })
+       
+        })
+    }catch(err){
+      return res.status(500).json({
+        msg : err
+      })
+    }
+   });
+
+   router.post("/delete/comment/:uid",async(req, res) => {
+    try{
+      let getid = req.params.uid
+    
+      const postdelete = await firestore.collection("Comment").doc(getid).delete()
+      return  res.json({ success: "Delete" });
+    }catch(err){
+      return  res.status(500).json({msg : err})
+    }
+    
+  });
+
+  router.post("/edit/comment/:id",async (req, res) => {
+    try{
+      let id = req.params.id
+      let {textcomment} = req.body
+  
+      if(textcomment == ""){
+        const commentdelete = await firestore.collection("Comment").doc(id).delete()
+      }
+      else{
+        const commentedit = await firestore.collection("Comment").doc(id).update({textcomment})
+      }
+    }catch(err){
+     return res.status(500).json({msg : err})
+    }
+    
+  });
+  
+  
+  
+  
+  
 
 
-const userRef = firestore.collection("User")
+// const userRef = firestore.collection("User")
 
 
 

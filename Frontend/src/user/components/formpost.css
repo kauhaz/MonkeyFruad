@@ -1,5 +1,5 @@
 .container-formpost {
-    width: 70%;
+    width: 60%;
     background-color: white;
     border-radius: 10px;
     margin-top: 40px;
@@ -58,7 +58,7 @@
 }
 
 .spanformpost { 
-    color: red;
+    color: #ff392e;
 }
 
 /* .linkrule1{
@@ -104,7 +104,7 @@
 .buttonformpost{
     width: 100%;
     font-size: 20px;
-    background-color: #b30101;
+    background-color: #5c83cc;
     border: none;
     border-radius: 0.5rem;
     font-size: 20px;
@@ -117,7 +117,7 @@
 .buttonformpost:hover{
     width: 100%;
     font-size: 20px;
-    background-color: #8B0000;
+    background-color: #3c6fce;
     border: none;
     border-radius: 0.5rem;
     font-size: 20px;
@@ -127,15 +127,15 @@
     margin-top: 10px;
 }
 
-.buttonformpost:active{
+/* .buttonformpost:active{
     width: 100%;
     font-size: 20px;
-    background-color: #8B0000;
+    background-color: #91a6cf;
     border: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin-top: 10px;
-}
+} */
 
 .h1-formpostfileerror {
     color: red ;

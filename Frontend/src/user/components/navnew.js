@@ -12,21 +12,21 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
   MDBIcon,
-  MDBBtn
+  MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./navnew.css";
-import { firestore, auth } from "../Frontfirebase";
+import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
-import { Navbar,Nav,NavDropdown,Form,FormControl } from 'react-bootstrap';
+import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 const NavbarPage = () => {
   var { user, setUser } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
   const [role, setRole] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [isOpen,setIsopen] = useState(false)
+  const [isOpen, setIsopen] = useState(false);
   const logout = () => {
     auth
       .signOut()
@@ -37,13 +37,12 @@ const NavbarPage = () => {
         console.log(err);
       });
   };
-const toggleCollapse = () => {
- setIsopen(!isOpen)
-}
-  useMemo(() => {
+  const toggleCollapse = () => {
+    setIsopen(!isOpen);
+  };
+  useMemo(async () => {
     if (user) {
-      if (user.displayName === null) {
-        axios
+       await axios
           .post("http://localhost:7000/user/session", { user: user })
           .then((result) => {
             if (result.data.data.role === "admin") {
@@ -55,53 +54,13 @@ const toggleCollapse = () => {
           .catch((err) => {
             console.log(err);
           });
-      } else {
-        setDisplayname(user.displayName);
-        setRole("user");
-      }
     }
     setLoading(false);
   }, [user]);
-
+  
   return loading ? (
     ""
-  ) : (( admin ? 
-    (
-      <Router>
-        <MDBNavbar light expand="md" className="navbarnew">
-          <MDBNavbarBrand href="/">
-            <img src="/img/logo-mf.png" className="logo-nav" />
-          </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={toggleCollapse} />
-          <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
-            <MDBNavbarNav left className="center-nav">
-            <MDBNavItem>
-            <Nav.Link href="/managepost"> จัดการโพส </Nav.Link>
-            </MDBNavItem>
-            <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">ดูรายงาน</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="/non_verifypost">ยังไม่ตรวจสอบ</MDBDropdownItem>
-                    <MDBDropdownItem href="/verifypost">
-                    ตรวจสอบแล้ว
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-                </MDBNavItem>
-                <MDBNavItem>
-              <Nav.Link href="/contractus">ติดต่อเรา</Nav.Link>
-              </MDBNavItem>
-              <MDBNavItem>
-              <Nav.Link onClick={logout} href="/login">ออกจากระบบ</Nav.Link>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBNavbar>
-      </Router>
-  ) : (
+  ) : admin ? (
     <Router>
       <MDBNavbar light expand="md" className="navbarnew">
         <MDBNavbarBrand href="/">
@@ -111,25 +70,64 @@ const toggleCollapse = () => {
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
+              <Nav.Link href="/managepost"> จัดการโพสต์ </Nav.Link>
+            </MDBNavItem>
+            <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">โพสต์</div>
+                  <div className="d-none d-md-inline">ดูรายงาน</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="/post">โพสทั้งหมด</MDBDropdownItem>
-                  <MDBDropdownItem href="/linkruleshow">
-                    สร้างโพส
+                  <MDBDropdownItem href="/non_verifypost">
+                    ยังไม่ตรวจสอบ
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="/verifypost">
+                    ตรวจสอบแล้ว
                   </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
             <MDBNavItem>
-                <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
+              <Nav.Link href="/contractus">ติดต่อเรา</Nav.Link>
             </MDBNavItem>
+            <MDBNavItem>
+              <Nav.Link onClick={logout} href="/login">
+                ออกจากระบบ
+              </Nav.Link>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBNavbar>
+    </Router>
+  ) : (
+    <Router>
+      <MDBNavbar light expand="md" className="navbarnew">
+        <Nav.Link href="/">
+          <img src="/img/logo-mf.png" className="logo-nav" />
+        </Nav.Link>
+        <MDBNavbarToggler onClick={toggleCollapse} />
+        <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
+          <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">ช่วยเหลือ</div>
+                  โพสต์
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default">
+                  <MDBDropdownItem href="/post">โพสต์ทั้งหมด</MDBDropdownItem>
+                  <MDBDropdownItem href="/linkruleshow">
+                    สร้างโพสต์
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+            <MDBNavItem>
+              <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBDropdown className="">
+                <MDBDropdownToggle nav caret>
+                  ช่วยเหลือ
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="/prevent">
@@ -156,15 +154,17 @@ const toggleCollapse = () => {
                 />
               </div>
             </MDBNavItem>
-            <button type="submit" className="button-nav">ค้นหา</button>
+            <button type="submit" className="button-nav">
+              ค้นหา
+            </button>
             <MDBNavItem>
-              {user ? (
+            {user ? (
                 <MDBDropdown>
                   <MDBDropdownToggle nav caret left>
-                    <span>{displayname}</span>
+                    {displayname}
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default" right>
-                    <MDBDropdownItem href="/profile">
+                    <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
                     <MDBDropdownItem href="/post/history">
@@ -184,7 +184,6 @@ const toggleCollapse = () => {
       </MDBNavbar>
     </Router>
   )
-  ))
-};
+}
 
 export default NavbarPage;

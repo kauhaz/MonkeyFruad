@@ -3,15 +3,15 @@
     text-align: center;
     font-size: 30px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
 }
 
 .h2-history2 { 
     margin-top: 50px;
-    margin-left: 40px;
+    margin-left: 80px;
     font-size: 25px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
 }
 
 .container-history1{
@@ -19,7 +19,7 @@
     padding-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 60%;
 }
 
 .container-history2{
@@ -147,7 +147,7 @@
 }
 
 .spanhistory{
-    color: red;
+    color: #ff392e;
 }
 
 .historyother{
@@ -155,6 +155,7 @@
     font-size: 15px;
     text-align: right;
 }
+
 .container-history5{
     width: 70%;
     margin-left: auto;
