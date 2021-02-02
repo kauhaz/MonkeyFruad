@@ -128,6 +128,7 @@ const Formedit = () => {
       
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
       let data = await Axios.post(`http://localhost:7000/post/edit/${uid}`,formdata)
+      
       history.push(`/mypost/${uid}`)
     
     }catch(err){

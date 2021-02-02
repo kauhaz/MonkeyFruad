@@ -24,9 +24,34 @@ h1 {
     margin: 0 auto;
 }
 
+.img-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+    object-fit: cover;
+    object-position: center right;
+}
+
 .LoginInputForm .InputName {
     font-size: 16px;
     color: grey;
+}
+
+.form-group {
+    color: #6C757D;
+
+}
+
+.DatePicker {
+    color: inherit;
+    width: 100%;
+    padding: .175rem .55rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .message{
@@ -80,7 +105,7 @@ h1 {
     padding: 6px;
 }
 
-.LoginFacebook div {  
+.LoginFacebook div, .LoginGoogle div  {  
     display: inline-block;
     margin: 0 -10px 0 0;
 }
@@ -131,10 +156,17 @@ h1 {
     color: inherit;
 }
 
+.label-form-title-profile {
+    font-size: inherit;
+    display: inline-block;
+    color: inherit;
+}
+
 @media (min-width: 768px) {
-    .label-form-title {
-        width: 35%;
-    
+    .label-form-title-profile{
+        width: 40%;
+        float: left;
+        text-align: right;
     }
     .BirthDate {
         margin-bottom: -1rem;
@@ -149,10 +181,10 @@ h1 {
 }
 
 @media (max-width: 767.98px) {
-    .label-form-title {
-        width: 100%;
-        display: block;
-        margin: .7rem auto;
+    .label-form-title-profile{
+        width: 40%;
+        float: left;
+        text-align: right;
     }
     .BirthDate {
         margin-bottom: 1rem;
@@ -166,20 +198,17 @@ h1 {
     }
 }
 
-.label-form-title {
-    font-size: inherit;
-    display: inline-block;
-    color: inherit;
-}
+
 
 @media (min-width: 768px){
-    .form-inside {
-        width: 65%;
+    .form-inside-profile {
+        width: 60%;
+        padding-left: 7%;
     }
     .province-select {
         color: inherit;
         width: 100%;
-        padding: .375rem .75rem;
+        padding: .175rem .55rem;
         font-size: 1rem;
         line-height: 1.5;
         border: 1px solid #ced4da;
@@ -190,9 +219,9 @@ h1 {
 }
 
 @media (max-width: 767.98px) {
-    .form-inside {
-        width: 100%;
-        display: block;
+    .form-inside-profile {
+        width: 60%;
+        padding-left: 7%;
     }
     .province-select {
         display: block;
@@ -207,7 +236,7 @@ h1 {
     }
 }
 
-.form-inside {
+.form-inside-profile {
     font-size: inherit;
     display: inline-block;
     color: inherit;
@@ -265,5 +294,17 @@ h1 {
     .text1-signup{
         font-size: 30px !important;
     }
+}
 
+.profile-badformpost-img {
+    text-align: center;
+    padding-bottom: 20px;
+} 
+
+.profile-badformpost-img img.img-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center; 
+    border-radius: 50%;
 }

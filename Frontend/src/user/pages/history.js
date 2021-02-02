@@ -39,7 +39,6 @@ ok()
   
     <div>
       <NavbarPage />
-   
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">{mypost ? <h2 className="h2-history2">ทั้งหมด {mypost.length} โพสต์</h2> : null}</div>
       {mypost ? mypost.map((ok,index) =>{
