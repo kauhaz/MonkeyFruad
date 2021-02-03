@@ -112,7 +112,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
        const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
     }
     else if(file){
@@ -140,7 +140,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -175,7 +175,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
 
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -201,7 +201,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -233,15 +233,10 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         let {url,public_id} = resultfiles
         item.push({url,public_id})
       }
-      console.log(item)
-      
       const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item,username , photoURL})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
-      
       getpost.get().then((doc)=>{
-     
         let items = []
-     
         doc.forEach(doc2 =>{
          items.push(doc2.data())    
         })
@@ -256,7 +251,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -283,7 +278,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -317,7 +312,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -344,7 +339,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     
       const wanteedon = items[0].datetime
 
-      const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
     })
 
    } 
@@ -475,7 +470,6 @@ router.get("/orderbyfacebook",async (req, res) => {
       showdata.get().then(element =>{
         let data = [];
         element.forEach((doc) => {
-          console.log(doc.data())
           data.push(doc.data())
         });
         return res.json({
@@ -486,17 +480,18 @@ router.get("/orderbyfacebook",async (req, res) => {
         return res.status(500).json({msg : err})
        }
   })
-router.get("/orderbyinstargram",async (req, res) => {
+router.get("/orderbyinstragram",async (req, res) => {
     try{
-      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instragram").orderBy("datetime","desc").limit(4)
-      showdata.get().then(element =>{
-        let data = [];
+      var data = [];
+      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instagram").orderBy("datetime","desc").limit(4).get()
+      .then(element =>{
         element.forEach((doc) => {
           data.push(doc.data())
         });
-        return res.json({
-          data
-        })
+        console.log(data)
+      })
+      return res.json({
+        data : data
       })
       }catch(err){
           return res.status(500).json({msg : err})
@@ -504,15 +499,15 @@ router.get("/orderbyinstargram",async (req, res) => {
     })
 router.get("/orderbyline",async (req, res) => {
       try{
-          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("datetime","desc").limit(4)
-          sshowdata.get().then(element =>{
-            let data = [];
+      var data = [];
+          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("datetime","desc").limit(4).get()
+          .then(element =>{
             element.forEach((doc) => {
               data.push(doc.data())
             });
-            return res.json({
-              data
-            })
+          })
+          return res.json({
+            data : data
           })
         }catch(err){
             return res.status(500).json({msg : err})
@@ -527,23 +522,23 @@ router.get("/orderbytwitter",async (req, res) => {
               data.push(doc.data())
             });
             return res.json({
-              data
+              data : data
             })
           })
           }catch(err){
               return res.status(500).json({msg : err})
              }
         })
-router.get("/orderbytwitter",async (req, res) => {
+router.get("/orderbywebsite",async (req, res) => {
           try{
-            const showdata = await firestore.collection("Post").where("social" , "==" ,"Twitter").orderBy("datetime","desc").limit(4)
+            const showdata = await firestore.collection("Post").where("social" , "==" ,"Website").orderBy("datetime","desc").limit(4)
             showdata.get().then(element =>{
               let data = [];
               element.forEach((doc) => {
                 data.push(doc.data())
               });
               return res.json({
-                data
+                data : data
               })
             })
             }catch(err){
