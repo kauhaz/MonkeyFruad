@@ -112,11 +112,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
        const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
     }
     else if(file){
@@ -144,11 +140,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -183,11 +175,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
 
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -213,11 +201,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -271,12 +255,8 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
         
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -303,11 +283,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -341,11 +317,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-<<<<<<< HEAD
-        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -370,14 +342,10 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     
       const wanteedon = items[0].datetime
 
-<<<<<<< HEAD
-      const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-=======
       const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
     }
     ).catch((err)=>{
       console.log(err)
->>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
     })
 
    } 
