@@ -16,7 +16,7 @@ const { text } = require("body-parser");
 router.get("/orderbycount",async(req, res) => {
     try{
        var data = []
-      const orderbycount = await firestore.collection("Theif").orderBy("count","desc").limit(3).get()
+      const orderbycount = await firestore.collection("Thief").orderBy("count","desc").limit(3).get()
       .then((querySnapshot)=>{
         querySnapshot.forEach((doc)=>{
           if(doc.exists)
