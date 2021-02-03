@@ -335,7 +335,7 @@ const Formedit = () => {
               <Form.Label className="text-formedit">
                 วันที่โดนโกง<span className="spanformedit">*</span>
               </Form.Label>
-              {show ? <Form.Control type="datetime-local" placeholder="" value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
+              {show ? <Form.Control type="datetime-local" placeholder=""  value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
               {/* <Form.Control type="name" placeholder=""  onChange={(event)=>{setDatetime(event.target.value)}} required />} */}
             </Form.Group>
 
