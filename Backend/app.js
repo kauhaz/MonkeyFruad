@@ -6,7 +6,7 @@ const express = require("express"),
   // passportLocal = require('passport-local'),
   userRoutes = require("./routes/User"),
   postRoutes = require("./routes/Post"),
-  adminRoutes = require("./routes/Admin"),
+  thiefRoutes = require("./routes/Thief"),
 // set up express
  app = express();
  app.use(express.json({limit: '50mb' }));
@@ -18,7 +18,7 @@ const express = require("express"),
 // Set Route
 app.use("/user", userRoutes);
 app.use("/post", postRoutes);
-app.use("/admin", adminRoutes);
+app.use("/thief", thiefRoutes);
 const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {

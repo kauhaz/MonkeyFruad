@@ -19,7 +19,8 @@ const Mypost = () => {
   const onClick = () => setIsActive(!isActive);
 
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
-  const [imagesProfile, setImagesProfile] = useState("/img/profile.png"); //สร้าง State เพื่อเก็บรูปโปรไฟล์
+  const [imagesProfile, setImagesProfile] = useState("/img/profile.png")
+  const [photo, Setphoto] = useState()
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
   const [id, setId] = useState();
@@ -58,23 +59,23 @@ const Mypost = () => {
 };
   const ok = async () => {
     try {
-      const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
+  
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
       const nameuser = await Axios.post("http://localhost:7000/user/userid", {
         result: user,
       });
-    
-      Setallcomment(getcomment.data.item)
+  
+      var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
+      Setphoto(profiledata.data.data.photoURL);
       Setmypost(ok.data.item);
       Setdata(nameuser.data.item);
-      
-     
+    
    
     } catch (err) {
-      console.log("error");
+      console.log(err);
     }
   };
-console.log(allcomment)
+console.log(mypost)
   useEffect(() => {
     ok();
   }, []);
@@ -103,10 +104,10 @@ console.log(allcomment)
                 <div className="container-mypost">
                   <div className="cotainer-mypost2">
                     <div className="mypost-profile-img">
-                      {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
-                      <img className="img-circle" src="/img/profile.png" />
+                      {ok.photoURL ? <img className="img-circle" src={`${ok.photoURL.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
+      
                       <div className="mypost-name">
-                         {data ? "@" : null}{data ? data[0].username : null}
+                         {ok.username ? "@" : null}{ok ? ok.username : null}
                       </div>
                       <br />
                       <div className="mypost-date">
@@ -316,21 +317,17 @@ console.log(allcomment)
                       
                       <div className="line-comment1"></div>
                       <div className="container-mypost4">
-                        {allcomment ? (
-                          allcomment.map((value, index) => {
-                            return (
-                              <Commentitem data={value} ok={ok} key={index} uid={uid} />
-                            );
-                          })
-                        ) : null}
+                       
+                              <Commentitem postid={ok.uid} />
+                        
 
                         {/* <div className="line-comment2"></div> */}
                       </div>
                       <h2 className="commentother">ดูอีก 3 ความคิดเห็น</h2>
                       <div className="row mypost-comment-comments2">
                         <div className="mypost-profilecomment-img">
-                          {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
-                          <img className="img-circle" src="/img/profile.png" />
+                        {photo ? <img className="img-circle" src={`${photo.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
+                          
                         </div>
                      
                         <div className="row mypost-comment-commentsall">

@@ -9,7 +9,7 @@
 
 .container1-index{
     width: 60%;
-    height: 350px;
+    height: 300px;
     background-color: white;
     /* background-color: tomato; */
     margin-left: auto;
@@ -24,19 +24,20 @@
 .column1-index{
     width: 48%;
     height: 110px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 90px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-left: 15px;
+    margin-top: 75px;
 }
 .column2-index{
     width: 48%;
-    height: 100px;
     margin-left: auto;
     margin-right: auto;
+    margin-right: 15px;
 }
 
 .text1-index{
-    font-size: 23px;
+    font-size: 19px;
     text-align: center;
     color: #5c5c5c;
 }
@@ -44,15 +45,21 @@
 .box1-index{
     background-color: rgb(233, 233, 233);
     border: none;
-    width: 60%;
+    width: 74%;
     height: 50px;
     border-radius: 0.5rem;
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-left: 80px;
-    font-size: 18px;
+    margin-left: 0px;
+    font-size: 16px;
     color: #5c5c5c;
+}
+
+.containermini1-index{
+    margin: auto;
+    width: 350px;
+    
 }
 
 .button1-index{
@@ -77,14 +84,13 @@
 .image1-index{
     margin-left: auto;
     margin-right: auto;
-    width: 350px;
+    width: 300px;
     display: block;
 }
 
 .line-index {
     border-left: 3px solid rgba(146, 146, 146, 0.479);
     height: 250px;
-    margin-top: 25px;
 }
 
 .container2-index{
@@ -102,18 +108,37 @@
     margin-right: auto;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
-
-.image2-index{
-    width: 409px;
-    height: 270px;
-    object-fit: cover;
+.coin1{
+    background-color: #fc7248;
+    width: 119%;
+    height: 150px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+.coin2{
+    background-color: #f8994a;
+    width: 119%;
+    height: 150px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+.coin3{
+    background-color: #f8d53b;
+    width: 119%;
+    height: 150px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
 }
 
-.rank-index{
-    font-size: 28px;
+.rank-index1{
+    font-size: 70px;
     font-family: 'Kanit', sans-serif;
     text-align: center;
-    color: #f7766f;
+    color: white;
+    padding-top: 20px;
 }
 
 .text2-index{
@@ -153,6 +178,10 @@
     margin-right: auto;
     margin-bottom: 100px;
     font-size: 16px ;
+    font-family: 'Kanit', sans-serif;
+}
+
+.readmore {
     font-family: 'Kanit', sans-serif;
 }
 
