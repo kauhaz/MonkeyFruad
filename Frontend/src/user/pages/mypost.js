@@ -36,25 +36,21 @@ const Mypost = () => {
   const [data, Setdata] = useState();
   const [textcomment, Settextcomment] = useState();
   const [allcomment, Setallcomment] = useState();
+  const [click, Setclick] = useState();
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
-  const ImageHoverZoom = ({ imagePreviewUrl }) => {};
-  // let user2 = auth.currentUser;
+
+
 
   const deleted = async (uid) => {
-
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
-    // console.log(postdelete.data);
-    // const ok = await Axios.post("http://localhost:7000/post/postapi", {
-    //   result: user,
-    // });
-    // console.log(ok.data.item);
-    // Setmypost(ok.data.item);
+ 
     history.push("/post/history");
+    
   
 };
   const ok = async () => {
@@ -69,6 +65,8 @@ const Mypost = () => {
       Setphoto(profiledata.data.data.photoURL);
       Setmypost(ok.data.item);
       Setdata(nameuser.data.item);
+
+    
     
    
     } catch (err) {
@@ -80,19 +78,6 @@ const Mypost = () => {
     ok();
   }, []);
 
-  const handlecomment = async (e) =>{
-    try{
-      e.preventDefault()
-      let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
-      
-      const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
-      // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
-      // Setallcomment(getcomment.data.item)
-      
-    }catch(err){
-      console.log(err)
-    }
-  }
 
   return (
     <div className="allpage">
@@ -116,13 +101,7 @@ const Mypost = () => {
                       </div>
                     </div>
 
-                    {/* <div className="mypostbuttonshared">
-                      <a className="mypostbuttonshare" href="/post/edit">
-                        <i class="fa fa-share"></i>
-                      </a>
-                    </div> */}
-
-                    <div className="container-mypostsetiing">
+                    {user && user.uid == ok.useruid ? <div className="container-mypostsetiing">
                       <div className="menu-containermypostsetting">
                         <div onClick={onClick} className="mypostbuttonsetting">
                           <img
@@ -159,7 +138,8 @@ const Mypost = () => {
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> : null}
+                   
 
                     <div className="container-mypost3">
                       <div className="mypostprofile-bad-img">
@@ -172,7 +152,7 @@ const Mypost = () => {
                           <img className="img-circle" src="/img/profile.png" />
                         )}
                       </div>
-                      <Form className="formsize-mypost" onSubmit={handlecomment}>
+                      <Form className="formsize-mypost" >
                         <Form.Row>
                           <Form.Group
                             as={Col}

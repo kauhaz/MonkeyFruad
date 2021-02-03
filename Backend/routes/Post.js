@@ -578,34 +578,7 @@ router.post("/comment/:id", async (req, res) => {
    }
   });
 
-  // router.get("/comment/:id", async (req, res) => {
-  //   try{  
-
-  //     let idpost = req.params.id
-      
-  //      const getcomment = await firestore.collection("Comment").where("postid" , "==" , idpost ).orderBy("datetime", "desc")
-    
-  //     //  const userpost = await firestore.collection("User").where(uid , "==" ,  ).get()
-  //     getcomment.get().then((doc)=>{
-  //       let item = []
-  //       doc.forEach( doc2 =>{
-  //        item.push(doc2.data())
-
-  //       })
-       
-        
-  //         return res.json({
-  //            item
-  //          })
-       
-  //       })
-  //   }catch(err){
-  //     return res.status(500).json({
-  //       msg : err
-  //     })
-  //   }
-  //  });
-
+ 
 
   router.get("/commentmore/:id", async (req, res) => {
     try{  
@@ -675,14 +648,18 @@ router.post("/comment/:id", async (req, res) => {
     try{
       let id = req.params.id
       let {edittextcomment} = req.body
-
+      
       if(edittextcomment == ""){
         const commentdelete = await firestore.collection("Comment").doc(id).delete()
+        return  res.json({ success: "Delete" });
       }
       else{
         const commentedit = await firestore.collection("Comment").doc(id).update({ textcomment : edittextcomment})
+        return  res.json({ success: "Edit" });
       }
+      
     }catch(err){
+      console.log(err)
      return res.status(500).json({msg : err})
     }
     

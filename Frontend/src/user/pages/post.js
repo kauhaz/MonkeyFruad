@@ -31,20 +31,20 @@ const Post = () => {
 
   
 
-  const handlecomment = async (uid) =>{
-    try{
-    
-      console.log(uid)
-      let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
+  // const handlecomment = async (uid) =>{
+  //   try{
       
-      const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
-      // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
-      // Setallcomment(getcomment.data.item)
+  //     console.log(uid)
+  //     let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
       
-    }catch(err){
-      console.log(err)
-    }
-  }
+  //     const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
+  //     // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
+  //     // Setallcomment(getcomment.data.item)
+      
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
 
 
@@ -67,12 +67,7 @@ const Post = () => {
     ok();
   }, []);
 
-  const deleted = async (uid) => {
-    const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/${uid}`
-    );
-    console.log(postdelete.data);
-  };
+ 
 
   return (
     <div>
