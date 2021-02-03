@@ -226,17 +226,42 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
       const resultfile = await cloudinary.uploader.upload(file[0].path);
       const {url,public_id} = resultfile
       const photoURL = {url,public_id}
-      console.log(photoURL)
+      const showdata = await firestore.collection("Post")
+      showdata.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(kuay =>{
+          const findpost = firestore.collection("Post").doc(kuay.uid).update({username , photoURL})
+        })
+      })
+    
       firestore.collection("User").doc(uid).update({firstname,username,surname,sex,phone,province,photoURL});
+      
     } else if (!file) {
       firestore.collection("User").doc(uid).update({
         firstname,username,surname,sex,phone,province
       });
+      const showdata = await firestore.collection("Post")
+      showdata.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(kuay =>{
+          const findpost = firestore.collection("Post").doc(kuay.uid).update({username })
+        })
+      })
+  
     }
     return res.json({
       success: "แก้ไขสำเร็จ"
     });
   } catch (err) {
+    console.log(err)
     return res.status(500).json({ msg: err });
   }
 });
@@ -252,6 +277,7 @@ router.get("/profile/:uid", async (req, res) => {
     Userdetail.forEach((doc) => {
       let item = [];
       item.push(doc.data());
+
       return res.json({
         item,
       });

@@ -1,4 +1,4 @@
-import React, { useState ,useContext , useEffect} from "react";
+import React, { useState ,useContext , useEffect , useMemo} from "react";
 import { Form, Col, Image, roundedCircle } from "react-bootstrap";
 import {useHistory} from "react-router-dom";
 import {storage} from "../Frontfirebase"
@@ -30,11 +30,12 @@ const Formpost = () => {
   const [social, setSocial] = useState();
   const [other, setOther] = useState("");
   const [error, Seterror] = useState();
+  const [username, setUsername] = useState("");
+  const [photoprofileurl, Setphotoprofileurl] = useState();
+  const [photoprofilepublic_id, Setphotoprofilepublic_id] = useState();
   // var { user , setUser} = useContext(usercontext)
   // let { user , setUser} = useContext(usercontext)
-  const ImageHoverZoom = ({ imagePreviewUrl }) => {
-    
-  }
+
 
 
 
@@ -79,6 +80,7 @@ let history = useHistory()
   const handlesubmit = async (e) =>{
     try{
       e.preventDefault()
+      
       let formdata = new FormData()
       let useruid = user.uid
       _.forEach(files ,file =>{
@@ -97,8 +99,10 @@ let history = useHistory()
       formdata.append("social" , social)
       formdata.append("other" , other)
       formdata.append("useruid" , useruid)
-      
-      const a = await Axios.post("http://localhost:7000/post/create", formdata ) 
+      formdata.append("username" , username)
+      formdata.append("photoprofilepublic_id" , photoprofilepublic_id)
+      formdata.append("photoprofileurl" , photoprofileurl)
+      const a = await Axios.post("http://localhost:7000/post/create", formdata) 
       console.log("eiei")
         history.push("/post/history")
     }catch(err){
@@ -106,7 +110,20 @@ let history = useHistory()
     }
   
   }
- 
+  useMemo(async () =>  {
+    try {
+   var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
+        setUsername(profiledata.data.data.username);
+        Setphotoprofileurl(profiledata.data.data.photoURL.url);
+        Setphotoprofilepublic_id(profiledata.data.data.photoURL.public_id);
+    }
+    catch (err){
+      console.log(err)
+    }
+  
+  }, [user]);
+  
+  
   return (
   
     <div className="container-formpost">
