@@ -112,7 +112,11 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
        const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
     }
     else if(file){
@@ -140,7 +144,11 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -175,7 +183,11 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
 
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -201,7 +213,11 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -218,12 +234,15 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     let files = req.files.eiei
   let uid = req.params.uid
   // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
+  const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
+  var {datetime} = req.body
+  console.log(name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other)
+  console.log(file,files)
+  const newmoney = Number(money)
     moment.locale('th')
     const date =  moment().format('lll')
-  const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
-  let {datetime} = req.body
-  const newmoney = Number(money)
   datetime = moment(datetime).format('lll')
+  console.log(datetime)
     if(file && files){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
       let item = []
@@ -233,15 +252,11 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         let {url,public_id} = resultfiles
         item.push({url,public_id})
       }
-      console.log(item)
-      
-      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item,username , photoURL})
+      console.log("OK")
+      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
-      
       getpost.get().then((doc)=>{
-     
         let items = []
-     
         doc.forEach(doc2 =>{
          items.push(doc2.data())    
         })
@@ -256,13 +271,18 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,username , photoURL})
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -283,7 +303,11 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
@@ -296,7 +320,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         item.push({url,public_id})
       }
       console.log(item)
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,item,username , photoURL})
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,item})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -317,16 +341,18 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
+<<<<<<< HEAD
         const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+        const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
       })
 
     }
    else if(!file && !files){
-    const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,username , photoURL})
+     await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,social,other,date,datetime})
     const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
-      
     getpost.get().then((doc)=>{
-   
       let items = []
    
       doc.forEach(doc2 =>{
@@ -344,7 +370,14 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     
       const wanteedon = items[0].datetime
 
+<<<<<<< HEAD
       const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+=======
+      const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+    }
+    ).catch((err)=>{
+      console.log(err)
+>>>>>>> 253a4341d1a3fa9f38943e711d37994efc3bc561
     })
 
    } 
@@ -352,7 +385,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       success : "แก้ไขสำเร็จ"
     })
   }catch(err){
-   return res.status(500).json({msg : err})
+   console.log(err)
   }
   
 });
@@ -365,17 +398,19 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 router.get("/edit/:uid",async (req, res) => {
   let uid = req.params.uid
   try{
-    
+    var item = []
+    let Datetime = null
     const showdata = await firestore.collection("Post").where("uid", "==", uid).get()
     showdata.forEach(doc =>{
-      let item = []
-      console.log(item)
       item.push(doc.data())
-      return  res.json({
-        item
-      })
+      console.log(doc.get("datetime"))
+      moment.locale('de')
+      Datetime =  moment(new Date(doc.get("datetime")),'YYYY-MM-DDTHH:mm:ss')
+      console.log(Datetime)
     })
-  
+    return  res.json({
+      item:item,datetime:Datetime
+    })
   }catch(err){
     console.log(err)
   }
@@ -475,7 +510,6 @@ router.get("/orderbyfacebook",async (req, res) => {
       showdata.get().then(element =>{
         let data = [];
         element.forEach((doc) => {
-          console.log(doc.data())
           data.push(doc.data())
         });
         return res.json({
@@ -486,17 +520,18 @@ router.get("/orderbyfacebook",async (req, res) => {
         return res.status(500).json({msg : err})
        }
   })
-router.get("/orderbyinstargram",async (req, res) => {
+router.get("/orderbyinstragram",async (req, res) => {
     try{
-      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instragram").orderBy("datetime","desc").limit(4)
-      showdata.get().then(element =>{
-        let data = [];
+      var data = [];
+      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instagram").orderBy("datetime","desc").limit(4).get()
+      .then(element =>{
         element.forEach((doc) => {
           data.push(doc.data())
         });
-        return res.json({
-          data
-        })
+        console.log(data)
+      })
+      return res.json({
+        data : data
       })
       }catch(err){
           return res.status(500).json({msg : err})
@@ -504,15 +539,15 @@ router.get("/orderbyinstargram",async (req, res) => {
     })
 router.get("/orderbyline",async (req, res) => {
       try{
-          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("datetime","desc").limit(4)
-          sshowdata.get().then(element =>{
-            let data = [];
+      var data = [];
+          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("datetime","desc").limit(4).get()
+          .then(element =>{
             element.forEach((doc) => {
               data.push(doc.data())
             });
-            return res.json({
-              data
-            })
+          })
+          return res.json({
+            data : data
           })
         }catch(err){
             return res.status(500).json({msg : err})
@@ -527,23 +562,23 @@ router.get("/orderbytwitter",async (req, res) => {
               data.push(doc.data())
             });
             return res.json({
-              data
+              data : data
             })
           })
           }catch(err){
               return res.status(500).json({msg : err})
              }
         })
-router.get("/orderbytwitter",async (req, res) => {
+router.get("/orderbywebsite",async (req, res) => {
           try{
-            const showdata = await firestore.collection("Post").where("social" , "==" ,"Twitter").orderBy("datetime","desc").limit(4)
+            const showdata = await firestore.collection("Post").where("social" , "==" ,"Website").orderBy("datetime","desc").limit(4)
             showdata.get().then(element =>{
               let data = [];
               element.forEach((doc) => {
                 data.push(doc.data())
               });
               return res.json({
-                data
+                data : data
               })
             })
             }catch(err){

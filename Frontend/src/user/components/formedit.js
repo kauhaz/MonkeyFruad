@@ -82,8 +82,7 @@ const Formedit = () => {
     const hello = await Axios.get(`http://localhost:7000/post/edit/${uid}`)
     
     let gethistory = hello.data.item
-    console.log(show)
- 
+    let getDatetime = hello.data.datetime
     Setshow(gethistory)
     setName(gethistory[0].name)
     setSurname(gethistory[0].surname)
@@ -93,7 +92,7 @@ const Formedit = () => {
     setProductcategory(gethistory[0].productcategory)
     setMoney(gethistory[0].money)
     setBank(gethistory[0].bank)
-    setDatetime(gethistory[0].datetime)
+    setDatetime(getDatetime)
     setSocial(gethistory[0].social)
     setOther(gethistory[0].other)
 
@@ -135,6 +134,7 @@ const Formedit = () => {
       err && Seterror(err.response.data.msg)
     }
   }
+  console.log(datetime)
   return (
     <div>
       {show ? show.map(ok=>{
@@ -335,7 +335,7 @@ const Formedit = () => {
               <Form.Label className="text-formedit">
                 วันที่โดนโกง<span className="spanformedit">*</span>
               </Form.Label>
-              {show ? <Form.Control type="name" placeholder="" value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
+              {show ? <Form.Control type="datetime-local" placeholder="" value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
               {/* <Form.Control type="name" placeholder=""  onChange={(event)=>{setDatetime(event.target.value)}} required />} */}
             </Form.Group>
 
