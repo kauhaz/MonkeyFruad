@@ -1,7 +1,7 @@
 .h1-index { 
     margin-top: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
     margin-top: 80px;
@@ -15,6 +15,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-family: 'Kanit', sans-serif;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 10px;
@@ -42,11 +43,12 @@
     color: #5c5c5c;
 }
 
+
 .box1-index{
     background-color: rgb(233, 233, 233);
     border: none;
-    width: 74%;
-    height: 50px;
+    width: 73%;
+    height: 45px;
     border-radius: 0.5rem;
     margin-top: 20px;
     padding-left: 20px;
@@ -59,7 +61,6 @@
 .containermini1-index{
     margin: auto;
     width: 350px;
-    
 }
 
 .button1-index{
@@ -68,9 +69,9 @@
     color: white;
     margin-top: 20px;
     width: 80px;
-    height: 50px;
+    height: 45px;
     border: 0px;
-    font-size: 18px;
+    font-size: 16px;
 }
 .button1-index:hover{
     background-color: #3c6fce;
@@ -95,7 +96,7 @@
 
 .container2-index{
     width: 60%;
-    height: 560px;
+    height: 380px;
     /* background-color: teal; */
     margin-left: auto;
     margin-right: auto;
@@ -110,28 +111,22 @@
 }
 .coin1{
     background-color: #fc7248;
-    width: 119%;
-    height: 150px;
+    width: 100%;
+    height: 180px;
     margin-top: -20px;
-    margin-left: -20px;
-    margin-bottom: 20px;
     color: white;
 }
 .coin2{
     background-color: #f8994a;
-    width: 119%;
-    height: 150px;
+    width: 100%;
+    height: 180px;
     margin-top: -20px;
-    margin-left: -20px;
-    margin-bottom: 20px;
 }
 .coin3{
-    background-color: #f8d53b;
-    width: 119%;
-    height: 150px;
+    background-color: #fdc52b;
+    width: 100%;
+    height: 180px;
     margin-top: -20px;
-    margin-left: -20px;
-    margin-bottom: 20px;
 }
 
 .rank-index1{
@@ -139,42 +134,31 @@
     font-family: 'Kanit', sans-serif;
     text-align: center;
     color: white;
-    padding-top: 20px;
+    padding-top: 35px;
 }
 
 .text2-index{
     font-family: 'Kanit', sans-serif;
 }
 
-.search-index {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    border-radius: 0;
-    outline: none;
-    box-shadow: none;
-    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
-    width: 100%;
-}
-
 .text3-index{
     text-align: center;
     color: #5c83cc;
     font-family: 'Kanit', sans-serif;
-    font-size: 18px ;
+    font-size: 17px ;
 }
 .text4-index{
     text-align: left;
-    margin-left: 20px;
-    font-size: 16px ;
+    margin-left: 13px;
+    font-size: 14px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .container3-index {
     width: 60%;
-    height: 3280px;
+    height: 2720px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
@@ -190,20 +174,21 @@
 .headfacebook-index{
     background-color: #3b5999;
     width: 30%;
-    font-size: 25px;
     text-align: center;
     border-radius:20px 20px 0px 0px;
     color: white;
+    font-size: 22px;
+    padding-top: 2px;
 }
 
 .facebookbox-index{
     background-color: white;
     border: 5px solid  #3b5999;
     width: 100%;
-    font-size: 25px;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    padding-left: 15px;
+    padding-left: 24px;
+    padding-right: 12px;
     margin-bottom: 60px;
 }
 
@@ -213,39 +198,43 @@
 }
 
 .image3-index{
-    width: 296px;
-    height: 195px;
+    width: 100%;
+    height: 180px;
     object-fit: cover;
 }
 
 .text5-index{
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     display: block;
+    margin-bottom: -10px;
+    margin-top: -5px;
 }
 
 .text6-index{
-    font-size: 20px;
+    font-size: 16px;
     display: block;
+    margin-top: -5px;
 }
 
 .text7-index{
     text-align: left;
-    font-size: 15px ;
+    font-size: 14px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-top: 0px;
 }
 
 .time-index{
     background-color: #3b5999;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
-    height: 40px;
-    padding-top: 8px;
+    height: 30px;
+    padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
 }
 
 .readmore1-index{
@@ -260,10 +249,11 @@
     /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
     background-color: #ec3d77;
     width: 30%;
-    font-size: 25px;
     text-align: center;
     border-radius:20px 20px 0px 0px;
     color: white;
+    font-size: 22px;
+    padding-top: 2px;
 }
 .instargrambox-index{
     background-color: white;
@@ -272,18 +262,20 @@
     font-size: 25px;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    padding-left: 15px;
     margin-bottom: 60px;
+    padding-left: 24px;
+    padding-right: 12px;
 }
 
 .time2-index{
     background: #ec3d77;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
-    height: 40px;
-    padding-top: 8px;
+    height: 30px;
+    padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
 }
 
 .readmore2-index{
@@ -298,10 +290,11 @@
 .headline-index{
     background: #099b09;
     width: 30%;
-    font-size: 25px;
     text-align: center;
     border-radius:20px 20px 0px 0px;
     color: white;
+    font-size: 22px;
+    padding-top: 2px;
 }
 .linebox-index{
     background-color: white;
@@ -310,18 +303,20 @@
     font-size: 25px;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    padding-left: 15px;
+    padding-left: 24px;
+    padding-right: 12px;
     margin-bottom: 60px;
 }
 
 .time3-index{
     background:#099b09;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
-    height: 40px;
-    padding-top: 8px;
+    height: 30px;
+    padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
 }
 
 .readmore3-index{
@@ -335,10 +330,11 @@
 .headtwitter-index{
     background: #00acee;
     width: 30%;
-    font-size: 25px;
     text-align: center;
     border-radius:20px 20px 0px 0px;
     color: white;
+    font-size: 22px;
+    padding-top: 2px;
 }
 .twitterbox-index{
     background-color: white;
@@ -347,18 +343,20 @@
     font-size: 25px;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    padding-left: 15px;
+    padding-left: 24px;
+    padding-right: 12px;
     margin-bottom: 60px;
 }
 
 .time4-index{
     background:#00acee;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
-    height: 40px;
-    padding-top: 8px;
+    height: 30px;
+    padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
 }
 
 .readmore4-index{
@@ -372,10 +370,11 @@
 .headother-index{
     background: #727171;
     width: 30%;
-    font-size: 25px;
     text-align: center;
     border-radius:20px 20px 0px 0px;
     color: white;
+    font-size: 22px;
+    padding-top: 2px;
 }
 .otherbox-index{
     background-color: white;
@@ -391,11 +390,12 @@
 .time5-index{
     background:#727171;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
-    height: 40px;
-    padding-top: 8px;
+    height: 30px;
+    padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
 }
 
 .readmore5-index{
