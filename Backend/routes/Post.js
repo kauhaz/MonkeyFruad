@@ -220,13 +220,11 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
   // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
   const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
   var {datetime} = req.body
-  console.log(name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other)
-  console.log(file,files)
+  console.log( typeof datetime)
   const newmoney = Number(money)
     moment.locale('th')
     const date =  moment().format('lll')
   datetime = moment(datetime).format('lll')
-  console.log(datetime)
     if(file && files){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
       let item = []
@@ -370,11 +368,11 @@ router.get("/edit/:uid",async (req, res) => {
     let Datetime = null
     const showdata = await firestore.collection("Post").where("uid", "==", uid).get()
     showdata.forEach(doc =>{
-      item.push(doc.data())
-      console.log(doc.get("datetime"))
-      moment.locale('de')
-      Datetime =  moment(new Date(doc.get("datetime")),'YYYY-MM-DDTHH:mm:ss')
-      console.log(Datetime)
+      item.push(doc.data()) 
+      Datetime =  moment(doc.get("datetime"),"lll","th").locale('en').format('YYYY-MM-DDTHH:mm');
+      var locale = moment()._locale._abbr;
+      console.log( Datetime)
+      console.log( locale)
     })
     return  res.json({
       item:item,datetime:Datetime
@@ -382,7 +380,6 @@ router.get("/edit/:uid",async (req, res) => {
   }catch(err){
     console.log(err)
   }
-
 });
 
 
