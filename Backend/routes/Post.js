@@ -366,13 +366,18 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 router.get("/edit/:uid",async (req, res) => {
   let uid = req.params.uid
   try{
+    var item = []
+    let Datetime = null
     const showdata = await firestore.collection("Post").where("uid", "==", uid).get()
     showdata.forEach(doc =>{
-      let item = []
       item.push(doc.data())
-      return  res.json({
-        item
-      })
+      console.log(doc.get("datetime"))
+      moment.locale('de')
+      Datetime =  moment(new Date(doc.get("datetime")),'YYYY-MM-DDTHH:mm:ss')
+      console.log(Datetime)
+    })
+    return  res.json({
+      item:item,datetime:Datetime
     })
   }catch(err){
     console.log(err)

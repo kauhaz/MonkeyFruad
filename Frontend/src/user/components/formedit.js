@@ -82,7 +82,7 @@ const Formedit = () => {
     const hello = await Axios.get(`http://localhost:7000/post/edit/${uid}`)
     
     let gethistory = hello.data.item
- 
+    let getDatetime = hello.data.datetime
     Setshow(gethistory)
     setName(gethistory[0].name)
     setSurname(gethistory[0].surname)
@@ -92,7 +92,7 @@ const Formedit = () => {
     setProductcategory(gethistory[0].productcategory)
     setMoney(gethistory[0].money)
     setBank(gethistory[0].bank)
-    setDatetime(gethistory[0].datetime)
+    setDatetime(getDatetime)
     setSocial(gethistory[0].social)
     setOther(gethistory[0].other)
 
@@ -134,6 +134,7 @@ const Formedit = () => {
       err && Seterror(err.response.data.msg)
     }
   }
+  console.log(datetime)
   return (
     <div>
       {show ? show.map(ok=>{
