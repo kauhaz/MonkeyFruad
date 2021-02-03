@@ -218,11 +218,11 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     let files = req.files.eiei
   let uid = req.params.uid
   // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
-    moment.locale('th')
-    const date =  moment().format('lll')
   const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
   let {datetime} = req.body
   const newmoney = Number(money)
+    moment.locale('th')
+    const date =  moment().format('lll')
   datetime = moment(datetime).format('lll')
     if(file && files){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
@@ -252,6 +252,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        
       })
 
     }
@@ -317,11 +318,9 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 
     }
    else if(!file && !files){
-    const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,username , photoURL})
+     await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,social,other,date,datatime,username , photoURL})
     const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
-      
     getpost.get().then((doc)=>{
-   
       let items = []
    
       doc.forEach(doc2 =>{
@@ -340,6 +339,9 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       const wanteedon = items[0].datetime
 
       const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+    }
+    ).catch((err)=>{
+      console.log(err)
     })
 
    } 
@@ -360,17 +362,14 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 router.get("/edit/:uid",async (req, res) => {
   let uid = req.params.uid
   try{
-    
     const showdata = await firestore.collection("Post").where("uid", "==", uid).get()
     showdata.forEach(doc =>{
       let item = []
-      console.log(item)
       item.push(doc.data())
       return  res.json({
         item
       })
     })
-  
   }catch(err){
     console.log(err)
   }

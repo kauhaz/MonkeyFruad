@@ -82,7 +82,6 @@ const Formedit = () => {
     const hello = await Axios.get(`http://localhost:7000/post/edit/${uid}`)
     
     let gethistory = hello.data.item
-    console.log(show)
  
     Setshow(gethistory)
     setName(gethistory[0].name)
@@ -128,7 +127,7 @@ const Formedit = () => {
       
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
       let data = await Axios.post(`http://localhost:7000/post/edit/${uid}`,formdata)
-      
+
       history.push(`/mypost/${uid}`)
     
     }catch(err){
@@ -335,7 +334,7 @@ const Formedit = () => {
               <Form.Label className="text-formedit">
                 วันที่โดนโกง<span className="spanformedit">*</span>
               </Form.Label>
-              {show ? <Form.Control type="name" placeholder="" value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
+              {show ? <Form.Control type="datetime-local" placeholder="" value={datetime} onChange={(event)=>{setDatetime(event.target.value)}} required /> : null }
               {/* <Form.Control type="name" placeholder=""  onChange={(event)=>{setDatetime(event.target.value)}} required />} */}
             </Form.Group>
 
