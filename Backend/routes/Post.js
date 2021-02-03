@@ -112,7 +112,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
        const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
     }
     else if(file){
@@ -140,7 +140,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -175,7 +175,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
 
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -201,7 +201,7 @@ router.post("/create",uploadFile,async(req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -256,7 +256,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -283,7 +283,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -317,7 +317,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         }
       
         const wanteedon = items[0].datetime
-        const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
       })
 
     }
@@ -344,7 +344,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     
       const wanteedon = items[0].datetime
 
-      const theif = firestore.collection("Theif").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      const theif = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
     })
 
    } 
@@ -562,12 +562,12 @@ router.get("/orderbytwitter",async (req, res) => {
 router.post("/comment/:id", async (req, res) => {
    try{
     
-    const { textcomment , username , userid} = req.body
+    const { textcomment , username , userid , photoURL} = req.body
       const postid = req.params.id
       const uuid = uuidv4()
       moment.locale()
       const datetime = moment().format('LTS')
-      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid })
+      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid , photoURL })
     
       
    }catch(err){
@@ -604,10 +604,35 @@ router.post("/comment/:id", async (req, res) => {
   //  });
 
 
-  router.get("/comment/:id", async (req, res) => {
+  router.get("/commentmore/:id", async (req, res) => {
     try{  
       let postid = req.params.id
        const getcomment = await firestore.collection("Comment").where("postid" , "==" , postid ).orderBy("datetime" , "desc")
+     
+      getcomment.get().then((doc)=>{
+        let item = []
+        doc.forEach(doc2 =>{
+         item.push(doc2.data())
+
+        })
+
+          console.log(item)
+          return res.json({
+             item
+           })
+       
+        })
+    }catch(err){
+      return res.status(500).json({
+        msg : err
+      })
+    }
+   });
+
+   router.get("/comment/:id", async (req, res) => {
+    try{  
+      let postid = req.params.id
+       const getcomment = await firestore.collection("Comment").where("postid" , "==" , postid ).orderBy("datetime" , "desc").limit(3)
       
       getcomment.get().then((doc)=>{
         let item = []
@@ -646,13 +671,13 @@ router.post("/comment/:id", async (req, res) => {
   router.post("/edit/comment/:id",async (req, res) => {
     try{
       let id = req.params.id
-      let {textcomment} = req.body
-  
-      if(textcomment == ""){
+      let {edittextcomment} = req.body
+
+      if(edittextcomment == ""){
         const commentdelete = await firestore.collection("Comment").doc(id).delete()
       }
       else{
-        const commentedit = await firestore.collection("Comment").doc(id).update({textcomment})
+        const commentedit = await firestore.collection("Comment").doc(id).update({ textcomment : edittextcomment})
       }
     }catch(err){
      return res.status(500).json({msg : err})

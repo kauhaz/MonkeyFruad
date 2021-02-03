@@ -75,7 +75,7 @@ const Mypost = () => {
       console.log(err);
     }
   };
-console.log(mypost)
+
   useEffect(() => {
     ok();
   }, []);
@@ -83,7 +83,7 @@ console.log(mypost)
   const handlecomment = async (e) =>{
     try{
       e.preventDefault()
-      let sentdata = {textcomment , username : data[0].username , userid : user.uid}
+      let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
       
       const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
       // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
@@ -323,35 +323,7 @@ console.log(mypost)
 
                         {/* <div className="line-comment2"></div> */}
                       </div>
-                      <h2 className="commentother">ดูอีก 3 ความคิดเห็น</h2>
-                      <div className="row mypost-comment-comments2">
-                        <div className="mypost-profilecomment-img">
-                        {photo ? <img className="img-circle" src={`${photo.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
-                          
-                        </div>
-                     
-                        <div className="row mypost-comment-commentsall">
-                       
-                          <div
-                            className="mypost-writecommemt col-lg-6 col-10"
-                            controlId="exampleForm.ControlTextarea1"
-                          >
-                         
-                            <input className="inputcomment" placeholder="เขียนความคิดเห็น..." value={textcomment} onChange={(e) =>{Settextcomment(e.target.value)}}/>
-                          </div>
-
-                          <div>
-                            <div className="column2 mypostbuttonsend">
-                              <button className="mypostbuttonsends" type="submit">
-                                <i className="fa fa-paper-plane"></i>
-                              </button>
-                            </div>
-                       
-                          </div>
-                       
-                        </div>
-                       
-                      </div>
+                  
                       </Form>
                     </div>
                   </div>
