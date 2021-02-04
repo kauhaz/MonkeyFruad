@@ -54,6 +54,17 @@ const uploadFile = (req, res, next) =>{
   })
 }
 
+const uploadphotocomment = (req, res, next) =>{
+  const upload2 = upload.fields([{name: "photocomment" ,maxCount:20}])
+  upload2(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(400).json({msg : "** ไฟล์รูปรวมกันต้องมีขนาดไม่เกิน 1 MB **"})
+    } else if (err) {
+      return res.status(400).json({msg : err.message})
+    }  
+      next()
+  })
+}
 
 // router.get("/", function (req, res) {
 //   res.json({ success: true });
@@ -66,11 +77,12 @@ router.post("/create",uploadFile,async(req, res) => {
     let file = req.files.photo 
     let files = req.files.eiei 
     const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other,useruid , username ,photoprofilepublic_id , photoprofileurl} = req.body
+
     let {datetime} = req.body
     const uid = uuidv4()
     const newmoney = Number(money)
     let photoURL = {public_id : photoprofilepublic_id , url : photoprofileurl}
-    
+  
     // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
     moment.locale('th')
     const date =  moment().format('lll')
@@ -573,15 +585,44 @@ router.get("/orderbywebsite",async (req, res) => {
 //   }
   
 // });
-router.post("/comment/:id", async (req, res) => {
+router.post("/comment/:id",uploadphotocomment, async (req, res) => {
    try{
+  
+    const files = req.files.photocomment
+  
+    const { textcomment , username , userid , photourl , photopublic_id} = req.body
     
-    const { textcomment , username , userid , photoURL} = req.body
+    let photoURL = {url : photourl , public_id : photopublic_id}
+    console.log(textcomment)
       const postid = req.params.id
       const uuid = uuidv4()
       moment.locale()
       const datetime = moment().format('LTS')
-      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid , photoURL })
+      if(textcomment === "" && files === undefined ){
+        console.log("ok")
+        return res.status(404).json({
+          msg : "กรุณาใส่ข้อความหรือรูปภาพ"
+        })
+      }
+      if(files){
+        let photocomment = []
+        for(const file of files){
+          const {path} = file
+          const resultfiles = await cloudinary.uploader.upload(path)
+          let {url,public_id} = resultfiles
+          photocomment.push({url,public_id})
+        }
+       
+       
+          const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid , photoURL , photocomment})
+      }else{
+        const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid , photoURL })
+      }
+      return res.json({
+        success : "โพสสำเร็จ"
+      })
+      
+      
     
       
    }catch(err){
@@ -590,6 +631,8 @@ router.post("/comment/:id", async (req, res) => {
   });
 
  
+
+
 
   router.get("/commentmore/:id", async (req, res) => {
     try{  
@@ -603,7 +646,7 @@ router.post("/comment/:id", async (req, res) => {
 
         })
 
-          console.log(item)
+  
           return res.json({
              item
            })

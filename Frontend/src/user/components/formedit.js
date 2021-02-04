@@ -136,6 +136,7 @@ const Formedit = ({check , Setcheck}) => {
     
     }catch(err){
       Setloading(false) 
+      Setcheck(false) 
       err && Seterror(err.response.data.msg)
     }
   }

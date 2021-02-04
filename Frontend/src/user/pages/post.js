@@ -31,23 +31,6 @@ const Post = () => {
 
   
 
-  // const handlecomment = async (uid) =>{
-  //   try{
-      
-  //     console.log(uid)
-  //     let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
-      
-  //     const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
-  //     // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
-  //     // Setallcomment(getcomment.data.item)
-      
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
-
-
-
 
   const ok = async () => {
 
@@ -104,7 +87,7 @@ const Post = () => {
         <div className="container-post2">
           <div className="cotainer-post3">
             <div className="post-profile-img">
-              {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
+            
               {res.photoURL ? <img className="img-circle" src={`${res.photoURL.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />} 
               <div className="post-name">
                {res.username ? "@" : null}{res.username}

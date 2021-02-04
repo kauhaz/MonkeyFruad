@@ -50,7 +50,7 @@ const  Listcomment = ( {  commentmore , handledeletetorerender , handleedittorer
       useEffect(() => {
         gg();
       }, [commentmore]);
-  
+      
 
     return (
         <div>
@@ -71,8 +71,17 @@ const  Listcomment = ( {  commentmore , handledeletetorerender , handleedittorer
          <button onClick={() => handleedit(commentmore.commentid)}>ตกลง</button> 
          </div> : <div className="mypost-comment-comments1">
             <div className="mypostcomment1">{commentmore.textcomment}</div> 
+           {commentmore.photocomment ? commentmore.photocomment.map(doc =>{
+             return (<div>
+                  <img className="img-circle" src={`${doc.url}`}  />
+             </div>)
+           }) : null} 
+
+
           </div>  
          } 
+
+
         </div> 
        </div> 
        {user && commentmore.userid == user.uid ? <div className="column2 mypostcommentrow2">

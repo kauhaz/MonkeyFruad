@@ -39,6 +39,7 @@ const Mypost = () => {
   const [textcomment, Settextcomment] = useState();
   const [allcomment, Setallcomment] = useState();
   const [click, Setclick] = useState();
+ 
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
@@ -50,22 +51,33 @@ const Mypost = () => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
+
  
     history.push("/post/history");
-    
-  
+
 };
+
+
+// const handle = async () => {
+
+// console.log("gg")
+
+
+// };
+
   const ok = async () => {
     try {
   
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
+      Setmypost(ok.data.item);
+      
       const nameuser = await Axios.post("http://localhost:7000/user/userid", {
         result: user,
       });
   
-      var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
+      let profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
       Setphoto(profiledata.data.data.photoURL);
-      Setmypost(ok.data.item);
+
       Setdata(nameuser.data.item);
 
  
@@ -73,6 +85,8 @@ const Mypost = () => {
       console.log(err);
     }
   };
+
+
 
   useEffect(() => {
     ok();
@@ -294,17 +308,18 @@ const Mypost = () => {
                               })
                             : null}
                         </div>
-                      
+                        </Form>
                       <div className="line-comment1"></div>
                       <div className="container-mypost4">
                        
-                              <Commentitemformypost postid={ok.uid} />
+                              <Commentitemformypost postid={ok.uid}/>
                         
 
-                        {/* <div className="line-comment2"></div> */}
+               
                       </div>
+                      {/* <button onClick={()=>handle()}></button> */}
                   
-                      </Form>
+             
                     </div>
                   </div>
                 </div>
