@@ -57,7 +57,7 @@ const Getdata = async () =>{
   useMemo(async () => {
     await Getdata()
   }, []);
-  console.log(InstragramCount)
+
   return (
     <div>
       <NavbarPage />
@@ -160,13 +160,14 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
-                    <strong className="text5-index">{element.nameproduct}</strong>
+                    <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">{element.name} {element.surname}</strong>
+                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
                       เลขที่บัญชี : {element.accountnumber} 
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
+                      วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
                     <a
                       href={`/mypost/${element.uid}`}
@@ -184,7 +185,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time-index">
                     <MDBIcon far icon="clock" />
-                    <span> {element.datetime}</span>
+                    <span>ลงประกาศ : {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -230,13 +231,14 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
-                    <strong className="text5-index">{element.nameproduct}</strong>
+                    <strong className="text5-index"> {element.name} {element.surname}{element.nameproduct}</strong>
                     <hr />
-                    <strong className="text6-index">{element.name} {element.surname}</strong>
+                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
+                      วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
                     <a
                       href={`/mypost/${element.uid}`}
@@ -254,7 +256,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time2-index">
                     <MDBIcon far icon="clock" />
-                    <span> {element.datetime}</span>
+                    <span>ลงประกาศ : {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -299,13 +301,14 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
-                    <strong className="text5-index">{element.nameproduct}</strong>
+                    <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">{element.name} {element.surname}</strong>
+                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
+                      วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
                     <a
                       href={`/mypost/${element.uid}`}
@@ -323,7 +326,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time3-index">
                     <MDBIcon far icon="clock" />
-                    <span> {element.datetime}</span>
+                    <span>ลงประกาศ : {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -368,13 +371,14 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
-                    <strong className="text5-index">{element.nameproduct}</strong>
+                    <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">{element.name} {element.surname}</strong>
+                    <strong className="text6-index">สินค้า : {element.nameproduct}{element.name} </strong>
                     <p className="text7-index">
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
+                      วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
                     <a
                       href={`/mypost/${element.uid}`}
@@ -392,7 +396,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time4-index">
                     <MDBIcon far icon="clock" />
-                    <span> {element.datetime}</span>
+                    <span>ลงประกาศ : {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -437,13 +441,14 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
-                    <strong className="text5-index">{element.nameproduct}</strong>
+                    <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">{element.name} {element.surname}</strong>
+                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
+                      วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
                     <a
                       href={`/mypost/${element.uid}`}
@@ -461,7 +466,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time5-index">
                     <MDBIcon far icon="clock" />
-                    <span> {element.datetime}</span>
+                    <span>ลงประกาศ : {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
