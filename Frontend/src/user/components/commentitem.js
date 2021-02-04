@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link ,useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Axios from "axios";
 import "./commentitem.css";
 import usercontext from "../context/usercontext";
-import Listcomment from "./listcomment"
-import _ from "lodash"
-const { v4: uuidv4, NIL } = require('uuid');
+import Listcomment from "./listcomment";
+import _ from "lodash";
+const { v4: uuidv4, NIL } = require("uuid");
 
-
-const Commentitem = ({   postid  }) => {
+ const Commentitem = ({postid}) => {
 
 
   const onClick = () => setIsActive(!isActive);
@@ -88,44 +87,43 @@ const FileUpload = (event) => {
     }
   }
  
-   const handlemorecomment = async () =>{
-    try{
-      Setshowcommentall(true)
-      Sethidebutton(false)
-    }catch(err){
-      console.log(err)
-    }
-  }
-
-
   
-  const handledeletetorerender = async () =>{
-    try{
-      Setshowdelete(uuid)
-    }catch(err){
-      console.log(err)
-    }
-  }
 
-  const handleedittorerender = async () =>{
-    try{
-      Setshowedit(uuid)
-    }catch(err){
-      console.log(err)
+  const handlemorecomment = async () => {
+    try {
+      Setshowcommentall(true);
+      Sethidebutton(false);
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
-  
- 
+  const handledeletetorerender = async () => {
+    try {
+      Setshowdelete(uuid);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleedittorerender = async () => {
+    try {
+      Setshowedit(uuid);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const gg = async () => {
     try {
-      
+      const getcommentall = await Axios.get(
+        `http://localhost:7000/post/commentmore/${postid}`
+      );
+      Setcommentmore(getcommentall.data.item);
 
-      const getcommentall = await Axios.get(`http://localhost:7000/post/commentmore/${postid}` )
-      Setcommentmore(getcommentall.data.item)
-
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", { result: user});
+      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+        result: user,
+      });
       Setdata(nameuser.data.item);
 
       var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
@@ -135,7 +133,6 @@ const FileUpload = (event) => {
     } catch (err) {
       console.log(err);
     }
-
   };
   useEffect(() => {
     gg();
@@ -218,9 +215,6 @@ return (
           
   </div> 
 );
-};
+}
 
 export default Commentitem;
-
-
- 

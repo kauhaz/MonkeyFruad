@@ -21,19 +21,16 @@
     border-radius: 10px;
     padding-top: 25px;
 }
-
+.row-section1{
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+}
 .column1-index{
-    width: 48%;
     height: 110px;
-    /* margin-left: auto;
-    margin-right: auto; */
-    margin-left: 15px;
-    margin-top: 75px;
+    align-self: center;
 }
 .column2-index{
-    width: 48%;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
     margin-right: 15px;
 }
 
@@ -59,8 +56,9 @@
 }
 
 .containermini1-index{
-    margin: auto;
-    width: 350px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button1-index{
@@ -224,8 +222,13 @@
     color: #5c5c5c;
     margin-bottom: 15px;
     margin-top: 0px;
+  
 }
-
+.Fall-crisp{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 .time-index{
     background-color: #3b5999;
     color: white;
@@ -409,4 +412,56 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
+}
+
+/*Responsive*/ 
+@media only screen and (max-width: 1366px) {
+    .container1-index{
+        height: 300px;
+    }
+    .text1-index{
+        font-size: 18px;
+    }
+    .containermini1-index{
+        width: 90%;
+    }
+    .column2-index{
+        align-self: center;
+    }
+    .box1-index{
+        width: 72%;
+        padding-left: 19px;
+        font-size: 15px;
+    }
+    .button1-index{
+        font-size: 15px;
+        width: 25%;
+    }
+    .image1-index{
+        width: 250px;
+    }
+    .textlink-index{
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 414px) {
+
+}
+
+@media only screen and (max-width: 375px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+
 }

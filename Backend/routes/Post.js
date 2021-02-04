@@ -497,7 +497,7 @@ router.get("/post",async (req, res) => {
 });
 router.get("/orderbyfacebook",async (req, res) => {
   try{
-      const showdata = await firestore.collection("Post").where("social" , "==" ,"Facebook").orderBy("datetime","desc").limit(4)
+      const showdata = await firestore.collection("Post").where("social" , "==" ,"Facebook").orderBy("date","desc").limit(4)
       showdata.get().then(element =>{
         let data = [];
         element.forEach((doc) => {
@@ -508,13 +508,13 @@ router.get("/orderbyfacebook",async (req, res) => {
         })
       })
     }catch(err){
-        return res.status(500).json({msg : err})
+       console.log(err)
        }
   })
 router.get("/orderbyinstragram",async (req, res) => {
     try{
       var data = [];
-      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instagram").orderBy("datetime","desc").limit(4).get()
+      const showdata = await firestore.collection("Post").where("social" , "==" ,"Instagram").orderBy("date","desc").limit(4).get()
       .then(element =>{
         element.forEach((doc) => {
           data.push(doc.data())
@@ -525,13 +525,13 @@ router.get("/orderbyinstragram",async (req, res) => {
         data : data
       })
       }catch(err){
-          return res.status(500).json({msg : err})
+        console.log(err)
          }
     })
 router.get("/orderbyline",async (req, res) => {
       try{
       var data = [];
-          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("datetime","desc").limit(4).get()
+          const showdata = await firestore.collection("Post").where("social" , "==" ,"Line").orderBy("date","desc").limit(4).get()
           .then(element =>{
             element.forEach((doc) => {
               data.push(doc.data())
@@ -541,12 +541,12 @@ router.get("/orderbyline",async (req, res) => {
             data : data
           })
         }catch(err){
-            return res.status(500).json({msg : err})
+          console.log(err)
            }
       })
 router.get("/orderbytwitter",async (req, res) => {
         try{
-          const showdata = await firestore.collection("Post").where("social" , "==" ,"Twitter").orderBy("datetime","desc").limit(4)
+          const showdata = await firestore.collection("Post").where("social" , "==" ,"Twitter").orderBy("date","desc").limit(4)
           showdata.get().then(element =>{
             let data = [];
             element.forEach((doc) => {
@@ -557,12 +557,12 @@ router.get("/orderbytwitter",async (req, res) => {
             })
           })
           }catch(err){
-              return res.status(500).json({msg : err})
+            console.log(err)
              }
         })
 router.get("/orderbywebsite",async (req, res) => {
           try{
-            const showdata = await firestore.collection("Post").where("social" , "==" ,"Website").orderBy("datetime","desc").limit(4)
+            const showdata = await firestore.collection("Post").where("social" , "==" ,"Website").orderBy("date","desc").limit(4)
             showdata.get().then(element =>{
               let data = [];
               element.forEach((doc) => {
@@ -573,7 +573,7 @@ router.get("/orderbywebsite",async (req, res) => {
               })
             })
             }catch(err){
-                return res.status(500).json({msg : err})
+              console.log(err)
                }
           })
 

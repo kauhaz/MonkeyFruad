@@ -47,7 +47,7 @@
 }
 
 .rank-label-container-edit {
-    margin-top: -19px;
+    margin-top: -30px;
     text-align: center;
 }
 
@@ -81,9 +81,15 @@
     margin-bottom: 10px;
 } */
 
-.uploadsformedituploadslip{
+/* .uploadsformedituploadslip{
     margin-top: 10px;
     margin-bottom: 10px;
+} */
+.uploadprove {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .container-img-holder-imgpreviewedit .imgpreviewedit {
