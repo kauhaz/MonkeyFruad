@@ -4,35 +4,23 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 
 
-const Historyitem = ({ ok, user }) => {
+const Historyitem = ({ ok, user , handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  const [mypost, Setmypost] = useState();
-  const [error, Seterror] = useState();
-
-
-  //   let user = auth.currentUser;
 
   const deleted = async (uid) => {
     try {
-      if (user) {
+      handledeletetorerender()
         const postdelete = await Axios.post(
           `http://localhost:7000/post/delete/${uid}`
         );
-        console.log(postdelete.data);
 
-        const ok = await Axios.post("http://localhost:7000/post/postapi", {
-          result: user,
-        });
-        console.log(ok.data.item);
-        Setmypost(ok.data.item);
-        window.location.reload(false);
-      }
     } catch (err) {
       console.log(err);
     }
   };
+
 
 
   return (

@@ -9,9 +9,11 @@ import Axios from "axios"
 import _ from "lodash"
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
+import Loading from "./loading"
 
 
-const Formpost = () => {
+
+const Formpost = ({check , Setcheck}) => {
 
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -33,6 +35,7 @@ const Formpost = () => {
   const [username, setUsername] = useState("");
   const [photoprofileurl, Setphotoprofileurl] = useState();
   const [photoprofilepublic_id, Setphotoprofilepublic_id] = useState();
+  const [loading, Setloading] = useState();
   // var { user , setUser} = useContext(usercontext)
   // let { user , setUser} = useContext(usercontext)
 
@@ -80,7 +83,7 @@ let history = useHistory()
   const handlesubmit = async (e) =>{
     try{
       e.preventDefault()
-      
+    
       let formdata = new FormData()
       let useruid = user.uid
       _.forEach(files ,file =>{
@@ -102,10 +105,13 @@ let history = useHistory()
       formdata.append("username" , username)
       formdata.append("photoprofilepublic_id" , photoprofilepublic_id)
       formdata.append("photoprofileurl" , photoprofileurl)
+      Setloading(true)
+      Setcheck(true)
       const a = await Axios.post("http://localhost:7000/post/create", formdata) 
-      console.log("eiei")
+      Setloading(false)
         history.push("/post/history")
     }catch(err){
+      Setloading(false) 
       err && Seterror(err.response.data.msg)
     }
   
@@ -118,6 +124,7 @@ let history = useHistory()
         Setphotoprofilepublic_id(profiledata.data.data.photoURL.public_id);
     }
     catch (err){
+ 
       console.log(err)
     }
   
@@ -125,8 +132,8 @@ let history = useHistory()
   
   
   return (
-  
-    <div className="container-formpost">
+    <div>
+      {loading ? <Loading loading={loading}/> : <div className="container-formpost">
       <div className="container-formpost1">
         <div className="profile-badformpost-img">
           <img className="img-circle" src={imagesProfile} />
@@ -344,17 +351,23 @@ let history = useHistory()
           </Form.File.Label>
                 
           <br></br>
+
+          
+          <div className="container-img-holder-imgpreview">
+          <label>
+          <img className="uploadprove" src="/img/addphoto.png" />
           <input
+            id="FileInput"
             className="uploadsformpostuploadslip"
             type="file"
             onChange={FileUpload}
             multiple
             accept="image/png, image/jpeg , image/jpg"
           />
-         
-          <h1 className="h1-formpostfileerror">{error}</h1> 
 
-          <div className="container-img-holder-imgpreview">
+           </label>
+
+
             {imagesFile.map((imagePreviewUrl) => {
               return (
                 <img
@@ -369,7 +382,11 @@ let history = useHistory()
               );
             })}
 
-          </div>
+       
+           </div>
+          <h1 className="h1-formpostfileerror">{error}</h1> 
+
+         
 
            {/* <Form.Row className="linkrule1">
             <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
@@ -382,8 +399,9 @@ let history = useHistory()
         </Form>
       </div>
       <Chatbot/>
+    </div>}
+    
     </div>
- 
   );
 };
 

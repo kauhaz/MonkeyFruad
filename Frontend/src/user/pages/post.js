@@ -18,37 +18,35 @@ import usercontext from "../context/usercontext"
 const Post = () => {
   const [data, Setdata] = useState();
   const [show, Setshow] = useState();
-  const [userinfomation, Setuserinfomation] = useState();
+
   const [textcomment, Settextcomment] = useState();
   const [photo,  Setphoto] = useState();
-  const history = useHistory();
+  const [commentmore,  Setcommentmore] = useState();
+
   let { user, setUser } = useContext(usercontext);
   
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  const [Democomments, setDemocomments] = useState([
-    { commment: "ไอนี้อีกแล้วหรอ น่าโดนจริงๆ อย่าให้เจอตัวบอกก่อน" },
-    {
-      commment: "โดนโกงไป5000 เจ็บใจจริงๆ TT ถ้าเจอจะซัดหน้าให้หมอบไปเลย55555",
-    },
-  ]);
+  
 
-  const handlecomment = async (uid) =>{
-    try{
-    
-      console.log(uid)
-      let sentdata = {textcomment , username : data[0].username , userid : user.uid}
+  // const handlecomment = async (uid) =>{
+  //   try{
       
-      const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
-      // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
-      // Setallcomment(getcomment.data.item)
+  //     console.log(uid)
+  //     let sentdata = {textcomment , username : data[0].username , userid : user.uid , photoURL : photo}
       
-    }catch(err){
-      console.log(err)
-    }
-  }
+  //     const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
+  //     // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
+  //     // Setallcomment(getcomment.data.item)
+      
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  // }
+
+
 
 
   const ok = async () => {
@@ -56,25 +54,20 @@ const Post = () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item)
     
-    const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-      result: user,
-    });
-    Setdata(nameuser.data.item);
+    // const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+    //   result: user,
+    // });
+    // Setdata(nameuser.data.item);
 
-    var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
-    Setphoto(profiledata.data.data.photoURL);
+    // var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
+    // Setphoto(profiledata.data.data.photoURL);
        
   };
   useEffect(() => {
     ok();
   }, []);
 
-  const deleted = async (uid) => {
-    const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/${uid}`
-    );
-    console.log(postdelete.data);
-  };
+ 
 
   return (
     <div>
@@ -212,37 +205,10 @@ const Post = () => {
               <div className="line-post1"></div>
               <div className="container-post6">
           
-                  <Commentitem   postid={res.uid}/>;
-                
-             
-                {/* <div className="line-comment2"></div> */}
-              </div>
-              <h2 className="postother2">ดูอีก 3 ความคิดเห็น</h2>
-              <div className="row post-comment-comments1">
-                <div className="post-profilecomment-img1">
-                  {photo ? <img className="img-circle" src={`${photo.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
-             
-                </div>
-                <div className="row post-comment-commentsall">
-                  <div
-                    className="post-writecommemt col-lg-6 col-10"
-                    controlId="exampleForm.ControlTextarea1"
-                  >
-                     <input className="inputcomment" placeholder="เขียนความคิดเห็น..." value={textcomment} onChange={(e) =>{Settextcomment(e.target.value)}}/>
-                  </div>
-
-                          <div>
-                            <div className="column2 mypostbuttonsend">
-                              <button className="mypostbuttonsends" onClick={() => handlecomment(res.uid)}>
-                                <i className="fa fa-paper-plane"></i>
-                              </button>
-                            </div>
-                       
-                          </div>
-                </div>
-                
-              </div>
+                  <Commentitem   postid={res.uid}  />
               
+              </div>
+  
             </div>
             </div>
             
