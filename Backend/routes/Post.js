@@ -468,7 +468,7 @@ console.log(err)
 
 router.get("/post",async (req, res) => {
   try{
-      const showdata = await firestore.collection("Post")
+      const showdata = await firestore.collection("Post").orderBy("date" , "desc" )
       showdata.get().then(ok =>{
         let item = [];
         ok.forEach((doc) => {
