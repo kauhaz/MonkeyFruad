@@ -13,9 +13,10 @@ import Axios from "axios"
 import _ from "lodash"
 import Chatbot from "../components/chatbot";
 import usercontext from "../context/usercontext"
+import Loading from "./loading"
 // import image from "D:/PROJECT ALL/MonkeyFruad/Frontend/src/uploads/logo192.png"
 
-const Formedit = () => {
+const Formedit = ({check , Setcheck}) => {
 
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
   const [show, Setshow] = useState();
@@ -35,6 +36,7 @@ const Formedit = () => {
   const [social, setSocial] = useState();
   const [other, setOther] = useState("");
   const [error, Seterror] = useState();
+  const [loading, Setloading] = useState();
   // const [files, setfiles] = useState();
    
 
@@ -105,9 +107,9 @@ const Formedit = () => {
 
 
   const handlesubmit = async (e) =>{
-    e.preventDefault()
     try{
-    
+      e.preventDefault()
+     
       let formdata = new FormData()
       _.forEach(files , file => {
         formdata.append("eiei" ,file)
@@ -126,24 +128,27 @@ const Formedit = () => {
       formdata.append("other" , other)
       
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
+      Setloading(true)
+      Setcheck(true)
       let data = await Axios.post(`http://localhost:7000/post/edit/${uid}`,formdata)
-      
+      Setloading(false)
       history.push(`/mypost/${uid}`)
     
     }catch(err){
+      Setloading(false) 
       err && Seterror(err.response.data.msg)
     }
   }
   console.log(datetime)
   return (
     <div>
-      {show ? show.map(ok=>{
+      {loading ? <Loading loading={loading}/> : <div> {show ? show.map(ok=>{
         return (
           <div>
       <div className="container-formedit">
       <div className="container-formedit1">
         <div className="profile-badformedit-img">
-          {imagesProfile ? <img className="img-circle" src={imagesProfile} /> : ok.resultfileitem ? <img className="img-circle" src={`${ok.resultfileitem.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />}
+          {imagesProfile ? <img className="img-circle" src={imagesProfile} /> : ok.resultfile ? <img className="img-circle" src={`${ok.resultfile.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />}
           <div className="rank-label-container-edit">
             <span className="label label-default rank-label">
               <div className="formedit-ImageUpload">
@@ -386,7 +391,13 @@ const Formedit = () => {
           </Form.File.Label>
            
           <br></br> 
+
+          
+          <div className="container-img-holder-imgpreviewedit">
+          <label>
+          <img className="uploadprove" src="/img/addphoto.png" />
           <input
+             id="FileInput"
             className="uploadsformedituploadslip"
             type="file"
             onChange={FileUpload}
@@ -394,10 +405,8 @@ const Formedit = () => {
             accept="image/png, image/jpeg , image/jpg"
             
           />
+          </label>
 
-           <h1 className="h1-formpostfileerror">{error}</h1> 
-
-          <div className="container-img-holder-imgpreviewedit">
             {imagesFile ? imagesFile.map((imagePreviewUrl) => {
               return (
                 <img
@@ -416,14 +425,10 @@ const Formedit = () => {
            )
            }) : null }
              
-
-        
           </div>
             
-          {/* <Form.Row className="linkrule1">
-            <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
-          </Form.Row> */}
-
+           <h1 className="h1-formpostfileerror">{error}</h1> 
+      
           <button className="buttonformedit" variant="success" type="submit">
             โพสต์
           </button>
@@ -435,7 +440,8 @@ const Formedit = () => {
         )
       }) : null}
    
-    <Chatbot/>
+    <Chatbot/></div> }
+     
     </div>
   );
 };
