@@ -35,7 +35,6 @@ const  Listcomment = ( {  commentmore , handledeletetorerender , handleedittorer
   }
     }
 
-      console.log(commentmore)
     
     const gg = async () => {
         try {
