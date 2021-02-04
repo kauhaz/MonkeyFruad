@@ -24,6 +24,7 @@ const EditProfile = () => {
   const [photo, Setphoto] = useState("");
   const [error, Seterror] = useState();
   const [male , setMale] = useState()
+  const [loading, setLoading] = useState(true);
   // ฟังกชันการเลือกเพศใน input
   const selectSex = (e) => {
     if (e.target.value === "ชาย") {
@@ -66,6 +67,15 @@ const EditProfile = () => {
       console.log(err);
     }
   };
+  const setSexFirst = (result)=>{
+    if(result.data.data.sex === "ชาย")
+    {
+      return setMale(true)
+    }
+    else if(result.data.data.sex === "หญิง") {
+      return  setMale(false)
+    }
+  }
   useMemo( async() => {
    await axios
       .post("http://localhost:7000/user/session", { user: user })
@@ -73,22 +83,16 @@ const EditProfile = () => {
         setUsername(result.data.data.username);
         setFirstname(result.data.data.firstname);
         setSurname(result.data.data.surname);
+        setSexFirst(result)
         setSex(result.data.data.sex);
         setPhone(result.data.data.phone);
         setProvince(result.data.data.province);
         Setphoto(result.data.data.photoURL);
-        if(result.data.data.sex === "ชาย")
-        {
-          setMale(true)
-        }
-        else if(result.data.data.sex === "หญิง") {
-          setMale(false)
-        }
       })
       .catch((err) => {
         console.log(err);
       });
-
+      setLoading(false)
   }, [user]);
   // Style มาตรฐานของ Formik
   const styles = {
@@ -110,7 +114,7 @@ const EditProfile = () => {
     },
   };
 
-  return  (
+  return loading ? "" : (
     <div>
       <NavbarPage />
       <div className="container-signup">
@@ -385,7 +389,8 @@ const EditProfile = () => {
       </div>
       <Chatbot />
     </div>
-  );
+  )
+                
 };
 
 export default EditProfile;
