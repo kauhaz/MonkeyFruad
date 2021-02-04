@@ -21,7 +21,7 @@
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 30px;
+  padding-top: 15px;
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -39,12 +39,12 @@
 }
 
 .mypost-name {
-  margin-left: 60px;
-  margin-top: -55px;
+  margin-left: 85px;
+  margin-top: -75px;
 }
 
 .mypost-date {
-  margin-left: 60px;
+  margin-left: 85px;
   margin-top: -25px;
   color: grey;
   font-size: 18px;
@@ -54,32 +54,6 @@
   margin-left: 5px;
   color: grey;
 }
-
-/* .mypostbuttonshared, .mypostbuttonshare {
-      color: grey;
-  }
-  .mypostbuttonshared, .mypostbuttonshare:hover{
-      color: grey;
-  }
-  .mypostbuttonshared{
-      margin-top: -65px;
-      width: 30px;
-      background: #ffffff;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1px 5px;
-      border: none;
-      vertical-align: middle;
-      transition: box-shadow 0.4s ease;
-      margin-left: auto;
-      margin-right: 40px;
-  }
-  .mypostbuttonshared:hover {
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  } */
 
 .mypostimg-setting {
   width: 30px;
@@ -93,7 +67,7 @@
 }
 
 .mypostbuttonsetting {
-  margin-top: -70px;
+  margin-top: -100px;
   width: 30px;
   background: #ffffff;
   border-radius: 50px;
@@ -116,7 +90,7 @@
   background: #ffffff;
   border-radius: 7px;
   position: absolute;
-  top: 0px;
+  top: -20px;
   right: 0;
   font-size: 15px;
   width: 110px;
@@ -180,8 +154,8 @@
 
 .mypostprofile-bad-img {
   text-align: center;
-  margin-top: 50px;
-  padding-bottom: 20px;
+  margin-top: 0px;
+  padding-bottom: 0px;
 }
 
 .mypostprofile-bad-img img.img-circle {
@@ -193,7 +167,7 @@
 }
 
 .mypost-left {
-  margin-right: 15px;
+  margin-right: 50px;
 }
 
 .spanmypost {
@@ -261,9 +235,10 @@
 
 .row .mypost-comment-commentsall {
   background-color: rgb(245, 245, 245);
-  width: 80%;
-  margin-left: 20px;
-  margin-top: -15px;
+  width: 60%;
+  height: 60px;
+  margin-left: 0px;
+  margin-top: 5px;
   margin-bottom: 0px;
   padding-top: 15px;
   padding-left: 10px;

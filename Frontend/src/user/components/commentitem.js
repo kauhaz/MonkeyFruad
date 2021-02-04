@@ -169,7 +169,7 @@ const Commentitem = ({ postid }) => {
         </div>
         <div className="row post-comment-commentsall">
           <div
-            className="post-writecommemt col-lg-6 col-10"
+            className="post-writecommemt"
             controlId="exampleForm.ControlTextarea1"
           >
             <input
@@ -182,9 +182,9 @@ const Commentitem = ({ postid }) => {
             />
           </div>
           <div>
-            <div className="column2 mypostbuttonsend">
+            <div className="column2 postbuttonsend">
               <button
-                className="mypostbuttonsends"
+                className="postbuttonsends"
                 onClick={() => handlecomment()}
               >
                 <i className="fa fa-paper-plane"></i>
