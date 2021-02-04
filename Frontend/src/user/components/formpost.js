@@ -319,14 +319,6 @@ let history = useHistory()
                 <option>Twitter</option>
                 <option>Line</option>
                 <option>Website</option>
-              {/* <select  required onChange={(event)=>{setSocial(event.target.value)}}>
-          <option value="" selected disabled hidden>กรุณาเลือก...</option>
-                <option>Facebook</option>
-                <option>Instagram</option>
-                <option>Twitter</option>
-                <option>Line</option>
-                <option>Website</option>
-          </select> */}
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -355,7 +347,7 @@ let history = useHistory()
           
           <div className="container-img-holder-imgpreview">
           <label>
-          <img className="uploadprove" src="/img/addphoto.png" />
+          <img className="uploadprove" src="/img/addimage.png" />
           <input
             id="FileInput"
             className="uploadsformpostuploadslip"
