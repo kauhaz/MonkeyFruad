@@ -23,14 +23,17 @@ const EditProfile = () => {
   const [province, setProvince] = useState("");
   const [photo, Setphoto] = useState("");
   const [error, Seterror] = useState();
-  const [loading, setLoading] = useState(true);
-
+  const [male , setMale] = useState()
   // ฟังกชันการเลือกเพศใน input
   const selectSex = (e) => {
     if (e.target.value === "ชาย") {
-      setSex(e.target.value);
-    } else setSex(e.target.value);
-  };
+      setSex(e.target.value)
+      setMale(true)
+    } else if(e.target.value === "หญิง"){
+      setSex(e.target.value)
+      setMale(false)
+  }
+}
   const ProfileChange = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
@@ -63,8 +66,8 @@ const EditProfile = () => {
       console.log(err);
     }
   };
-  useMemo(() => {
-    axios
+  useMemo( async() => {
+   await axios
       .post("http://localhost:7000/user/session", { user: user })
       .then((result) => {
         setUsername(result.data.data.username);
@@ -74,7 +77,13 @@ const EditProfile = () => {
         setPhone(result.data.data.phone);
         setProvince(result.data.data.province);
         Setphoto(result.data.data.photoURL);
-        setLoading(false);
+        if(result.data.data.sex === "ชาย")
+        {
+          setMale(true)
+        }
+        else if(result.data.data.sex === "หญิง") {
+          setMale(false)
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -189,6 +198,8 @@ const EditProfile = () => {
             <div className="form-group my-0">
               <label className="label-form-title-profile">เพศ</label>
               <div className="form-inside-profile">
+              { male ? (
+                <div>
                 <div className="profile-data d-inline mr-2">
                   <input
                     required
@@ -198,6 +209,7 @@ const EditProfile = () => {
                     id="male"
                     value="ชาย"
                     className="mr-1"
+                    checked="checked"
                   />
                   <label htmlFor="male">ชาย</label>
                 </div>
@@ -213,6 +225,37 @@ const EditProfile = () => {
                   />
                   <label htmlFor="female">หญิง</label>
                 </div>
+                </div>
+              ) : (
+                <div>
+              <div className="profile-data d-inline mr-2">
+              <input
+                required
+                onChange={selectSex}
+                name="gender"
+                type="radio"
+                id="male"
+                value="ชาย"
+                className="mr-1"
+              />
+              <label htmlFor="male">ชาย</label>
+            </div>
+            <div className="profile-data d-inline">
+              <input
+                required
+                onChange={selectSex}
+                name="gender"
+                type="radio"
+                id="female"
+                value="หญิง"
+                className="mr-1"
+                checked="checked"
+              />
+              <label htmlFor="female">หญิง</label>
+            </div>
+            </div>
+                )
+              }
               </div>
             </div>
 
@@ -240,11 +283,12 @@ const EditProfile = () => {
                   as="select"
                   name="province"
                   className="province-select"
+                  value={province}
                   onChange={(e) => {
                     setProvince(e.target.value);
                   }}
                 >
-                  <option value={province} selected>
+                  <option selected>
                     กรุณาเลือกจังหวัด
                   </option>
                   <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
