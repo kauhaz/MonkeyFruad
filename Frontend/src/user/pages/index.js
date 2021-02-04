@@ -160,15 +160,18 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
+                    <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
                     <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
-                    <p className="text7-index">
+                    <p  className="text7-index">
+                     สินค้า : {element.nameproduct}
                       เลขที่บัญชี : {element.accountnumber} 
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
+                    </div>
                     <a
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore1-index"
@@ -185,7 +188,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time-index">
                     <MDBIcon far icon="clock" />
-                    <span>ลงประกาศ : {element.date}</span>
+                    <span> {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -231,6 +234,7 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
+                  <div className="Fall-crisp">
                     <strong className="text5-index"> {element.name} {element.surname}{element.nameproduct}</strong>
                     <hr />
                     <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
@@ -240,6 +244,7 @@ const Getdata = async () =>{
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
+                    </div>
                     <a
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore2-index"
@@ -256,7 +261,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time2-index">
                     <MDBIcon far icon="clock" />
-                    <span>ลงประกาศ : {element.date}</span>
+                    <span> {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -301,6 +306,7 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
+                  <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
                     <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
@@ -310,6 +316,7 @@ const Getdata = async () =>{
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
+                    </div>
                     <a
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore3-index"
@@ -326,7 +333,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time3-index">
                     <MDBIcon far icon="clock" />
-                    <span>ลงประกาศ : {element.date}</span>
+                    <span>{element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -371,6 +378,7 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
+                  <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
                     <strong className="text6-index">สินค้า : {element.nameproduct}{element.name} </strong>
@@ -380,6 +388,7 @@ const Getdata = async () =>{
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
+                    </div>
                     <a
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore4-index"
@@ -396,7 +405,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time4-index">
                     <MDBIcon far icon="clock" />
-                    <span>ลงประกาศ : {element.date}</span>
+                    <span> {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -441,15 +450,17 @@ const Getdata = async () =>{
                   />
                   )}
                   <MDBCardBody>
+                  <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
                     <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
-                    <p className="text7-index">
+                    <p  className="text7-index">
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
                     </p>
+                    </div>
                     <a
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore5-index"
@@ -466,7 +477,7 @@ const Getdata = async () =>{
                   </MDBCardBody>
                   <div className="time5-index">
                     <MDBIcon far icon="clock" />
-                    <span>ลงประกาศ : {element.date}</span>
+                    <span> {element.date}</span>
                   </div>
                 </MDBCard>
               </div>
