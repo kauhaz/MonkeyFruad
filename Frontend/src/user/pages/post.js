@@ -82,7 +82,7 @@ const Post = () => {
             </Link>
             <h1 className="h1-post">
               {" "}
-              มีโพสทั้งหมด {show ? show.length : null} โพส
+              มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
             </h1>
             {show
               ? show.map((res) => {
@@ -90,7 +90,7 @@ const Post = () => {
                     <div>
                       <div className="container-post2">
                         <div className="cotainer-post3">
-                          <div className="post-profile-img">
+                          <div className="post-profilepost-img">
                             {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
                             {res.photoURL ? (
                               <img
