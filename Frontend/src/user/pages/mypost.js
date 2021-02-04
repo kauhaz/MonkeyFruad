@@ -10,8 +10,10 @@ import {
 } from "../Frontfirebase";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
-import Commentitem from "../components/commentitem";
+// import Commentitem from "../components/commentitem";
+import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
+
 
 import usercontext from "../context/usercontext";
 const Mypost = () => {
@@ -66,9 +68,7 @@ const Mypost = () => {
       Setmypost(ok.data.item);
       Setdata(nameuser.data.item);
 
-    
-    
-   
+ 
     } catch (err) {
       console.log(err);
     }
@@ -298,7 +298,7 @@ const Mypost = () => {
                       <div className="line-comment1"></div>
                       <div className="container-mypost4">
                        
-                              <Commentitem postid={ok.uid} />
+                              <Commentitemformypost postid={ok.uid} />
                         
 
                         {/* <div className="line-comment2"></div> */}

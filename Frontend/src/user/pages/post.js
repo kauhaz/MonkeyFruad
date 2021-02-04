@@ -67,7 +67,7 @@ const Post = () => {
     ok();
   }, []);
 
- 
+  console.log(show)
 
   return (
     <div>
@@ -96,6 +96,7 @@ const Post = () => {
         </div>
       </div>
       <h1 className="h1-post"> มีโพสทั้งหมด {show ? show.length : null} โพส</h1>
+      
       {show ? show.map(res =>{
          return (
          
