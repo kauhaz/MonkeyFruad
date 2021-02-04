@@ -58,7 +58,6 @@ const Post = () => {
     ok();
   }, []);
 
-<<<<<<< HEAD
   return (
     <div>
       <NavbarPage />
@@ -78,148 +77,12 @@ const Post = () => {
                       แจ้งข้อมูลคนโกงได้ที่นี่เลย
                     </div>
                   </div>
-=======
-  console.log(show)
-
-  return (
-    <div>
-      <NavbarPage />
-      
-      <div className="container-post1">
-        <div className="row postrow">
-          <div className="column1-postrow1">
-            <div className="post-img">
-              <img className="monkey" src="/img/logo v3.png" />
-            </div>
-          </div>
-          <div className="column2-postrow2">
-            <div className="post-linkformpost1">
-              แจ้งข้อมูลคนโกงได้ที่นี่เลย
-            </div>
-            <br />
-            <div className="post-linkformpost2">
-              <Link to={`/linkruleshow/`}>
-                <button className="buttonpost" type="submit">
-                  คลิก
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h1 className="h1-post"> มีโพสทั้งหมด {show ? show.length : null} โพส</h1>
-      
-      {show ? show.map(res =>{
-         return (
-         
-      <div>
-        <div className="container-post2">
-          <div className="cotainer-post3">
-            <div className="post-profile-img">
-              {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
-              {res.photoURL ? <img className="img-circle" src={`${res.photoURL.url}`} /> : <img className="img-circle" src={"/img/profile.png"} />} 
-              <div className="post-name">
-               {res.username ? "@" : null}{res.username}
-               
-              </div>
-              <br />
-              <div className="post-date">
-                <span className="post-time">{res.date}</span>
-              </div>
-            </div>
-
-            <div className="postbuttonreport">
-              <a className="postbuttonreported" href="/post/edit">
-                <i class="fa fa-flag"></i>
-              </a>
-            </div>
-
-            <div className="container-post4">
-              <div className="container-post5">
-                <Form className="formsize-post">
-                  <Form.Row>
-                    <Form.Group
-                      as={Col}
-                      className="้post-left col-lg-6 col-12"
-                      controlId="formGridName"
-                    >
-                      <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group>
-                      <span className="spanpost">
-                        {res.name} {res.surname}
-                      </span>
-                    </Form.Group>
-                  </Form.Row>
-
-                  <Form.Row>
-                    <Form.Group
-                      as={Col}
-                      className="post-left col-lg-6 col-12"
-                      controlId="formGridId"
-                    >
-                      <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group>
-                      <span className="spanpost">{res.accountnumber}</span>
-                    </Form.Group>
-                  </Form.Row>
-
-                  <Form.Row>
-                    <Form.Group
-                      as={Col}
-                      className="post-left col-lg-6 col-12"
-                      controlId="formGridNameproduct"
-                    >
-                      <Form.Label>ชื่อสินค้า</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group>
-                      <span className="spanpost">{res.nameproduct} </span>
-                    </Form.Group>
-                  </Form.Row>
-
-                  <Form.Row>
-                    <Form.Group
-                      as={Col}
-                      className="post-left col-lg-6 col-12"
-                      controlId="formGridPrice"
-                    >
-                      <Form.Label>จำนวนเงิน (บาท)</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group>
-                      <span className="spanpost">{res.money} </span>
-                    </Form.Group>
-                  </Form.Row>
-
-                  <Form.Row>
-                    <Form.Group
-                      as={Col}
-                      className="post-left col-lg-6 col-12"
-                      controlId="formGridDate"
-                    >
-                      <Form.Label>วันที่โพสต์</Form.Label>
-                    </Form.Group>
-
-                    <Form.Group>
-                      <span className="spanpost">{res.date} </span>
-                    </Form.Group>
-                  </Form.Row>
-                  </Form>
-                <div className="postother">
-                  <Link className="postother1" to={`/mypost/${res.uid}`}>
-                    ดูเพิ่มเติม
-                  </Link>
->>>>>>> 0cda5a11135facc3485262c5eee0ffe7ea7b0628
                 </div>
               </div>
             </Link>
             <h1 className="h1-post">
               {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
+              มีโพสทั้งหมด {show ? show.length : null} โพส
             </h1>
             {show
               ? show.map((res) => {
