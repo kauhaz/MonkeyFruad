@@ -102,17 +102,17 @@ const Getdata = async () =>{
                 return (
                     <div className="column3-index">
                       <MDBCard>
+                        <div className={`coin${index+1} rank-index1`}>{index+1}</div>
                         <MDBCardBody cascade className="text-center">
-                          <div className={`coin${index+1} rank-index1`}>{index+1}</div>
                           <p className="text3-index">
-                            เลขที่บัญชีธนาคาร : {element.accountnumber} <br />
+                            เลขที่บัญชี : {element.accountnumber} <br />
                             {element.bank}
                           </p>
                           <p className="text4-index">
                             จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
                             จำนวนเงินทั้งหมด : {element.summoney} บาท
                             <br />
-                            วันที่โกงล่าสุด : {element.wanteedon}
+                            แจ้งล่าสุด : {element.wanteedon}
                           </p>
                           <a
                             href="!#"
@@ -172,14 +172,14 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore1-index"
                     >
-                      <h5 className="">
+                      <h6 className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h5>
+                      </h6>
                     </a>
                   </MDBCardBody>
                   <div className="time-index">
@@ -194,14 +194,14 @@ const Getdata = async () =>{
              </div>
              <div className="row">
               <a href="!#" className="readmore1-index seemore">
-                <h4 className="">
+                <h5 className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
                     className="ml-2"
                     size="sm"
                   ></MDBIcon>
-                </h4>
+                </h5>
               </a>
             </div>
           </div>
@@ -242,19 +242,19 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore2-index"
                     >
-                      <h5 className="">
+                      <h6 className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h5>
+                      </h6>
                     </a>
                   </MDBCardBody>
                   <div className="time2-index">
                     <MDBIcon far icon="clock" />
-                    <span>{element.datetime}</span>
+                    <span> {element.datetime}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -263,14 +263,14 @@ const Getdata = async () =>{
             </div>
             <div className="row">
               <a href="!#" className="readmore2-index seemore">
-                <h4 className="">
+                <h5 className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
                     className="ml-2"
                     size="sm"
                   ></MDBIcon>
-                </h4>
+                </h5>
               </a>
             </div>
           </div>
@@ -311,19 +311,19 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore3-index"
                     >
-                      <h5 className="">
+                      <h6 className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h5>
+                      </h6>
                     </a>
                   </MDBCardBody>
                   <div className="time3-index">
                     <MDBIcon far icon="clock" />
-                    <span>{element.datetime}</span>
+                    <span> {element.datetime}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -332,14 +332,14 @@ const Getdata = async () =>{
             </div>
             <div className="row">
               <a href="!#" className="readmore3-index seemore">
-                <h4 className="">
+                <h5 className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
                     className="ml-2"
                     size="sm"
                   ></MDBIcon>
-                </h4>
+                </h5>
               </a>
             </div>
           </div>
@@ -380,19 +380,19 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore4-index"
                     >
-                      <h5 className="">
+                      <h6 className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h5>
+                      </h6>
                     </a>
                   </MDBCardBody>
                   <div className="time4-index">
                     <MDBIcon far icon="clock" />
-                    <span>{element.datetime}</span>
+                    <span> {element.datetime}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -401,14 +401,14 @@ const Getdata = async () =>{
             </div>
             <div className="row">
               <a href="!#" className="readmore4-index seemore">
-                <h4 className="">
+                <h5 className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
                     className="ml-2"
                     size="sm"
                   ></MDBIcon>
-                </h4>
+                </h5>
               </a>
             </div>
           </div>
@@ -449,19 +449,19 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore5-index"
                     >
-                      <h5 className="">
+                      <h6 className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h5>
+                      </h6>
                     </a>
                   </MDBCardBody>
                   <div className="time5-index">
                     <MDBIcon far icon="clock" />
-                    <span>{element.datetime}</span>
+                    <span> {element.datetime}</span>
                   </div>
                 </MDBCard>
               </div>
@@ -470,14 +470,14 @@ const Getdata = async () =>{
             </div>
             <div className="row">
               <a href="!#" className="readmore5-index seemore">
-                <h4 className="">
+                <h5 className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
                     className="ml-2"
                     size="sm"
                   ></MDBIcon>
-                </h4>
+                </h5>
               </a>
             </div>
           </div>

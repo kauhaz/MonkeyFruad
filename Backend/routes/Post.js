@@ -46,7 +46,7 @@ const uploadFile = (req, res, next) =>{
   const upload2 = upload.fields([{name: "photo" ,maxCount:1} , {name: "eiei" , maxCount:10} ])
   upload2(req, res, function (err) {
       if (err instanceof multer.MulterError) {
-        return res.status(400).json({msg : "** ไฟล์รูปต้องมีขนาดไม่เกิน 1 MB **"})
+        return res.status(400).json({msg : "** ไฟล์รูปรวมกันต้องมีขนาดไม่เกิน 1 MB **"})
       } else if (err) {
         return res.status(400).json({msg : err.message})
       } 
@@ -79,9 +79,11 @@ router.post("/create",uploadFile,async(req, res) => {
       return res.status(400).json({msg : "** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **"})
     }
     else if(file && files ){
+        //single photo
       const resultfile = await cloudinary.uploader.upload(file[0].path)
-      const {url,public_id} = resultfile
-      const resultfileitem = {url,public_id}
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -90,7 +92,7 @@ router.post("/create",uploadFile,async(req, res) => {
         item.push({url,public_id})
       }
       
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank, datetime,social,other,uid,useruid,date,resultfileitem,item,username , photoURL})
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank, datetime,social,other,uid,useruid,date,resultfile : singlephoto,item,username , photoURL})
 
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
@@ -117,9 +119,9 @@ router.post("/create",uploadFile,async(req, res) => {
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path)
-      const {url,public_id} = resultfile
-      const resultfileitem = {url,public_id}
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfileitem,username , photoURL})
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfile : singlephoto,username , photoURL})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -145,6 +147,7 @@ router.post("/create",uploadFile,async(req, res) => {
 
     }
     else if(files){
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -217,15 +220,23 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     let file = req.files.photo
     let files = req.files.eiei
   let uid = req.params.uid
+
+ 
   // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
+  const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
+  var {datetime} = req.body
+
+  const newmoney = Number(money)
     moment.locale('th')
     const date =  moment().format('lll')
-  const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
-  let {datetime} = req.body
-  const newmoney = Number(money)
   datetime = moment(datetime).format('lll')
+
     if(file && files){
+      //single photo
       const resultfile = await cloudinary.uploader.upload(file[0].path )
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -233,7 +244,8 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         let {url,public_id} = resultfiles
         item.push({url,public_id})
       }
-      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item,username , photoURL})
+  
+      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile : singlephoto,item})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       getpost.get().then((doc)=>{
         let items = []
@@ -252,12 +264,15 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        
       })
 
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,username , photoURL})
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile : singlephoto})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -283,6 +298,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 
     }
     else if(files){
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -291,7 +307,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         item.push({url,public_id})
       }
       console.log(item)
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,item,username , photoURL})
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,item})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -317,11 +333,9 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 
     }
    else if(!file && !files){
-    const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,username , photoURL})
+     await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,social,other,date,datetime})
     const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
-      
     getpost.get().then((doc)=>{
-   
       let items = []
    
       doc.forEach(doc2 =>{
@@ -340,14 +354,18 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       const wanteedon = items[0].datetime
 
       const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+    }
+    ).catch((err)=>{
+      console.log(err)
     })
 
    } 
+  
    return res.json({
       success : "แก้ไขสำเร็จ"
     })
   }catch(err){
-   return res.status(500).json({msg : err})
+   console.log(err)
   }
   
 });
@@ -360,21 +378,22 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 router.get("/edit/:uid",async (req, res) => {
   let uid = req.params.uid
   try{
-    
+    var item = []
+    let Datetime = null
     const showdata = await firestore.collection("Post").where("uid", "==", uid).get()
     showdata.forEach(doc =>{
-      let item = []
-      console.log(item)
-      item.push(doc.data())
-      return  res.json({
-        item
-      })
+      item.push(doc.data()) 
+      Datetime =  moment(doc.get("datetime"),"lll","th").locale('en').format('YYYY-MM-DDTHH:mm');
+      var locale = moment()._locale._abbr;
+      console.log( Datetime)
+      console.log( locale)
     })
-  
+    return  res.json({
+      item:item,datetime:Datetime
+    })
   }catch(err){
     console.log(err)
   }
-
 });
 
 
@@ -557,12 +576,12 @@ router.get("/orderbywebsite",async (req, res) => {
 router.post("/comment/:id", async (req, res) => {
    try{
     
-    const { textcomment , username , userid} = req.body
+    const { textcomment , username , userid , photoURL} = req.body
       const postid = req.params.id
       const uuid = uuidv4()
       moment.locale()
       const datetime = moment().format('LTS')
-      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid })
+      const savetodb = await firestore.collection("Comment").doc(uuid).set({ commentid : uuid , postid , username ,textcomment, datetime , userid , photoURL })
     
       
    }catch(err){
@@ -570,39 +589,37 @@ router.post("/comment/:id", async (req, res) => {
    }
   });
 
-  // router.get("/comment/:id", async (req, res) => {
-  //   try{  
+ 
 
-  //     let idpost = req.params.id
-      
-  //      const getcomment = await firestore.collection("Comment").where("postid" , "==" , idpost ).orderBy("datetime", "desc")
-    
-  //     //  const userpost = await firestore.collection("User").where(uid , "==" ,  ).get()
-  //     getcomment.get().then((doc)=>{
-  //       let item = []
-  //       doc.forEach( doc2 =>{
-  //        item.push(doc2.data())
-
-  //       })
-       
-        
-  //         return res.json({
-  //            item
-  //          })
-       
-  //       })
-  //   }catch(err){
-  //     return res.status(500).json({
-  //       msg : err
-  //     })
-  //   }
-  //  });
-
-
-  router.get("/comment/:id", async (req, res) => {
+  router.get("/commentmore/:id", async (req, res) => {
     try{  
       let postid = req.params.id
        const getcomment = await firestore.collection("Comment").where("postid" , "==" , postid ).orderBy("datetime" , "desc")
+     
+      getcomment.get().then((doc)=>{
+        let item = []
+        doc.forEach(doc2 =>{
+         item.push(doc2.data())
+
+        })
+
+          console.log(item)
+          return res.json({
+             item
+           })
+       
+        })
+    }catch(err){
+      return res.status(500).json({
+        msg : err
+      })
+    }
+   });
+
+   router.get("/comment/:id", async (req, res) => {
+    try{  
+      let postid = req.params.id
+       const getcomment = await firestore.collection("Comment").where("postid" , "==" , postid ).orderBy("datetime" , "desc").limit(3)
       
       getcomment.get().then((doc)=>{
         let item = []
@@ -641,15 +658,19 @@ router.post("/comment/:id", async (req, res) => {
   router.post("/edit/comment/:id",async (req, res) => {
     try{
       let id = req.params.id
-      let {textcomment} = req.body
-  
-      if(textcomment == ""){
+      let {edittextcomment} = req.body
+      
+      if(edittextcomment == ""){
         const commentdelete = await firestore.collection("Comment").doc(id).delete()
+        return  res.json({ success: "Delete" });
       }
       else{
-        const commentedit = await firestore.collection("Comment").doc(id).update({textcomment})
+        const commentedit = await firestore.collection("Comment").doc(id).update({ textcomment : edittextcomment})
+        return  res.json({ success: "Edit" });
       }
+      
     }catch(err){
+      console.log(err)
      return res.status(500).json({msg : err})
     }
     

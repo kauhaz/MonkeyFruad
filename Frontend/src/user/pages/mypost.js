@@ -36,25 +36,21 @@ const Mypost = () => {
   const [data, Setdata] = useState();
   const [textcomment, Settextcomment] = useState();
   const [allcomment, Setallcomment] = useState();
+  const [click, Setclick] = useState();
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
-  const ImageHoverZoom = ({ imagePreviewUrl }) => {};
-  // let user2 = auth.currentUser;
+
+
 
   const deleted = async (uid) => {
-
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
-    // console.log(postdelete.data);
-    // const ok = await Axios.post("http://localhost:7000/post/postapi", {
-    //   result: user,
-    // });
-    // console.log(ok.data.item);
-    // Setmypost(ok.data.item);
+ 
     history.push("/post/history");
+    
   
 };
   const ok = async () => {
@@ -69,30 +65,19 @@ const Mypost = () => {
       Setphoto(profiledata.data.data.photoURL);
       Setmypost(ok.data.item);
       Setdata(nameuser.data.item);
+
+    
     
    
     } catch (err) {
       console.log(err);
     }
   };
-console.log(mypost)
+
   useEffect(() => {
     ok();
   }, []);
 
-  const handlecomment = async (e) =>{
-    try{
-      e.preventDefault()
-      let sentdata = {textcomment , username : data[0].username , userid : user.uid}
-      
-      const sentcomment = await Axios.post(`http://localhost:7000/post/comment/${uid}`, sentdata)
-      // const getcomment = await Axios.get(`http://localhost:7000/post/comment/${uid}`)
-      // Setallcomment(getcomment.data.item)
-      
-    }catch(err){
-      console.log(err)
-    }
-  }
 
   return (
     <div className="allpage">
@@ -116,13 +101,7 @@ console.log(mypost)
                       </div>
                     </div>
 
-                    {/* <div className="mypostbuttonshared">
-                      <a className="mypostbuttonshare" href="/post/edit">
-                        <i class="fa fa-share"></i>
-                      </a>
-                    </div> */}
-
-                    <div className="container-mypostsetiing">
+                    {user && user.uid == ok.useruid ? <div className="container-mypostsetiing">
                       <div className="menu-containermypostsetting">
                         <div onClick={onClick} className="mypostbuttonsetting">
                           <img
@@ -159,20 +138,21 @@ console.log(mypost)
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> : null}
+                   
 
                     <div className="container-mypost3">
                       <div className="mypostprofile-bad-img">
-                        {ok.resultfileitem ? (
+                        {ok.resultfile ? (
                           <img
                             className="img-circle"
-                            src={`${ok.resultfileitem.url}`}
+                            src={`${ok.resultfile.url}`}
                           />
                         ) : (
                           <img className="img-circle" src="/img/profile.png" />
                         )}
                       </div>
-                      <Form className="formsize-mypost" onSubmit={handlecomment}>
+                      <Form className="formsize-mypost" >
                         <Form.Row>
                           <Form.Group
                             as={Col}
@@ -323,35 +303,7 @@ console.log(mypost)
 
                         {/* <div className="line-comment2"></div> */}
                       </div>
-                      <h2 className="commentother">ดูอีก 3 ความคิดเห็น</h2>
-                      <div className="row mypost-comment-comments2">
-                        <div className="mypost-profilecomment-img">
-                        {photo ? <img className="img-circle" src={`${photo.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
-                          
-                        </div>
-                     
-                        <div className="row mypost-comment-commentsall">
-                       
-                          <div
-                            className="mypost-writecommemt col-lg-6 col-10"
-                            controlId="exampleForm.ControlTextarea1"
-                          >
-                         
-                            <input className="inputcomment" placeholder="เขียนความคิดเห็น..." value={textcomment} onChange={(e) =>{Settextcomment(e.target.value)}}/>
-                          </div>
-
-                          <div>
-                            <div className="column2 mypostbuttonsend">
-                              <button className="mypostbuttonsends" type="submit">
-                                <i className="fa fa-paper-plane"></i>
-                              </button>
-                            </div>
-                       
-                          </div>
-                       
-                        </div>
-                       
-                      </div>
+                  
                       </Form>
                     </div>
                   </div>
