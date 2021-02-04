@@ -386,7 +386,13 @@ const Formedit = () => {
           </Form.File.Label>
            
           <br></br> 
+
+          
+          <div className="container-img-holder-imgpreviewedit">
+          <label>
+          <img className="uploadprove" src="/img/addphoto.png" />
           <input
+             id="FileInput"
             className="uploadsformedituploadslip"
             type="file"
             onChange={FileUpload}
@@ -394,10 +400,8 @@ const Formedit = () => {
             accept="image/png, image/jpeg , image/jpg"
             
           />
+          </label>
 
-           <h1 className="h1-formpostfileerror">{error}</h1> 
-
-          <div className="container-img-holder-imgpreviewedit">
             {imagesFile ? imagesFile.map((imagePreviewUrl) => {
               return (
                 <img
@@ -416,14 +420,10 @@ const Formedit = () => {
            )
            }) : null }
              
-
-        
           </div>
             
-          {/* <Form.Row className="linkrule1">
-            <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
-          </Form.Row> */}
-
+           <h1 className="h1-formpostfileerror">{error}</h1> 
+      
           <button className="buttonformedit" variant="success" type="submit">
             โพสต์
           </button>

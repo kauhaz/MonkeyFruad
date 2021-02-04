@@ -36,7 +36,16 @@
     width: 20px;
 }
 
+.uploadprove{ 
+    width: 100px;
+}
+
 #FileInput{ 
+    cursor: pointer;  
+    display: none;
+}
+
+.FileInput{ 
     cursor: pointer;  
     display: none;
 }

@@ -344,17 +344,23 @@ let history = useHistory()
           </Form.File.Label>
                 
           <br></br>
+
+          
+          <div className="container-img-holder-imgpreview">
+          <label>
+          <img className="uploadprove" src="/img/addphoto.png" />
           <input
+            id="FileInput"
             className="uploadsformpostuploadslip"
             type="file"
             onChange={FileUpload}
             multiple
             accept="image/png, image/jpeg , image/jpg"
           />
-         
-          <h1 className="h1-formpostfileerror">{error}</h1> 
 
-          <div className="container-img-holder-imgpreview">
+           </label>
+
+
             {imagesFile.map((imagePreviewUrl) => {
               return (
                 <img
@@ -369,7 +375,11 @@ let history = useHistory()
               );
             })}
 
-          </div>
+       
+           </div>
+          <h1 className="h1-formpostfileerror">{error}</h1> 
+
+         
 
            {/* <Form.Row className="linkrule1">
             <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
