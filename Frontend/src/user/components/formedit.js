@@ -395,7 +395,7 @@ const Formedit = ({check , Setcheck}) => {
           
           <div className="container-img-holder-imgpreviewedit">
           <label>
-          <img className="uploadprove" src="/img/addphoto.png" />
+          <img className="uploadprove" src="/img/addimage.png" />
           <input
              id="FileInput"
             className="uploadsformedituploadslip"

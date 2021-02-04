@@ -347,7 +347,7 @@ let history = useHistory()
           
           <div className="container-img-holder-imgpreview">
           <label>
-          <img className="uploadprove" src="/img/addphoto.png" />
+          <img className="uploadprove" src="/img/addimage.png" />
           <input
             id="FileInput"
             className="uploadsformpostuploadslip"
