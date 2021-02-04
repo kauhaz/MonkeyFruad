@@ -219,6 +219,7 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
   try {
     let file = req.files.photo;
     let uid = req.params.uid;
+  
     const {
       firstname,username,surname,sex,phone,province
     } = req.body;
@@ -226,7 +227,7 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
       const resultfile = await cloudinary.uploader.upload(file[0].path);
       const {url,public_id} = resultfile
       const photoURL = {url,public_id}
-      const showdata = await firestore.collection("Post")
+      const showdata = await firestore.collection("Post").where("useruid" , "==" , uid)
       showdata.get().then(ok =>{
         let item = [];
         ok.forEach((doc) => {
