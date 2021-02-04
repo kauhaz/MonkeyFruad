@@ -170,6 +170,7 @@ const NavbarPage = () => {
                     <MDBDropdownItem href="/post/history">
                       ประวัติการโพสต์
                     </MDBDropdownItem>
+                    <div className="line-nav"></div>
                     <MDBDropdownItem href="/login" onClick={logout}>
                       ออกจากระบบ
                     </MDBDropdownItem>

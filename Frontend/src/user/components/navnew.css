@@ -43,4 +43,42 @@
 .dropdown-menu-right{
     position: fixed !important;
     margin-left: -160px !important;
+    margin-top: 10px !important;
 }
+
+.dropdown-item{
+    color: #5c5c5c !important; 
+}
+.dropdown-item:hover{
+    background-color: rgb(236, 234, 234) !important;
+}
+
+
+/*reponsive*/
+@media only screen and (max-width: 1366px) {
+    .navbarnew {
+        font-size: 17px;
+    }
+    .logo-nav{
+        width: 100px;
+    }
+    .box-nav{
+        width: 200px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .button-nav{
+        width: 55px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+
+  }
+  
+@media only screen and (max-width: 414px) {
+
+  }
+  
