@@ -63,7 +63,7 @@ const Getdata = async () =>{
       <NavbarPage />
       {/* <h1 className="h1-index">หน้าหลัก</h1> */}
       <div className="container1-index">
-        <div className="row">
+        <div className="row-section1">
           <div className="column1-index">
             <div className="text1-index">ค้นหาผ่านเว็บไซต์ของเราได้ที่นี่</div>
             <MDBCol>
