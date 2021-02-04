@@ -1,12 +1,13 @@
 import React from 'react'
-import SyncLoader from "react-spinners/SyncLoader";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 const Loading = ({loading}) => {
     
     return (
         <div>
-            <SyncLoader color="#1674E0" loading={loading}  size={130}  />
+            <PacmanLoader color="#1674E0" loading={loading}  size={99} css />
+            <span color="#1674E0" > กำลังโหลด </span>
         </div>
     )
 }

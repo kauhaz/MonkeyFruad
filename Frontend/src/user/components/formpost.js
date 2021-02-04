@@ -83,8 +83,7 @@ let history = useHistory()
   const handlesubmit = async (e) =>{
     try{
       e.preventDefault()
-      Setloading(true)
-      Setcheck(true)
+    
       let formdata = new FormData()
       let useruid = user.uid
       _.forEach(files ,file =>{
@@ -106,10 +105,13 @@ let history = useHistory()
       formdata.append("username" , username)
       formdata.append("photoprofilepublic_id" , photoprofilepublic_id)
       formdata.append("photoprofileurl" , photoprofileurl)
+      Setloading(true)
+      Setcheck(true)
       const a = await Axios.post("http://localhost:7000/post/create", formdata) 
       Setloading(false)
         history.push("/post/history")
     }catch(err){
+      Setloading(false) 
       err && Seterror(err.response.data.msg)
     }
   
@@ -122,6 +124,7 @@ let history = useHistory()
         Setphotoprofilepublic_id(profiledata.data.data.photoURL.public_id);
     }
     catch (err){
+ 
       console.log(err)
     }
   

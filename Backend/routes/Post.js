@@ -46,7 +46,7 @@ const uploadFile = (req, res, next) =>{
   const upload2 = upload.fields([{name: "photo" ,maxCount:1} , {name: "eiei" , maxCount:10} ])
   upload2(req, res, function (err) {
       if (err instanceof multer.MulterError) {
-        return res.status(400).json({msg : "** ไฟล์รูปต้องมีขนาดไม่เกิน 1 MB **"})
+        return res.status(400).json({msg : "** ไฟล์รูปรวมกันต้องมีขนาดไม่เกิน 1 MB **"})
       } else if (err) {
         return res.status(400).json({msg : err.message})
       } 
@@ -79,9 +79,11 @@ router.post("/create",uploadFile,async(req, res) => {
       return res.status(400).json({msg : "** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **"})
     }
     else if(file && files ){
+        //single photo
       const resultfile = await cloudinary.uploader.upload(file[0].path)
-      const {url,public_id} = resultfile
-      const resultfileitem = {url,public_id}
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -90,7 +92,7 @@ router.post("/create",uploadFile,async(req, res) => {
         item.push({url,public_id})
       }
       
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank, datetime,social,other,uid,useruid,date,resultfileitem,item,username , photoURL})
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank, datetime,social,other,uid,useruid,date,resultfile : singlephoto,item,username , photoURL})
 
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
@@ -117,9 +119,9 @@ router.post("/create",uploadFile,async(req, res) => {
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path)
-      const {url,public_id} = resultfile
-      const resultfileitem = {url,public_id}
-      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfileitem,username , photoURL})
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      const create = await firestore.collection("Post").doc(uid).set({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,uid,useruid,date,resultfile : singlephoto,username , photoURL})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -145,6 +147,7 @@ router.post("/create",uploadFile,async(req, res) => {
 
     }
     else if(files){
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -217,16 +220,23 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     let file = req.files.photo
     let files = req.files.eiei
   let uid = req.params.uid
+
+ 
   // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
   const {name,surname,id,accountnumber,nameproduct,productcategory,money,bank,social,other} = req.body
   var {datetime} = req.body
-  console.log( typeof datetime)
+
   const newmoney = Number(money)
     moment.locale('th')
     const date =  moment().format('lll')
   datetime = moment(datetime).format('lll')
+
     if(file && files){
+      //single photo
       const resultfile = await cloudinary.uploader.upload(file[0].path )
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -234,8 +244,8 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
         let {url,public_id} = resultfiles
         item.push({url,public_id})
       }
-      console.log("OK")
-      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile,item})
+  
+      const update = await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile : singlephoto,item})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       getpost.get().then((doc)=>{
         let items = []
@@ -260,7 +270,9 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     }
     else if(file){
       const resultfile = await cloudinary.uploader.upload(file[0].path )
-      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile})
+      let {url ,public_id} = resultfile
+      let singlephoto = {url , public_id}
+      const update =await firestore.collection("Post").doc(uid).update({name,surname,id,accountnumber,nameproduct,productcategory,money : newmoney,bank,datetime,social,other,date,resultfile : singlephoto})
       const getpost = await firestore.collection("Post").where("accountnumber" , "==" , accountnumber).orderBy("datetime", "desc")
       
       getpost.get().then((doc)=>{
@@ -286,6 +298,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
 
     }
     else if(files){
+        //multi photo
       let item = []
       for(const file of files){
         const {path} = file
@@ -347,6 +360,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
     })
 
    } 
+  
    return res.json({
       success : "แก้ไขสำเร็จ"
     })
