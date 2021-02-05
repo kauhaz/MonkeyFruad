@@ -1,32 +1,79 @@
-
 const express = require("express"),
-passport = require("passport");
+  passport = require("passport");
 
 router = express.Router();
-const {firestore} = require("../models/index")
+const { firestore } = require("../models/index");
 const admin = require("firebase-admin");
-const moment = require("moment")
-const { v4: uuidv4, NIL } = require('uuid');
-const cloudinary = require("../utils/cloudinary")
+const moment = require("moment");
+const { v4: uuidv4, NIL } = require("uuid");
+const cloudinary = require("../utils/cloudinary");
 const multer = require("multer");
 const path = require("path");
 const e = require("express");
 const { text } = require("body-parser");
 
-router.get("/orderbycount",async(req, res) => {
-    try{
-       var data = []
-      const orderbycount = await firestore.collection("Thief").orderBy("count","desc").limit(3).get()
-      .then((querySnapshot)=>{
-        querySnapshot.forEach((doc)=>{
-          if(doc.exists)
-          {
-             data.push(doc.data())
+router.get("/orderbycount", async (req, res) => {
+  try {
+    var data = [];
+    const orderbycount = await firestore
+      .collection("Thief")
+      .orderBy("count", "desc")
+      .limit(3)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
           }
-        })
-      }).catch((err)=>{
-          console.log(err)
+        });
       })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+router.get("/orderbycount", async (req, res) => {
+  try {
+    var data = [];
+    const orderbycount = await firestore
+      .collection("Thief")
+      .orderBy("count", "desc")
+      .limit(3)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+router.get("/rankcount", async (req, res) => {
+  try {
+    var data = [];
+    const orderbycount = await firestore
+      .collection("Thief")
+      .orderBy("count", "desc")
+      .limit(10)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+<<<<<<< HEAD
       return res.json({data:data})
     }catch(err){
      return res.status(500).json({msg : err})
@@ -84,3 +131,61 @@ router.get("/post/:uid",async(req, res) => {
 
   
 module.exports = router;
+=======
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+router.get("/ranksummoney", async (req, res) => {
+  try {
+    var data = [];
+    const orderbycount = await firestore
+      .collection("Thief")
+      .orderBy("summoney", "desc")
+      .limit(10)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+router.get("/rankdatetime", async (req, res) => {
+  try {
+    var data = [];
+    const orderbycount = await firestore
+      .collection("Thief")
+      .orderBy("datetime", "desc")
+      .limit(10)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
+module.exports = router;
+>>>>>>> b4128ff93053f8c4682551e29da96d56aa1eada7

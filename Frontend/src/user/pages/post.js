@@ -152,11 +152,11 @@ const Post = () => {
                       className="post-left col-lg-6 col-12"
                       controlId="formGridPrice"
                     >
-                      <Form.Label>จำนวนเงิน (บาท)</Form.Label>
+                      <Form.Label>จำนวนเงิน</Form.Label>
                     </Form.Group>
 
                     <Form.Group>
-                      <span className="spanpost">{res.money} </span>
+                      <span className="spanpost">{res.money} บาท</span>
                     </Form.Group>
                   </Form.Row>
 
@@ -171,6 +171,33 @@ const Post = () => {
 
                     <Form.Group>
                       <span className="spanpost">{res.date} </span>
+                    </Form.Group>
+                    
+                  </Form.Row>
+
+                  <Form.Row>
+                    <Form.Group
+                      as={Col}
+                      className="post-left col-lg-6 col-12"
+                      controlId="formGridDate"
+                    >
+                      <Form.Label>จำนวนครั้งที่ {res.name} {res.surname} ถูกแจ้ง </Form.Label>
+                    </Form.Group>
+                  <Form.Group>
+                      <span className="spanpost">{res.count} ครั้ง</span>
+                    </Form.Group>
+                    </Form.Row>
+                        <Form.Row>
+                    <Form.Group
+                      as={Col}
+                      className="post-left col-lg-6 col-12"
+                      controlId="formGridPrice"
+                    >
+                      <Form.Label> ยอดเงินรวมทั้งหมดที่โกงไป  </Form.Label>
+                    </Form.Group>
+
+                    <Form.Group>
+                      <span className="spanpost">{res.summoney} บาท</span>
                     </Form.Group>
                   </Form.Row>
                   </Form>
