@@ -73,7 +73,6 @@ router.get("/rankcount", async (req, res) => {
           }
         });
       })
-<<<<<<< HEAD
       return res.json({data:data})
     }catch(err){
      return res.status(500).json({msg : err})
@@ -130,16 +129,7 @@ router.get("/post/:uid",async(req, res) => {
 
 
   
-module.exports = router;
-=======
-      .catch((err) => {
-        console.log(err);
-      });
-    return res.json({ data: data });
-  } catch (err) {
-    return res.status(500).json({ msg: err });
-  }
-});
+
 router.get("/ranksummoney", async (req, res) => {
   try {
     var data = [];
@@ -188,4 +178,3 @@ router.get("/rankdatetime", async (req, res) => {
 });
 
 module.exports = router;
->>>>>>> b4128ff93053f8c4682551e29da96d56aa1eada7

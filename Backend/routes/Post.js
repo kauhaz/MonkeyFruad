@@ -1075,81 +1075,10 @@ router.get("/post/report", async (req, res) => {
         .get()
         .where("postid", "==", `${reportdata[i].postid}`);
       postdata.push(query);
-      const query = await firestore
-        .collection("Repostcount")
-        .get()
-        .where("postid", "==", `${reportdata[i].postid}`);
-      reportcount.push(query);
     }
-<<<<<<< HEAD
-    
-  });
-
-
-
-  
-router.get("/thief",async (req, res) => {
-  try{
-      const showdata = await firestore.collection("Post").orderBy("date" , "desc" )
-      showdata.get().then(ok =>{
-        let item = [];
-        ok.forEach((doc) => {
-          item.push(doc.data())
-        });
-        return  res.json({
-          item
-        })
-  })
-  }catch(err){
-   return res.status(500).json({msg : err})
-  }
-  
-});
-  // router.post("/search",async (req, res) => {
-  //   try{
-  //     const {data} = req.body
-  //     // console.log(data)
-     
-  //       const findpost = await firestore.collection("Post")
-  //       findpost.get().then(doc =>{
-  //         let item = []
-  //         doc.forEach(doc2 =>{ 
-         
-  //           item.push(doc2.data())
-  //         })
-  //         console.log(item)
-  //         return res.json({
-  //           item
-  //         })
-  //       })
-
-  //     }
-      
-  //   }catch(err){
-  //     console.log(err)
-  //    return res.status(500).json({msg : err})
-  //   }
-    
-  // });
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-// const userRef = firestore.collection("User")
-
-
-
-=======
   } catch (err) {
     console.log(err);
   }
 });
->>>>>>> b4128ff93053f8c4682551e29da96d56aa1eada7
 
 module.exports = router;
