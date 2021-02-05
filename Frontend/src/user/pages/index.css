@@ -223,8 +223,13 @@
     color: #5c5c5c;
     margin-bottom: 15px;
     margin-top: 0px;
+  
 }
-
+.Fall-crisp{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 .time-index{
     background-color: #3b5999;
     color: white;

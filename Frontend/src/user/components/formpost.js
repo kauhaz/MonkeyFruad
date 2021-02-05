@@ -76,8 +76,9 @@ const Formpost = ({check , Setcheck}) => {
         //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
       };
     }
-
   }
+
+
 var user = auth.currentUser
 let history = useHistory()
   const handlesubmit = async (e) =>{
@@ -111,7 +112,8 @@ let history = useHistory()
       Setloading(false)
         history.push("/post/history")
     }catch(err){
-      Setloading(false) 
+      Setloading(false)
+      Setcheck(false) 
       err && Seterror(err.response.data.msg)
     }
   
@@ -319,14 +321,6 @@ let history = useHistory()
                 <option>Twitter</option>
                 <option>Line</option>
                 <option>Website</option>
-              {/* <select  required onChange={(event)=>{setSocial(event.target.value)}}>
-          <option value="" selected disabled hidden>กรุณาเลือก...</option>
-                <option>Facebook</option>
-                <option>Instagram</option>
-                <option>Twitter</option>
-                <option>Line</option>
-                <option>Website</option>
-          </select> */}
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -355,7 +349,7 @@ let history = useHistory()
           
           <div className="container-img-holder-imgpreview">
           <label>
-          <img className="uploadprove" src="/img/addphoto.png" />
+          <img className="uploadprove" src="/img/addimage.png" />
           <input
             id="FileInput"
             className="uploadsformpostuploadslip"
@@ -382,15 +376,10 @@ let history = useHistory()
               );
             })}
 
-       
            </div>
+
+
           <h1 className="h1-formpostfileerror">{error}</h1> 
-
-         
-
-           {/* <Form.Row className="linkrule1">
-            <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
-          </Form.Row> */}
 
           <button className="buttonformpost" type="submit" >
             โพสต์
