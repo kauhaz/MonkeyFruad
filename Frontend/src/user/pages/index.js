@@ -163,9 +163,8 @@ const Getdata = async () =>{
                     <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p  className="text7-index">
-                     สินค้า : {element.nameproduct}
+                      สินค้า : {element.nameproduct}<br />
                       เลขที่บัญชี : {element.accountnumber} 
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
@@ -237,9 +236,9 @@ const Getdata = async () =>{
                   <div className="Fall-crisp">
                     <strong className="text5-index"> {element.name} {element.surname}{element.nameproduct}</strong>
                     <hr />
-                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
-                      เลขที่บัญชี : {element.accountnumber}
+                      สินค้า : {element.nameproduct} <br />
+                      เลขบัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
                       วันที่โดนโกง : {element.datetime} บาท <br />
@@ -309,8 +308,8 @@ const Getdata = async () =>{
                   <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">สินค้า : {element.nameproduct}</strong>
                     <p className="text7-index">
+                      สินค้า : {element.nameproduct}
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />
@@ -381,8 +380,8 @@ const Getdata = async () =>{
                   <div className="Fall-crisp">
                     <strong className="text5-index">{element.name} {element.surname}</strong>
                     <hr />
-                    <strong className="text6-index">สินค้า : {element.nameproduct}{element.name} </strong>
                     <p className="text7-index">
+                      สินค้า : {element.nameproduct}{element.name} 
                       เลขที่บัญชี : {element.accountnumber}
                       <br />
                       จำนวนเงิน : {element.money} บาท <br />

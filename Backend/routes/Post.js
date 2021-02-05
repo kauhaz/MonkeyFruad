@@ -127,6 +127,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
        const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update =  firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
     }
     else if(file){
@@ -155,6 +156,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update = firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -191,6 +193,7 @@ router.post("/create",uploadFile,async(req, res) => {
         const wanteedon = items[0].datetime
 
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update =  firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -217,6 +220,7 @@ router.post("/create",uploadFile,async(req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update =  firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -276,7 +280,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
-        
+        const update = firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -306,6 +310,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update =  firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -341,6 +346,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       
         const wanteedon = items[0].datetime
         const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+        const update = firestore.collection("Post").doc(uid).update({count,summoney: sum})
       })
 
     }
@@ -366,6 +372,7 @@ router.post("/edit/:uid",uploadFile,async (req, res) => {
       const wanteedon = items[0].datetime
 
       const Thief = firestore.collection("Thief").doc(accountnumber).set({name,surname,accountnumber,summoney : sum,bank,wanteedon,count})
+      const update = firestore.collection("Post").doc(uid).update({count,summoney: sum})
     }
     ).catch((err)=>{
       console.log(err)
@@ -481,6 +488,7 @@ console.log(err)
 router.get("/post",async (req, res) => {
   try{
       const showdata = await firestore.collection("Post").orderBy("date" , "desc" )
+
       showdata.get().then(ok =>{
         let item = [];
         ok.forEach((doc) => {
