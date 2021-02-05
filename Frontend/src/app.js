@@ -53,7 +53,7 @@ const App = () => {
     });
     
   }, []);
-  console.log(user)
+  
   return loadingAuth ? "" : (
    admin ? (
     <Router>

@@ -225,9 +225,10 @@ const NavbarPage = () => {
               <div>
                 {lastsearch ? lastsearch.map(doc =>{
                   let thiefid = doc.accountnumber
+                  console.log(thiefid)
                   return (<div> 
-           
-                   {haha ? <button onClick={() => history.push(`/thief/post/${thiefid}`)}><div>{doc.accountnumber}</div></button> : <button onClick={() => history.push(`/thief/post/${thiefid}`)}><div>{doc.name} {doc.surname}</div></button>} 
+         
+                   {haha ? <button onClick={() => (history.push(`/thief/post/${thiefid}` ),window.location.reload(true))}><div>{doc.accountnumber}</div></button> : <button onClick={() => (history.push(`/thief/post/${thiefid}`),window.location.reload(true))}><div>{doc.name} {doc.surname}</div></button>} 
                     {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
                     
                   </div>)

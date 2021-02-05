@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, useMemo } from "react";
+import { BrowserRouter as Router , Link , useHistory} from "react-router-dom";
 import NavbarPage from "../components/navnew";
 import usercontext from "../context/usercontext";
 import axios from "axios";
@@ -24,6 +25,12 @@ const Home = () => {
   const [LineCount, setLineCount] = useState();
   const [TwitterCount, setTwitterCount] = useState();
   const [WebsiteCount, setWebsiteCount] = useState();
+  const [search, Setsearch] = useState();
+  const [searching, Setsearching] = useState();
+  const [lastsearch,   Setlastsearch] = useState();
+  const [haha,   Sethaha] = useState();
+  const [role, Setrole] = useState();
+  let history = useHistory()
 const Getdata = async () =>{
   try {
     const thiefcount = await axios.get(
@@ -58,6 +65,53 @@ const Getdata = async () =>{
     await Getdata()
   }, []);
 
+
+  const ok = async() =>{
+    try{
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`)
+   
+      const getthief = getallthief.data.item
+      if(search){
+        Setlastsearch(getthief.filter( doc =>{
+          if(doc.accountnumber.startsWith(search))
+          {
+            Sethaha(true)
+            Setrole(false)
+        
+          }
+          if(doc.name.toLowerCase().startsWith(search.toLowerCase()))
+          {
+            Sethaha(false)
+            Setrole(true)
+     
+          }
+         if(doc.surname.toLowerCase().startsWith(search.toLowerCase()))
+         {
+            Sethaha(false)
+            Setrole(true)
+        
+          }
+          return (doc.name.toLowerCase().startsWith(search.toLowerCase()) || doc.surname.toLowerCase().startsWith(search.toLowerCase()) || doc.accountnumber.startsWith(search)
+          ) 
+      
+        
+        }))
+      }
+      if(!search){
+        Setlastsearch()
+      }
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+
+    ok()
+
+} , [search])
+
+
   return (
     <div>
       <NavbarPage />
@@ -74,12 +128,25 @@ const Getdata = async () =>{
                     type="text"
                     placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                     aria-label="Search"
+                    onChange={e => Setsearch(e.target.value)}
                   />
                   <button type="submit" className="button1-index">
                     ค้นหา
                   </button>
                 </div>
               </MDBFormInline>
+              <div>
+                {lastsearch ? lastsearch.map(doc =>{
+                  let thiefid = doc.accountnumber
+                  console.log(thiefid)
+                  return (<div> 
+         
+                   {haha ? <button onClick={() => (history.push(`/thief/post/${thiefid}` ),window.location.reload(true))}><div>{doc.accountnumber}</div></button> : <button onClick={() => (history.push(`/thief/post/${thiefid}`),window.location.reload(true))}><div>{doc.name} {doc.surname}</div></button>} 
+                    {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                    
+                  </div>)
+                }) :null}
+              </div>
             </MDBCol>
           </div>
           <div class="line-index"></div>
