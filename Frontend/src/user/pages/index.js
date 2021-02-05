@@ -112,20 +112,20 @@ const Getdata = async () =>{
                             จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
                             จำนวนเงินทั้งหมด : {element.summoney} บาท
                             <br />
-                            แจ้งล่าสุด : {element.wanteedon}
+                            ล่าสุด : {element.wanteedon}
                           </p>
                           <a
                             href="!#"
                             className="orange-text mt-1 d-flex justify-content-end align-items-center"
                           >
-                            <h6 className="readmore">
+                            <div className="readmore">
                               ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
                               <MDBIcon
                                 icon="chevron-right"
                                 className="ml-2"
                                 size="sm"
                               ></MDBIcon>
-                            </h6>
+                            </div>
                           </a>
                         </MDBCardBody>
                       </MDBCard>
@@ -172,14 +172,14 @@ const Getdata = async () =>{
                       href={`/mypost/${element.uid}`}
                       className="d-flex justify-content-end readmore1-index"
                     >
-                      <h6 className="">
+                      <div className="">
                         อ่านเพิ่มเติม{" "}
                         <MDBIcon
                           icon="chevron-right"
                           className="ml-2"
                           size="sm"
                         ></MDBIcon>
-                      </h6>
+                      </div>
                     </a>
                   </MDBCardBody>
                   <div className="time-index">
