@@ -210,19 +210,14 @@
     margin-top: -5px;
 }
 
-.text6-index{
-    font-size: 16px;
-    display: block;
-    margin-top: -5px;
-}
-
 .text7-index{
     text-align: left;
-    font-size: 14px ;
+    font-size: 13px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
     margin-bottom: 15px;
     margin-top: 0px;
+    margin-left: -1px;
   
 }
 .Fall-crisp{
@@ -239,6 +234,11 @@
     padding-top: 4px;
     border-radius: 0px 0px 2px 0px;
     margin-top: -20px;
+}
+
+.readmoresize-index{
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .readmore1-index{
@@ -413,11 +413,13 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
+    font-size: 25px;
 }
 
 /*Responsive*/ 
 @media only screen and (max-width: 1366px) {
     .container1-index{
+        width: 65%;
         height: 300px;
         margin-top: 80px;
         margin-bottom: 0px;
@@ -471,10 +473,11 @@
     }
     .container2-index{
         margin-bottom: 60px;
+        width: 65%;
     }
     .container3-index {
-        width: 60%;
-        height: 2720px;
+        width: 65%;
+        height: 2420px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 100px;
@@ -482,52 +485,37 @@
         font-family: 'Kanit', sans-serif;
     }
 
-    /*Facebook*/ 
-    .headfacebook-index{
-        width: 35%;
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 19px;
     }
-
     .image3-index{
         height: 150px;
     }
-
     .text5-index{
         font-size: 14px;
-        margin-top: -10px;
+        margin-top: -5px;
     }
-
-    .text6-index{
-        font-size: 14px;
-        margin-top: -10px;
-        margin-left: -5px;
-    }
-
     .text7-index{
-        font-size: 11px ;
+        font-size: 10px ;
         margin-bottom: 5px;
-        margin-top: 0px;
-        margin-left: -5px;
     }
-    .time-index{
-        background-color: #3b5999;
-        color: white;
-        font-size: 14px;
-        text-align: center;
-        height: 30px;
-        padding-top: 4px;
-        border-radius: 0px 0px 2px 0px;
-        margin-top: -20px;
+    .cardbody-index{
+        width: 150px;
+        margin-left: -8px;
     }
-
-    .readmore1-index{
-        color:  #3b5999;
-        font-size: 14px;
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 12px;
+        padding-top: 7px;
     }
-    .readmore1-index:hover{
-        color:  #2b406d;
+    .readmoresize-index{
+        font-size: 13px;
+        margin-right: -10px;
+        margin-top: 3px;
     }
-
+    .seemore{
+        font-size: 18px;
+    }
 
 }
 
