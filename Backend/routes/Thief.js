@@ -32,5 +32,55 @@ router.get("/orderbycount",async(req, res) => {
      return res.status(500).json({msg : err})
     }
 })
+
+router.get("/thief",async(req, res) => {
+  try{
+     var item = []
+    const orderbycount = await firestore.collection("Thief")
+    .get().then((querySnapshot)=>{
+      querySnapshot.forEach((doc)=>{
+        if(doc.exists)
+        {
+           item.push(doc.data())
+        }
+      })
+    }).catch((err)=>{
+        console.log(err)
+    })
+    return res.json({
+      item
+    })
+  }catch(err){
+   return res.status(500).json({msg : err})
+  }
+})
+
+router.get("/post/:uid",async(req, res) => {
+  try{
+  
+    let thiefid = req.params.uid
+    console.log(thiefid)
+     var item = []
+    const orderbycount = await firestore.collection("Post").where("accountnumber" , "==" , thiefid)
+    .get().then((querySnapshot)=>{
+      querySnapshot.forEach((doc)=>{
+        if(doc.exists)
+        {
+           item.push(doc.data())
+        }
+      })
+
+    }).catch((err)=>{
+        console.log(err)
+    })
+    return res.json({
+      item
+    })
+  }catch(err){
+   return res.status(500).json({msg : err})
+  }
+})
+
+
   
 module.exports = router;

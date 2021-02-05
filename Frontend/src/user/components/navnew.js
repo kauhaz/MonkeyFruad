@@ -14,7 +14,7 @@ import {
   MDBIcon,
   MDBBtn,
 } from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router , Link , useHistory} from "react-router-dom";
 import "./navnew.css";
 import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
@@ -23,10 +23,16 @@ import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 const NavbarPage = () => {
   var { user, setUser } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
-  const [role, setRole] = useState();
+  const [role, Setrole] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsopen] = useState(false);
+  const [search, Setsearch] = useState();
+  const [searching, Setsearching] = useState();
+  const [lastsearch,   Setlastsearch] = useState();
+  const [haha,   Sethaha] = useState();
+  let history = useHistory()
+
   const logout = () => {
     auth
       .signOut()
@@ -40,6 +46,11 @@ const NavbarPage = () => {
   const toggleCollapse = () => {
     setIsopen(!isOpen);
   };
+
+
+
+
+
   useMemo(async () => {
     if (user) {
        await axios
@@ -56,7 +67,64 @@ const NavbarPage = () => {
           });
     }
     setLoading(false);
+
+    
   }, [user]);
+
+  const ok = async() =>{
+    try{
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`)
+   
+      const getthief = getallthief.data.item
+      if(search){
+        Setlastsearch(getthief.filter( doc =>{
+          if(doc.accountnumber.startsWith(search))
+          {
+            Sethaha(true)
+            Setrole(false)
+        
+          }
+          if(doc.name.toLowerCase().startsWith(search.toLowerCase()))
+          {
+            Sethaha(false)
+            Setrole(true)
+     
+          }
+         if(doc.surname.toLowerCase().startsWith(search.toLowerCase()))
+         {
+            Sethaha(false)
+            Setrole(true)
+        
+          }
+          return (doc.name.toLowerCase().startsWith(search.toLowerCase()) || doc.surname.toLowerCase().startsWith(search.toLowerCase()) || doc.accountnumber.startsWith(search)
+          ) 
+      
+        
+        }))
+      }
+      if(!search){
+        Setlastsearch()
+      }
+    }catch(err){
+      console.log(err)
+    }
+   
+   
+  }
+
+ 
+
+  useEffect(() => {
+
+      ok()
+
+  } , [search])
+
+
+
+ 
+
+
   
   return loading ? (
     ""
@@ -151,9 +219,22 @@ const NavbarPage = () => {
                   type="text"
                   placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                   aria-label="Search"
+                  onChange={e => Setsearch(e.target.value)}
                 />
               </div>
+              <div>
+                {lastsearch ? lastsearch.map(doc =>{
+                  let thiefid = doc.accountnumber
+                  return (<div> 
+           
+                   {haha ? <button onClick={() => history.push(`/thief/post/${thiefid}`)}><div>{doc.accountnumber}</div></button> : <button onClick={() => history.push(`/thief/post/${thiefid}`)}><div>{doc.name} {doc.surname}</div></button>} 
+                    {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                    
+                  </div>)
+                }) :null}
+              </div>
             </MDBNavItem>
+            
             <button type="submit" className="button-nav">
               ค้นหา
             </button>

@@ -11,6 +11,7 @@ const multer = require("multer");
 const path = require("path");
 const e = require("express");
 const { text } = require("body-parser");
+const { search } = require("../utils/cloudinary");
 
 
 let storage = multer.diskStorage({
@@ -718,6 +719,56 @@ router.post("/comment/:id",uploadphotocomment, async (req, res) => {
     }
     
   });
+
+
+
+  
+router.get("/thief",async (req, res) => {
+  try{
+      const showdata = await firestore.collection("Post").orderBy("date" , "desc" )
+      showdata.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        return  res.json({
+          item
+        })
+  })
+  }catch(err){
+   return res.status(500).json({msg : err})
+  }
+  
+});
+  // router.post("/search",async (req, res) => {
+  //   try{
+  //     const {data} = req.body
+  //     // console.log(data)
+     
+  //       const findpost = await firestore.collection("Post")
+  //       findpost.get().then(doc =>{
+  //         let item = []
+  //         doc.forEach(doc2 =>{ 
+         
+  //           item.push(doc2.data())
+  //         })
+  //         console.log(item)
+  //         return res.json({
+  //           item
+  //         })
+  //       })
+
+  //     }
+      
+  //   }catch(err){
+  //     console.log(err)
+  //    return res.status(500).json({msg : err})
+  //   }
+    
+  // });
+  
+  
+  
   
   
   
