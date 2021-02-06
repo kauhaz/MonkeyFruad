@@ -209,10 +209,7 @@ const Post = () => {
               </div>
            
             
-            <h1 className="h1-post">
-              {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
-            </h1>
+  
            
                               <div className="line-post1"></div>
                               <div className="container-post6">

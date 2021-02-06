@@ -11,6 +11,7 @@ const multer = require("multer");
 const path = require("path");
 const e = require("express");
 const { text } = require("body-parser");
+const { search } = require("../utils/cloudinary");
 
 let storage = multer.diskStorage({
   // destination: (req,file,cb) =>{
@@ -1074,11 +1075,6 @@ router.get("/post/report", async (req, res) => {
         .get()
         .where("postid", "==", `${reportdata[i].postid}`);
       postdata.push(query);
-      const query = await firestore
-        .collection("Repostcount")
-        .get()
-        .where("postid", "==", `${reportdata[i].postid}`);
-      reportcount.push(query);
     }
   } catch (err) {
     console.log(err);
