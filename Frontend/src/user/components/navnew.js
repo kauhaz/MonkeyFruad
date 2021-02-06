@@ -12,21 +12,27 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
   MDBIcon,
-  MDBBtn
+  MDBBtn,
 } from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router , Link , useHistory} from "react-router-dom";
 import "./navnew.css";
-import { firestore, auth } from "../Frontfirebase";
+import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
-import { Navbar,Nav,NavDropdown,Form,FormControl } from 'react-bootstrap';
+import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 const NavbarPage = () => {
   var { user, setUser } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
-  const [role, setRole] = useState();
+  const [role, Setrole] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [isOpen,setIsopen] = useState(false)
+  const [isOpen, setIsopen] = useState(false);
+  const [search, Setsearch] = useState();
+  const [searching, Setsearching] = useState();
+  const [lastsearch,   Setlastsearch] = useState();
+  const [haha,   Sethaha] = useState();
+  let history = useHistory()
+
   const logout = () => {
     auth
       .signOut()
@@ -37,13 +43,17 @@ const NavbarPage = () => {
         console.log(err);
       });
   };
-const toggleCollapse = () => {
- setIsopen(!isOpen)
-}
-  useMemo(() => {
+  const toggleCollapse = () => {
+    setIsopen(!isOpen);
+  };
+
+
+
+
+
+  useMemo(async () => {
     if (user) {
-      if (user.displayName === null) {
-        axios
+       await axios
           .post("http://localhost:7000/user/session", { user: user })
           .then((result) => {
             if (result.data.data.role === "admin") {
@@ -55,63 +65,121 @@ const toggleCollapse = () => {
           .catch((err) => {
             console.log(err);
           });
-      } else {
-        setDisplayname(user.displayName);
-        setRole("user");
-      }
     }
     setLoading(false);
+
+    
   }, [user]);
-console.log(displayname)
+
+  const ok = async() =>{
+    try{
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`)
+   
+      const getthief = getallthief.data.item
+      if(search){
+        Setlastsearch(getthief.filter( doc =>{
+          if(doc.accountnumber.startsWith(search))
+          {
+            Sethaha(true)
+            Setrole(false)
+        
+          }
+          if(doc.name.toLowerCase().startsWith(search.toLowerCase()))
+          {
+            Sethaha(false)
+            Setrole(true)
+     
+          }
+         if(doc.surname.toLowerCase().startsWith(search.toLowerCase()))
+         {
+            Sethaha(false)
+            Setrole(true)
+        
+          }
+          return (doc.name.toLowerCase().startsWith(search.toLowerCase()) || doc.surname.toLowerCase().startsWith(search.toLowerCase()) || doc.accountnumber.startsWith(search)
+          ) 
+      
+        
+        }))
+      }
+      if(!search){
+        Setlastsearch()
+      }
+    }catch(err){
+      console.log(err)
+    }
+   
+   
+  }
+
+ 
+
+  useEffect(() => {
+
+      ok()
+
+  } , [search])
+
+
+
+ 
+
+
+  
   return loading ? (
     ""
-  ) : (( admin ? 
-    (
-      <Router>
-        <MDBNavbar light expand="md" className="navbarnew">
-          <MDBNavbarBrand href="/">
-            <img src="/img/logo-mf.png" className="logo-nav" />
-          </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={toggleCollapse} />
-          <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
-            <MDBNavbarNav left className="center-nav">
+  ) : admin ? (
+    <Router>
+      <MDBNavbar light expand="md" className="navbarnew">
+        <MDBNavbarBrand href="/">
+          <img src="/img/logo-mf.png" className="logo-nav" />
+        </MDBNavbarBrand>
+        <MDBNavbarToggler onClick={toggleCollapse} />
+        <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
+          <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
-            <Nav.Link href="/managepost"> จัดการโพสต์ </Nav.Link>
+              <Nav.Link href="/managepost"> จัดการโพสต์ </Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">ดูรายงาน</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="/non_verifypost">ยังไม่ตรวจสอบ</MDBDropdownItem>
-                    <MDBDropdownItem href="/verifypost">
+              <MDBDropdown>
+                <MDBDropdownToggle nav caret>
+                  <div className="d-none d-md-inline">ดูรายงาน</div>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default">
+                  <MDBDropdownItem href="/non_verifypost">
+                    ยังไม่ตรวจสอบ
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="/verifypost">
                     ตรวจสอบแล้ว
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-                </MDBNavItem>
-                <MDBNavItem>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+            <MDBNavItem>
               <Nav.Link href="/contractus">ติดต่อเรา</Nav.Link>
-              </MDBNavItem>
-              <MDBNavItem>
-              <Nav.Link onClick={logout} href="/login">ออกจากระบบ</Nav.Link>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBNavbar>
-      </Router>
+            </MDBNavItem>
+            <MDBNavItem>
+              <Nav.Link onClick={logout} href="/login">
+                ออกจากระบบ
+              </Nav.Link>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBNavbar>
+    </Router>
   ) : (
     <Router>
       <MDBNavbar light expand="md" className="navbarnew">
-        <Nav.Link href="/"><img src="/img/logo-mf.png" className="logo-nav" /></Nav.Link>
+        <Nav.Link href="/">
+          <img src="/img/logo-mf.png" className="logo-nav" />
+        </Nav.Link>
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">โพสต์</div>
+                  โพสต์
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="/post">โพสต์ทั้งหมด</MDBDropdownItem>
@@ -122,12 +190,12 @@ console.log(displayname)
               </MDBDropdown>
             </MDBNavItem>
             <MDBNavItem>
-                <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
+              <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown className="">
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">ช่วยเหลือ</div>
+                  ช่วยเหลือ
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="/prevent">
@@ -151,30 +219,47 @@ console.log(displayname)
                   type="text"
                   placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                   aria-label="Search"
+                  onChange={e => Setsearch(e.target.value)}
                 />
               </div>
+              <div>
+                {lastsearch ? lastsearch.map(doc =>{
+                  let thiefid = doc.accountnumber
+                  console.log(thiefid)
+                  return (<div> 
+         
+                   {haha ? <button onClick={() => (history.push(`/thief/post/${thiefid}` ),window.location.reload(true))}><div>{doc.accountnumber}</div></button> : <button onClick={() => (history.push(`/thief/post/${thiefid}`),window.location.reload(true))}><div>{doc.name} {doc.surname}</div></button>} 
+                    {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                    
+                  </div>)
+                }) :null}
+              </div>
             </MDBNavItem>
-            <button type="submit" className="button-nav">ค้นหา</button>
+            
+            <button type="submit" className="button-nav">
+              ค้นหา
+            </button>
             <MDBNavItem>
-              {user ? (
+            {user ? (
                 <MDBDropdown>
                   <MDBDropdownToggle nav caret left>
-                  <span>{displayname}</span>
+                    {displayname}
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default" right>
-                    <MDBDropdownItem href="/profile">
+                    <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
                     <MDBDropdownItem href="/post/history">
                       ประวัติการโพสต์
                     </MDBDropdownItem>
+                    <div className="line-nav"></div>
                     <MDBDropdownItem href="/login" onClick={logout}>
                       ออกจากระบบ
                     </MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               ) : (
-                <Nav.Link href="/login" >เข้าสู่ระบบ</Nav.Link>
+                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
               )}
             </MDBNavItem>
           </MDBNavbarNav>
@@ -182,7 +267,6 @@ console.log(displayname)
       </MDBNavbar>
     </Router>
   )
-  ))
-};
+}
 
 export default NavbarPage;

@@ -3,11 +3,14 @@ import Formedit from "../components/formedit"
 import "./editpost.css";
 import NavbarPage from "../components/navnew";
 const Editpost = () => {
+
+  const [check , Setcheck] = useState(false)
+
   return (
     <div>
-      <NavbarPage />
-      <h1 className="h1-editpost">แก้ไขโพสต์</h1>
-      <Formedit/>
+      {check ? null : <NavbarPage />}
+      {check ? null : <h1 className="h1-editpost">แก้ไขโพสต์</h1>} 
+      <Formedit check={check} Setcheck={Setcheck}/>
     </div>
   );
 };

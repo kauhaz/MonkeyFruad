@@ -5,7 +5,8 @@ const { auth, firestore } = require("../models/index"),
   router = express.Router(),
   bcrypt = require("bcryptjs"),
   { Result } = require("express-validator"),
-  cloudinary = require("../utils/cloudinary");
+  cloudinary = require("../utils/cloudinary"),
+  path = require("path")
 
 const storage = multer.diskStorage({
   filename: (req, file, cb) => {
@@ -84,8 +85,7 @@ router.post("/signup", async (req, res) => {
             sex: sex,
             phone: phone,
             province: province,
-            role: "user",
-            type: "On web",
+            role: "user"
           });
           return res.json({ user: result });
         }
@@ -108,11 +108,13 @@ router.post("/googlesignup", function (req, res) {
           userRef.set({
             uid: result.user.uid,
             email: result.user.email,
-            displayName: result.user.displayName,
-            photoURL: result.user.photoURL,
-            created: new Date().valueOf(),
             role: "user",
-            type: "Google",
+            username : result.user.displayName,
+            firstname : "-",
+            surname: "-",
+            sex : "-",
+            phone : "-",
+            province : "-"
           });
           return res.json({ msg: "google signup success" });
         } else {
@@ -137,11 +139,13 @@ router.post("/facebooksignup", function (req, res) {
           userRef.set({
             uid: result.user.uid,
             email: result.user.email,
-            displayName: result.user.displayName,
-            photoURL: result.user.photoURL,
-            created: new Date().valueOf(),
             role: "user",
-            type: "Facebook",
+            username : result.user.displayName,
+            firstname : "-",
+            surname: "-",
+            sex : "-",
+            phone : "-",
+            province : "-"
           });
           return res.json({ msg: "facebook signup success" });
         } else {
@@ -174,7 +178,7 @@ router.post("/session", function (req, res) {
       }
     })
     .catch((Error) => {
-      connsole.log(Error);
+      console.log(Error);
     });
 });
 
@@ -215,24 +219,78 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
   try {
     let file = req.files.photo;
     let uid = req.params.uid;
+  
     const {
-
+      firstname,username,surname,sex,phone,province
     } = req.body;
-    console.log(file);
-    if (file) {
-      cloudinary.uploader.upload(file[0].path);
-      firestore.collection("Post").doc(uid).update({
+    if(file){
+      const resultfile = await cloudinary.uploader.upload(file[0].path);
+      const {url,public_id} = resultfile
+      const photoURL = {url,public_id}
 
-      });
+      const showdata = await firestore.collection("Post").where("useruid" , "==" , uid)
+      showdata.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(kuay =>{
+          const findpost = firestore.collection("Post").doc(kuay.uid).update({username , photoURL})
+        })
+      })
+
+      const comment = await firestore.collection("Comment").where("userid" , "==" , uid)
+      comment.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(com =>{
+          const comment = firestore.collection("Comment").doc(com.commentid).update({username , photoURL})
+        })
+      })
+
+      
+    
+      firestore.collection("User").doc(uid).update({firstname,username,surname,sex,phone,province,photoURL});
+      
     } else if (!file) {
-      firestore.collection("Post").doc(uid).update({
-        
+      firestore.collection("User").doc(uid).update({
+        firstname,username,surname,sex,phone,province
       });
+      
+      const showdata = await firestore.collection("Post").where("useruid" , "==" , uid)
+      showdata.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(kuay =>{
+          const findpost = firestore.collection("Post").doc(kuay.uid).update({username })
+        })
+      })
+
+      const comment = await firestore.collection("Comment").where("userid" , "==" , uid)
+      comment.get().then(ok =>{
+        let item = [];
+        ok.forEach((doc) => {
+          item.push(doc.data())
+        });
+        console.log(item)
+        item.forEach(com =>{
+          const findpost = firestore.collection("Comment").doc(com.commentid).update({username })
+        })
+      })
+  
     }
     return res.json({
-      success: "แก้ไขสำเร็จ",
+      success: "แก้ไขสำเร็จ"
     });
   } catch (err) {
+    console.log(err)
     return res.status(500).json({ msg: err });
   }
 });
@@ -248,6 +306,7 @@ router.get("/profile/:uid", async (req, res) => {
     Userdetail.forEach((doc) => {
       let item = [];
       item.push(doc.data());
+
       return res.json({
         item,
       });

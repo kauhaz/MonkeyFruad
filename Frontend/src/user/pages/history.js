@@ -9,6 +9,7 @@ import usercontext from "../context/usercontext"
 import Axios from "axios"
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
+const { v4: uuidv4, NIL } = require('uuid');
 
 const History = () => {
   const [isActive, setIsActive] = useState(false);
@@ -17,10 +18,12 @@ const History = () => {
   }
   const [mypost,   Setmypost] = useState();
   const [error,   Seterror] = useState();
-  // let { user , setUser} = useContext(usercontext)
+  const [click,   Setclick] = useState();
 
-  let user = auth.currentUser;
-    
+  let { user , setUser} = useContext(usercontext)
+
+  let uuid = uuidv4()
+
 const ok =async () =>{
   try{
         const ok = await Axios.post("http://localhost:7000/post/postapi", {result:user})
@@ -30,21 +33,25 @@ const ok =async () =>{
       console.log("error")
   }
 }
+
+const handledeletetorerender = async () =>{
+  Setclick(uuid)
+}
+
 useEffect(() => {
 ok()
 
-}, [user])    
+}, [click])    
 
   return (
   
     <div>
       <NavbarPage />
-   
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">{mypost ? <h2 className="h2-history2">ทั้งหมด {mypost.length} โพสต์</h2> : null}</div>
       {mypost ? mypost.map((ok,index) =>{
         return (
-          <Historyitem ok={ok} user={user} key={index} />
+          <Historyitem ok={ok} user={user} key={index} handledeletetorerender={handledeletetorerender}/>
         )
       }) : null}
     

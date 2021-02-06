@@ -10,7 +10,8 @@ import {
 } from "../Frontfirebase";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
-import Commentitem from "../components/commentitem";
+// import Commentitem from "../components/commentitem";
+import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
 
 import usercontext from "../context/usercontext";
@@ -19,7 +20,8 @@ const Mypost = () => {
   const onClick = () => setIsActive(!isActive);
 
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
-  const [imagesProfile, setImagesProfile] = useState("/img/profile.png"); //สร้าง State เพื่อเก็บรูปโปรไฟล์
+  const [imagesProfile, setImagesProfile] = useState("/img/profile.png");
+  const [photo, Setphoto] = useState();
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
   const [id, setId] = useState();
@@ -33,45 +35,46 @@ const Mypost = () => {
   const [other, setOther] = useState();
   const [mypost, Setmypost] = useState();
   const [data, Setdata] = useState();
-  let { user, setUser } = useContext(usercontext);
+  const [textcomment, Settextcomment] = useState();
+  const [allcomment, Setallcomment] = useState();
+  const [click, Setclick] = useState();
 
-  const [Democomments, setDemocomments] = useState([
-    { commment: "ไอนี้อีกแล้วหรอ น่าโดนจริงๆ อย่าให้เจอตัวบอกก่อน" },
-    { commment: "โดนโกงไป5000 เจ็บใจจริงๆ TT ถ้าเจอจะซัดหน้าให้หมอบไปเลย55555" },
-  ]);
+  let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
 
-  const ImageHoverZoom = ({ imagePreviewUrl }) => {};
-
-  let user2 = auth.currentUser;
-
   const deleted = async (uid) => {
-    if (user2) {
-      const postdelete = await Axios.post(
-        `http://localhost:7000/post/delete/${uid}`
-      );
-      console.log(postdelete.data);
-      const ok = await Axios.post("http://localhost:7000/post/postapi", {
-        result: user2,
-      });
-      console.log(ok.data.item);
-      Setmypost(ok.data.item);
-      history.push("/post/history");
-    }
+    const postdelete = await Axios.post(
+      `http://localhost:7000/post/delete/${uid}`
+    );
+
+    history.push("/post/history");
   };
+
+  // const handle = async () => {
+
+  // console.log("gg")
+
+  // };
 
   const ok = async () => {
     try {
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
-      const name = await Axios.post("http://localhost:7000/user/userid", {
+      Setmypost(ok.data.item);
+
+      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
         result: user,
       });
-      Setmypost(ok.data.item);
-      Setdata(name.data.item);
+
+      let profiledata = await Axios.post("http://localhost:7000/user/session", {
+        user: user,
+      });
+      Setphoto(profiledata.data.data.photoURL);
+
+      Setdata(nameuser.data.item);
     } catch (err) {
-      console.log("error");
+      console.log(err);
     }
   };
 
@@ -90,10 +93,18 @@ const Mypost = () => {
                 <div className="container-mypost">
                   <div className="cotainer-mypost2">
                     <div className="mypost-profile-img">
-                      {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
-                      <img className="img-circle" src="/img/profile.png" />
+                      {ok.photoURL ? (
+                        <img
+                          className="img-circle"
+                          src={`${ok.photoURL.url}`}
+                        />
+                      ) : (
+                        <img className="img-circle" src="/img/profile.png" />
+                      )}
+
                       <div className="mypost-name">
-                        {data ? data[0].username : null}
+                        {ok.username ? "@" : null}
+                        {ok ? ok.username : null}
                       </div>
                       <br />
                       <div className="mypost-date">
@@ -102,57 +113,56 @@ const Mypost = () => {
                       </div>
                     </div>
 
-                    {/* <div className="mypostbuttonshared">
-                      <a className="mypostbuttonshare" href="/post/edit">
-                        <i class="fa fa-share"></i>
-                      </a>
-                    </div> */}
-
-                    <div className="container-mypostsetiing">
-                      <div className="menu-containermypostsetting">
-                        <div onClick={onClick} className="mypostbuttonsetting">
-                          <img
-                            className="mypostimg-setting"
-                            src="/img/setting.png"
-                            alt="avatar"
-                          ></img>
-                        </div>
-                        <div
-                          className={`mypostmenusetting ${
-                            isActive ? "active" : "inactive"
-                          }`}
-                        >
-                          <ul className="ul-mypostmenusetting">
-                            <li className="li-mypostmenusetting">
-                              <a className="a-mypostmenusetting">
-                                <Link
-                                  className="a-mypostmenusetting1"
-                                  to={`/post/edit/${ok.uid}`}
+                    {user && user.uid == ok.useruid ? (
+                      <div className="container-mypostsetiing">
+                        <div className="menu-containermypostsetting">
+                          <div
+                            onClick={onClick}
+                            className="mypostbuttonsetting"
+                          >
+                            <img
+                              className="mypostimg-setting"
+                              src="/img/setting.png"
+                              alt="avatar"
+                            ></img>
+                          </div>
+                          <div
+                            className={`mypostmenusetting ${
+                              isActive ? "active" : "inactive"
+                            }`}
+                          >
+                            <ul className="ul-mypostmenusetting">
+                              <li className="li-mypostmenusetting">
+                                <a className="a-mypostmenusetting">
+                                  <Link
+                                    className="a-mypostmenusetting1"
+                                    to={`/post/edit/${ok.uid}`}
+                                  >
+                                    แก้ไขโพสต์
+                                  </Link>
+                                </a>
+                              </li>
+                              <li className="li-mypostmenusetting">
+                                <a
+                                  className="a-mypostmenusetting"
+                                  onClick={() => deleted(ok.uid)}
                                 >
-                                  แก้ไขโพสต์
-                                </Link>
-                              </a>
-                            </li>
-                            <li className="li-mypostmenusetting">
-                              <a
-                                className="a-mypostmenusetting"
-                                onClick={() => deleted(ok.uid)}
-                              >
-                                {" "}
-                                ลบโพสต์{" "}
-                              </a>
-                            </li>
-                          </ul>
+                                  {" "}
+                                  ลบโพสต์{" "}
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ) : null}
 
                     <div className="container-mypost3">
                       <div className="mypostprofile-bad-img">
-                        {ok.resultfileitem ? (
+                        {ok.resultfile ? (
                           <img
                             className="img-circle"
-                            src={`${ok.resultfileitem.url}`}
+                            src={`${ok.resultfile.url}`}
                           />
                         ) : (
                           <img className="img-circle" src="/img/profile.png" />
@@ -268,6 +278,27 @@ const Mypost = () => {
                           </Form.Group>
                         </Form.Row>
 
+                        <Form.Row>
+                          <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Label className="text-mypost">
+                              จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง {" "}
+                              <span className="spanmypost">
+                                 {ok.count} ครั้ง
+                              </span>
+                            </Form.Label>
+                          </Form.Group>
+                          </Form.Row>
+                          <Form.Row>
+                          <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Label className="text-mypost">
+                              ยอดเงินรวมทั้งหมดที่โกงไป {" "}
+                              <span className="spanmypost">
+                                {ok.summoney} บาท
+                              </span>
+                            </Form.Label>
+                          </Form.Group>
+                        </Form.Row>
+
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                           <Form.Label className="text-mypost">
                             รายละเอียดเพิ่มเติม{" "}
@@ -303,42 +334,9 @@ const Mypost = () => {
                       </Form>
                       <div className="line-comment1"></div>
                       <div className="container-mypost4">
-                        {Democomments ? (
-                          Democomments.map((value, index) => {
-                            return (
-                              <Commentitem data={value} ok={ok} key={index} />
-                            );
-                          })
-                        ) : (
-                          <div>
-                          </div>
-                        )}
-
-                        {/* <div className="line-comment2"></div> */}
+                        <Commentitemformypost postid={ok.uid} />
                       </div>
-                      <h2 className="commentother">ดูอีก 3 ความคิดเห็น</h2>
-                      <div className="row mypost-comment-comments2">
-                        <div className="mypost-profilecomment-img">
-                          {/* {ok.file ? <img className="img-circle" src={`/uploads/${ok.file[0].filename}`}  /> : <img className="img-circle" src="/img/profile.png" /> } */}
-                          <img className="img-circle" src="/img/profile.png" />
-                        </div>
-                        <div className="row mypost-comment-commentsall">
-                          <div
-                            className="mypost-writecommemt col-lg-6 col-10"
-                            controlId="exampleForm.ControlTextarea1"
-                          >
-                            <input className="inputcomment" placeholder="เขียนความคิดเห็น..." />
-                          </div>
-
-                          <div>
-                            <div className="column2 mypostbuttonsend">
-                              <a className="mypostbuttonsends" href="">
-                                <i className="fa fa-paper-plane"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      {/* <button onClick={()=>handle()}></button> */}
                     </div>
                   </div>
                 </div>

@@ -91,7 +91,7 @@ const Signup = () => {
 
   // ฟังกชันการเลือกเพศใน input
   const selectSex = (e) => {
-    if (e.target.value === "male") {
+    if (e.target.value === "ชาย") {
       setSex(e.target.value);
     } else setSex(e.target.value);
   };
@@ -363,7 +363,7 @@ const Signup = () => {
                           name="gender"
                           type="radio"
                           id="male"
-                          value="male"
+                          value="ชาย"
                           className="mr-1"
                         />
                         <label htmlFor="male">ชาย</label>
@@ -375,7 +375,7 @@ const Signup = () => {
                           name="gender"
                           type="radio"
                           id="female"
-                          value="female"
+                          value="หญิง"
                           className="mr-1"
                         />
                         <label htmlFor="female">หญิง</label>

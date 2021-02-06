@@ -1,10 +1,11 @@
 .navbarnew{
     font-family: 'Kanit', sans-serif;
-    font-size: 22px;
+    font-size: 19px;
 }
 
 .logo-nav{
     margin-top: -10px;
+    width: 120px;
 }
 
 .nav-item , .nav-link{
@@ -19,7 +20,7 @@
     border-radius: 0.4rem;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 17px;
+    font-size: 15px;
     color: #5c5c5c;
     margin-top: 5px;
 }
@@ -31,7 +32,7 @@
     width: 65px;
     height: 40px;
     border: 0px;
-    font-size: 17px;
+    font-size: 15px;
     margin-right: 10px;
     margin-top: 5px;
 }
@@ -42,4 +43,42 @@
 .dropdown-menu-right{
     position: fixed !important;
     margin-left: -160px !important;
+    margin-top: 10px !important;
 }
+
+.dropdown-item{
+    color: #5c5c5c !important; 
+}
+.dropdown-item:hover{
+    background-color: rgb(236, 234, 234) !important;
+}
+
+
+/*reponsive*/
+@media only screen and (max-width: 1366px) {
+    .navbarnew {
+        font-size: 17px;
+    }
+    .logo-nav{
+        width: 100px;
+    }
+    .box-nav{
+        width: 200px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .button-nav{
+        width: 55px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+
+  }
+  
+@media only screen and (max-width: 414px) {
+
+  }
+  

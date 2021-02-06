@@ -1,4 +1,4 @@
-import React, { useState ,useContext , useEffect} from "react";
+import React, { useState ,useContext , useEffect , useMemo} from "react";
 import { Form, Col, Image, roundedCircle } from "react-bootstrap";
 import {useHistory} from "react-router-dom";
 import {storage} from "../Frontfirebase"
@@ -9,9 +9,11 @@ import Axios from "axios"
 import _ from "lodash"
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
+import Loading from "./loading"
 
 
-const Formpost = () => {
+
+const Formpost = ({check , Setcheck}) => {
 
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -30,11 +32,13 @@ const Formpost = () => {
   const [social, setSocial] = useState();
   const [other, setOther] = useState("");
   const [error, Seterror] = useState();
+  const [username, setUsername] = useState("");
+  const [photoprofileurl, Setphotoprofileurl] = useState();
+  const [photoprofilepublic_id, Setphotoprofilepublic_id] = useState();
+  const [loading, Setloading] = useState();
   // var { user , setUser} = useContext(usercontext)
   // let { user , setUser} = useContext(usercontext)
-  const ImageHoverZoom = ({ imagePreviewUrl }) => {
-    
-  }
+
 
 
 
@@ -72,13 +76,15 @@ const Formpost = () => {
         //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
       };
     }
-
   }
+
+
 var user = auth.currentUser
 let history = useHistory()
   const handlesubmit = async (e) =>{
     try{
       e.preventDefault()
+    
       let formdata = new FormData()
       let useruid = user.uid
       _.forEach(files ,file =>{
@@ -97,19 +103,39 @@ let history = useHistory()
       formdata.append("social" , social)
       formdata.append("other" , other)
       formdata.append("useruid" , useruid)
-      
-      const a = await Axios.post("http://localhost:7000/post/create", formdata ) 
-      console.log("eiei")
+      formdata.append("username" , username)
+      formdata.append("photoprofilepublic_id" , photoprofilepublic_id)
+      formdata.append("photoprofileurl" , photoprofileurl)
+      Setloading(true)
+      Setcheck(true)
+      const a = await Axios.post("http://localhost:7000/post/create", formdata) 
+      Setloading(false)
         history.push("/post/history")
     }catch(err){
+      Setloading(false)
+      Setcheck(false) 
       err && Seterror(err.response.data.msg)
     }
   
   }
+  useMemo(async () =>  {
+    try {
+   var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
+        setUsername(profiledata.data.data.username);
+        Setphotoprofileurl(profiledata.data.data.photoURL.url);
+        Setphotoprofilepublic_id(profiledata.data.data.photoURL.public_id);
+    }
+    catch (err){
  
-  return (
+      console.log(err)
+    }
   
-    <div className="container-formpost">
+  }, [user]);
+  
+  
+  return (
+    <div>
+      {loading ? <Loading loading={loading}/> : <div className="container-formpost">
       <div className="container-formpost1">
         <div className="profile-badformpost-img">
           <img className="img-circle" src={imagesProfile} />
@@ -241,7 +267,7 @@ let history = useHistory()
               <Form.Label className="text-formpost">
                 จำนวนเงิน (บาท)<span className="spanformpost">*</span>
               </Form.Label>
-              <Form.Control type="text" id="nameproduct" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" placeholder="" required onChange={(event)=>{
+              <Form.Control type="number" id="nameproduct" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" placeholder="" required onChange={(event)=>{
                 setMoney(event.target.value)
               }}/>
             </Form.Group>
@@ -295,14 +321,6 @@ let history = useHistory()
                 <option>Twitter</option>
                 <option>Line</option>
                 <option>Website</option>
-              {/* <select  required onChange={(event)=>{setSocial(event.target.value)}}>
-          <option value="" selected disabled hidden>กรุณาเลือก...</option>
-                <option>Facebook</option>
-                <option>Instagram</option>
-                <option>Twitter</option>
-                <option>Line</option>
-                <option>Website</option>
-          </select> */}
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -327,17 +345,23 @@ let history = useHistory()
           </Form.File.Label>
                 
           <br></br>
+
+          
+          <div className="container-img-holder-imgpreview">
+          <label>
+          <img className="uploadprove" src="/img/addimage.png" />
           <input
+            id="FileInput"
             className="uploadsformpostuploadslip"
             type="file"
             onChange={FileUpload}
             multiple
             accept="image/png, image/jpeg , image/jpg"
           />
-         
-          <h1 className="h1-formpostfileerror">{error}</h1> 
 
-          <div className="container-img-holder-imgpreview">
+           </label>
+
+
             {imagesFile.map((imagePreviewUrl) => {
               return (
                 <img
@@ -352,11 +376,10 @@ let history = useHistory()
               );
             })}
 
-          </div>
+           </div>
 
-           {/* <Form.Row className="linkrule1">
-            <Form.Check aria-label="option 1" className="linkrule2"/><a className="linkrule3" href="about.html">ยอมรับข้อตกลง</a>
-          </Form.Row> */}
+
+          <h1 className="h1-formpostfileerror">{error}</h1> 
 
           <button className="buttonformpost" type="submit" >
             โพสต์
@@ -365,8 +388,9 @@ let history = useHistory()
         </Form>
       </div>
       <Chatbot/>
+    </div>}
+    
     </div>
- 
   );
 };
 

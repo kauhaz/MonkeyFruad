@@ -1,11 +1,9 @@
 .foot{
-    /* background-color: burlywood; */
     width: 300px;
     position: fixed; 
     bottom: 0px;
     right: 0px;
     clear: both;
-    /* border-radius: 20px; */
     margin-right: 20px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     font-family: 'Kanit', sans-serif;
@@ -16,22 +14,6 @@
     background-color:romato;
     width: 100%;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-}
-
-.btn-palo{
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #8B0000;
-    /* margin: 0; */
-    border: 0;
-}
-
-.btn:hover{
-    color: white;
-    border: 0;
 }
 
 .card-chatbot-header{
@@ -47,7 +29,7 @@
 
 .text-card-header{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 90px;
 
 }
@@ -70,7 +52,7 @@
 
 .fas{
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     float: right;
     display: inline;
     margin-right: 15px;
@@ -84,7 +66,7 @@
 /*responsive*/
 @media only screen and (max-width: 1920px) {
     .foot{
-        width: 270px;
+        width: 260px;
     }
     .text-palo{
         font-size: 16px;
@@ -95,8 +77,27 @@
         margin-left: 75px;
     }
     .fas{
-        font-size: 19px;
+        font-size: 15px;
         margin-top: 7px;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .foot{
+        width: 230px;
+    }
+    .text-palo{
+        font-size: 14px;
+        margin-top: -70px;
+        margin-left: 25px;
+    }
+    .text-card-header{
+        margin-left: 70px;
+        font-size: 16px;
+    }
+    .fas{
+        font-size: 14px;
+        margin-top: 5px;
     }
 }
 
@@ -105,6 +106,16 @@
         font-size: 16px;
         margin-top: -70px;
         margin-left: 35px;
+    }
+    .foot{
+        width: 260px;
+    }
+    .text-card-header{
+        margin-left: 75px;
+    }
+    .fas{
+        font-size: 15px;
+        margin-top: 7px;
     }
 }
 

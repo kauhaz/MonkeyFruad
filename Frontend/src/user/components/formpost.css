@@ -36,7 +36,16 @@
     width: 20px;
 }
 
+.uploadprove{ 
+    width: 100px;
+}
+
 #FileInput{ 
+    cursor: pointer;  
+    display: none;
+}
+
+.FileInput{ 
     cursor: pointer;  
     display: none;
 }
@@ -74,15 +83,24 @@
     margin-bottom: 10px;
 } */
 
-.uploadsformpostuploadslip{
+/* .uploadsformpostuploadslip{
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
+} */
+
+.uploadprove {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .container-img-holder-imgpreview .imgpreview {
     width: 100px;
     margin-top: 10px;
     margin-bottom: 10px;
+    /* margin-left: -200px; */
     margin-right: 10px;
 }
 
