@@ -99,7 +99,7 @@ const Login = () => {
           {isLogin ? (
             <div className="alert-login">
               {" "}
-              <span>กรุณาทำการ Login ก่อนโพสต์</span>
+              <span>กรุณาทำการ Login ก่อนโพสต์หรือคอมเมนต์ </span>
             </div>
           ) : (
             ""
