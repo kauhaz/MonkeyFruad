@@ -952,32 +952,7 @@ router.get("/commentmore/:id", async (req, res) => {
   }
 });
 
-router.get("/comment/:id", async (req, res) => {
-  try {
-    let postid = req.params.id;
-    const getcomment = await firestore
-      .collection("Comment")
-      .where("postid", "==", postid)
-      .orderBy("datetime", "desc")
-      .limit(3);
 
-    getcomment.get().then((doc) => {
-      let item = [];
-      doc.forEach((doc2) => {
-        item.push(doc2.data());
-      });
-
-      console.log(item);
-      return res.json({
-        item,
-      });
-    });
-  } catch (err) {
-    return res.status(500).json({
-      msg: err,
-    });
-  }
-});
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {

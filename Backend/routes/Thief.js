@@ -81,6 +81,7 @@ router.get("/rankcount", async (req, res) => {
 
 router.get("/thief",async(req, res) => {
   try{
+    console.log("gg")
      var item = []
     const orderbycount = await firestore.collection("Thief")
     .get().then((querySnapshot)=>{
@@ -90,6 +91,7 @@ router.get("/thief",async(req, res) => {
            item.push(doc.data())
         }
       })
+      // console.log(item)
     }).catch((err)=>{
         console.log(err)
     })

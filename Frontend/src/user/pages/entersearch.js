@@ -16,19 +16,20 @@ import usercontext from "../context/usercontext";
 import "./entersearch.css";
 import axios from "axios";
 import Loading from "../components/loading";
-
-
-
+const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
-  let uid = useParams()
-    
+
+
+
     const [show, Setshow] = useState()
+ 
     let location = useLocation()
-    // const [gg, Setgg] = useState()
+    
     console.log(location)
  
     const ok = async () => {
+       
         Setshow(location.state.getdata)
     
     };
@@ -201,10 +202,10 @@ const Entersearch = () => {
            
             
                 
-                              <div className="line-post1"></div>
-                              <div className="container-post6">
-                                <Commentitem postid={res.uid} />
-                              </div>
+           <div className="line-post1"></div>
+            <div className="container-post6">
+          <Commentitem postid={res.uid} />
+         </div>
                 
 
             <Chatbot />
