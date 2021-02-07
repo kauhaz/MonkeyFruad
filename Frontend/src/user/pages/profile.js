@@ -103,9 +103,11 @@ const Profile = () => {
 
           <div className="col-md-12 mt-2">
             {/* <button className="btn-block LoginFacebook"> */}
+              <div>
+                <i class="fas fa-user-edit"></i>
+              </div>
               <a href={`/profile/edit/${user.uid}`} className="mx-auto my-1 btn-block LoginFacebook">
-                  <i class="fas fa-user-edit"></i>
-                  แก้ไขข้อมูลส่วนตัว
+                แก้ไขข้อมูลส่วนตัว
               </a>
             {/* </button> */}
             {/* <button className="btn-block LoginGoogle"> */}
