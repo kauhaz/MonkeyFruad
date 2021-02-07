@@ -27,9 +27,9 @@ const Post = () => {
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
-
+  let history = useHistory()
   
-
+console.log(show)
 
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
@@ -202,7 +202,7 @@ const Post = () => {
                   </Form.Row>
                   </Form>
                 <div className="postother">
-                  <Link className="postother1" to={`/mypost/${res.uid}`}>
+                  <Link className="postother1" onClick={()=> (history.push(`/mypost/${res.uid}`),window.location.reload(true)) }>
                     ดูเพิ่มเติม
                   </Link>
                 </div>

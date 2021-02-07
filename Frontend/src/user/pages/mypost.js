@@ -62,17 +62,17 @@ const Mypost = () => {
     try {
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
       Setmypost(ok.data.item);
+      console.log("gg")
+      // const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+      //   result: user,
+      // });
 
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-        result: user,
-      });
+      // let profiledata = await Axios.post("http://localhost:7000/user/session", {
+      //   user: user,
+      // });
+      // Setphoto(profiledata.data.data.photoURL);
 
-      let profiledata = await Axios.post("http://localhost:7000/user/session", {
-        user: user,
-      });
-      Setphoto(profiledata.data.data.photoURL);
-
-      Setdata(nameuser.data.item);
+      // Setdata(nameuser.data.item);
     } catch (err) {
       console.log(err);
     }
@@ -81,13 +81,13 @@ const Mypost = () => {
   useEffect(() => {
     ok();
   }, []);
-
+  console.log(mypost)
   return (
     <div className="allpage">
-      <NavbarPage />
+      {mypost ? <div> <NavbarPage />
       <h1 className="h1-mypost">โพสต์ของฉัน</h1>
       {mypost
-        ? mypost.map((ok) => {
+        ?  mypost.map((ok) => {
             return (
               <div>
                 <div className="container-mypost">
@@ -343,7 +343,8 @@ const Mypost = () => {
               </div>
             );
           })
-        : null}
+        : null} </div>:null}
+     
     </div>
   );
 };
