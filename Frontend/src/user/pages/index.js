@@ -30,6 +30,8 @@ const Home = () => {
   const [lastsearch,   Setlastsearch] = useState();
   const [haha,   Sethaha] = useState();
   const [role, Setrole] = useState();
+  const [show, Setshow] = useState();
+  const [error, Seterror] = useState();
   let history = useHistory()
 const Getdata = async () =>{
   try {
@@ -66,12 +68,50 @@ const Getdata = async () =>{
   }, []);
 
 
+  const handlesearch = (e) =>{
+    try{
+      e.preventDefault()
+      
+      if(search){
+        
+        const getdata = (searching.filter( doc =>{
+       
+          return (doc.name.toLowerCase().includes(search.toLowerCase()) || doc.surname.toLowerCase().includes(search.toLowerCase()) || doc.accountnumber.includes(search))
+           }))
+        
+         
+           Setsearch("")
+         
+          if(getdata){
+              history.push({
+                pathname: "/entersearch",
+                search: "are you ok",
+                state: {  
+                 getdata
+               }
+              })
+          }
+        }
+    
+         else{
+           Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย")
+         }
+        
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+ 
+
+
   const ok = async() =>{
     try{
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`)
    
       const getthief = getallthief.data.item
       if(search){
+        Setsearching(getallthief.data.item)
         Setlastsearch(getthief.filter( doc =>{
           if(doc.accountnumber.startsWith(search))
           {
@@ -121,7 +161,8 @@ const Getdata = async () =>{
           <div className="column1-index">
             <div className="text1-index">ค้นหาผ่านเว็บไซต์ของเราได้ที่นี่</div>
             <MDBCol>
-              <MDBFormInline className="mr-auto mb-4">
+              <MDBFormInline className="mr-auto mb-4" onSubmit={handlesearch}>
+            
                 <div className="containermini1-index">
                   <input
                     className="mr-sm-2 box1-index"
@@ -130,11 +171,14 @@ const Getdata = async () =>{
                     aria-label="Search"
                     onChange={e => Setsearch(e.target.value)}
                   />
-                  <button type="submit" className="button1-index">
+                  <button  type="submit" className="button1-index">
                     ค้นหา
                   </button>
                 </div>
               </MDBFormInline>
+             
+              {error}
+          
               <div>
                 {lastsearch ? lastsearch.map(doc =>{
                   let thiefid = doc.accountnumber
@@ -147,7 +191,9 @@ const Getdata = async () =>{
                   </div>)
                 }) :null}
               </div>
+        
             </MDBCol>
+           
           </div>
           <div class="line-index"></div>
           <div className="column2-index">
