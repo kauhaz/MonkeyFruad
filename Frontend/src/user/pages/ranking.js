@@ -7,6 +7,9 @@ const Rank = () => {
     <div>
       <NavbarPage />
       <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
+      <MDBContainer>
+        
+      </MDBContainer>
       <Chatbot/>
     </div>
   );
