@@ -202,7 +202,7 @@ const Home = () => {
               </div>
             </MDBCol>
           </div>
-          <div class="line-index"></div>
+          <div className="line-index"></div>
           <div className="column2-index">
             <div className="text1-index">ค้นหาผ่าน LINE Chatbot น้องพะโล้</div>
             <img src="/img/paloqr.jpg" className="image1-index" />
@@ -293,7 +293,7 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โดนโกง : {element.datetime}
+                                วันที่โอน : {element.datetime}
                                 <br />
                               </p>
                             </div>
@@ -371,7 +371,7 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โดนโกง : {element.datetime} บาท <br />
+                                วันที่โอน : {element.datetime} บาท <br />
                               </p>
                             </div>
                             <a
@@ -446,7 +446,7 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โดนโกง : {element.datetime} บาท <br />
+                                วันที่โอน : {element.datetime} บาท <br />
                               </p>
                             </div>
                             <a
@@ -522,7 +522,7 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โดนโกง : {element.datetime} <br />
+                                วันที่โอน : {element.datetime} <br />
                               </p>
                             </div>
                             <a
@@ -597,7 +597,7 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โดนโกง : {element.datetime}
+                                วันที่โอน : {element.datetime}
                                 <br />
                               </p>
                             </div>
