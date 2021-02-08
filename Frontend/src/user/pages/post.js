@@ -5,6 +5,7 @@ import "./post.css";
 import { Link, useHistory } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
+
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import {
   auth,
@@ -14,13 +15,11 @@ import {
 } from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
+const { v4: uuidv4, NIL } = require("uuid");
 const Post = () => {
-  const [data, Setdata] = useState();
+ 
   const [show, Setshow] = useState();
-
-  const [textcomment, Settextcomment] = useState();
-  const [photo, Setphoto] = useState();
-  const [commentmore, Setcommentmore] = useState();
+  
 
   let { user, setUser } = useContext(usercontext);
 
@@ -28,19 +27,14 @@ const Post = () => {
   const onClick = () => setIsActive(!isActive);
   let history = useHistory()
   
-console.log(show)
+
 
   const ok = async () => {
+    
+    
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
-
-    // const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-    //   result: user,
-    // });
-    // Setdata(nameuser.data.item);
-
-    // var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
-    // Setphoto(profiledata.data.data.photoURL);
+ 
   };
   useEffect(() => {
     ok();
@@ -75,8 +69,10 @@ console.log(show)
 
       {show
         ? show.map((res) => {
+
             return (
               <div>
+                
                 <div className="container-post2">
                   <div className="cotainer-post3">
                     <div className="post-profile-img">
@@ -228,11 +224,11 @@ console.log(show)
                         </div>
                       </div>
 
-                      <div className="line-post1"></div>
-                      <div className="container-post6">
-                        <Commentitem postid={res.uid} />
-                      </div>
 
+                      <div className="line-post1"></div>
+                              <div className="container-post6">
+                                <Commentitem postid={res.uid} />
+                              </div>
                       <Chatbot />
                     </div>
                   </div>

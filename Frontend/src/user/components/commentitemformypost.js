@@ -113,17 +113,19 @@ const Commentitemformypost = ({ postid }) => {
         `http://localhost:7000/post/commentmore/${postid}`
       );
       Setcommentmore(getcommentall.data.item);
-
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-        result: user,
-      });
-      Setdata(nameuser.data.item);
-
-      var profiledata = await Axios.post("http://localhost:7000/user/session", {
-        user: user,
-      });
-      Setphotourl(profiledata.data.data.photoURL.url);
-      Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        if(user){
+          const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+            result: user,
+          });
+          Setdata(nameuser.data.item);
+    
+          var profiledata = await Axios.post("http://localhost:7000/user/session", {
+            user: user,
+          });
+          Setphotourl(profiledata.data.data.photoURL.url);
+          Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        }
+     
     } catch (err) {
       console.log(err);
     }

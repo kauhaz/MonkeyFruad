@@ -54,6 +54,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
+  console.log(postid)
 
   const handlecomment = async () => {
     try {
@@ -115,30 +116,31 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-  const gg = async () => {
-    try {
-      const getcommentall = await Axios.get(
-        `http://localhost:7000/post/commentmore/${postid}`
-      );
-      Setcommentmore(getcommentall.data.item);
-
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-        result: user,
-      });
-      Setdata(nameuser.data.item);
-
-      var profiledata = await Axios.post("http://localhost:7000/user/session", {
-        user: user,
-      });
-      Setphotourl(profiledata.data.data.photoURL.url);
-      Setphotopublic_id(profiledata.data.data.photoURL.public_id);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    gg();
-  }, [click, showdelete, showedit]);
+    const gg = async () => {
+      try {
+        const getcommentall = await Axios.get(
+          `http://localhost:7000/post/commentmore/${postid}`
+        );
+        Setcommentmore(getcommentall.data.item);
+          if(user){
+            const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+              result: user,
+            });
+            Setdata(nameuser.data.item);
+    
+            var profiledata = await Axios.post("http://localhost:7000/user/session", {
+              user: user,
+            });
+            Setphotourl(profiledata.data.data.photoURL.url);
+            Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+          }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    useEffect(() => {
+      gg();
+    }, [click, showdelete, showedit]);
 
   return (
     <div>

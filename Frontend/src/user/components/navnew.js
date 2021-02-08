@@ -20,7 +20,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-const NavbarPage = () => {
+const NavbarPage = ({show}) => {
   var { user, setUser } = useContext(usercontext);
 
   const [displayname, setDisplayname] = useState();
@@ -52,15 +52,7 @@ const NavbarPage = () => {
     setIsopen(!isOpen);
   };
 
-  // const handlesearch = async() =>{
-  //   try{
 
-  //     const entersearch = await axios.post("http://localhost:7000/post/search" , {search})
-  //     console.log(entersearch.data.item)
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
 
   const handlesearch = () => {
     try {
@@ -75,13 +67,14 @@ const NavbarPage = () => {
 
         Setsearch("");
         if (getdata) {
-          history.push({
+          (history.push({
             pathname: "/entersearch",
-            search: "are you ok",
+            search: "?are you ok",
             state: {
               getdata,
+              search
             },
-          });
+          }))
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -93,11 +86,13 @@ const NavbarPage = () => {
 
   const ok = async () => {
     try {
+      
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
-      const getthief = getallthief.data.item;
-      if (search) {
-        Seterror();
+      const getthief = getallthief.data.item; 
+      console.log(search)
+      if(search){
+        Seterror()
         Setlastsearch(
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
@@ -120,7 +115,7 @@ const NavbarPage = () => {
           })
         );
       }
-      if (!search) {
+      if(!search){
         Setlastsearch();
       }
     } catch (err) {
@@ -143,9 +138,11 @@ const NavbarPage = () => {
           console.log(err);
         });
     }
-   await ok();
+   await ok();  
     setLoading(false);
-  }, [user, search]);
+  }, [user,search]  );
+
+  
 
   return loading ? (
     ""
