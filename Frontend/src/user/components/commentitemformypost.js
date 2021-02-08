@@ -219,12 +219,12 @@ const Commentitemformypost = ({ postid }) => {
             );
           })}
 
-          <div className="container-img-holder-imgpreview">
+          <div className="container-img-holder-imgpreview2">
             <label>
-              <img className="uploadprove" src="/img/addphoto.png" />
+              <img className="uploadprove2" src="/img/addphoto.png" />
               <input
                 id="FileInput"
-                className="uploadsformpostuploadslip"
+                className="uploadsmypostcomment"
                 type="file"
                 onChange={FileUpload}
                 multiple
@@ -234,11 +234,12 @@ const Commentitemformypost = ({ postid }) => {
           </div>
 
           <div
-            className="post-writecommemt col-lg-6 col-10"
+            className="mypost-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
             <input
               className="inputcomment"
+              size="25"
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
