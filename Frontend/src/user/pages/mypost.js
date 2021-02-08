@@ -14,61 +14,33 @@ import NavbarPage from "../components/navnew";
 import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
 
-
 import usercontext from "../context/usercontext";
 const Mypost = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
-  const [imagesProfile, setImagesProfile] = useState("/img/profile.png")
-  const [photo, Setphoto] = useState()
-  const [name, setName] = useState();
-  const [surname, setSurname] = useState();
-  const [id, setId] = useState();
-  const [accountnumber, setAccountnumber] = useState();
-  const [nameproduct, setNameproduct] = useState();
-  const [productcategory, setProductcategory] = useState();
-  const [money, setMoney] = useState();
-  const [bank, setBank] = useState();
-  const [datetime, setDatetime] = useState();
-  const [social, setSocial] = useState();
-  const [other, setOther] = useState();
+
   const [mypost, Setmypost] = useState();
-  const [data, Setdata] = useState();
-  const [textcomment, Settextcomment] = useState();
-  const [allcomment, Setallcomment] = useState();
-  const [click, Setclick] = useState();
+
+
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
 
-
-
   const deleted = async (uid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
- 
+
     history.push("/post/history");
-    
-  
-};
+  };
+
+
   const ok = async () => {
     try {
-  
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-        result: user,
-      });
-  
-      var profiledata = await Axios.post("http://localhost:7000/user/session", { user: user })
-      Setphoto(profiledata.data.data.photoURL);
       Setmypost(ok.data.item);
-      Setdata(nameuser.data.item);
-
- 
     } catch (err) {
       console.log(err);
     }
@@ -77,22 +49,31 @@ const Mypost = () => {
   useEffect(() => {
     ok();
   }, []);
-
-
+  console.log(mypost)
+  
   return (
     <div className="allpage">
-      <NavbarPage />
+      {mypost ? <div> <NavbarPage />
       <h1 className="h1-mypost">โพสต์ของฉัน</h1>
-      {mypost ? mypost.map((ok) => {
+      {mypost
+        ?  mypost.map((ok) => {
             return (
               <div>
                 <div className="container-mypost">
                   <div className="cotainer-mypost2">
                     <div className="mypost-profile-img">
-                      {ok.photoURL ? <img className="img-circle" src={`${ok.photoURL.url}`}  /> : <img className="img-circle" src="/img/profile.png" /> }
-      
+                      {ok.photoURL ? (
+                        <img
+                          className="img-circle"
+                          src={`${ok.photoURL.url}`}
+                        />
+                      ) : (
+                        <img className="img-circle" src="/img/profile.png" />
+                      )}
+
                       <div className="mypost-name">
-                         {ok.username ? "@" : null}{ok ? ok.username : null}
+                        {ok.username ? "@" : null}
+                        {ok ? ok.username : null}
                       </div>
                       <br />
                       <div className="mypost-date">
@@ -101,45 +82,49 @@ const Mypost = () => {
                       </div>
                     </div>
 
-                    {user && user.uid == ok.useruid ? <div className="container-mypostsetiing">
-                      <div className="menu-containermypostsetting">
-                        <div onClick={onClick} className="mypostbuttonsetting">
-                          <img
-                            className="mypostimg-setting"
-                            src="/img/setting.png"
-                            alt="avatar"
-                          ></img>
-                        </div>
-                        <div
-                          className={`mypostmenusetting ${
-                            isActive ? "active" : "inactive"
-                          }`}
-                        >
-                          <ul className="ul-mypostmenusetting">
-                            <li className="li-mypostmenusetting">
-                              <a className="a-mypostmenusetting">
-                                <Link
-                                  className="a-mypostmenusetting1"
-                                  to={`/post/edit/${ok.uid}`}
+                    {user && user.uid == ok.useruid ? (
+                      <div className="container-mypostsetiing">
+                        <div className="menu-containermypostsetting">
+                          <div
+                            onClick={onClick}
+                            className="mypostbuttonsetting"
+                          >
+                            <img
+                              className="mypostimg-setting"
+                              src="/img/setting.png"
+                              alt="avatar"
+                            ></img>
+                          </div>
+                          <div
+                            className={`mypostmenusetting ${
+                              isActive ? "active" : "inactive"
+                            }`}
+                          >
+                            <ul className="ul-mypostmenusetting">
+                              <li className="li-mypostmenusetting">
+                                <a className="a-mypostmenusetting">
+                                  <Link
+                                    className="a-mypostmenusetting1"
+                                    to={`/post/edit/${ok.uid}`}
+                                  >
+                                    แก้ไขโพสต์
+                                  </Link>
+                                </a>
+                              </li>
+                              <li className="li-mypostmenusetting">
+                                <a
+                                  className="a-mypostmenusetting"
+                                  onClick={() => deleted(ok.uid)}
                                 >
-                                  แก้ไขโพสต์
-                                </Link>
-                              </a>
-                            </li>
-                            <li className="li-mypostmenusetting">
-                              <a
-                                className="a-mypostmenusetting"
-                                onClick={() => deleted(ok.uid)}
-                              >
-                                {" "}
-                                ลบโพสต์{" "}
-                              </a>
-                            </li>
-                          </ul>
+                                  {" "}
+                                  ลบโพสต์{" "}
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div> : null}
-                   
+                    ) : null}
 
                     <div className="container-mypost3">
                       <div className="mypostprofile-bad-img">
@@ -152,7 +137,7 @@ const Mypost = () => {
                           <img className="img-circle" src="/img/profile.png" />
                         )}
                       </div>
-                      <Form className="formsize-mypost" >
+                      <Form className="formsize-mypost">
                         <Form.Row>
                           <Form.Group
                             as={Col}
@@ -262,6 +247,27 @@ const Mypost = () => {
                           </Form.Group>
                         </Form.Row>
 
+                        <Form.Row>
+                          <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Label className="text-mypost">
+                              จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง {" "}
+                              <span className="spanmypost">
+                                 {ok.count} ครั้ง
+                              </span>
+                            </Form.Label>
+                          </Form.Group>
+                          </Form.Row>
+                          <Form.Row>
+                          <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Label className="text-mypost">
+                              ยอดเงินรวมทั้งหมดที่โกงไป {" "}
+                              <span className="spanmypost">
+                                {ok.summoney} บาท
+                              </span>
+                            </Form.Label>
+                          </Form.Group>
+                        </Form.Row>
+
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                           <Form.Label className="text-mypost">
                             รายละเอียดเพิ่มเติม{" "}
@@ -294,24 +300,20 @@ const Mypost = () => {
                               })
                             : null}
                         </div>
-                      
+                      </Form>
                       <div className="line-comment1"></div>
                       <div className="container-mypost4">
-                       
-                              <Commentitemformypost postid={ok.uid} />
-                        
-
-                        {/* <div className="line-comment2"></div> */}
+                        <Commentitemformypost postid={ok.uid} />
                       </div>
-                  
-                      </Form>
+                      {/* <button onClick={()=>handle()}></button> */}
                     </div>
                   </div>
                 </div>
               </div>
             );
           })
-        : null}
+        : null} </div>:null}
+     
     </div>
   );
 };
