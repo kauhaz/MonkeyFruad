@@ -20,6 +20,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
+import NotifyMe from "react-notification-timeline";
 const NavbarPage = () => {
   var { user, setUser } = useContext(usercontext);
 
@@ -143,7 +144,7 @@ const NavbarPage = () => {
           console.log(err);
         });
     }
-   await ok();
+    await ok();
     setLoading(false);
   }, [user, search]);
 
@@ -233,6 +234,28 @@ const NavbarPage = () => {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
+            <NotifyMe
+              data={[
+                {
+                  update: "70 new employees are shifted",
+                  timestamp: 1596119688264,
+                },
+                {
+                  update: "Time to take a Break, TADA!!!",
+                  timestamp: 1596119686811,
+                },
+              ]}
+              storageKey="notific_key"
+              notific_key="timestamp"
+              notific_value="update"
+              heading="การแจ้งเตือน"
+              sortedByKey={true}
+              showDate={true}
+              size={25}
+              color="#FFFFFF"
+              multiLineSplitter="\n"
+              // markAsReadFn={() => yourOwnFunctionHandler()}
+            />
             <MDBNavItem>
               <div className=" my-0">
                 <input
