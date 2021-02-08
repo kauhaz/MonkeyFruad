@@ -247,6 +247,16 @@
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.uploadprove2 {
+  width: 20%;
+  margin-top: -5px;
+}
+
+.mypost-writecommemt {
+  margin-left: -170px;
+  /* margin-top: -30px; */
+}
+
 .inputcomment {
   background-color: rgb(245, 245, 245);
   border: none;
@@ -269,30 +279,36 @@
   margin-top: 50px;
 }
 
-.mypostbuttonsends,
-.mypostbuttonsends:hover {
+.mypostbuttonsends {
+  background-color: rgb(245, 245, 245);
   color: grey;
+  border: none;
+  border-radius: 50px;
 }
 
 .mypostbuttonsend {
   width: 30px;
-  margin-left: 80px;
+  margin-left: 450px;
+  margin-top: -55px;
+  border: none;
   background: rgb(245, 245, 245);
   border-radius: 50px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5px 4px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
+  padding: 0px 0px;
   border: none;
   vertical-align: middle;
   transition: box-shadow 0.4s ease;
 }
 
 .mypostbuttonsend:hover {
-  margin-left: 80px;
-  background-color: rgb(255, 255, 255);
+  margin-left: 450px;
+  margin-top: -55px;
+  border-radius: 50px;
+  border: none;
+  background-color: rgb(245, 245, 245);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
