@@ -33,12 +33,12 @@ const Findthief = () => {
 
       useEffect(() => {
         ok();
-      }, [uid]);
+      }, []);
     
   console.log(show)
   return (
     <div>
-      <NavbarPage />
+      {show ? <div><NavbarPage />
       <div className="container-post1">
         <div className="row postrow">
           <div className="column1-postrow1">
@@ -213,7 +213,8 @@ const Findthief = () => {
 
     </div>
 
-         )}) :null}
+         )}) :null}</div> : null}
+      
         </div>
   );
 };

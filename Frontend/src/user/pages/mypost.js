@@ -19,25 +19,9 @@ const Mypost = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
-  const [imagesProfile, setImagesProfile] = useState("/img/profile.png");
-  const [photo, Setphoto] = useState();
-  const [name, setName] = useState();
-  const [surname, setSurname] = useState();
-  const [id, setId] = useState();
-  const [accountnumber, setAccountnumber] = useState();
-  const [nameproduct, setNameproduct] = useState();
-  const [productcategory, setProductcategory] = useState();
-  const [money, setMoney] = useState();
-  const [bank, setBank] = useState();
-  const [datetime, setDatetime] = useState();
-  const [social, setSocial] = useState();
-  const [other, setOther] = useState();
+
   const [mypost, Setmypost] = useState();
-  const [data, Setdata] = useState();
-  const [textcomment, Settextcomment] = useState();
-  const [allcomment, Setallcomment] = useState();
-  const [click, Setclick] = useState();
+
 
   let { user, setUser } = useContext(usercontext);
 
@@ -52,27 +36,11 @@ const Mypost = () => {
     history.push("/post/history");
   };
 
-  // const handle = async () => {
-
-  // console.log("gg")
-
-  // };
 
   const ok = async () => {
     try {
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
       Setmypost(ok.data.item);
-
-      const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-        result: user,
-      });
-
-      let profiledata = await Axios.post("http://localhost:7000/user/session", {
-        user: user,
-      });
-      Setphoto(profiledata.data.data.photoURL);
-
-      Setdata(nameuser.data.item);
     } catch (err) {
       console.log(err);
     }
@@ -81,13 +49,14 @@ const Mypost = () => {
   useEffect(() => {
     ok();
   }, []);
-
+  console.log(mypost)
+  
   return (
     <div className="allpage">
-      <NavbarPage />
+      {mypost ? <div> <NavbarPage />
       <h1 className="h1-mypost">โพสต์ของฉัน</h1>
       {mypost
-        ? mypost.map((ok) => {
+        ?  mypost.map((ok) => {
             return (
               <div>
                 <div className="container-mypost">
@@ -343,7 +312,8 @@ const Mypost = () => {
               </div>
             );
           })
-        : null}
+        : null} </div>:null}
+     
     </div>
   );
 };
