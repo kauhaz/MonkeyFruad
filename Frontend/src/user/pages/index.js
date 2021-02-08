@@ -268,9 +268,9 @@ const Home = () => {
                     return (
                       <div className="column4-index">
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -345,9 +345,9 @@ const Home = () => {
                     return (
                       <div className="column4-index">
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -422,9 +422,9 @@ const Home = () => {
                     return (
                       <div className="column4-index">
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -497,9 +497,9 @@ const Home = () => {
                     return (
                       <div className="column4-index">
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -573,9 +573,9 @@ const Home = () => {
                     return (
                       <div className="column4-index">
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />

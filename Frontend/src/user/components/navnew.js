@@ -20,12 +20,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-<<<<<<< HEAD
-import NotifyMe from "react-notification-timeline";
-const NavbarPage = () => {
-=======
-const NavbarPage = ({show}) => {
->>>>>>> b08cfb211fbbded1f9da05018ba6762ce9f0ac81
+const NavbarPage = ({ show }) => {
   var { user, setUser } = useContext(usercontext);
 
   const [displayname, setDisplayname] = useState();
@@ -57,8 +52,6 @@ const NavbarPage = ({show}) => {
     setIsopen(!isOpen);
   };
 
-
-
   const handlesearch = () => {
     try {
       if (search) {
@@ -72,14 +65,14 @@ const NavbarPage = ({show}) => {
 
         Setsearch("");
         if (getdata) {
-          (history.push({
+          history.push({
             pathname: "/entersearch",
             search: "?are you ok",
             state: {
               getdata,
-              search
+              search,
             },
-          }))
+          });
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -91,13 +84,12 @@ const NavbarPage = ({show}) => {
 
   const ok = async () => {
     try {
-      
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
-      const getthief = getallthief.data.item; 
-      console.log(search)
-      if(search){
-        Seterror()
+      const getthief = getallthief.data.item;
+      console.log(search);
+      if (search) {
+        Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
@@ -120,7 +112,7 @@ const NavbarPage = ({show}) => {
           })
         );
       }
-      if(!search){
+      if (!search) {
         Setlastsearch();
       }
     } catch (err) {
@@ -143,15 +135,9 @@ const NavbarPage = ({show}) => {
           console.log(err);
         });
     }
-<<<<<<< HEAD
     await ok();
-=======
-   await ok();  
->>>>>>> b08cfb211fbbded1f9da05018ba6762ce9f0ac81
     setLoading(false);
-  }, [user,search]  );
-
-  
+  }, [user, search]);
 
   return loading ? (
     ""
@@ -239,28 +225,6 @@ const NavbarPage = ({show}) => {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            <NotifyMe
-              data={[
-                {
-                  update: "70 new employees are shifted",
-                  timestamp: 1596119688264,
-                },
-                {
-                  update: "Time to take a Break, TADA!!!",
-                  timestamp: 1596119686811,
-                },
-              ]}
-              storageKey="notific_key"
-              notific_key="timestamp"
-              notific_value="update"
-              heading="การแจ้งเตือน"
-              sortedByKey={true}
-              showDate={true}
-              size={25}
-              color="#FFFFFF"
-              multiLineSplitter="\n"
-              // markAsReadFn={() => yourOwnFunctionHandler()}
-            />
             <MDBNavItem>
               <div className=" my-0">
                 <input
