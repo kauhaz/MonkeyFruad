@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, useMemo } from "react";
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
 import NavbarPage from "../components/navnew";
 import usercontext from "../context/usercontext";
 import axios from "axios";
@@ -24,39 +25,120 @@ const Home = () => {
   const [LineCount, setLineCount] = useState();
   const [TwitterCount, setTwitterCount] = useState();
   const [WebsiteCount, setWebsiteCount] = useState();
-const Getdata = async () =>{
-  try {
-    const thiefcount = await axios.get(
-      "http://localhost:7000/thief/orderbycount"
-    );
-    setThiefCount(thiefcount.data.data);
-    const facebookCount = await axios.get(
-      "http://localhost:7000/post/orderbyfacebook"
-    );
-    setFacebookCount(facebookCount.data.data);
-    const instragramCount = await axios.get(
-      "http://localhost:7000/post/orderbyinstragram"
-    );
-    setInstragramCount(instragramCount.data.data);
-    const lineCount = await axios.get(
-      "http://localhost:7000/post/orderbyline"
-    );
-    setLineCount(lineCount.data.data);
-    const twitterCount = await axios.get(
-      "http://localhost:7000/post/orderbytwitter"
-    );
-    setTwitterCount(twitterCount.data.data);
-    const websiteCount = await axios.get(
-      "http://localhost:7000/post/orderbywebsite"
-    );
-    setWebsiteCount(websiteCount.data.data);
-  } catch (err) {
-    console.log(err);
-  }
-}
+  const [search, Setsearch] = useState();
+  const [searching, Setsearching] = useState();
+  const [lastsearch, Setlastsearch] = useState();
+  const [haha, Sethaha] = useState();
+  const [role, Setrole] = useState();
+  const [show, Setshow] = useState();
+  const [error, Seterror] = useState();
+  let history = useHistory();
+  const Getdata = async () => {
+    try {
+      const thiefcount = await axios.get(
+        "http://localhost:7000/thief/orderbycount"
+      );
+      setThiefCount(thiefcount.data.data);
+      const facebookCount = await axios.get(
+        "http://localhost:7000/post/orderbyfacebook"
+      );
+      setFacebookCount(facebookCount.data.data);
+      const instragramCount = await axios.get(
+        "http://localhost:7000/post/orderbyinstragram"
+      );
+      setInstragramCount(instragramCount.data.data);
+      const lineCount = await axios.get(
+        "http://localhost:7000/post/orderbyline"
+      );
+      setLineCount(lineCount.data.data);
+      const twitterCount = await axios.get(
+        "http://localhost:7000/post/orderbytwitter"
+      );
+      setTwitterCount(twitterCount.data.data);
+      const websiteCount = await axios.get(
+        "http://localhost:7000/post/orderbywebsite"
+      );
+      setWebsiteCount(websiteCount.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useMemo(async () => {
-    await Getdata()
+    await Getdata();
   }, []);
+
+  const handlesearch = (e) => {
+    try {
+      e.preventDefault();
+
+      if (search) {
+        const getdata = searching.filter((doc) => {
+          return (
+            doc.name.toLowerCase().includes(search.toLowerCase()) ||
+            doc.surname.toLowerCase().includes(search.toLowerCase()) ||
+            doc.accountnumber.includes(search)
+          );
+        });
+
+        Setsearch("");
+
+        if (getdata) {
+          history.push({
+            pathname: "/entersearch",
+            search: "are you ok",
+            state: {
+              getdata,
+            },
+          });
+        }
+      } else {
+        Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const ok = async () => {
+    try {
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
+
+      const getthief = getallthief.data.item;
+      if (search) {
+        Setsearching(getallthief.data.item);
+        Setlastsearch(
+          getthief.filter((doc) => {
+            if (doc.accountnumber.startsWith(search)) {
+              Sethaha(true);
+              Setrole(false);
+            }
+            if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
+              Sethaha(false);
+              Setrole(true);
+            }
+            if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
+              Sethaha(false);
+              Setrole(true);
+            }
+            return (
+              doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
+              doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
+              doc.accountnumber.startsWith(search)
+            );
+          })
+        );
+      }
+      if (!search) {
+        Setlastsearch();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    ok();
+  }, [search]);
 
   return (
     <div>
@@ -67,19 +149,57 @@ const Getdata = async () =>{
           <div className="column1-index">
             <div className="text1-index">ค้นหาผ่านเว็บไซต์ของเราได้ที่นี่</div>
             <MDBCol>
-              <MDBFormInline className="mr-auto mb-4">
+              <MDBFormInline className="mr-auto mb-4" onSubmit={handlesearch}>
                 <div className="containermini1-index">
                   <input
                     className="mr-sm-2 box1-index"
                     type="text"
                     placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                     aria-label="Search"
+                    onChange={(e) => Setsearch(e.target.value)}
                   />
                   <button type="submit" className="button1-index">
                     ค้นหา
                   </button>
                 </div>
               </MDBFormInline>
+
+              {error}
+
+              <div>
+                {lastsearch
+                  ? lastsearch.map((doc) => {
+                      let thiefid = doc.accountnumber;
+                      console.log(thiefid);
+                      return (
+                        <div>
+                          {haha ? (
+                            <button
+                              onClick={() => (
+                                history.push(`/thief/post/${thiefid}`),
+                                window.location.reload(true)
+                              )}
+                            >
+                              <div>{doc.accountnumber}</div>
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => (
+                                history.push(`/thief/post/${thiefid}`),
+                                window.location.reload(true)
+                              )}
+                            >
+                              <div>
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          )}
+                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                        </div>
+                      );
+                    })
+                  : null}
+              </div>
             </MDBCol>
           </div>
           <div class="line-index"></div>
@@ -98,38 +218,40 @@ const Getdata = async () =>{
       <div className="container2-index">
         <div className="row">
           {ThiefCount
-            ? ThiefCount.map((element,index) => {
+            ? ThiefCount.map((element, index) => {
                 return (
-                    <div className="column3-index">
-                      <MDBCard>
-                        <div className={`coin${index+1} rank-index1`}>{index+1}</div>
-                        <MDBCardBody cascade className="text-center">
-                          <p className="text3-index">
-                            เลขที่บัญชี : {element.accountnumber} <br />
-                            {element.bank}
-                          </p>
-                          <p className="text4-index">
-                            จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
-                            จำนวนเงินทั้งหมด : {element.summoney} บาท
-                            <br />
-                            ล่าสุด : {element.wanteedon}
-                          </p>
-                          <a
-                            href="!#"
-                            className="orange-text mt-1 d-flex justify-content-end align-items-center"
-                          >
-                            <div className="readmore">
-                              ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
-                              <MDBIcon
-                                icon="chevron-right"
-                                className="ml-2"
-                                size="sm"
-                              ></MDBIcon>
-                            </div>
-                          </a>
-                        </MDBCardBody>
-                      </MDBCard>
-                    </div>
+                  <div className="column3-index">
+                    <MDBCard>
+                      <div className={`coin${index + 1} rank-index1`}>
+                        {index + 1}
+                      </div>
+                      <MDBCardBody cascade className="text-center">
+                        <p className="text3-index">
+                          เลขที่บัญชี : {element.accountnumber} <br />
+                          {element.bank}
+                        </p>
+                        <p className="text4-index">
+                          จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
+                          จำนวนเงินทั้งหมด : {element.summoney} บาท
+                          <br />
+                          ล่าสุด : {element.wanteedon}
+                        </p>
+                        <a
+                          href="!#"
+                          className="orange-text mt-1 d-flex justify-content-end align-items-center"
+                        >
+                          <div className="readmore">
+                            ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
+                            <MDBIcon
+                              icon="chevron-right"
+                              className="ml-2"
+                              size="sm"
+                            ></MDBIcon>
+                          </div>
+                        </a>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </div>
                 );
               })
             : null}
@@ -141,61 +263,65 @@ const Getdata = async () =>{
           <div className="headfacebook-index">โกงผ่าน Facebook ล่าสุด</div>
           <div className="facebookbox-index">
             <div className="row">
-            { FacebookCount
-            ? FacebookCount.map((element,index)=>{
-             return (
-                  <div className="column4-index">
-                <MDBCard>
-                  {element.resultfileitem ? (
-                    <MDBCardImage
-                    src={`${element.resultfileitem.url}`}
-                    className="image3-index"
-                    hover
-                  />
-                  ): (
-                    <MDBCardImage
-                    src={"/img/profile.png"}
-                    className="image3-index"
-                    hover
-                  />
-                  )}
-                  <MDBCardBody>
-                    <div className="Fall-crisp cardbody-index">
-                    <strong className="text5-index">{element.name} {element.surname}</strong>
-                    <hr />
-                    <p  className="text7-index">
-                      สินค้า : {element.nameproduct}<br />
-                      เลขบัญชี : {element.accountnumber} 
-                      <br />
-                      จำนวนเงิน : {element.money} บาท <br />
-                      วันที่โดนโกง : {element.datetime}<br />
-                    </p>
-                    </div>
-                    <a
-                      href={`/mypost/${element.uid}`}
-                      className="d-flex justify-content-end readmore1-index readmoresize-index"
-                    >
-                      <div className="">
-                        อ่านเพิ่มเติม{" "}
-                        <MDBIcon
-                          icon="chevron-right"
-                          className="ml-2"
-                          size="sm"
-                        ></MDBIcon>
+              {FacebookCount
+                ? FacebookCount.map((element, index) => {
+                    return (
+                      <div className="column4-index">
+                        <MDBCard>
+                          {element.resultfileitem ? (
+                            <MDBCardImage
+                              src={`${element.resultfileitem.url}`}
+                              className="image3-index"
+                              hover
+                            />
+                          ) : (
+                            <MDBCardImage
+                              src={"/img/profile.png"}
+                              className="image3-index"
+                              hover
+                            />
+                          )}
+                          <MDBCardBody>
+                            <div className="Fall-crisp cardbody-index">
+                              <strong className="text5-index">
+                                {element.name} {element.surname}
+                              </strong>
+                              <hr />
+                              <p className="text7-index">
+                                สินค้า : {element.nameproduct}
+                                <br />
+                                เลขบัญชี : {element.accountnumber}
+                                <br />
+                                จำนวนเงิน : {element.money} บาท <br />
+                                วันที่โดนโกง : {element.datetime}
+                                <br />
+                              </p>
+                            </div>
+                            <a
+                              href={`/mypost/${element.uid}`}
+                              className="d-flex justify-content-end readmore1-index readmoresize-index"
+                            >
+                              <div className="">
+                                อ่านเพิ่มเติม{" "}
+                                <MDBIcon
+                                  icon="chevron-right"
+                                  className="ml-2"
+                                  size="sm"
+                                ></MDBIcon>
+                              </div>
+                            </a>
+                          </MDBCardBody>
+                          <div className="time-index">
+                            <MDBIcon far icon="clock" />
+                            <span> {element.date}</span>
+                          </div>
+                        </MDBCard>
                       </div>
-                    </a>
-                  </MDBCardBody>
-                  <div className="time-index">
-                    <MDBIcon far icon="clock" />
-                    <span> {element.date}</span>
-                  </div>
-                </MDBCard>
-              </div>
-              )
-             })
-             : null } 
-             </div>
-             <div className="row">
+                    );
+                  })
+                : null}
+            </div>
+            <div className="row">
               <a href="!#" className="readmore1-index seemore">
                 <div className="">
                   ดูทั้งหมด{" "}
@@ -214,58 +340,63 @@ const Getdata = async () =>{
           <div className="headinstargram-index">โกงผ่าน Instargram ล่าสุด</div>
           <div className="instargrambox-index">
             <div className="row">
-            { InstragramCount
-            ? InstragramCount.map((element,index)=>{
-             return (
-              <div className="column4-index">
-                <MDBCard>
-                {element.resultfileitem ? (
-                    <MDBCardImage
-                    src={`${element.resultfileitem.url}`}
-                    className="image3-index"
-                    hover
-                  />
-                  ): (
-                    <MDBCardImage
-                    src={"/img/profile.png"}
-                    className="image3-index"
-                    hover
-                  />
-                  )}
-                  <MDBCardBody>
-                  <div className="Fall-crisp cardbody-index">
-                    <strong className="text5-index"> {element.name} {element.surname}{element.nameproduct}</strong>
-                    <hr />
-                    <p className="text7-index">
-                      สินค้า : {element.nameproduct} <br />
-                      เลขบัญชี : {element.accountnumber}
-                      <br />
-                      จำนวนเงิน : {element.money} บาท <br />
-                      วันที่โดนโกง : {element.datetime} บาท <br />
-                    </p>
-                    </div>
-                    <a
-                      href={`/mypost/${element.uid}`}
-                      className="d-flex justify-content-end readmore2-index readmoresize-index"
-                    >
-                      <div className="">
-                        อ่านเพิ่มเติม{" "}
-                        <MDBIcon
-                          icon="chevron-right"
-                          className="ml-2"
-                          size="sm"
-                        ></MDBIcon>
+              {InstragramCount
+                ? InstragramCount.map((element, index) => {
+                    return (
+                      <div className="column4-index">
+                        <MDBCard>
+                          {element.resultfileitem ? (
+                            <MDBCardImage
+                              src={`${element.resultfileitem.url}`}
+                              className="image3-index"
+                              hover
+                            />
+                          ) : (
+                            <MDBCardImage
+                              src={"/img/profile.png"}
+                              className="image3-index"
+                              hover
+                            />
+                          )}
+                          <MDBCardBody>
+                            <div className="Fall-crisp cardbody-index">
+                              <strong className="text5-index">
+                                {" "}
+                                {element.name} {element.surname}
+                                {element.nameproduct}
+                              </strong>
+                              <hr />
+                              <p className="text7-index">
+                                สินค้า : {element.nameproduct} <br />
+                                เลขบัญชี : {element.accountnumber}
+                                <br />
+                                จำนวนเงิน : {element.money} บาท <br />
+                                วันที่โดนโกง : {element.datetime} บาท <br />
+                              </p>
+                            </div>
+                            <a
+                              href={`/mypost/${element.uid}`}
+                              className="d-flex justify-content-end readmore2-index readmoresize-index"
+                            >
+                              <div className="">
+                                อ่านเพิ่มเติม{" "}
+                                <MDBIcon
+                                  icon="chevron-right"
+                                  className="ml-2"
+                                  size="sm"
+                                ></MDBIcon>
+                              </div>
+                            </a>
+                          </MDBCardBody>
+                          <div className="time2-index">
+                            <MDBIcon far icon="clock" />
+                            <span> {element.date}</span>
+                          </div>
+                        </MDBCard>
                       </div>
-                    </a>
-                  </MDBCardBody>
-                  <div className="time2-index">
-                    <MDBIcon far icon="clock" />
-                    <span> {element.date}</span>
-                  </div>
-                </MDBCard>
-              </div>
-             )})
-              : null}
+                    );
+                  })
+                : null}
             </div>
             <div className="row">
               <a href="!#" className="readmore2-index seemore">
@@ -286,58 +417,61 @@ const Getdata = async () =>{
           <div className="headline-index">โกงผ่าน Line ล่าสุด</div>
           <div className="linebox-index">
             <div className="row">
-            { LineCount
-            ? LineCount.map((element,index)=>{
-             return (
-              <div className="column4-index">
-                <MDBCard>
-                {element.resultfileitem ? (
-                    <MDBCardImage
-                    src={`${element.resultfileitem.url}`}
-                    className="image3-index"
-                    hover
-                  />
-                  ): (
-                    <MDBCardImage
-                    src={"/img/profile.png"}
-                    className="image3-index"
-                    hover
-                  />
-                  )}
-                  <MDBCardBody>
-                  <div className="Fall-crisp cardbody-index">
-                    <strong className="text5-index">{element.name} {element.surname}</strong>
-                    <hr />
-                    <p className="text7-index">
-                      สินค้า : {element.nameproduct}
-                      เลขบัญชี : {element.accountnumber}
-                      <br />
-                      จำนวนเงิน : {element.money} บาท <br />
-                      วันที่โดนโกง : {element.datetime} บาท <br />
-                    </p>
-                    </div>
-                    <a
-                      href={`/mypost/${element.uid}`}
-                      className="d-flex justify-content-end readmore3-index readmoresize-index"
-                    >
-                      <div className="">
-                        อ่านเพิ่มเติม{" "}
-                        <MDBIcon
-                          icon="chevron-right"
-                          className="ml-2"
-                          size="sm"
-                        ></MDBIcon>
+              {LineCount
+                ? LineCount.map((element, index) => {
+                    return (
+                      <div className="column4-index">
+                        <MDBCard>
+                          {element.resultfileitem ? (
+                            <MDBCardImage
+                              src={`${element.resultfileitem.url}`}
+                              className="image3-index"
+                              hover
+                            />
+                          ) : (
+                            <MDBCardImage
+                              src={"/img/profile.png"}
+                              className="image3-index"
+                              hover
+                            />
+                          )}
+                          <MDBCardBody>
+                            <div className="Fall-crisp cardbody-index">
+                              <strong className="text5-index">
+                                {element.name} {element.surname}
+                              </strong>
+                              <hr />
+                              <p className="text7-index">
+                                สินค้า : {element.nameproduct}
+                                เลขบัญชี : {element.accountnumber}
+                                <br />
+                                จำนวนเงิน : {element.money} บาท <br />
+                                วันที่โดนโกง : {element.datetime} บาท <br />
+                              </p>
+                            </div>
+                            <a
+                              href={`/mypost/${element.uid}`}
+                              className="d-flex justify-content-end readmore3-index readmoresize-index"
+                            >
+                              <div className="">
+                                อ่านเพิ่มเติม{" "}
+                                <MDBIcon
+                                  icon="chevron-right"
+                                  className="ml-2"
+                                  size="sm"
+                                ></MDBIcon>
+                              </div>
+                            </a>
+                          </MDBCardBody>
+                          <div className="time3-index">
+                            <MDBIcon far icon="clock" />
+                            <span> {element.date}</span>
+                          </div>
+                        </MDBCard>
                       </div>
-                    </a>
-                  </MDBCardBody>
-                  <div className="time3-index">
-                    <MDBIcon far icon="clock" />
-                    <span> {element.date}</span>
-                  </div>
-                </MDBCard>
-              </div>
-             )})
-             :null }
+                    );
+                  })
+                : null}
             </div>
             <div className="row">
               <a href="!#" className="readmore3-index seemore">
@@ -358,58 +492,62 @@ const Getdata = async () =>{
           <div className="headtwitter-index">โกงผ่าน Twitter ล่าสุด</div>
           <div className="twitterbox-index">
             <div className="row">
-            { TwitterCount
-            ? TwitterCount.map((element,index)=>{
-             return (
-              <div className="column4-index">
-                <MDBCard>
-                {element.resultfileitem ? (
-                    <MDBCardImage
-                    src={`${element.resultfileitem.url}`}
-                    className="image3-index"
-                    hover
-                  />
-                  ): (
-                    <MDBCardImage
-                    src={"/img/profile.png"}
-                    className="image3-index"
-                    hover
-                  />
-                  )}
-                  <MDBCardBody>
-                  <div className="Fall-crisp cardbody-index">
-                    <strong className="text5-index">{element.name} {element.surname}</strong>
-                    <hr />
-                    <p className="text7-index">
-                      สินค้า : {element.nameproduct}{element.name} <br/>
-                      เลขที่บัญชี : {element.accountnumber}
-                      <br />
-                      จำนวนเงิน : {element.money} บาท <br />
-                      วันที่โดนโกง : {element.datetime} <br />
-                    </p>
-                    </div>
-                    <a
-                      href={`/mypost/${element.uid}`}
-                      className="d-flex justify-content-end readmore4-index readmoresize-index"
-                    >
-                      <div className="">
-                        อ่านเพิ่มเติม{" "}
-                        <MDBIcon
-                          icon="chevron-right"
-                          className="ml-2"
-                          size="sm"
-                        ></MDBIcon>
+              {TwitterCount
+                ? TwitterCount.map((element, index) => {
+                    return (
+                      <div className="column4-index">
+                        <MDBCard>
+                          {element.resultfileitem ? (
+                            <MDBCardImage
+                              src={`${element.resultfileitem.url}`}
+                              className="image3-index"
+                              hover
+                            />
+                          ) : (
+                            <MDBCardImage
+                              src={"/img/profile.png"}
+                              className="image3-index"
+                              hover
+                            />
+                          )}
+                          <MDBCardBody>
+                            <div className="Fall-crisp cardbody-index">
+                              <strong className="text5-index">
+                                {element.name} {element.surname}
+                              </strong>
+                              <hr />
+                              <p className="text7-index">
+                                สินค้า : {element.nameproduct}
+                                {element.name} <br />
+                                เลขที่บัญชี : {element.accountnumber}
+                                <br />
+                                จำนวนเงิน : {element.money} บาท <br />
+                                วันที่โดนโกง : {element.datetime} <br />
+                              </p>
+                            </div>
+                            <a
+                              href={`/mypost/${element.uid}`}
+                              className="d-flex justify-content-end readmore4-index readmoresize-index"
+                            >
+                              <div className="">
+                                อ่านเพิ่มเติม{" "}
+                                <MDBIcon
+                                  icon="chevron-right"
+                                  className="ml-2"
+                                  size="sm"
+                                ></MDBIcon>
+                              </div>
+                            </a>
+                          </MDBCardBody>
+                          <div className="time4-index">
+                            <MDBIcon far icon="clock" />
+                            <span> {element.date}</span>
+                          </div>
+                        </MDBCard>
                       </div>
-                    </a>
-                  </MDBCardBody>
-                  <div className="time4-index">
-                    <MDBIcon far icon="clock" />
-                    <span> {element.date}</span>
-                  </div>
-                </MDBCard>
-              </div>
-             )})
-             :null}
+                    );
+                  })
+                : null}
             </div>
             <div className="row">
               <a href="!#" className="readmore4-index seemore">
@@ -430,58 +568,62 @@ const Getdata = async () =>{
           <div className="headother-index">โกงผ่านช่องทางอื่นๆ ล่าสุด</div>
           <div className="otherbox-index">
             <div className="row">
-            { WebsiteCount
-            ? WebsiteCount.map((element,index)=>{
-             return (     
-              <div className="column4-index">
-                <MDBCard>
-                {element.resultfileitem ? (
-                    <MDBCardImage
-                    src={`${element.resultfileitem.url}`}
-                    className="image3-index"
-                    hover
-                  />
-                  ): (
-                    <MDBCardImage
-                    src={"/img/profile.png"}
-                    className="image3-index"
-                    hover
-                  />
-                  )}
-                  <MDBCardBody>
-                  <div className="Fall-crisp cardbody-index">
-                    <strong className="text5-index">{element.name} {element.surname}</strong>
-                    <hr />
-                    <p  className="text7-index">
-                      สินค้า : {element.nameproduct} <br />
-                      เลขที่บัญชี : {element.accountnumber}
-                      <br />
-                      จำนวนเงิน : {element.money} บาท <br />
-                      วันที่โดนโกง : {element.datetime}<br />
-                    </p>
-                    </div>
-                    <a
-                      href={`/mypost/${element.uid}`}
-                      className="d-flex justify-content-end readmore5-index readmoresize-index"
-                    >
-                      <div className="">
-                        อ่านเพิ่มเติม{" "}
-                        <MDBIcon
-                          icon="chevron-right"
-                          className="ml-2"
-                          size="sm"
-                        ></MDBIcon>
+              {WebsiteCount
+                ? WebsiteCount.map((element, index) => {
+                    return (
+                      <div className="column4-index">
+                        <MDBCard>
+                          {element.resultfileitem ? (
+                            <MDBCardImage
+                              src={`${element.resultfileitem.url}`}
+                              className="image3-index"
+                              hover
+                            />
+                          ) : (
+                            <MDBCardImage
+                              src={"/img/profile.png"}
+                              className="image3-index"
+                              hover
+                            />
+                          )}
+                          <MDBCardBody>
+                            <div className="Fall-crisp cardbody-index">
+                              <strong className="text5-index">
+                                {element.name} {element.surname}
+                              </strong>
+                              <hr />
+                              <p className="text7-index">
+                                สินค้า : {element.nameproduct} <br />
+                                เลขที่บัญชี : {element.accountnumber}
+                                <br />
+                                จำนวนเงิน : {element.money} บาท <br />
+                                วันที่โดนโกง : {element.datetime}
+                                <br />
+                              </p>
+                            </div>
+                            <a
+                              href={`/mypost/${element.uid}`}
+                              className="d-flex justify-content-end readmore5-index readmoresize-index"
+                            >
+                              <div className="">
+                                อ่านเพิ่มเติม{" "}
+                                <MDBIcon
+                                  icon="chevron-right"
+                                  className="ml-2"
+                                  size="sm"
+                                ></MDBIcon>
+                              </div>
+                            </a>
+                          </MDBCardBody>
+                          <div className="time5-index">
+                            <MDBIcon far icon="clock" />
+                            <span> {element.date}</span>
+                          </div>
+                        </MDBCard>
                       </div>
-                    </a>
-                  </MDBCardBody>
-                  <div className="time5-index">
-                    <MDBIcon far icon="clock" />
-                    <span> {element.date}</span>
-                  </div>
-                </MDBCard>
-              </div>
-             )})
-             :null}
+                    );
+                  })
+                : null}
             </div>
             <div className="row">
               <a href="!#" className="readmore5-index seemore">

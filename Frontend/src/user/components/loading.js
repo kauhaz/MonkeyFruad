@@ -7,7 +7,6 @@ const Loading = ({loading}) => {
     return (
         <div>
             <PacmanLoader color="#1674E0" loading={loading}  size={99} css />
-            <span color="#1674E0" > กำลังโหลด </span>
         </div>
     )
 }
