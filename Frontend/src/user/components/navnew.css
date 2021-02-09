@@ -75,7 +75,32 @@
 
 }
 @media only screen and (max-width: 768px) {
+    .navbarnew {
+        font-size: 12px;
+    }
+    .logo-nav{
+        width: 80px;
+    }
+    .box-nav{
+        width: 165px;
+        height: 30px;
+        font-size: 11px;
+        margin-top: 2px;
+    }
+    .button-nav{
+        width: 55px;
+        height: 30px;
+        font-size: 11px;
+        margin-top: 2px;
+    }
 
+    .dropdown-menu-right{
+        margin-top: 2px !important;
+    }
+
+    .dropdown-item{
+        font-size: 11px !important;
+    }
   }
   
 @media only screen and (max-width: 414px) {

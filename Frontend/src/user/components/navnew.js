@@ -148,7 +148,7 @@ const NavbarPage = ({show}) => {
     ""
   ) : admin ? (
     <Router>
-      <MDBNavbar light expand="md" className="navbarnew">
+      <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
         <MDBNavbarBrand href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </MDBNavbarBrand>
