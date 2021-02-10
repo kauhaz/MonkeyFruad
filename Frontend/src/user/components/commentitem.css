@@ -33,7 +33,7 @@
 .post-comment-commentsall {
   background-color: rgb(245, 245, 245);
   width: 85%;
-  height: 150px;
+  /* height: 150px; */
   margin-left: 0px;
   margin-top: 5px;
   margin-bottom: 0px;
@@ -103,8 +103,8 @@
   /* text-indent: 100%; */
   /* word-wrap: break-word; */
   width: 100%;
-  margin: -3px;
-  border: 2px inset #eee;
+  /* margin: -3px; */
+  /* border: 2px inset #eee; */
 }
 
 .column1 {

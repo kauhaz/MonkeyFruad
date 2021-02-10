@@ -6,6 +6,7 @@ import "./commentitem.css";
 import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
+import { MDBInput } from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Commentitem = ({ postid }) => {
@@ -250,12 +251,12 @@ const Commentitem = ({ postid }) => {
           >
             <div className="cmp">
               <form className="cmpf" action="" method="post">
-                <input
-                  multiline
-                  size=""
+                <textarea
+                  rows="3"
+                  cols="15"
                   className="inputcomment1"
-                  placeholder="เขียนความคิดเห็น..."
-                  size="25"
+                  label="เขียนความคิดเห็น..."
+                  // size="25"
                   value={textcomment}
                   onChange={(e) => {
                     Settextcomment(e.target.value);
