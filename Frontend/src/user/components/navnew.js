@@ -199,7 +199,7 @@ const NavbarPage = ({show}) => {
                 <MDBDropdownToggle nav caret>
                   โพสต์
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
+                <MDBDropdownMenu className="dropdown-default dropdown-top1">
                   <MDBDropdownItem href="/post">โพสต์ทั้งหมด</MDBDropdownItem>
                   <MDBDropdownItem href="/linkruleshow">
                     สร้างโพสต์
@@ -215,7 +215,7 @@ const NavbarPage = ({show}) => {
                 <MDBDropdownToggle nav caret>
                   ช่วยเหลือ
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
+                <MDBDropdownMenu className="dropdown-default dropdown-top2">
                   <MDBDropdownItem href="/prevent">
                     รู้ไว้ไม่โดนโกง
                   </MDBDropdownItem>
@@ -287,7 +287,7 @@ const NavbarPage = ({show}) => {
                   <MDBDropdownToggle nav caret left>
                     {displayname}
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default" right>
+                  <MDBDropdownMenu className="dropdown-default dropdown-bottom" right>
                     <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
