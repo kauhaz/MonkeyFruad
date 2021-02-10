@@ -6,6 +6,7 @@ import "./commentitem.css";
 import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
+import { MDBInput } from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Commentitem = ({ postid }) => {
@@ -54,7 +55,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  console.log(postid)
+  console.log(postid);
 
   const handlecomment = async () => {
     try {
@@ -81,10 +82,10 @@ const Commentitem = ({ postid }) => {
         history.push({
           pathname: "/login",
           search: `?login=false`,
-          state: {  
-            login:false
-         }
-        })
+          state: {
+            login: false,
+          },
+        });
       }
     } catch (err) {
       err && Seterror(err.response.data.msg);
@@ -116,31 +117,34 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-    const gg = async () => {
-      try {
-        const getcommentall = await Axios.get(
-          `http://localhost:7000/post/commentmore/${postid}`
-        );
-        Setcommentmore(getcommentall.data.item);
-          if(user){
-            const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-              result: user,
-            });
-            Setdata(nameuser.data.item);
-    
-            var profiledata = await Axios.post("http://localhost:7000/user/session", {
-              user: user,
-            });
-            Setphotourl(profiledata.data.data.photoURL.url);
-            Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+  const gg = async () => {
+    try {
+      const getcommentall = await Axios.get(
+        `http://localhost:7000/post/commentmore/${postid}`
+      );
+      Setcommentmore(getcommentall.data.item);
+      if (user) {
+        const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+          result: user,
+        });
+        Setdata(nameuser.data.item);
+
+        var profiledata = await Axios.post(
+          "http://localhost:7000/user/session",
+          {
+            user: user,
           }
-      } catch (err) {
-        console.log(err);
+        );
+        Setphotourl(profiledata.data.data.photoURL.url);
+        Setphotopublic_id(profiledata.data.data.photoURL.public_id);
       }
-    };
-    useEffect(() => {
-      gg();
-    }, [click, showdelete, showedit]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    gg();
+  }, [click, showdelete, showedit]);
 
   return (
     <div>
@@ -207,7 +211,7 @@ const Commentitem = ({ postid }) => {
             return (
               <img
                 key={imagePreviewUrl}
-                className="imgpreview"
+                className="imgpreview1"
                 alt="previewImg"
                 src={imagePreviewUrl}
                 style={{ overflow: "hidden" }}
@@ -227,12 +231,12 @@ const Commentitem = ({ postid }) => {
             );
           })}
 
-          <div className="container-img-holder-imgpreview">
+          <div className="container-img-holder-imgpreview1">
             <label>
-              <img className="uploadprove" src="/img/addphoto.png" />
+              <img className="uploadprove1" src="/img/addphoto.png" />
               <input
                 id="FileInput"
-                className="uploadsformpostuploadslip"
+                className="uploadspostcomment"
                 type="file"
                 onChange={FileUpload}
                 multiple
@@ -245,29 +249,43 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-            <input
+            <div className="cmp">
+              <form className="cmpf" action="" method="post">
+                <textarea
+                  rows="3"
+                  cols="15"
+                  className="inputcomment1"
+                  label="เขียนความคิดเห็น..."
+                  // size="25"
+                  value={textcomment}
+                  onChange={(e) => {
+                    Settextcomment(e.target.value);
+                  }}
+                />
+                <br />
+                <br />
+              </form>
+            </div>
+            {/* <input
               className="inputcomment"
               placeholder="เขียนความคิดเห็น..."
+              size="25"
               value={textcomment}
               onChange={(e) => {
                 Settextcomment(e.target.value);
               }}
-            />
+            /> */}
           </div>
-
-          <div>
-            <div className="column2 mypostbuttonsend">
-              <button
-                className="mypostbuttonsends"
-                onClick={() => handlecomment()}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
-            </div>
+        </div>
+        <div>
+          <div className="column2 postbuttonsend">
+            <button className="postbuttonsends" onClick={() => handlecomment()}>
+              <i className="fa fa-paper-plane"></i>
+            </button>
           </div>
         </div>
 
-        <h1 className="h1-formpostfileerror">{error}</h1>
+        <h1 className="h1-postfileerror">{error}</h1>
       </div>
     </div>
   );
