@@ -31,6 +31,8 @@ import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
 import "./app.css";
 import usercontext from "./user/context/usercontext";
+import Findthief from "./user/pages/findthief";
+import Entersearch from "./user/pages/entersearch";
 
 // ที่รวม Routh ต่างๆ
 const App = () => {
@@ -52,7 +54,7 @@ const App = () => {
     });
     
   }, []);
-  console.log(user)
+  
   return loadingAuth ? "" : (
    admin ? (
     <Router>
@@ -143,6 +145,12 @@ const App = () => {
           </Route>
           <Route path="/changepass" exact>
             <Changepass />
+          </Route>
+          <Route path="/thief/post/:uid" exact>
+            <Findthief />
+          </Route>
+          <Route path="/entersearch" exact>
+            <Entersearch />
           </Route>
         </Switch>
       </usercontext.Provider>
