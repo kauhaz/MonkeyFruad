@@ -58,7 +58,8 @@ const Rank = () => {
         name: 'System',
         lastname: 'Architect',
         account: '0372701455',
-        amount: '80',
+        amount: '80,000',
+        time: '80',
         date: '2011/04/25'
       }
       // {
@@ -162,6 +163,7 @@ const Rank = () => {
           paging={false}
           searching={false}
           data={data}
+          className="rank-data"
         />
       </MDBContainer>
       <Chatbot/>
