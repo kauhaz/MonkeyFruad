@@ -82,12 +82,12 @@ const Listcomment = ({
               <br />
               {checkedittext ? (
                 <div>
-                  <input
+                  <textarea
                     value={edittextcomment}
                     onChange={(e) => {
                       Setedittextcomment(e.target.value);
                     }}
-                  ></input>
+                  ></textarea>
                   <button onClick={() => handleedit(commentmore.commentid)}>
                     ตกลง
                   </button>
