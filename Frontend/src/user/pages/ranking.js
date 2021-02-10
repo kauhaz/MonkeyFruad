@@ -3,6 +3,10 @@ import "./ranking.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 const Rank = () => {
   return (
     <div>
