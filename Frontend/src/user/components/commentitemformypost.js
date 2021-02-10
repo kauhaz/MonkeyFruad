@@ -238,7 +238,7 @@ const Commentitemformypost = ({ postid }) => {
             controlId="exampleForm.ControlTextarea1"
           >
             <input
-              className="inputcomment"
+              className="inputcomment2"
               size="25"
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
