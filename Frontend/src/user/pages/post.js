@@ -36,9 +36,9 @@ const Post = () => {
   return (
     <div>
       <NavbarPage />
-      <div className="container-bigpost">
+      <div className="container-bigpost1">
         <div className="row postbigrow">
-          <div className="column-post-left">
+          <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
                 <div className="row postrow">
@@ -48,7 +48,7 @@ const Post = () => {
                     </div>
                   </div>
                   <div className="column2-postrow2">
-                    <div className="post-linkformpost1">
+                    <div className="post-linkpost1">
                       แจ้งข้อมูลคนโกงได้ที่นี่เลย
                     </div>
                   </div>
@@ -238,14 +238,25 @@ const Post = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="column-post-right"></div>
                     </div>
                   );
                 })
               : null}
           </div>
 
-          <div className="column-post-right"></div>
+          <div className="column-post-right1">
+            <Link to={`https://www.facebook.com/porpraewz.mgn`}>
+              <div className="container-postright1">
+                <div className="post-linkpost2">
+                  ติดต่อเพจน้องพะโล้ <br />
+                  เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
+                </div>
+                <div className="post-img1">
+                  <img className="facebook" src="/img/facebook.jpg" />
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
       <Chatbot />
