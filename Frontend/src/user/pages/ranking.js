@@ -30,7 +30,7 @@ const Rank = () => {
       );
       thiefData = getThief.data;
       console.log(thiefData)
-      setRow();
+      setRow(); 
     } else if (e.target.value === "วันที่โกงล่าสุด") {
       const getThief = await Axios.get(
         `http://localhost:7000/thief/rankdatetime`
