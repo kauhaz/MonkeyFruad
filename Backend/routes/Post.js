@@ -100,17 +100,16 @@ router.post("/create", uploadFile, async (req, res) => {
       username,
       photoprofilepublic_id,
       photoprofileurl,
+      datetime
     } = req.body;
 
-    let { datetime } = req.body;
+    
     const uid = uuidv4();
     const newmoney = Number(money);
     let photoURL = { public_id: photoprofilepublic_id, url: photoprofileurl };
+    let date = new Date()
+    let datetimes = new Date(datetime)
 
-    // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
-    moment.locale("th");
-    const date = moment().format("lll");
-    datetime = moment(datetime).format("lll");
     if (!files) {
       return res
         .status(400)
@@ -138,7 +137,7 @@ router.post("/create", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         uid,
@@ -153,7 +152,7 @@ router.post("/create", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
 
       getpost.get().then((doc) => {
         let items = [];
@@ -166,7 +165,7 @@ router.post("/create", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -196,7 +195,7 @@ router.post("/create", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         uid,
@@ -223,7 +222,7 @@ router.post("/create", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -258,7 +257,7 @@ router.post("/create", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         uid,
@@ -283,7 +282,7 @@ router.post("/create", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -310,7 +309,7 @@ router.post("/create", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         uid,
@@ -336,7 +335,7 @@ router.post("/create", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -382,9 +381,8 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
     var { datetime } = req.body;
 
     const newmoney = Number(money);
-    moment.locale("th");
-    const date = moment().format("lll");
-    datetime = moment(datetime).format("lll");
+    let date = new Date()
+    let datetimes = new Date(datetime)
 
     if (file && files) {
       //single photo
@@ -409,7 +407,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         date,
@@ -431,7 +429,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -461,7 +459,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         date,
@@ -484,7 +482,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -520,7 +518,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
         productcategory,
         money: newmoney,
         bank,
-        datetime,
+        datetimes,
         social,
         other,
         date,
@@ -543,7 +541,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
           sum += res.money;
           count++;
         });
-        const wanteedon = items[0].datetime;
+        const wanteedon = items[0].datetimes;
         const Thief = firestore.collection("Thief").doc(accountnumber).set({
           name,
           surname,
@@ -573,7 +571,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
         social,
         other,
         date,
-        datetime,
+        datetimes,
       });
       const getpost = await firestore
         .collection("Post")
@@ -593,7 +591,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             sum += res.money;
             count++;
           });
-          const wanteedon = items[0].datetime;
+          const wanteedon = items[0].datetimes;
           const Thief = firestore.collection("Thief").doc(accountnumber).set({
             name,
             surname,
@@ -634,7 +632,8 @@ router.get("/edit/:uid", async (req, res) => {
       .get();
     showdata.forEach((doc) => {
       item.push(doc.data());
-      Datetime = moment(doc.get("datetime"), "lll", "th")
+
+      Datetime = moment(doc.get("datetimes"), "lll", "th")
         .locale("en")
         .format("YYYY-MM-DDTHH:mm");
       var locale = moment()._locale._abbr;

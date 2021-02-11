@@ -71,8 +71,8 @@ const NavbarPage = ({ show }) => {
             state: {
               getdata,
               search,
-            },
-          });
+            }
+          })
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -273,7 +273,7 @@ const NavbarPage = ({ show }) => {
               </div>
             </MDBNavItem>
 
-            <button onClick={() => handlesearch()} className="button-nav">
+            <button onClick={() => (handlesearch())} className="button-nav">
               ค้นหา
             </button>
             <MDBNavItem>
