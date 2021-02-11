@@ -220,7 +220,7 @@ const Home = () => {
           {ThiefCount
             ? ThiefCount.map((element, index) => {
                 return (
-                  <div className="column3-index">
+                  <div className="column3-index" key={index}>
                     <MDBCard>
                       <div className={`coin${index + 1} rank-index1`}>
                         {index + 1}
@@ -266,7 +266,7 @@ const Home = () => {
               {FacebookCount
                 ? FacebookCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
                             <MDBCardImage
@@ -343,7 +343,7 @@ const Home = () => {
               {InstragramCount
                 ? InstragramCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
                             <MDBCardImage
@@ -420,7 +420,7 @@ const Home = () => {
               {LineCount
                 ? LineCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
                             <MDBCardImage
@@ -495,7 +495,7 @@ const Home = () => {
               {TwitterCount
                 ? TwitterCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
                             <MDBCardImage
@@ -571,7 +571,7 @@ const Home = () => {
               {WebsiteCount
                 ? WebsiteCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
                             <MDBCardImage
