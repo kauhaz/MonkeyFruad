@@ -371,7 +371,7 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime} บาท <br />
+                                วันที่โอน : {element.datetime}<br />
                               </p>
                             </div>
                             <a
@@ -442,11 +442,11 @@ const Home = () => {
                               </strong>
                               <hr />
                               <p className="text7-index">
-                                สินค้า : {element.nameproduct}
+                                สินค้า : {element.nameproduct}<br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime} บาท <br />
+                                วันที่โอน : {element.datetime}<br />
                               </p>
                             </div>
                             <a

@@ -818,7 +818,7 @@ router.get("/orderbywebsite", async (req, res) => {
   try {
     const showdata = await firestore
       .collection("Post")
-      .where("social", "==", "Website")
+      .where("social", "==", "อื่นๆ")
       .orderBy("date", "desc")
       .limit(4);
     showdata.get().then((element) => {
