@@ -87,7 +87,7 @@ router.get("/post/:uid",async(req, res) => {
     let thiefid = req.params.uid
     console.log(thiefid)
      var item = []
-    const orderbycount = await firestore.collection("Post").where("accountnumber" , "==" , thiefid)
+    const orderbycount = await firestore.collection("Post").where("accountnumber" , "==" , thiefid).orderBy("date" , "desc")
     .get().then((querySnapshot)=>{
       querySnapshot.forEach((doc)=>{
         if(doc.exists)
@@ -95,7 +95,7 @@ router.get("/post/:uid",async(req, res) => {
            item.push(doc.data())
         }
       })
-
+      console.log(item)
     }).catch((err)=>{
         console.log(err)
     })
@@ -106,6 +106,44 @@ router.get("/post/:uid",async(req, res) => {
    return res.status(500).json({msg : err})
   }
 })
+
+router.post("/post",async(req, res) => {
+  try{
+    
+      const get = req.body
+     
+      if(get){
+        var item = [] 
+        console.log(get.length)
+        for(let i=0 ; i < get.length ; i++){
+          
+          const orderbycount = firestore.collection("Post").where("accountnumber" , "==" , get[i].accountnumber).orderBy("date" , "desc")
+          .get().then((querySnapshot)=>{
+            
+            querySnapshot.forEach((doc)=>{
+                 item.push(doc.data())
+              
+            })
+            
+            console.log(item)
+            if(i === get.length - 1){
+              return res.json({
+                item
+              })
+            }
+          })  
+       
+        }
+    
+      }
+
+  }catch(err){
+    console.log(err)
+   return res.status(500).json({msg : err})
+  }
+})
+
+
 
 
   

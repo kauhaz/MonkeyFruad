@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
+import * as moment from "moment";
+import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import { Link, useHistory ,useParams} from "react-router-dom";
@@ -89,7 +91,10 @@ const Findthief = () => {
                           </div>
                           <br />
                           <div className="post-date">
-                            <span className="post-time">{res.date}</span>
+                            <span className="post-time">{" "}
+                  {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}</span>
                           </div>
                         </div>
 
@@ -138,7 +143,7 @@ const Findthief = () => {
                                 </Form.Group>
                               </Form.Row>
 
-                              <Form.Row>
+                               <Form.Row>
                                 <Form.Group
                                   as={Col}
                                   className="post-left col-lg-6 col-12"
@@ -154,7 +159,7 @@ const Findthief = () => {
                                 </Form.Group>
                               </Form.Row>
 
-                              <Form.Row>
+                               <Form.Row>
                                 <Form.Group
                                   as={Col}
                                   className="post-left col-lg-6 col-12"
@@ -168,9 +173,9 @@ const Findthief = () => {
                                     {res.money} บาท
                                   </span>
                                 </Form.Group>
-                              </Form.Row>
+                              </Form.Row> 
 
-                              <Form.Row>
+                            <Form.Row>
                                 <Form.Group
                                   as={Col}
                                   className="post-left col-lg-6 col-12"
@@ -181,7 +186,9 @@ const Findthief = () => {
 
                                 <Form.Group>
                                   <span className="spanpost">
-                                    {res.date}{" "}
+                                  {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>

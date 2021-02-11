@@ -851,8 +851,9 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
     console.log(textcomment);
     const postid = req.params.id;
     const uuid = uuidv4();
-    moment.locale();
-    const datetime = moment().format("LTS");
+    let datetime = new Date()
+    // moment.locale();
+    // const datetime = moment().format("LTS");
     if (textcomment === "" && files === undefined) {
       console.log("ok");
       return res.status(404).json({
@@ -903,7 +904,7 @@ router.get("/commentmore/:id", async (req, res) => {
     const getcomment = await firestore
       .collection("Comment")
       .where("postid", "==", postid)
-      .orderBy("datetimes", "desc");
+      .orderBy("datetime", "desc");
 
     getcomment.get().then((doc) => {
       let item = [];

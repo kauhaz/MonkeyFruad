@@ -62,9 +62,13 @@ const NavbarPage = ({ show }) => {
             doc.accountnumber.includes(search)
           );
         });
-
+        console.log(getdata)
         Setsearch("");
-        if (getdata) {
+
+        if(getdata.length === 0 ){
+          Seterror("ไม่พบเจอคนร้าย")
+        }
+        else if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
@@ -73,6 +77,7 @@ const NavbarPage = ({ show }) => {
               search,
             }
           })
+          window.location.reload(true)
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");

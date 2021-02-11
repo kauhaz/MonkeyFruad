@@ -55,6 +55,7 @@ const Listcomment = ({
     gg();
   }, [commentmore]);
 
+
   return (
     <div>
       {commentmore ? (
@@ -78,8 +79,8 @@ const Listcomment = ({
                 <span className="mypost-comment-time1">
                   {" "}
                   {moment(
-                    new Date(commentmore.datetimes.seconds * 1000)
-                  ).format("lll")}{" "}
+                    new Date(commentmore.datetime.seconds * 1000)
+                  ).format("LTS")}{" "}
                 </span>
               </div>
               <br />
