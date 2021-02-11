@@ -35,29 +35,7 @@ router.get("/orderbycount", async (req, res) => {
     return res.status(500).json({ msg: err });
   }
 });
-router.get("/orderbycount", async (req, res) => {
-  try {
-    var data = [];
-    const orderbycount = await firestore
-      .collection("Thief")
-      .orderBy("count", "desc")
-      .limit(3)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          if (doc.exists) {
-            data.push(doc.data());
-          }
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return res.json({ data: data });
-  } catch (err) {
-    return res.status(500).json({ msg: err });
-  }
-});
+
 router.get("/rankcount", async (req, res) => {
   try {
     var data = [];

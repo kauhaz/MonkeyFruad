@@ -100,15 +100,14 @@ router.post("/create", uploadFile, async (req, res) => {
       username,
       photoprofilepublic_id,
       photoprofileurl,
-      datetime
+      datetime,
     } = req.body;
 
-    
     const uid = uuidv4();
     const newmoney = Number(money);
     let photoURL = { public_id: photoprofilepublic_id, url: photoprofileurl };
-    let date = new Date()
-    let datetimes = new Date(datetime)
+    let date = new Date();
+    let datetimes = new Date(datetime);
 
     if (!files) {
       return res
@@ -208,7 +207,7 @@ router.post("/create", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
 
       getpost.get().then((doc) => {
         let items = [];
@@ -270,7 +269,7 @@ router.post("/create", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
       getpost.get().then((doc) => {
         let items = [];
         doc.forEach((doc2) => {
@@ -321,7 +320,7 @@ router.post("/create", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
 
       getpost.get().then((doc) => {
         let items = [];
@@ -381,8 +380,8 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
     var { datetime } = req.body;
 
     const newmoney = Number(money);
-    let date = new Date()
-    let datetimes = new Date(datetime)
+    let date = new Date();
+    let datetimes = new Date(datetime);
 
     if (file && files) {
       //single photo
@@ -417,7 +416,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
       getpost.get().then((doc) => {
         let items = [];
         doc.forEach((doc2) => {
@@ -468,7 +467,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
 
       getpost.get().then((doc) => {
         let items = [];
@@ -527,7 +526,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
 
       getpost.get().then((doc) => {
         let items = [];
@@ -576,7 +575,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
-        .orderBy("datetime", "desc");
+        .orderBy("datetimes", "desc");
       getpost
         .get()
         .then((doc) => {
@@ -632,13 +631,8 @@ router.get("/edit/:uid", async (req, res) => {
       .get();
     showdata.forEach((doc) => {
       item.push(doc.data());
-
-      Datetime = moment(doc.get("datetimes"), "lll", "th")
-        .locale("en")
-        .format("YYYY-MM-DDTHH:mm");
-      var locale = moment()._locale._abbr;
-      console.log(Datetime);
-      console.log(locale);
+      Datetime = moment(new Date(doc.get("datetimes").seconds *1000)).format("YYYY-MM-DDTHH:mm");
+      console.log(typeof Datetime);
     });
     return res.json({
       item: item,
@@ -716,7 +710,6 @@ router.post("/postapi", async (req, res) => {
 router.get("/post", async (req, res) => {
   try {
     const showdata = await firestore.collection("Post").orderBy("date", "desc");
-
     showdata.get().then((ok) => {
       let item = [];
       ok.forEach((doc) => {
@@ -910,7 +903,7 @@ router.get("/commentmore/:id", async (req, res) => {
     const getcomment = await firestore
       .collection("Comment")
       .where("postid", "==", postid)
-      .orderBy("datetime", "desc");
+      .orderBy("datetimes", "desc");
 
     getcomment.get().then((doc) => {
       let item = [];

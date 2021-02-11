@@ -278,12 +278,15 @@ const Commentitem = ({ postid }) => {
             />
           </div>
           <div>
-          <div className="column2 postbuttonsend">
-            <button className="postbuttonsends" onClick={() => handlecomment()}>
-              <i className="fa fa-paper-plane"></i>
-            </button>
+            <div className="column2 postbuttonsend">
+              <button
+                className="postbuttonsends"
+                onClick={() => handlecomment()}
+              >
+                <i className="fa fa-paper-plane"></i>
+              </button>
+            </div>
           </div>
-        </div>
         </div>
         {/* <div>
           <div className="column2 postbuttonsend">

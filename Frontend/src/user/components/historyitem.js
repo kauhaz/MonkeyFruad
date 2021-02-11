@@ -27,9 +27,6 @@ const Historyitem = ({ ok, user , handledeletetorerender }) => {
       console.log(err);
     }
   };
-
-
-
   return (
     <div>
       <div className="container-history1">

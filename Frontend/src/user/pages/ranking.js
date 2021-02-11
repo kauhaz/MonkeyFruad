@@ -6,6 +6,8 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { MDBDataTable } from "mdbreact";
 import { useAccordionToggle } from "react-bootstrap";
 import Axios from "axios";
+import * as moment from "moment";
+import "moment/locale/th";
 const Rank = () => {
   var thiefData = [];
   const [dataRow, setDataRow] = useState([]);
@@ -29,25 +31,21 @@ const Rank = () => {
         `http://localhost:7000/thief/ranksummoney`
       );
       thiefData = getThief.data;
-      console.log(thiefData)
-      setRow(); 
+      setRow();
     } else if (e.target.value === "วันที่โกงล่าสุด") {
       const getThief = await Axios.get(
         `http://localhost:7000/thief/rankdatetime`
       );
       thiefData = getThief.data;
-      console.log(thiefData)
       setRow();
     } else if (e.target.value === "จำนวนครั้งที่โกงมากที่สุด") {
       const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
       thiefData = getThief.data;
-      console.log(thiefData)
       setRow();
     }
   };
   const ThiefLoading = () => {
     var ThiefData = [];
-    console.log(thiefData);
     for (var i = 0; i < thiefData.data.length; i++) {
       ThiefData.push({
         rank: i + 1,
@@ -56,7 +54,9 @@ const Rank = () => {
         account: thiefData.data[i].accountnumber,
         amount: thiefData.data[i].summoney,
         time: thiefData.data[i].count,
-        date: thiefData.data[i].wanteedon,
+        date: moment(
+          new Date(thiefData.data[i].wanteedon.seconds * 1000)
+        ).format("lll")
       });
     }
     return ThiefData;

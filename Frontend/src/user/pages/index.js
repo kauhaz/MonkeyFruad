@@ -7,6 +7,9 @@ import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import "./index.css";
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
+import * as moment from "moment";
+import "moment/locale/th";
+
 import {
   MDBCard,
   MDBCardBody,
@@ -63,6 +66,7 @@ const Home = () => {
       console.log(err);
     }
   };
+
   useMemo(async () => {
     await Getdata();
   }, []);
@@ -234,7 +238,10 @@ const Home = () => {
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
                           จำนวนเงินทั้งหมด : {element.summoney} บาท
                           <br />
-                          ล่าสุด : {element.wanteedon}
+                          ล่าสุด :{" "}
+                          {moment(
+                            new Date(element.wanteedon.seconds * 1000)
+                          ).format("lll")}
                         </p>
                         <a
                           href="!#"
@@ -293,7 +300,10 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
                                 <br />
                               </p>
                             </div>
@@ -313,7 +323,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -371,7 +386,11 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}<br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -390,7 +409,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time2-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -442,11 +466,16 @@ const Home = () => {
                               </strong>
                               <hr />
                               <p className="text7-index">
-                                สินค้า : {element.nameproduct}<br />
+                                สินค้า : {element.nameproduct}
+                                <br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}<br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -465,7 +494,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time3-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -522,7 +556,11 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime} <br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}{" "}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -541,7 +579,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time4-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -597,7 +640,10 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
                                 <br />
                               </p>
                             </div>
@@ -617,7 +663,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time5-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
