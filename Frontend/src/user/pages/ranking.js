@@ -152,7 +152,7 @@ const Rank = () => {
                 จำนวนครั้งที่โกงมากที่สุด
               </option>
               <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-              <option value="กระบี่">กระบี่ </option>
+              <option value="กระบี่">กระบี่</option>
               <option value="กาญจนบุรี">กาญจนบุรี </option>
             </select>
         </div>
