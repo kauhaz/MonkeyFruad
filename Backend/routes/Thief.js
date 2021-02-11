@@ -160,7 +160,7 @@ router.get("/rankdatetime", async (req, res) => {
     var data = [];
     const orderbycount = await firestore
       .collection("Thief")
-      .orderBy("datetime", "desc")
+      .orderBy("wanteedon", "desc")
       .limit(10)
       .get()
       .then((querySnapshot) => {
@@ -169,13 +169,14 @@ router.get("/rankdatetime", async (req, res) => {
             data.push(doc.data());
           }
         });
+        return res.json({ data: data });
       })
       .catch((err) => {
         console.log(err);
       });
-    return res.json({ data: data });
+      console.log(data)
   } catch (err) {
-    return res.status(500).json({ msg: err });
+   console.log(err)
   }
 });
 
