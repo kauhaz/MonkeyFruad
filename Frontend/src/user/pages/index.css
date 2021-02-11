@@ -34,6 +34,11 @@
     margin-right: 15px;
 }
 
+.line-index {
+    border-left: 3px solid rgba(146, 146, 146, 0.479);
+    height: 250px;
+}
+
 .text1-index{
     font-size: 19px;
     text-align: center;
@@ -87,10 +92,7 @@
     display: block;
 }
 
-.line-index {
-    border-left: 3px solid rgba(146, 146, 146, 0.479);
-    height: 250px;
-}
+
 
 .container2-index{
     width: 60%;
@@ -156,7 +158,7 @@
 
 .container3-index {
     width: 60%;
-    height: 2720px;
+    height: 2840px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
@@ -387,7 +389,8 @@
     font-size: 25px;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    padding-left: 15px;
+    padding-left: 24px;
+    padding-right: 12px;
     margin-bottom: 60px;
 }
 
@@ -446,12 +449,11 @@
         width: 250px;
     }
     .textlink-index{
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .h1-index { 
         font-size: 22px;
-        font-family: 'Kanit', sans-serif;
         margin-top: 70px;
     }
     .rank-index1{
@@ -478,11 +480,6 @@
     .container3-index {
         width: 65%;
         height: 2420px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 100px;
-        font-size: 16px ;
-        font-family: 'Kanit', sans-serif;
     }
 
     /*social media*/ 
@@ -497,11 +494,11 @@
         margin-top: -5px;
     }
     .text7-index{
-        font-size: 10px ;
+        font-size: 12px ;
         margin-bottom: 5px;
     }
     .cardbody-index{
-        width: 150px;
+        width: 170px;
         margin-left: -8px;
     }
     .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
@@ -509,7 +506,7 @@
         padding-top: 7px;
     }
     .readmoresize-index{
-        font-size: 13px;
+        font-size: 14px;
         margin-right: -10px;
         margin-top: 3px;
     }
@@ -520,11 +517,123 @@
 }
 
 @media only screen and (max-width: 1024px) {
+    .container1-index , .container2-index , .container3-index{
+        width: 75%;
+    }
+    .rank-index1{
+        font-size: 60px;
+    }
 
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 18px;
+    }
+    .cardbody-index{
+        margin-left: -12px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 11px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-
+    .container1-index , .container2-index , .container3-index{
+        width: 70%;
+    }
+    .container1-index{
+        height: 220px;
+    }
+    .text1-index{
+        font-size: 14px;
+    }
+    .containermini1-index{
+        width: 90%;
+    }
+    .box1-index{
+        width: 71%;
+        padding-left: 15px;
+        font-size: 11px;
+        height: 35px;
+    }
+    .button1-index{
+        font-size: 12px;
+        width: 25%;
+        height: 35px;
+    }
+    .image1-index{
+        width: 190px;
+    }
+    .textlink-index{
+        font-size: 12px;
+    }
+    .column1-index{
+        margin-top: 25px;
+    }
+    .line-index{
+        height: 170px;
+    }
+    .h1-index{
+        font-size: 17px;
+    }
+    .container2-index{
+        height: 290px;
+    }
+    .rank-index1{
+        padding-top: 15px;
+    }
+    .text3-index{
+        font-size: 12px;
+    }
+    .text4-index{
+        font-size: 11px;
+        margin-left: -4px;
+        width: 150px;
+    }
+    .coin1 , .coin2 , .coin3{
+        height: 120px;
+    }
+    .readmore {
+        font-size: 11px;
+        margin-top: -5px;
+    }
+    .container3-index{
+        height: 2000px;
+    }
+    /*social media*/ 
+    .column4-index{
+        width: 24.7%;
+        padding: 20px 3px 20px 3px; 
+    }
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+    }
+    .cardbody-index{
+        margin-left: -15px;
+        width: 110px;
+        margin-top: -10px;
+        margin-left: -13px;
+    }
+    .image3-index{
+        height: 100px;
+    }
+    .text5-index{
+        font-size: 10px;
+        margin-top: -5px;
+    }
+    .text7-index{
+        font-size: 10px ;
+        margin-bottom: 5px;
+    }
+    .readmoresize-index{
+        font-size: 10px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 10px;
+    }
+    .seemore{
+        font-size: 14px;
+        margin-top: -10px;
+    }
 }
 
 @media only screen and (max-width: 414px) {
