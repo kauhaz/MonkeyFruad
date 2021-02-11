@@ -142,7 +142,7 @@ const Rank = () => {
       <NavbarPage />
       <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
       <MDBContainer className="container-ranking">
-        {/* <div className="rank-sorting">
+        <div className="rank-sorting">
             <select
               as="select"
               name="rank-sort"
@@ -155,7 +155,7 @@ const Rank = () => {
               <option value="กระบี่">กระบี่ </option>
               <option value="กาญจนบุรี">กาญจนบุรี </option>
             </select>
-        </div> */}
+        </div>
         <MDBDataTable
           responsive
           striped
