@@ -5,7 +5,8 @@ import "./post.css";
 import { Link, useHistory } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
-
+import * as moment from "moment";
+import "moment/locale/th";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import {
   auth,
@@ -16,6 +17,7 @@ import {
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
 const { v4: uuidv4, NIL } = require("uuid");
+
 const Post = () => {
   const [show, Setshow] = useState();
 
@@ -85,7 +87,11 @@ const Post = () => {
                             </div>
                             <br />
                             <div className="post-date">
-                              <span className="post-time">{res.date}</span>
+                              <span className="post-time">
+                                {moment(
+                                  new Date(res.date.seconds * 1000)
+                                ).format("lll")}
+                              </span>
                             </div>
                           </div>
 
@@ -172,12 +178,14 @@ const Post = () => {
                                     className="post-left col-lg-6 col-12"
                                     controlId="formGridDate"
                                   >
-                                    <Form.Label>วันที่โพสต์</Form.Label>
+                                    <Form.Label>วันที่โดนโกง</Form.Label>
                                   </Form.Group>
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.date}{" "}
+                                      {moment(
+                                        new Date(res.datetimes.seconds * 1000)
+                                      ).format("lll")}{" "}
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
