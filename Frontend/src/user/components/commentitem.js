@@ -55,7 +55,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  console.log(postid);
+
 
   const handlecomment = async () => {
     try {
@@ -278,20 +278,16 @@ const Commentitem = ({ postid }) => {
             />
           </div>
           <div>
-          <div className="column2 postbuttonsend">
-            <button className="postbuttonsends" onClick={() => handlecomment()}>
-              <i className="fa fa-paper-plane"></i>
-            </button>
+            <div className="column2 mypostbuttonsend">
+              <button
+                className="mypostbuttonsends"
+                onClick={() => handlecomment()}
+              >
+                <i className="fa fa-paper-plane"></i>
+              </button>
+            </div>
           </div>
         </div>
-        </div>
-        {/* <div>
-          <div className="column2 postbuttonsend">
-            <button className="postbuttonsends" onClick={() => handlecomment()}>
-              <i className="fa fa-paper-plane"></i>
-            </button>
-          </div>
-        </div> */}
 
         <h1 className="h1-postfileerror">{error}</h1>
       </div>

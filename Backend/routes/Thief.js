@@ -35,29 +35,7 @@ router.get("/orderbycount", async (req, res) => {
     return res.status(500).json({ msg: err });
   }
 });
-router.get("/orderbycount", async (req, res) => {
-  try {
-    var data = [];
-    const orderbycount = await firestore
-      .collection("Thief")
-      .orderBy("count", "desc")
-      .limit(3)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          if (doc.exists) {
-            data.push(doc.data());
-          }
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return res.json({ data: data });
-  } catch (err) {
-    return res.status(500).json({ msg: err });
-  }
-});
+
 router.get("/rankcount", async (req, res) => {
   try {
     var data = [];
@@ -81,13 +59,13 @@ router.get("/rankcount", async (req, res) => {
 
 router.get("/thief",async(req, res) => {
   try{
-    console.log("gg")
      var item = []
     const orderbycount = await firestore.collection("Thief")
     .get().then((querySnapshot)=>{
-      querySnapshot.forEach((doc)=>{
+      querySnapshot.forEach((doc ,index)=>{
         if(doc.exists)
         {
+          
            item.push(doc.data())
         }
       })
@@ -103,13 +81,43 @@ router.get("/thief",async(req, res) => {
   }
 })
 
+// router.get("/thief",async(req, res) => {
+//   try{
+//      var item = []
+//     const orderbycount = await firestore.collection("Thief").orderBy("name").orderBy("surname")
+//     .get().then((querySnapshot)=>{
+//       querySnapshot.forEach((doc)=>{
+//         if(doc.exists)
+//         {
+//            item.push(doc.data())
+//         }
+//       })
+//       // console.log(item)
+//     }).catch((err)=>{
+//         console.log(err)
+//     })
+//       for(let i = 0 ; i<item.length ;i++){
+//        if(item[i].name && item[i].surname === item[i+1].name && item[i+1].surname){
+//           return res.json({
+//             item : item[i]
+//           })
+//        }
+//       }
+//       return res.json({
+//         item
+//       })
+//   }catch(err){
+//    return res.status(500).json({msg : err})
+//   }
+// })
+
 router.get("/post/:uid",async(req, res) => {
   try{
   
     let thiefid = req.params.uid
     console.log(thiefid)
      var item = []
-    const orderbycount = await firestore.collection("Post").where("accountnumber" , "==" , thiefid)
+    const orderbycount = await firestore.collection("Post").where("accountnumber" , "==" , thiefid).orderBy("date" , "desc")
     .get().then((querySnapshot)=>{
       querySnapshot.forEach((doc)=>{
         if(doc.exists)
@@ -117,7 +125,7 @@ router.get("/post/:uid",async(req, res) => {
            item.push(doc.data())
         }
       })
-
+      console.log(item)
     }).catch((err)=>{
         console.log(err)
     })
@@ -128,6 +136,44 @@ router.get("/post/:uid",async(req, res) => {
    return res.status(500).json({msg : err})
   }
 })
+
+router.post("/post",async(req, res) => {
+  try{
+    
+      const get = req.body
+     
+      if(get){
+        var item = [] 
+        console.log(get.length)
+        for(let i=0 ; i < get.length ; i++){
+          
+          const orderbycount = firestore.collection("Post").where("accountnumber" , "==" , get[i].accountnumber).orderBy("date" , "desc")
+          .get().then((querySnapshot)=>{
+            
+            querySnapshot.forEach((doc)=>{
+                 item.push(doc.data())
+              
+            })
+            
+            console.log(item)
+            if(i === get.length - 1){
+              return res.json({
+                item
+              })
+            }
+          })  
+       
+        }
+    
+      }
+
+  }catch(err){
+    console.log(err)
+   return res.status(500).json({msg : err})
+  }
+})
+
+
 
 
   
@@ -160,7 +206,7 @@ router.get("/rankdatetime", async (req, res) => {
     var data = [];
     const orderbycount = await firestore
       .collection("Thief")
-      .orderBy("datetime", "desc")
+      .orderBy("wanteedon", "desc")
       .limit(10)
       .get()
       .then((querySnapshot) => {
@@ -169,13 +215,14 @@ router.get("/rankdatetime", async (req, res) => {
             data.push(doc.data());
           }
         });
+        return res.json({ data: data });
       })
       .catch((err) => {
         console.log(err);
       });
-    return res.json({ data: data });
+      console.log(data)
   } catch (err) {
-    return res.status(500).json({ msg: err });
+   console.log(err)
   }
 });
 
