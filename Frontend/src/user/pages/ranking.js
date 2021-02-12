@@ -56,7 +56,7 @@ const Rank = () => {
         time: thiefData.data[i].count,
         date: moment(
           new Date(thiefData.data[i].wanteedon.seconds * 1000)
-        ).format("lll")
+        ).format("lll"),
       });
     }
     return ThiefData;

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Formedit from "../components/formedit"
+import Formedit from "../components/formedit";
 import "./editpost.css";
 import NavbarPage from "../components/navnew";
 const Editpost = () => {
-
-  const [check , Setcheck] = useState(false)
+  const [check, Setcheck] = useState(false);
 
   return (
     <div>
       {check ? null : <NavbarPage />}
-      {check ? null : <h1 className="h1-editpost">แก้ไขโพสต์</h1>} 
-      <Formedit check={check} Setcheck={Setcheck}/>
+      {check ? null : <h1 className="h1-editpost">แก้ไขโพสต์</h1>}
+      <Formedit check={check} Setcheck={Setcheck} />
     </div>
   );
 };
