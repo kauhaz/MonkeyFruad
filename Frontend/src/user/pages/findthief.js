@@ -184,13 +184,13 @@ const Findthief = () => {
                                         className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
-                                        <Form.Label>วันที่โพสต์</Form.Label>
+                                        <Form.Label>วันที่โดนโกง</Form.Label>
                                       </Form.Group>
 
                                       <Form.Group>
                                         <span className="spanpost">
                                           {moment(
-                                            new Date(res.date.seconds * 1000)
+                                            new Date(res.datetimes.seconds * 1000)
                                           ).format("lll")}{" "}
                                         </span>
                                       </Form.Group>
