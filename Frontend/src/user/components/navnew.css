@@ -53,6 +53,9 @@
     background-color: rgb(236, 234, 234) !important;
 }
 
+.search-nav{
+    background-color: aqua;
+}
 
 /*reponsive*/
 @media only screen and (max-width: 1366px) {
