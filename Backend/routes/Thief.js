@@ -59,13 +59,13 @@ router.get("/rankcount", async (req, res) => {
 
 router.get("/thief",async(req, res) => {
   try{
-    console.log("gg")
      var item = []
     const orderbycount = await firestore.collection("Thief")
     .get().then((querySnapshot)=>{
-      querySnapshot.forEach((doc)=>{
+      querySnapshot.forEach((doc ,index)=>{
         if(doc.exists)
         {
+          
            item.push(doc.data())
         }
       })
@@ -80,6 +80,36 @@ router.get("/thief",async(req, res) => {
    return res.status(500).json({msg : err})
   }
 })
+
+// router.get("/thief",async(req, res) => {
+//   try{
+//      var item = []
+//     const orderbycount = await firestore.collection("Thief").orderBy("name").orderBy("surname")
+//     .get().then((querySnapshot)=>{
+//       querySnapshot.forEach((doc)=>{
+//         if(doc.exists)
+//         {
+//            item.push(doc.data())
+//         }
+//       })
+//       // console.log(item)
+//     }).catch((err)=>{
+//         console.log(err)
+//     })
+//       for(let i = 0 ; i<item.length ;i++){
+//        if(item[i].name && item[i].surname === item[i+1].name && item[i+1].surname){
+//           return res.json({
+//             item : item[i]
+//           })
+//        }
+//       }
+//       return res.json({
+//         item
+//       })
+//   }catch(err){
+//    return res.status(500).json({msg : err})
+//   }
+// })
 
 router.get("/post/:uid",async(req, res) => {
   try{
