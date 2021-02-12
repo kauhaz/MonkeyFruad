@@ -75,7 +75,9 @@
 
 .imgpreview1 {
   width: 40%;
-  align: right;
+  /* margin-top: 100px; */
+  height: auto;
+  /* display: inline; */
 }
 
 .post-writecommemt {
