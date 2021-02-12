@@ -55,7 +55,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  console.log(postid);
+
 
   const handlecomment = async () => {
     try {
@@ -249,7 +249,7 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-            <div className="cmp">
+            {/* <div className="cmp">
               <form className="cmpf" action="" method="post">
                 <textarea
                   rows="3"
@@ -265,23 +265,27 @@ const Commentitem = ({ postid }) => {
                 <br />
                 <br />
               </form>
-            </div>
-            {/* <input
-              className="inputcomment"
+            </div> */}
+            <textarea
+              rows="3"
+              cols="15"
+              className="inputcomment1"
               placeholder="เขียนความคิดเห็น..."
-              size="25"
               value={textcomment}
               onChange={(e) => {
                 Settextcomment(e.target.value);
               }}
-            /> */}
+            />
           </div>
-        </div>
-        <div>
-          <div className="column2 postbuttonsend">
-            <button className="postbuttonsends" onClick={() => handlecomment()}>
-              <i className="fa fa-paper-plane"></i>
-            </button>
+          <div>
+            <div className="column2 mypostbuttonsend">
+              <button
+                className="mypostbuttonsends"
+                onClick={() => handlecomment()}
+              >
+                <i className="fa fa-paper-plane"></i>
+              </button>
+            </div>
           </div>
         </div>
 

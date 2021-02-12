@@ -152,3 +152,11 @@
 .column2 {
   width: 10%;
 }
+
+.inputcomment2 {
+  /* text-indent: 100%; */
+  /* word-wrap: break-word; */
+  width: 100%;
+  /* margin: -3px; */
+  /* border: 2px inset #eee; */
+}
