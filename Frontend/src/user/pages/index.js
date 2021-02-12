@@ -36,7 +36,6 @@ const Home = () => {
   const [show, Setshow] = useState();
   const [error, Seterror] = useState();
   let history = useHistory();
-  let i = 0 //forsearch
   const Getdata = async () => {
     try {
       const thiefcount = await axios.get(
@@ -115,15 +114,15 @@ const Home = () => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-             
+              Setrole(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(true);
-             
+              Sethaha(false);
+              Setrole(true);
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(true);
-             
+              Sethaha(false);
+              Setrole(true);
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -171,27 +170,37 @@ const Home = () => {
 
               {error}
 
-              <div >
-              {lastsearch ? lastsearch.map((doc) => {
+              <div>
+                {lastsearch
+                  ? lastsearch.map((doc) => {
                       let thiefid = doc.accountnumber;
-                          i++
-                          return (
-                            <div>
-                               {i<=10 ? <div> {haha ? (
-                                <button
-                                  onClick={() => (
-                                    history.push(`/thief/post/${thiefid}`),
-                                    window.location.reload(true)
-                                  )}
-                                >
-                                  <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
-                                </button>
-                              ) : null}</div>:null}
-                            </div>
-                          );
-
-                   
-                  
+                      console.log(thiefid);
+                      return (
+                        <div>
+                          {haha ? (
+                            <button
+                              onClick={() => (
+                                history.push(`/thief/post/${thiefid}`),
+                                window.location.reload(true)
+                              )}
+                            >
+                              <div>{doc.accountnumber}</div>
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => (
+                                history.push(`/thief/post/${thiefid}`),
+                                window.location.reload(true)
+                              )}
+                            >
+                              <div>
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          )}
+                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                        </div>
+                      );
                     })
                   : null}
               </div>
