@@ -228,11 +228,11 @@ const Home = () => {
                       <MDBCardBody cascade className="text-center">
                         <p className="text3-index">
                           เลขที่บัญชี : {element.accountnumber} <br />
-                          {element.bank}
+                          ธนาคาร : {element.bank}
                         </p>
                         <p className="text4-index">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
-                          จำนวนเงินทั้งหมด : {element.summoney} บาท
+                          ยอดทั้งหมด : {element.summoney} บาท
                           <br />
                           ล่าสุด : {element.wanteedon}
                         </p>
