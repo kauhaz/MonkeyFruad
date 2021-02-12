@@ -6,7 +6,7 @@
     color: #5c5c5c;
 }
 
-.h2-history2 { 
+.h2-history { 
     margin-top: 50px;
     margin-left: 80px;
     font-size: 25px;
@@ -162,7 +162,6 @@
     margin-right: auto;
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: #ff392e;
 }
 
 /*Responsive*/ 
