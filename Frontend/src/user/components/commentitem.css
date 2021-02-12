@@ -70,6 +70,7 @@
 .uploadprove1 {
   width: 20%;
   margin-top: -5px;
+  margin-right: 5px;
 }
 
 .imgpreview1 {
@@ -84,6 +85,8 @@
 
 .inputcomment1 {
   width: 150%;
+  background-color: rgb(245, 245, 245);
+  border: none;
 }
 
 .column1 {
@@ -103,8 +106,8 @@
 
 .postbuttonsend {
   width: 30px;
-  margin-left: 300px;
-  margin-top: -55px;
+  margin-left: 85px;
+  margin-top: 0px;
   border: none;
   background: rgb(245, 245, 245);
   border-radius: 50px;
@@ -119,8 +122,8 @@
 }
 
 .postbuttonsend:hover {
-  margin-left: 300px;
-  margin-top: -55px;
+  margin-left: 85px;
+  margin-top: 0px;
   border-radius: 50px;
   border: none;
   background-color: rgb(245, 245, 245);
