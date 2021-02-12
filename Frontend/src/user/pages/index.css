@@ -674,8 +674,8 @@
         width: 100%;
     }
     .box1-index{
-        width: 77%;
-        padding-left: 3px;
+        width: 100%;
+        padding-left: 20px;
         padding-right: 0px;
         font-size: 10px;
         height: 30px;
@@ -683,9 +683,10 @@
     }
     .button1-index{
         font-size: 10px;
-        width: 20%;
+        width: 100%;
         height: 30px;
         padding-left: 4px;
+        margin-top: 5px;
     }
     .textlink-index{
         font-size: 10px;
@@ -719,7 +720,6 @@
     .readmore {
         font-size: 11px;
     }
-
 
     /*social media*/ 
     .column4-index{
@@ -844,7 +844,7 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 321px) {
     .image1-index{
         width: 120px;
     }
@@ -854,7 +854,14 @@
     }
     .container3-index{
         height: 3600px;
-        margin-top: 275px;
+        margin-top: 265px;
+    }
+    .containermini1-index{
+        width: 120px;
+    }
+    .col {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
     .column1-index{
         margin-top: 17px;
@@ -864,51 +871,40 @@
     }
     .text1-index{
         font-size: 10px;
-
     }
     .box1-index{
         width: 100%;
-        padding-left: 11px;
-        margin-top: 10px;
-    }
-    .button1-index{
-        width: 100%;
-        margin-top: 5px;
-    }
-    .line-index{
-        height: 130px;
+        padding-left: 5px;
     }
     .row-section1{
         margin-top: -10px;
     }
-    .h1-index{
-        font-size: 15px;
-        margin-top: 40px;
-    }
-    .rank-index1{
-        padding-top: 20px;
-        font-size: 40px;
-    }
     .text3-index{
-        font-size: 11px;
-        width: 130px;
-        margin-left: -6px;
-    }
-    .text4-index{
-        font-size: 10px;
-        margin-left: -4px;
-        margin-top: -5px;
-        width: 125px;
-    }
-    .readmore {
-        font-size: 10px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 120px;
+        margin-left: -13px;
         margin-top: -10px;
     }
-    .fa-chevron-right:before{
-        margin-left: -5px;
+    .text4-index{
+        margin-left: -16px;
+        width: 127px; 
     }
-    
+    .readmore {
+        margin-bottom: -10px;
+    }
 
+        /*social media*/ 
+        .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+            font-size: 13px;
+            width: 55%;
+        }
+        .facebookbox-index{
+            margin-bottom: 40px;
+        }
+        .cardbody-index{
+            width: 110px;
+            margin-left: -16px;
+        }
+        .text5-index{
+            font-size: 11px;
+        }
 }
