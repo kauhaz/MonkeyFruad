@@ -49,7 +49,7 @@ const History = () => {
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">
         {mypost ? (
-          <h2 className="h2-history2">ทั้งหมด {mypost.length} โพสต์</h2>
+          <h2 className="h2-history">ทั้งหมด {mypost.length} โพสต์</h2>
         ) : null}
       </div>
       {mypost
