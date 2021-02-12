@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import usercontext from "../context/usercontext";
 import "./listcomment.css";
-
+import * as moment from "moment";
+import "moment/locale/th";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -54,6 +55,7 @@ const Listcomment = ({
     gg();
   }, [commentmore]);
 
+
   return (
     <div>
       {commentmore ? (
@@ -76,7 +78,9 @@ const Listcomment = ({
                 {commentmore.username}
                 <span className="mypost-comment-time1">
                   {" "}
-                  {commentmore.datetime}{" "}
+                  {moment(
+                    new Date(commentmore.datetime.seconds * 1000)
+                  ).format("LTS")}{" "}
                 </span>
               </div>
               <br />

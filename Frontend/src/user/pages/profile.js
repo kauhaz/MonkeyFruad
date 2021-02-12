@@ -102,22 +102,19 @@ const Profile = () => {
           </div>
 
           <div className="col-md-12 mt-2">
-            {/* <button className="btn-block LoginFacebook"> */}
-              <div>
-                <i class="fas fa-user-edit"></i>
-              </div>
-              <a href={`/profile/edit/${user.uid}`} className="mx-auto my-1 btn-block LoginFacebook">
-                แก้ไขข้อมูลส่วนตัว
+              <a href={`/profile/edit/${user.uid}`} className="btn-block LoginFacebook">
+                <div>
+                  <i class="fas fa-user-edit"></i>
+                </div>
+                <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
               </a>
-            {/* </button> */}
-            {/* <button className="btn-block LoginGoogle"> */}
-              <div>
-                <i class="fas fa-unlock"></i>
-              </div>
-              <a href="/changepass" className="mx-auto my-1 btn-block LoginGoogle">
-                เปลี่ยนรหัสผ่าน
+
+              <a href="/changepass" className="btn-block LoginFacebook mt-2">
+                <div>
+                  <i class="fas fa-unlock"></i>
+                </div>
+                <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
               </a>
-            {/* </button> */}
           </div>
         </form>
       </div>
