@@ -37,6 +37,7 @@ const NavbarPage = ({ show }) => {
   const [error, Seterror] = useState();
 
   let history = useHistory();
+  let i = 0 //forsearch
 
   const logout = () => {
     auth
@@ -144,6 +145,7 @@ const NavbarPage = ({ show }) => {
     setLoading(false);
   }, [user, search]);
 
+
   return loading ? (
     ""
   ) : admin ? (
@@ -242,29 +244,7 @@ const NavbarPage = ({ show }) => {
                 />
                 {error}
               </div>
-              <div>
-                {lastsearch
-                  ? lastsearch.map((doc) => {
-                      let thiefid = doc.accountnumber;
-
-                      return (
-                        <div>
-                          {haha ? (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
-                            </button>
-                          ) : null}
-                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
-                        </div>
-                      );
-                    })
-                  : null}
-              </div>
+          
             </MDBNavItem>
 
             <button onClick={() => (handlesearch())} className="button-nav">
@@ -295,8 +275,35 @@ const NavbarPage = ({ show }) => {
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
+     
       </MDBNavbar>
+      <div className="gg">
+               
+               {lastsearch ? lastsearch.map((doc) => {
+                     let thiefid = doc.accountnumber;
+                         i++
+                         return (
+                           <div>
+                              {i<=10 ? <div> {haha ? (
+                               <button
+                                 onClick={() => (
+                                   history.push(`/thief/post/${thiefid}`),
+                                   window.location.reload(true)
+                                 )}
+                               >
+                                 <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
+                               </button>
+                             ) : null}</div>:null}
+                           </div>
+                         );
+
+                  
+                 
+                   })
+                 : null}
+       </div>
     </Router>
+    
   );
 };
 
