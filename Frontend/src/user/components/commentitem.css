@@ -33,7 +33,6 @@
 .post-comment-commentsall {
   background-color: rgb(245, 245, 245);
   width: 85%;
-  /* height: 150px; */
   margin-left: 0px;
   margin-top: 5px;
   margin-bottom: 0px;
@@ -83,28 +82,8 @@
   /* margin-top: -30px; */
 }
 
-.cmp {
-  padding: 30px;
-  width: 200px;
-  background: red;
-}
-
-.cmpf {
-  width: 200px;
-  /* background:blue; */
-  padding: 3px;
-}
-
-.cmip {
-  width: 100%;
-}
-
 .inputcomment1 {
-  /* text-indent: 100%; */
-  /* word-wrap: break-word; */
-  width: 100%;
-  /* margin: -3px; */
-  /* border: 2px inset #eee; */
+  width: 150%;
 }
 
 .column1 {
@@ -124,7 +103,7 @@
 
 .postbuttonsend {
   width: 30px;
-  margin-left: 450px;
+  margin-left: 300px;
   margin-top: -55px;
   border: none;
   background: rgb(245, 245, 245);
@@ -140,7 +119,7 @@
 }
 
 .postbuttonsend:hover {
-  margin-left: 450px;
+  margin-left: 300px;
   margin-top: -55px;
   border-radius: 50px;
   border: none;
