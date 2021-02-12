@@ -99,15 +99,15 @@ const NavbarPage = ({ show }) => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-              Setrole(false);
+            
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
+             
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
+         
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -256,20 +256,9 @@ const NavbarPage = ({ show }) => {
                                 window.location.reload(true)
                               )}
                             >
-                              <div>{doc.accountnumber}</div>
+                              <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
                             </button>
-                          ) : (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>
-                                {doc.name} {doc.surname}
-                              </div>
-                            </button>
-                          )}
+                          ) : null}
                           {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
                         </div>
                       );
