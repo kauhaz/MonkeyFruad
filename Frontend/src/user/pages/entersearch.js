@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
+import * as moment from "moment";
+import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import { Link, useHistory ,useParams , useLocation} from "react-router-dom";
@@ -29,15 +31,18 @@ const Entersearch = () => {
     console.log(location)
  
     const ok = async () => {
-       
-        Setshow(location.state.getdata)
-    
+        let getdata = location.state.getdata
+      
+      const getpost = await Axios.post(`http://localhost:7000/thief/post`, getdata);
+        Setshow(getpost.data.item)
+        console.log(getpost.data.item)
+      
     };
 
     useEffect(() => {
       ok();
     }, [location]);
-
+console.log(show)
 
   return (
     <div>
@@ -91,7 +96,9 @@ const Entersearch = () => {
                             </div>
                             <br />
                             <div className="post-date">
-                              <span className="post-time">{res.date}</span>
+                              <span className="post-time">    {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}</span>
                             </div>
                           </div>
 
@@ -183,10 +190,12 @@ const Entersearch = () => {
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.date}{" "}
+                                    {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}
                                     </span>
                                   </Form.Group>
-                                </Form.Row>
+                                </Form.Row> 
 
                                 <Form.Row>
                                   <Form.Group

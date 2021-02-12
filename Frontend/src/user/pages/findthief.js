@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
+import * as moment from "moment";
+import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import { Link, useHistory, useParams } from "react-router-dom";
@@ -34,6 +36,7 @@ const Findthief = () => {
     ok();
   }, []);
 
+<<<<<<< HEAD
   console.log(show);
   return (
     <div>
@@ -49,6 +52,37 @@ const Findthief = () => {
                       <div className="column1-postrow1">
                         <div className="post-img">
                           <img className="monkey" src="/img/logo v3.png" />
+=======
+          {show
+            ? show.map((res) => {
+                return (
+                  <div>
+                    <div className="container-post2">
+                      <div className="cotainer-post3">
+                        <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">{" "}
+                  {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}</span>
+                          </div>
+>>>>>>> f7a217e3e94556761ac8d76f5db6503963ffc004
                         </div>
                       </div>
                       <div className="column2-postrow2">
@@ -120,12 +154,23 @@ const Findthief = () => {
                                         </Form.Label>
                                       </Form.Group>
 
+<<<<<<< HEAD
                                       <Form.Group>
                                         <span className="spanpost">
                                           {res.name} {res.surname}
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
+=======
+                               <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridNameproduct"
+                                >
+                                  <Form.Label>ชื่อสินค้า</Form.Label>
+                                </Form.Group>
+>>>>>>> f7a217e3e94556761ac8d76f5db6503963ffc004
 
                                     <Form.Row>
                                       <Form.Group
@@ -138,6 +183,7 @@ const Findthief = () => {
                                         </Form.Label>
                                       </Form.Group>
 
+<<<<<<< HEAD
                                       <Form.Group>
                                         <span className="spanpost">
                                           {res.accountnumber}
@@ -169,6 +215,41 @@ const Findthief = () => {
                                       >
                                         <Form.Label>จำนวนเงิน</Form.Label>
                                       </Form.Group>
+=======
+                               <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row> 
+
+                            <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>วันที่โพสต์</Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                  {moment(
+                    new Date(res.date.seconds * 1000)
+                  ).format("lll")}{" "}
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+>>>>>>> f7a217e3e94556761ac8d76f5db6503963ffc004
 
                                       <Form.Group>
                                         <span className="spanpost">
