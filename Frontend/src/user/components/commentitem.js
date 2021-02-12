@@ -227,23 +227,6 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-            {/* <div className="cmp">
-              <form className="cmpf" action="" method="post">
-                <textarea
-                  rows="3"
-                  cols="15"
-                  className="inputcomment1"
-                  label="เขียนความคิดเห็น..."
-                  // size="25"
-                  value={textcomment}
-                  onChange={(e) => {
-                    Settextcomment(e.target.value);
-                  }}
-                />
-                <br />
-                <br />
-              </form>
-            </div> */}
             <textarea
               rows="3"
               cols="15"
@@ -258,9 +241,9 @@ const Commentitem = ({ postid }) => {
 
           
           <div>
-            <div className="column2 mypostbuttonsend">
+            <div className="column2 postbuttonsend">
               <button
-                className="mypostbuttonsends"
+                className="postbuttonsends"
                 onClick={() => handlecomment()}
               >
                 <i className="fa fa-paper-plane"></i>
