@@ -195,29 +195,7 @@ const Commentitemformypost = ({ postid }) => {
         </div>
 
         <div className="row post-comment-commentsall">
-          {imagesFile.map((imagePreviewUrl) => {
-            return (
-              <img
-                key={imagePreviewUrl}
-                className="imgpreview"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-            );
-          })}
+          
 
           <div className="container-img-holder-imgpreview2">
             <label>
@@ -258,9 +236,34 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
+
+          {imagesFile.map((imagePreviewUrl) => {
+            return (
+              <img
+                key={imagePreviewUrl}
+                className="imgpreview"
+                alt="previewImg"
+                src={imagePreviewUrl}
+                style={{ overflow: "hidden" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1.25)",
+                    overflow: "hidden",
+                  })
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1)",
+                    overflow: "hidden",
+                  })
+                }
+              />
+            );
+          })}
+          
         </div>
 
-        <h1 className="h1-formpostfileerror">{error}</h1>
+        <h1 className="h1-formpostfileerror">{error}</h1>        
       </div>
     </div>
   );
