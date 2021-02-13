@@ -11,7 +11,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBIcon,
   MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
@@ -278,14 +277,14 @@ const NavbarPage = ({ show }) => {
      
       </MDBNavbar>
       <div className="gg">
-               
+              
                {lastsearch ? lastsearch.map((doc) => {
                      let thiefid = doc.accountnumber;
                          i++
                          return (
-                           <div>
+                           <div className="boxsearch-nav">
                               {i<=10 ? <div> {haha ? (
-                               <button
+                               <button className="search-nav"
                                  onClick={() => (
                                    history.push(`/thief/post/${thiefid}`),
                                    window.location.reload(true)
@@ -293,15 +292,16 @@ const NavbarPage = ({ show }) => {
                                >
                                  <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
                                </button>
-                             ) : null}</div>:null}
+                             ) : null}</div>
+                             :null}
                            </div>
                          );
-
-                  
-                 
+                         
                    })
+                   
                  : null}
-       </div>
+                {lastsearch ? <div className="dropsearch-nav" onClick={() => (handlesearch())}>ค้นหา {search}</div> : null}
+      </div>
     </Router>
     
   );
