@@ -185,7 +185,7 @@ const Commentitemformypost = ({ postid }) => {
         </div>
       ) : null}
 
-      <div className="row post-comment-comments1">
+      <div className="row mypost-comment-comments1">
         <div className="post-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
@@ -194,7 +194,7 @@ const Commentitemformypost = ({ postid }) => {
           )}
         </div>
 
-        <div className="row post-comment-commentsall">
+        <div className="row mypost-comment-commentsall">
           
 
           <div className="container-img-holder-imgpreview2">
@@ -263,7 +263,7 @@ const Commentitemformypost = ({ postid }) => {
           
         </div>
 
-        <h1 className="h1-formpostfileerror">{error}</h1>        
+        <h1 className="h1-mypostfileerror">{error}</h1>        
       </div>
     </div>
   );
