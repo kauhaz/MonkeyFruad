@@ -10,7 +10,6 @@
 
 .post-comment-comments1 {
   width: 100%;
-  height: 10%;
   margin-left: -50px;
   margin-bottom: 0px;
   padding-top: 15px;
@@ -32,13 +31,13 @@
 
 .post-comment-commentsall {
   background-color: rgb(245, 245, 245);
-  width: 85%;
+  width: 75%;
   margin-left: 0px;
   margin-top: 5px;
   margin-bottom: 0px;
   padding-top: 15px;
   padding-left: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -62,7 +61,7 @@
 
 .mypost-comment-comments1 {
   margin-left: 60px;
-  margin-top: -25px;
+  margin-top: -15px;
   margin-bottom: 30px;
   font-size: 18px;
 }
@@ -75,7 +74,12 @@
 
 .imgpreview1 {
   width: 40%;
-  /* margin-top: 100px; */
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 10px;
   height: auto;
   /* display: inline; */
 }

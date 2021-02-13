@@ -56,7 +56,6 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-
   const handlecomment = async () => {
     try {
       if (user) {
@@ -207,8 +206,6 @@ const Commentitem = ({ postid }) => {
         </div>
 
         <div className="row post-comment-commentsall">
-         
-
           <div className="container-img-holder-imgpreview1">
             <label>
               <img className="uploadprove1" src="/img/addphoto.png" />
@@ -249,7 +246,7 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-       
+
           {imagesFile.map((imagePreviewUrl) => {
             return (
               <img
@@ -273,8 +270,6 @@ const Commentitem = ({ postid }) => {
               />
             );
           })}
-        
-          
         </div>
 
         <h1 className="h1-postfileerror">{error}</h1>
