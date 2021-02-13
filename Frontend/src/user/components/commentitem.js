@@ -207,29 +207,7 @@ const Commentitem = ({ postid }) => {
         </div>
 
         <div className="row post-comment-commentsall">
-          {imagesFile.map((imagePreviewUrl) => {
-            return (
-              <img
-                key={imagePreviewUrl}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-            );
-          })}
+         
 
           <div className="container-img-holder-imgpreview1">
             <label>
@@ -260,6 +238,7 @@ const Commentitem = ({ postid }) => {
               }}
             />
           </div>
+
           <div>
             <div className="column2 postbuttonsend">
               <button
@@ -270,6 +249,32 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
+       
+          {imagesFile.map((imagePreviewUrl) => {
+            return (
+              <img
+                key={imagePreviewUrl}
+                className="imgpreview1"
+                alt="previewImg"
+                src={imagePreviewUrl}
+                style={{ overflow: "hidden" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1.25)",
+                    overflow: "hidden",
+                  })
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1)",
+                    overflow: "hidden",
+                  })
+                }
+              />
+            );
+          })}
+        
+          
         </div>
 
         <h1 className="h1-postfileerror">{error}</h1>
