@@ -896,19 +896,19 @@
         margin-bottom: -10px;
     }
 
-        /*social media*/ 
-        .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
-            font-size: 13px;
-            width: 55%;
-        }
-        .facebookbox-index{
-            margin-bottom: 40px;
-        }
-        .cardbody-index{
-            width: 108px;
-            margin-left: -15px;
-        }
-        .text5-index{
-            font-size: 11px;
-        }
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+        width: 55%;
+    }
+    .facebookbox-index{
+        margin-bottom: 40px;
+    }
+    .cardbody-index{
+        width: 108px;
+        margin-left: -15px;
+    }
+    .text5-index{
+        font-size: 11px;
+    }
 }
