@@ -62,22 +62,21 @@ const NavbarPage = ({ show }) => {
             doc.accountnumber.includes(search)
           );
         });
-        console.log(getdata)
+        console.log(getdata);
         Setsearch("");
 
-        if(getdata.length === 0 ){
-          Seterror("ไม่พบเจอคนร้าย")
-        }
-        else if (getdata) {
+        if (getdata.length === 0) {
+          Seterror("ไม่พบเจอคนร้าย");
+        } else if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
             state: {
               getdata,
               search,
-            }
-          })
-          window.location.reload(true)
+            },
+          });
+          window.location.reload(true);
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -99,15 +98,12 @@ const NavbarPage = ({ show }) => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-            
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
-             
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
-         
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -256,7 +252,10 @@ const NavbarPage = ({ show }) => {
                                 window.location.reload(true)
                               )}
                             >
-                              <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
+                              <div>
+                                {" "}
+                                {doc.name} {doc.surname} {doc.accountnumber}
+                              </div>
                             </button>
                           ) : null}
                           {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
@@ -267,7 +266,7 @@ const NavbarPage = ({ show }) => {
               </div>
             </MDBNavItem>
 
-            <button onClick={() => (handlesearch())} className="button-nav">
+            <button onClick={() => handlesearch()} className="button-nav">
               ค้นหา
             </button>
             <MDBNavItem>
@@ -276,7 +275,10 @@ const NavbarPage = ({ show }) => {
                   <MDBDropdownToggle nav caret left>
                     {displayname}
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default dropdown-bottom" right>
+                  <MDBDropdownMenu
+                    className="dropdown-default dropdown-bottom"
+                    right
+                  >
                     <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
