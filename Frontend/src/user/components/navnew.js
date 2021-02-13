@@ -10,8 +10,7 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBBtn,
+  MDBDropdownItem,c
 } from "mdbreact";
 import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
 import "./navnew.css";
