@@ -11,7 +11,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBIcon,
   MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
