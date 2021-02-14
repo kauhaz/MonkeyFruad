@@ -18,30 +18,25 @@ const History = () => {
   const [mypost, Setmypost] = useState();
   const [error, Seterror] = useState();
   const [click, Setclick] = useState();
-
   let { user, setUser } = useContext(usercontext);
-
   let uuid = uuidv4();
-
   const ok = async () => {
     try {
       const ok = await Axios.post("http://localhost:7000/post/postapi", {
         result: user,
       });
-      console.log(ok.data.item);
       Setmypost(ok.data.item);
     } catch (err) {
       console.log("error");
     }
   };
-
   const handledeletetorerender = async () => {
     Setclick(uuid);
   };
-
   useEffect(() => {
     ok();
   }, [click]);
+  console.log(mypost)
 
   return (
     <div>

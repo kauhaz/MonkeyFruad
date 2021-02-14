@@ -67,7 +67,7 @@ const Home = () => {
     }
   };
 
-  useMemo(async () => {
+  useEffect(async () => {
     await Getdata();
   }, []);
 
