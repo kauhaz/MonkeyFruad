@@ -1,12 +1,15 @@
 import React from 'react'
 import PacmanLoader from "react-spinners/PacmanLoader";
-
+import "./loading.css";
 
 const Loading = ({loading}) => {
     
     return (
         <div>
-            <PacmanLoader color="#1674E0" loading={loading}  size={99} css />
+            <div className="box-load">
+                <PacmanLoader color="#FFCD28" loading={loading}  size={99} css/>
+            </div>
+            
         </div>
     )
 }

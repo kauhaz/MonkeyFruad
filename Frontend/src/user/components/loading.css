@@ -1,0 +1,116 @@
+.box-load{
+    width: 430px;
+    height: 200px;
+    left: 39%;
+    top: 39%;
+    position: absolute;
+}
+
+.css-1ig8a22{
+    background-color: none !important;
+}
+.css-1wgmei0 {
+    background-color: #FF5A5A !important;
+    z-index: -1 !important;
+
+}
+
+.css-uam1vf {
+    background-color: pink !important;
+    z-index: -1 !important;
+}
+
+.css-1pyg3v6 {
+    background-color: #5AE0FF !important;
+    z-index: -1 !important;
+}
+
+.css-1bgrq8e {
+    background-color: #FF8200 !important;
+    z-index: -1 !important;
+}
+
+/*reponsive*/
+@media only screen and (max-width: 1367px) {
+    .box-load{
+        left: 34.5%;
+        top: 34.5%;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .box-load{
+        left: 29%;
+        top: 42.5%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .box-load{
+        left: 22%;
+        top: 45%;
+        height: 100px;
+    }
+    .css-1ig8a22{
+        border-right: 60px solid transparent !important;
+        border-top:60px solid #FFCD28 !important;
+        border-left: 60px solid #FFCD28 !important;
+        border-bottom: 60px solid transparent !important;
+    }
+    .css-1sl86ob{
+        border-right: 60px solid transparent !important;
+        border-bottom:60px solid #FFCD28 !important;
+        border-left: 60px solid #FFCD28 !important;
+        border-top: 60px solid transparent !important;
+    }
+    .css-1wgmei0 , .css-uam1vf , .css-1pyg3v6 , .css-1bgrq8e{
+        width: 30px !important;
+        height: 30px  !important;
+        top: 70px !important;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .box-load{
+        height: 100px;
+        left: 0%;
+        top: 43%;
+    }
+
+    .css-1ig8a22{
+        border-right: 50px solid transparent !important;
+        border-top:50px solid #FFCD28 !important;
+        border-left: 50px solid #FFCD28 !important;
+        border-bottom: 50px solid transparent !important;
+    }
+    .css-1sl86ob{
+        border-right: 50px solid transparent !important;
+        border-bottom:50px solid #FFCD28 !important;
+        border-left: 50px solid #FFCD28 !important;
+        border-top: 50px solid transparent !important;
+    }
+    .css-1ig8a22{
+        border-right: 60px solid transparent !important;
+        border-top:60px solid #FFCD28 !important;
+        border-left: 60px solid #FFCD28 !important;
+        border-bottom: 60px solid transparent !important;
+    }
+    .css-1sl86ob{
+        border-right: 60px solid transparent !important;
+        border-bottom:60px solid #FFCD28 !important;
+        border-left: 60px solid #FFCD28 !important;
+        border-top: 60px solid transparent !important;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .box-load{
+        top: 47.5%;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .box-load{
+        top: 58%;
+    }
+}
