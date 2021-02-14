@@ -36,7 +36,7 @@ const NavbarPage = ({ show }) => {
   const [error, Seterror] = useState();
 
   let history = useHistory();
-  let i = 0; //forsearch
+  let i = 0 //forsearch
 
   const logout = () => {
     auth
@@ -62,21 +62,22 @@ const NavbarPage = ({ show }) => {
             doc.accountnumber.includes(search)
           );
         });
-        console.log(getdata);
+        console.log(getdata)
         Setsearch("");
 
-        if (getdata.length === 0) {
-          Seterror("ไม่พบเจอคนร้าย");
-        } else if (getdata) {
+        if(getdata.length === 0 ){
+          Seterror("ไม่พบเจอคนร้าย")
+        }
+        else if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
             state: {
               getdata,
               search,
-            },
-          });
-          window.location.reload(true);
+            }
+          })
+          window.location.reload(true)
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -98,12 +99,15 @@ const NavbarPage = ({ show }) => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
+            
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+             
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+         
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -139,6 +143,7 @@ const NavbarPage = ({ show }) => {
     await ok();
     setLoading(false);
   }, [user, search]);
+
 
   return loading ? (
     ""
@@ -238,9 +243,10 @@ const NavbarPage = ({ show }) => {
                 />
                 {error}
               </div>
+          
             </MDBNavItem>
 
-            <button onClick={() => handlesearch()} className="button-nav">
+            <button onClick={() => (handlesearch())} className="button-nav">
               ค้นหา
             </button>
             <MDBNavItem>
@@ -249,10 +255,7 @@ const NavbarPage = ({ show }) => {
                   <MDBDropdownToggle nav caret left>
                     {displayname}
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu
-                    className="dropdown-default dropdown-bottom"
-                    right
-                  >
+                  <MDBDropdownMenu className="dropdown-default dropdown-bottom" right>
                     <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
@@ -271,38 +274,36 @@ const NavbarPage = ({ show }) => {
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
+     
       </MDBNavbar>
       <div className="gg">
-        {lastsearch
-          ? lastsearch.map((doc) => {
-              let thiefid = doc.accountnumber;
-              i++;
-              return (
-                <div>
-                  {i <= 10 ? (
-                    <div>
-                      {" "}
-                      {haha ? (
-                        <button
-                          onClick={() => (
-                            history.push(`/thief/post/${thiefid}`),
-                            window.location.reload(true)
-                          )}
-                        >
-                          <div>
-                            {" "}
-                            {doc.name} {doc.surname} {doc.accountnumber}
-                          </div>
-                        </button>
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })
-          : null}
+              
+               {lastsearch ? lastsearch.map((doc) => {
+                     let thiefid = doc.accountnumber;
+                         i++
+                         return (
+                           <div className="boxsearch-nav">
+                              {i<=10 ? <div> {haha ? (
+                               <button className="search-nav"
+                                 onClick={() => (
+                                   history.push(`/thief/post/${thiefid}`),
+                                   window.location.reload(true)
+                                 )}
+                               >
+                                 <div> {doc.name} {doc.surname} {doc.accountnumber}</div>
+                               </button>
+                             ) : null}</div>
+                             :null}
+                           </div>
+                         );
+                         
+                   })
+                   
+                 : null}
+                {lastsearch ? <div className="dropsearch-nav" onClick={() => (handlesearch())}>ค้นหา {search}</div> : null}
       </div>
     </Router>
+    
   );
 };
 
