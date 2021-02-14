@@ -16,6 +16,7 @@ import {
 } from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
+import { MDBInput } from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Post = () => {
@@ -253,7 +254,7 @@ const Post = () => {
           </div>
 
           <div className="column-post-right1">
-            <Link to={`https://www.facebook.com/porpraewz.mgn`}>
+            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
                   ติดต่อเพจน้องพะโล้ <br />
@@ -263,7 +264,405 @@ const Post = () => {
                   <img className="facebook" src="/img/facebook.jpg" />
                 </div>
               </div>
-            </Link>
+            </a>
+            <div className="biggroup">
+              <div className="container-postright2">
+                <div className="post-group1">
+                  เรียงตาม :
+                  <select
+                    as="select"
+                    name="post-groupsorting1"
+                    className="post-groupsorting1"
+                  >
+                    <option>ใหม่ล่าสุด</option>
+                    <option>จำนวนเงินมากที่สุด</option>
+                  </select>
+                </div>
+                <div className="line-postgroup1"></div>
+                <div className="post-group2">
+                  <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline1"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline1"
+                    >
+                      Facebook
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline2"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline2"
+                    >
+                      Line
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline3"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline3"
+                    >
+                      Instagram
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline4"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline4"
+                    >
+                      Twitter
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline5"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline5"
+                    >
+                      อื่นๆ
+                    </label>
+                  </div>
+                </div>
+                <div className="line-postgroup2"></div>
+                <div className="post-group3">
+                  <div className="post-namegroup2">หมวดหมู่</div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline1"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline1"
+                    >
+                      เสื้อผ้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline2"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline2"
+                    >
+                      เครื่องประดับ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline3"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline3"
+                    >
+                      รองเท้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline4"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline4"
+                    >
+                      กระเป๋า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline5"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline5"
+                    >
+                      มือถือและอุปกรณ์เสริม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline6"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline6"
+                    >
+                      อาหารและเครื่องดื่ม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline7"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline7"
+                    >
+                      อาหารเสริมและผลิตภัณฑ์สุขภาพ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline8"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline8"
+                    >
+                      เครื่องสำอางค์และอุปกรณ์เสริมความงาม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline9"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline9"
+                    >
+                      คอมพิวเตอร์แล็ปท็อป
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline10"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline10"
+                    >
+                      กล้องและอุปกรณ์ถ่ายภาพ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline11"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline11"
+                    >
+                      กีฬาและกิจกรรมกลางแจ้ง
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline12"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline12"
+                    >
+                      สื่อบันเทิงภายในบ้าน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline13"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline13"
+                    >
+                      เกมส์และฮ๊อบบี้
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline14"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline14"
+                    >
+                      ยานยนต์
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline15"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline15"
+                    >
+                      ตั๋วและบัตรกำนัน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline16"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline16"
+                    >
+                      เครื่องใช้ไฟฟ้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline17"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline17"
+                    >
+                      เฟอร์นิเจอร์และของตกแต่งบ้าน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline18"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline18"
+                    >
+                      สัตว์เลี้ยง
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline19"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline19"
+                    >
+                      เครื่องเขียน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline20"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline20"
+                    >
+                      หนังสือ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline21"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline21"
+                    >
+                      เครื่องดนตรี
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline22"
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline22"
+                    >
+                      อื่นๆ
+                    </label>
+                  </div>
+                </div>
+                <div className="line-postgroup3"></div>
+                <div className="post-group4">
+                  <div className="post-namegroup3">หมวดหมู่</div>
+                  <div className="row post-numbergroup1">
+                    <input
+                      type="number"
+                      id="nameproduct"
+                      pattern="[0-9]{1,}"
+                      className="postnumber1"
+                    ></input>
+                    <div className="post-numbergroup2">-</div>
+                    <input
+                      type="number"
+                      id="nameproduct"
+                      pattern="[0-9]{1,}"
+                      className="postnumber2"
+                    ></input>
+                    <div className="postbuttonnumber">
+                      <button className="postbuttonnumbers">
+                        <i className="fa fa-long-arrow-alt-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
