@@ -14,10 +14,10 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
 
   const deleted = async (uid) => {
     try {
-      handledeletetorerender();
       const postdelete = await Axios.post(
         `http://localhost:7000/post/delete/${uid}`
       );
+      handledeletetorerender();
     } catch (err) {
       console.log(err);
     }
