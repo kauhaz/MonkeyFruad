@@ -254,7 +254,7 @@ const Post = () => {
           </div>
 
           <div className="column-post-right1">
-            <Link to={`https://www.facebook.com/porpraewz.mgn`}>
+            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
                   ติดต่อเพจน้องพะโล้ <br />
@@ -264,7 +264,7 @@ const Post = () => {
                   <img className="facebook" src="/img/facebook.jpg" />
                 </div>
               </div>
-            </Link>
+            </a>
             <div className="biggroup">
               <div className="container-postright2">
                 <div className="post-group1">

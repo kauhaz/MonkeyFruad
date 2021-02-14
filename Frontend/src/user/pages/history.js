@@ -36,6 +36,7 @@ const History = () => {
   useEffect(() => {
     ok();
   }, [click]);
+  console.log(mypost)
 
   return (
     <div>
