@@ -9,10 +9,8 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  console.log(ok.date);
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
-  console.log(date);
 
   const deleted = async (uid) => {
     try {
