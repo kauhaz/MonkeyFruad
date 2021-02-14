@@ -29,8 +29,8 @@ const Signup = () => {
     console.log("submit");
     axios
       .post("http://localhost:7000/user/signup", {
-        username: username,
-        firstname: firstname,
+        username : username,
+        firstname : firstname,
         surname: surname,
         sex: sex,
         date: date,
@@ -164,14 +164,13 @@ const Signup = () => {
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-signup" />
           <p className="h2 text-center mb-2 font-weight-bold text1-signup">สมัครสมาชิก</p>
-          {emailis_inVaild ? (
+          { emailis_inVaild ? (
             <div className="alert-signup">
-              {" "}
               <span>อีเมลนี้มีอยู่ในระบบแล้ว</span>
             </div>
           ) : (
             <p></p>
-          )}
+          ) }
           <div className="col-md-12">
             <Formik
               initialValues={{
