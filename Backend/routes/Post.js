@@ -814,6 +814,7 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
+
     var postid = [];
     let getid = req.params.uid;
     const getpost = await firestore
@@ -860,7 +861,31 @@ router.post("/delete/:uid", async (req, res) => {
         }
       });
     });
-    firestore.collection("Post").doc(getid).delete();
+
+    // let deletecomment = await firestore.collection("Comment").where("postid" , "==" , getid)
+    // deletecomment.get().then(doc => {
+    //     let item = []
+    //   doc.forEach(doc2 =>{
+    //     item.push(doc2.data())
+    //   })
+    //   console.log(item)
+    // })
+    
+    const deletecomment = await firestore
+    .collection("Comment")
+    .where("postid", "==", getid)
+    deletecomment.get().then(dokky => {
+      dokky.forEach(async (doc) => {
+        await firestore.collection("Comment").doc(doc.get("commentid")).delete();
+     });
+   
+    })
+  
+  firestore.collection("Post").doc(getid).delete();
+   
+     
+    
+
     return res.json({ success: "Delete" });
   } catch (err) {
     console.log(err);
@@ -1052,7 +1077,7 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
     } = req.body;
 
     let photoURL = { url: photourl, public_id: photopublic_id };
-    console.log(textcomment);
+    
     const postid = req.params.id;
     const uuid = uuidv4();
     let datetime = new Date();
