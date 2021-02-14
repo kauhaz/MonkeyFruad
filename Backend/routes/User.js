@@ -260,18 +260,15 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
         });
       });
 
-      firestore
-        .collection("User")
-        .doc(uid)
-        .update({
-          firstname,
-          username,
-          surname,
-          sex,
-          phone,
-          province,
-          photoURL,
-        });
+      firestore.collection("User").doc(uid).update({
+        firstname,
+        username,
+        surname,
+        sex,
+        phone,
+        province,
+        photoURL,
+      });
     } else if (!file) {
       firestore.collection("User").doc(uid).update({
         firstname,
