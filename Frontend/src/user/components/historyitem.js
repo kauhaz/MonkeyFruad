@@ -2,27 +2,22 @@ import React, { useEffect, useState, useContext } from "react";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import * as moment from 'moment'
-import 'moment/locale/th'
+import * as moment from "moment";
+import "moment/locale/th";
 
-
-
-const Historyitem = ({ ok, user , handledeletetorerender }) => {
+const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
-  console.log(ok.date)
-  const newdate = new Date(ok.date.seconds * 1000)
-  let date = moment(newdate).format('lll')
-  console.log(date)
+  const newdate = new Date(ok.date.seconds * 1000);
+  let date = moment(newdate).format("lll");
 
   const deleted = async (uid) => {
     try {
-      handledeletetorerender()
-        const postdelete = await Axios.post(
-          `http://localhost:7000/post/delete/${uid}`
-        );
-
+      handledeletetorerender();
+      const postdelete = await Axios.post(
+        `http://localhost:7000/post/delete/${uid}`
+      );
     } catch (err) {
       console.log(err);
     }
