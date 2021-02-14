@@ -631,7 +631,9 @@ router.get("/edit/:uid", async (req, res) => {
       .get();
     showdata.forEach((doc) => {
       item.push(doc.data());
-      Datetime = moment(new Date(doc.get("datetimes").seconds *1000)).format("YYYY-MM-DDTHH:mm");
+      Datetime = moment(new Date(doc.get("datetimes").seconds * 1000)).format(
+        "YYYY-MM-DDTHH:mm"
+      );
       console.log(typeof Datetime);
     });
     return res.json({
@@ -645,21 +647,56 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
+    var postid = [];
     let getid = req.params.uid;
-    //   const finditem = await firestore.collection("Post").where("uid" , "==" , getid).get()
-    //   let array = []
-    // finditem.forEach(doc =>{
-    //   array.push(doc.data())
-    // })
-    // console.log(array)
-    //  await cloudinary.uploader.destroy(array[0].item.map(res =>{
-    //   res.public_id
-    //  })
-    //  )
-    const postdelete = await firestore.collection("Post").doc(getid).delete();
+    const getpost = await firestore
+      .collection("Post")
+      .where("uid", "==", getid)
+      .get();
+    getpost.forEach(async (docgetpost) => {
+      const getPostsameaccountnumber = await firestore
+        .collection("Post")
+        .where("accountnumber", "==", docgetpost.get("accountnumber"))
+        .get();
+      getPostsameaccountnumber.forEach(async (doc) => {
+        await postid.push(doc.data());
+      });
+      postid.forEach(async (doc) => {
+        await firestore
+          .collection("Post")
+          .doc(doc.uid)
+          .update({
+            summoney: doc.summoney - docgetpost.get("money"),
+            count: doc.count - 1,
+          });
+      });
+      const getThief = await firestore
+        .collection("Thief")
+        .where("accountnumber", "==", docgetpost.get("accountnumber"))
+        .get();
+      getThief.forEach(async (doc) => {
+        const updateThief = await firestore
+          .collection("Thief")
+          .doc(doc.get("accountnumber"))
+          .update({
+            summoney: doc.get("summoney") - docgetpost.get("money"),
+            count: doc.get("count") - 1,
+          });
+      });
+      const getThiefAfterUpdate = await firestore
+        .collection("Thief")
+        .where("accountnumber", "==", docgetpost.get("accountnumber"))
+        .get();
+      getThiefAfterUpdate.forEach(async (doc) => {
+        if (doc.get("count") == 0) {
+          firestore.collection("Thief").doc(doc.get("accountnumber")).delete();
+        }
+      });
+    });
+    firestore.collection("Post").doc(getid).delete();
     return res.json({ success: "Delete" });
   } catch (err) {
-    return res.status(500).json({ msg: err });
+    console.log(err);
   }
 });
 
@@ -851,7 +888,7 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
     console.log(textcomment);
     const postid = req.params.id;
     const uuid = uuidv4();
-    let datetime = new Date()
+    let datetime = new Date();
     // moment.locale();
     // const datetime = moment().format("LTS");
     if (textcomment === "" && files === undefined) {

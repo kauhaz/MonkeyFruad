@@ -15,7 +15,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
-  const [isLogin, setIslogin] = useState(false);
+  const [isnotLogin, setIsnotlogin] = useState(false);
 
   // ฟังกชันสำหรับ Login ผ่านเว็บ
   const LoginSubmit = (e) => {
@@ -28,7 +28,7 @@ const Login = () => {
       })
       .catch(() => {
         setEmailis_inVaild(true);
-        setIslogin(false);
+        setIsnotlogin(false);
       });
   };
 
@@ -67,10 +67,10 @@ const Login = () => {
   // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
   const Islogin = () => {
     if (location.state !== undefined) {
-      setIslogin(true);
+      setIsnotlogin(true);
       setEmailis_inVaild(false);
     } else {
-      setIslogin(false);
+      setIsnotlogin(false);
     }
   };
 
@@ -96,9 +96,8 @@ const Login = () => {
           ) : (
             ""
           )}
-          {isLogin ? (
+          {isnotLogin ? (
             <div className="alert-login">
-              {" "}
               <span>กรุณาทำการ Login ก่อนโพสต์หรือคอมเมนต์ </span>
             </div>
           ) : (
