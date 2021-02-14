@@ -33,6 +33,7 @@ import "./app.css";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
+import Loading from "./user/components/loading";
 
 // ที่รวม Routh ต่างๆ
 const App = () => {
@@ -152,6 +153,11 @@ const App = () => {
           <Route path="/entersearch" exact>
             <Entersearch />
           </Route>
+
+          <Route path="/loading" exact>
+            <Loading />
+          </Route>
+
         </Switch>
       </usercontext.Provider>
     </Router>
