@@ -470,7 +470,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber : oldaccountnumber,
+              accountnumber: oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -566,7 +566,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber : oldaccountnumber,
+              accountnumber: oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -668,7 +668,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber : oldaccountnumber,
+              accountnumber: oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -759,7 +759,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber : oldaccountnumber,
+              accountnumber: oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -952,6 +952,7 @@ router.get("/post", async (req, res) => {
     return res.status(500).json({ msg: err });
   }
 });
+
 router.get("/orderbyfacebook", async (req, res) => {
   try {
     const showdata = await firestore
@@ -972,6 +973,7 @@ router.get("/orderbyfacebook", async (req, res) => {
     console.log(err);
   }
 });
+
 router.get("/orderbyinstragram", async (req, res) => {
   try {
     var data = [];
@@ -994,6 +996,7 @@ router.get("/orderbyinstragram", async (req, res) => {
     console.log(err);
   }
 });
+
 router.get("/orderbyline", async (req, res) => {
   try {
     var data = [];
@@ -1015,6 +1018,7 @@ router.get("/orderbyline", async (req, res) => {
     console.log(err);
   }
 });
+
 router.get("/orderbytwitter", async (req, res) => {
   try {
     const showdata = await firestore
@@ -1035,6 +1039,7 @@ router.get("/orderbytwitter", async (req, res) => {
     console.log(err);
   }
 });
+
 router.get("/orderbywebsite", async (req, res) => {
   try {
     const showdata = await firestore
@@ -1056,14 +1061,6 @@ router.get("/orderbywebsite", async (req, res) => {
   }
 });
 
-// router.post("/upload", upload.array("eiei"), async(req, res) => {
-//   try{
-//         console.log(req.files.path)
-//   }catch(err){
-//     res.status(500).json({msg : err})
-//   }
-
-// });
 router.post("/comment/:id", uploadphotocomment, async (req, res) => {
   try {
     const files = req.files.photocomment;
