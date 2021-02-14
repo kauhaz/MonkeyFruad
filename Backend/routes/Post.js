@@ -470,7 +470,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber,
+              accountnumber : oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -566,7 +566,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber,
+              accountnumber : oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -668,7 +668,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber,
+              accountnumber : oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
@@ -759,7 +759,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
             .set({
               name,
               surname,
-              accountnumber,
+              accountnumber : oldaccountnumber,
               summoney: sum,
               bank,
               wanteedon,
