@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./ranking.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBox } from "mdbreact";
 import { MDBDataTable } from "mdbreact";
 import { useAccordionToggle } from "react-bootstrap";
 import Axios from "axios";
@@ -141,6 +141,32 @@ const Rank = () => {
           data={data}
           className="rank-data"
         />
+      </MDBContainer>
+      {/* <React.Fragment>
+        <MDBBox display="flex" justifyContent="center" >
+          d-flex justify-content-center
+        </MDBBox>
+        <MDBBox display="flex" justifyContent="end">
+          d-flex justify-content-end
+        </MDBBox>
+        <MDBBox display="flex" justifyContent="start">
+          d-flex justify-content-start
+        </MDBBox>
+      </React.Fragment> */}
+      <MDBContainer size="sm">
+         <div style={{backgroundColor: 'blue', color: 'white'}}>Content small</div>
+      </MDBContainer>
+
+      <MDBContainer size="md">
+       <div style={{backgroundColor: 'red', color: 'white'}}>Content medium</div>
+      </MDBContainer>
+
+      <MDBContainer size="lg">
+        <div style={{backgroundColor: 'orange', color: 'white'}}>Content large</div>
+      </MDBContainer>
+
+      <MDBContainer size="xl">
+        <div style={{backgroundColor: 'green', color: 'white'}}>Content extra large</div>
       </MDBContainer>
       <Chatbot />
     </div>
