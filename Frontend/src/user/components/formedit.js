@@ -473,7 +473,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   <option>Instagram</option>
                                   <option>Twitter</option>
                                   <option>Line</option>
-                                  <option>อื่นๆ</option>
+                                  <option value="other">อื่นๆ</option>
                                 </Form.Control>
                               ) : null}
                             </Form.Group>
