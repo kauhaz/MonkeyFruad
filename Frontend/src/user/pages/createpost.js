@@ -5,10 +5,18 @@ import "./createpost.css";
 
 const Createpost = () => {
   const [check, Setcheck] = useState(false);
-
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   return (
-    <div className="allpage">
-      {check ? null : <NavbarPage />}
+    <div className="allpage" onClick={() => Hiddendropdown()}>
+      {check ? null : (
+        <NavbarPage
+          SetshowDropdown={SetshowDropdown}
+          showDropdown={showDropdown}
+        />
+      )}
       {check ? null : <h1 className="h1-createpost">สร้างโพสต์</h1>}
       <Formpost check={check} Setcheck={Setcheck} />
     </div>

@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Rule from"../components/rule";
+import Rule from "../components/rule";
 import "./linkruleshow.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
 const Linkruleshow = () => {
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <h1 className="h1-linkruleshow">ข้อกำหนดและเงื่อนไขการใช้งาน</h1>
       <Rule />
-      <Chatbot/>
+      <Chatbot />
     </div>
   );
 };

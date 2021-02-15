@@ -28,19 +28,20 @@ const Entersearch = () => {
 
     const [show, Setshow] = useState()
     const [search, Setsearch] = useState()
- 
+    const [showDropdown, SetshowDropdown] = useState(true);
     let location = useLocation()
     
     console.log(location)
+
+    const Hiddendropdown = () => {
+      SetshowDropdown(false);
+    };
  
     const ok = async () => {
-      // if(location.state.getdata.length === 0){
-      //   Seterror(true)
-      // }
+     
        Setshow(location.state.getdata) 
        Setsearch(location.state.search)
 
-      
       
     };
 
@@ -51,8 +52,12 @@ console.log(show)
 
 
   return (
-    <div>
-      {show && show.length !== 0 ? <div> <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      {show && show.length !== 0 ? <div> 
+        <NavbarPage 
+         SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+            />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
@@ -280,7 +285,7 @@ console.log(show)
           </div>
         </div>
       </div>
-      <Chatbot /> </div> : <Notfound search={search}/>}
+      <Chatbot />{" "} </div> : <Notfound search={search}/>}
      
     </div>
   );
