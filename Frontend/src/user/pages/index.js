@@ -114,15 +114,12 @@ const Home = () => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-              Setrole(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -147,7 +144,6 @@ const Home = () => {
   return (
     <div>
       <NavbarPage />
-      {/* <h1 className="h1-index">หน้าหลัก</h1> */}
       <div className="container1-index">
         <div className="row-section1">
           <div className="column1-index">
@@ -170,40 +166,42 @@ const Home = () => {
 
               {error}
 
-              <div>
-                {lastsearch
-                  ? lastsearch.map((doc) => {
-                      let thiefid = doc.accountnumber;
-                      console.log(thiefid);
-                      return (
-                        <div>
-                          {haha ? (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>{doc.accountnumber}</div>
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>
-                                {doc.name} {doc.surname}
-                              </div>
-                            </button>
-                          )}
-                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
-                        </div>
-                      );
-                    })
-                  : null}
-              </div>
+              <div className="gg-index">
+              {lastsearch
+                ? lastsearch.map((doc) => {
+                    let thiefid = doc.accountnumber;
+                    i++;
+                    return (
+                      <div>
+                        {i <= 10 ? (
+                          <div>
+                            {" "}
+                            {haha ? (
+                              <button
+                                className="search-index"
+                                onClick={() => (
+                                  history.push(`/thief/post/${thiefid}`),
+                                  window.location.reload(true)
+                                )}
+                              >
+                                <div className="Fall-crisp">
+                                  {" "}
+                                  {doc.name} {doc.surname} {doc.accountnumber}
+                                </div>
+                              </button>
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })
+                : null}
+              {lastsearch ? (
+                <div className="dropsearch-index Fall-crisp" onClick={() => handlesearch()} >
+                  ค้นหา {search}
+                </div>
+              ) : null}
+            </div>
             </MDBCol>
           </div>
           <div className="line-index"></div>
