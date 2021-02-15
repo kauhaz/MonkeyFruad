@@ -34,6 +34,8 @@ const Home = () => {
   const [haha, Sethaha] = useState();
   const [role, Setrole] = useState();
   const [show, Setshow] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const [clicksearch, setClicksearch] = useState(false);
   const [error, Seterror] = useState();
   let history = useHistory();
   let i = 0; //forsearch
@@ -71,6 +73,9 @@ const Home = () => {
   useEffect(async () => {
     await Getdata();
   }, []);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
 
   const handlesearch = (e) => {
     try {
@@ -143,7 +148,7 @@ const Home = () => {
   }, [search]);
 
   return (
-    <div>
+    <div onClick={() => Hiddendropdown()}>
       <NavbarPage />
       <div className="container1-index">
         <div className="row-section1">
@@ -157,7 +162,10 @@ const Home = () => {
                     type="text"
                     placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                     aria-label="Search"
-                    onChange={(e) => Setsearch(e.target.value)}
+                    onChange={(e) => {
+                      Setsearch(e.target.value);
+                      SetshowDropdown(true)
+                    }}
                   />
                   <button type="submit" className="button1-index">
                     ค้นหา
@@ -168,42 +176,49 @@ const Home = () => {
               {error}
 
               <div className="gg-index">
-              {lastsearch
-                ? lastsearch.map((doc) => {
-                    let thiefid = doc.accountnumber;
-                    i++;
-                    return (
-                      <div>
-                        {i <= 10 ? (
-                          <div>
-                            {" "}
-                            {haha ? (
-                              <button
-                                className="search-index"
-                                onClick={() => (
-                                  history.push(`/thief/post/${thiefid}`),
-                                  window.location.reload(true)
-                                )}
-                              >
-                                <div className="Fall-crisp">
-                                  {" "}
-                                  {doc.name} {doc.surname} {doc.accountnumber}
-                                </div>
-                              </button>
-                            ) : null}
-                          </div>
-                        ) : null}
-                      </div>
-                    );
-                  })
-                : null}
-              {lastsearch ? (
-                <div className="dropsearch-index Fall-crisp" onClick={() => handlesearch()} >
-                  ค้นหา {search}
-                </div>
-              ) : null}
-            </div>
+                {lastsearch
+                  ? lastsearch.map((doc) => {
+                      let thiefid = doc.accountnumber;
+                      i++;
+                      return (
+                        <div>
+                          {i <= 10 ? (
+                            <div>
+                              {" "}
+                              {haha ? (
+                                showDropdown ? (
+                                  <button
+                                    className="search-index"
+                                    onClick={() => (
+                                      history.push(`/thief/post/${thiefid}`),
+                                      window.location.reload(true)
+                                    )}
+                                  >
+                                    <div className="Fall-crisp">
+                                      {" "}
+                                      {doc.name} {doc.surname}{" "}
+                                      {doc.accountnumber}
+                                    </div>
+                                  </button>
+                                ) : null
+                              ) : null}
+                            </div>
+                          ) : null}
+                        </div>
+                      );
+                    })
+                  : null}
 
+                {lastsearch ? showDropdown ? (
+                  <div
+                    className="dropsearch-index Fall-crisp"
+                    onClick={() => handlesearch()}
+                  >
+                    ค้นหา {search}
+                  </div>
+                ): null
+                 : null}
+              </div>
             </MDBCol>
           </div>
           <div className="line-index"></div>
