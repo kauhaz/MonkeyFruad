@@ -79,6 +79,54 @@
     background-color: #3c6fce;
 }
 
+
+
+/*dropsearch*/
+.gg-index{
+    position: absolute;
+    left: 84px;
+    top: 80px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 278px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    /* border: 1px solid #cfcdcd; */
+
+}
+
+.search-index{
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    width: 278px;
+    text-align: left;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #5c5c5c;
+}
+.search-index:hover{
+    background-color: rgb(233, 230, 230);
+    border-radius: 0px;
+}
+.dropsearch-index{
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    width: 278px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    font-size: 16px;
+    color: #5c5c5c;
+    background-color: #d8d6d6;
+}
+
+
 .textlink-index{
     text-align: center;
     display: block;
@@ -424,7 +472,7 @@
 }
 
 /*Responsive*/ 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1367px) {
     .container1-index{
         width: 65%;
         height: 300px;
@@ -487,6 +535,18 @@
         height: 2420px;
     }
 
+    /*dropsearch*/
+    .gg-index{
+        left: 37px;
+        top: 85px;
+        width: 257px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 257px;
+        font-size: 15px;
+    }
+
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 17px;
@@ -525,12 +585,24 @@
 
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1025px) {
     .container1-index , .container2-index , .container3-index{
         width: 75%;
     }
     .rank-index1{
         font-size: 60px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 33px;
+        top: 80px;
+        width: 224px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 224px;
+        font-size: 15px;
     }
 
     /*social media*/ 
@@ -611,6 +683,23 @@
     .container3-index{
         height: 2000px;
     }
+
+     /*dropsearch*/
+     .gg-index{
+        left: 28px;
+        top: 70px;
+        width: 208px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 208px;
+        font-size: 12px;
+    }
+    .dropsearch-index{
+        height: 30px;
+        padding-top: 7px;
+    }
+
     /*social media*/ 
     .column4-index{
         width: 24.7%;
@@ -725,6 +814,19 @@
         font-size: 11px;
     }
 
+    /*dropsearch*/
+    .gg-index{
+        left: 15px;
+        top: 53px;
+        width: 152px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        font-size: 10px;
+        width: 152px;
+    }
+
+
     /*social media*/ 
     .column4-index{
         width: 48.3%;
@@ -826,6 +928,17 @@
         margin-left: -5px;
     }
 
+     /*dropsearch*/
+    .gg-index{
+        left: 10px;
+        top: 43px;
+        width: 150px;
+    }
+    .search-index , .dropsearch-index{
+        width: 150px;
+        height: 30px;
+    }
+
 
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
@@ -894,6 +1007,16 @@
     }
     .readmore {
         margin-bottom: -10px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 0px;
+        top: 41px;
+        width: 139px;
+    }
+    .search-index , .dropsearch-index{
+        width: 139px;
     }
 
     /*social media*/ 

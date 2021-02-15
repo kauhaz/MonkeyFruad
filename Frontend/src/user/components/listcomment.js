@@ -6,18 +6,42 @@ import usercontext from "../context/usercontext";
 import "./listcomment.css";
 import * as moment from "moment";
 import "moment/locale/th";
+import _ from "lodash"
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
 }) => {
+  const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [files, Setfiles] = useState();
+  const [error, Seterror] = useState();
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState();
+  const [imagecomment, Setimagecomment] = useState();
   let { user, setUser } = useContext(usercontext);
+
+  const FileUpload = (event) => {
+    event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
+    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
+    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    Setfiles(files);
+    Seterror();
+
+    //ทำการวนข้อมูลภายใน Array
+    for (var i = 0; i < files.length; i++) {
+      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+      reader.onloadend = () => {
+        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+        setImagesFile((prevState) => [...prevState, reader.result]);
+        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+      };
+    }
+  };
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
@@ -28,15 +52,23 @@ const Listcomment = ({
 
   const edit = async () => {
     Setcheckedittext(true);
+    setIsActive(false)
   };
   const handleedit = async (commentid) => {
     try {
+      let formdata = new FormData();
+      _.forEach(files, (file) => {
+        formdata.append("eiei", file);
+      });
+      formdata.append("edittextcomment" , edittextcomment)
+
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
-        { edittextcomment }
+         formdata
       );
       handleedittorerender();
       Setcheckedittext(false);
+
     } catch (err) {
       console.log(err);
     }
@@ -54,6 +86,7 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
+  console.log(imagesFile)
 
   return (
     <div>
@@ -93,6 +126,55 @@ const Listcomment = ({
                       }}
                     ></textarea>
                   </div>
+                  <div className="row post-comment-commentsall">
+          <div className="container-img-holder-imgpreview1">
+            <label>
+              <img className="uploadprove1" src="/img/addphoto.png" />
+              <input
+                id="FileInput"
+                className="uploadspostcomment"
+                type="file"
+                onChange={FileUpload}
+                multiple
+                accept="image/png, image/jpeg , image/jpg"
+              />
+            </label>
+          </div>
+          {imagesFile ? imagesFile.map((imagePreviewUrl) => {
+                  return (
+                <img
+                key={imagePreviewUrl}
+                className="imgpreview1"
+                alt="previewImg"
+                src={imagePreviewUrl}
+                style={{ overflow: "hidden" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1.25)",
+                    overflow: "hidden",
+                  })
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1)",
+                    overflow: "hidden",
+                  })
+                }
+              />
+            );
+          }) : commentmore ? commentmore.photocomment.map(doc =>{
+            return (     
+           
+              <img src={doc.url}></img>
+          
+                )
+          }) : null}
+
+         
+          </div>
+
+                     
+              
                   <div className="buttoncommentsave1">
                     <button
                       className="buttoncommentsave2"
@@ -107,6 +189,9 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
+
+                  
+
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (
