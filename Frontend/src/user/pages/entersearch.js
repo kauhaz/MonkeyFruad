@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
+import Notfound from "../components/Notfound"
 import Axios from "axios";
 import { Link, useHistory ,useParams , useLocation} from "react-router-dom";
 import Chatbot from "../components/chatbot";
@@ -18,6 +19,7 @@ import usercontext from "../context/usercontext";
 import "./entersearch.css";
 import axios from "axios";
 import Loading from "../components/loading";
+import { get } from "lodash";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
@@ -25,17 +27,20 @@ const Entersearch = () => {
   const history = useHistory()
 
     const [show, Setshow] = useState()
+    const [search, Setsearch] = useState()
  
     let location = useLocation()
     
     console.log(location)
  
     const ok = async () => {
-        let getdata = location.state.getdata
+      // if(location.state.getdata.length === 0){
+      //   Seterror(true)
+      // }
+       Setshow(location.state.getdata) 
+       Setsearch(location.state.search)
+
       
-      const getpost = await Axios.post(`http://localhost:7000/thief/post`, getdata);
-        Setshow(getpost.data.item)
-        console.log(getpost.data.item)
       
     };
 
@@ -44,9 +49,10 @@ const Entersearch = () => {
     }, [location]);
 console.log(show)
 
+
   return (
     <div>
-      {show ? <div> <NavbarPage />
+      {show && show.length !== 0 ? <div> <NavbarPage />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
@@ -67,10 +73,10 @@ console.log(show)
               </div>
             </Link>
 
-            <h1 className="h1-posts">
+            {/* <h1 className="h1-posts">
               {" "}
               มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
-            </h1>
+            </h1> */}
 
             {show
               ? show.map((res) => {
@@ -274,7 +280,7 @@ console.log(show)
           </div>
         </div>
       </div>
-      <Chatbot /> </div> :null}
+      <Chatbot /> </div> : <Notfound search={search}/>}
      
     </div>
   );

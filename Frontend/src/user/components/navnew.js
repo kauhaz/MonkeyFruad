@@ -31,6 +31,7 @@ const NavbarPage = ({ show }) => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
+  const [allpost, Setallpost] = useState();
 
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
@@ -55,19 +56,18 @@ const NavbarPage = ({ show }) => {
   const handlesearch = () => {
     try {
       if (search) {
-        const getdata = searching.filter((doc) => {
+        const getdata = allpost.filter((doc) => {
           return (
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search)
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
           );
         });
         console.log(getdata);
         Setsearch("");
 
-        if (getdata.length === 0) {
-          Seterror("ไม่พบเจอคนร้าย");
-        } else if (getdata) {
+       if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
@@ -90,6 +90,8 @@ const NavbarPage = ({ show }) => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
+      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      Setallpost(getallpost.data.item)
       const getthief = getallthief.data.item;
       console.log(search);
       if (search) {
