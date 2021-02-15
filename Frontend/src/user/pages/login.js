@@ -16,7 +16,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
   const [isnotLogin, setIsnotlogin] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   // ฟังกชันสำหรับ Login ผ่านเว็บ
   const LoginSubmit = (e) => {
     e.preventDefault();
@@ -79,8 +83,11 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <Chatbot />
       <div className="container-login">
         <form className="LoginForm">

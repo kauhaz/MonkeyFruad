@@ -1,13 +1,20 @@
-import React from "react";
+import React , { useEffect, useState, useContext } from "react";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
 import "./prevent.css";
 import { Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Prevent = () => {
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   return (
-    <div className="bg-prevent-page">
-      <NavbarPage />
+    <div className="bg-prevent-page" onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="h1-prevent">รู้ไว้ไม่โดนโกง</div>
       <div className="container-prevent ">
         <div className="row-prevent">
@@ -15,8 +22,7 @@ const Prevent = () => {
             <img src="/img/prevent1.png" className="image1-prevent" />
             <div className="text-content-prevent">
               ซื้อสินค้าออนไลน์แล้วไม่ได้รับสินค้าตามกำหนด
-              <span className="text-none-prevent textwhite-prevent">
-              </span>
+              <span className="text-none-prevent textwhite-prevent"></span>
             </div>
           </div>
           <div className="column-prevent">
@@ -29,8 +35,7 @@ const Prevent = () => {
             <img src="/img/prevent3.png" className="image1-prevent" />
             <div className="text-content-prevent">
               เมื่อโอนเงินแล้วผู้ขายจะหายตัวไปปิดช่องทางการติดต่อทุกทาง
-              <span className="text-none-prevent textwhite-prevent">
-              </span>
+              <span className="text-none-prevent textwhite-prevent"></span>
             </div>
           </div>
         </div>

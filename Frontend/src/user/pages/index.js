@@ -35,7 +35,6 @@ const Home = () => {
   const [role, Setrole] = useState();
   const [show, Setshow] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const [clicksearch, setClicksearch] = useState(false);
   const [error, Seterror] = useState();
   let history = useHistory();
   let i = 0; //forsearch
@@ -149,7 +148,10 @@ const Home = () => {
 
   return (
     <div onClick={() => Hiddendropdown()}>
-      <NavbarPage />
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container1-index">
         <div className="row-section1">
           <div className="column1-index">
@@ -164,7 +166,7 @@ const Home = () => {
                     aria-label="Search"
                     onChange={(e) => {
                       Setsearch(e.target.value);
-                      SetshowDropdown(true)
+                      SetshowDropdown(true);
                     }}
                   />
                   <button type="submit" className="button1-index">
@@ -209,15 +211,16 @@ const Home = () => {
                     })
                   : null}
 
-                {lastsearch ? showDropdown ? (
-                  <div
-                    className="dropsearch-index Fall-crisp"
-                    onClick={() => handlesearch()}
-                  >
-                    ค้นหา {search}
-                  </div>
-                ): null
-                 : null}
+                {lastsearch ? (
+                  showDropdown ? (
+                    <div
+                      className="dropsearch-index Fall-crisp"
+                      onClick={() => handlesearch()}
+                    >
+                      ค้นหา {search}
+                    </div>
+                  ) : null
+                ) : null}
               </div>
             </MDBCol>
           </div>
@@ -241,8 +244,8 @@ const Home = () => {
                 return (
                   <div className="column3-index" key={index}>
                     <div className={`coin${index + 1} rank-index1`}>
-                        {index + 1}
-                      </div>
+                      {index + 1}
+                    </div>
                     <MDBCard>
                       <div className="emty-index"></div>
                       <MDBCardBody cascade className="text-center">

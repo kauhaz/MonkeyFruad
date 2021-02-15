@@ -19,7 +19,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-const NavbarPage = ({ show }) => {
+const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
   var { user, setUser } = useContext(usercontext);
 
   const [displayname, setDisplayname] = useState();
@@ -139,7 +139,7 @@ const NavbarPage = ({ show }) => {
     await ok();
     setLoading(false);
   }, [user, search]);
-
+console.log(showDropdown)
   return loading ? (
     ""
   ) : admin ? (
@@ -234,7 +234,10 @@ const NavbarPage = ({ show }) => {
                   placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                   aria-label="Search"
                   value={search}
-                  onChange={(e) => Setsearch(e.target.value)}
+                  onChange={(e) => {
+                    Setsearch(e.target.value)
+                    SetshowDropdown(true)
+                  }}
                 />
                 {error}
               </div>
@@ -274,7 +277,7 @@ const NavbarPage = ({ show }) => {
       </MDBNavbar>
       <div className="gg">
         {lastsearch
-          ? lastsearch.map((doc) => {
+          ?  lastsearch.map((doc) => {
               let thiefid = doc.accountnumber;
               i++;
               return (
@@ -282,7 +285,7 @@ const NavbarPage = ({ show }) => {
                   {i <= 10 ? (
                     <div>
                       {" "}
-                      {haha ? (
+                      {haha ? showDropdown ?
                         <button
                           className="search-nav"
                           onClick={() => (
@@ -295,18 +298,20 @@ const NavbarPage = ({ show }) => {
                             {doc.name} {doc.surname} {doc.accountnumber}
                           </div>
                         </button>
-                      ) : null}
+                      : null 
+                      : null}
                     </div>
                   ) : null}
                 </div>
               );
             })
           : null}
-        {lastsearch ? (
+        {lastsearch ? showDropdown ? 
           <div className="dropsearch-nav" onClick={() => handlesearch()}>
             ค้นหา {search}
           </div>
-        ) : null}
+          : null
+         : null}
       </div>
     </Router>
   );
