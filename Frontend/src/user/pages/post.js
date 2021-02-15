@@ -30,11 +30,14 @@ const Post = () => {
   const [twitter, Settwitter] = useState();
   const [other, Setother] = useState();
   const [result, Setresult] = useState();
+  const [assesory, Setassesory] = useState(false)
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
-  const [checkother, Setcheckother] = useState(false);
+  const [checkother, Setcheckother] = useState(false)
+  const [checkassesory, Setcheckassesory] = useState(false)
+  
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -82,13 +85,29 @@ const Post = () => {
           Setshow();
         }
       }
-    });
+      // if (assesory && doc.productcategory === "เครื่่องประดับ") {
+      //   if (checkassesory) {
+      //       item.push(doc)
+      //       Setshow();
 
+      //     item.forEach(doc2 =>{
+      //       if(doc2.accountnumber === doc.accountnumber){
+      //         console.log(doc)
+      //       }else{
+      //         item.push(doc)
+      //       }
+      //     })
+
+      //     // Setshow();
+      //   }
+      // }
+      
+    });
     Setresult(item);
   };
   useEffect(() => {
     ok();
-  }, [checkfacebook, checkinstagram, checkline, checktwitter, checkother]);
+  }, [checkfacebook, checkinstagram, checkline, checktwitter, checkother , checkassesory]);
 
   console.log(result);
 
@@ -632,6 +651,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline2-2"
+                      onChange={(e) => Setassesory(e.target.value)}
+                      onClick={() => Setcheckassesory(!checkassesory)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"

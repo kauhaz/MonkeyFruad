@@ -343,7 +343,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     กรุณาเลือก...
                                   </option>
                                   <option>เสื้อผ้า</option>
-                                  <option>เครื่องประดับ</option>
+                                  <option>เครื่่องประดับ</option>
                                   <option>รองเท้า</option>
                                   <option>กระเป๋า</option>
                                   <option>มือถือและอุปกรณ์เสริม</option>
