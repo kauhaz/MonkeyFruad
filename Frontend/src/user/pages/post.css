@@ -274,15 +274,15 @@
   width: 48%;
 }
 
-.biggroup {
+/* .biggroup {
   position: fixed;
   clear: both;
   top: 350px;
   width: 370px;
-  /* left: auto;
+  left: auto;
   right: auto;
-  bottom: 0px; */
-}
+  bottom: 0px;
+} */
 
 .container-postright2 {
   width: 100%;
