@@ -30,14 +30,19 @@ const Post = () => {
    const [twitter ,Settwitter] = useState()
    const [other ,Setother] = useState()
    const [result, Setresult] = useState()
+   const [checkfacebook, Setcheckfacebook] = useState(false)
+   const [checkline, Setcheckline] = useState(false)
+   const [checkinstagram, Setcheckinstagram] = useState(false)
+   const [checktwitter, Setchecktwitter] = useState(false)
+   const [checkother, Setcheckother] = useState(false)
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let history = useHistory();
 
- // const handleclick = async() => {
-  //   Setclick(true)
-  // }
+//  const handleclick = async() => {
+//     Setcheck(!check)
+//   }
  
   
 
@@ -45,45 +50,63 @@ const Post = () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
    const getdata = getpost.data.item
-    if(facebook || line || instagram || twitter || other){
-      Setshow()
+  
       var item = []
-
-        getdata.filter(doc =>{
-        if(facebook && doc.social.toLowerCase().includes(facebook.toLowerCase())){
+        getdata.filter( doc =>{
+        if(facebook &&  doc.social === "Facebook"){
+       
+         if(checkfacebook){
           item.push(doc)
+          Setshow()
+         }
         }
-        if(line && doc.social.toLowerCase().includes(line.toLowerCase()) ){
-          item.push(doc)
-        }
-        if(instagram && doc.social.toLowerCase().includes(instagram.toLowerCase()) ){
-          item.push(doc)
-        }
-        if(twitter && doc.social.toLowerCase().includes(twitter.toLowerCase())){
-          item.push(doc)
-        }
-        if(other && doc.social.toLowerCase().includes(other.toLowerCase())){
-          item.push(doc)
-        }
+      
         
+        if(line && doc.social === "Line" ){
+          
+          if(checkline){
+          item.push(doc)
+          Setshow() 
+         }
+        }
+        if(instagram && doc.social === "Instagram" ){
+          if(checkinstagram){
+            item.push(doc)
+            Setshow() 
+           }
+        }
+        if(twitter && doc.social === "Twitter"){
+         
+          if(checktwitter){
+            item.push(doc)
+            Setshow() 
+           }
+        }
+        if(other && doc.social === "other"){
+          if(checkother){
+            item.push(doc)
+            Setshow() 
+           }
+        }
+       
         })
  
    
     Setresult(item)
-    // console.log(item)
-    }
+  
+    
      
     
      
       
     
-  };
+  };  
   useEffect(() => {
     ok();
-  }, [facebook,line,instagram,twitter,other]);
+  }, [checkfacebook,checkinstagram,checkline,checktwitter,checkother]);
 
   console.log(result)
-
+  
   
   return (
     <div>
@@ -524,6 +547,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
+                      onClick={() => Setcheckfacebook(!checkfacebook)}
                       value="Facebook"
                     ></input>
                     <label
@@ -539,6 +563,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline2"
                       onChange={(e) => Setline(e.target.value)}
+                      onClick={() => Setcheckline(!checkline)}
                       value="Line"
                     />
                     <label
@@ -554,6 +579,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline3"
                       onChange={(e) =>  Setinstagram(e.target.value)}
+                      onClick={() => Setcheckinstagram(!checkinstagram)}
                       value="Instagram"
                     ></input>
                     <label
@@ -569,6 +595,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline4"
                       onChange={(e) => Settwitter(e.target.value)}
+                      onClick={() => Setchecktwitter(!checktwitter)}
                       value="Twitter"
                     ></input>
                     <label
@@ -585,6 +612,7 @@ const Post = () => {
                       id="defaultInline5"
                       id="defaultInline1"
                       onChange={(e) => Setother(e.target.value)}
+                      onClick={() => Setcheckother(!checkother)}
                       value="other"
                     ></input>
                     <label
