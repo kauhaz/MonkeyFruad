@@ -114,12 +114,15 @@ const Home = () => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
+         
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+           
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+             
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
