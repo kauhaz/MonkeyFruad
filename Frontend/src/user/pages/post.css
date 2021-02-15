@@ -29,6 +29,7 @@
 
 .container-post1 {
   width: 90%;
+  height: 180px;
   background-color: white;
   border-radius: 10px;
   margin-top: 100px;
@@ -169,6 +170,12 @@
   border-radius: 50%;
 }
 
+.modalreport {
+  background-color: none;
+}
+
+
+
 .container-post4 {
   width: 80%;
   margin-top: 50px;
@@ -226,6 +233,7 @@
 
 .container-postright1 {
   width: 100%;
+  height: 180px;
   background-color: white;
   border-radius: 10px;
   margin-top: 100px;
@@ -276,10 +284,8 @@
 
 /* .biggroup {
   position: fixed;
-  left: auto;
-  right: auto;
-  top: 350px;
-  bottom: 0px;
+  clear: both;
+  top: 0px;
   width: 370px;
 } */
 
@@ -287,7 +293,7 @@
   width: 100%;
   background-color: white;
   border-radius: 10px;
-  margin-top: 115px;
+  margin-top: 40px;
   margin-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
@@ -301,12 +307,16 @@
 }
 
 .post-group1 {
-  font-weight: bold;
   font-size: 20px;
 }
 
 .post-groupsorting1 {
   margin-left: 30px;
+  height: 35px;
+  font-size: 18px;
+  color: #5c5c5c;
+  padding-left: 10px;
+  border-radius: 0.5rem;
 }
 
 .line-postgroup1 {
@@ -318,9 +328,15 @@
 }
 
 .post-namegroup1 {
-  font-weight: bold;
-  font-size: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
   margin-bottom: 10px;
+}
+
+.groupcheckbox1 {
+  color: #5c5c5c;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .line-postgroup2 {
@@ -332,9 +348,15 @@
 }
 
 .post-namegroup2 {
-  font-weight: bold;
-  font-size: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
   margin-bottom: 10px;
+}
+
+.groupcheckbox2 {
+  color: #5c5c5c;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .line-postgroup3 {
@@ -346,18 +368,28 @@
 }
 
 .post-namegroup3 {
-  font-weight: bold;
-  font-size: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .postnumber1 {
   width: 30%;
+  height: 35px;
+  font-size: 18px;
+  color: #5c5c5c;
   margin-left: 15px;
+  padding-left: 10px;
+  border-radius: 0.5rem;
 }
 
 .postnumber2 {
   width: 30%;
+  height: 35px;
+  font-size: 18px;
+  color: #5c5c5c;
+  padding-left: 10px;
+  border-radius: 0.5rem;
 }
 
 .post-numbergroup2 {
@@ -367,10 +399,11 @@
 
 .postbuttonnumbers {
   width: 100%;
-  height: 40px;
+  height: 35px;
   font-size: 17px;
   background-color: #5c83cc;
   margin-left: 15px;
+  /* margin-top: 10px; */
   border: none;
   border-radius: 0.5rem;
   font-size: 20px;
@@ -380,10 +413,11 @@
 
 .postbuttonnumbers:hover {
   width: 100%;
-  height: 40px;
+  height: 35px;
   font-size: 17px;
   background-color: #3c6fce;
   margin-left: 15px;
+  /* margin-top: 10px; */
   border: none;
   border-radius: 0.5rem;
   font-size: 20px;
