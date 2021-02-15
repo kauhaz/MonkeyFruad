@@ -13,8 +13,9 @@ import {
   FormControl,
   Button,
   Modal,
+  ModalBody,
   ModalHeader,
-  ModalFooter,
+  ModalFooter
 } from "react-bootstrap";
 import {
   auth,
@@ -24,13 +25,6 @@ import {
 } from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
-import {
-  MDBBtn,
-  MDBModal,
-  MDBModalBody,
-  MDBModalHeader,
-  MDBModalFooter,
-} from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Post = () => {
@@ -49,14 +43,13 @@ const Post = () => {
   const [twitter, Settwitter] = useState();
   const [other, Setother] = useState();
   const [result, Setresult] = useState();
-  const [assesory, Setassesory] = useState(false)
+  const [assesory, Setassesory] = useState(false);
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
-  const [checkother, Setcheckother] = useState(false)
-  const [checkassesory, Setcheckassesory] = useState(false)
-  
+  const [checkother, Setcheckother] = useState(false);
+  const [checkassesory, Setcheckassesory] = useState(false);
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -120,13 +113,19 @@ const Post = () => {
       //     // Setshow();
       //   }
       // }
-      
     });
     Setresult(item);
   };
   useEffect(() => {
     ok();
-  }, [checkfacebook, checkinstagram, checkline, checktwitter, checkother , checkassesory]);
+  }, [
+    checkfacebook,
+    checkinstagram,
+    checkline,
+    checktwitter,
+    checkother,
+    checkassesory,
+  ]);
 
   console.log(result);
 
@@ -153,11 +152,11 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
+            {/* <h1 className="h1-posts">
               {" "}
               มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
               โพสต์
-            </h1>
+            </h1> */}
 
             {show ? (
               show.map((res) => {
@@ -191,14 +190,21 @@ const Post = () => {
                           </div>
                         </div>
 
-                        <div className="postbuttonreport" onClick={handleShow}>
+                        {/* <div className="postbuttonreport">
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
                           </a>
+                        </div> */}
+
+                        <div className="postbuttonreport">
+                          <button variant="primary" onClick={handleShow} className="postbuttonreported" >
+                            <i class="fa fa-flag"></i>
+                          </button>
                         </div>
-                        <Modal show={Show} onHide={handleClose}>
+
+                        <Modal show={Show} onHide={handleClose} className="modalreport">
                           <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
+                            <Modal.Title className="namereport">รายงานโพสต์</Modal.Title>
                           </Modal.Header>
                           <Modal.Body>
                             Woohoo, you're reading this text in a modal!
@@ -974,9 +980,7 @@ const Post = () => {
                       className="postnumber2"
                     ></input>
                     <div className="postbuttonnumber">
-                      <button className="postbuttonnumbers">
-                        <i className="fa fa-long-arrow-alt-right"></i>
-                      </button>
+                      <button className="postbuttonnumbers">ตกลง</button>
                     </div>
                   </div>
                 </div>
