@@ -343,7 +343,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     กรุณาเลือก...
                                   </option>
                                   <option>เสื้อผ้า</option>
-                                  <option>เครื่องประดับ</option>
+                                  <option>เครื่่องประดับ</option>
                                   <option>รองเท้า</option>
                                   <option>กระเป๋า</option>
                                   <option>มือถือและอุปกรณ์เสริม</option>
@@ -473,7 +473,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   <option>Instagram</option>
                                   <option>Twitter</option>
                                   <option>Line</option>
-                                  <option>อื่นๆ</option>
+                                  <option value="other">อื่นๆ</option>
                                 </Form.Control>
                               ) : null}
                             </Form.Group>

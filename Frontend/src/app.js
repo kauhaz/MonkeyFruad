@@ -25,7 +25,7 @@ import Profile from "./user/pages/profile";
 import Editprofile from "./user/pages/editprofile";
 import Changepass from "./user/pages/changpass";
 import HomeAdmin from "./admin/pages/index";
-import ContractusAdmin  from "./admin/pages/contractus";
+import ContractusAdmin from "./admin/pages/contractus";
 import Managepost from "./admin/pages/managepost";
 import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
@@ -38,11 +38,11 @@ import Entersearch from "./user/pages/entersearch";
 const App = () => {
   const [user, setUser] = useState();
   const [loadingAuth, setLoadingAuth] = useState(true);
-  const [admin,setAdmin] = useState(false)
+  const [admin, setAdmin] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        if(user.uid === "Bm4bg6z0KAavVlnCijLzIxjXN9y2"){
+        if (user.uid === "Bm4bg6z0KAavVlnCijLzIxjXN9y2") {
           setAdmin(true);
           setLoadingAuth(false);
         }
@@ -52,32 +52,32 @@ const App = () => {
       }
       setLoadingAuth(false);
     });
-    
   }, []);
-  
-  return loadingAuth ? "" : (
-   admin ? (
+
+  return loadingAuth ? (
+    ""
+  ) : admin ? (
     <Router>
-    <usercontext.Provider value={{ user, setUser }}>
-      <Switch>
-        <Route path="/" exact>
-          <HomeAdmin />
-        </Route>
-        <Route path="/managepost" exact>
-          <Managepost />
-        </Route>
-        <Route path="/non_verifypost" exact>
-          <Non_verifypost />
-        </Route>
-        <Route path="/verifypost" exact>
-          <Verifypost />
-        </Route>
-        <Route path="/contractus" exact>
-          <ContractusAdmin />
-        </Route>
-      </Switch>
-    </usercontext.Provider>
-  </Router>
+      <usercontext.Provider value={{ user, setUser }}>
+        <Switch>
+          <Route path="/" exact>
+            <HomeAdmin />
+          </Route>
+          <Route path="/managepost" exact>
+            <Managepost />
+          </Route>
+          <Route path="/non_verifypost" exact>
+            <Non_verifypost />
+          </Route>
+          <Route path="/verifypost" exact>
+            <Verifypost />
+          </Route>
+          <Route path="/contractus" exact>
+            <ContractusAdmin />
+          </Route>
+        </Switch>
+      </usercontext.Provider>
+    </Router>
   ) : (
     <Router>
       <usercontext.Provider value={{ user, setUser }}>
@@ -125,19 +125,22 @@ const App = () => {
             <Post />
           </Route>
           <Route path="/linkruleshow" exact>
-            {user ? 
-              <Linkruleshow /> : 
+            {user ? (
+              <Linkruleshow />
+            ) : (
               <Redirect
                 to={{
-                  pathname: '/login',
-                  search: '?login = false',  // query string
-                  state: {  // location state
-                  login: false, 
-                }}}
-                />
-              }
+                  pathname: "/login",
+                  search: "?login = false", // query string
+                  state: {
+                    // location state
+                    login: false,
+                  },
+                }}
+              />
+            )}
           </Route>
-         <Route path="/profile/:uid" exact>
+          <Route path="/profile/:uid" exact>
             <Profile />
           </Route>
           <Route path="/profile/edit/:uid" exact>
@@ -155,6 +158,6 @@ const App = () => {
         </Switch>
       </usercontext.Provider>
     </Router>
-  ) )
-}
+  );
+};
 export default App;
