@@ -155,25 +155,47 @@
     margin-left: auto;
     margin-right: auto;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    margin-top: 80px;
+}
+.emty-index{
+    height: 70px;
+    width: 100%;
 }
 .coin1{
     background-color: #fc7248;
-    width: 100%;
-    height: 180px;
-    margin-top: -20px;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
     color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 .coin2{
     background-color: #f8994a;
-    width: 100%;
-    height: 180px;
-    margin-top: -20px;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 .coin3{
     background-color: #fdc52b;
-    width: 100%;
-    height: 180px;
-    margin-top: -20px;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 
 .rank-index1{
@@ -181,7 +203,7 @@
     font-family: 'Kanit', sans-serif;
     text-align: center;
     color: white;
-    padding-top: 35px;
+    padding-top: 25px;
 }
 
 .text2-index{
@@ -509,7 +531,8 @@
         margin-top: 70px;
     }
     .rank-index1{
-        font-size: 60px;
+        font-size: 55px;
+        padding-top: 30px;
     }
     .text3-index{
         font-size: 15px;
@@ -519,9 +542,17 @@
         font-size: 12px;
         margin-left: 3px;
     }
-    .coin1 , .coin2 , .coin3{
-        height: 165px;
+
+    .emty-index{
+        height: 65px;
     }
+    .coin1 , .coin2 , .coin3 {
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 65px;
+    }
+    
     .readmore {
         font-size: 14px;
         margin-top: -5px;
@@ -532,7 +563,7 @@
     }
     .container3-index {
         width: 65%;
-        height: 2420px;
+        height: 2450px;
     }
 
     /*dropsearch*/
@@ -589,8 +620,23 @@
     .container1-index , .container2-index , .container3-index{
         width: 75%;
     }
+    .container2-index{
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
     .rank-index1{
-        font-size: 60px;
+        font-size: 55px;
+        padding-top: 25px;
+    }
+     
+    .emty-index{
+        height: 65px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 130px;
+        height: 130px;
+        margin-top: -65px;
+        margin-left: 55px;
     }
 
     /*dropsearch*/
@@ -617,7 +663,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
     .container1-index , .container2-index , .container3-index{
         width: 70%;
     }
@@ -661,9 +707,8 @@
     }
     .container2-index{
         height: 290px;
-    }
-    .rank-index1{
-        padding-top: 15px;
+        margin-top: 0px;
+        margin-bottom: 70px;
     }
     .text3-index{
         font-size: 12px;
@@ -673,9 +718,20 @@
         margin-left: -1px;
         width: 140px;
     }
-    .coin1 , .coin2 , .coin3{
-        height: 120px;
+    .rank-index1{
+        font-size: 40px;
+        padding-top: 15px;
+    }  
+    .emty-index{
+        height: 40px;
     }
+    .coin1 , .coin2 , .coin3 {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 42px;
+    }
+
     .readmore {
         font-size: 11px;
         margin-top: -5px;
@@ -704,6 +760,9 @@
     .column4-index{
         width: 24.7%;
         padding: 20px 3px 20px 3px; 
+    }
+    .facebookbox-index , .instargrambox-index , .linebox-index , .twitterbox-index , .otherbox-index{
+        padding-left: 19px;
     }
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 13px;
@@ -752,8 +811,8 @@
     }
     .container3-index{
         width: 90%;
-        height: 3650px;
-        margin-top: 300px;
+        height: 3680px;
+        margin-top: 360px;
         margin-bottom: 60px;
     }
     .column1-index{
@@ -796,19 +855,25 @@
     }
     .column3-index{
         width: 45%;
-        margin-bottom: 50px;
-    }
-    .rank-index1{
-        padding-top: 10px;
-        font-size: 50px;
+        margin-bottom: 0px;
     }
     .text4-index{
         font-size: 10px;
         margin-left: 0px;
         width: 150px;
     }
-    .coin1 , .coin2 , .coin3{
-        height: 100px;
+    .rank-index1{
+        font-size: 40px;
+        padding-top: 15px;
+    }  
+    .emty-index{
+        height: 40px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 40px;
     }
     .readmore {
         font-size: 11px;
@@ -832,6 +897,9 @@
         width: 48.3%;
         padding: 20px 7px 20px 7px; 
         margin-bottom: -25px;
+    }
+    .facebookbox-index , .instargrambox-index , .linebox-index , .twitterbox-index , .otherbox-index{
+        padding-left: 22px;
     }
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 13px;
@@ -876,7 +944,7 @@
     }
     .container3-index{
         height: 3600px;
-        margin-top: 275px;
+        margin-top: 265px;
     }
     .column1-index{
         margin-top: 17px;
@@ -903,10 +971,6 @@
         font-size: 15px;
         margin-top: 40px;
     }
-    .rank-index1{
-        padding-top: 20px;
-        font-size: 40px;
-    }
     .text3-index{
         font-size: 11px;
         width: 130px;
@@ -917,6 +981,22 @@
         margin-left: -6px;
         margin-top: -5px;
         width: 130px;
+    }
+    .column3-index{
+        margin-top: 60px;
+    }
+    .rank-index1{
+        font-size: 35px;
+        padding-top: 12px;
+    }  
+    .emty-index{
+        height: 35px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 80px;
+        height: 80px;
+        margin-top: -40px;
+        margin-left: 38px;
     }
     .readmore {
         font-size: 10px;
@@ -971,7 +1051,7 @@
     }
     .container3-index{
         height: 3600px;
-        margin-top: 265px;
+        margin-top: 255px;
     }
     .containermini1-index{
         width: 120px;
@@ -1005,6 +1085,21 @@
         margin-left: -16px;
         width: 127px; 
     }
+    
+    .rank-index1{
+        font-size: 30px;
+        padding-top: 12px;
+    }  
+    .emty-index{
+        height: 35px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 70px;
+        height: 70px;
+        margin-top: -40px;
+        margin-left: 33px;
+    }
+    
     .readmore {
         margin-bottom: -10px;
     }
