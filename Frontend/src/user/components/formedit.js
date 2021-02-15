@@ -27,6 +27,7 @@ const Formedit = ({ check, Setcheck }) => {
   const [surname, setSurname] = useState();
   const [id, setId] = useState();
   const [accountnumber, setAccountnumber] = useState();
+  const [oldaccountnumber, setOldAccountnumber] = useState();
   const [nameproduct, setNameproduct] = useState();
   const [productcategory, setProductcategory] = useState();
   const [money, setMoney] = useState();
@@ -84,6 +85,7 @@ const Formedit = ({ check, Setcheck }) => {
     setSurname(gethistory[0].surname);
     setId(gethistory[0].id);
     setAccountnumber(gethistory[0].accountnumber);
+    setOldAccountnumber(gethistory[0].accountnumber)
     setNameproduct(gethistory[0].nameproduct);
     setProductcategory(gethistory[0].productcategory);
     setMoney(gethistory[0].money);
@@ -110,6 +112,7 @@ const Formedit = ({ check, Setcheck }) => {
       formdata.append("surname", surname);
       formdata.append("id", id);
       formdata.append("accountnumber", accountnumber);
+      formdata.append("oldaccountnumber", oldaccountnumber);
       formdata.append("nameproduct", nameproduct);
       formdata.append("productcategory", productcategory);
       formdata.append("money", money);
@@ -470,7 +473,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   <option>Instagram</option>
                                   <option>Twitter</option>
                                   <option>Line</option>
-                                  <option>อื่นๆ</option>
+                                  <option value="other">อื่นๆ</option>
                                 </Form.Control>
                               ) : null}
                             </Form.Group>

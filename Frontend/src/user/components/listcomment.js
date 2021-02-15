@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import usercontext from "../context/usercontext";
 import "./listcomment.css";
-
+import * as moment from "moment";
+import "moment/locale/th";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -76,21 +77,30 @@ const Listcomment = ({
                 {commentmore.username}
                 <span className="mypost-comment-time1">
                   {" "}
-                  {commentmore.datetime}{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
+                    "LTS"
+                  )}{" "}
                 </span>
               </div>
               <br />
               {checkedittext ? (
-                <div>
-                  <textarea
-                    value={edittextcomment}
-                    onChange={(e) => {
-                      Setedittextcomment(e.target.value);
-                    }}
-                  ></textarea>
-                  <button onClick={() => handleedit(commentmore.commentid)}>
-                    ตกลง
-                  </button>
+                <div className="row">
+                  <div className="commenttextarea">
+                    <textarea
+                      value={edittextcomment}
+                      onChange={(e) => {
+                        Setedittextcomment(e.target.value);
+                      }}
+                    ></textarea>
+                  </div>
+                  <div className="buttoncommentsave1">
+                    <button
+                      className="buttoncommentsave2"
+                      onClick={() => handleedit(commentmore.commentid)}
+                    >
+                      บันทึก
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <div className="mypost-comment-comments1">
@@ -101,7 +111,7 @@ const Listcomment = ({
                     ? commentmore.photocomment.map((doc) => {
                         return (
                           <div>
-                            <img className="img-circle" src={`${doc.url}`} />
+                            <img className="imgcomment" src={`${doc.url}`} />
                           </div>
                         );
                       })

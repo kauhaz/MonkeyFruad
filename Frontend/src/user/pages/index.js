@@ -7,6 +7,9 @@ import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import "./index.css";
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
+import * as moment from "moment";
+import "moment/locale/th";
+
 import {
   MDBCard,
   MDBCardBody,
@@ -63,7 +66,8 @@ const Home = () => {
       console.log(err);
     }
   };
-  useMemo(async () => {
+
+  useEffect(async () => {
     await Getdata();
   }, []);
 
@@ -220,7 +224,7 @@ const Home = () => {
           {ThiefCount
             ? ThiefCount.map((element, index) => {
                 return (
-                  <div className="column3-index">
+                  <div className="column3-index" key={index}>
                     <MDBCard>
                       <div className={`coin${index + 1} rank-index1`}>
                         {index + 1}
@@ -228,13 +232,16 @@ const Home = () => {
                       <MDBCardBody cascade className="text-center">
                         <p className="text3-index">
                           เลขที่บัญชี : {element.accountnumber} <br />
-                          {element.bank}
+                          ธนาคาร : {element.bank}
                         </p>
                         <p className="text4-index">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
-                          จำนวนเงินทั้งหมด : {element.summoney} บาท
+                          ยอดทั้งหมด : {element.summoney} บาท
                           <br />
-                          ล่าสุด : {element.wanteedon}
+                          ล่าสุด :{" "}
+                          {moment(
+                            new Date(element.wanteedon.seconds * 1000)
+                          ).format("lll")}
                         </p>
                         <a
                           href="!#"
@@ -266,11 +273,11 @@ const Home = () => {
               {FacebookCount
                 ? FacebookCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -293,7 +300,10 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
                                 <br />
                               </p>
                             </div>
@@ -313,7 +323,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -343,11 +358,11 @@ const Home = () => {
               {InstragramCount
                 ? InstragramCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -371,7 +386,11 @@ const Home = () => {
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}<br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -390,7 +409,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time2-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -420,11 +444,11 @@ const Home = () => {
               {LineCount
                 ? LineCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -442,11 +466,16 @@ const Home = () => {
                               </strong>
                               <hr />
                               <p className="text7-index">
-                                สินค้า : {element.nameproduct}<br />
+                                สินค้า : {element.nameproduct}
+                                <br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}<br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -465,7 +494,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time3-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -495,11 +529,11 @@ const Home = () => {
               {TwitterCount
                 ? TwitterCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -522,7 +556,11 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime} <br />
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}{" "}
+                                <br />
                               </p>
                             </div>
                             <a
@@ -541,7 +579,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time4-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>
@@ -571,11 +614,11 @@ const Home = () => {
               {WebsiteCount
                 ? WebsiteCount.map((element, index) => {
                     return (
-                      <div className="column4-index">
+                      <div className="column4-index" key={index}>
                         <MDBCard>
-                          {element.resultfileitem ? (
+                          {element.resultfile ? (
                             <MDBCardImage
-                              src={`${element.resultfileitem.url}`}
+                              src={`${element.resultfile.url}`}
                               className="image3-index"
                               hover
                             />
@@ -597,7 +640,10 @@ const Home = () => {
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
                                 จำนวนเงิน : {element.money} บาท <br />
-                                วันที่โอน : {element.datetime}
+                                วันที่โอน :{" "}
+                                {moment(
+                                  new Date(element.datetimes.seconds * 1000)
+                                ).format("lll")}
                                 <br />
                               </p>
                             </div>
@@ -617,7 +663,12 @@ const Home = () => {
                           </MDBCardBody>
                           <div className="time5-index">
                             <MDBIcon far icon="clock" />
-                            <span> {element.date}</span>
+                            <span>
+                              {" "}
+                              {moment(
+                                new Date(element.date.seconds * 1000)
+                              ).format("lll")}
+                            </span>
                           </div>
                         </MDBCard>
                       </div>

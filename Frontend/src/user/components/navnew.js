@@ -11,7 +11,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBIcon,
   MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
@@ -20,7 +19,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-const NavbarPage = ({show}) => {
+const NavbarPage = ({ show }) => {
   var { user, setUser } = useContext(usercontext);
 
   const [displayname, setDisplayname] = useState();
@@ -37,6 +36,7 @@ const NavbarPage = ({show}) => {
   const [error, Seterror] = useState();
 
   let history = useHistory();
+  let i = 0; //forsearch
 
   const logout = () => {
     auth
@@ -52,8 +52,6 @@ const NavbarPage = ({show}) => {
     setIsopen(!isOpen);
   };
 
-
-
   const handlesearch = () => {
     try {
       if (search) {
@@ -64,17 +62,21 @@ const NavbarPage = ({show}) => {
             doc.accountnumber.includes(search)
           );
         });
-
+        console.log(getdata);
         Setsearch("");
-        if (getdata) {
-          (history.push({
+
+        if (getdata.length === 0) {
+          Seterror("ไม่พบเจอคนร้าย");
+        } else if (getdata) {
+          history.push({
             pathname: "/entersearch",
             search: "?are you ok",
             state: {
               getdata,
-              search
+              search,
             },
-          }))
+          });
+          window.location.reload(true);
         }
       } else {
         Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
@@ -86,26 +88,22 @@ const NavbarPage = ({show}) => {
 
   const ok = async () => {
     try {
-      
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
-      const getthief = getallthief.data.item; 
-      console.log(search)
-      if(search){
-        Seterror()
+      const getthief = getallthief.data.item;
+      console.log(search);
+      if (search) {
+        Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-              Setrole(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -115,7 +113,7 @@ const NavbarPage = ({show}) => {
           })
         );
       }
-      if(!search){
+      if (!search) {
         Setlastsearch();
       }
     } catch (err) {
@@ -138,11 +136,9 @@ const NavbarPage = ({show}) => {
           console.log(err);
         });
     }
-   await ok();  
+    await ok();
     setLoading(false);
-  }, [user,search]  );
-
-  
+  }, [user, search]);
 
   return loading ? (
     ""
@@ -242,40 +238,6 @@ const NavbarPage = ({show}) => {
                 />
                 {error}
               </div>
-              <div>
-                {lastsearch
-                  ? lastsearch.map((doc) => {
-                      let thiefid = doc.accountnumber;
-
-                      return (
-                        <div>
-                          {haha ? (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>{doc.accountnumber}</div>
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>
-                                {doc.name} {doc.surname}
-                              </div>
-                            </button>
-                          )}
-                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
-                        </div>
-                      );
-                    })
-                  : null}
-              </div>
             </MDBNavItem>
 
             <button onClick={() => handlesearch()} className="button-nav">
@@ -287,7 +249,10 @@ const NavbarPage = ({show}) => {
                   <MDBDropdownToggle nav caret left>
                     {displayname}
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default dropdown-bottom" right>
+                  <MDBDropdownMenu
+                    className="dropdown-default dropdown-bottom"
+                    right
+                  >
                     <MDBDropdownItem href={`/profile/${user.uid}`}>
                       จัดการโปรไฟล์
                     </MDBDropdownItem>
@@ -307,6 +272,42 @@ const NavbarPage = ({show}) => {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
+      <div className="gg">
+        {lastsearch
+          ? lastsearch.map((doc) => {
+              let thiefid = doc.accountnumber;
+              i++;
+              return (
+                <div className="boxsearch-nav">
+                  {i <= 10 ? (
+                    <div>
+                      {" "}
+                      {haha ? (
+                        <button
+                          className="search-nav"
+                          onClick={() => (
+                            history.push(`/thief/post/${thiefid}`),
+                            window.location.reload(true)
+                          )}
+                        >
+                          <div>
+                            {" "}
+                            {doc.name} {doc.surname} {doc.accountnumber}
+                          </div>
+                        </button>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })
+          : null}
+        {lastsearch ? (
+          <div className="dropsearch-nav" onClick={() => handlesearch()}>
+            ค้นหา {search}
+          </div>
+        ) : null}
+      </div>
     </Router>
   );
 };

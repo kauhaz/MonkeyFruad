@@ -2,27 +2,26 @@ import React, { useEffect, useState, useContext } from "react";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import * as moment from "moment";
+import "moment/locale/th";
 
-
-const Historyitem = ({ ok, user , handledeletetorerender }) => {
+const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
 
+  const newdate = new Date(ok.date.seconds * 1000);
+  let date = moment(newdate).format("lll");
 
   const deleted = async (uid) => {
     try {
-      handledeletetorerender()
-        const postdelete = await Axios.post(
-          `http://localhost:7000/post/delete/${uid}`
-        );
-
+      const postdelete = await Axios.post(
+        `http://localhost:7000/post/delete/${uid}`
+      );
+      handledeletetorerender();
     } catch (err) {
       console.log(err);
     }
   };
-
-
-
   return (
     <div>
       <div className="container-history1">
@@ -135,7 +134,7 @@ const Historyitem = ({ ok, user , handledeletetorerender }) => {
                 </Form.Group>
 
                 <Form.Group>
-                  <span className="spanhistory">{ok.date} </span>
+                  <span className="spanhistory">{date} </span>
                 </Form.Group>
               </Form.Row>
             </Form>

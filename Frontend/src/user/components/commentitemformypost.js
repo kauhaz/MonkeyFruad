@@ -2,14 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Axios from "axios";
-import "./commentitem.css";
+import "./commentitemformypost.css";
 import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Commentitemformypost = ({ postid }) => {
-
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let { user, setUser } = useContext(usercontext);
@@ -73,13 +72,13 @@ const Commentitemformypost = ({ postid }) => {
         setImagesFile([]);
         Seterror();
       } else {
-          history.push({
-                pathname: "/login",
-                search: `?login=false`,
-                state: {  
-                  login:false
-               }
-              })
+        history.push({
+          pathname: "/login",
+          search: `?login=false`,
+          state: {
+            login: false,
+          },
+        });
       }
     } catch (err) {
       err && Seterror(err.response.data.msg);
@@ -113,19 +112,21 @@ const Commentitemformypost = ({ postid }) => {
         `http://localhost:7000/post/commentmore/${postid}`
       );
       Setcommentmore(getcommentall.data.item);
-        if(user){
-          const nameuser = await Axios.post("http://localhost:7000/user/userid", {
-            result: user,
-          });
-          Setdata(nameuser.data.item);
-    
-          var profiledata = await Axios.post("http://localhost:7000/user/session", {
+      if (user) {
+        const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+          result: user,
+        });
+        Setdata(nameuser.data.item);
+
+        var profiledata = await Axios.post(
+          "http://localhost:7000/user/session",
+          {
             user: user,
-          });
-          Setphotourl(profiledata.data.data.photoURL.url);
-          Setphotopublic_id(profiledata.data.data.photoURL.public_id);
-        }
-     
+          }
+        );
+        Setphotourl(profiledata.data.data.photoURL.url);
+        Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -185,8 +186,8 @@ const Commentitemformypost = ({ postid }) => {
         </div>
       ) : null}
 
-      <div className="row post-comment-comments1">
-        <div className="post-profilecomment-img1">
+      <div className="row mypost-comment-comments2">
+        <div className="mypost-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
           ) : (
@@ -194,31 +195,7 @@ const Commentitemformypost = ({ postid }) => {
           )}
         </div>
 
-        <div className="row post-comment-commentsall">
-          {imagesFile.map((imagePreviewUrl) => {
-            return (
-              <img
-                key={imagePreviewUrl}
-                className="imgpreview"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-            );
-          })}
-
+        <div className="row mypost-comment-commentsall">
           <div className="container-img-holder-imgpreview2">
             <label>
               <img className="uploadprove2" src="/img/addphoto.png" />
@@ -237,9 +214,10 @@ const Commentitemformypost = ({ postid }) => {
             className="mypost-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-            <input
-              className="inputcomment2"
-              size="25"
+            <textarea
+              rows="3"
+              cols="15"
+              className="inputmypostcomment2"
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
@@ -258,9 +236,33 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
+
+          {imagesFile.map((imagePreviewUrl) => {
+            return (
+              <img
+                key={imagePreviewUrl}
+                className="imgpreview1"
+                alt="previewImg"
+                src={imagePreviewUrl}
+                style={{ overflow: "hidden" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1.25)",
+                    overflow: "hidden",
+                  })
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style = {
+                    transform: "scale(1)",
+                    overflow: "hidden",
+                  })
+                }
+              />
+            );
+          })}
         </div>
 
-        <h1 className="h1-formpostfileerror">{error}</h1>
+        <h1 className="h1-mypostfileerror">{error}</h1>
       </div>
     </div>
   );
