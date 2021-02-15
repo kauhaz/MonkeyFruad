@@ -7,7 +7,15 @@ import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
 import * as moment from "moment";
 import "moment/locale/th";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
+import {
+  Form,
+  Col,
+  FormControl,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalFooter,
+} from "react-bootstrap";
 import {
   auth,
   googleProvider,
@@ -16,11 +24,22 @@ import {
 } from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
-import { MDBInput } from "mdbreact";
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+} from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Post = () => {
   const [show, Setshow] = useState();
+
+  const [Show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   let { user, setUser } = useContext(usercontext);
   const [filteritem, Setfilteritem] = useState();
@@ -153,12 +172,27 @@ const Post = () => {
                           </div>
                         </div>
 
-                        <div className="postbuttonreport">
+                        <div className="postbuttonreport" onClick={handleShow}>
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
                           </a>
                         </div>
-
+                        <Modal show={Show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Modal heading</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            Woohoo, you're reading this text in a modal!
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Close
+                            </Button>
+                            <Button variant="primary" onClick={handleClose}>
+                              Save Changes
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
