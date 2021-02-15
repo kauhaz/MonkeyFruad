@@ -36,6 +36,7 @@ const Home = () => {
   const [show, Setshow] = useState();
   const [error, Seterror] = useState();
   let history = useHistory();
+  let i = 0; //forsearch
   const Getdata = async () => {
     try {
       const thiefcount = await axios.get(
@@ -114,15 +115,12 @@ const Home = () => {
           getthief.filter((doc) => {
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-         
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
-           
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
-             
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -205,6 +203,7 @@ const Home = () => {
                 </div>
               ) : null}
             </div>
+
             </MDBCol>
           </div>
           <div className="line-index"></div>
