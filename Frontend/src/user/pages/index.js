@@ -225,10 +225,11 @@ const Home = () => {
             ? ThiefCount.map((element, index) => {
                 return (
                   <div className="column3-index" key={index}>
-                    <MDBCard>
-                      <div className={`coin${index + 1} rank-index1`}>
+                    <div className={`coin${index + 1} rank-index1`}>
                         {index + 1}
                       </div>
+                    <MDBCard>
+                      <div className="emty-index"></div>
                       <MDBCardBody cascade className="text-center">
                         <p className="text3-index">
                           เลขที่บัญชี : {element.accountnumber} <br />
