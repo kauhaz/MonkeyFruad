@@ -112,6 +112,10 @@ const Home = () => {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
+            
+            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+              Sethaha(true);
+            }
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
          
@@ -127,7 +131,8 @@ const Home = () => {
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search)
+              doc.accountnumber.startsWith(search) || 
+              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
             );
           })
         );
