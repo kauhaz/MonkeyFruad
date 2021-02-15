@@ -861,16 +861,7 @@ router.post("/delete/:uid", async (req, res) => {
         }
       });
     });
-
-    // let deletecomment = await firestore.collection("Comment").where("postid" , "==" , getid)
-    // deletecomment.get().then(doc => {
-    //     let item = []
-    //   doc.forEach(doc2 =>{
-    //     item.push(doc2.data())
-    //   })
-    //   console.log(item)
-    // })
-    
+ 
     const deletecomment = await firestore
     .collection("Comment")
     .where("postid", "==", getid)
@@ -883,9 +874,6 @@ router.post("/delete/:uid", async (req, res) => {
   
   firestore.collection("Post").doc(getid).delete();
    
-     
-    
-
     return res.json({ success: "Delete" });
   } catch (err) {
     console.log(err);
