@@ -4,11 +4,12 @@ import NavbarPage from "./navnew"
 import "./Notfound.css"
 import Chatbot from "./chatbot";
 
-const Notfound = ({search}) => {
+const Notfound = ({search , SetshowDropdown,showDropdown }) => {
     return (
         <div>
 
-          <NavbarPage />
+          <NavbarPage  SetshowDropdown={SetshowDropdown}
+            showDropdown={showDropdown}/>
           <h1>คำที่คุณค้นหา  "{search}"  ไม่ตรงกับผลลัพธ์ใด ๆ</h1>
         </div>
         
