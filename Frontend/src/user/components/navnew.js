@@ -21,7 +21,6 @@ import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
   var { user, setUser } = useContext(usercontext);
-
   const [displayname, setDisplayname] = useState();
   const [role, Setrole] = useState();
   const [admin, setAdmin] = useState(false);
@@ -31,7 +30,6 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
-
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
 
@@ -139,7 +137,7 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
     await ok();
     setLoading(false);
   }, [user, search]);
-console.log(showDropdown)
+
   return loading ? (
     ""
   ) : admin ? (
