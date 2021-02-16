@@ -7,7 +7,16 @@ import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
 import * as moment from "moment";
 import "moment/locale/th";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
+import {
+  Form,
+  Col,
+  FormControl,
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+} from "react-bootstrap";
 import {
   auth,
   googleProvider,
@@ -16,11 +25,15 @@ import {
 } from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
-import { MDBInput } from "mdbreact";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Post = () => {
   const [show, Setshow] = useState();
+
+  const [Show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   let { user, setUser } = useContext(usercontext);
   const [filteritem, Setfilteritem] = useState();
@@ -30,20 +43,25 @@ const Post = () => {
   const [twitter, Settwitter] = useState();
   const [other, Setother] = useState();
   const [result, Setresult] = useState();
+  const [assesory, Setassesory] = useState(false);
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
   const [checkother, Setcheckother] = useState(false);
+  const [checkassesory, Setcheckassesory] = useState(false);
 
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let history = useHistory();
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   //  const handleclick = async() => {
   //     Setcheck(!check)
   //   }
-
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
@@ -82,19 +100,44 @@ const Post = () => {
           Setshow();
         }
       }
-    });
+      // if (assesory && doc.productcategory === "เครื่่องประดับ") {
+      //   if (checkassesory) {
+      //       item.push(doc)
+      //       Setshow();
 
+      //     item.forEach(doc2 =>{
+      //       if(doc2.accountnumber === doc.accountnumber){
+      //         console.log(doc)
+      //       }else{
+      //         item.push(doc)
+      //       }
+      //     })
+
+      //     // Setshow();
+      //   }
+      // }
+    });
     Setresult(item);
   };
   useEffect(() => {
     ok();
-  }, [checkfacebook, checkinstagram, checkline, checktwitter, checkother]);
+  }, [
+    checkfacebook,
+    checkinstagram,
+    checkline,
+    checktwitter,
+    checkother,
+    checkassesory,
+  ]);
 
   console.log(result);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
@@ -115,11 +158,11 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
+            {/* <h1 className="h1-posts">
               {" "}
               มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
               โพสต์
-            </h1>
+            </h1> */}
 
             {show ? (
               show.map((res) => {
@@ -153,12 +196,44 @@ const Post = () => {
                           </div>
                         </div>
 
-                        <div className="postbuttonreport">
+                        {/* <div className="postbuttonreport">
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
                           </a>
+                        </div> */}
+
+                        <div className="postbuttonreport">
+                          <button
+                            variant="primary"
+                            onClick={handleShow}
+                            className="postbuttonreported"
+                          >
+                            <i class="fa fa-flag"></i>
+                          </button>
                         </div>
 
+                        <Modal
+                          show={Show}
+                          onHide={handleClose}
+                          className="modalreport"
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title className="namereport">
+                              รายงานโพสต์
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            Woohoo, you're reading this text in a modal!
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Close
+                            </Button>
+                            <Button variant="primary" onClick={handleClose}>
+                              Save Changes
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -632,6 +707,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline2-2"
+                      onChange={(e) => Setassesory(e.target.value)}
+                      onClick={() => Setcheckassesory(!checkassesory)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -919,9 +996,7 @@ const Post = () => {
                       className="postnumber2"
                     ></input>
                     <div className="postbuttonnumber">
-                      <button className="postbuttonnumbers">
-                        <i className="fa fa-long-arrow-alt-right"></i>
-                      </button>
+                      <button className="postbuttonnumbers">ตกลง</button>
                     </div>
                   </div>
                 </div>

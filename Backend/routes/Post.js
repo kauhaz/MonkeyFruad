@@ -49,7 +49,7 @@ let upload = multer({
 const uploadFile = (req, res, next) => {
   const upload2 = upload.fields([
     { name: "photo", maxCount: 1 },
-    { name: "eiei", maxCount: 10 },
+    { name: "eiei", maxCount: 20 },
   ]);
   upload2(req, res, function (err) {
     if (err instanceof multer.MulterError) {
@@ -363,7 +363,7 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
     let file = req.files.photo;
     let files = req.files.eiei;
     let uid = req.params.uid;
-
+    
     // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
     const {
       name,
@@ -1139,6 +1139,7 @@ router.get("/commentmore/:id", async (req, res) => {
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {
+   
     let getid = req.params.uid;
 
     const postdelete = await firestore
@@ -1151,23 +1152,37 @@ router.post("/delete/comment/:uid", async (req, res) => {
   }
 });
 
-router.post("/edit/comment/:id", async (req, res) => {
+router.post("/edit/comment/:id",uploadFile, async (req, res) => {
   try {
+    let files = req.files.eiei
     let id = req.params.id;
     let { edittextcomment } = req.body;
-
     if (edittextcomment == "") {
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
-    } else {
+    } 
+    if (files) {
+      let item = [];
+      for (const file of files) {
+        const { path } = file;
+        const resultfiles = await cloudinary.uploader.upload(path);
+        let { url, public_id } = resultfiles;
+        item.push({ url, public_id });
+      }
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
-        .update({ textcomment: edittextcomment });
+        .update({ textcomment: edittextcomment , photocomment : item});
       return res.json({ success: "Edit" });
+    }else{
+      const commentedit = await firestore
+      .collection("Comment")
+      .doc(id)
+      .update({ textcomment: edittextcomment });
+    return res.json({ success: "Edit" });
     }
   } catch (err) {
     console.log(err);

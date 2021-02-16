@@ -13,6 +13,10 @@ const Rank = () => {
   const [dataRow, setDataRow] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectOption, setSelectOption] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const getAPI = async () => {
     const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
     thiefData = getThief.data;
@@ -112,8 +116,11 @@ const Rank = () => {
   return loading ? (
     ""
   ) : (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
       <MDBContainer className="container-ranking">
         <div className="rank-sorting">

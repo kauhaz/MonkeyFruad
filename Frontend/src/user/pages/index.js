@@ -34,8 +34,11 @@ const Home = () => {
   const [haha, Sethaha] = useState();
   const [role, Setrole] = useState();
   const [show, Setshow] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
+  const [allpost, Setallpost] = useState();
   let history = useHistory();
+  let i = 0; //forsearch
   const Getdata = async () => {
     try {
       const thiefcount = await axios.get(
@@ -70,28 +73,33 @@ const Home = () => {
   useEffect(async () => {
     await Getdata();
   }, []);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
 
   const handlesearch = (e) => {
     try {
       e.preventDefault();
 
       if (search) {
-        const getdata = searching.filter((doc) => {
+        const getdata = allpost.filter((doc) => {
           return (
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search)
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
           );
         });
 
         Setsearch("");
-
-        if (getdata) {
+       
+         if(getdata) {
           history.push({
             pathname: "/entersearch",
             search: "are you ok",
             state: {
               getdata,
+              search
             },
           });
         }
@@ -106,28 +114,31 @@ const Home = () => {
   const ok = async () => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
-
+      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      Setallpost(getallpost.data.item)
       const getthief = getallthief.data.item;
       if (search) {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
+            
+            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+              Sethaha(true);
+            }
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
-              Setrole(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
-              Sethaha(false);
-              Setrole(true);
+              Sethaha(true);
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search)
+              doc.accountnumber.startsWith(search) || 
+              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
             );
           })
         );
@@ -145,9 +156,11 @@ const Home = () => {
   }, [search]);
 
   return (
-    <div>
-      <NavbarPage />
-      {/* <h1 className="h1-index">หน้าหลัก</h1> */}
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container1-index">
         <div className="row-section1">
           <div className="column1-index">
@@ -160,7 +173,10 @@ const Home = () => {
                     type="text"
                     placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                     aria-label="Search"
-                    onChange={(e) => Setsearch(e.target.value)}
+                    onChange={(e) => {
+                      Setsearch(e.target.value);
+                      SetshowDropdown(true);
+                    }}
                   />
                   <button type="submit" className="button1-index">
                     ค้นหา
@@ -170,39 +186,50 @@ const Home = () => {
 
               {error}
 
-              <div>
+              <div className="gg-index">
                 {lastsearch
                   ? lastsearch.map((doc) => {
                       let thiefid = doc.accountnumber;
-                      console.log(thiefid);
+                      i++;
                       return (
                         <div>
-                          {haha ? (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>{doc.accountnumber}</div>
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => (
-                                history.push(`/thief/post/${thiefid}`),
-                                window.location.reload(true)
-                              )}
-                            >
-                              <div>
-                                {doc.name} {doc.surname}
-                              </div>
-                            </button>
-                          )}
-                          {/* {role ? <div>{doc.name} {doc.surname}</div> : null} */}
+                          {i <= 10 ? (
+                            <div>
+                              {" "}
+                              {haha ? (
+                                showDropdown ? (
+                                  <button
+                                    className="search-index"
+                                    onClick={() => (
+                                      history.push(`/thief/post/${thiefid}`),
+                                      window.location.reload(true)
+                                    )}
+                                  >
+                                    <div className="Fall-crisp">
+                                      {" "}
+                                      {doc.name} {doc.surname}{" "}
+                                      {doc.accountnumber}
+                                    </div>
+                                  </button>
+                                ) : null
+                              ) : null}
+                            </div>
+                          ) : null}
                         </div>
                       );
                     })
                   : null}
+
+                {lastsearch ? (
+                  showDropdown ? (
+                    <div
+                      className="dropsearch-index Fall-crisp"
+                      onClick={() => handlesearch()}
+                    >
+                      ค้นหา {search}
+                    </div>
+                  ) : null
+                ) : null}
               </div>
             </MDBCol>
           </div>
@@ -225,10 +252,11 @@ const Home = () => {
             ? ThiefCount.map((element, index) => {
                 return (
                   <div className="column3-index" key={index}>
+                    <div className={`coin${index + 1} rank-index1`}>
+                      {index + 1}
+                    </div>
                     <MDBCard>
-                      <div className={`coin${index + 1} rank-index1`}>
-                        {index + 1}
-                      </div>
+                      <div className="emty-index"></div>
                       <MDBCardBody cascade className="text-center">
                         <p className="text3-index">
                           เลขที่บัญชี : {element.accountnumber} <br />
