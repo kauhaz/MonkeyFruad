@@ -5,8 +5,13 @@ import "./Notfound.css"
 import Chatbot from "./chatbot";
 
 const Notfound = ({search , SetshowDropdown,showDropdown }) => {
+
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
+  
     return (
-        <div>
+        <div onClick={() => Hiddendropdown()}>
 
           <NavbarPage  SetshowDropdown={SetshowDropdown}
             showDropdown={showDropdown}/>
