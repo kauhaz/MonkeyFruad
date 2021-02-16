@@ -2,8 +2,17 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./ranking.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
-import { MDBContainer, MDBRow, MDBCol, MDBBox } from "mdbreact";
+import { MDBContainer, MDBRow, MDBBox, MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 import { MDBDataTable } from "mdbreact";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBView,
+  MDBIcon,
+} from "mdbreact";
 import { useAccordionToggle } from "react-bootstrap";
 import Axios from "axios";
 import * as moment from "moment";
@@ -122,6 +131,54 @@ const Rank = () => {
         showDropdown={showDropdown}
       />
       <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
+      
+      <div className="container2-index">
+        <div className="row">
+          {ThiefCount
+            ? ThiefCount.map((element, index) => {
+                return (
+                  <div className="column3-index" key={index}>
+                    <div className={`coin${index + 1} rank-index1`}>
+                      {index + 1}
+                    </div>
+                    <MDBCard>
+                      <div className="emty-index"></div>
+                      <MDBCardBody cascade className="text-center">
+                        <p className="text3-index">
+                          เลขที่บัญชี : {element.accountnumber} <br />
+                          ธนาคาร : {element.bank}
+                        </p>
+                        <p className="text4-index">
+                          จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
+                          ยอดทั้งหมด : {element.summoney} บาท
+                          <br />
+                          ล่าสุด :{" "}
+                          {moment(
+                            new Date(element.wanteedon.seconds * 1000)
+                          ).format("lll")}
+                        </p>
+                        <a
+                          href="!#"
+                          className="orange-text mt-1 d-flex justify-content-end align-items-center"
+                        >
+                          <div className="readmore">
+                            ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
+                            <MDBIcon
+                              icon="chevron-right"
+                              className="ml-2"
+                              size="sm"
+                            ></MDBIcon>
+                          </div>
+                        </a>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+      </div>
+
       <MDBContainer className="container-ranking">
         <div className="rank-sorting">
           <select
