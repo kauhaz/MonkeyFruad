@@ -7,7 +7,8 @@
 }
 
 .container-help {
-    width: 80%;
+    width: 60%;
+    height: 100px;
     border-radius: 10px;
     margin-top: 40px;
     margin-bottom: 50px;
@@ -19,6 +20,7 @@
     padding-right: 40px;
     font-family: 'Kanit', sans-serif;
     font-size: 20px; 
+    background-color: aqua;
 }
 
 .card-help {
