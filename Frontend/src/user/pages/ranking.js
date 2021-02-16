@@ -168,6 +168,8 @@ const Rank = () => {
       <MDBContainer size="xl">
         <div style={{backgroundColor: 'green', color: 'white'}}>Content extra large</div>
       </MDBContainer>
+
+      
       <Chatbot />
     </div>
   );
