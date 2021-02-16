@@ -8,7 +8,7 @@ const Help = () => {
   return (
     <div className="page">
       <NavbarPage />
-      <div className="h1-help">ทำอย่างไรเมื่อโดนโกง</div>
+      <div className="h1-help">ทำ</div>
       <div className="container-help">
         <div className="row-help1">
           <div className="column-help">
