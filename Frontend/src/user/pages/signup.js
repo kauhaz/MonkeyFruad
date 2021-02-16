@@ -22,15 +22,19 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   // ฟังกชันการ Signup
   const SignupSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
     axios
       .post("http://localhost:7000/user/signup", {
-        username : username,
-        firstname : firstname,
+        username: username,
+        firstname: firstname,
         surname: surname,
         sex: sex,
         date: date,
@@ -158,19 +162,24 @@ const Signup = () => {
   });
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-signup">
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-signup" />
-          <p className="h2 text-center mb-2 font-weight-bold text1-signup">สมัครสมาชิก</p>
-          { emailis_inVaild ? (
+          <p className="h2 text-center mb-2 font-weight-bold text1-signup">
+            สมัครสมาชิก
+          </p>
+          {emailis_inVaild ? (
             <div className="alert-signup">
               <span>อีเมลนี้มีอยู่ในระบบแล้ว</span>
             </div>
           ) : (
             <p></p>
-          ) }
+          )}
           <div className="col-md-12">
             <Formik
               initialValues={{

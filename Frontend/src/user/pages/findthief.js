@@ -23,23 +23,29 @@ const Findthief = () => {
   let { uid } = useParams();
 
   const [show, Setshow] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
 
     Setshow(getpost.data.item);
   };
-
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   useEffect(() => {
     ok();
   }, []);
 
   console.log(show);
   return (
-    <div>
+    <div onClick={() => Hiddendropdown()}>
       {show ? (
         <div>
-          <NavbarPage />
+          <NavbarPage
+            SetshowDropdown={SetshowDropdown}
+            showDropdown={showDropdown}
+          />
           <div className="container-bigpost1">
             <div className="row postbigrow">
               <div className="column-post-left1">
@@ -190,7 +196,9 @@ const Findthief = () => {
                                       <Form.Group>
                                         <span className="spanpost">
                                           {moment(
-                                            new Date(res.datetimes.seconds * 1000)
+                                            new Date(
+                                              res.datetimes.seconds * 1000
+                                            )
                                           ).format("lll")}{" "}
                                         </span>
                                       </Form.Group>

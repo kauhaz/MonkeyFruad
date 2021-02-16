@@ -15,7 +15,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter
+  ModalFooter,
 } from "react-bootstrap";
 import {
   auth,
@@ -54,11 +54,14 @@ const Post = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let history = useHistory();
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   //  const handleclick = async() => {
   //     Setcheck(!check)
   //   }
-
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
@@ -130,8 +133,11 @@ const Post = () => {
   console.log(result);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
@@ -197,14 +203,24 @@ const Post = () => {
                         </div> */}
 
                         <div className="postbuttonreport">
-                          <button variant="primary" onClick={handleShow} className="postbuttonreported" >
+                          <button
+                            variant="primary"
+                            onClick={handleShow}
+                            className="postbuttonreported"
+                          >
                             <i class="fa fa-flag"></i>
                           </button>
                         </div>
 
-                        <Modal show={Show} onHide={handleClose} className="modalreport">
+                        <Modal
+                          show={Show}
+                          onHide={handleClose}
+                          className="modalreport"
+                        >
                           <Modal.Header closeButton>
-                            <Modal.Title className="namereport">รายงานโพสต์</Modal.Title>
+                            <Modal.Title className="namereport">
+                              รายงานโพสต์
+                            </Modal.Title>
                           </Modal.Header>
                           <Modal.Body>
                             Woohoo, you're reading this text in a modal!

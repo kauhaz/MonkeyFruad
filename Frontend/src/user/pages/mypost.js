@@ -21,12 +21,15 @@ const Mypost = () => {
   const onClick = () => setIsActive(!isActive);
 
   const [mypost, Setmypost] = useState();
-
+  const [showDropdown, SetshowDropdown] = useState(true);
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const deleted = async (uid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
@@ -50,11 +53,14 @@ const Mypost = () => {
   console.log(mypost);
 
   return (
-    <div className="allpage">
+    <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (
         <div>
           {" "}
-          <NavbarPage />
+          <NavbarPage
+            SetshowDropdown={SetshowDropdown}
+            showDropdown={showDropdown}
+          />
           <h1 className="h1-mypost">โพสต์ของฉัน</h1>
           {mypost
             ? mypost.map((ok) => {
@@ -81,8 +87,9 @@ const Mypost = () => {
                           </div>
                           <br />
                           <div className="mypost-date">
-                            {moment(new Date(ok.date.seconds *
-                                    1000)).format("lll")}
+                            {moment(new Date(ok.date.seconds * 1000)).format(
+                              "lll"
+                            )}
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
@@ -246,8 +253,9 @@ const Mypost = () => {
                                 <Form.Label className="text-mypost">
                                   วันที่โดนโกง{" "}
                                   <span className="spanmypost">
-                                   {moment(new Date(ok.datetimes.seconds *
-                                    1000)).format("lll")}
+                                    {moment(
+                                      new Date(ok.datetimes.seconds * 1000)
+                                    ).format("lll")}
                                   </span>
                                 </Form.Label>
                               </Form.Group>

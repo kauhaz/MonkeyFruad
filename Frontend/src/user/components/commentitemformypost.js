@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import Axios from "axios";
 import "./commentitemformypost.css";
 import usercontext from "../context/usercontext";
-import Listcomment from "./listcomment";
+import Listcomment2 from "./Listcomment2";
 import _ from "lodash";
 const { v4: uuidv4, NIL } = require("uuid");
 
@@ -143,7 +143,7 @@ const Commentitemformypost = ({ postid }) => {
           {commentmore
             ? commentmore.map((commentmore) => {
                 return (
-                  <Listcomment
+                  <Listcomment2
                     commentmore={commentmore}
                     handledeletetorerender={handledeletetorerender}
                     handleedittorerender={handleedittorerender}
@@ -156,17 +156,17 @@ const Commentitemformypost = ({ postid }) => {
         <div>
           {commentmore ? (
             <div>
-              <Listcomment
+              <Listcomment2
                 commentmore={commentmore[0]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
               />{" "}
-              <Listcomment
+              <Listcomment2
                 commentmore={commentmore[1]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
               />{" "}
-              <Listcomment
+              <Listcomment2
                 commentmore={commentmore[2]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
