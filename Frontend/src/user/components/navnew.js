@@ -30,6 +30,8 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
+  const [allpost, Setallpost] = useState();
+
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
 
@@ -53,19 +55,18 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
   const handlesearch = () => {
     try {
       if (search) {
-        const getdata = searching.filter((doc) => {
+        const getdata = allpost.filter((doc) => {
           return (
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search)
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
           );
         });
         console.log(getdata);
         Setsearch("");
 
-        if (getdata.length === 0) {
-          Seterror("ไม่พบเจอคนร้าย");
-        } else if (getdata) {
+       if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
@@ -88,12 +89,18 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
+      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      Setallpost(getallpost.data.item)
       const getthief = getallthief.data.item;
       console.log(search);
       if (search) {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
+ 
+            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+              Sethaha(true);
+            }
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
             }
@@ -103,10 +110,12 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
             }
+         
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search)
+              doc.accountnumber.startsWith(search) ||
+              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
             );
           })
         );

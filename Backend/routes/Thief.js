@@ -113,15 +113,17 @@ router.get("/post/:uid", async (req, res) => {
 
 router.post("/post", async (req, res) => {
   try {
-    const get = req.body;
+    const {get } = req.body;
 
     if (get) {
       var item = [];
       console.log(get.length);
       for (let i = 0; i < get.length; i++) {
+      
         const orderbycount = firestore
           .collection("Post")
           .where("accountnumber", "==", get[i].accountnumber)
+          // .where("name" , "==" , get[i].name)
           .orderBy("date", "desc")
           .get()
           .then((querySnapshot) => {

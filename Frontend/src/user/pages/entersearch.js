@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
+import Notfound from "../components/Notfound"
 import Axios from "axios";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
@@ -22,16 +23,14 @@ const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
   const history = useHistory();
-  const [show, Setshow] = useState();
+  const [show, Setshow] = useState()
+ const [search, Setsearch] = useState()
   const [showDropdown, SetshowDropdown] = useState(true);
   let location = useLocation();
   const ok = async () => {
-    let getdata = location.state.getdata;
-    const getpost = await Axios.post(
-      `http://localhost:7000/thief/post`,
-      getdata
-    );
-    Setshow(getpost.data.item);
+    Setshow(location.state.getdata) 
+    Setsearch(location.state.search)
+
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -42,8 +41,7 @@ const Entersearch = () => {
 
   return (
     <div onClick={() => Hiddendropdown()}>
-      {show ? (
-        <div>
+         {show && show.length !== 0 ? <div> 
           {" "}
           <NavbarPage
             SetshowDropdown={SetshowDropdown}
@@ -286,7 +284,8 @@ const Entersearch = () => {
           </div>
           <Chatbot />{" "}
         </div>
-      ) : null}
+       : <Notfound search={search} SetshowDropdown={SetshowDropdown}
+       showDropdown={showDropdown} />}
     </div>
   );
 };

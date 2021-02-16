@@ -36,6 +36,7 @@ const Home = () => {
   const [show, Setshow] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
+  const [allpost, Setallpost] = useState();
   let history = useHistory();
   let i = 0; //forsearch
   const Getdata = async () => {
@@ -81,22 +82,24 @@ const Home = () => {
       e.preventDefault();
 
       if (search) {
-        const getdata = searching.filter((doc) => {
+        const getdata = allpost.filter((doc) => {
           return (
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search)
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
           );
         });
 
         Setsearch("");
-
-        if (getdata) {
+       
+         if(getdata) {
           history.push({
             pathname: "/entersearch",
             search: "are you ok",
             state: {
               getdata,
+              search
             },
           });
         }
@@ -111,12 +114,17 @@ const Home = () => {
   const ok = async () => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
-
+      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      Setallpost(getallpost.data.item)
       const getthief = getallthief.data.item;
       if (search) {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
+            
+            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+              Sethaha(true);
+            }
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
             }
@@ -129,7 +137,8 @@ const Home = () => {
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search)
+              doc.accountnumber.startsWith(search) || 
+              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
             );
           })
         );
