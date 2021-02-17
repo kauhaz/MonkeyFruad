@@ -101,6 +101,7 @@ const Post = () => {
   const [checkmusic, Setcheckmusic] = useState(false);
   const [checkothercatalog, Setcheckothercatalog] = useState(false);
 
+
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -113,30 +114,11 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-
-  const IndexSocialInitial = () => {
-    if (location.search == "?facebook") {
-      setInitCheckFacebook(true)
-      
-    }
-    if (location.search == "?line") {
-      setInitCheckLine(true)
-    }
-    if (location.search == "?twitter") {
-      setInitCheckTwitter(true)
-    }
-    if (location.search == "?instragram") {
-      setInitCheckInstragram(true)
-    }
-    if (location.search == "?other") {
-      setInitCheckOther(true)
-    }
-  };
+  
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
     const getdata = getpost.data.item;
-
     var item = [];
 
     getdata.filter((doc) => {
@@ -146,7 +128,6 @@ const Post = () => {
           Setshow();
         }
       }
-
       if (line && doc.social === "Line") {
         if (checkline) {
           item.push(doc);
@@ -190,7 +171,6 @@ const Post = () => {
             checkother
           ) {
             //check select social
-
             item.forEach((doc2) => {
               a++;
               if (
@@ -214,7 +194,6 @@ const Post = () => {
           }
         }
       }
-
       if (assesory && doc.productcategory === "เครื่่องประดับ") {
         let o = [];
         let i = 0;
@@ -257,7 +236,6 @@ const Post = () => {
           }
         }
       }
-
       if (shoe && doc.productcategory === "รองเท้า") {
         let o = [];
         let i = 0;
@@ -1131,7 +1109,6 @@ const Post = () => {
   };
   useEffect(() => {
     ok();
-    IndexSocialInitial();
   }, [
     checkfacebook,
     checkinstagram,
@@ -1638,8 +1615,6 @@ const Post = () => {
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
 
-                {InitCheckFacebook ? (
-                  <div>
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -1647,7 +1622,6 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => Setcheckfacebook(!checkfacebook)}
-                      checked
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -1716,11 +1690,8 @@ const Post = () => {
                       อื่นๆ
                     </label>
                   </div>
-                  </div>
-                )
-                  : (<p></p>)
-                }
-
+                
+              
                 </div>
                 <div className="line-postgroup2"></div>
                 <div className="post-group3">
