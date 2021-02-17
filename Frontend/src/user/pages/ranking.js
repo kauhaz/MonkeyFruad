@@ -19,6 +19,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 const Rank = () => {
   var thiefData = [];
+  const [ThiefCount, setThiefCount] = useState();
   const [dataRow, setDataRow] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectOption, setSelectOption] = useState();
@@ -30,50 +31,58 @@ const Rank = () => {
     const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
     thiefData = getThief.data;
   };
-  const setRow = async () => {
-    setDataRow(ThiefLoading());
-  };
+  // const setRow = async () => {
+  //   setDataRow(ThiefLoading());
+  // };
+  const GetThiefThreeRank = async () => {
+    const thiefcount = await Axios.get(
+      "http://localhost:7000/thief/orderbycount"
+    );
+    setThiefCount(thiefcount.data.data);
+  }
   useMemo(async () => {
     await getAPI();
-    setRow();
+    GetThiefThreeRank()
+    // setRow();
     setLoading(false);
   }, []);
-  const SelectClick = async (e) => {
-    if (e.target.value === "ยอดโกงสูงสุด") {
-      const getThief = await Axios.get(
-        `http://localhost:7000/thief/ranksummoney`
-      );
-      thiefData = getThief.data;
-      setRow();
-    } else if (e.target.value === "วันที่โกงล่าสุด") {
-      const getThief = await Axios.get(
-        `http://localhost:7000/thief/rankdatetime`
-      );
-      thiefData = getThief.data;
-      setRow();
-    } else if (e.target.value === "จำนวนครั้งที่โกงมากที่สุด") {
-      const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
-      thiefData = getThief.data;
-      setRow();
-    }
-  };
-  const ThiefLoading = () => {
-    var ThiefData = [];
-    for (var i = 0; i < thiefData.data.length; i++) {
-      ThiefData.push({
-        rank: i + 1,
-        name: thiefData.data[i].name,
-        lastname: thiefData.data[i].surname,
-        account: thiefData.data[i].accountnumber,
-        amount: thiefData.data[i].summoney,
-        time: thiefData.data[i].count,
-        date: moment(
-          new Date(thiefData.data[i].wanteedon.seconds * 1000)
-        ).format("lll"),
-      });
-    }
-    return ThiefData;
-  };
+  // const SelectClick = async (e) => {
+  //   if (e.target.value === "ยอดโกงสูงสุด") {
+  //     const getThief = await Axios.get(
+  //       `http://localhost:7000/thief/ranksummoney`
+  //     );
+  //     thiefData = getThief.data;
+  //     setRow();
+  //   } else if (e.target.value === "วันที่โกงล่าสุด") {
+  //     const getThief = await Axios.get(
+  //       `http://localhost:7000/thief/rankdatetime`
+  //     );
+  //     thiefData = getThief.data;
+  //     setRow();
+  //   } else if (e.target.value === "จำนวนครั้งที่โกงมากที่สุด") {
+  //     const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
+  //     thiefData = getThief.data;
+  //     setRow();
+  //   }
+  // };
+
+  // const ThiefLoading = () => {
+  //   var ThiefData = [];
+  //   for (var i = 0; i < thiefData.data.length; i++) {
+  //     ThiefData.push({
+  //       rank: i + 1,
+  //       name: thiefData.data[i].name,
+  //       lastname: thiefData.data[i].surname,
+  //       account: thiefData.data[i].accountnumber,
+  //       amount: thiefData.data[i].summoney,
+  //       time: thiefData.data[i].count,
+  //       date: moment(
+  //         new Date(thiefData.data[i].wanteedon.seconds * 1000)
+  //       ).format("lll"),
+  //     });
+  //   }
+  //   return ThiefData;
+  // };
 
   // data of table
   const data = {
@@ -187,7 +196,7 @@ const Rank = () => {
             name="rank-sort"
             className="rank-sort-select"
             onChange={(e) => {
-              SelectClick(e);
+              // SelectClick(e);
             }}
           >
             <option selected value="จำนวนครั้งที่โกงมากที่สุด">
