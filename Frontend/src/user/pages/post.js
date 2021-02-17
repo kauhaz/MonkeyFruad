@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import "./post.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
 import * as moment from "moment";
@@ -34,7 +34,7 @@ const Post = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const location = useLocation();
   let { user, setUser } = useContext(usercontext);
 
   const [facebook, Setfacebook] = useState();
@@ -64,13 +64,20 @@ const Post = () => {
   const [kian, Setkian] = useState(false);
   const [book, Setbook] = useState(false);
   const [music, Setmusic] = useState(false);
-  
+
   const [othercatalog, Setothercatalog] = useState(false);
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
   const [checkother, Setcheckother] = useState(false);
+
+  const [InitCheckFacebook, setInitCheckFacebook] = useState(false);
+  const [InitCheckLine, setInitCheckLine] = useState(false);
+  const [InitCheckTwitter, setInitCheckTwitter] = useState(false);
+  const [InitCheckInstragram, setInitCheckInstragram] = useState(false);
+  const [InitCheckOther, setInitCheckOther] = useState(false);
+
   const [checkassesory, Setcheckassesory] = useState(false);
   const [checkcloth, Setcheckcloth] = useState(false);
   const [checkshoe, Setcheckshoe] = useState(false);
@@ -93,7 +100,7 @@ const Post = () => {
   const [checkbook, Setcheckbook] = useState(false);
   const [checkmusic, Setcheckmusic] = useState(false);
   const [checkothercatalog, Setcheckothercatalog] = useState(false);
-  
+
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -107,758 +114,1423 @@ const Post = () => {
     SetshowDropdown(false);
   };
   
+   
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
     const getdata = getpost.data.item;
     
+    
     var item = [];
-  
     getdata.filter((doc) => {
-   
-      if (facebook && doc.social === "Facebook") {
-        if (checkfacebook) {
-          item.push(doc);
-          Setshow();
-        }
+      if(location.search == '?facebook' ){
+        item.push(doc);
+        Setshow();
       }
-
+      if (facebook && doc.social === "Facebook" ) {
+        if(checkfacebook){
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkshoe && doc.productcategory === "รองเท้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbag && doc.productcategory === "กระเป๋า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcar && doc.productcategory === "ยานยนต์"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbook && doc.productcategory === "หนังสือ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+               !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+              item.push(doc);
+              Setshow();
+            }
+        
+        }
+        
+      }
       if (line && doc.social === "Line") {
         if (checkline) {
-          item.push(doc);
-          Setshow();
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkshoe && doc.productcategory === "รองเท้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbag && doc.productcategory === "กระเป๋า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcar && doc.productcategory === "ยานยนต์"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbook && doc.productcategory === "หนังสือ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+             !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+            item.push(doc);
+            Setshow();
+          }
         }
       }
       if (instagram && doc.social === "Instagram") {
         if (checkinstagram) {
-          item.push(doc);
-          Setshow();
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkshoe && doc.productcategory === "รองเท้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbag && doc.productcategory === "กระเป๋า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcar && doc.productcategory === "ยานยนต์"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbook && doc.productcategory === "หนังสือ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+             !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+            item.push(doc);
+            Setshow();
+          }
         }
       }
       if (twitter && doc.social === "Twitter") {
         if (checktwitter) {
-          item.push(doc);
-          Setshow();
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkshoe && doc.productcategory === "รองเท้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbag && doc.productcategory === "กระเป๋า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcar && doc.productcategory === "ยานยนต์"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbook && doc.productcategory === "หนังสือ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+             !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+            item.push(doc);
+            Setshow();
+          }
         }
       }
       if (other && doc.social === "other") {
         if (checkother) {
-          item.push(doc);
-          Setshow();
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkshoe && doc.productcategory === "รองเท้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbag && doc.productcategory === "กระเป๋า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkcar && doc.productcategory === "ยานยนต์"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkbook && doc.productcategory === "หนังสือ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+            item.push(doc);
+            Setshow();
+          }
+          if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+             !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+            item.push(doc);
+            Setshow();
+          }
         }
       }
+  
+    
+
+       if (cloth && doc.productcategory === "เสื้อผ้า") {
+        if (checkcloth) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
+            item.push(doc);
+            Setshow();  
+          }
+        }
+      }
+
       
-
-      if (cloth && doc.productcategory === "เสื้อผ้า") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkcloth) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-        
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เสื้อผ้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (assesory  && doc.productcategory === "เครื่่องประดับ" ) {
+        if (checkassesory) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
       }
-
-     
-      if (assesory && doc.productcategory === "เครื่่องประดับ") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkassesory) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เครื่่องประดับ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
-            item.push(doc);
-                Setshow();
-          }
-        
-        }
-      }
-
       if (shoe && doc.productcategory === "รองเท้า") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkshoe) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "รองเท้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkshoe) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
       }
 
       if (bag && doc.productcategory === "กระเป๋า") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkbag) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "กระเป๋า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkbag) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
       }
 
       if (phone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkphone) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "มือถือและอุปกรณ์เสริม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkphone) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-      if (food && doc.productcategory === "อาหารและเครื่่องดื่ม") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkfood) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "อาหารและเครื่่องดื่ม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (food && doc.productcategory === "อาหารและเครื่องดื่ม") {
+        if (checkfood) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (foodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkfoodwealth) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "อาหารเสริมและผลิตภัณฑ์สุขภาพ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkfoodwealth) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-      if (beauty && doc.productcategory === "เครื่่องสำอางค์และอุปกรณ์เสริมความงาม") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkbeauty) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เครื่่องสำอางค์และอุปกรณ์เสริมความงาม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (beauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม") {
+        if (checkbeauty) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
-
+      }
 
       if (computer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkcomputer) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "คอมพิวเตอร์แล็ปท็อป" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkcomputer) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (camera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkcamera) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "กล้องและอุปกรณ์ถ่ายภาพ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkcamera) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (sport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checksport) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "กีฬาและกิจกรรมกลางแจ้ง" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checksport) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-
-      if (media && doc.productcategory === "สื่่อบันเทิงภายในบ้าน") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkmedia) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "สื่่อบันเทิงภายในบ้าน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (media && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
+        if (checkmedia) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
-
+      }
 
       if (game && doc.productcategory === "เกมส์และฮ๊อบบี้") {
-        
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkgame) { //check select assesory
-          console.log(doc)
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เกมส์และฮ๊อบบี้" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkgame) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (car && doc.productcategory === "ยานยนต์") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkcar) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "ยานยนต์" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkcar) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (ticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkticket) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "ตั๋วและบัตรกำนัน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkticket) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-      if (electronic && doc.productcategory === "เครื่่องใช้ไฟฟ้า") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkelectronic) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เครื่่องใช้ไฟฟ้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (electronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
+        if (checkelectronic) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (furniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkfurniture) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เฟอร์นิเจอร์และของตกแต่งบ้าน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkfurniture) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (pet && doc.productcategory === "สัตว์เลี้ยง") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkpet) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "สัตว์เลี้ยง" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkpet) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-      if (kian && doc.productcategory === "เครื่่องเขียน") {
-        console.log("gggg")
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkkian) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เครื่่องเขียน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (kian && doc.productcategory === "เครื่องเขียน") {
+       if (checkkian) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
       if (book && doc.productcategory === "หนังสือ") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkbook) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "หนังสือ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+        if (checkbook) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
+      }
+
+        if (music && doc.productcategory === "เครื่องดนตรี") {
+          if (checkmusic) {
+            if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
+              item.push(doc);
+              Setshow();  
+            }
+          }
       } 
 
-        if (music && doc.productcategory === "เครื่่องดนตรี") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkmusic) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "เครื่่องดนตรี" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
+      if (othercatalog && doc.productcategory === "อื่นๆ") {
+        if (checkothercatalog) {
+          if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
             item.push(doc);
-                Setshow();
+            Setshow();  
           }
-        
         }
-      } 
+      }
 
-      if (othercatalog && doc.productcategory === "อื่่นๆ") {
-        let o = []
-        let i = 0
-        let a = -1
-        o.push(doc) // count doc
-        for(let k=0; k <= o.length ; k ++ ){
-          i ++
-        } // count doc
-        if (checkothercatalog) { //check select assesory
-          if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
-            console.log(item.length)
-            item.forEach(doc2 =>{
-              a ++
-              if(doc2.productcategory !== "อื่่นๆ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
-                if(a > i){
-                  
-                }else{
-                  item.push(doc)
-                  Setshow();
-                }
-              }
-             
-          })
-          console.log(item)
-          }else{
-            item.push(doc);
-                Setshow();
-          }
+      
+
+
+
+
+
+      // if (cloth && doc.productcategory === "เสื้อผ้า") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkcloth) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
         
-        }
-      } 
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เสื้อผ้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // }
+
+      
+      //   // if (assesory && doc.productcategory === "เครื่่องประดับ") {
+      //   //   let o = []
+      //   //   let i = 0
+      //   //   let a = -1
+      //   //   o.push(doc) // count doc
+      //   //   for(let k=0; k <= o.length ; k ++ ){
+      //   //     i ++
+      //   //   } // count doc
+      //   //   if (checkassesory) { //check select assesory
+      //   //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //   //       console.log(item.length)
+      //   //       item.forEach(doc2 =>{
+      //   //         a ++
+      //   //         if(doc2.productcategory !== "เครื่่องประดับ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //   //           if(a > i){
+                    
+      //   //           }else{
+      //   //             item.push(doc)
+      //   //             Setshow();
+      //   //           }
+      //   //         }
+              
+      //   //     })
+      //   //     console.log(item)
+      //   //     }else{
+      //   //       item.push(doc);
+      //   //           Setshow();
+      //   //     }
+          
+      //   //   }
+      //   // }
+
+      // if (shoe && doc.productcategory === "รองเท้า") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkshoe) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "รองเท้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // }
+
+      // if (bag && doc.productcategory === "กระเป๋า") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkbag) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "กระเป๋า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // }
+
+      // if (phone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkphone) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "มือถือและอุปกรณ์เสริม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (food && doc.productcategory === "อาหารและเครื่องดื่ม") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkfood) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "อาหารและเครื่องดื่ม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (foodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkfoodwealth) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "อาหารเสริมและผลิตภัณฑ์สุขภาพ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (beauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkbeauty) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เครื่องสำอางค์และอุปกรณ์เสริมความงาม" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+
+      // if (computer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkcomputer) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "คอมพิวเตอร์แล็ปท็อป" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (camera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkcamera) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "กล้องและอุปกรณ์ถ่ายภาพ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (sport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checksport) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "กีฬาและกิจกรรมกลางแจ้ง" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+
+      // if (media && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkmedia) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "สื่อบันเทิงภายในบ้าน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+
+      // if (game && doc.productcategory === "เกมส์และฮ๊อบบี้") {
+        
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkgame) { //check select assesory
+      //     console.log(doc)
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เกมส์และฮ๊อบบี้" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (car && doc.productcategory === "ยานยนต์") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkcar) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "ยานยนต์" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (ticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkticket) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "ตั๋วและบัตรกำนัน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (electronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkelectronic) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เครื่องใช้ไฟฟ้า" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (furniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkfurniture) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เฟอร์นิเจอร์และของตกแต่งบ้าน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (pet && doc.productcategory === "สัตว์เลี้ยง") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkpet) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "สัตว์เลี้ยง" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (kian && doc.productcategory === "เครื่องเขียน") {
+      //   console.log("gggg")
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkkian) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เครื่องเขียน" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (book && doc.productcategory === "หนังสือ") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkbook) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "หนังสือ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      //   if (music && doc.productcategory === "เครื่องดนตรี") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkmusic) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "เครื่องดนตรี" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
+
+      // if (othercatalog && doc.productcategory === "อื่นๆ") {
+      //   let o = []
+      //   let i = 0
+      //   let a = -1
+      //   o.push(doc) // count doc
+      //   for(let k=0; k <= o.length ; k ++ ){
+      //     i ++
+      //   } // count doc
+      //   if (checkothercatalog) { //check select assesory
+      //     if(checkfacebook || checkline || checkinstagram || checktwitter || checkother){ //check select social
+      //       console.log(item.length)
+      //       item.forEach(doc2 =>{
+      //         a ++
+      //         if(doc2.productcategory !== "อื่นๆ" && doc2.social !== doc.social && doc2.accountnumber !== doc.accountnumber && doc2.date !== doc.date){ //check not same post
+      //           if(a > i){
+                  
+      //           }else{
+      //             item.push(doc)
+      //             Setshow();
+      //           }
+      //         }
+             
+      //     })
+      //     console.log(item)
+      //     }else{
+      //       item.push(doc);
+      //           Setshow();
+      //     }
+        
+      //   }
+      // } 
 
 
 
@@ -903,8 +1575,7 @@ const Post = () => {
     checkkian,
     checkbook,
     checkmusic,
-    checkothercatalog
-   
+    checkothercatalog,
   ]);
 
   // console.log(result);
@@ -935,11 +1606,7 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
-              {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
-              โพสต์
-            </h1>
+    
 
             {show ? (
               show.map((res) => {
@@ -947,7 +1614,12 @@ const Post = () => {
                   <div>
                     <div className="container-post2">
                       <div className="cotainer-post3">
-                        <div className="post-profile-img">
+                        {/* <div className="postbuttonreport">
+                          <a className="postbuttonreported" href="/post/edit">
+                            <i class="fa fa-flag"></i>
+                          </a>
+                        </div> */}
+                       <div className="post-profile-img">
                           {res.photoURL ? (
                             <img
                               className="img-circle"
@@ -972,45 +1644,8 @@ const Post = () => {
                             </span>
                           </div>
                         </div>
-
-                        {/* <div className="postbuttonreport">
-                          <a className="postbuttonreported" href="/post/edit">
-                            <i class="fa fa-flag"></i>
-                          </a>
-                        </div> */}
-
-                        <div className="postbuttonreport">
-                          <button
-                            variant="primary"
-                            onClick={handleShow}
-                            className="postbuttonreported"
-                          >
-                            <i class="fa fa-flag"></i>
-                          </button>
-                        </div>
-
-                        <Modal
-                          show={Show}
-                          onHide={handleClose}
-                          className="modalreport"
-                        >
-                          <Modal.Header closeButton>
-                            <Modal.Title className="namereport">
-                              รายงานโพสต์
-                            </Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            Woohoo, you're reading this text in a modal!
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                              Save Changes
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
+                       
+                        
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -1061,7 +1696,6 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -1077,7 +1711,6 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -1095,7 +1728,6 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -1143,11 +1775,10 @@ const Post = () => {
                                 ดูเพิ่มเติม
                               </Link>
                             </div>
-                          </div>
-
-                          <div className="line-post1"></div>
+                            <div className="line-post1"></div>
                           <div className="container-post6">
                             <Commentitem postid={res.uid} />
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -1164,41 +1795,31 @@ const Post = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="post-name">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("lll")}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
-                              </div>
-
+                            <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">
+                              {moment(new Date(res.date.seconds * 1000)).format(
+                                "lll"
+                              )}
+                            </span>
+                          </div>
+                        </div>
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -1253,23 +1874,21 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
-
                                     <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                     <Form.Row>
                                       <Form.Group
                                         as={Col}
@@ -1289,42 +1908,41 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
-
                                     <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>
+                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                    ถูกแจ้ง{" "}
+                                  </Form.Label>
+                                </Form.Group>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.count} ครั้ง
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>
+                                    {" "}
+                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                  </Form.Label>
+                                </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.summoney} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                   </Form>
                                   <div className="postother">
                                     <Link
@@ -1337,11 +1955,10 @@ const Post = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
-                                </div>
-
-                                <div className="line-post1"></div>
-                                <div className="container-post6">
-                                  <Commentitem postid={res.uid} />
+                                  <div className="line-post1"></div>
+                          <div className="container-post6">
+                            <Commentitem postid={res.uid} />
+                          </div>
                                 </div>
                               </div>
                             </div>
@@ -1382,6 +1999,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -1389,7 +2007,7 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => (Setcheckfacebook(!checkfacebook))}
-                 
+                    
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -1405,7 +2023,7 @@ const Post = () => {
                       id="defaultInline2"
                       onChange={(e) => Setline(e.target.value)}
                       onClick={() => (Setcheckline(!checkline))}
-                      
+                   
                     />
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -1419,9 +2037,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline3"
-                      onChange={(e) => Setinstagram(e.target.value)}
-                      onClick={() => (Setcheckinstagram(!checkinstagram))}
-                   
+                      onChange={(e) => Setinstagram(e)}
+                      onClick={() => Setcheckinstagram(!checkinstagram)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -1437,7 +2054,6 @@ const Post = () => {
                       id="defaultInline4"
                       onChange={(e) => Settwitter(e.target.value)}
                       onClick={() => Setchecktwitter(!checktwitter)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -1453,7 +2069,6 @@ const Post = () => {
                       id="defaultInline5"
                       onChange={(e) => Setother(e.target.value)}
                       onClick={() => Setcheckother(!checkother)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
