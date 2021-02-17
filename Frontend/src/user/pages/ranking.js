@@ -74,6 +74,8 @@ const Rank = () => {
     }
     return ThiefData;
   };
+
+  // data of table
   const data = {
     columns: [
       {
@@ -131,7 +133,6 @@ const Rank = () => {
         showDropdown={showDropdown}
       />
       <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
-      
       <div className="container2-index">
         <div className="row">
           {ThiefCount
@@ -206,17 +207,7 @@ const Rank = () => {
           className="rank-data"
         />
       </MDBContainer>
-      {/* <React.Fragment>
-        <MDBBox display="flex" justifyContent="center" >
-          d-flex justify-content-center
-        </MDBBox>
-        <MDBBox display="flex" justifyContent="end">
-          d-flex justify-content-end
-        </MDBBox>
-        <MDBBox display="flex" justifyContent="start">
-          d-flex justify-content-start
-        </MDBBox>
-      </React.Fragment> */}
+      
       <MDBContainer size="sm">
          <div style={{backgroundColor: 'blue', color: 'white'}}>Content small</div>
       </MDBContainer>
