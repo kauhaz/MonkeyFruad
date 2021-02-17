@@ -461,7 +461,6 @@ const Home = () => {
                               <strong className="text5-index">
                                 {" "}
                                 {element.name} {element.surname}
-                                {element.nameproduct}
                               </strong>
                               <hr />
                               <p className="text7-index">
