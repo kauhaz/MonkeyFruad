@@ -19,7 +19,7 @@ import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
+const NavbarPage = ({ show, SetshowDropdown, showDropdown }) => {
   var { user, setUser } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
   const [role, Setrole] = useState();
@@ -60,13 +60,13 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
             doc.accountnumber.includes(search) ||
-            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
           );
         });
-        console.log(getdata);
         Setsearch("");
-
-       if (getdata) {
+        if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
@@ -77,8 +77,6 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
           });
           window.location.reload(true);
         }
-      } else {
-        Seterror("กรุณากรอก ชื่อ นามสกุล หรือ เลขบัญชีคนร้าย");
       }
     } catch (err) {
       console.log(err);
@@ -90,15 +88,20 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
-      Setallpost(getallpost.data.item)
+      Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
       console.log(search);
       if (search) {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
- 
-            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+            if (
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
+            ) {
               Sethaha(true);
             }
             if (doc.accountnumber.startsWith(search)) {
@@ -110,12 +113,16 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
             }
-         
+
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.accountnumber.startsWith(search) ||
-              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
             );
           })
         );
@@ -242,11 +249,10 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
                   aria-label="Search"
                   value={search}
                   onChange={(e) => {
-                    Setsearch(e.target.value)
-                    SetshowDropdown(true)
+                    Setsearch(e.target.value);
+                    SetshowDropdown(true);
                   }}
                 />
-                {error}
               </div>
             </MDBNavItem>
 
@@ -284,7 +290,7 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
       </MDBNavbar>
       <div className="gg">
         {lastsearch
-          ?  lastsearch.map((doc) => {
+          ? lastsearch.map((doc) => {
               let thiefid = doc.accountnumber;
               i++;
               return (
@@ -292,33 +298,35 @@ const NavbarPage = ({ show,SetshowDropdown,showDropdown }) => {
                   {i <= 10 ? (
                     <div>
                       {" "}
-                      {haha ? showDropdown ?
-                        <button
-                          className="search-nav"
-                          onClick={() => (
-                            history.push(`/thief/post/${thiefid}`),
-                            window.location.reload(true)
-                          )}
-                        >
-                          <div>
-                            {" "}
-                            {doc.name} {doc.surname} {doc.accountnumber}
-                          </div>
-                        </button>
-                      : null 
-                      : null}
+                      {haha ? (
+                        showDropdown ? (
+                          <button
+                            className="search-nav"
+                            onClick={() => (
+                              history.push(`/thief/post/${thiefid}`),
+                              window.location.reload(true)
+                            )}
+                          >
+                            <div>
+                              {" "}
+                              {doc.name} {doc.surname} {doc.accountnumber}
+                            </div>
+                          </button>
+                        ) : null
+                      ) : null}
                     </div>
                   ) : null}
                 </div>
               );
             })
           : null}
-        {lastsearch ? showDropdown ? 
-          <div className="dropsearch-nav" onClick={() => handlesearch()}>
-            ค้นหา {search}
-          </div>
-          : null
-         : null}
+        {lastsearch ? (
+          showDropdown ? (
+            <div className="dropsearch-nav" onClick={() => handlesearch()}>
+              ค้นหา {search}
+            </div>
+          ) : null
+        ) : null}
       </div>
     </Router>
   );

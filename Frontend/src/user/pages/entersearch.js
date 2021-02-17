@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
-import Notfound from "../components/Notfound"
+import Notfound from "../components/Notfound";
 import Axios from "axios";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
@@ -23,14 +23,13 @@ const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
   const history = useHistory();
-  const [show, Setshow] = useState()
- const [search, Setsearch] = useState()
+  const [show, Setshow] = useState();
+  const [search, Setsearch] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
   let location = useLocation();
   const ok = async () => {
-    Setshow(location.state.getdata) 
-    Setsearch(location.state.search)
-
+    Setshow(location.state.getdata);
+    Setsearch(location.state.search);
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -41,7 +40,8 @@ const Entersearch = () => {
 
   return (
     <div onClick={() => Hiddendropdown()}>
-         {show && show.length !== 0 ? <div> 
+      {show && show.length !== 0 ? (
+        <div>
           {" "}
           <NavbarPage
             SetshowDropdown={SetshowDropdown}
@@ -78,42 +78,6 @@ const Entersearch = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="post-name">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {" "}
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("lll")}{" "}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
-                              </div>
-
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -173,22 +137,6 @@ const Entersearch = () => {
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label>วันที่โดนโกง</Form.Label>
@@ -201,42 +149,6 @@ const Entersearch = () => {
                                               res.datetimes.seconds * 1000
                                             )
                                           ).format("lll")}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney} บาท
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
@@ -254,10 +166,7 @@ const Entersearch = () => {
                                   </div>
                                 </div>
 
-                                <div className="line-post1"></div>
-                                <div className="container-post6">
-                                  <Commentitem postid={res.uid} />
-                                </div>
+                               
                               </div>
                             </div>
                           </div>
@@ -284,8 +193,13 @@ const Entersearch = () => {
           </div>
           <Chatbot />{" "}
         </div>
-       : <Notfound search={search} SetshowDropdown={SetshowDropdown}
-       showDropdown={showDropdown} />}
+      ) : (
+        <Notfound
+          search={search}
+          SetshowDropdown={SetshowDropdown}
+          showDropdown={showDropdown}
+        />
+      )}
     </div>
   );
 };
