@@ -112,11 +112,11 @@ const Post = () => {
     Setshow(getpost.data.item);
     const getdata = getpost.data.item;
     
+
+    
     var item = [];
-  
     getdata.filter((doc) => {
-   
-      if (facebook && doc.social === "Facebook") {
+      if (facebook && doc.social === "Facebook" ) {
         if (checkfacebook) {
           item.push(doc);
           Setshow();
