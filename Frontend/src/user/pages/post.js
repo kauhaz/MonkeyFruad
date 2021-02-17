@@ -1841,7 +1841,7 @@ const Post = () => {
   // console.log(result);
 
   return (
-<div onClick={() => Hiddendropdown()}>
+    <div onClick={() => Hiddendropdown()}>
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
@@ -2312,8 +2312,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
-                      onClick={() => (Setcheckfacebook(!checkfacebook))}
-                 
+                      onClick={() => Setcheckfacebook(!checkfacebook)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2328,8 +2327,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline2"
                       onChange={(e) => Setline(e.target.value)}
-                      onClick={() => (Setcheckline(!checkline))}
-                      
+                      onClick={() => Setcheckline(!checkline)}
                     />
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2344,8 +2342,7 @@ const Post = () => {
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline3"
                       onChange={(e) => Setinstagram(e.target.value)}
-                      onClick={() => (Setcheckinstagram(!checkinstagram))}
-                   
+                      onClick={() => Setcheckinstagram(!checkinstagram)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2361,7 +2358,6 @@ const Post = () => {
                       id="defaultInline4"
                       onChange={(e) => Settwitter(e.target.value)}
                       onClick={() => Setchecktwitter(!checktwitter)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2377,7 +2373,6 @@ const Post = () => {
                       id="defaultInline5"
                       onChange={(e) => Setother(e.target.value)}
                       onClick={() => Setcheckother(!checkother)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
