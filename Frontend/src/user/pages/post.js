@@ -105,7 +105,7 @@ const Post = () => {
   const [searchstart, Setsearchstart] = useState(false);
   const [searchend, Setsearchend] = useState(false);
 
-
+  const [error, Seterror] = useState();
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -117,7 +117,7 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-  
+   
    
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
@@ -134,7 +134,7 @@ const Post = () => {
       if (facebook && doc.social === "Facebook" ) {
         if(checkfacebook){
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
-
+            
             if(searchstart && searchend){
               
               if(doc.money >= searchstart){
@@ -679,7 +679,9 @@ const Post = () => {
                 Setshow();
               }
             }
+           
             if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+              
               if(searchstart && searchend){
               
                 if(doc.money >= searchstart){
@@ -710,6 +712,10 @@ const Post = () => {
                 item.push(doc);
                 Setshow();
               }
+            }
+            else if((checkpet && doc.productcategory === "สัตว์เลี้ยง") === false){
+              Setshow()
+              Setresult()
             }
             if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
               if(searchstart && searchend){
@@ -875,6 +881,9 @@ const Post = () => {
         
         }
         
+      }else if ((facebook && doc.social === "Facebook") === false){
+        Setshow();
+        Setresult()
       }
       if (line && doc.social === "Line") {
         if (checkline) {
@@ -1616,6 +1625,9 @@ const Post = () => {
               }
           }
         }
+      }else if ((line && doc.social === "Line") === false){
+        Setshow();
+        Setresult()
       }
       if (instagram && doc.social === "Instagram") {
         if (checkinstagram) {
@@ -4057,7 +4069,6 @@ const Post = () => {
         if(!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother && !checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
           !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog){
             if(doc.money >= searchstart ){
-              console.log(doc)
               item.push(doc);
               Setshow();
             } 
@@ -4147,7 +4158,7 @@ const Post = () => {
                 </div>
               </div>
             </Link>
-
+            {show ? show.length : result ? result.length : null}
     
 
             {show ? (
@@ -4156,6 +4167,7 @@ const Post = () => {
                   <div>
                     <div className="container-post2">
                       <div className="cotainer-post3">
+                        
                         {/* <div className="postbuttonreport">
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
@@ -4508,7 +4520,7 @@ const Post = () => {
                         </div>
                       );
                     })
-                  : null}
+                  : <div></div>}
               </div>
             )}
           </div>
