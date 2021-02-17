@@ -124,10 +124,10 @@ const Post = () => {
     var item = [];
     getdata.filter((doc) => {
       if(location.search == '?facebook' ){
-        item.push(doc);
-        Setshow();
+        Setfacebook(true)
       }
       if (facebook && doc.social === "Facebook" ) {
+        if()
         if(checkfacebook){
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
               item.push(doc);
