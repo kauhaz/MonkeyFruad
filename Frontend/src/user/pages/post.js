@@ -6590,7 +6590,7 @@ const Post = () => {
             ) : (
               <div>
                 {" "}
-               {result
+                {loading ? <Loading /> : <div>{result
                   ? result.map((res) => {
                       return (
                         
@@ -6782,7 +6782,7 @@ const Post = () => {
                         </div>
                       );
                     })
-                  : <div></div>}
+                  : <div></div>}</div>}
                 
               </div>
             )}</div>}
