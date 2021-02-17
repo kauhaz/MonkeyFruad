@@ -26,6 +26,7 @@ const Entersearch = () => {
   const [show, Setshow] = useState();
   const [search, Setsearch] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
+  const [loading, setLoading] = useState(true);
   let location = useLocation();
   const ok = async () => {
    await Setshow(location.state.getdata);
@@ -36,10 +37,12 @@ const Entersearch = () => {
   };
   useEffect( () => {
     ok();
-
+    setLoading(false);
   }, [location]);
 
-  return (
+  return ( loading ? (
+    ""
+  ) : 
     <div onClick={() => Hiddendropdown()}>
       {show && show.length !== 0 ? (
         <div>

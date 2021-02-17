@@ -10,19 +10,7 @@ import "moment/locale/th";
 import {
   Form,
   Col,
-  FormControl,
-  Button,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter,
 } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
 import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
 const { v4: uuidv4, NIL } = require("uuid");
@@ -103,7 +91,6 @@ const Post = () => {
   const [searchstart, Setsearchstart] = useState(false);
   const [searchend, Setsearchend] = useState();
 
-
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -127,941 +114,161 @@ const Post = () => {
       // if(location.search == '?facebook' ){
       //   Setfacebook(true)
       // }
-      
-      if (facebook && doc.social === "Facebook" ) {
-        if(checkfacebook){
-          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
 
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                }
-              }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
-                item.push(doc);
-                Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
-                item.push(doc);
-                Setshow();
-              } 
-            }
-
-            if(!searchstart && !searchstart){
-              item.push(doc);
-              Setshow();
-            }
-              
-            }
-            if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkshoe && doc.productcategory === "รองเท้า"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkbag && doc.productcategory === "กระเป๋า"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkcar && doc.productcategory === "ยานยนต์"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkbook && doc.productcategory === "หนังสือ"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
-              if(searchstart && searchend){
-              
-                if(doc.money >= searchstart){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  }
-                }
-              }
-  
-             else if(searchstart){
-              
-                if(doc.money >= searchstart ){
-                  console.log(doc)
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              else if(searchend){
-                if(doc.money <= searchend){
-                  item.push(doc);
-                  Setshow();
-                } 
-              }
-  
-              if(!searchstart && !searchstart){
-                item.push(doc);
-                Setshow();
-              }
-            }
-            if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
-               !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
-                if(searchstart && searchend){
-              
-                  if(doc.money >= searchstart){
-                    if(doc.money <= searchend){
-                      item.push(doc);
-                      Setshow();
-                    }
-                  }
-                }
-    
-               else if(searchstart){
-                
-                  if(doc.money >= searchstart ){
-                    console.log(doc)
-                    item.push(doc);
-                    Setshow();
-                  } 
-                }
-    
-                else if(searchend){
-                  if(doc.money <= searchend){
-                    item.push(doc);
-                    Setshow();
-                  } 
-                }
-    
-                if(!searchstart && !searchstart){
-                  item.push(doc);
-                  Setshow();
-                }
-            }
-        
-        }
-      }
-      if (line && doc.social === "Line") {
-        if (checkline) {
+      if (facebook && doc.social === "Facebook") {
+        if (checkfacebook) {
           if (checkcloth && doc.productcategory === "เสื้อผ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkassesory && doc.productcategory === "เครื่องประดับ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkshoe && doc.productcategory === "รองเท้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbag && doc.productcategory === "กระเป๋า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkfood && doc.productcategory === "อาหารและเครื่องดื่ม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1070,33 +277,27 @@ const Post = () => {
             checkfoodwealth &&
             doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1105,289 +306,235 @@ const Post = () => {
             checkbeauty &&
             doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcar && doc.productcategory === "ยานยนต์") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1396,193 +543,157 @@ const Post = () => {
             checkfurniture &&
             doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkpet && doc.productcategory === "สัตว์เลี้ยง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkkian && doc.productcategory === "เครื่องเขียน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbook && doc.productcategory === "หนังสือ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmusic && doc.productcategory === "เครื่องดนตรี") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkothercatalog && doc.productcategory === "อื่นๆ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1611,33 +722,661 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+        }
+      }
+      if (line && doc.social === "Line") {
+        if (checkline) {
+          if (checkcloth && doc.productcategory === "เสื้อผ้า") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkassesory && doc.productcategory === "เครื่องประดับ") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkshoe && doc.productcategory === "รองเท้า") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkbag && doc.productcategory === "กระเป๋า") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkfood && doc.productcategory === "อาหารและเครื่องดื่ม") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (
+            checkfoodwealth &&
+            doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
+          ) {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (
+            checkbeauty &&
+            doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"
+          ) {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkcar && doc.productcategory === "ยานยนต์") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (
+            checkfurniture &&
+            doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"
+          ) {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkpet && doc.productcategory === "สัตว์เลี้ยง") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkkian && doc.productcategory === "เครื่องเขียน") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkbook && doc.productcategory === "หนังสือ") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkmusic && doc.productcategory === "เครื่องดนตรี") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (checkothercatalog && doc.productcategory === "อื่นๆ") {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
+              item.push(doc);
+              Setshow();
+            }
+          }
+          if (
+            !checkcloth &&
+            !checkassesory &&
+            !checkshoe &&
+            !checkbag &&
+            !checkphone &&
+            !checkfood &&
+            !checkfoodwealth &&
+            !checkbeauty &&
+            !checkcomputer &&
+            !checkcamera &&
+            !checksport &&
+            !checkmedia &&
+            !checkgame &&
+            !checkcar &&
+            !checkticket &&
+            !checkelectronic &&
+            !checkfurniture &&
+            !checkpet &&
+            !checkkian &&
+            !checkbook &&
+            !checkmusic &&
+            !checkothercatalog
+          ) {
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
+                item.push(doc);
+                Setshow();
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
+                item.push(doc);
+                Setshow();
+              }
+            }
+
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1647,193 +1386,157 @@ const Post = () => {
       if (instagram && doc.social === "Instagram") {
         if (checkinstagram) {
           if (checkcloth && doc.productcategory === "เสื้อผ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkassesory && doc.productcategory === "เครื่องประดับ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkshoe && doc.productcategory === "รองเท้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbag && doc.productcategory === "กระเป๋า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkfood && doc.productcategory === "อาหารและเครื่องดื่ม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1842,33 +1545,27 @@ const Post = () => {
             checkfoodwealth &&
             doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -1877,289 +1574,235 @@ const Post = () => {
             checkbeauty &&
             doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcar && doc.productcategory === "ยานยนต์") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2168,193 +1811,157 @@ const Post = () => {
             checkfurniture &&
             doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkpet && doc.productcategory === "สัตว์เลี้ยง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkkian && doc.productcategory === "เครื่องเขียน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbook && doc.productcategory === "หนังสือ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmusic && doc.productcategory === "เครื่องดนตรี") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkothercatalog && doc.productcategory === "อื่นๆ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2383,33 +1990,27 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2419,193 +2020,157 @@ const Post = () => {
       if (twitter && doc.social === "Twitter") {
         if (checktwitter) {
           if (checkcloth && doc.productcategory === "เสื้อผ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkassesory && doc.productcategory === "เครื่องประดับ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkshoe && doc.productcategory === "รองเท้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbag && doc.productcategory === "กระเป๋า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkfood && doc.productcategory === "อาหารและเครื่องดื่ม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2614,33 +2179,27 @@ const Post = () => {
             checkfoodwealth &&
             doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2649,289 +2208,235 @@ const Post = () => {
             checkbeauty &&
             doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcar && doc.productcategory === "ยานยนต์") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -2940,193 +2445,157 @@ const Post = () => {
             checkfurniture &&
             doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkpet && doc.productcategory === "สัตว์เลี้ยง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkkian && doc.productcategory === "เครื่องเขียน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbook && doc.productcategory === "หนังสือ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmusic && doc.productcategory === "เครื่องดนตรี") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkothercatalog && doc.productcategory === "อื่นๆ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3155,33 +2624,27 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3191,193 +2654,157 @@ const Post = () => {
       if (other && doc.social === "other") {
         if (checkother) {
           if (checkcloth && doc.productcategory === "เสื้อผ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkassesory && doc.productcategory === "เครื่องประดับ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkshoe && doc.productcategory === "รองเท้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbag && doc.productcategory === "กระเป๋า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkfood && doc.productcategory === "อาหารและเครื่องดื่ม") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3386,33 +2813,27 @@ const Post = () => {
             checkfoodwealth &&
             doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3421,289 +2842,235 @@ const Post = () => {
             checkbeauty &&
             doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkcar && doc.productcategory === "ยานยนต์") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3712,193 +3079,157 @@ const Post = () => {
             checkfurniture &&
             doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkpet && doc.productcategory === "สัตว์เลี้ยง") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkkian && doc.productcategory === "เครื่องเขียน") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkbook && doc.productcategory === "หนังสือ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkmusic && doc.productcategory === "เครื่องดนตรี") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
           }
           if (checkothercatalog && doc.productcategory === "อื่นๆ") {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3927,33 +3258,27 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -3970,33 +3295,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4013,33 +3332,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4055,33 +3368,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4098,33 +3405,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4141,33 +3442,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4184,33 +3479,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4230,33 +3519,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4276,33 +3559,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4319,33 +3596,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4362,33 +3633,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4405,33 +3670,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4448,33 +3707,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4491,33 +3744,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4534,33 +3781,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4577,33 +3818,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4620,33 +3855,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4663,33 +3892,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4706,33 +3929,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4749,33 +3966,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4792,33 +4003,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4835,33 +4040,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -4878,33 +4077,27 @@ const Post = () => {
             !checktwitter &&
             !checkother
           ) {
-            if(searchstart && searchend){
-              
-              if(doc.money >= searchstart){
-                if(doc.money <= searchend){
+            if (searchstart && searchend) {
+              if (doc.money >= searchstart) {
+                if (doc.money <= searchend) {
                   item.push(doc);
                   Setshow();
                 }
               }
-            }
-
-           else if(searchstart){
-            
-              if(doc.money >= searchstart ){
-                console.log(doc)
+            } else if (searchstart) {
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
-              } 
-            }
-
-            else if(searchend){
-              if(doc.money <= searchend){
+              }
+            } else if (searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
-              } 
+              }
             }
 
-            if(!searchstart && !searchstart){
+            if (!searchstart && !searchstart) {
               item.push(doc);
               Setshow();
             }
@@ -5652,7 +4845,7 @@ const Post = () => {
     checkmusic,
     checkothercatalog,
     searchstart,
-    searchend
+    searchend,
   ]);
 
   // console.log(result);
@@ -5720,8 +4913,6 @@ const Post = () => {
                           </a>
                         </div> */}
 
-   
-            
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -5899,15 +5090,6 @@ const Post = () => {
                                     ).format("lll")}
                                   </span>
                                 </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
                               </div>
 
                               <div className="container-post4">
@@ -6513,7 +5695,7 @@ const Post = () => {
                       pattern="[0-9]{1,}"
                       className="postnumber1"
                       onChange={(e) => Setsearchstart(parseInt(e.target.value))}
-                      value = {searchstart}
+                      value={searchstart}
                     ></input>
                     <div className="post-numbergroup2">-</div>
                     <input
@@ -6522,9 +5704,8 @@ const Post = () => {
                       pattern="[0-9]{1,}"
                       className="postnumber2"
                       onChange={(e) => Setsearchend(parseInt(e.target.value))}
-                      value = {searchend}
+                      value={searchend}
                     ></input>
-                   
                   </div>
                 </div>
               </div>
