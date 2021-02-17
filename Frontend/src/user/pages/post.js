@@ -127,7 +127,6 @@ const Post = () => {
         Setfacebook(true)
       }
       if (facebook && doc.social === "Facebook" ) {
-        if()
         if(checkfacebook){
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
               item.push(doc);
