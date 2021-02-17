@@ -70,17 +70,32 @@ const Home = () => {
     }
   };
 
-  useEffect(async () => {
-    await Getdata();
-  }, []);
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-
+  const RankSeePost = (accountnumber) => {
+    let search = accountnumber
+    const getdata = allpost.filter((doc) => {
+      return (
+        doc.accountnumber.includes(search) 
+      );
+    });
+    if (getdata) {
+      history.push({
+        pathname: "/entersearch",
+        search: "are you ok",
+        state: {
+          getdata,
+          search,
+        },
+      });
+    }
+  };
+ 
   const handlesearch = (e) => {
     try {
       e.preventDefault();
-
+      
       if (search) {
         const getdata = allpost.filter((doc) => {
           return (
@@ -206,8 +221,9 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    ok();
+  useEffect( async () => {
+    await ok()
+    await Getdata()
   }, [search]);
 
   return (
@@ -327,7 +343,7 @@ const Home = () => {
                           ).format("lll")}
                         </p>
                         <a
-                          href="!#"
+                          onClick={()=> RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
                           <div className="readmore">

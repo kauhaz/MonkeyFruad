@@ -28,14 +28,15 @@ const Entersearch = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   let location = useLocation();
   const ok = async () => {
-    Setshow(location.state.getdata);
-    Setsearch(location.state.search);
+   await Setshow(location.state.getdata);
+    await Setsearch(location.state.search);
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-  useEffect(() => {
+  useEffect( () => {
     ok();
+
   }, [location]);
 
   return (

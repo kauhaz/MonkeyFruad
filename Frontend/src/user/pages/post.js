@@ -124,9 +124,10 @@ const Post = () => {
 
     var item = [];
     getdata.filter((doc) => {
-      if(location.search == '?facebook' ){
-        Setfacebook(true)
-      }
+      // if(location.search == '?facebook' ){
+      //   Setfacebook(true)
+      // }
+      
       if (facebook && doc.social === "Facebook" ) {
         if(checkfacebook){
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
