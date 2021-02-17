@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, DropdownButton , Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter, } from "react-bootstrap";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import {
   auth,
@@ -19,9 +22,11 @@ import usercontext from "../context/usercontext";
 const Mypost = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
-
+  const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
@@ -93,7 +98,43 @@ const Mypost = () => {
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
-
+                        {user && user.uid != ok.useruid ? (
+                          <div>
+                            <div className="postbuttonreport">
+                          <button
+                            variant="primary"
+                            onClick={handleShow}
+                            className="postbuttonreported"
+                          >
+                            <i class="fa fa-flag"></i>
+                          </button>
+                        </div>
+                              <Form.Row>
+                            <Modal
+                          show={Show}
+                          onHide={handleClose}
+                          className="modalreport"
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title className="namereport">
+                              รายงานโพสต์
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            Woohoo, you're reading this text in a modal!
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Close
+                            </Button>
+                            <Button variant="primary" onClick={handleClose}>
+                              Save Changes
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
+                        </Form.Row>
+                        </div>
+                        ) : null}
                         {user && user.uid == ok.useruid ? (
                           <div className="container-mypostsetiing">
                             <div className="menu-containermypostsetting">
