@@ -1606,11 +1606,7 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
-              {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
-              โพสต์
-            </h1>
+    
 
             {show ? (
               show.map((res) => {
