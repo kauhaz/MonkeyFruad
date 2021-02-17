@@ -62,9 +62,7 @@
     font-size: 15px;
     color: #5c5c5c;
 }
-.textwhite-helpnew{
-    color: white;
-}
+
 .column-helpnew{
     width: 25%;
     display: block;
@@ -115,8 +113,172 @@
     position: absolute;
 }
 
-
 /*Responsive*/ 
+@media only screen and (max-width: 1921px) {
+    .h1-helpnew{ 
+        font-size: 22px;
+    }
+    .container-helpnew{
+        width: 65%;
+        height: 370px;
+    }
+    .card-helpnew{
+        width: 230px;
+        height: 370px;
+    }
+    .title-helpnew{
+        font-size: 17px;
+    }
+    .titlered-helpnew{
+        font-size: 17px;
+    }
+    .image-helpnew1{
+        width: 230px;
+    }
+    .cardtext-helpnew{
+        font-size: 13px;
+    }
+
+    .container-helpnew2{
+        width: 65%;
+    }
+    .text-helpnew{
+        color: #5c5c5c;
+        font-size: 14px;
+    }
+    
+    .emty-help{
+        height: 70px;
+    }
+    
+    .card-helpnew2 {
+        width: 300px;
+        height: 180px;
+    }
+    
+    .image-helpnew2{
+        width: 140px;
+        margin-left: 95px;
+        margin-top: 5px;
+    }
+}
+@media only screen and (min-width: 1920px) {
+    .h1-helpnew{ 
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+    }
+    
+    .h1-helpnew2{ 
+        margin-top: 70px;
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+    }
+    
+    
+    .container-helpnew{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 460px;
+        font-family: 'Kanit', sans-serif;
+    }
+    
+    .container-helpnew2{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 760px;
+        font-family: 'Kanit', sans-serif;
+    }
+    
+    .card-helpnew{
+        width: 260px;
+        height: 410px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        background-color: white;
+    }
+    
+    .title-helpnew{
+        font-size: 18px;
+    }
+    
+    .titlered-helpnew{
+        color: red;
+        font-size: 18px;
+    }
+    .image-helpnew1{
+        padding:  15px 30px 0px 30px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cardtext-helpnew{
+        font-size: 15px;
+        color: #5c5c5c;
+    }
+    
+    .column-helpnew{
+        width: 25%;
+        display: block;
+        float: left;
+    }
+    .show-helpnew2{
+        display: block;
+        margin-bottom: -8px;
+    }
+    
+    .column-helpnew2 {
+        width: 33.33%;
+        display: block;
+        float: left;
+    }
+    .text-helpnew{
+        color: #5c5c5c;
+        font-size: 16px;
+    }
+    
+    .emty-help{
+        height: 70px;
+    }
+    
+    .card-helpnew2 {
+        background-color: white;
+        width: 330px;
+        height: 180px;
+        border-radius: 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        margin-bottom: 100px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 80px;
+    }
+    
+    .image-helpnew2{
+        background-color: white;
+        width: 150px;
+        border-radius: 50%;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        margin-left: 115px;
+        margin-top: 0px;
+        display: block;
+        z-index: 1;
+        position: absolute;
+    }
+}
+
 @media only screen and (max-width: 1367px) {
     .h1-helpnew{ 
         font-size: 22px;
@@ -124,7 +286,6 @@
     .container-helpnew{
         width: 65%;
         height: 330px;
-
     }
     .textmargin-helpnew{
         margin-left: 0px;

@@ -127,10 +127,10 @@ const Post = () => {
     
     var item = [];
     getdata.filter((doc) => {
-
-   
-      
-
+      if(location.search == '?facebook' ){
+        item.push(doc);
+        Setshow();
+      }
       if (facebook && doc.social === "Facebook" ) {
         if(checkfacebook){
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
@@ -4148,11 +4148,7 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
-              {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
-              โพสต์
-            </h1>
+    
 
             {show ? (
               show.map((res) => {
@@ -4165,7 +4161,33 @@ const Post = () => {
                             <i class="fa fa-flag"></i>
                           </a>
                         </div> */}
-
+                       <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">
+                              {moment(new Date(res.date.seconds * 1000)).format(
+                                "lll"
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                       
+                        
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -4216,7 +4238,21 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -4234,6 +4270,41 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>
+                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                    ถูกแจ้ง{" "}
+                                  </Form.Label>
+                                </Form.Group>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.count} ครั้ง
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>
+                                    {" "}
+                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                  </Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.summoney} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                             </Form>
                             <div className="postother">
                               <Link
@@ -4246,6 +4317,10 @@ const Post = () => {
                                 ดูเพิ่มเติม
                               </Link>
                             </div>
+                            <div className="line-post1"></div>
+                          <div className="container-post6">
+                            <Commentitem postid={res.uid} />
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -4262,6 +4337,31 @@ const Post = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
+                            <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">
+                              {moment(new Date(res.date.seconds * 1000)).format(
+                                "lll"
+                              )}
+                            </span>
+                          </div>
+                        </div>
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -4316,7 +4416,21 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
+                                    <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                     <Form.Row>
                                       <Form.Group
                                         as={Col}
@@ -4336,6 +4450,41 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
+                                    <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>
+                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                    ถูกแจ้ง{" "}
+                                  </Form.Label>
+                                </Form.Group>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.count} ครั้ง
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>
+                                    {" "}
+                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                  </Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.summoney} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                   </Form>
                                   <div className="postother">
                                     <Link
@@ -4348,6 +4497,10 @@ const Post = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
+                                  <div className="line-post1"></div>
+                          <div className="container-post6">
+                            <Commentitem postid={res.uid} />
+                          </div>
                                 </div>
                               </div>
                             </div>
