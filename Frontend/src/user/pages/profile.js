@@ -13,6 +13,7 @@ const Profile = () => {
   let history = useHistory();
   var { user, setUser } = useContext(usercontext);
   // ที่เก็บ state
+  const [showDropdown, SetshowDropdown] = useState(true);
   const [username, setUsername] = useState();
   const [firstname, setFirstname] = useState();
   const [surname, setSurname] = useState();
@@ -22,27 +23,34 @@ const Profile = () => {
   const [imagesProfile, setImagesProfile] = useState(""); //สร้าง State เพื่อเก็บรูปโปรไฟล์
   const [photo, Setphoto] = useState("");
   const [loading, setLoading] = useState(true);
-  useMemo(async () =>  {
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
+  useMemo(async () => {
     try {
-   var profiledata = await axios.post("http://localhost:7000/user/session", { user: user })
-        setUsername(profiledata.data.data.username);
-        setFirstname(profiledata.data.data.firstname);
-        setSurname(profiledata.data.data.surname);
-        setSex(profiledata.data.data.sex);
-        setPhone(profiledata.data.data.phone);
-        setProvince(profiledata.data.data.province);
-        Setphoto(profiledata.data.data.photoURL);
-    }
-    catch (err){
-      console.log(err)
+      var profiledata = await axios.post("http://localhost:7000/user/session", {
+        user: user,
+      });
+      setUsername(profiledata.data.data.username);
+      setFirstname(profiledata.data.data.firstname);
+      setSurname(profiledata.data.data.surname);
+      setSex(profiledata.data.data.sex);
+      setPhone(profiledata.data.data.phone);
+      setProvince(profiledata.data.data.province);
+      Setphoto(profiledata.data.data.photoURL);
+    } catch (err) {
+      console.log(err);
     }
     setLoading(false);
   }, [user]);
   return loading ? (
     ""
   ) : (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-signup">
         <form className="LoginForm">
           <p className="h2 text-center mb-2 font-weight-bold text1-signup">
@@ -50,7 +58,7 @@ const Profile = () => {
           </p>
 
           <div className="profile-badformpost-img">
-          {imagesProfile ? (
+            {imagesProfile ? (
               <img className="img-circle" src={imagesProfile} />
             ) : photo ? (
               <img className="img-circle" src={`${photo.url}`} />
@@ -102,19 +110,22 @@ const Profile = () => {
           </div>
 
           <div className="col-md-12 mt-2">
-              <a href={`/profile/edit/${user.uid}`} className="btn-block LoginFacebook">
-                <div>
-                  <i class="fas fa-user-edit"></i>
-                </div>
-                <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
-              </a>
+            <a
+              href={`/profile/edit/${user.uid}`}
+              className="btn-block LoginFacebook"
+            >
+              <div>
+                <i class="fas fa-user-edit"></i>
+              </div>
+              <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
+            </a>
 
-              <a href="/changepass" className="btn-block LoginFacebook mt-2">
-                <div>
-                  <i class="fas fa-unlock"></i>
-                </div>
-                <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
-              </a>
+            <a href="/changepass" className="btn-block LoginFacebook mt-2">
+              <div>
+                <i class="fas fa-unlock"></i>
+              </div>
+              <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
+            </a>
           </div>
         </form>
       </div>

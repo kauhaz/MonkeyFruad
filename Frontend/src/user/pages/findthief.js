@@ -23,23 +23,29 @@ const Findthief = () => {
   let { uid } = useParams();
 
   const [show, Setshow] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
 
     Setshow(getpost.data.item);
   };
-
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   useEffect(() => {
     ok();
   }, []);
 
   console.log(show);
   return (
-    <div>
+    <div onClick={() => Hiddendropdown()}>
       {show ? (
         <div>
-          <NavbarPage />
+          <NavbarPage
+            SetshowDropdown={SetshowDropdown}
+            showDropdown={showDropdown}
+          />
           <div className="container-bigpost1">
             <div className="row postbigrow">
               <div className="column-post-left1">
@@ -71,42 +77,6 @@ const Findthief = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="post-name">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {" "}
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("lll")}{" "}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
-                              </div>
-
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -127,7 +97,6 @@ const Findthief = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
-
                                     <Form.Row>
                                       <Form.Group
                                         as={Col}
@@ -166,22 +135,6 @@ const Findthief = () => {
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label>วันที่โดนโกง</Form.Label>
@@ -190,44 +143,10 @@ const Findthief = () => {
                                       <Form.Group>
                                         <span className="spanpost">
                                           {moment(
-                                            new Date(res.datetimes.seconds * 1000)
+                                            new Date(
+                                              res.datetimes.seconds * 1000
+                                            )
                                           ).format("lll")}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney} บาท
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
@@ -243,11 +162,6 @@ const Findthief = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
-                                </div>
-
-                                <div className="line-post1"></div>
-                                <div className="container-post6">
-                                  <Commentitem postid={res.uid} />
                                 </div>
                               </div>
                             </div>

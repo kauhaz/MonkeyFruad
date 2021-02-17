@@ -6,10 +6,7 @@ import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import {
-  auth,
-  authcredentail
-} from "../Frontfirebase";
+import { auth, authcredentail } from "../Frontfirebase";
 import NavbarPage from "../components/navnew";
 
 const Changepass = () => {
@@ -19,6 +16,7 @@ const Changepass = () => {
   const [invalidpass, setInvalidpass] = useState(false);
   const [existpass, setExistpass] = useState(false);
   const [successpass, setSuccesspass] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   // เอาข้อมูล user ที่ login อยู่
   var user = auth.currentUser;
@@ -31,7 +29,9 @@ const Changepass = () => {
     );
     return user.reauthenticateWithCredential(cred);
   };
-
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const submitpass = async (e, oldPassword, newPassword) => {
     e.preventDefault();
     try {
@@ -89,8 +89,11 @@ const Changepass = () => {
   });
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-signup">
         <form
           className="LoginForm"

@@ -12,14 +12,18 @@ const { v4: uuidv4, NIL } = require("uuid");
 
 const History = () => {
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => {
-    setIsActive(!isActive);
-  };
   const [mypost, Setmypost] = useState();
   const [error, Seterror] = useState();
   const [click, Setclick] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
   let { user, setUser } = useContext(usercontext);
   let uuid = uuidv4();
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
+  const onClick = () => {
+    setIsActive(!isActive);
+  };
   const ok = async () => {
     try {
       const ok = await Axios.post("http://localhost:7000/post/postapi", {
@@ -36,11 +40,14 @@ const History = () => {
   useEffect(() => {
     ok();
   }, [click]);
-  console.log(mypost)
+  console.log(mypost);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <h1 className="h1-history">ประวัติการโพสต์</h1>
       <div className="container-history5">
         {mypost ? (

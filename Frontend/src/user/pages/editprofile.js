@@ -23,18 +23,22 @@ const EditProfile = () => {
   const [province, setProvince] = useState("");
   const [photo, Setphoto] = useState("");
   const [error, Seterror] = useState();
-  const [male , setMale] = useState()
+  const [male, setMale] = useState();
   const [loading, setLoading] = useState(true);
+  const [showDropdown, SetshowDropdown] = useState(true);
   // ฟังกชันการเลือกเพศใน input
   const selectSex = (e) => {
     if (e.target.value === "ชาย") {
-      setSex(e.target.value)
-      setMale(true)
-    } else if(e.target.value === "หญิง"){
-      setSex(e.target.value)
-      setMale(false)
-  }
-}
+      setSex(e.target.value);
+      setMale(true);
+    } else if (e.target.value === "หญิง") {
+      setSex(e.target.value);
+      setMale(false);
+    }
+  };
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const ProfileChange = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
@@ -67,23 +71,21 @@ const EditProfile = () => {
       console.log(err);
     }
   };
-  const setSexFirst = (result)=>{
-    if(result.data.data.sex === "ชาย")
-    {
-      return setMale(true)
+  const setSexFirst = (result) => {
+    if (result.data.data.sex === "ชาย") {
+      return setMale(true);
+    } else if (result.data.data.sex === "หญิง") {
+      return setMale(false);
     }
-    else if(result.data.data.sex === "หญิง") {
-      return  setMale(false)
-    }
-  }
-  useMemo( async() => {
-   await axios
+  };
+  useMemo(async () => {
+    await axios
       .post("http://localhost:7000/user/session", { user: user })
       .then((result) => {
         setUsername(result.data.data.username);
         setFirstname(result.data.data.firstname);
         setSurname(result.data.data.surname);
-        setSexFirst(result)
+        setSexFirst(result);
         setSex(result.data.data.sex);
         setPhone(result.data.data.phone);
         setProvince(result.data.data.province);
@@ -92,7 +94,7 @@ const EditProfile = () => {
       .catch((err) => {
         console.log(err);
       });
-      setLoading(false)
+    setLoading(false);
   }, [user]);
   // Style มาตรฐานของ Formik
   const styles = {
@@ -114,9 +116,14 @@ const EditProfile = () => {
     },
   };
 
-  return loading ? "" : (
-    <div>
-      <NavbarPage />
+  return loading ? (
+    ""
+  ) : (
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-signup">
         <form className="LoginForm" onSubmit={SubmitHandle}>
           <p className="h2 text-center mb-2 font-weight-bold text1-signup">
@@ -202,64 +209,63 @@ const EditProfile = () => {
             <div className="form-group my-0">
               <label className="label-form-title-profile">เพศ</label>
               <div className="form-inside-profile">
-              { male ? (
-                <div>
-                <div className="profile-data d-inline mr-2">
-                  <input
-                    required
-                    onChange={selectSex}
-                    name="gender"
-                    type="radio"
-                    id="male"
-                    value="ชาย"
-                    className="mr-1"
-                    checked="checked"
-                  />
-                  <label htmlFor="male">ชาย</label>
-                </div>
-                <div className="profile-data d-inline">
-                  <input
-                    required
-                    onChange={selectSex}
-                    name="gender"
-                    type="radio"
-                    id="female"
-                    value="หญิง"
-                    className="mr-1"
-                  />
-                  <label htmlFor="female">หญิง</label>
-                </div>
-                </div>
-              ) : (
-                <div>
-              <div className="profile-data d-inline mr-2">
-              <input
-                required
-                onChange={selectSex}
-                name="gender"
-                type="radio"
-                id="male"
-                value="ชาย"
-                className="mr-1"
-              />
-              <label htmlFor="male">ชาย</label>
-            </div>
-            <div className="profile-data d-inline">
-              <input
-                required
-                onChange={selectSex}
-                name="gender"
-                type="radio"
-                id="female"
-                value="หญิง"
-                className="mr-1"
-                checked="checked"
-              />
-              <label htmlFor="female">หญิง</label>
-            </div>
-            </div>
-                )
-              }
+                {male ? (
+                  <div>
+                    <div className="profile-data d-inline mr-2">
+                      <input
+                        required
+                        onChange={selectSex}
+                        name="gender"
+                        type="radio"
+                        id="male"
+                        value="ชาย"
+                        className="mr-1"
+                        checked="checked"
+                      />
+                      <label htmlFor="male">ชาย</label>
+                    </div>
+                    <div className="profile-data d-inline">
+                      <input
+                        required
+                        onChange={selectSex}
+                        name="gender"
+                        type="radio"
+                        id="female"
+                        value="หญิง"
+                        className="mr-1"
+                      />
+                      <label htmlFor="female">หญิง</label>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="profile-data d-inline mr-2">
+                      <input
+                        required
+                        onChange={selectSex}
+                        name="gender"
+                        type="radio"
+                        id="male"
+                        value="ชาย"
+                        className="mr-1"
+                      />
+                      <label htmlFor="male">ชาย</label>
+                    </div>
+                    <div className="profile-data d-inline">
+                      <input
+                        required
+                        onChange={selectSex}
+                        name="gender"
+                        type="radio"
+                        id="female"
+                        value="หญิง"
+                        className="mr-1"
+                        checked="checked"
+                      />
+                      <label htmlFor="female">หญิง</label>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -292,9 +298,7 @@ const EditProfile = () => {
                     setProvince(e.target.value);
                   }}
                 >
-                  <option selected>
-                    กรุณาเลือกจังหวัด
-                  </option>
+                  <option selected>กรุณาเลือกจังหวัด</option>
                   <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                   <option value="กระบี่">กระบี่ </option>
                   <option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -389,8 +393,7 @@ const EditProfile = () => {
       </div>
       <Chatbot />
     </div>
-  )
-                
+  );
 };
 
 export default EditProfile;

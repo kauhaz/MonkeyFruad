@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import "./post.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
 import * as moment from "moment";
@@ -15,7 +15,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter
+  ModalFooter,
 } from "react-bootstrap";
 import {
   auth,
@@ -34,9 +34,9 @@ const Post = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const location = useLocation();
   let { user, setUser } = useContext(usercontext);
-  const [filteritem, Setfilteritem] = useState();
+
   const [facebook, Setfacebook] = useState();
   const [line, Setline] = useState();
   const [instagram, Setinstagram] = useState();
@@ -44,27 +44,82 @@ const Post = () => {
   const [other, Setother] = useState();
   const [result, Setresult] = useState();
   const [assesory, Setassesory] = useState(false);
+  const [cloth, Setcloth] = useState(false);
+  const [shoe, Setshoe] = useState(false);
+  const [bag, Setbag] = useState(false);
+  const [phone, Setphone] = useState(false);
+  const [food, Setfood] = useState(false);
+  const [foodwealth, Setfoodwealth] = useState(false);
+  const [beauty, Setbeauty] = useState(false);
+  const [computer, Setcomputer] = useState(false);
+  const [camera, Setcamera] = useState(false);
+  const [sport, Setsport] = useState(false);
+  const [media, Setmedia] = useState(false);
+  const [game, Setgame] = useState(false);
+  const [car, Setcar] = useState(false);
+  const [ticket, Setticket] = useState(false);
+  const [electronic, Setelectronic] = useState(false);
+  const [furniture, Setfurniture] = useState(false);
+  const [pet, Setpet] = useState(false);
+  const [kian, Setkian] = useState(false);
+  const [book, Setbook] = useState(false);
+  const [music, Setmusic] = useState(false);
+
+  const [othercatalog, Setothercatalog] = useState(false);
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
   const [checkother, Setcheckother] = useState(false);
-  const [checkassesory, Setcheckassesory] = useState(false);
 
+  const [InitCheckFacebook, setInitCheckFacebook] = useState(false);
+  const [InitCheckLine, setInitCheckLine] = useState(false);
+  const [InitCheckTwitter, setInitCheckTwitter] = useState(false);
+  const [InitCheckInstragram, setInitCheckInstragram] = useState(false);
+  const [InitCheckOther, setInitCheckOther] = useState(false);
+
+  const [checkassesory, Setcheckassesory] = useState(false);
+  const [checkcloth, Setcheckcloth] = useState(false);
+  const [checkshoe, Setcheckshoe] = useState(false);
+  const [checkbag, Setcheckbag] = useState(false);
+  const [checkphone, Setcheckphone] = useState(false);
+  const [checkfood, Setcheckfood] = useState(false);
+  const [checkfoodwealth, Setcheckfoodwealth] = useState(false);
+  const [checkbeauty, Setcheckbeauty] = useState(false);
+  const [checkcomputer, Setcheckcomputer] = useState(false);
+  const [checkcamera, Setcheckcamera] = useState(false);
+  const [checksport, Setchecksport] = useState(false);
+  const [checkmedia, Setcheckmedia] = useState(false);
+  const [checkgame, Setcheckgame] = useState(false);
+  const [checkcar, Setcheckcar] = useState(false);
+  const [checkticket, Setcheckticket] = useState(false);
+  const [checkelectronic, Setcheckelectronic] = useState(false);
+  const [checkfurniture, Setcheckfurniture] = useState(false);
+  const [checkpet, Setcheckpet] = useState(false);
+  const [checkkian, Setcheckkian] = useState(false);
+  const [checkbook, Setcheckbook] = useState(false);
+  const [checkmusic, Setcheckmusic] = useState(false);
+  const [checkothercatalog, Setcheckothercatalog] = useState(false);
+
+  const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let history = useHistory();
+  const [showDropdown, SetshowDropdown] = useState(true);
 
   //  const handleclick = async() => {
   //     Setcheck(!check)
   //   }
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
 
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setshow(getpost.data.item);
     const getdata = getpost.data.item;
-
     var item = [];
+
     getdata.filter((doc) => {
       if (facebook && doc.social === "Facebook") {
         if (checkfacebook) {
@@ -72,7 +127,6 @@ const Post = () => {
           Setshow();
         }
       }
-
       if (line && doc.social === "Line") {
         if (checkline) {
           item.push(doc);
@@ -97,22 +151,958 @@ const Post = () => {
           Setshow();
         }
       }
-      // if (assesory && doc.productcategory === "เครื่่องประดับ") {
-      //   if (checkassesory) {
-      //       item.push(doc)
-      //       Setshow();
 
-      //     item.forEach(doc2 =>{
-      //       if(doc2.accountnumber === doc.accountnumber){
-      //         console.log(doc)
-      //       }else{
-      //         item.push(doc)
-      //       }
-      //     })
+      if (cloth && doc.productcategory === "เสื้อผ้า") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkcloth) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เสื้อผ้า" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+      if (assesory && doc.productcategory === "เครื่่องประดับ") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkassesory) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เครื่่องประดับ" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+      if (shoe && doc.productcategory === "รองเท้า") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkshoe) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "รองเท้า" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
 
-      //     // Setshow();
-      //   }
-      // }
+      if (bag && doc.productcategory === "กระเป๋า") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkbag) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "กระเป๋า" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (phone && doc.productcategory === "มือถือและอุปกรณ์เสริม") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkphone) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "มือถือและอุปกรณ์เสริม" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (food && doc.productcategory === "อาหารและเครื่่องดื่ม") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkfood) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "อาหารและเครื่่องดื่ม" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (
+        foodwealth &&
+        doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"
+      ) {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkfoodwealth) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "อาหารเสริมและผลิตภัณฑ์สุขภาพ" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (
+        beauty &&
+        doc.productcategory === "เครื่่องสำอางค์และอุปกรณ์เสริมความงาม"
+      ) {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkbeauty) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !==
+                  "เครื่่องสำอางค์และอุปกรณ์เสริมความงาม" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (computer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkcomputer) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "คอมพิวเตอร์แล็ปท็อป" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (camera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkcamera) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "กล้องและอุปกรณ์ถ่ายภาพ" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (sport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checksport) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "กีฬาและกิจกรรมกลางแจ้ง" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (media && doc.productcategory === "สื่่อบันเทิงภายในบ้าน") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkmedia) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "สื่่อบันเทิงภายในบ้าน" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (game && doc.productcategory === "เกมส์และฮ๊อบบี้") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkgame) {
+          //check select assesory
+          console.log(doc);
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เกมส์และฮ๊อบบี้" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (car && doc.productcategory === "ยานยนต์") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkcar) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "ยานยนต์" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (ticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkticket) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "ตั๋วและบัตรกำนัน" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (electronic && doc.productcategory === "เครื่่องใช้ไฟฟ้า") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkelectronic) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เครื่่องใช้ไฟฟ้า" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (furniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkfurniture) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เฟอร์นิเจอร์และของตกแต่งบ้าน" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (pet && doc.productcategory === "สัตว์เลี้ยง") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkpet) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "สัตว์เลี้ยง" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (kian && doc.productcategory === "เครื่่องเขียน") {
+        console.log("gggg");
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkkian) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เครื่่องเขียน" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (book && doc.productcategory === "หนังสือ") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkbook) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "หนังสือ" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (music && doc.productcategory === "เครื่่องดนตรี") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkmusic) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "เครื่่องดนตรี" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
+
+      if (othercatalog && doc.productcategory === "อื่่นๆ") {
+        let o = [];
+        let i = 0;
+        let a = -1;
+        o.push(doc); // count doc
+        for (let k = 0; k <= o.length; k++) {
+          i++;
+        } // count doc
+        if (checkothercatalog) {
+          //check select assesory
+          if (
+            checkfacebook ||
+            checkline ||
+            checkinstagram ||
+            checktwitter ||
+            checkother
+          ) {
+            //check select social
+            console.log(item.length);
+            item.forEach((doc2) => {
+              a++;
+              if (
+                doc2.productcategory !== "อื่่นๆ" &&
+                doc2.social !== doc.social &&
+                doc2.accountnumber !== doc.accountnumber &&
+                doc2.date !== doc.date
+              ) {
+                //check not same post
+                if (a > i) {
+                } else {
+                  item.push(doc);
+                  Setshow();
+                }
+              }
+            });
+            console.log(item);
+          } else {
+            item.push(doc);
+            Setshow();
+          }
+        }
+      }
     });
     Setresult(item);
   };
@@ -124,14 +1114,38 @@ const Post = () => {
     checkline,
     checktwitter,
     checkother,
+    checkcloth,
     checkassesory,
+    checkshoe,
+    checkbag,
+    checkphone,
+    checkfood,
+    checkfoodwealth,
+    checkbeauty,
+    checkcomputer,
+    checkcamera,
+    checksport,
+    checkmedia,
+    checkgame,
+    checkcar,
+    checkticket,
+    checkelectronic,
+    checkfurniture,
+    checkpet,
+    checkkian,
+    checkbook,
+    checkmusic,
+    checkothercatalog,
   ]);
 
-  console.log(result);
+  // console.log(result);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
@@ -152,11 +1166,11 @@ const Post = () => {
               </div>
             </Link>
 
-            {/* <h1 className="h1-posts">
+            <h1 className="h1-posts">
               {" "}
               มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
               โพสต์
-            </h1> */}
+            </h1>
 
             {show ? (
               show.map((res) => {
@@ -164,60 +1178,12 @@ const Post = () => {
                   <div>
                     <div className="container-post2">
                       <div className="cotainer-post3">
-                        <div className="post-profile-img">
-                          {res.photoURL ? (
-                            <img
-                              className="img-circle"
-                              src={`${res.photoURL.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src={"/img/profile.png"}
-                            />
-                          )}
-                          <div className="post-name">
-                            {res.username ? "@" : null}
-                            {res.username}
-                          </div>
-                          <br />
-                          <div className="post-date">
-                            <span className="post-time">
-                              {moment(new Date(res.date.seconds * 1000)).format(
-                                "lll"
-                              )}
-                            </span>
-                          </div>
-                        </div>
-
                         {/* <div className="postbuttonreport">
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
                           </a>
                         </div> */}
 
-                        <div className="postbuttonreport">
-                          <button variant="primary" onClick={handleShow} className="postbuttonreported" >
-                            <i class="fa fa-flag"></i>
-                          </button>
-                        </div>
-
-                        <Modal show={Show} onHide={handleClose} className="modalreport">
-                          <Modal.Header closeButton>
-                            <Modal.Title className="namereport">รายงานโพสต์</Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            Woohoo, you're reading this text in a modal!
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                              Save Changes
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -273,22 +1239,6 @@ const Post = () => {
                                 <Form.Group
                                   as={Col}
                                   className="post-left col-lg-6 col-12"
-                                  controlId="formGridPrice"
-                                >
-                                  <Form.Label>จำนวนเงิน</Form.Label>
-                                </Form.Group>
-
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.money} บาท
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
@@ -299,42 +1249,6 @@ const Post = () => {
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
                                     ).format("lll")}{" "}
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridDate"
-                                >
-                                  <Form.Label>
-                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                    ถูกแจ้ง{" "}
-                                  </Form.Label>
-                                </Form.Group>
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.count} ครั้ง
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridPrice"
-                                >
-                                  <Form.Label>
-                                    {" "}
-                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                  </Form.Label>
-                                </Form.Group>
-
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.summoney} บาท
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -351,11 +1265,6 @@ const Post = () => {
                               </Link>
                             </div>
                           </div>
-
-                          <div className="line-post1"></div>
-                          <div className="container-post6">
-                            <Commentitem postid={res.uid} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -371,41 +1280,6 @@ const Post = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="post-name">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("lll")}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
-                              </div>
-
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -465,22 +1339,6 @@ const Post = () => {
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label>วันที่โดนโกง</Form.Label>
@@ -496,42 +1354,6 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
                                   </Form>
                                   <div className="postother">
                                     <Link
@@ -544,11 +1366,6 @@ const Post = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
-                                </div>
-
-                                <div className="line-post1"></div>
-                                <div className="container-post6">
-                                  <Commentitem postid={res.uid} />
                                 </div>
                               </div>
                             </div>
@@ -589,6 +1406,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -596,7 +1414,6 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => Setcheckfacebook(!checkfacebook)}
-                      value="Facebook"
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -612,7 +1429,6 @@ const Post = () => {
                       id="defaultInline2"
                       onChange={(e) => Setline(e.target.value)}
                       onClick={() => Setcheckline(!checkline)}
-                      value="Line"
                     />
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -626,9 +1442,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline3"
-                      onChange={(e) => Setinstagram(e.target.value)}
+                      onChange={(e) => Setinstagram(e)}
                       onClick={() => Setcheckinstagram(!checkinstagram)}
-                      value="Instagram"
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -644,7 +1459,6 @@ const Post = () => {
                       id="defaultInline4"
                       onChange={(e) => Settwitter(e.target.value)}
                       onClick={() => Setchecktwitter(!checktwitter)}
-                      value="Twitter"
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -660,7 +1474,6 @@ const Post = () => {
                       id="defaultInline5"
                       onChange={(e) => Setother(e.target.value)}
                       onClick={() => Setcheckother(!checkother)}
-                      value="other"
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -678,6 +1491,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline1-2"
+                      onChange={(e) => Setcloth(e.target.value)}
+                      onClick={() => Setcheckcloth(!checkcloth)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -706,6 +1521,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline3-2"
+                      onChange={(e) => Setshoe(e.target.value)}
+                      onClick={() => Setcheckshoe(!checkshoe)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -719,6 +1536,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline4-2"
+                      onChange={(e) => Setbag(e.target.value)}
+                      onClick={() => Setcheckbag(!checkbag)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -732,6 +1551,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline5-2"
+                      onChange={(e) => Setphone(e.target.value)}
+                      onClick={() => Setcheckphone(!checkphone)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -745,6 +1566,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline6"
+                      onChange={(e) => Setfood(e.target.value)}
+                      onClick={() => Setcheckfood(!checkfood)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -758,6 +1581,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline7"
+                      onChange={(e) => Setfoodwealth(e.target.value)}
+                      onClick={() => Setcheckfoodwealth(!checkfoodwealth)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -771,6 +1596,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline8"
+                      onChange={(e) => Setbeauty(e.target.value)}
+                      onClick={() => Setcheckbeauty(!checkbeauty)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -784,6 +1611,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline9"
+                      onChange={(e) => Setcomputer(e.target.value)}
+                      onClick={() => Setcheckcomputer(!checkcomputer)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -797,6 +1626,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline10"
+                      onChange={(e) => Setcamera(e.target.value)}
+                      onClick={() => Setcheckcamera(!checkcamera)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -810,6 +1641,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline11"
+                      onChange={(e) => Setsport(e.target.value)}
+                      onClick={() => Setchecksport(!checksport)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -823,6 +1656,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline12"
+                      onChange={(e) => Setmedia(e.target.value)}
+                      onClick={() => Setcheckmedia(!checkmedia)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -836,6 +1671,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline13"
+                      onChange={(e) => Setgame(e.target.value)}
+                      onClick={() => Setcheckgame(!checkgame)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -849,6 +1686,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline14"
+                      onChange={(e) => Setcar(e.target.value)}
+                      onClick={() => Setcheckcar(!checkcar)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -862,6 +1701,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline15"
+                      onChange={(e) => Setticket(e.target.value)}
+                      onClick={() => Setcheckticket(!checkticket)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -875,6 +1716,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline16"
+                      onChange={(e) => Setelectronic(e.target.value)}
+                      onClick={() => Setcheckelectronic(!checkelectronic)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -888,6 +1731,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline17"
+                      onChange={(e) => Setfurniture(e.target.value)}
+                      onClick={() => Setcheckfurniture(!checkfurniture)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -901,6 +1746,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline18"
+                      onChange={(e) => Setpet(e.target.value)}
+                      onClick={() => Setcheckpet(!checkpet)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -914,6 +1761,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline19"
+                      onChange={(e) => Setkian(e.target.value)}
+                      onClick={() => Setcheckkian(!checkkian)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -927,6 +1776,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline20"
+                      onChange={(e) => Setbook(e.target.value)}
+                      onClick={() => Setcheckbook(!checkbook)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -940,6 +1791,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline21"
+                      onChange={(e) => Setmusic(e.target.value)}
+                      onClick={() => Setcheckmusic(!checkmusic)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"
@@ -953,6 +1806,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline22"
+                      onChange={(e) => Setothercatalog(e.target.value)}
+                      onClick={() => Setcheckothercatalog(!checkothercatalog)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel2"

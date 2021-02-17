@@ -34,7 +34,9 @@ const Home = () => {
   const [haha, Sethaha] = useState();
   const [role, Setrole] = useState();
   const [show, Setshow] = useState();
+  const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
+  const [allpost, Setallpost] = useState();
   let history = useHistory();
   let i = 0; //forsearch
   const Getdata = async () => {
@@ -71,17 +73,23 @@ const Home = () => {
   useEffect(async () => {
     await Getdata();
   }, []);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
 
   const handlesearch = (e) => {
     try {
       e.preventDefault();
 
       if (search) {
-        const getdata = searching.filter((doc) => {
+        const getdata = allpost.filter((doc) => {
           return (
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search)
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
           );
         });
 
@@ -93,6 +101,7 @@ const Home = () => {
             search: "are you ok",
             state: {
               getdata,
+              search,
             },
           });
         }
@@ -103,16 +112,70 @@ const Home = () => {
       console.log(err);
     }
   };
-
+  const Go_FacebookPost = () => {
+    history.push({
+      pathname: "/post",
+      search: "facebook",
+      state: {
+        selectfacebook : true
+      },
+    });
+  };
+  const Go_Instragram = () => {
+    history.push({
+      pathname: "/post",
+      search: "instragram",
+      state: {
+        selectinstragram : true
+      }
+    });
+  };
+  const Go_Line = () => {
+    history.push({
+      pathname: "/entersearch",
+      search: "line",
+      state: {
+        selectline : true
+      },
+    });
+  };
+  const Go_Twitter = () => {
+    history.push({
+      pathname: "/entersearch",
+      search: "twitter",
+      state: {
+        selecttwitter : true
+      },
+    });
+  };
+  const Go_Other = () => {
+    history.push({
+      pathname: "/post",
+      search: "other",
+      state: {
+        selectother : true
+      },
+    });
+  };
   const ok = async () => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
-
+      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
       if (search) {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
+            if (
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
+            ) {
+              Sethaha(true);
+            }
             if (doc.accountnumber.startsWith(search)) {
               Sethaha(true);
             }
@@ -125,7 +188,12 @@ const Home = () => {
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search)
+              doc.accountnumber.startsWith(search) ||
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
             );
           })
         );
@@ -143,8 +211,11 @@ const Home = () => {
   }, [search]);
 
   return (
-    <div>
-      <NavbarPage />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container1-index">
         <div className="row-section1">
           <div className="column1-index">
@@ -157,7 +228,10 @@ const Home = () => {
                     type="text"
                     placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                     aria-label="Search"
-                    onChange={(e) => Setsearch(e.target.value)}
+                    onChange={(e) => {
+                      Setsearch(e.target.value);
+                      SetshowDropdown(true);
+                    }}
                   />
                   <button type="submit" className="button1-index">
                     ค้นหา
@@ -168,42 +242,50 @@ const Home = () => {
               {error}
 
               <div className="gg-index">
-              {lastsearch
-                ? lastsearch.map((doc) => {
-                    let thiefid = doc.accountnumber;
-                    i++;
-                    return (
-                      <div>
-                        {i <= 10 ? (
-                          <div>
-                            {" "}
-                            {haha ? (
-                              <button
-                                className="search-index"
-                                onClick={() => (
-                                  history.push(`/thief/post/${thiefid}`),
-                                  window.location.reload(true)
-                                )}
-                              >
-                                <div className="Fall-crisp">
-                                  {" "}
-                                  {doc.name} {doc.surname} {doc.accountnumber}
-                                </div>
-                              </button>
-                            ) : null}
-                          </div>
-                        ) : null}
-                      </div>
-                    );
-                  })
-                : null}
-              {lastsearch ? (
-                <div className="dropsearch-index Fall-crisp" onClick={() => handlesearch()} >
-                  ค้นหา {search}
-                </div>
-              ) : null}
-            </div>
+                {lastsearch
+                  ? lastsearch.map((doc) => {
+                      let thiefid = doc.accountnumber;
+                      i++;
+                      return (
+                        <div>
+                          {i <= 10 ? (
+                            <div>
+                              {" "}
+                              {haha ? (
+                                showDropdown ? (
+                                  <button
+                                    className="search-index"
+                                    onClick={() => (
+                                      history.push(`/thief/post/${thiefid}`),
+                                      window.location.reload(true)
+                                    )}
+                                  >
+                                    <div className="Fall-crisp">
+                                      {" "}
+                                      {doc.name} {doc.surname}{" "}
+                                      {doc.accountnumber}
+                                    </div>
+                                  </button>
+                                ) : null
+                              ) : null}
+                            </div>
+                          ) : null}
+                        </div>
+                      );
+                    })
+                  : null}
 
+                {lastsearch ? (
+                  showDropdown ? (
+                    <div
+                      className="dropsearch-index Fall-crisp"
+                      onClick={() => handlesearch()}
+                    >
+                      ค้นหา {search}
+                    </div>
+                  ) : null
+                ) : null}
+              </div>
             </MDBCol>
           </div>
           <div className="line-index"></div>
@@ -225,10 +307,11 @@ const Home = () => {
             ? ThiefCount.map((element, index) => {
                 return (
                   <div className="column3-index" key={index}>
+                    <div className={`coin${index + 1} rank-index1`}>
+                      {index + 1}
+                    </div>
                     <MDBCard>
-                      <div className={`coin${index + 1} rank-index1`}>
-                        {index + 1}
-                      </div>
+                      <div className="emty-index"></div>
                       <MDBCardBody cascade className="text-center">
                         <p className="text3-index">
                           เลขที่บัญชี : {element.accountnumber} <br />
@@ -337,7 +420,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore1-index seemore">
+              <a onClick={Go_FacebookPost} className="readmore1-index seemore">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon

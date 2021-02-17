@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, DropdownButton , Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter, } from "react-bootstrap";
 import { Form, Col, FormControl, Button } from "react-bootstrap";
 import {
   auth,
@@ -19,14 +22,19 @@ import usercontext from "../context/usercontext";
 const Mypost = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
-
+  const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
-
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   let { user, setUser } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const deleted = async (uid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
@@ -50,11 +58,14 @@ const Mypost = () => {
   console.log(mypost);
 
   return (
-    <div className="allpage">
+    <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (
         <div>
           {" "}
-          <NavbarPage />
+          <NavbarPage
+            SetshowDropdown={SetshowDropdown}
+            showDropdown={showDropdown}
+          />
           <h1 className="h1-mypost">โพสต์ของฉัน</h1>
           {mypost
             ? mypost.map((ok) => {
@@ -81,12 +92,49 @@ const Mypost = () => {
                           </div>
                           <br />
                           <div className="mypost-date">
-                            {moment(new Date(ok.date.seconds *
-                                    1000)).format("lll")}
+                            {moment(new Date(ok.date.seconds * 1000)).format(
+                              "lll"
+                            )}
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
-
+                        {user && user.uid != ok.useruid ? (
+                          <div>
+                            <div className="postbuttonreport">
+                          <button
+                            variant="primary"
+                            onClick={handleShow}
+                            className="postbuttonreported"
+                          >
+                            <i class="fa fa-flag"></i>
+                          </button>
+                        </div>
+                              <Form.Row>
+                            <Modal
+                          show={Show}
+                          onHide={handleClose}
+                          className="modalreport"
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title className="namereport">
+                              รายงานโพสต์
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            Woohoo, you're reading this text in a modal!
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Close
+                            </Button>
+                            <Button variant="primary" onClick={handleClose}>
+                              Save Changes
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
+                        </Form.Row>
+                        </div>
+                        ) : null}
                         {user && user.uid == ok.useruid ? (
                           <div className="container-mypostsetiing">
                             <div className="menu-containermypostsetting">
@@ -246,8 +294,9 @@ const Mypost = () => {
                                 <Form.Label className="text-mypost">
                                   วันที่โดนโกง{" "}
                                   <span className="spanmypost">
-                                   {moment(new Date(ok.datetimes.seconds *
-                                    1000)).format("lll")}
+                                    {moment(
+                                      new Date(ok.datetimes.seconds * 1000)
+                                    ).format("lll")}
                                   </span>
                                 </Form.Label>
                               </Form.Group>
