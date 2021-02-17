@@ -44,14 +44,14 @@ const Prevent = () => {
           <div className="column-prevent2-1">
             <img src="/img/emty.png" className="image1-prevent1" />
           </div>
-          <div className="column-prevent2">
+          <div className="column-prevent2 column-prevent2-l">
             <img src="/img/prevent6.png" className="image1-prevent" />
             <div className="text-content-prevent">
               ปลอม SMS จากธนาคารเพื่อหลอกโอนเงิน หรือหลอกว่าให้โอนเงินคืน
               เพราะโอนเงินเกิน
             </div>
           </div>
-          <div className="column-prevent2">
+          <div className="column-prevent2 column-prevent2-r">
             <img src="/img/prevent7.png" className="image1-prevent" />
             <div className="text-content-prevent">
               อ้างว่าเป็นคนกลางในการซื้อขายสินค้า
@@ -64,34 +64,22 @@ const Prevent = () => {
         </div>
 
         <div className="row-prevent">
-          <div className="column-prevent">
+          <div className="column-prevent column-prevent3-1">
             <img src="/img/prevent4.png" className="image1-prevent" />
             <div className="text-content-prevent">
-              เปลี่ยนชื่อและเบอร์โทรฯ{" "}
-              <span className="br-prevent">
-                <br />
-              </span>
-              ไม่ซ้ำกัน<span className="show-prevent">a</span>
+              เปลี่ยนชื่อและเบอร์โทรฯไม่ซ้ำกัน
             </div>
           </div>
-          <div className="column-prevent">
+          <div className="column-prevent column-prevent3-2">
             <img src="/img/prevent5.png" className="image1-prevent" />
             <div className="text-content-prevent">
-              นัดเจอเพื่อรับของก่อน
-              <span className="br-prevent">
-                <br />
-              </span>
-              แล้วโอนทีหลัง
+              นัดเจอเพื่อรับของก่อนแล้วโอนทีหลัง
             </div>
           </div>
-          <div className="column-prevent">
+          <div className="column-prevent column-prevent3-3">
             <img src="/img/prevent8.png" className="image1-prevent" />
             <div className="text-content-prevent">
-              ขายสินค้าถูกกว่า
-              <span className="br-prevent">
-                <br />
-              </span>
-              ท้องตลาดเกินไป
+              ขายสินค้าถูกกว่าท้องตลาดเกินไป
             </div>
           </div>
         </div>
