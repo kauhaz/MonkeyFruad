@@ -137,15 +137,25 @@
     border: none;
 }
 
-.MDBDataTable {
-    color: inherit;
-    font-size: inherit;
+.rank-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+.rank-column {
+    text-align: center;
+    width: auto;
+    height: auto;
 }
 
 .rank-data {
     text-align: center;
 }
-
 
 
 /* Responsive */

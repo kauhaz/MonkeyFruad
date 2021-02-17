@@ -208,7 +208,16 @@ const Rank = () => {
             <option value="วันที่โกงล่าสุด" className="rank-option">วันที่โกงล่าสุด</option>
           </select>
         </div>
-        
+
+        <div className="rank-row">
+          <div className="rank-column col">อันดับ</div>
+          <div className="rank-column col">ชื่อ</div>
+          <div className="rank-column col">นามสกุล</div>
+          <div className="rank-column col">เลขบัญชี</div>
+          <div className="rank-column col">ยอดเงินทั้งหมด</div>
+          <div className="rank-column col">จำนวนครั้งที่โกง</div>
+          <div className="rank-column col">วันที่โกง</div>
+        </div>
         
       </div>  
       <Chatbot />
