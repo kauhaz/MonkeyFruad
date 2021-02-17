@@ -121,6 +121,7 @@ const Post = () => {
 
     var item = [];
     getdata.filter((doc) => {
+<<<<<<< HEAD
       if (facebook && doc.social === "Facebook") {
         if (checkfacebook) {
           if (checkcloth && doc.productcategory === "เสื้อผ้า") {
@@ -247,6 +248,108 @@ const Post = () => {
             item.push(doc);
             Setshow();
           }
+=======
+      if(location.search == '?facebook' ){
+        item.push(doc);
+        Setshow();
+      }
+      if (facebook && doc.social === "Facebook" ) {
+        if(checkfacebook){
+          if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkassesory && doc.productcategory === "เครื่องประดับ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkshoe && doc.productcategory === "รองเท้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbag && doc.productcategory === "กระเป๋า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkphone && doc.productcategory === "มือถือและอุปกรณ์เสริม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfood && doc.productcategory === "อาหารและเครื่องดื่ม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfoodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbeauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcomputer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcamera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checksport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkmedia && doc.productcategory === "สื่อบันเทิงภายในบ้าน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkgame && doc.productcategory === "เกมส์และฮ๊อบบี้"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkcar && doc.productcategory === "ยานยนต์"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkticket && doc.productcategory === "ตั๋วและบัตรกำนัน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkelectronic && doc.productcategory === "เครื่องใช้ไฟฟ้า"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkfurniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkpet && doc.productcategory === "สัตว์เลี้ยง"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkkian && doc.productcategory === "เครื่องเขียน"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkbook && doc.productcategory === "หนังสือ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkmusic && doc.productcategory === "เครื่องดนตรี"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(checkothercatalog && doc.productcategory === "อื่นๆ"){ 
+              item.push(doc);
+              Setshow();
+            }
+            if(!checkcloth && !checkassesory && !checkshoe && !checkbag && !checkphone && !checkfood && !checkfoodwealth && !checkbeauty && !checkcomputer  && !checkcamera && !checksport && 
+               !checkmedia && !checkgame && !checkcar && !checkticket && !checkelectronic &&  !checkfurniture && !checkpet && !checkkian && !checkbook && !checkmusic &&  !checkothercatalog  ){
+              item.push(doc);
+              Setshow();
+            }
+        
+>>>>>>> 922ce9ee8d235076e9f2dc773bafe8b46af99568
         }
       }
       if (line && doc.social === "Line") {
@@ -1866,11 +1969,7 @@ const Post = () => {
               </div>
             </Link>
 
-            <h1 className="h1-posts">
-              {" "}
-              มีโพสต์ทั้งหมด {show ? show.length : result && result.length}{" "}
-              โพสต์
-            </h1>
+    
 
             {show ? (
               show.map((res) => {
@@ -1883,7 +1982,33 @@ const Post = () => {
                             <i class="fa fa-flag"></i>
                           </a>
                         </div> */}
-
+                       <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">
+                              {moment(new Date(res.date.seconds * 1000)).format(
+                                "lll"
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                       
+                        
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -1934,7 +2059,21 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -1952,6 +2091,41 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>
+                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                    ถูกแจ้ง{" "}
+                                  </Form.Label>
+                                </Form.Group>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.count} ครั้ง
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>
+                                    {" "}
+                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                  </Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.summoney} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                             </Form>
                             <div className="postother">
                               <Link
@@ -1964,6 +2138,10 @@ const Post = () => {
                                 ดูเพิ่มเติม
                               </Link>
                             </div>
+                            <div className="line-post1"></div>
+                          <div className="container-post6">
+                            <Commentitem postid={res.uid} />
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -1980,6 +2158,31 @@ const Post = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
+                            <div className="post-profile-img">
+                          {res.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${res.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src={"/img/profile.png"}
+                            />
+                          )}
+                          <div className="post-name">
+                            {res.username ? "@" : null}
+                            {res.username}
+                          </div>
+                          <br />
+                          <div className="post-date">
+                            <span className="post-time">
+                              {moment(new Date(res.date.seconds * 1000)).format(
+                                "lll"
+                              )}
+                            </span>
+                          </div>
+                        </div>
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -2034,7 +2237,21 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
+                                    <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                     <Form.Row>
                                       <Form.Group
                                         as={Col}
@@ -2054,6 +2271,41 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
+                                    <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>
+                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                    ถูกแจ้ง{" "}
+                                  </Form.Label>
+                                </Form.Group>
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.count} ครั้ง
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>
+                                    {" "}
+                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                  </Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.summoney} บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                   </Form>
                                   <div className="postother">
                                     <Link
@@ -2066,6 +2318,10 @@ const Post = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
+                                  <div className="line-post1"></div>
+                          <div className="container-post6">
+                            <Commentitem postid={res.uid} />
+                          </div>
                                 </div>
                               </div>
                             </div>
