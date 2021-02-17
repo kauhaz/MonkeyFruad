@@ -137,13 +137,23 @@
     border: none;
 }
 
-.rank-row {
+.rank-column-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+
+.rank-data-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background-color: white;
     margin: .7rem auto;
-    border-radius: .7rem;
+    border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 
@@ -152,18 +162,11 @@
     width: auto;
     height: auto;
     padding: .5rem;
-    margin: 0 auto;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.rank-column {
-    text-align: center;
-    width: auto;
-    height: auto;
-    padding: .5rem;
     vertical-align: middle;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .rank-data-img {
@@ -176,6 +179,7 @@
     border-radius: 50%;
     object-fit: cover;
     object-position: center right;
+    margin-right: .5rem;
 }
 
 /* Responsive */

@@ -209,7 +209,7 @@ const Rank = () => {
           </select>
         </div>
 
-        <div className="rank-row">
+        <div className="rank-column-row">
           <div className="rank-column col">อันดับ</div>
           <div className="rank-column col">ชื่อ</div>
           <div className="rank-column col">นามสกุล</div>
@@ -219,10 +219,8 @@ const Rank = () => {
           <div className="rank-column col">วันที่โกง</div>
         </div>
 
-        <div className="rank-row">
-          <div className="rank-column col">
-            <span className="rank-data">1</span>
-          </div>
+        <div className="rank-data-row">
+          <div className="rank-column col">1</div>
           <div className="rank-column col">
             <div className="rank-data-img">
               <img src="/img/nui.jpg"></img>
