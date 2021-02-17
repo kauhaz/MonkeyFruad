@@ -141,7 +141,9 @@ const Rank = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <h1 className="h1-ranking">จัดอันดับคนโกง</h1>
+      <h1 className="h1-ranking">จัดอันดับคนโกง 
+        <span className="rank-sort-head">เรียงตาม: <span>จำนวนครั้งที่โกงมากที่สุด</span></span>
+      </h1>
       <div className="container2-index">
         <div className="row">
           {ThiefCount
@@ -189,7 +191,7 @@ const Rank = () => {
         </div>
       </div>
 
-      <MDBContainer className="container-ranking">
+      <div className="container-ranking">
         <div className="rank-sorting">
           <select
             as="select"
@@ -199,41 +201,16 @@ const Rank = () => {
               // SelectClick(e);
             }}
           >
-            <option selected value="จำนวนครั้งที่โกงมากที่สุด">
+            <option selected value="จำนวนครั้งที่โกงมากที่สุด" className="rank-option">
               จำนวนครั้งที่โกงมากที่สุด
             </option>
-            <option value="ยอดโกงสูงสุด">ยอดเงินที่โกงสูงสุด</option>
-            <option value="วันที่โกงล่าสุด">วันที่โกงล่าสุด</option>
+            <option value="ยอดโกงสูงสุด" className="rank-option">ยอดเงินที่โกงสูงสุด</option>
+            <option value="วันที่โกงล่าสุด" className="rank-option">วันที่โกงล่าสุด</option>
           </select>
         </div>
-        <MDBDataTable
-          responsive
-          striped
-          bordered
-          paging={false}
-          searching={false}
-          data={data}
-          className="rank-data"
-        />
-      </MDBContainer>
-      
-      <MDBContainer size="sm">
-         <div style={{backgroundColor: 'blue', color: 'white'}}>Content small</div>
-      </MDBContainer>
-
-      <MDBContainer size="md">
-       <div style={{backgroundColor: 'red', color: 'white'}}>Content medium</div>
-      </MDBContainer>
-
-      <MDBContainer size="lg">
-        <div style={{backgroundColor: 'orange', color: 'white'}}>Content large</div>
-      </MDBContainer>
-
-      <MDBContainer size="xl">
-        <div style={{backgroundColor: 'green', color: 'white'}}>Content extra large</div>
-      </MDBContainer>
-
-      
+        
+        
+      </div>  
       <Chatbot />
     </div>
   );

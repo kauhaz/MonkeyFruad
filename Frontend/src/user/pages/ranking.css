@@ -6,19 +6,22 @@
     color: #8B0000;
 }
 
+.rank-sort-head {
+    margin-top: .5rem;
+    font-size: 16px;
+    color: #737475;
+    display: block;
+    justify-content: center;
+}
+
 .container2-index{
-    width: 60%;
+    width: 65%;
     height: 380px;
     /* background-color: teal; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    margin-bottom: 100px;
-}
-
-.container2-index{
     margin-bottom: 60px;
-    width: 65%;
 }
 
 .column3-index{
@@ -100,13 +103,14 @@
 }
 
 .container-ranking {
-    margin: 40px auto;
-    padding: 20px 40px;
-    font-family: 'Kanit', sans-serif;
-    background-color: white;
+    width: 65%;
     height: auto;
-    border: 1px solid;
-    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    margin: 40px auto;
+    padding: 0 auto;
+    font-family: 'Kanit', sans-serif;
+    background-color: transparent;
+    height: auto;
+    border: none;
     border-radius: .5rem;
 }
 
@@ -120,13 +124,17 @@
 }
 
 .rank-sort-select {
+    background-color: inherit;
     color: inherit;
     padding: .175rem .55rem;
     font-size: 1rem;
     line-height: 1.5;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border: none;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.rank-sort-select:focus, .rank-sort-select:active {
+    border: none;
 }
 
 .MDBDataTable {
