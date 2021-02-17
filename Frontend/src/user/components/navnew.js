@@ -75,7 +75,6 @@ const NavbarPage = ({ show, SetshowDropdown, showDropdown }) => {
               search,
             },
           });
-          window.location.reload(true);
         }
       }
     } catch (err) {

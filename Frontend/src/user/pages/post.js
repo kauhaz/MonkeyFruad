@@ -100,7 +100,7 @@ const Post = () => {
   const [checkbook, Setcheckbook] = useState(false);
   const [checkmusic, Setcheckmusic] = useState(false);
   const [checkothercatalog, Setcheckothercatalog] = useState(false);
-  const [searchstart, Setsearchstart] = useState();
+  const [searchstart, Setsearchstart] = useState(false);
   const [searchend, Setsearchend] = useState();
 
 
@@ -5719,38 +5719,8 @@ const Post = () => {
                           </a>
                         </div> */}
 
-                        <div className="postbuttonreport">
-                          <button
-                            variant="primary"
-                            onClick={handleShow}
-                            className="postbuttonreported"
-                          >
-                            <i class="fa fa-flag"></i>
-                          </button>
-                        </div>
-
-                        <Modal
-                          show={Show}
-                          onHide={handleClose}
-                          className="modalreport"
-                        >
-                          <Modal.Header closeButton>
-                            <Modal.Title className="namereport">
-                              รายงานโพสต์
-                            </Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            Woohoo, you're reading this text in a modal!
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                              Save Changes
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
+   
+            
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
