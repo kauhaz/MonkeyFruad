@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import "./post.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
 import * as moment from "moment";
@@ -34,7 +34,7 @@ const Post = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const location = useLocation();
   let { user, setUser } = useContext(usercontext);
 
   const [facebook, Setfacebook] = useState();
@@ -64,13 +64,20 @@ const Post = () => {
   const [kian, Setkian] = useState(false);
   const [book, Setbook] = useState(false);
   const [music, Setmusic] = useState(false);
-  
+
   const [othercatalog, Setothercatalog] = useState(false);
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
   const [checkother, Setcheckother] = useState(false);
+
+  const [InitCheckFacebook, setInitCheckFacebook] = useState(false);
+  const [InitCheckLine, setInitCheckLine] = useState(false);
+  const [InitCheckTwitter, setInitCheckTwitter] = useState(false);
+  const [InitCheckInstragram, setInitCheckInstragram] = useState(false);
+  const [InitCheckOther, setInitCheckOther] = useState(false);
+
   const [checkassesory, Setcheckassesory] = useState(false);
   const [checkcloth, Setcheckcloth] = useState(false);
   const [checkshoe, Setcheckshoe] = useState(false);
@@ -93,7 +100,7 @@ const Post = () => {
   const [checkbook, Setcheckbook] = useState(false);
   const [checkmusic, Setcheckmusic] = useState(false);
   const [checkothercatalog, Setcheckothercatalog] = useState(false);
-  
+
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -216,7 +223,6 @@ const Post = () => {
         }
         
       }
-
       if (line && doc.social === "Line") {
         if (checkline) {
           if(checkcloth && doc.productcategory === "เสื้อผ้า"){ 
@@ -626,7 +632,6 @@ const Post = () => {
           }
         }
       }
-
       if (shoe && doc.productcategory === "รองเท้า") {
         if (checkshoe) {
           if (!checkfacebook && !checkline && !checkinstagram && !checktwitter && !checkother){
@@ -652,7 +657,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (food && doc.productcategory === "อาหารและเครื่องดื่ม") {
         if (checkfood) {
@@ -661,7 +666,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (foodwealth && doc.productcategory === "อาหารเสริมและผลิตภัณฑ์สุขภาพ") {
         if (checkfoodwealth) {
@@ -670,7 +675,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (beauty && doc.productcategory === "เครื่องสำอางค์และอุปกรณ์เสริมความงาม") {
         if (checkbeauty) {
@@ -679,8 +684,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
-
+      }
 
       if (computer && doc.productcategory === "คอมพิวเตอร์แล็ปท็อป") {
         if (checkcomputer) {
@@ -689,7 +693,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (camera && doc.productcategory === "กล้องและอุปกรณ์ถ่ายภาพ") {
         if (checkcamera) {
@@ -698,7 +702,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (sport && doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
         if (checksport) {
@@ -707,8 +711,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
-
+      }
 
       if (media && doc.productcategory === "สื่อบันเทิงภายในบ้าน") {
         if (checkmedia) {
@@ -717,8 +720,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
-
+      }
 
       if (game && doc.productcategory === "เกมส์และฮ๊อบบี้") {
         if (checkgame) {
@@ -727,7 +729,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (car && doc.productcategory === "ยานยนต์") {
         if (checkcar) {
@@ -736,7 +738,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (ticket && doc.productcategory === "ตั๋วและบัตรกำนัน") {
         if (checkticket) {
@@ -745,7 +747,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (electronic && doc.productcategory === "เครื่องใช้ไฟฟ้า") {
         if (checkelectronic) {
@@ -754,7 +756,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (furniture && doc.productcategory === "เฟอร์นิเจอร์และของตกแต่งบ้าน") {
         if (checkfurniture) {
@@ -763,7 +765,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (pet && doc.productcategory === "สัตว์เลี้ยง") {
         if (checkpet) {
@@ -772,7 +774,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (kian && doc.productcategory === "เครื่องเขียน") {
        if (checkkian) {
@@ -781,7 +783,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       if (book && doc.productcategory === "หนังสือ") {
         if (checkbook) {
@@ -790,7 +792,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
         if (music && doc.productcategory === "เครื่องดนตรี") {
           if (checkmusic) {
@@ -808,7 +810,7 @@ const Post = () => {
             Setshow();  
           }
         }
-      } 
+      }
 
       
 
@@ -1570,8 +1572,7 @@ const Post = () => {
     checkkian,
     checkbook,
     checkmusic,
-    checkothercatalog
-   
+    checkothercatalog,
   ]);
 
   // console.log(result);
@@ -1614,70 +1615,12 @@ const Post = () => {
                   <div>
                     <div className="container-post2">
                       <div className="cotainer-post3">
-                        <div className="post-profile-img">
-                          {res.photoURL ? (
-                            <img
-                              className="img-circle"
-                              src={`${res.photoURL.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src={"/img/profile.png"}
-                            />
-                          )}
-                          <div className="post-name">
-                            {res.username ? "@" : null}
-                            {res.username}
-                          </div>
-                          <br />
-                          <div className="post-date">
-                            <span className="post-time">
-                              {moment(new Date(res.date.seconds * 1000)).format(
-                                "lll"
-                              )}
-                            </span>
-                          </div>
-                        </div>
-
                         {/* <div className="postbuttonreport">
                           <a className="postbuttonreported" href="/post/edit">
                             <i class="fa fa-flag"></i>
                           </a>
                         </div> */}
 
-                        <div className="postbuttonreport">
-                          <button
-                            variant="primary"
-                            onClick={handleShow}
-                            className="postbuttonreported"
-                          >
-                            <i class="fa fa-flag"></i>
-                          </button>
-                        </div>
-
-                        <Modal
-                          show={Show}
-                          onHide={handleClose}
-                          className="modalreport"
-                        >
-                          <Modal.Header closeButton>
-                            <Modal.Title className="namereport">
-                              รายงานโพสต์
-                            </Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            Woohoo, you're reading this text in a modal!
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                              Save Changes
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
                         <div className="container-post4">
                           <div className="container-post5">
                             <Form className="formsize-post">
@@ -1733,22 +1676,6 @@ const Post = () => {
                                 <Form.Group
                                   as={Col}
                                   className="post-left col-lg-6 col-12"
-                                  controlId="formGridPrice"
-                                >
-                                  <Form.Label>จำนวนเงิน</Form.Label>
-                                </Form.Group>
-
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.money} บาท
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
@@ -1759,42 +1686,6 @@ const Post = () => {
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
                                     ).format("lll")}{" "}
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridDate"
-                                >
-                                  <Form.Label>
-                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                    ถูกแจ้ง{" "}
-                                  </Form.Label>
-                                </Form.Group>
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.count} ครั้ง
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridPrice"
-                                >
-                                  <Form.Label>
-                                    {" "}
-                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                  </Form.Label>
-                                </Form.Group>
-
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.summoney} บาท
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -1811,11 +1702,6 @@ const Post = () => {
                               </Link>
                             </div>
                           </div>
-
-                          <div className="line-post1"></div>
-                          <div className="container-post6">
-                            <Commentitem postid={res.uid} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -1831,41 +1717,6 @@ const Post = () => {
                         <div>
                           <div className="container-post2">
                             <div className="cotainer-post3">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="post-name">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("lll")}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="postbuttonreport">
-                                <a
-                                  className="postbuttonreported"
-                                  href="/post/edit"
-                                >
-                                  <i class="fa fa-flag"></i>
-                                </a>
-                              </div>
-
                               <div className="container-post4">
                                 <div className="container-post5">
                                   <Form className="formsize-post">
@@ -1925,22 +1776,6 @@ const Post = () => {
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label>วันที่โดนโกง</Form.Label>
@@ -1956,42 +1791,6 @@ const Post = () => {
                                         </span>
                                       </Form.Group>
                                     </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney} บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
                                   </Form>
                                   <div className="postother">
                                     <Link
@@ -2004,11 +1803,6 @@ const Post = () => {
                                       ดูเพิ่มเติม
                                     </Link>
                                   </div>
-                                </div>
-
-                                <div className="line-post1"></div>
-                                <div className="container-post6">
-                                  <Commentitem postid={res.uid} />
                                 </div>
                               </div>
                             </div>
@@ -2049,6 +1843,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -2086,9 +1881,8 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
                       id="defaultInline3"
-                      onChange={(e) => Setinstagram(e.target.value)}
-                      onClick={() => (Setcheckinstagram(!checkinstagram))}
-                   
+                      onChange={(e) => Setinstagram(e)}
+                      onClick={() => Setcheckinstagram(!checkinstagram)}
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2104,7 +1898,6 @@ const Post = () => {
                       id="defaultInline4"
                       onChange={(e) => Settwitter(e.target.value)}
                       onClick={() => Setchecktwitter(!checktwitter)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -2120,7 +1913,6 @@ const Post = () => {
                       id="defaultInline5"
                       onChange={(e) => Setother(e.target.value)}
                       onClick={() => Setcheckother(!checkother)}
-                      
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
