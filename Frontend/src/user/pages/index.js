@@ -87,19 +87,21 @@ const Home = () => {
             doc.name.toLowerCase().includes(search.toLowerCase()) ||
             doc.surname.toLowerCase().includes(search.toLowerCase()) ||
             doc.accountnumber.includes(search) ||
-            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(search.toLowerCase())
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
           );
         });
 
         Setsearch("");
-       
-         if(getdata) {
+
+        if (getdata) {
           history.push({
             pathname: "/entersearch",
             search: "are you ok",
             state: {
               getdata,
-              search
+              search,
             },
           });
         }
@@ -111,35 +113,67 @@ const Home = () => {
     }
   };
   const Go_FacebookPost = () => {
-    
+    history.push({
+      pathname: "/post",
+      search: "facebook",
+      state: {
+        selectfacebook : true
+      },
+    });
   };
   const Go_Instragram = () => {
-   
+    history.push({
+      pathname: "/post",
+      search: "instragram",
+      state: {
+        selectinstragram : true
+      }
+    });
   };
   const Go_Line = () => {
-    
+    history.push({
+      pathname: "/entersearch",
+      search: "line",
+      state: {
+        selectline : true
+      },
+    });
   };
   const Go_Twitter = () => {
-    
+    history.push({
+      pathname: "/entersearch",
+      search: "twitter",
+      state: {
+        selecttwitter : true
+      },
+    });
   };
   const Go_Other = () => {
-    
-  };
-  const Hiddendropdown = () => {
-    SetshowDropdown(false);
+    history.push({
+      pathname: "/post",
+      search: "other",
+      state: {
+        selectother : true
+      },
+    });
   };
   const ok = async () => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
-      Setallpost(getallpost.data.item)
+      Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
       if (search) {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
-            
-            if ((doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())) {
+            if (
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
+            ) {
               Sethaha(true);
             }
             if (doc.accountnumber.startsWith(search)) {
@@ -154,8 +188,12 @@ const Home = () => {
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
-              doc.accountnumber.startsWith(search) || 
-              (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).startsWith(search.toLowerCase())
+              doc.accountnumber.startsWith(search) ||
+              (
+                doc.name.toLowerCase() +
+                " " +
+                doc.surname.toLowerCase()
+              ).startsWith(search.toLowerCase())
             );
           })
         );
@@ -382,7 +420,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick className="readmore1-index seemore" >
+              <a onClick={Go_FacebookPost} className="readmore1-index seemore">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
