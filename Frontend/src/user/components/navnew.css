@@ -228,16 +228,14 @@
         height: 35px;
         font-size: 14px;
     }
-
     /*dropsearch*/
     .gg{
-        left: 958px;
+        left: 930px;
         top: 65px;
     }
     .search-nav , .dropsearch-nav{
         border-radius: 3px;
     }
- 
 }
 
 @media only screen and (max-width: 1025px) {
