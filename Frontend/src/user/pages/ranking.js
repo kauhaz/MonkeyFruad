@@ -48,12 +48,10 @@ const Rank = () => {
     setTThiefThreeRank(thiefcount.data.data);
     setTitleSort("จำนวนครั้งที่โกงมากที่สุด");
   };
-  const GetPost = async () =>{
-    const  getallpost = await Axios.get(
-      "http://localhost:7000/post/post"
-    );
+  const GetPost = async () => {
+    const getallpost = await Axios.get("http://localhost:7000/post/post");
     Setallpost(getallpost.data.item);
-  }
+  };
   const RankSeePost = (accountnumber) => {
     let search = accountnumber;
     const getdata = allpost.filter((doc) => {
@@ -72,7 +70,7 @@ const Rank = () => {
   };
 
   const SelectClick = async (e) => {
-    if (e.target.value === "ยอดโกงสูงสุด") {
+    if (e.target.value === "ยอดเงินที่โกงสูงสุด") {
       setTitleSort(e.target.value);
       const getThief = await Axios.get(
         `http://localhost:7000/thief/ranksummoney`
@@ -148,7 +146,7 @@ const Rank = () => {
                           ).format("lll")}
                         </p>
                         <a
-                          onClick={()=>RankSeePost(element.accountnumber)}
+                          onClick={() => RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
                           <div className="readmore">
@@ -186,7 +184,7 @@ const Rank = () => {
             >
               จำนวนครั้งที่โกงมากที่สุด
             </option>
-            <option value="ยอดโกงสูงสุด" className="rank-option">
+            <option value="ยอดเงินที่โกงสูงสุด" className="rank-option">
               ยอดเงินที่โกงสูงสุด
             </option>
             <option value="วันที่โกงล่าสุด" className="rank-option">
