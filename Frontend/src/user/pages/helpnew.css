@@ -2,23 +2,23 @@
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
 }
 
 .h1-helpnew2{ 
-    margin-top: 150px;
+    margin-top: 70px;
     margin-bottom: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
 }
 
 
 .container-helpnew{
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     height: 460px;
@@ -26,7 +26,7 @@
 }
 
 .container-helpnew2{
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     height: 760px;
@@ -35,6 +35,7 @@
 
 .card-helpnew{
     width: 260px;
+    height: 410px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     display: block;
     margin-left: auto;
@@ -44,7 +45,7 @@
 }
 
 .title-helpnew{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .titlered-helpnew{
@@ -53,10 +54,13 @@
 }
 .image-helpnew1{
     padding:  15px 30px 0px 30px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .cardtext-helpnew{
     font-size: 15px;
-    color: rgb(107, 107, 107);
+    color: #5c5c5c;
 }
 .textwhite-helpnew{
     color: white;
@@ -76,10 +80,19 @@
     display: block;
     float: left;
 }
+.text-helpnew{
+    color: #5c5c5c;
+    font-size: 16px;
+}
+
+.emty-help{
+    height: 70px;
+}
 
 .card-helpnew2 {
     background-color: white;
     width: 330px;
+    height: 180px;
     border-radius: 10px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     margin-bottom: 100px;
@@ -87,145 +100,352 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .image-helpnew2{
     background-color: white;
+    width: 150px;
     border-radius: 50%;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 115px;
+    margin-top: 0px;
     display: block;
-}
-.showtext-helpnew{
-    display: none;
+    z-index: 1;
+    position: absolute;
 }
 
 
 /*Responsive*/ 
-@media only screen and (max-width: 1920px) {
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1367px) {
+    .h1-helpnew{ 
+        font-size: 22px;
+    }
     .container-helpnew{
         width: 65%;
-        height: 900px;
-    }
-    .column-helpnew,.column-helpnew2{
-        width: 50%;
-    }
-}
+        height: 330px;
 
-@media only screen and (max-width: 768px) {
-    .container-helpnew{
-        width: 80%;
-        height: 900px;
     }
-    .container-helpnew2{
-        width: 85%;
-        height: 900px;
-    }
-    .column-helpnew,.column-helpnew2{
-        width: 50%;
-    }
-    .newrow-helpnew{
-        margin: 100px;
-    }
-    .card-helpnew2 {
-        width: 310px;
-    }
-    .textnone-helpnew{
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .container-helpnew{
-        width: 70%;
-        height: 1800px;
-    }
-    .container-helpnew2{
-        width: 85%;
-        height: 900px;
-    }
-    .column-helpnew,.column-helpnew2{
-        width: 100%;
-    }
-    .h1-helpnew{
-        font-size: 25px;
-    }
-    .h1-helpnew2{ 
-        margin-top: 100px;
-        font-size: 25px;
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-
-@media only screen and (max-width: 414px) {
-    .container-helpnew{
-        width: 70%;
-        height: 1800px;
-    }
-    .container-helpnew2{
-        width: 85%;
-        height: 900px;
-    }
-    .column-helpnew,.column-helpnew2{
-        width: 100%;
-    }
-    .h1-helpnew{
-        font-size: 25px;
-    }
-    .h1-helpnew2{ 
-        margin-top: 100px;
-        font-size: 25px;
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    .h1-helpnew2{ 
-        margin-top: 100px;
-        font-size: 25px;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .container-helpnew{
-        width: 80%;
-        height: 1700px;
-    }
-    .container-helpnew2{
-        width: 85%;
-        height: 2300px;
+    .textmargin-helpnew{
+        margin-left: 0px;
     }
     .card-helpnew{
-        width: 250px;
+        width: 210px;
+        height: 330px;
     }
-    .card-helpnew2 {
-        width: 250px;
+    .title-helpnew{
+        font-size: 16px;
+        width: 180px;
+        margin-left: -5px;
+    }
+    .titlered-helpnew{
+        font-size: 16px;
+        margin-left: 0px;
+    }
+    .image-helpnew1{
+        width: 200px;
     }
     .cardtext-helpnew{
+        font-size: 12px;
+    }
+
+    .h1-helpnew2{ 
+        margin-top: 80px;
+        margin-bottom: 50px;
+        font-size: 22px;
+    }
+    .container-helpnew2{
+        width: 65%;
+        height: 660px;
+    }
+    .image-helpnew2{
+        width: 130px;
+        margin-left: 85px;
+        margin-top: 10px;
+    }
+    .text-helpnew{
+        color: #5c5c5c;
         font-size: 14px;
     }
+    .emty-help{
+        height: 60px;
+    }
+    .card-helpnew2 {
+        width: 270px;
+        height: 170px;
+        margin-bottom: 60px;
+    }
+
+}
+
+@media only screen and (max-width: 1025px) {
+    .h1-helpnew{ 
+        margin-top: 70px;
+        font-size: 22px;
+    }
+    .container-helpnew{
+        width: 80%;
+        height: 330px;
+    }
+    .card-helpnew{
+        width: 195px;
+        height: 310px;
+    }
+    .title-helpnew{
+        font-size: 15px;
+        width: 170px;
+        margin-left: -7px;
+    }
+    .titlered-helpnew{
+        font-size: 15px;
+    }
+    .image-helpnew1{
+        width: 180px;
+    }
+    .cardtext-helpnew{
+        font-size: 12px;
+        width: 170px;
+        margin-left: -8px;
+        margin-top: 2px;
+    }
+
     .h1-helpnew2{ 
-        margin-top: 100px;
-        font-size: 25px;
-        padding-left: 20px;
-        padding-right: 20px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        font-size: 22px;
+    }
+    .container-helpnew2{
+        width: 80%;
+        height: 660px;
+    }
+    .image-helpnew2{
+        width: 130px;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+    .text-helpnew{
+        font-size: 13px;
+    }
+    .emty-help{
+        height: 60px;
+    }
+    .card-helpnew2 {
+        width: 255px;
+        height: 160px;
+        margin-bottom: 60px;
+    }
+
+}
+
+@media only screen and (max-width: 769px) {
+    .h1-helpnew{ 
+        margin-top: 50px;
+        font-size: 22px;
+    }
+    .container-helpnew{
+        width: 60%;
+        height: 680px;
+    }
+    .column-helpnew,.column-helpnew2{
+        width: 50%;
+    }
+
+    .h1-helpnew2{ 
+        margin-top: 50px;
+        margin-bottom: 40px;
+        font-size: 22px;
+    }
+    .container-helpnew2{
+        width: 75%;
+        height: 880px;
+    }
+    .card-helpnew2 {
+        width: 265px;
+        height: 160px;
+        margin-bottom: 40px;
+    }
+    .image-helpnew2{
+        width: 130px;
+        margin-left: 80px;
+        margin-top: 10px;
+    }
+}
+
+
+@media only screen and (max-width: 415px) {
+    .container-helpnew{
+        width: 90%;
+        height: 670px;
+    }
+    .column-helpnew{
+        width: 50%;
+    }
+    .column-helpnew2{
+        width: 100%;
+    }
+
+    .h1-helpnew{ 
+        margin-top: 50px;
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+    .card-helpnew{
+            width: 185px;
+            height: 300px;
+        
+        }
+
+    .cardtext-helpnew{
+        font-size: 11px;
+        width: 160px;
+        margin-left: -8px;
+        margin-top: 2px;
+    }
+
+    .h1-helpnew2{ 
+        margin-top: 50px;
+        font-size: 22px;
+        margin-bottom: 40px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .container-helpnew2{
+        width: 70%;
+        height: 1660px;
+    }
+    .card-helpnew2 {
+        width: 265px;
+        height: 160px;
+        margin-bottom: 40px;
+    }
+    .image-helpnew2{
+        width: 130px;
+        margin-left: 78px;
+        margin-top: 10px;
     }
     .text-helpnew{
         font-size: 14px;
+        width: 240px;
+        margin-left: -8px;
     }
-    .textnone2-helpnew{
-        display: none;
+    .emty-help{
+        height: 60px;
     }
-    .showtext-helpnew{
-        display: inline;
+}
+
+@media only screen and (max-width: 376px) {
+    .container-helpnew{
+        width: 90%;
+        height: 1400px;
     }
+    .column-helpnew , .column-helpnew2{
+        width: 100%;
+    }
+    .h1-helpnew{ 
+        margin-top: 50px;
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .card-helpnew{
+        width: 245px;
+        height: 320px;
+    }
+    .title-helpnew{
+        font-size: 16px;
+        width: 200px;
+        margin-left: 0px;
+    }
+    .titlered-helpnew{
+        font-size: 16px;
+    }
+    .cardtext-helpnew{
+        font-size: 13px;
+        width: 200px;
+        margin-left: 0px;
+        margin-top: 2px;
+    }
+
+    .h1-helpnew2{ 
+        margin-top: 50px;
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .container-helpnew2{
+        width: 70%;
+        height: 1660px;
+    }
+    .card-helpnew2 {
+        width: 265px;
+        height: 150px;
+        margin-bottom: 40px;
+    }
+    .image-helpnew2{
+        width: 120px;
+        margin-left: 71px;
+        margin-top: 15px;
+    }
+    .text-helpnew{
+        font-size: 14px;
+        width: 240px;
+        margin-left: -8px;
+    }
+    .emty-help{
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .container-helpnew{
+        width: 80%;
+        height: 1400px;
+    }
+    .card-helpnew{
+        width: 225px;
+        height: 320px;
+    }
+    .title-helpnew{
+        font-size: 16px;
+        width: 185px;
+        margin-left: 0px;
+    }
+    .titlered-helpnew{
+        font-size: 16px;
+    }
+    .cardtext-helpnew{
+        font-size: 13px;
+        width: 185px;
+        margin-left: 0px;
+        margin-top: 2px;
+    }
+
+    .h1-helpnew2{ 
+        margin-top: 50px;
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .container-helpnew2{
+        width: 60%;
+        height: 1660px;
+    }
+    .card-helpnew2 {
+        width: 245px;
+        height: 150px;
+        margin-bottom: 40px;
+        margin-left: -28px;
+    }
+    .image-helpnew2{
+        width: 120px;
+        margin-left: 34px;
+        margin-top: 15px;
+    }
+    .text-helpnew{
+        font-size: 13px;
+        width: 230px;
+        margin-left: -13px;
+    }
+    .emty-help{
+        height: 50px;
+    }
+
 }
