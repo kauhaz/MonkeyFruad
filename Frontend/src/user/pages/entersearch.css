@@ -101,21 +101,18 @@
       margin-left: 50px; */
   }
   
-  .container-post2 {
-    width: 90%;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: "Kanit", sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+  .container-entersearch2 {
+  width: 90%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
   }
   
   .post-profilepost-img img.img-circle {
@@ -168,16 +165,14 @@
     border-radius: 50%;
   }
   
-  .container-post4 {
+  .container-entersearch3 {
     width: 80%;
-    margin-top: 50px;
+    margin-top: 0px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 20px;
-    /* padding-left: 10px;
-          padding-right: 10px; */
     font-family: "Kanit", sans-serif;
     font-size: 20px;
   }
