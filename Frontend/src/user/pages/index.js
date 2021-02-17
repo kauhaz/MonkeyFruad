@@ -110,7 +110,24 @@ const Home = () => {
       console.log(err);
     }
   };
-
+  const Go_FacebookPost = () => {
+    
+  };
+  const Go_Instragram = () => {
+   
+  };
+  const Go_Line = () => {
+    
+  };
+  const Go_Twitter = () => {
+    
+  };
+  const Go_Other = () => {
+    
+  };
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   const ok = async () => {
     try {
       const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
@@ -365,7 +382,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore1-index seemore">
+              <a onClick className="readmore1-index seemore" >
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
