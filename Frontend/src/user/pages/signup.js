@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./signup.css";
 import Chatbot from "../components/chatbot";
-import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -169,7 +168,7 @@ const Signup = () => {
       />
       <div className="container-signup">
         <form className="LoginForm">
-          <img src="/img/logoLogin.png" className="Logo-signup" />
+          <img src="/img/logoLogin.png" className="Logo-signup" alt="" />
           <p className="h2 text-center mb-2 font-weight-bold text1-signup">
             สมัครสมาชิก
           </p>

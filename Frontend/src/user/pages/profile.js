@@ -2,11 +2,7 @@ import React, { useState, useMemo, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./profile.css";
 import Chatbot from "../components/chatbot";
-import styled from "styled-components";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import axios from "axios";
-import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import NavbarPage from "../components/navnew";
 import usercontext from "../context/usercontext";
 const Profile = () => {

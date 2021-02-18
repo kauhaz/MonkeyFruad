@@ -1,44 +1,38 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Notfound from "../components/Notfound";
-import Axios from "axios";
-import { Link, useHistory, useParams, useLocation } from "react-router-dom";
+
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
-import Commentitem from "../components/commentitem";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
-import { object } from "yup/lib/locale";
-import usercontext from "../context/usercontext";
+
+import { Form, Col } from "react-bootstrap";
+
 import "./entersearch.css";
-import axios from "axios";
-import Loading from "../components/loading";
-const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
   const history = useHistory();
   const [show, Setshow] = useState();
   const [search, Setsearch] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
+  const [loading, setLoading] = useState(true);
   let location = useLocation();
   const ok = async () => {
-    Setshow(location.state.getdata);
-    Setsearch(location.state.search);
+    await Setshow(location.state.getdata);
+    await Setsearch(location.state.search);
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
   useEffect(() => {
     ok();
+    setLoading(false);
   }, [location]);
 
-  return (
+  return loading ? (
+    ""
+  ) : (
     <div onClick={() => Hiddendropdown()}>
       {show && show.length !== 0 ? (
         <div>
@@ -76,97 +70,89 @@ const Entersearch = () => {
                   ? show.map((res) => {
                       return (
                         <div>
-                          <div className="container-post2">
-                            <div className="cotainer-post3">
-                              <div className="container-post4">
-                                <div className="container-post5">
-                                  <Form className="formsize-post">
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="้post-left col-lg-6 col-12"
-                                        controlId="formGridName"
-                                      >
-                                        <Form.Label>
-                                          ชื่อ - นามสกุลผู้โกง
-                                        </Form.Label>
-                                      </Form.Group>
+                          <div className="container-entersearch2">
+                            <div className="container-entersearch3">
+                              <Form className="formsize-post">
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="้post-left col-lg-6 col-12"
+                                    controlId="formGridName"
+                                  >
+                                    <Form.Label>
+                                      ชื่อ - นามสกุลผู้โกง
+                                    </Form.Label>
+                                  </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.name} {res.surname}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.name} {res.surname}
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
 
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridId"
-                                      >
-                                        <Form.Label>
-                                          เลขที่บัญชี (ผู้โกง)
-                                        </Form.Label>
-                                      </Form.Group>
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
+                                    controlId="formGridId"
+                                  >
+                                    <Form.Label>
+                                      เลขที่บัญชี (ผู้โกง)
+                                    </Form.Label>
+                                  </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.accountnumber}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.accountnumber}
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
 
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridNameproduct"
-                                      >
-                                        <Form.Label>ชื่อสินค้า</Form.Label>
-                                      </Form.Group>
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
+                                    controlId="formGridNameproduct"
+                                  >
+                                    <Form.Label>ชื่อสินค้า</Form.Label>
+                                  </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.nameproduct}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.nameproduct}{" "}
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
 
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>วันที่โดนโกง</Form.Label>
-                                      </Form.Group>
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
+                                    controlId="formGridDate"
+                                  >
+                                    <Form.Label>วันที่โดนโกง</Form.Label>
+                                  </Form.Group>
 
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {moment(
-                                            new Date(
-                                              res.datetimes.seconds * 1000
-                                            )
-                                          ).format("lll")}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                  </Form>
-                                  <div className="postother">
-                                    <Link
-                                      className="postother1"
-                                      onClick={() => (
-                                        history.push(`/mypost/${res.uid}`),
-                                        window.location.reload(true)
-                                      )}
-                                    >
-                                      ดูเพิ่มเติม
-                                    </Link>
-                                  </div>
-                                </div>
-
-                               
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {moment(
+                                        new Date(res.datetimes.seconds * 1000)
+                                      ).format("lll")}{" "}
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
+                              </Form>
+                              <div className="postother">
+                                <Link
+                                  className="postother1"
+                                  onClick={() => (
+                                    history.push(`/mypost/${res.uid}`),
+                                    window.location.reload(true)
+                                  )}
+                                >
+                                  ดูเพิ่มเติม
+                                </Link>
                               </div>
                             </div>
                           </div>

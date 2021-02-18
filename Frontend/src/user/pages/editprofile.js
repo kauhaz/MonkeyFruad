@@ -1,17 +1,13 @@
 import React, { useState, useMemo, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./profile.css";
 import Chatbot from "../components/chatbot";
-import styled from "styled-components";
 import axios from "axios";
-import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import NavbarPage from "../components/navnew";
 import { MDBInputGroup } from "mdbreact";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import usercontext from "../context/usercontext";
 const EditProfile = () => {
-  const [value, onChange] = useState(new Date());
-  var { user, setUser } = useContext(usercontext);
+  var { user} = useContext(usercontext);
   let history = useHistory();
   // ที่เก็บ state
   const [imagesProfile, setImagesProfile] = useState(""); //สร้าง State เพื่อเก็บรูปโปรไฟล์
@@ -22,7 +18,6 @@ const EditProfile = () => {
   const [phone, setPhone] = useState("");
   const [province, setProvince] = useState("");
   const [photo, Setphoto] = useState("");
-  const [error, Seterror] = useState();
   const [male, setMale] = useState();
   const [loading, setLoading] = useState(true);
   const [showDropdown, SetshowDropdown] = useState(true);
