@@ -115,29 +115,19 @@ const Home = () => {
     }
   };
   const Go_FacebookPost = () => {
-    history.push({
-      pathname: "/postfacebook"
-    });
+    history.push("/postfacebook");
   };
   const Go_Instragram = () => {
-    history.push({
-      pathname: "/postinstragram"
-    });
-  };
+    history.push("/postinstragram");
+  }
   const Go_Line = () => {
-    history.push({
-      pathname: "/postline"
-    });
+    history.push("/postline");
   };
   const Go_Twitter = () => {
-    history.push({
-      pathname: "/postwitter"
-    });
+    history.push("/posttwitter");
   };
   const Go_Other = () => {
-    history.push({
-      pathname: "/postother"
-    });
+    history.push("/postother");
   };
   const ok = async () => {
     try {
