@@ -134,7 +134,41 @@ const Mypost = () => {
                         </Modal>
                         </Form.Row>
                         </div>
-                        ) : null}
+                        ) :   <div>
+                        <div className="postbuttonreport">
+                      <button
+                        variant="primary"
+                        onClick={handleShow}
+                        className="postbuttonreported"
+                      >
+                        <i class="fa fa-flag"></i>
+                      </button>
+                    </div>
+                          <Form.Row>
+                        <Modal
+                      show={Show}
+                      onHide={handleClose}
+                      className="modalreport"
+                    >
+                      <Modal.Header closeButton>
+                        <Modal.Title className="namereport">
+                          รายงานโพสต์
+                        </Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        Woohoo, you're reading this text in a modal!
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                          Save Changes
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                    </Form.Row>
+                    </div>}
                         {user && user.uid == ok.useruid ? (
                           <div className="container-mypostsetiing">
                             <div className="menu-containermypostsetting">
