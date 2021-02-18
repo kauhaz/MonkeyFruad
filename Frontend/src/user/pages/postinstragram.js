@@ -3230,7 +3230,7 @@ const PostInstragram = () => {
 
       if (checkother) {
         Setshow();
-        if (doc.social === "other") {
+        if (doc.social === "อื่นๆ") {
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {

@@ -488,7 +488,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={()=>Go_Instragram()} className="readmore2-index seemore">
+              <a onClick={Go_Instragram} className="readmore2-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -573,7 +573,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={()=>Go_Line()} className="readmore3-index seemore">
+              <a onClick={Go_Line} className="readmore3-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -658,7 +658,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={()=>Go_Twitter()} className="readmore4-index seemore">
+              <a onClick={Go_Twitter} className="readmore4-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -742,7 +742,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={()=>Go_Other()} className="readmore5-index seemore">
+              <a onClick={Go_Other} className="readmore5-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
