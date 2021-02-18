@@ -86,9 +86,9 @@ const Mypost = () => {
                           </div>
                           <br />
                           <div className="mypost-date">
-                            {moment(new Date(ok.date.seconds * 1000)).format(
-                              "lll"
-                            )}
+                          {moment(
+                                      new Date(ok.date.seconds * 1000)
+                                    ).format("MM/DD/YYYY HH:mm")}{" "}
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
@@ -295,9 +295,9 @@ const Mypost = () => {
                                 <Form.Label className="text-mypost">
                                   วันที่โดนโกง{" "}
                                   <span className="spanmypost">
-                                    {moment(
+                                  {moment(
                                       new Date(ok.datetimes.seconds * 1000)
-                                    ).format("lll")}
+                                    ).format("MM/DD/YYYY HH:mm")}{" "}
                                   </span>
                                 </Form.Label>
                               </Form.Group>
