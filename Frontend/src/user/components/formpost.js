@@ -9,7 +9,7 @@ import Axios from "axios";
 import _ from "lodash";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
-import Loading from "./loading";
+import Loading from "./pacmanloading";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน

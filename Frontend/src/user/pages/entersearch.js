@@ -18,7 +18,7 @@ import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
 import "./entersearch.css";
 import axios from "axios";
-import Loading from "../components/loading";
+import Loading from "../components/pacmanloading";
 const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {

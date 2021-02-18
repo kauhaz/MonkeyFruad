@@ -13,7 +13,7 @@ import Axios from "axios";
 import _ from "lodash";
 import Chatbot from "../components/chatbot";
 import usercontext from "../context/usercontext";
-import Loading from "./loading";
+import Loading from "./pacmanloading";
 // import image from "D:/PROJECT ALL/MonkeyFruad/Frontend/src/uploads/logo192.png"
 
 const Formedit = ({ check, Setcheck }) => {

@@ -5,7 +5,7 @@ import "./post.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import Commentitem from "../components/commentitem";
-import Loading from "../components/loading"
+import ClipLoader from "../components/clipLoader"
 import * as moment from "moment";
 import "moment/locale/th";
 import {
@@ -6371,7 +6371,7 @@ const Post = () => {
                 </div>
               </div>
             </Link>
-            {loading ? <Loading /> : <div> 
+            {loading ? <ClipLoader /> : <div> 
             {show ? (
               show.map((res) => {
                 return (
@@ -6559,7 +6559,7 @@ const Post = () => {
             ) : (
               <div>
                 {" "}
-                {loading ? <Loading /> : <div>{result
+                {loading ? <ClipLoader /> : <div>{result
                   ? result.map((res) => {
                       return (
                         
