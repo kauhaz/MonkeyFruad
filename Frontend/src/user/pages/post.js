@@ -92,6 +92,7 @@ const Post = () => {
   const [searchstart, Setsearchstart] = useState();
   const [searchend, Setsearchend] = useState();
 
+  const [statefacebook, Setstatefacebook] = useState();
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
@@ -106,12 +107,29 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+  
+  // if(statefacebook){
+  //   Setcheckfacebook(true)
+  // }
+  // if(location.state.selectfacebook){
+  //   Setstatefacebook(location.state.selectfacebook)
+  //   console.log("okoko")
+  // }
+  // if(statefacebook){
+  //   Setcheckfacebook(true)
+  // }
+    //  if(statefacebook){
+    //   console.log("okoko")    
+    //     Setcheckfacebook(true)
+    // }
+
   const ok = async () => {
     Setloading(true)
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
     Setloading(false)
     Setshow(getpost.data.item);
     const getdata = getpost.data.item;
+
 
     var item = [];
     // Setloading(true)
@@ -6329,7 +6347,8 @@ const Post = () => {
     checkmusic,
     checkothercatalog,
     searchstart,
-    searchend
+    searchend,
+    statefacebook
   ]);
 
   // console.log(result);
@@ -6773,6 +6792,7 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => Setcheckfacebook(!checkfacebook)}
+                     
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"

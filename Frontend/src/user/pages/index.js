@@ -24,6 +24,7 @@ const Home = () => {
   const [lastsearch, Setlastsearch] = useState();
   const [haha, Sethaha] = useState();
 
+  const [selectfacebook, Setselectfacebook] = useState("facebook");
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
   const [allpost, Setallpost] = useState();
@@ -116,14 +117,19 @@ const Home = () => {
     }
   };
   const Go_FacebookPost = () => {
-    history.push({
-      pathname: "/post",
-      search: "facebook",
-      state: {
-        selectfacebook: true,
-      },
-    });
-  };
+   
+      history.push({
+        pathname: "/post",
+        search: "facebook",
+        state: {
+          selectfacebook : true
+    
+        }
+      })
+    
+  
+}
+
   const Go_Instragram = () => {
     history.push({
       pathname: "/post",
