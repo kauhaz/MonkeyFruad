@@ -1,26 +1,13 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, {  useState, useMemo } from "react";
 import "./ranking.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
 import {
-  MDBContainer,
-  MDBRow,
-  MDBBox,
-  MDBCol,
-  MDBFormInline,
-  MDBBtn,
-} from "mdbreact";
-import { MDBDataTable } from "mdbreact";
-import {
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBView,
-  MDBIcon,
+  MDBIcon
 } from "mdbreact";
-import { useAccordionToggle } from "react-bootstrap";
+
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import * as moment from "moment";
@@ -30,7 +17,7 @@ const Rank = () => {
   const [ThiefThreeRank, setTThiefThreeRank] = useState();
   const [TitleSort, setTitleSort] = useState();
   const [loading, setLoading] = useState(true);
-  const [selectOption, setSelectOption] = useState();
+
   const [showDropdown, SetshowDropdown] = useState(true);
   const [allpost, Setallpost] = useState();
   let history = useHistory();
