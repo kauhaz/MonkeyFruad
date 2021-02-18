@@ -138,7 +138,7 @@ const Entersearch = () => {
                                     <span className="spanpost">
                                       {moment(
                                         new Date(res.datetimes.seconds * 1000)
-                                      ).format("lll")}{" "}
+                                      ).format("MM/DD/YYYY HH:mm")}{" "}
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
