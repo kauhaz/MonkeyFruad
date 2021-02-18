@@ -145,6 +145,8 @@
     margin: 1rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    font-weight: 500;
+    font-size: 1.25rem;
 }
 
 .rank-data-row {
@@ -155,42 +157,10 @@
     margin: .7rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
-    border: 2px solid black;
-    z-index: 1;
     overflow: hidden;
-
-    :before {
-        content: "";
-        display: block;
-        border-radius: 3.5em;
-        position: absolute;
-        background: inherit;
-        top: 0.2em;
-        left: 0.2em;
-        right: 0.2em;
-        bottom: 0.2em;
-        z-index: -1;
-      }
-
-    &:after {
-        content: "";
-        display: block;
-        //border-radius: 3.5em;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: -2;
-        transform: rotate(0deg);
-        animation: gradient 2s ease alternate infinite;
-        -webkit-animation-play-state: paused;
-        animation-play-state: paused;
-      }
 }
 
 .rank-column {
-    text-align: center;
     width: auto;
     height: auto;
     padding: .5rem;
@@ -201,9 +171,13 @@
     display: flex;
 }
 
+.order-column {
+    margin-right: -2rem;
+}
+
 .rank-order {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 500;
     color: #000;
 }
 

@@ -181,7 +181,7 @@ const Rank = () => {
         </div>
 
         <div className="rank-column-row">
-          <div className="rank-column col">อันดับ</div>
+          <div className="rank-column col-1">อันดับ</div>
           <div className="rank-column col">ชื่อ</div>
           <div className="rank-column col">นามสกุล</div>
           <div className="rank-column col">เลขที่บัญชี</div>
@@ -193,7 +193,9 @@ const Rank = () => {
           ? ThiefRank.map((element, index) => {
               return (
                 <div className="rank-data-row">
-                  <div className="rank-column col">{index + 1}</div>
+                  <div className="rank-column col-1 order-column">
+                    <span className="rank-order">{index + 1}</span>
+                  </div>
                   <div className="rank-column col">
                     {/* <div className="rank-data-img">
                       <img src="/img/nui.jpg"></img>
