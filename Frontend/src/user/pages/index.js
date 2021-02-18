@@ -328,7 +328,7 @@ const Home = () => {
                           ล่าสุด :{" "}
                           {moment(
                             new Date(element.wanteedon.seconds * 1000)
-                          ).format("lll")}
+                          ).format("MM/DD/YYYY HH:mm")}
                         </p>
                         <a
                           onClick={() => RankSeePost(element.accountnumber)}
@@ -390,7 +390,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -475,7 +475,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -560,7 +560,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -645,7 +645,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}{" "}
+                                ).format("MM/DD/YYYY HH:mm")}{" "}
                                 <br />
                               </p>
                             </div>
@@ -729,7 +729,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
