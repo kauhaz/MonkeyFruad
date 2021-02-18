@@ -220,7 +220,9 @@ const Rank = () => {
         </div>
 
         <div className="rank-data-row">
-          <div className="rank-column col">1</div>
+          <div className="rank-column col">
+            <span className="rank-order">1</span>
+          </div>
           <div className="rank-column col">
             <div className="rank-data-img">
               <img src="/img/nui.jpg"></img>
