@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./forgetpass.css";
 import Chatbot from "../components/chatbot";
-// import { Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage, FastField } from "formik";
 import * as Yup from "yup";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
-// import { MDBInput } from "mdbreact";
 import axios from "axios";
 import NavbarPage from "../components/navnew";
 

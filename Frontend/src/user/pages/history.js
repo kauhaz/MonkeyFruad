@@ -1,28 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Historyitem from "../components/historyitem";
 import NavbarPage from "../components/navnew";
 import "./history.css";
 import usercontext from "../context/usercontext";
 import Axios from "axios";
-import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
-const { v4: uuidv4, NIL } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 const History = () => {
-  const [isActive, setIsActive] = useState(false);
   const [mypost, Setmypost] = useState();
-  const [error, Seterror] = useState();
   const [click, Setclick] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  let { user, setUser } = useContext(usercontext);
+  let { user} = useContext(usercontext);
   let uuid = uuidv4();
   const Hiddendropdown = () => {
     SetshowDropdown(false);
-  };
-  const onClick = () => {
-    setIsActive(!isActive);
   };
   const ok = async () => {
     try {

@@ -36,6 +36,54 @@ router.get("/orderbycount", async (req, res) => {
   }
 });
 
+router.get("/orderbysummoney", async (req, res) => {
+  try {
+    var data = [];
+    const orderbysummoney = await firestore
+      .collection("Thief")
+      .orderBy("summoney", "desc")
+      .limit(3)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
+router.get("/orderbydatetimes", async (req, res) => {
+  try {
+    var data = [];
+    const orderbydatetimes = await firestore
+      .collection("Thief")
+      .orderBy("wanteedon", "desc")
+      .limit(3)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return res.json({ data: data });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
 router.get("/rankcount", async (req, res) => {
   try {
     var data = [];

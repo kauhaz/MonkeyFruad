@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Axios from "axios";
 import usercontext from "../context/usercontext";
 import "./listcomment.css";
 import * as moment from "moment";
 import "moment/locale/th";
-import _ from "lodash"
+import _ from "lodash";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -16,7 +14,6 @@ const Listcomment = ({
   const [files, Setfiles] = useState();
   const [error, Seterror] = useState();
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
@@ -52,7 +49,7 @@ const Listcomment = ({
 
   const edit = async () => {
     Setcheckedittext(true);
-    setIsActive(false)
+    setIsActive(false);
   };
   const handleedit = async (commentid) => {
     try {
@@ -60,15 +57,14 @@ const Listcomment = ({
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
       });
-      formdata.append("edittextcomment" , edittextcomment)
+      formdata.append("edittextcomment", edittextcomment);
 
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
-         formdata
+        formdata
       );
       handleedittorerender();
       Setcheckedittext(false);
-
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +82,6 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-  
 
   return (
     <div>
@@ -127,54 +122,50 @@ const Listcomment = ({
                     ></textarea>
                   </div>
                   <div className="row post-comment-commentsall">
-          <div className="container-img-holder-imgpreview1">
-            <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
-              />
-            </label>
-          </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl) => {
-                  return (
-                <img
-                key={imagePreviewUrl}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-            );
-          }) : commentmore ? commentmore.photocomment.map(doc =>{
-            return (     
-           
-              <img src={doc.url}></img>
-          
-                )
-          }) : null}
+                    <div className="container-img-holder-imgpreview1">
+                      <label>
+                        <img className="uploadprove1" src="/img/addphoto.png" />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
+                    {imagesFile
+                      ? imagesFile.map((imagePreviewUrl) => {
+                          return (
+                            <img
+                              key={imagePreviewUrl}
+                              className="imgpreview1"
+                              alt="previewImg"
+                              src={imagePreviewUrl}
+                              style={{ overflow: "hidden" }}
+                              onMouseOver={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1.25)",
+                                  overflow: "hidden",
+                                })
+                              }
+                              onMouseOut={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1)",
+                                  overflow: "hidden",
+                                })
+                              }
+                            />
+                          );
+                        })
+                      : commentmore
+                      ? commentmore.photocomment.map((doc) => {
+                          return <img src={doc.url}></img>;
+                        })
+                      : null}
+                  </div>
 
-         
-          </div>
-
-                     
-              
                   <div className="buttoncommentsave1">
                     <button
                       className="buttoncommentsave2"
@@ -189,8 +180,6 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
-
-                  
 
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
@@ -208,7 +197,10 @@ const Listcomment = ({
           {user && commentmore.userid == user.uid ? (
             <div className="column2 mypostcommentrow2">
               <div className="menu-containermypostcommentsetting">
-                <div onClick={onClick} className="mypostcommentbuttonsetting">
+                <div
+                  onClick={() => setIsActive(!isActive)}
+                  className="mypostcommentbuttonsetting"
+                >
                   <img
                     className="mypostcommentimg-setting"
                     src="/img/setting.png"

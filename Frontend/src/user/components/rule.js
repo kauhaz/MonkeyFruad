@@ -1,10 +1,6 @@
 import React, {
   useState,
-  useContext,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
+  useContext
 } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Col, Image, roundedCircle } from "react-bootstrap";

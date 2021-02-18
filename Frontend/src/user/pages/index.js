@@ -1,25 +1,16 @@
-import React, { useEffect, useState, useContext, useMemo } from "react";
-import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import NavbarPage from "../components/navnew";
-import usercontext from "../context/usercontext";
+
 import axios from "axios";
-import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
+
 import Chatbot from "../components/chatbot";
 import "./index.css";
-import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
+import { MDBCol, MDBFormInline ,MDBIcon} from "mdbreact";
 import * as moment from "moment";
 import "moment/locale/th";
 
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBView,
-  MDBIcon,
-} from "mdbreact";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+import { MDBCard, MDBCardBody, MDBCardImage } from "mdbreact";
 
 const Home = () => {
   const [ThiefCount, setThiefCount] = useState();
@@ -32,8 +23,7 @@ const Home = () => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [haha, Sethaha] = useState();
-  const [role, Setrole] = useState();
-  const [show, Setshow] = useState();
+
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
   const [allpost, Setallpost] = useState();
@@ -70,11 +60,24 @@ const Home = () => {
     }
   };
 
-  useEffect(async () => {
-    await Getdata();
-  }, []);
   const Hiddendropdown = () => {
     SetshowDropdown(false);
+  };
+  const RankSeePost = (accountnumber) => {
+    let search = accountnumber;
+    const getdata = allpost.filter((doc) => {
+      return doc.accountnumber.includes(search);
+    });
+    if (getdata) {
+      history.push({
+        pathname: "/entersearch",
+        search: "are you ok",
+        state: {
+          getdata,
+          search,
+        },
+      });
+    }
   };
 
   const handlesearch = (e) => {
@@ -117,7 +120,7 @@ const Home = () => {
       pathname: "/post",
       search: "facebook",
       state: {
-        selectfacebook : true
+        selectfacebook: true,
       },
     });
   };
@@ -126,8 +129,8 @@ const Home = () => {
       pathname: "/post",
       search: "instragram",
       state: {
-        selectinstragram : true
-      }
+        selectinstragram: true,
+      },
     });
   };
   const Go_Line = () => {
@@ -135,7 +138,7 @@ const Home = () => {
       pathname: "/entersearch",
       search: "line",
       state: {
-        selectline : true
+        selectline: true,
       },
     });
   };
@@ -144,7 +147,7 @@ const Home = () => {
       pathname: "/entersearch",
       search: "twitter",
       state: {
-        selecttwitter : true
+        selecttwitter: true,
       },
     });
   };
@@ -153,7 +156,7 @@ const Home = () => {
       pathname: "/post",
       search: "other",
       state: {
-        selectother : true
+        selectother: true,
       },
     });
   };
@@ -206,8 +209,9 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    ok();
+  useEffect(async () => {
+    await ok();
+    await Getdata();
   }, [search]);
 
   return (
@@ -327,7 +331,7 @@ const Home = () => {
                           ).format("lll")}
                         </p>
                         <a
-                          href="!#"
+                          onClick={() => RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
                           <div className="readmore">

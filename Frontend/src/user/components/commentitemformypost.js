@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "./commentitemformypost.css";
 import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
 import _ from "lodash";
-const { v4: uuidv4, NIL } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 const Commentitemformypost = ({ postid }) => {
-  const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
-  let { user, setUser } = useContext(usercontext);
+  let { user } = useContext(usercontext);
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
   const [commentmore, Setcommentmore] = useState();
@@ -20,10 +17,7 @@ const Commentitemformypost = ({ postid }) => {
   const [click, Setclick] = useState();
   const [showdelete, Setshowdelete] = useState();
   const [showedit, Setshowedit] = useState();
-  const [item, Setitem] = useState([]);
-  const [checkedittext, Setcheckedittext] = useState(false);
   const [data, Setdata] = useState();
-  const [show, Setshow] = useState();
   const [error, Seterror] = useState();
   const [textcomment, Settextcomment] = useState("");
   const [photourl, Setphotourl] = useState();
