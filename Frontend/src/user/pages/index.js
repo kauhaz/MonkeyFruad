@@ -23,8 +23,6 @@ const Home = () => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [haha, Sethaha] = useState();
-
-  const [selectfacebook, Setselectfacebook] = useState("facebook");
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
   const [allpost, Setallpost] = useState();
@@ -117,54 +115,19 @@ const Home = () => {
     }
   };
   const Go_FacebookPost = () => {
-   
-      history.push({
-        pathname: "/post",
-        search: "facebook",
-        state: {
-          selectfacebook : true
-    
-        }
-      })
-    
-  
-}
-
-  const Go_Instragram = () => {
-    history.push({
-      pathname: "/post",
-      search: "instragram",
-      state: {
-        selectinstragram: true,
-      },
-    });
+    history.push("/postfacebook");
   };
+  const Go_Instragram = () => {
+    history.push("/postinstragram");
+  }
   const Go_Line = () => {
-    history.push({
-      pathname: "/entersearch",
-      search: "line",
-      state: {
-        selectline: true,
-      },
-    });
+    history.push("/postline");
   };
   const Go_Twitter = () => {
-    history.push({
-      pathname: "/entersearch",
-      search: "twitter",
-      state: {
-        selecttwitter: true,
-      },
-    });
+    history.push("/posttwitter");
   };
   const Go_Other = () => {
-    history.push({
-      pathname: "/post",
-      search: "other",
-      state: {
-        selectother: true,
-      },
-    });
+    history.push("/postother");
   };
   const ok = async () => {
     try {
@@ -317,7 +280,7 @@ const Home = () => {
             ? ThiefCount.map((element, index) => {
                 return (
                   <div className="column3-index" key={index}>
-                    <div className={`coin${index + 1} rank-index1`}>
+                    <div className={`coin${index + 1}-index rank-index1`}>
                       {index + 1}
                     </div>
                     <MDBCard>
@@ -334,13 +297,13 @@ const Home = () => {
                           ล่าสุด :{" "}
                           {moment(
                             new Date(element.wanteedon.seconds * 1000)
-                          ).format("lll")}
+                          ).format("MM/DD/YYYY HH:mm")}
                         </p>
                         <a
                           onClick={() => RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
-                          <div className="readmore">
+                          <div className="readmore-index">
                             ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
                             <MDBIcon
                               icon="chevron-right"
@@ -396,7 +359,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -430,7 +393,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_FacebookPost} className="readmore1-index seemore">
+              <a onClick={Go_FacebookPost} className="readmore1-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -481,7 +444,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -515,7 +478,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore2-index seemore">
+              <a onClick={Go_Instragram} className="readmore2-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -566,7 +529,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -600,7 +563,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore3-index seemore">
+              <a onClick={Go_Line} className="readmore3-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -651,7 +614,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}{" "}
+                                ).format("MM/DD/YYYY HH:mm")}{" "}
                                 <br />
                               </p>
                             </div>
@@ -685,7 +648,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore4-index seemore">
+              <a onClick={Go_Twitter} className="readmore4-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -735,7 +698,7 @@ const Home = () => {
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
-                                ).format("lll")}
+                                ).format("MM/DD/YYYY HH:mm")}
                                 <br />
                               </p>
                             </div>
@@ -769,7 +732,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore5-index seemore">
+              <a onClick={Go_Other} className="readmore5-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon

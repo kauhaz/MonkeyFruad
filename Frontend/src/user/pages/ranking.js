@@ -130,7 +130,7 @@ const Rank = () => {
                           ล่าสุด :{" "}
                           {moment(
                             new Date(element.wanteedon.seconds * 1000)
-                          ).format("lll")}
+                          ).format('MM/DD/YYYY HH:mm')}
                         </p>
                         <a
                           onClick={() => RankSeePost(element.accountnumber)}
@@ -206,7 +206,7 @@ const Rank = () => {
                   <div className="rank-column col">{element.count}</div>
                   <div className="rank-column col">
                     {moment(new Date(element.wanteedon.seconds * 1000)).format(
-                      "lll"
+                      'MM/DD/YYYY HH:mm'
                     )}
                   </div>
                 </div>
