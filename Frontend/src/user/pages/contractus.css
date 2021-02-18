@@ -1,7 +1,175 @@
 .h1-contractus { 
     margin-top: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
+}
+
+.container1-contract{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.contract-contract{
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    cursor: pointer;
+    margin-left: 50px;
+    padding: 10px 20px 10px 20px;
+}
+.contracthover-contract{
+    background-color: rgba(177, 177, 177, 0.479);
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    margin-left: 50px;
+}
+.developerhover-contract{
+    background-color: rgba(177, 177, 177, 0.479);
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;}
+.developer-contract{
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+}
+
+.line-contract{
+    border-bottom: 3px solid rgba(146, 146, 146, 0.479);
+    width: 100%;
+    margin-left: 50px;
+}
+
+.container2-contract{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    margin-top: 70px;
+}
+
+.column2-contract-l{
+    width: 70%;
+    display: block;
+}
+.column2-contract-r{
+    width: 30%;
+    display: block;
+}
+.map-contract{
+    /* background-color: royalblue; */
+    margin-left: 14px;
+    height: 200px;
+}
+.address-contract{
+    /* background-color: salmon; */
+    font-size: 17px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-left: 50px;
+}
+.emty-contract{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.style-map-contract{
+    width: 800px;
+    height: 455px;
+    border: 0px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 0.5rem;
+}
+.emty2-contract{
+    margin-top: 46px;
+    margin-bottom: 28px;
+    border-bottom: 3px solid rgba(146, 146, 146, 0.479);
+    margin-left: 50px;
+}
+.pagefb-contract{
+    font-size: 17px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-left: 50px;
+    background-color: none;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    
+    text-align: center;
+}
+.pagefb-contract:hover{
+    background-color: rgba(255, 255, 255, 0.349);
+    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.103);
+}
+.imgfb-contract{
+    width: 200px;
+    margin-top: 20px;
+}
+
+.container3-contract{
+    width: 60%;
+    height: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 70px;
+}
+
+.column3-contract{
+    width: 33.33%;
+}
+.column4-contract {
+    width: 33.33%;
+    display: block;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+}
+.column4-contract-1 {
+    width: 16.665%;
+    display: block;
+    float: left;
+    height: 30px;
+    margin-top: 30px;
+}
+.name-contract{
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    text-align: center;
+    margin-top: 20px;
+}
+.image-contract{
+    width: 170px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+}
+.imageemty-contract{
+    width: 200px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

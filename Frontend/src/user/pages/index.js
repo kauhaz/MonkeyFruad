@@ -311,7 +311,7 @@ const Home = () => {
             ? ThiefCount.map((element, index) => {
                 return (
                   <div className="column3-index" key={index}>
-                    <div className={`coin${index + 1} rank-index1`}>
+                    <div className={`coin${index + 1}-index rank-index1`}>
                       {index + 1}
                     </div>
                     <MDBCard>
@@ -334,7 +334,7 @@ const Home = () => {
                           onClick={() => RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
-                          <div className="readmore">
+                          <div className="readmore-index">
                             ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
                             <MDBIcon
                               icon="chevron-right"
@@ -424,7 +424,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_FacebookPost} className="readmore1-index seemore">
+              <a onClick={Go_FacebookPost} className="readmore1-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -509,7 +509,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore2-index seemore">
+              <a href="!#" className="readmore2-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -594,7 +594,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore3-index seemore">
+              <a href="!#" className="readmore3-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -679,7 +679,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore4-index seemore">
+              <a href="!#" className="readmore4-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -763,7 +763,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore5-index seemore">
+              <a href="!#" className="readmore5-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
