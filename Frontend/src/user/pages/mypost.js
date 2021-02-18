@@ -1,20 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import {
-  Dropdown,
-  DropdownButton,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter,
+  Modal
 } from "react-bootstrap";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
+import { Form, Col,  Button } from "react-bootstrap";
+
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 // import Commentitem from "../components/commentitem";
@@ -31,7 +21,7 @@ const Mypost = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  let { user, setUser } = useContext(usercontext);
+  let { user} = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
@@ -40,7 +30,7 @@ const Mypost = () => {
     SetshowDropdown(false);
   };
   const deleted = async (uid) => {
-    const postdelete = await Axios.post(
+     await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
 

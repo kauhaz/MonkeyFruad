@@ -1,25 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Notfound from "../components/Notfound";
-import Axios from "axios";
-import { Link, useHistory, useParams, useLocation } from "react-router-dom";
+
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
-import Commentitem from "../components/commentitem";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
-import { object } from "yup/lib/locale";
-import usercontext from "../context/usercontext";
+
+import { Form, Col } from "react-bootstrap";
+
 import "./entersearch.css";
-import axios from "axios";
-import Loading from "../components/pacmanloading";
-const { v4: uuidv4, NIL } = require("uuid");
 
 const Entersearch = () => {
   const history = useHistory();
@@ -29,20 +19,20 @@ const Entersearch = () => {
   const [loading, setLoading] = useState(true);
   let location = useLocation();
   const ok = async () => {
-   await Setshow(location.state.getdata);
+    await Setshow(location.state.getdata);
     await Setsearch(location.state.search);
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-  useEffect( () => {
+  useEffect(() => {
     ok();
     setLoading(false);
   }, [location]);
 
-  return ( loading ? (
+  return loading ? (
     ""
-  ) : 
+  ) : (
     <div onClick={() => Hiddendropdown()}>
       {show && show.length !== 0 ? (
         <div>

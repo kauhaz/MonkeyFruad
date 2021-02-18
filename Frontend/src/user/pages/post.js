@@ -11,22 +11,10 @@ import "moment/locale/th";
 import {
   Form,
   Col,
-  FormControl,
-  Button,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter,
+
 } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
-import { object } from "yup/lib/locale";
 import usercontext from "../context/usercontext";
-const { v4: uuidv4, NIL } = require("uuid");
+
 
 const Post = () => {
   const [show, Setshow] = useState();

@@ -1,14 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "./commentitem.css";
 import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
-import { MDBInput } from "mdbreact";
-const { v4: uuidv4, NIL } = require("uuid");
-
+const { v4: uuidv4 } = require("uuid");
 const Commentitem = ({ postid }) => {
   const onClick = () => setIsActive(!isActive);
   let { user, setUser } = useContext(usercontext);

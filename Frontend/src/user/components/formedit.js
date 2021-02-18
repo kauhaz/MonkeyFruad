@@ -1,18 +1,11 @@
-import React, { useEffect, useState, Component, useContext } from "react";
-import { Form, Col, FormControl } from "react-bootstrap";
+import React, { useEffect, useState} from "react";
+import { Form, Col} from "react-bootstrap";
 import { useParams, useHistory } from "react-router-dom";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./formedit.css";
 import Axios from "axios";
 import _ from "lodash";
 import Chatbot from "../components/chatbot";
-import usercontext from "../context/usercontext";
 import Loading from "./pacmanloading";
 // import image from "D:/PROJECT ALL/MonkeyFruad/Frontend/src/uploads/logo192.png"
 

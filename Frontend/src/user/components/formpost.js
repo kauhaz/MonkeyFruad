@@ -1,13 +1,11 @@
-import React, { useState, useContext, useEffect, useMemo } from "react";
-import { Form, Col, Image, roundedCircle } from "react-bootstrap";
+import React, { useState,useMemo } from "react";
+import { Form, Col} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { storage } from "../Frontfirebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./formpost.css";
-import usercontext from "../context/usercontext";
 import Axios from "axios";
 import _ from "lodash";
-import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
+import { auth} from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 

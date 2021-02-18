@@ -1,20 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Chatbot from "../components/chatbot";
-import Commentitem from "../components/commentitem";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-  firestore,
-} from "../Frontfirebase";
-import { object } from "yup/lib/locale";
-import usercontext from "../context/usercontext";
+import { Form, Col,  } from "react-bootstrap";
 import "./findthief.css";
 
 const Findthief = () => {

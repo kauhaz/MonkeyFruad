@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Rule from "../components/rule";
 import "./linkruleshow.css";
 import Chatbot from "../components/chatbot";

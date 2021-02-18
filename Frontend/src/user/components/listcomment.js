@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Axios from "axios";
 import usercontext from "../context/usercontext";
 import "./listcomment.css";
