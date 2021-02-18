@@ -11,7 +11,7 @@ import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
 
-const Post = () => {
+const PostLine = () => {
   const [show, Setshow] = useState();
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -50,16 +50,10 @@ const Post = () => {
   const [othercatalog, Setothercatalog] = useState(false);
 
   const [checkfacebook, Setcheckfacebook] = useState(false);
-  const [checkline, Setcheckline] = useState(false);
+  const [checkline, Setcheckline] = useState(true);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
   const [checkother, Setcheckother] = useState(false);
-
-  const [InitCheckFacebook, setInitCheckFacebook] = useState(false);
-  const [InitCheckLine, setInitCheckLine] = useState(false);
-  const [InitCheckTwitter, setInitCheckTwitter] = useState(false);
-  const [InitCheckInstragram, setInitCheckInstragram] = useState(false);
-  const [InitCheckOther, setInitCheckOther] = useState(false);
 
   const [checkassesory, Setcheckassesory] = useState(false);
   const [checkcloth, Setcheckcloth] = useState(false);
@@ -6168,21 +6162,23 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+            
                   <div class="custom-control custom-checkbox groupcheckbox1">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input groupcheckboxinput1"
-                      id="defaultInline1"
-                      onChange={(e) => Setfacebook(e.target.value)}
-                      onClick={() => Setcheckfacebook(!checkfacebook)}
-                    ></input>
-                    <label
-                      class="custom-control-label groupcheckboxlabel1"
-                      for="defaultInline1"
-                    >
-                      Facebook
-                    </label>
-                  </div>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input groupcheckboxinput1"
+                    id="defaultInline1"
+                    onChange={(e) => Setfacebook(e.target.value)}
+                    onClick={() => Setcheckfacebook(!checkfacebook)}
+                  ></input>
+                  <label
+                    class="custom-control-label groupcheckboxlabel1"
+                    for="defaultInline1"
+                  >
+                    Facebook
+                  </label>
+                </div>
+                { checkline ? 
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -6190,6 +6186,7 @@ const Post = () => {
                       id="defaultInline2"
                       onChange={(e) => Setline(e.target.value)}
                       onClick={() => Setcheckline(!checkline)}
+                      checked
                     />
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -6198,6 +6195,23 @@ const Post = () => {
                       Line
                     </label>
                   </div>
+                  :
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input groupcheckboxinput1"
+                    id="defaultInline2"
+                    onChange={(e) => Setline(e.target.value)}
+                    onClick={() => Setcheckline(!checkline)}
+                  />
+                  <label
+                    class="custom-control-label groupcheckboxlabel1"
+                    for="defaultInline2"
+                  >
+                    Line
+                  </label>
+                </div>
+                }
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -6611,4 +6625,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostLine;

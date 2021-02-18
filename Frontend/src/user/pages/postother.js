@@ -11,7 +11,7 @@ import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
 
-const Post = () => {
+const PostOther = () => {
   const [show, Setshow] = useState();
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -53,13 +53,7 @@ const Post = () => {
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
   const [checktwitter, Setchecktwitter] = useState(false);
-  const [checkother, Setcheckother] = useState(false);
-
-  const [InitCheckFacebook, setInitCheckFacebook] = useState(false);
-  const [InitCheckLine, setInitCheckLine] = useState(false);
-  const [InitCheckTwitter, setInitCheckTwitter] = useState(false);
-  const [InitCheckInstragram, setInitCheckInstragram] = useState(false);
-  const [InitCheckOther, setInitCheckOther] = useState(false);
+  const [checkother, Setcheckother] = useState(true);
 
   const [checkassesory, Setcheckassesory] = useState(false);
   const [checkcloth, Setcheckcloth] = useState(false);
@@ -6168,6 +6162,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+                { checkfacebook ?
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -6175,6 +6170,7 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => Setcheckfacebook(!checkfacebook)}
+                      checked
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"
@@ -6183,6 +6179,23 @@ const Post = () => {
                       Facebook
                     </label>
                   </div>
+                  :
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input groupcheckboxinput1"
+                    id="defaultInline1"
+                    onChange={(e) => Setfacebook(e.target.value)}
+                    onClick={() => Setcheckfacebook(!checkfacebook)}
+                  ></input>
+                  <label
+                    class="custom-control-label groupcheckboxlabel1"
+                    for="defaultInline1"
+                  >
+                    Facebook
+                  </label>
+                </div>
+                }
                   <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
@@ -6228,7 +6241,25 @@ const Post = () => {
                       Twitter
                     </label>
                   </div>
+                { checkother ?
                   <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline5"
+                      onChange={(e) => Setother(e.target.value)}
+                      onClick={() => Setcheckother(!checkother)}
+                      checked
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline5"
+                    >
+                      อื่นๆ
+                    </label>
+                  </div>
+                :
+                <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6243,6 +6274,7 @@ const Post = () => {
                       อื่นๆ
                     </label>
                   </div>
+                }   
                 </div>
                 <div className="line-postgroup2"></div>
                 <div className="post-group3">
@@ -6611,4 +6643,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostOther;
