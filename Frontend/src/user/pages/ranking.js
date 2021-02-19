@@ -107,23 +107,23 @@ const Rank = () => {
           เรียงตาม: <span>{TitleSort}</span>
         </span>
       </h1>
-      <div className="container2-index">
+      <div className="container2-rank">
         <div className="row">
           {ThiefThreeRank
             ? ThiefThreeRank.map((element, index) => {
                 return (
-                  <div className="column3-index" key={index}>
-                    <div className={`coin${index + 1} rank-index1`}>
+                  <div className="column3-rank" key={index}>
+                    <div className={`coin${index + 1} rank-rank1`}>
                       {index + 1}
                     </div>
                     <MDBCard>
-                      <div className="emty-index"></div>
+                      <div className="emty-rank"></div>
                       <MDBCardBody cascade className="text-center">
-                        <p className="text3-index">
+                        <p className="text3-rank">
                           เลขที่บัญชี : {element.accountnumber} <br />
                           ธนาคาร : {element.bank}
                         </p>
-                        <p className="text4-index">
+                        <p className="text4-rank">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
                           ยอดทั้งหมด : {element.summoney} บาท
                           <br />
@@ -181,31 +181,40 @@ const Rank = () => {
         </div>
 
         <div className="rank-column-row">
-          <div className="rank-column col-1">อันดับ</div>
-          <div className="rank-column col">ชื่อ</div>
-          <div className="rank-column col">นามสกุล</div>
-          <div className="rank-column col">เลขที่บัญชี</div>
-          <div className="rank-column col">ยอดเงินทั้งหมด</div>
-          <div className="rank-column col">จำนวนครั้งที่โกง</div>
-          <div className="rank-column col">วันที่โกง</div>
+          <div className="rank-column0">อันดับ</div>
+          <div className="rank-column0">ชื่อ</div>
+          <div className="rank-column0">นามสกุล</div>
+          <div className="rank-column0">เลขที่บัญชีธนาคาร</div>
+          <div className="rank-column0">ยอดเงินทั้งหมด</div>
+          <div className="rank-column0">จำนวนครั้งที่โกง</div>
+          <div className="rank-column0">วันที่โกง</div>
         </div>
+
         {ThiefRank
           ? ThiefRank.map((element, index) => {
               return (
                 <div className="rank-data-row">
-                  <div className="rank-column col-1 order-column">
+                  <div className="rank-column col">
                     <span className="rank-order">{index + 1}</span>
                   </div>
                   <div className="rank-column col">
-                    {/* <div className="rank-data-img">
-                      <img src="/img/nui.jpg"></img>
-                    </div> */}
-                    <span>{element.name}</span>
+                    <span className="rank-data">{element.name}</span>
                   </div>
-                  <div className="rank-column col">{element.surname}</div>
-                  <div className="rank-column col">{element.accountnumber}</div>
-                  <div className="rank-column col">{element.summoney}</div>
-                  <div className="rank-column col">{element.count}</div>
+                  <div className="rank-column col">
+                    {element.surname}
+                  </div>
+                  <div className="rank-column col ">
+                    <i class="fa fa-money-check"></i>
+                    <span>
+                      {element.accountnumber}
+                    </span>
+                  </div>
+                  <div className="rank-column col">
+                    {element.summoney}
+                  </div>
+                  <div className="rank-column col">
+                    {element.count}
+                  </div>
                   <div className="rank-column col">
                     {moment(new Date(element.wanteedon.seconds * 1000)).format(
                       'MM/DD/YYYY HH:mm'

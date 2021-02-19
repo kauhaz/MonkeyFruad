@@ -6,6 +6,11 @@
     color: #8B0000;
 }
 
+.emty-rank{
+    height: 70px;
+    width: 100%;
+}
+
 .rank-sort-head {
     margin-top: .5rem;
     font-size: 16px;
@@ -14,7 +19,7 @@
     justify-content: center;
 }
 
-.container2-index{
+.container2-rank{
     width: 65%;
     height: 380px;
     /* background-color: teal; */
@@ -24,7 +29,7 @@
     margin-bottom: 60px;
 }
 
-.column3-index{
+.column3-rank{
     width: 30%;
     margin-left: auto;
     margin-right: auto;
@@ -69,7 +74,7 @@
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 
-.rank-index1{
+.rank-rank1{
     font-size: 70px;
     font-family: 'Kanit', sans-serif;
     text-align: center;
@@ -77,17 +82,17 @@
     padding-top: 25px;
 }
 
-.text2-index{
+.text2-rank{
     font-family: 'Kanit', sans-serif;
 }
 
-.text3-index{
+.text3-rank{
     text-align: center;
     color: #5c83cc;
     font-family: 'Kanit', sans-serif;
     font-size: 17px ;
 }
-.text4-index{
+.text4-rank{
     text-align: left;
     width: 220px;
     margin-left: 10px;
@@ -137,42 +142,48 @@
     border: none;
 }
 
+
 .rank-column-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     background-color: white;
     margin: 1rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .rank-data-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    justify-content: space-between;
     background-color: white;
     margin: .7rem auto;
-    border-radius: 1rem;
+    border-radius: .5rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
-    overflow: hidden;
+}
+
+.rank-column0 {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
 }
 
 .rank-column {
     width: auto;
     height: auto;
-    padding: .5rem;
-    vertical-align: middle;
+    padding: 1rem;
     margin: 0 auto;
+    display: table-cell;
     align-items: center;
-    justify-content: center;
-    display: flex;
-}
+    vertical-align: middle;
+    text-align: left;
 
-.order-column {
-    margin-right: -2rem;
 }
 
 .rank-order {
@@ -181,18 +192,15 @@
     color: #000;
 }
 
-.rank-data-img {
-    float: left;
+i {
+    color: rgb(158, 158, 158);
+    font-size: 12px;
+    margin-right: .5rem;
+
 }
 
-.rank-data-img img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center right;
-    margin-right: .5rem;
-}
+
+/* =================================================================
 
 /* Responsive */
 @media only screen and (max-width: 321px) { 
@@ -205,7 +213,7 @@
 }
 
 @media only screen and (max-width: 376px) {
-    .column3-index{
+    .column3-rank{
         margin-top: 60px;
     }
     .coin1 , .coin2 , .coin3 {
@@ -217,7 +225,7 @@
 }
 
 @media only screen and (max-width: 415px) {
-    .column3-index{
+    .column3-rank{
         width: 45%;
         margin-bottom: 0px;
     }
@@ -230,7 +238,7 @@
  }
 
 @media only screen and (max-width: 769px) {
-    .column3-index{
+    .column3-rank{
         width: 31%;
     }
     .coin1 , .coin2 , .coin3 {
@@ -242,19 +250,19 @@
  }
 
 @media only screen and (max-width: 1025px) {
-    .container1-index , .container2-index , .container3-index{
+    .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
     }
-    .container2-index{
+    .container2-rank{
         margin-bottom: 60px;
         margin-top: 20px;
     }
-    .rank-index1{
+    .rank-rank1{
         font-size: 55px;
         padding-top: 25px;
     }
      
-    .emty-index{
+    .emty-rank{
         height: 65px;
     }
     .coin1 , .coin2 , .coin3 {
