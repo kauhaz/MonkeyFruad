@@ -596,44 +596,30 @@
     }
 }
 
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 320px) {
     .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
         font-size: 14px;
     }
     .address-contract , .pagefb-contract , .name-contract{
         margin-left:0px;
-        font-size: 13px;
-    }
-    /* .address-contract{
-        margin-left:0px;
-        font-size: 14px;
-        margin-top: -15px;
-    } */
-    .container2-contract{
-        margin-bottom: 10px;
-    }
-    .column2-contract-r{
-        width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .address-contract{
-        padding: 20px 20px 20px 20px;
+        font-size: 12px;
     }
 
     .image-contract{
-        width: 110px;
+        width: 100px;
     }
     .name-contract{
-        width: 140px;
+        width: 130px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .chack-contract{
-        margin-top: -272px;
-        margin-left: 175px;
+        margin-top: -256px;
+        margin-left: 147px;
     }
     .praew-contract{
-        margin-top: -50px;
-        margin-left: 90px;
-        margin-bottom: 80px;
+        margin-top: -60px;
+        margin-left: 75px;
+        margin-bottom: 70px;
     }
 }
