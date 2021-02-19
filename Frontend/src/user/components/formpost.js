@@ -52,7 +52,7 @@ const Formpost = ({ check, Setcheck }) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -69,6 +69,23 @@ const Formpost = ({ check, Setcheck }) => {
 
   var user = auth.currentUser;
   let history = useHistory();
+
+
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
@@ -424,10 +441,11 @@ const Formpost = ({ check, Setcheck }) => {
                   />
                 </label>
 
-                {imagesFile.map((imagePreviewUrl) => {
+                {imagesFile ? imagesFile.map((imagePreviewUrl,index) => {
                   return (
+                    <div>
                     <img
-                      key={imagePreviewUrl}
+                      key={index}
                       className="imgpreview"
                       alt="previewImg"
                       src={imagePreviewUrl}
@@ -445,8 +463,10 @@ const Formpost = ({ check, Setcheck }) => {
                         })
                       }
                     />
+                      <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                    </div>
                   );
-                })}
+                }):null}
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>

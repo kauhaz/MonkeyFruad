@@ -5,6 +5,7 @@ import "./Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash"
+import ClipLoader from "./clipLoader"
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -20,6 +21,7 @@ const Listcomment2 = ({
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
+  const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
@@ -59,11 +61,12 @@ const Listcomment2 = ({
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment" , edittextcomment)
-
+      Setloading(true)
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
          formdata
       );
+      Setloading(false)
       handleedittorerender();
       Setcheckedittext(false);
 
@@ -114,7 +117,7 @@ const Listcomment2 = ({
                 </span>
               </div>
               <br />
-              {checkedittext ? (
+              {loading ? <ClipLoader/> : <div>   {checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -200,7 +203,8 @@ const Listcomment2 = ({
                       })
                     : null}
                 </div>
-              )}
+              )} </div>}
+            
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (

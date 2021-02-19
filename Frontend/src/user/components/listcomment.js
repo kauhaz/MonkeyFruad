@@ -5,6 +5,7 @@ import "./listcomment.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
+import ClipLoader from "./clipLoader"
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -19,6 +20,7 @@ const Listcomment = ({
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
+  const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
@@ -58,11 +60,12 @@ const Listcomment = ({
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment", edittextcomment);
-
+      Setloading(true)
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
         formdata
       );
+      Setloading(false)
       handleedittorerender();
       Setcheckedittext(false);
     } catch (err) {
@@ -84,7 +87,7 @@ const Listcomment = ({
   }, [commentmore]);
 
   return (
-    <div>
+    <div> 
       {commentmore ? (
         <div className="row mypostcommentrow">
           <div className="column1 mypostcommentrow1">
@@ -111,7 +114,7 @@ const Listcomment = ({
                 </span>
               </div>
               <br />
-              {checkedittext ? (
+              {loading ? <ClipLoader/> : <div>       {checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -121,6 +124,7 @@ const Listcomment = ({
                       }}
                     ></textarea>
                   </div>
+                
                   <div className="row post-comment-commentsall">
                     <div className="container-img-holder-imgpreview1">
                       <label>
@@ -180,7 +184,6 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
-
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (
@@ -191,7 +194,8 @@ const Listcomment = ({
                       })
                     : null}
                 </div>
-              )}
+              )}</div>}
+       
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (
