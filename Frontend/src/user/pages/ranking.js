@@ -107,23 +107,23 @@ const Rank = () => {
           เรียงตาม: <span>{TitleSort}</span>
         </span>
       </h1>
-      <div className="container2-index">
+      <div className="container2-rank">
         <div className="row">
           {ThiefThreeRank
             ? ThiefThreeRank.map((element, index) => {
                 return (
-                  <div className="column3-index" key={index}>
-                    <div className={`coin${index + 1} rank-index1`}>
+                  <div className="column3-rank" key={index}>
+                    <div className={`coin${index + 1} rank-rank1`}>
                       {index + 1}
                     </div>
                     <MDBCard>
-                      <div className="emty-index"></div>
+                      <div className="emty-rank"></div>
                       <MDBCardBody cascade className="text-center">
-                        <p className="text3-index">
+                        <p className="text3-rank">
                           เลขที่บัญชี : {element.accountnumber} <br />
                           ธนาคาร : {element.bank}
                         </p>
-                        <p className="text4-index">
+                        <p className="text4-rank">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
                           ยอดทั้งหมด : {element.summoney} บาท
                           <br />
@@ -195,9 +195,6 @@ const Rank = () => {
                 <div className="rank-data-row">
                   <div className="rank-column col">{index + 1}</div>
                   <div className="rank-column col">
-                    {/* <div className="rank-data-img">
-                      <img src="/img/nui.jpg"></img>
-                    </div> */}
                     <span>{element.name}</span>
                   </div>
                   <div className="rank-column col">{element.surname}</div>

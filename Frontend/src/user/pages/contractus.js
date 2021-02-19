@@ -55,13 +55,14 @@ const Contractus = () => {
                   <div className="column2-contract-r address">
                     <div className="address-contract">
                       มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี <br/>
-                      126  ถนนประชาอุทิศ แขวงบางมด <br/>
-                      เขตทุ่งครุ กรุงเทพฯ 10140 <br/>
+                      126  ถนนประชาอุทิศ แขวงบางมด <br className="brnone-contract"/>
+                      เขตทุ่งครุ กรุงเทพฯ 10140 <br className="brnone-contract"/>
                       <div className="emty-contract"></div>
-                      โทรศัพท์ : 02-470-8000 <br/>
+                      โทรศัพท์ : 02-470-8000 <br className="brnone-contract"/>
+                      <div className="emty2-contract"></div>
                       Email : Monkey_Fraud@gmail.com
                     </div>
-                    <div className="emty2-contract"></div>
+                    <div className="line2-contract"></div>
                     <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
                       <div className="pagefb-contract">
                         ติดต่อเพจน้องพะโล้ <br />
@@ -88,21 +89,21 @@ const Contractus = () => {
             <img src="/img/punch.jpg" className="image-contract" />
             <div className="name-contract">
               กรกช ศิริกันทรมาศ<br/>
-              Business Analyst
+              <span className="role-contract">Business Analyst</span>
             </div>
           </div>
           <div className="column3-contract">
             <img src="/img/huak.jpg" className="image-contract" />
             <div className="name-contract">
               คมศักดิ์ กรณย์ประกิตติ์<br/>
-              Manager
+              <span className="role-contract">Project Manager</span>
             </div>
           </div>
           <div className="column3-contract">
             <img src="/img/nuity.jpg" className="image-contract" />
             <div className="name-contract">
               บวรศักดิ์ เหลือจันทร์<br/>
-              Tester
+              <span className="role-contract">Tester</span>
             </div>
           </div>
         </div>
@@ -111,18 +112,18 @@ const Contractus = () => {
             <div className="column4-contract-1">
               <img src="/img/emty.png" className="imageemty-contract" />
             </div>
-            <div className="column4-contract">
+            <div className="column4-contract chack-contract">
               <img src="/img/chake.jpg" className="image-contract" />
               <div className="name-contract">
                 วสิษฐ์พล แก้วพลูศรี <br/>
-                Software Developer
+                <span className="role-contract">Software Developer</span>
               </div>
             </div>
-            <div className="column4-contract">
+            <div className="column4-contract praew-contract">
               <img src="/img/praew.jpg" className="image-contract" />
               <div className="name-contract">
                 สิริวิมล กังสวณิช<br/>
-                UI/UX Designer
+                <span className="role-contract">UI/UX Designer</span>
               </div>
             </div>
             <div className="column4-contract-1">
