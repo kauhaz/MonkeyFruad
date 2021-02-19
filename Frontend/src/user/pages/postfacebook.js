@@ -4011,7 +4011,7 @@ const PostFacebook = () => {
 
       if (checkcloth) {
         Setshow();
-        if (cloth && doc.productcategory === "เสื้อผ้า") {
+        if (doc.productcategory === "เสื้อผ้า") {
           if (
             !checkfacebook &&
             !checkline &&
@@ -4051,7 +4051,7 @@ const PostFacebook = () => {
       }
       if (checkassesory) {
         Setshow();
-        if (assesory && doc.productcategory === "เครื่องประดับ") {
+        if (doc.productcategory === "เครื่องประดับ") {
           if (
             !checkfacebook &&
             !checkline &&

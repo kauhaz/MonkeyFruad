@@ -86,7 +86,9 @@ const Post = () => {
   const [searchstart, Setsearchstart] = useState();
   const [searchend, Setsearchend] = useState();
 
-  const [statefacebook, Setstatefacebook] = useState();
+  const [sortvalue, Setsortvalue] = useState("ใหม่ล่าสุด");
+
+
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
@@ -101,6 +103,7 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+
   
   // if(statefacebook){
   //   Setcheckfacebook(true)
@@ -116,17 +119,26 @@ const Post = () => {
     //   console.log("okoko")    
     //     Setcheckfacebook(true)
     // }
-
+ 
   const ok = async () => {
     Setloading(true);
-    const getpost = await Axios.get(`http://localhost:7000/post/post`);
+     if(sortvalue === "ใหม่ล่าสุด"){
+      const getpost = await Axios.get(`http://localhost:7000/post/post`);
+      Setshow(getpost.data.item);
+      var getdata = getpost.data.item;
+     }
+     else if(sortvalue === "จำนวนเงินมากที่สุด"){
+        const getpost = await Axios.get(`http://localhost:7000/post/post/sortmoney`)
+        Setshow(getpost.data.item);
+        var getdata = getpost.data.item;
+      }
     Setloading(false);
-    Setshow(getpost.data.item);
-    const getdata = getpost.data.item;
+  
+
 
 
     var item = [];
-    // Setloading(true)
+    
     getdata.filter((doc) => {
       if (checkfacebook) {
         Setshow();
@@ -157,7 +169,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -190,7 +202,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -222,7 +234,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -255,7 +267,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -1911,7 +1923,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -4035,7 +4047,7 @@ const Post = () => {
 
       if (checkcloth) {
         Setshow();
-        if (cloth && doc.productcategory === "เสื้อผ้า") {
+        if (doc.productcategory === "เสื้อผ้า") {
           if (
             !checkfacebook &&
             !checkline &&
@@ -4075,7 +4087,7 @@ const Post = () => {
       }
       if (checkassesory) {
         Setshow();
-        if (assesory && doc.productcategory === "เครื่องประดับ") {
+        if (doc.productcategory === "เครื่องประดับ") {
           if (
             !checkfacebook &&
             !checkline &&
@@ -5731,6 +5743,7 @@ const Post = () => {
     checkothercatalog,
     searchstart,
     searchend,
+    sortvalue
   ]);
 
   // console.log(result);
@@ -6178,11 +6191,13 @@ const Post = () => {
                     as="select"
                     name="post-groupsorting1"
                     className="post-groupsorting1"
+                    onChange={e => Setsortvalue(e.target.value)}
                   >
-                    <option>ใหม่ล่าสุด</option>
-                    <option>จำนวนเงินมากที่สุด</option>
+                    <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
+                    <option value="จำนวนเงินมากที่สุด">จำนวนเงินมากที่สุด</option>
                   </select>
                 </div>
+             
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
