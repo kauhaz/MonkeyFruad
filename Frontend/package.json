@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/joshk.react-spinners-css.ouroboro": "^1.2.1",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
@@ -38,6 +39,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-spinners": "^0.10.4",
+    "react-spinners-css": "^1.2.2",
     "react-toolbox": "^2.0.0-beta.13",
     "recursive-readdir": "^2.2.2",
     "rsuite": "^4.8.7",
