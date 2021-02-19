@@ -13,9 +13,7 @@ import usercontext from "../context/usercontext";
 
 const Post = () => {
   const [show, Setshow] = useState();
-
   const [Show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const location = useLocation();
@@ -50,6 +48,7 @@ const Post = () => {
   const [music, Setmusic] = useState(false);
 
   const [othercatalog, Setothercatalog] = useState(false);
+
   const [checkfacebook, Setcheckfacebook] = useState(false);
   const [checkline, Setcheckline] = useState(false);
   const [checkinstagram, Setcheckinstagram] = useState(false);
@@ -87,6 +86,9 @@ const Post = () => {
   const [searchstart, Setsearchstart] = useState();
   const [searchend, Setsearchend] = useState();
 
+  const [sortvalue, Setsortvalue] = useState("ใหม่ล่าสุด");
+
+
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
@@ -101,19 +103,43 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+
+  
+  // if(statefacebook){
+  //   Setcheckfacebook(true)
+  // }
+  // if(location.state.selectfacebook){
+  //   Setstatefacebook(location.state.selectfacebook)
+  //   console.log("okoko")
+  // }
+  // if(statefacebook){
+  //   Setcheckfacebook(true)
+  // }
+    //  if(statefacebook){
+    //   console.log("okoko")    
+    //     Setcheckfacebook(true)
+    // }
+ 
   const ok = async () => {
     Setloading(true);
-    const getpost = await Axios.get(`http://localhost:7000/post/post`);
+     if(sortvalue === "ใหม่ล่าสุด"){
+      const getpost = await Axios.get(`http://localhost:7000/post/post`);
+      Setshow(getpost.data.item);
+      var getdata = getpost.data.item;
+     }
+     else if(sortvalue === "จำนวนเงินมากที่สุด"){
+        const getpost = await Axios.get(`http://localhost:7000/post/post/sortmoney`)
+        Setshow(getpost.data.item);
+        var getdata = getpost.data.item;
+      }
     Setloading(false);
-    Setshow(getpost.data.item);
-    const getdata = getpost.data.item;
+  
+
+
 
     var item = [];
-    // Setloading(true)
+    
     getdata.filter((doc) => {
-      if (location.search == "?facebook") {
-        Setfacebook(true);
-      }
       if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
@@ -143,7 +169,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -176,7 +202,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -208,7 +234,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -241,7 +267,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -1897,7 +1923,7 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchstart) {
+              if (!searchstart && !searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -3240,7 +3266,7 @@ const Post = () => {
 
       if (checkother) {
         Setshow();
-        if (doc.social === "other") {
+        if (doc.social === "อื่นๆ") {
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {
@@ -4021,7 +4047,7 @@ const Post = () => {
 
       if (checkcloth) {
         Setshow();
-        if (cloth && doc.productcategory === "เสื้อผ้า") {
+        if (doc.productcategory === "เสื้อผ้า") {
           if (
             !checkfacebook &&
             !checkline &&
@@ -4061,7 +4087,7 @@ const Post = () => {
       }
       if (checkassesory) {
         Setshow();
-        if (assesory && doc.productcategory === "เครื่องประดับ") {
+        if (doc.productcategory === "เครื่องประดับ") {
           if (
             !checkfacebook &&
             !checkline &&
@@ -5717,6 +5743,7 @@ const Post = () => {
     checkothercatalog,
     searchstart,
     searchend,
+    sortvalue
   ]);
 
   // console.log(result);
@@ -6164,11 +6191,13 @@ const Post = () => {
                     as="select"
                     name="post-groupsorting1"
                     className="post-groupsorting1"
+                    onChange={e => Setsortvalue(e.target.value)}
                   >
-                    <option>ใหม่ล่าสุด</option>
-                    <option>จำนวนเงินมากที่สุด</option>
+                    <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
+                    <option value="จำนวนเงินมากที่สุด">จำนวนเงินมากที่สุด</option>
                   </select>
                 </div>
+             
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
@@ -6179,6 +6208,7 @@ const Post = () => {
                       id="defaultInline1"
                       onChange={(e) => Setfacebook(e.target.value)}
                       onClick={() => Setcheckfacebook(!checkfacebook)}
+                     
                     ></input>
                     <label
                       class="custom-control-label groupcheckboxlabel1"

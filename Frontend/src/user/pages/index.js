@@ -23,7 +23,6 @@ const Home = () => {
   const [searching, Setsearching] = useState();
   const [lastsearch, Setlastsearch] = useState();
   const [haha, Sethaha] = useState();
-
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
   const [allpost, Setallpost] = useState();
@@ -116,49 +115,19 @@ const Home = () => {
     }
   };
   const Go_FacebookPost = () => {
-    history.push({
-      pathname: "/post",
-      search: "facebook",
-      state: {
-        selectfacebook: true,
-      },
-    });
+    history.push("/postfacebook");
   };
   const Go_Instragram = () => {
-    history.push({
-      pathname: "/post",
-      search: "instragram",
-      state: {
-        selectinstragram: true,
-      },
-    });
-  };
+    history.push("/postinstragram");
+  }
   const Go_Line = () => {
-    history.push({
-      pathname: "/entersearch",
-      search: "line",
-      state: {
-        selectline: true,
-      },
-    });
+    history.push("/postline");
   };
   const Go_Twitter = () => {
-    history.push({
-      pathname: "/entersearch",
-      search: "twitter",
-      state: {
-        selecttwitter: true,
-      },
-    });
+    history.push("/posttwitter");
   };
   const Go_Other = () => {
-    history.push({
-      pathname: "/post",
-      search: "other",
-      state: {
-        selectother: true,
-      },
-    });
+    history.push("/postother");
   };
   const ok = async () => {
     try {
@@ -509,7 +478,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore2-index seemore-index">
+              <a onClick={Go_Instragram} className="readmore2-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -594,7 +563,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore3-index seemore-index">
+              <a onClick={Go_Line} className="readmore3-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -679,7 +648,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore4-index seemore-index">
+              <a onClick={Go_Twitter} className="readmore4-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
@@ -763,7 +732,7 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a href="!#" className="readmore5-index seemore-index">
+              <a onClick={Go_Other} className="readmore5-index seemore-index">
                 <div className="">
                   ดูทั้งหมด{" "}
                   <MDBIcon
