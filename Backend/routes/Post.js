@@ -1135,7 +1135,9 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
 
 router.get("/commentmore/:id", async (req, res) => {
   try {
+  
     let postid = req.params.id;
+    console.log(postid)
     const getcomment = await firestore
       .collection("Comment")
       .where("postid", "==", postid)

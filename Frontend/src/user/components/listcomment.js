@@ -105,7 +105,7 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-  console.log(imagesFile)
+ 
   return (
     <div>
       {commentmore ? (

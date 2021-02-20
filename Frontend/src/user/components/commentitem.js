@@ -145,13 +145,15 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-  console.log(commentmore)
+  // console.log(commentmore)
 
   const gg = async () => {
     try {
+
       const getcommentall = await Axios.get(
         `http://localhost:7000/post/commentmore/${postid}`
       );
+      // Setloading(true)
       Setcommentmore(getcommentall.data.item);
       if (user) {
         const nameuser = await Axios.post("http://localhost:7000/user/userid", {
@@ -167,6 +169,7 @@ const Commentitem = ({ postid }) => {
         );
         Setphotourl(profiledata.data.data.photoURL.url);
         Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        // Setloading(false)
       }
     } catch (err) {
       console.log(err);
@@ -174,7 +177,7 @@ const Commentitem = ({ postid }) => {
   };
   useEffect(() => {
     gg();
-  }, [click, showdelete, showedit]);
+  }, [click, showdelete, showedit , postid]);
 
   return (
     <div>
