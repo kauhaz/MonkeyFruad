@@ -9,7 +9,7 @@ const express = require("express"),
   thiefRoutes = require("./routes/Thief"),
 // set up express
  app = express();
- app.use(express.json({limit: '40mb' }));
+ app.use(express.json({limit: '50mb' }));
  app.use(express.urlencoded({limit: '50mb' , extended:true }))
  app.use(cors())
  
