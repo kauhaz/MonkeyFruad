@@ -63,6 +63,7 @@ const Listcomment2 = ({
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
+    setIsActive(false)
     handledeletetorerender();
   };
 
@@ -84,6 +85,8 @@ const Listcomment2 = ({
         formdata
       );
       handleedittorerender();
+      setImagesFile([])
+      Setfiles()
       Setcheckedittext(false);
       Setloading(false);
     } catch (err) {

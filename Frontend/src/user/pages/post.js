@@ -105,7 +105,7 @@ const Post = () => {
     console.log(result)
  
   const ok = async () => {
-    Setloading(true);
+    Setloading(true)
      if(sortvalue === "ใหม่ล่าสุด"){
       const getpost = await Axios.get(`http://localhost:7000/post/post`);
       Setshow(getpost.data.item);
@@ -116,7 +116,7 @@ const Post = () => {
         Setshow(getpost.data.item);
         var getdata = getpost.data.item;
       }
-    Setloading(false);
+      Setloading(false)
   
 
 

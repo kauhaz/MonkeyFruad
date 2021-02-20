@@ -17,6 +17,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
       const postdelete = await Axios.post(
         `http://localhost:7000/post/delete/${uid}`
       );
+      setIsActive(false)
       handledeletetorerender();
     } catch (err) {
       console.log(err);

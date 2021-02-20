@@ -33,7 +33,6 @@ const Mypost = () => {
      await Axios.post(
       `http://localhost:7000/post/delete/${uid}`
     );
-
     history.push("/post/history");
   };
 
