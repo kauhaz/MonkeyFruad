@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import {
-  Modal
-} from "react-bootstrap";
-import { Form, Col,  Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Form, Col, Button } from "react-bootstrap";
 
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
@@ -21,7 +19,7 @@ const Mypost = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  let { user} = useContext(usercontext);
+  let { user } = useContext(usercontext);
 
   let { uid } = useParams();
   const history = useHistory();
@@ -30,9 +28,7 @@ const Mypost = () => {
     SetshowDropdown(false);
   };
   const deleted = async (uid) => {
-     await Axios.post(
-      `http://localhost:7000/post/delete/${uid}`
-    );
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
 
     history.push("/post/history");
   };
@@ -86,19 +82,19 @@ const Mypost = () => {
                           </div>
                           <br />
                           <div className="mypost-date">
-                          {moment(
-                                      new Date(ok.date.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                            {moment(new Date(ok.date.seconds * 1000)).format(
+                              "MM/DD/YYYY HH:mm"
+                            )}{" "}
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
                         {user && user.uid != ok.useruid ? (
                           <div>
-                            <div className="postbuttonreport">
+                            <div className="mypostbuttonreport">
                               <button
                                 variant="primary"
                                 onClick={handleShow}
-                                className="postbuttonreported"
+                                className="mypostbuttonreported"
                               >
                                 <i class="fa fa-flag"></i>
                               </button>
@@ -114,21 +110,87 @@ const Mypost = () => {
                                     รายงานโพสต์
                                   </Modal.Title>
                                 </Modal.Header>
-                                <Modal.Body>
-                                  Woohoo, you're reading this text in a modal!
+                                <Modal.Body className="bigreport1">
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport1"
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport1"
+                                    >
+                                      ข้อมูลไม่ถูกต้อง
+                                    </label>
+                                  </div>
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport2"
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport2"
+                                    >
+                                      ข้อมูลไม่เหมาะสม
+                                    </label>
+                                  </div>
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport3"
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport3"
+                                    >
+                                      อื่นๆ (กรุณาระบุในช่องเพิ่มเติม)
+                                    </label>
+                                  </div>
+                                  <div className="form-groupreport">
+                                    <label htmlFor="exampleFormControlTextarea1"></label>
+                                    <textarea
+                                      className="form-control"
+                                      id="exampleFormControlTextarea1"
+                                      rows="4"
+                                      placeholder="อธิบายรายละเอียดเพิ่มเติม"
+                                    />
+                                  </div>
+                                  <span className="spanreport">
+                                    *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
+                                  </span>
+                                  <div className="container-img-holder-imgpreviewreport">
+                                    <label>
+                                      <img
+                                        className="uploadprovereport"
+                                        src="/img/addimage.png"
+                                      />
+                                      <input
+                                        id="FileInput"
+                                        className="uploadsreport"
+                                        type="file"
+                                        multiple
+                                        accept="image/png, image/jpeg , image/jpg"
+                                      />
+                                    </label>
+                                  </div>
                                 </Modal.Body>
                                 <Modal.Footer>
-                                  <Button
+                                  {/* <Button
                                     variant="secondary"
                                     onClick={handleClose}
                                   >
-                                    Close
-                                  </Button>
+                                    ยกเลิก
+                                  </Button> */}
                                   <Button
+                                    clsssName="buttonreportsave"
                                     variant="primary"
                                     onClick={handleClose}
                                   >
-                                    Save Changes
+                                    บันทึก
                                   </Button>
                                 </Modal.Footer>
                               </Modal>
@@ -295,7 +357,7 @@ const Mypost = () => {
                                 <Form.Label className="text-mypost">
                                   วันที่โดนโกง{" "}
                                   <span className="spanmypost">
-                                  {moment(
+                                    {moment(
                                       new Date(ok.datetimes.seconds * 1000)
                                     ).format("MM/DD/YYYY HH:mm")}{" "}
                                   </span>

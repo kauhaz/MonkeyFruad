@@ -1,15 +1,15 @@
-.mypostcommentimg-setting {
+.postcommentimg-setting {
   width: 25px;
 }
 
-.menu-containermypostcommentsetting {
+.menu-containerpostcommentsetting {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mypostcommentbuttonsetting {
+.postcommentbuttonsetting {
   width: 30px;
   background: rgb(245, 245, 245);
   margin-left: -10px;
@@ -24,12 +24,12 @@
   transition: box-shadow 0.4s ease;
 }
 
-.mypostcommentbuttonsetting:hover {
+.postcommentbuttonsetting:hover {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.mypostcommentmenusetting {
+.postcommentmenusetting {
   background: #ffffff;
   border-radius: 7px;
   position: absolute;
@@ -44,57 +44,67 @@
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
-.mypostcommentmenusetting.active {
+.postcommentmenusetting.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.mypostcommentmenusetting .ul-mypostcommentmenusetting {
+.postcommentmenusetting .ul-postcommentmenusetting {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.mypostcommentmenusetting .li-mypostcommentmenusetting {
+.postcommentmenusetting .li-postcommentmenusetting {
   border-bottom: 1px solid #dddddd;
 }
 
-.mypostcommentmenusetting
-  .li-mypostcommentmenusetting
-  .a-mypostcommentmenusetting {
+.postcommentmenusetting .li-postcommentmenusetting .a-postcommentmenusetting {
   text-decoration: none;
   color: black;
   padding: 15px 20px;
   display: block;
 }
 
-.mypostcommentmenusetting
-  .li-mypostcommentmenusetting
-  .a-mypostcommentmenusetting
-  .a-mypostcommentmenusetting1 {
+.postcommentmenusetting
+  .li-postcommentmenusetting
+  .a-postcommentmenusetting
+  .a-postcommentmenusetting1 {
   color: black;
 }
 
-.mypostcommentmenusetting
-  .li-mypostcommentmenusetting
-  .a-mypostcommentmenusetting
-  .a-mypostcommentmenusetting1:hover {
+.postcommentmenusetting
+  .li-postcommentmenusetting
+  .a-postcommentmenusetting
+  .a-postcommentmenusetting1:hover {
   color: black;
 }
 
-.mypostcommentrow {
+.postcommentrow {
   background-color: rgb(245, 245, 245);
-  width: 70%;
+  width: 85%;
   display: table;
   margin-left: 20px;
-  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   padding-left: 20px;
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 0px;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
+}
+
+.postcomment1 {
+  width: 70%;
+  margin-top: -10px;
+}
+
+.uploadprovepost1 {
+  width: 20%;
+  margin-top: -150px;
+  margin-left: 5px;
 }
 
 .imgcomment {
@@ -103,20 +113,32 @@
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
+  margin-bottom: 10px;
   margin-right: 10px;
 }
 
-.commenttextarea {
-  margin-top: -10px;
-  margin-left: 75px;
+.imgpreviewpost1 {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: -15px;
+  margin-left: 25px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  height: auto;
 }
 
-.buttoncommentsave1 {
+.commenttextareapost {
+  margin-left: 55px;
+}
+
+.buttoncommentpostsave1 {
   margin-top: -60px;
-  margin-left: 335px;
+  margin-left: 315px;
 }
 
-.buttoncommentsave2 {
+.buttoncommentpostsave2 {
   width: 100%;
   height: 40px;
   font-size: 17px;
@@ -128,8 +150,7 @@
   color: white;
 }
 
-
-.buttoncommentsave2:hover {
+.buttoncommentpostsave2:hover {
   width: 100%;
   height: 40px;
   font-size: 17px;

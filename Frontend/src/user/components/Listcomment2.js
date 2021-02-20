@@ -98,7 +98,7 @@ const Listcomment2 = ({
           <div className="column1 mypostcommentrow1">
             <div class="vl"></div>
             <div className="mypost-comment-img1">
-              <div className="post-profilecomment-img1">
+              <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
                     className="img-circle"
@@ -129,13 +129,13 @@ const Listcomment2 = ({
                       }}
                     ></textarea>
                   </div>
-                  <div className="row post-comment-commentsall">
+                  <div className="row mypost-comment-commentsall">
           <div className="container-img-holder-imgpreview1">
             <label>
               <img className="uploadprove1" src="/img/addphoto.png" />
               <input
                 id="FileInput"
-                className="uploadspostcomment"
+                className="uploadsmypostcomment"
                 type="file"
                 onChange={FileUpload}
                 multiple
@@ -203,7 +203,7 @@ const Listcomment2 = ({
                     ? commentmore.photocomment.map((doc) => {
                         return (
                           <div>
-                            <img className="imgcomment" src={`${doc.url}`} />
+                            <img className="imgcommentmypost" src={`${doc.url}`} />
                           </div>
                         );
                       })
