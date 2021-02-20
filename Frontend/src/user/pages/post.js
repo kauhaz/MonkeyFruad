@@ -24,7 +24,7 @@ const Post = () => {
   const [instagram, Setinstagram] = useState();
   const [twitter, Settwitter] = useState();
   const [other, Setother] = useState();
-  const [result, Setresult] = useState();
+  const [result, Setresult] = useState(null);
   const [assesory, Setassesory] = useState(false);
   const [cloth, Setcloth] = useState(false);
   const [shoe, Setshoe] = useState(false);
@@ -100,24 +100,29 @@ const Post = () => {
     SetshowDropdown(false);
   };
 
+    console.log(result)
+ 
   const ok = async () => {
-    Setloading(true);
-    if (sortvalue === "ใหม่ล่าสุด") {
+    Setloading(true)
+     if(sortvalue === "ใหม่ล่าสุด"){
       const getpost = await Axios.get(`http://localhost:7000/post/post`);
       Setshow(getpost.data.item);
       var getdata = getpost.data.item;
-    } else if (sortvalue === "จำนวนเงินมากที่สุด") {
-      const getpost = await Axios.get(
-        `http://localhost:7000/post/post/sortmoney`
-      );
-      Setshow(getpost.data.item);
-      var getdata = getpost.data.item;
-    }
-    Setloading(false);
+     }
+     else if(sortvalue === "จำนวนเงินมากที่สุด"){
+        const getpost = await Axios.get(`http://localhost:7000/post/post/sortmoney`)
+        Setshow(getpost.data.item);
+        var getdata = getpost.data.item;
+      }
+      Setloading(false)
+  
 
+
+console.log(result)
     var item = [];
 
     getdata.filter((doc) => {
+    
       if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
@@ -147,10 +152,6 @@ const Post = () => {
                 }
               }
 
-              if (!searchstart && !searchend) {
-                item.push(doc);
-                Setshow();
-              }
             }
           }
           if (checkassesory) {
@@ -4973,10 +4974,6 @@ const Post = () => {
           }
         }
 
-        if (!searchstart && !searchstart) {
-          item.push(doc);
-          Setshow();
-        }
       }
 
       // if (cloth && doc.productcategory === "เสื้อผ้า") {
@@ -5686,9 +5683,9 @@ const Post = () => {
       //   }
       // }
     });
-    // Setloading(false)
     Setresult(item);
   };
+  
   useEffect(() => {
     ok();
   }, [

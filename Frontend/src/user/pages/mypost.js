@@ -28,8 +28,9 @@ const Mypost = () => {
     SetshowDropdown(false);
   };
   const deleted = async (uid) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
-
+     await Axios.post(
+      `http://localhost:7000/post/delete/${uid}`
+    );
     history.push("/post/history");
   };
 

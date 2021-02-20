@@ -27,7 +27,7 @@ const Listcomment = ({
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -42,10 +42,23 @@ const Listcomment = ({
     }
   };
 
+  const handledeleteimage = async (index) => {
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
+
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
+    setIsActive(false);
     handledeletetorerender();
   };
 
@@ -57,7 +70,7 @@ const Listcomment = ({
     try {
       let formdata = new FormData();
       _.forEach(files, (file) => {
-        formdata.append("eiei", file);
+        formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
       formdata.append("photocomment", commentmore.photocomment);
@@ -69,7 +82,8 @@ const Listcomment = ({
       );
 
       handleedittorerender();
-
+      setImagesFile([]);
+      Setfiles();
       Setcheckedittext(false);
       Setloading(false);
     } catch (err) {
@@ -119,100 +133,103 @@ const Listcomment = ({
               </div>
               <br />
               {loading ? (
-                <ClipLoader />
-              ) : (
-                <div>
-                  {checkedittext ? (
-                    <div className="row">
-                      <div className="commenttextareapost">
-                        <textarea
-                          value={edittextcomment}
-                          onChange={(e) => {
-                            Setedittextcomment(e.target.value);
-                          }}
-                        ></textarea>
-                      </div>
-                      <div className="buttoncommentpostsave1">
-                        <button
-                          className="buttoncommentpostsave2"
-                          onClick={() => handleedit(commentmore.commentid)}
-                        >
-                          บันทึก
-                        </button>
-                      </div>
+                <div className="col-lg-10 col-4">
+                  <ClipLoader loading={loading} />
+                </div>
+              ) : checkedittext ? (
+                <div className="row">
+                  <div className="commenttextareapost">
+                    <textarea
+                      value={edittextcomment}
+                      onChange={(e) => {
+                        Setedittextcomment(e.target.value);
+                      }}
+                    ></textarea>
+                  </div>
+                  <div className="buttoncommentpostsave1">
+                    <button
+                      className="buttoncommentpostsave2"
+                      onClick={() => handleedit(commentmore.commentid)}
+                    >
+                      บันทึก
+                    </button>
+                  </div>
 
-                      <div className="container-img-holder-imgpreview1">
-                        <label>
-                          <img
-                            className="uploadprovepost1"
-                            src="/img/addphoto.png"
-                          />
-                          <input
-                            id="FileInput"
-                            className="uploadspostcomment"
-                            type="file"
-                            onChange={FileUpload}
-                            multiple
-                            accept="image/png, image/jpeg , image/jpg"
-                          />
-                        </label>
-                        {imagesFile
-                          ? imagesFile.map((imagePreviewUrl, index) => {
-                              return (
-                                <img
-                                  key={index}
-                                  className="imgpreviewpost1"
-                                  alt="previewImg"
-                                  src={imagePreviewUrl}
-                                  style={{ overflow: "hidden" }}
-                                  onMouseOver={(e) =>
-                                    (e.currentTarget.style = {
-                                      transform: "scale(1.25)",
-                                      overflow: "hidden",
-                                    })
-                                  }
-                                  onMouseOut={(e) =>
-                                    (e.currentTarget.style = {
-                                      transform: "scale(1)",
-                                      overflow: "hidden",
-                                    })
-                                  }
-                                />
-                              );
-                            })
-                          : commentmore
-                          ? commentmore.photocomment
-                            ? commentmore.photocomment.map((doc) => {
-                                return (
-                                  <img
-                                    className="imgpreviewpost1"
-                                    src={doc.url}
-                                  ></img>
-                                );
-                              })
-                            : null
-                          : null}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="post-comment-comments1">
-                      <div className="postcomment1">
-                        {commentmore.textcomment}
-                      </div>
-                      {commentmore.photocomment
-                        ? commentmore.photocomment.map((doc) => {
-                            return (
-                              <div>
-                                <img
-                                  className="imgcomment"
-                                  src={`${doc.url}`}
-                                />
-                              </div>
-                            );
-                          })
-                        : null}
-                    </div>
-                  )}
+                  <div className="container-img-holder-imgpreview1">
+                    <label>
+                      <img
+                        className="uploadprovepost1"
+                        src="/img/addphoto.png"
+                      />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                  {imagesFile
+                    ? imagesFile.map((imagePreviewUrl, index) => {
+                        return (
+                          <div>
+                            <img
+                              key={index}
+                              className="imgpreviewpost1"
+                              alt="previewImg"
+                              src={imagePreviewUrl}
+                              style={{ overflow: "hidden" }}
+                              onMouseOver={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1.25)",
+                                  overflow: "hidden",
+                                })
+                              }
+                              onMouseOut={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1)",
+                                  overflow: "hidden",
+                                })
+                              }
+                            />
+                            <img
+                              className="deleteimgpost2"
+                              src="/img/delete.png"
+                              onClick={() => handledeleteimage(index)}
+                            />
+                          </div>
+                        );
+                      })
+                    : commentmore
+                    ? commentmore.photocomment
+                      ? commentmore.photocomment.map((doc) => {
+                          return (
+                            <img
+                              className="imgpreviewpost1"
+                              src={doc.url}
+                            ></img>
+                          );
+                        })
+                      : null
+                    : null}
+                </div>
+              ) : (
+                <div className="mypost-comment-comments1">
+                  <div className="mypostcomment1">
+                    {commentmore.textcomment}
+                  </div>
+                  {/* {loading ? <ClipLoader /> : <div></div>} */}
+                  {commentmore.photocomment
+                    ? commentmore.photocomment.map((doc) => {
+                        return (
+                          <div>
+                            <img className="imgcomment" src={`${doc.url}`} />
+                          </div>
+                        );
+                      })
+                    : null}
                 </div>
               )}
             </div>

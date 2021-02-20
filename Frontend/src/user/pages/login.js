@@ -90,9 +90,9 @@ const Login = () => {
       />
       <Chatbot />
       <div className="container-login">
-        <form className="LoginForm">
+        <form className="LoginForm-login">
           <img src="/img/logoLogin.png" className="Logo-login" />
-          <p className="h2 text-center mb-2 font-weight-bold text1-login">
+          <p className="h2-login text-center mb-2 font-weight-bold text1-login">
             เข้าสู่ระบบ
           </p>
           {emailis_inVaild ? (
@@ -110,9 +110,9 @@ const Login = () => {
           ) : (
             ""
           )}
-          <div className="LoginInputForm">
+          <div className="LoginInputForm-login">
             <MDBInput
-              className="InputEmail"
+              className="InputEmail-login"
               label="Email"
               icon="user"
               group
@@ -125,7 +125,7 @@ const Login = () => {
               }}
             />
             <MDBInput
-              className="InputPassword"
+              className="InputPassword-login"
               label="Password"
               icon="unlock-alt"
               group
@@ -137,26 +137,26 @@ const Login = () => {
             />
           </div>
 
-          <div className="message">
-            <div className="RememberCheckbox">
+          <div className="message-login">
+            <div className="RememberCheckbox-login">
               <input type="checkbox" /> จดจำฉันไว้ในระบบ
             </div>
-            <div className="ForgotPassword">
+            <div className="ForgotPassword-login">
               <a href="./forgetpass">ลืมรหัสผ่าน?</a>
             </div>
           </div>
 
-          <button onClick={LoginSubmit} className="btn-block LoginButton">
+          <button onClick={LoginSubmit} className="btn-block LoginButton-login">
             <p className="mx-auto my-1">เข้าสู่ระบบ</p>
           </button>
 
-          <div className="Signup text-center pt-3">
+          <div className="Signup-login text-center pt-3">
             <span></span>
             <a href="./signup">สมัครสมาชิก</a>
             <hr></hr>
           </div>
 
-          <button onClick={facebookLogin} className="btn-block LoginFacebook">
+          <button onClick={facebookLogin} className="btn-block LoginFacebook-login">
             <svg
               className="FacebookIcon"
               xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +174,7 @@ const Login = () => {
             <p className="mx-auto my-1">เข้าสู่ระบบด้วย Facebook</p>
           </button>
 
-          <button onClick={googleLogin} className="btn-block LoginGoogle">
+          <button onClick={googleLogin} className="btn-block LoginGoogle-login">
             <svg
               className="GoogleIcon"
               xmlns="http://www.w3.org/2000/svg"

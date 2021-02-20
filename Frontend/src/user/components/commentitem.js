@@ -6,7 +6,7 @@ import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 import Loading from "./pacmanloading";
-import ClipLoading from "./clipLoader";
+import ClipLoader from "./clipLoader";
 const { v4: uuidv4 } = require("uuid");
 const Commentitem = ({ postid }) => {
   const onClick = () => setIsActive(!isActive);
@@ -139,13 +139,15 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-  console.log(commentmore);
+  // console.log(commentmore)
 
   const gg = async () => {
     try {
+
       const getcommentall = await Axios.get(
         `http://localhost:7000/post/commentmore/${postid}`
       );
+      // Setloading(true)
       Setcommentmore(getcommentall.data.item);
       if (user) {
         const nameuser = await Axios.post("http://localhost:7000/user/userid", {
@@ -161,6 +163,7 @@ const Commentitem = ({ postid }) => {
         );
         Setphotourl(profiledata.data.data.photoURL.url);
         Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        // Setloading(false)
       }
     } catch (err) {
       console.log(err);
@@ -168,7 +171,7 @@ const Commentitem = ({ postid }) => {
   };
   useEffect(() => {
     gg();
-  }, [click, showdelete, showedit]);
+  }, [click, showdelete, showedit , postid]);
 
   return (
     <div>
@@ -249,6 +252,7 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
+               
             <textarea
               rows="3"
               cols="15"
@@ -262,7 +266,7 @@ const Commentitem = ({ postid }) => {
             />
             {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
-
+         
           <div>
             <div className="column2 postbuttonsend">
               <button
