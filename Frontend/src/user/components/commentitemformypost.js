@@ -60,11 +60,11 @@ const Commentitemformypost = ({ postid }) => {
       console.log(err);
     }   
   }
-
+ 
   const handlecomment = async () => {
     try {
       if (user) {
-        SetLoading(true)
+        
         let formdata = new FormData();
         let useruid = user.uid;
         _.forEach(files, (file) => {
@@ -75,6 +75,13 @@ const Commentitemformypost = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
+          if(!files && !textcomment){
+            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+          }
+          if(files && files.length === 0){
+            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+          }
+          SetLoading(true)
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
           formdata
@@ -82,6 +89,7 @@ const Commentitemformypost = ({ postid }) => {
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
+        Setfiles()
         Seterror();
         SetLoading(false)
       } else {
@@ -234,10 +242,11 @@ const Commentitemformypost = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value);
+                Settextcomment(e.target.value)
+                Seterror()
               }}
             />
-            {loading ? <div><Loading/></div> : null }
+            {/* {loading ? <div><Loading/></div> : null } */}
           </div>
           <div>
             <div className="column2 mypostbuttonsend">

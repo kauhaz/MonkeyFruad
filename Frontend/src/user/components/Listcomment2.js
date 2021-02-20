@@ -56,19 +56,21 @@ const Listcomment2 = ({
   };
   const handleedit = async (commentid) => {
     try {
+  
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment" , edittextcomment)
+      formdata.append("photocomment", commentmore.photocomment);
       Setloading(true)
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
          formdata
       );
-      Setloading(false)
-      handleedittorerender();
+      handleedittorerender(); 
       Setcheckedittext(false);
+      Setloading(false)
 
     } catch (err) {
       console.log(err);
@@ -117,7 +119,7 @@ const Listcomment2 = ({
                 </span>
               </div>
               <br />
-              {loading ? <ClipLoader/> : <div>   {checkedittext ? (
+               {checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -141,10 +143,10 @@ const Listcomment2 = ({
               />
             </label>
           </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl) => {
+          {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
                   return (
                 <img
-                key={imagePreviewUrl}
+                key={index}
                 className="imgpreview1"
                 alt="previewImg"
                 src={imagePreviewUrl}
@@ -163,13 +165,17 @@ const Listcomment2 = ({
                 }
               />
             );
-          }) : commentmore ? commentmore.photocomment.map(doc =>{
+          }) : commentmore ? commentmore.photocomment ? commentmore.photocomment.map(doc =>{
             return (     
            
               <img src={doc.url}></img>
           
                 )
-          }) : null}
+          }) 
+          : null
+          : null
+        
+        }
 
          
           </div>
@@ -203,7 +209,7 @@ const Listcomment2 = ({
                       })
                     : null}
                 </div>
-              )} </div>}
+              )} 
             
             </div>
           </div>

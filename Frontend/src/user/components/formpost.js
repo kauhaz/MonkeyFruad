@@ -86,6 +86,9 @@ const Formpost = ({ check, Setcheck }) => {
     }   
   }
 
+  console.log(files)
+  
+
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
@@ -111,6 +114,13 @@ const Formpost = ({ check, Setcheck }) => {
       formdata.append("username", username);
       formdata.append("photoprofilepublic_id", photoprofilepublic_id);
       formdata.append("photoprofileurl", photoprofileurl);
+      if(!files){
+        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
+      }
+      if(files.length === 0){
+        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
+      }
+      
       Setloading(true);
       Setcheck(true);
       const a = await Axios.post("http://localhost:7000/post/create", formdata);

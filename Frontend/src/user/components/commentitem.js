@@ -71,6 +71,9 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }   
   }
+
+  
+
  
   const handlecomment = async () => {
     try {
@@ -85,6 +88,12 @@ const Commentitem = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
+        if(!files && !textcomment){
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        }
+        if(files && files.length === 0){
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        }
         Setloading(true)
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
@@ -94,7 +103,9 @@ const Commentitem = ({ postid }) => {
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
+        Setfiles()
         Seterror();
+        Setloading(false)
       } else {
         history.push({
           pathname: "/login",
@@ -133,6 +144,8 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }
   };
+
+  console.log(commentmore)
 
   const gg = async () => {
     try {
@@ -250,10 +263,11 @@ const Commentitem = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value);
+                Settextcomment(e.target.value) 
+                Seterror()
               }}
             />
-             {loading ? <div><ClipLoading/></div> : null }
+             {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
 
           <div>

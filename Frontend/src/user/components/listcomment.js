@@ -18,7 +18,7 @@ const Listcomment = ({
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
-  const [edittextcomment, Setedittextcomment] = useState();
+  const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
@@ -55,19 +55,24 @@ const Listcomment = ({
   };
   const handleedit = async (commentid) => {
     try {
+     
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment", edittextcomment);
+      formdata.append("photocomment", commentmore.photocomment);
+      
       Setloading(true)
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
         formdata
       );
-      Setloading(false)
+      
       handleedittorerender();
+        
       Setcheckedittext(false);
+      Setloading(false)
     } catch (err) {
       console.log(err);
     }
@@ -114,7 +119,7 @@ const Listcomment = ({
                 </span>
               </div>
               <br />
-              {loading ? <ClipLoader/> : <div>       {checkedittext ? (
+              {loading ? <ClipLoader /> : <div>{checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -139,11 +144,10 @@ const Listcomment = ({
                         />
                       </label>
                     </div>
-                    {imagesFile
-                      ? imagesFile.map((imagePreviewUrl) => {
+                    {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
                           return (
                             <img
-                              key={imagePreviewUrl}
+                              key={index}
                               className="imgpreview1"
                               alt="previewImg"
                               src={imagePreviewUrl}
@@ -163,11 +167,13 @@ const Listcomment = ({
                             />
                           );
                         })
-                      : commentmore
-                      ? commentmore.photocomment.map((doc) => {
+                        : commentmore ? commentmore.photocomment ? commentmore.photocomment.map((doc) => {
                           return <img src={doc.url}></img>;
-                        })
-                      : null}
+                        }) 
+                        : null 
+                        :null
+                    }
+
                   </div>
 
                   <div className="buttoncommentsave1">
@@ -195,6 +201,7 @@ const Listcomment = ({
                     : null}
                 </div>
               )}</div>}
+                 
        
             </div>
           </div>

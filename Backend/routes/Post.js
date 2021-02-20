@@ -1174,8 +1174,9 @@ router.post("/edit/comment/:id",uploadFile, async (req, res) => {
   try {
     let files = req.files.eiei
     let id = req.params.id;
-    let { edittextcomment } = req.body;
-    if (edittextcomment == "") {
+    let { edittextcomment , photocomment} = req.body;
+
+    if (edittextcomment === "" && photocomment === "undefined"  ) {
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
