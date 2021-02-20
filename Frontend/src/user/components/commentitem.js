@@ -5,6 +5,8 @@ import "./commentitem.css";
 import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
+import Loading from "./pacmanloading";
+import ClipLoader from "./clipLoader";
 const { v4: uuidv4 } = require("uuid");
 const Commentitem = ({ postid }) => {
   const onClick = () => setIsActive(!isActive);
@@ -22,6 +24,7 @@ const Commentitem = ({ postid }) => {
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
 
+  const [loading, Setloading] = useState();
   const [data, Setdata] = useState();
   const [show, Setshow] = useState();
   const [error, Seterror] = useState();
@@ -32,13 +35,13 @@ const Commentitem = ({ postid }) => {
   let history = useHistory();
 
   let uuid = uuidv4();
-
+  
   // ฟังก์ชันอัพโหลดไฟล์
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -52,7 +55,26 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
+  // console.log(files)
+  // console.log(imagesFile)
+  const handledeleteimage = async (index) => {
+    try{  
 
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
+  
+
+ 
   const handlecomment = async () => {
     try {
       if (user) {
@@ -66,14 +88,24 @@ const Commentitem = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
+        if(!files && !textcomment){
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        }
+        if(files && files.length === 0){
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        }
+        Setloading(true)
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
           formdata
         );
+        Setloading(false)
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
+        Setfiles()
         Seterror();
+        Setloading(false)
       } else {
         history.push({
           pathname: "/login",
@@ -112,6 +144,8 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }
   };
+
+  console.log(commentmore)
 
   const gg = async () => {
     try {
@@ -193,8 +227,9 @@ const Commentitem = ({ postid }) => {
         </div>
       ) : null}
 
+      
       <div className="row post-comment-comments1">
-        <div className="post-profilecomment-img1">
+        <div className="post-profilecomment-img1">  
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
           ) : (
@@ -221,6 +256,7 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
+               
             <textarea
               rows="3"
               cols="15"
@@ -228,11 +264,13 @@ const Commentitem = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value);
+                Settextcomment(e.target.value) 
+                Seterror()
               }}
             />
+             {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
-
+         
           <div>
             <div className="column2 postbuttonsend">
               <button
@@ -243,11 +281,13 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-
-          {imagesFile.map((imagePreviewUrl) => {
+       
+          {imagesFile ? imagesFile.map((imagePreviewUrl,index) => {
             return (
+              <div>
+                
               <img
-                key={imagePreviewUrl}
+                key={index}
                 className="imgpreview1"
                 alt="previewImg"
                 src={imagePreviewUrl}
@@ -265,8 +305,10 @@ const Commentitem = ({ postid }) => {
                   })
                 }
               />
+              <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+              </div>
             );
-          })}
+          }): null}
         </div>
 
         <h1 className="h1-postfileerror">{error}</h1>

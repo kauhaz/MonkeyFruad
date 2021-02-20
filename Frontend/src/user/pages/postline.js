@@ -80,6 +80,7 @@ const PostLine = () => {
   const [searchstart, Setsearchstart] = useState();
   const [searchend, Setsearchend] = useState();
 
+  const [sortvalue, Setsortvalue] = useState("ใหม่ล่าสุด");
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
@@ -96,10 +97,19 @@ const PostLine = () => {
   };
   const ok = async () => {
     Setloading(true);
-    const getpost = await Axios.get(`http://localhost:7000/post/post`);
+    if(sortvalue === "ใหม่ล่าสุด"){
+      const getpost = await Axios.get(`http://localhost:7000/post/post`);
+      Setshow(getpost.data.item);
+      var getdata = getpost.data.item;
+     }
+     else if(sortvalue === "จำนวนเงินมากที่สุด"){
+        const getpost = await Axios.get(`http://localhost:7000/post/post/sortmoney`)
+        Setshow(getpost.data.item);
+        var getdata = getpost.data.item;
+      }
     Setloading(false);
-    Setshow(getpost.data.item);
-    const getdata = getpost.data.item;
+
+  
 
     var item = [];
     // Setloading(true)
@@ -6154,9 +6164,11 @@ const PostLine = () => {
                     as="select"
                     name="post-groupsorting1"
                     className="post-groupsorting1"
+                    onChange={e => Setsortvalue(e.target.value)}
+              
                   >
-                    <option>ใหม่ล่าสุด</option>
-                    <option>จำนวนเงินมากที่สุด</option>
+                    <option value="ใหม่ล่าสุด">ใหม่ล่าสุด</option>
+                    <option value="จำนวนเงินมากที่สุด">จำนวนเงินมากที่สุด</option>
                   </select>
                 </div>
                 <div className="line-postgroup1"></div>

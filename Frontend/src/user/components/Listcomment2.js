@@ -4,7 +4,8 @@ import usercontext from "../context/usercontext";
 import "./Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
-import _ from "lodash"
+import _ from "lodash";
+import ClipLoader from "./clipLoader";
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -20,13 +21,14 @@ const Listcomment2 = ({
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
+  const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -41,6 +43,22 @@ const Listcomment2 = ({
     }
   };
 
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
+
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
@@ -50,23 +68,24 @@ const Listcomment2 = ({
 
   const edit = async () => {
     Setcheckedittext(true);
-    setIsActive(false)
+    setIsActive(false);
   };
   const handleedit = async (commentid) => {
     try {
       let formdata = new FormData();
       _.forEach(files, (file) => {
-        formdata.append("eiei", file);
+        formdata.append("photocomment", file);
       });
-      formdata.append("edittextcomment" , edittextcomment)
-
+      formdata.append("edittextcomment", edittextcomment);
+      formdata.append("photocomment", commentmore.photocomment);
+      Setloading(true);
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
-         formdata
+        formdata
       );
       handleedittorerender();
       Setcheckedittext(false);
-
+      Setloading(false);
     } catch (err) {
       console.log(err);
     }
@@ -84,7 +103,7 @@ const Listcomment2 = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-  console.log(imagesFile)
+
 
   return (
     <div>
@@ -114,7 +133,11 @@ const Listcomment2 = ({
                 </span>
               </div>
               <br />
-              {checkedittext ? (
+              {loading ? (
+                <div className="col-lg-10 col-4">
+                  <ClipLoader loading={loading} />
+                </div>
+              ) : checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -125,54 +148,55 @@ const Listcomment2 = ({
                     ></textarea>
                   </div>
                   <div className="row post-comment-commentsall">
-          <div className="container-img-holder-imgpreview1">
-            <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
-              />
-            </label>
-          </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl) => {
-                  return (
-                <img
-                key={imagePreviewUrl}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-            );
-          }) : commentmore ? commentmore.photocomment.map(doc =>{
-            return (     
-           
-              <img src={doc.url}></img>
-          
-                )
-          }) : null}
+                    <div className="container-img-holder-imgpreview1">
+                      <label>
+                        <img className="uploadprove1" src="/img/addphoto.png" />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
+                    {imagesFile
+                      ? imagesFile.map((imagePreviewUrl, index) => {
+                          return (
+                            <div>
+                            <img
+                              key={index}
+                              className="imgpreview1"
+                              alt="previewImg"
+                              src={imagePreviewUrl}
+                              style={{ overflow: "hidden" }}
+                              onMouseOver={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1.25)",
+                                  overflow: "hidden",
+                                })
+                              }
+                              onMouseOut={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1)",
+                                  overflow: "hidden",
+                                })
+                              }
+                            />
+                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                            </div>
+                          );
+                        })
+                      : commentmore
+                      ? commentmore.photocomment
+                        ? commentmore.photocomment.map((doc) => {
+                            return <img src={doc.url}></img>;
+                          })
+                        : null
+                      : null}
+                  </div>
 
-         
-          </div>
-
-                     
-              
                   <div className="buttoncommentsave1">
                     <button
                       className="buttoncommentsave2"
@@ -187,8 +211,6 @@ const Listcomment2 = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
-
-                  
 
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {

@@ -5,6 +5,7 @@ import "./listcomment.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
+import ClipLoader from "./clipLoader";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -17,15 +18,16 @@ const Listcomment = ({
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
-  const [edittextcomment, Setedittextcomment] = useState();
+  const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
+  const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -39,6 +41,22 @@ const Listcomment = ({
       };
     }
   };
+
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
@@ -55,16 +73,21 @@ const Listcomment = ({
     try {
       let formdata = new FormData();
       _.forEach(files, (file) => {
-        formdata.append("eiei", file);
+        formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
+      formdata.append("photocomment", commentmore.photocomment);
 
+      Setloading(true);
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
         formdata
       );
+
       handleedittorerender();
+
       Setcheckedittext(false);
+      Setloading(false);
     } catch (err) {
       console.log(err);
     }
@@ -82,7 +105,7 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-
+  console.log(imagesFile)
   return (
     <div>
       {commentmore ? (
@@ -111,9 +134,13 @@ const Listcomment = ({
                 </span>
               </div>
               <br />
-              {checkedittext ? (
+              {loading ? (
+                <div className="col-lg-10 col-4">
+                  <ClipLoader loading={loading} />
+                </div>
+              ) : checkedittext ? (
                 <div className="row">
-                  <div className="commenttextarea">
+                  <div className="commenttextarea ">
                     <textarea
                       value={edittextcomment}
                       onChange={(e) => {
@@ -121,6 +148,7 @@ const Listcomment = ({
                       }}
                     ></textarea>
                   </div>
+
                   <div className="row post-comment-commentsall">
                     <div className="container-img-holder-imgpreview1">
                       <label>
@@ -136,10 +164,11 @@ const Listcomment = ({
                       </label>
                     </div>
                     {imagesFile
-                      ? imagesFile.map((imagePreviewUrl) => {
+                      ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
+                            <div>
                             <img
-                              key={imagePreviewUrl}
+                              key={index}
                               className="imgpreview1"
                               alt="previewImg"
                               src={imagePreviewUrl}
@@ -157,12 +186,16 @@ const Listcomment = ({
                                 })
                               }
                             />
+                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                            </div>
                           );
                         })
                       : commentmore
-                      ? commentmore.photocomment.map((doc) => {
-                          return <img src={doc.url}></img>;
-                        })
+                      ? commentmore.photocomment
+                        ? commentmore.photocomment.map((doc) => {
+                            return <img src={doc.url}></img>;
+                          })
+                        : null
                       : null}
                   </div>
 
@@ -180,7 +213,7 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
-
+                  {/* {loading ? <ClipLoader /> : <div></div>} */}
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (

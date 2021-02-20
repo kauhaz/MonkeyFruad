@@ -52,7 +52,7 @@ const Formedit = ({ check, Setcheck }) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
@@ -92,6 +92,21 @@ const Formedit = ({ check, Setcheck }) => {
     ok();
   }, []);
 
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
@@ -113,7 +128,9 @@ const Formedit = ({ check, Setcheck }) => {
       formdata.append("datetime", datetime);
       formdata.append("social", social);
       formdata.append("other", other);
-
+      if(files && files.length === 0){
+        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
+      }
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
       Setloading(true);
       Setcheck(true);
@@ -126,6 +143,7 @@ const Formedit = ({ check, Setcheck }) => {
     } catch (err) {
       Setloading(false);
       Setcheck(false);
+      console.log(err)
       err && Seterror(err.response.data.msg);
     }
   };
@@ -518,10 +536,11 @@ const Formedit = ({ check, Setcheck }) => {
                             </label>
 
                             {imagesFile
-                              ? imagesFile.map((imagePreviewUrl) => {
+                              ? imagesFile.map((imagePreviewUrl,index) => {
                                   return (
+                                    <div>
                                     <img
-                                      key={imagePreviewUrl}
+                                      key={index}
                                       className="imgpreviewedit"
                                       alt="previewImg"
                                       src={imagePreviewUrl}
@@ -539,6 +558,8 @@ const Formedit = ({ check, Setcheck }) => {
                                         })
                                       }
                                     />
+                                    <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                                    </div>
                                   );
                                 })
                               : ok.item

@@ -97,28 +97,13 @@ const Post = () => {
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
-  //  const handleclick = async() => {
-  //     Setcheck(!check)
-  //   }
+
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
 
   
-  // if(statefacebook){
-  //   Setcheckfacebook(true)
-  // }
-  // if(location.state.selectfacebook){
-  //   Setstatefacebook(location.state.selectfacebook)
-  //   console.log("okoko")
-  // }
-  // if(statefacebook){
-  //   Setcheckfacebook(true)
-  // }
-    //  if(statefacebook){
-    //   console.log("okoko")    
-    //     Setcheckfacebook(true)
-    // }
+
  
   const ok = async () => {
     Setloading(true);

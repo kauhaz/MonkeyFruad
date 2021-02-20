@@ -142,62 +142,40 @@
     border: none;
 }
 
-
 .rank-column-row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: white;
     margin: 1rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
-    font-weight: 500;
-    font-size: 1.15rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .rank-data-row {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: white;
     margin: .7rem auto;
-    border-radius: .5rem;
+    border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
 }
 
-.rank-column0 {
-    width: auto;
-    height: auto;
-    padding: 1rem;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-}
-
 .rank-column {
+    text-align: center;
     width: auto;
     height: auto;
     padding: 1rem;
-    margin: 0 auto;
-    display: table-cell;
-    align-items: center;
     vertical-align: middle;
-    text-align: left;
-
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
-.rank-order {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #000;
-}
-
-i {
-    color: rgb(158, 158, 158);
-    font-size: 12px;
-    margin-right: .5rem;
-
-}
 
 
 /* =================================================================
