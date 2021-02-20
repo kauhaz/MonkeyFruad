@@ -125,7 +125,6 @@ console.log(result)
     
     getdata.filter((doc) => {
     
-  
       if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
