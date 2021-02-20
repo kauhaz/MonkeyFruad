@@ -1,10 +1,3 @@
-h1 { 
-    margin-top: 50px;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Kanit', sans-serif;
-}
-
 .container-login {
     margin: 40px auto;
     padding: 30px 40px;
@@ -15,97 +8,97 @@ h1 {
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
 }
-
-.LoginForm {
+.h2-login{
+    font-size: 32px;
+    margin-top: -5px;
+}
+.LoginForm-login {
     width: 100%;
     max-width: 376px;
     padding: 15px;
     margin: auto;
 }
 
-.LoginInputForm {
+.LoginInputForm-login {
     font-size: 16px;
     color: grey;
 }
 
-.message{
+.message-login{
     display:flex;
     justify-content:space-between;
     margin-top: -1rem;
     margin-bottom: 2rem;
 }
 
-.RememberCheckbox, .ForgotPassword a {
-    color: #212529;
+.RememberCheckbox-login, .ForgotPassword-login a {
+    color: #5c5c5c;
     font-size: 16px;
 }
 
-.LoginButton {
-    background-color: #be2020;
-    border: 1px solid #be2020;
+.LoginButton-login {
+    background-color: #f87c7c;
+    border: none;
     border-radius: 1.5rem;
     padding: 6px;
-}
-
-.LoginButton:hover {
-    background-color: #9b1b1b;
-    border: 1px solid #9b1b1b;
-}
-
-.LoginButton p {
     color: white;
     font-size: 18px;
 }
 
-.Signup a {
+.LoginButton-login:hover {
+    background-color: #f76d6d;
+    border: none;
+}
+
+.Signup-login a {
     color: #212529;
     font-size: 18px;
 }
 
-.Signup a:hover, .ForgotPassword a:hover {
+.Signup-login a:hover, .ForgotPassword-login a:hover {
     color: #9b1b1b;
 }
 
-.Signup hr {
+.Signup-login hr {
     margin-top: 2rem;
     color:black;
 }
 
-.LoginFacebook {
-    background-color: #3b5999;
-    border: 1px solid #3b5999;
+.LoginFacebook-login {
+    background-color: #4d70bd;
+    border: none;
     border-radius: 10px;
     padding: 6px;
 }
 
-.LoginFacebook:hover {
-    background-color: #30477a;
-    border: 1px solid #30477a;
+.LoginFacebook-login:hover {
+    background-color: #3d67c2;
+    border: none;
 }
 
-.LoginGoogle {
-    background-color: #CB4023;
-    border: 1px solid #CB4023;
+.LoginGoogle-login {
+    background-color: #fa5f40;
+    border: none;
     border-radius: 10px;
     padding: 6px;
 }
 
-.LoginGoogle:hover {
-    background-color: #a5331d;
-    border: 1px solid #a5331d;
+.LoginGoogle-login:hover {
+    background-color: #fa5736 !important;
+    border: none !important;
 }
 
 
-.LoginFacebook p, .LoginGoogle {
+.LoginFacebook-login p, .LoginGoogle-login {
     color: white;
     font-size: 18px;
 }
 
-.LoginFacebook svg, .LoginFacebook p, .LoginGoogle svg, .LoginGoogle p{
+.LoginFacebook-login svg, .LoginFacebook-login p, .LoginGoogle-login svg, .LoginGoogle-login p{
     display: inline-block;
 }
 
-.LoginFacebook svg, .LoginGoogle svg {
+.LoginFacebook-login svg, .LoginGoogle-login svg {
     vertical-align: middle;
     margin: 0 .5rem 4px 0;
 }
@@ -124,6 +117,9 @@ h1 {
     background-color: #f8a9a977;
     padding: .3rem;
     border-radius: .4rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .alert-login span{
@@ -131,10 +127,25 @@ h1 {
 }
 
 /*Responsive*/ 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1921px) {
+    /* .container-login {
+        width: 500px;
+        height: 570px;
+    }
+    .Logo-login  {
+        width: 80px;
+        height: 80px;
+        margin-top: -20px;
+    }
+    .h2-login{
+        font-size: 25px;
+        margin-top: -5px;
+    } */
 
 }
+@media only screen and (min-width: 1920px) {
 
+}
 @media only screen and (max-width: 1024px) {
     .container-login {
         margin-top: 220px;
@@ -168,7 +179,7 @@ h1 {
 }
 
 @media only screen and (max-width: 320px) {
-    .LoginFacebook p, .LoginGoogle{
+    .LoginFacebook-login p, .LoginGoogle-login{
         font-size: 15px;
     }
     .container-login {
