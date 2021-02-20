@@ -1,10 +1,6 @@
 import React, {
   useState,
-  useContext,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
+  useContext
 } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Col, Image, roundedCircle } from "react-bootstrap";
@@ -33,18 +29,14 @@ const Rule = () => {
       <div className="container-linkrule1">
         <div className="container-linkrule2">
           <form>
-            <h5 className="h3-linkrule">ข้อกำหนดและเงื่อนไขการใช้งาน</h5>
             <p className="p-linkrule">
               ตลอดเว็บไซด์นี้ คำว่า "ผู้ใช้บริการ"
               หมายถึงบุคคลใดๆที่เข้าถึงเว็บไซด์นี้
-            </p>
-            <p className="p-linkrule">
               การใช้เว็บไซต์นี้ต้องเป็นไปตามข้อตกลงและเงื่อนไขการใช้บริการต่อไปนี้
               ซึ่งผู้ใช้บริการควรอ่านอย่างละเอียด
               การใช้เว็บไซต์หรือเข้าไปดูข้อมูลในหน้าใดๆ
               ถือว่าท่านยอมรับข้อกำหนดและเงื่อนไขการใช้งานที่ระบุไว้ในข้อกำหนดและเงื่อนไขการใช้งานนี้
             </p>
-
             <h5 className="h3-linkrule">ผู้ใช้บริการ (User)</h5>
             <p className="p-linkrule">
               ผู้ใช้บริการจะต้องกรอกข้อมูลส่วนตัวตามความเป็นจริงเท่านั้น

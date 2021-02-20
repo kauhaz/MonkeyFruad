@@ -1,0 +1,311 @@
+h1 { 
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Kanit', sans-serif;
+    color: #8B0000;
+}
+
+.container-signup {
+    margin: 40px auto;
+    padding: 30px 40px;
+    font-family: 'Kanit', sans-serif;
+    background-color: white;
+    width: 500px;
+    height: auto;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    border-radius: 20px;
+}
+
+.LoginForm {
+    width: 100%;
+    max-width: 376px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.img-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+    object-fit: cover;
+    object-position: center right;
+}
+
+.LoginInputForm .InputName {
+    font-size: 16px;
+    color: grey;
+}
+
+.form-group {
+    color: #6C757D;
+
+}
+
+.DatePicker {
+    color: inherit;
+    width: 100%;
+    padding: .175rem .55rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.message{
+    display:flex;
+    justify-content:space-between;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.RememberCheckbox, .ForgotPassword a {
+    color: #212529;
+    font-size: 16px;
+}
+
+.LoginButton {
+    background-color: #be2020;
+    border: 1px solid #be2020;
+    border-radius: 1.5rem;
+    padding: 6px;
+}
+
+.LoginButton:hover {
+    background-color: #9b1b1b;
+    border: 1px solid #9b1b1b;
+}
+
+.LoginButton p {
+    color: white;
+    font-size: 18px;
+}
+
+.Signup a {
+    color: #212529;
+    font-size: 18px;
+}
+
+.Signup a:hover {
+    color: #9b1b1b;
+    font-size: 18px;
+}
+
+.Signup hr {
+    margin-top: 2rem;
+    color:black;
+}
+
+.LoginFacebook {
+    background-color: #3b5999;
+    border: 1px solid #3b5999;
+    border-radius: 10px;
+    padding: 6px;
+    text-align: center;
+}
+
+.LoginFacebook div, .LoginGoogle div  {  
+    display: inline-block;
+    margin: 0 -10px 0 0;
+}
+
+.LoginFacebook:hover {
+    background-color: #30477a;
+    border: 1px solid #30477a;
+}
+
+.LoginGoogle {
+    background-color: #CB4023;
+    border: 1px solid #CB4023;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.LoginGoogle img {
+    margin: 0 5px 3px 0;
+}
+
+.LoginGoogle:hover {
+    background-color: #a5331d;
+    border: 1px solid #a5331d;
+}
+
+.LoginFacebook p, .LoginGoogle {
+    color: white;
+    font-size: 18px;
+}
+
+.LoginFacebook svg, .LoginFacebook p, .LoginGoogle svg, .LoginGoogle p{
+    display: inline-block;
+}
+
+.LoginFacebook svg, .LoginGoogle svg {
+    vertical-align: middle;
+    margin: 0 .5rem 4px 0;
+}
+
+.Logo-signup  {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+.Date {
+    color: inherit;
+}
+
+.label-form-title-profile {
+    font-size: inherit;
+    display: inline-block;
+    color: inherit;
+}
+
+@media (min-width: 768px) {
+    .label-form-title-profile{
+        width: 40%;
+        float: left;
+        text-align: right;
+    }
+    .BirthDate {
+        margin-bottom: -1rem;
+        margin-top: 1rem;
+    }
+    .phone {
+        margin-bottom: -3rem;
+    }
+    .Email {
+        margin-top: -1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .label-form-title-profile{
+        width: 40%;
+        float: left;
+        text-align: right;
+    }
+    .BirthDate {
+        margin-bottom: 1rem;
+    }
+    .phone {
+        margin-bottom: 1rem;
+    }
+    .container-login {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+
+
+@media (min-width: 768px){
+    .form-inside-profile {
+        width: 60%;
+        padding-left: 7%;
+    }
+    .province-select {
+        color: inherit;
+        width: 100%;
+        padding: .175rem .55rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+}
+
+@media (max-width: 767.98px) {
+    .form-inside-profile {
+        width: 60%;
+        padding-left: 7%;
+    }
+    .province-select {
+        display: block;
+        color: inherit;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+}
+
+.form-inside-profile {
+    font-size: inherit;
+    display: inline-block;
+    color: inherit;
+}
+
+.alert-signup {
+    margin-top: 1rem;
+    color: #be2020;
+    border: 1px solid #be2020;
+    background-color: #f8a9a977;
+    padding: .3rem;
+    border-radius: .4rem;
+}
+
+.alert-signup span {
+    font-size: 1rem;
+}
+
+/*Responsive*/ 
+@media only screen and (max-width: 1920px) {
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+    .container-signup {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+
+}
+
+@media only screen and (max-width: 375px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+    .LoginFacebook p, .LoginGoogle{
+        font-size: 15px;
+    }
+    .container-signup {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .Logo-signup{
+        width: 125px;
+        height: 125px;
+    }
+    .text1-signup{
+        font-size: 30px !important;
+    }
+}
+
+.profile-badformpost-img {
+    text-align: center;
+    padding-bottom: 20px;
+} 
+
+.profile-badformpost-img img.img-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center; 
+    border-radius: 50%;
+}

@@ -1,0 +1,147 @@
+.mypostcommentimg-setting {
+  width: 25px;
+}
+
+.menu-containermypostcommentsetting {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mypostcommentbuttonsetting {
+  width: 30px;
+  background: rgb(245, 245, 245);
+  margin-left: -10px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 3px;
+  border: none;
+  vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+}
+
+.mypostcommentbuttonsetting:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mypostcommentmenusetting {
+  background: #ffffff;
+  border-radius: 7px;
+  position: absolute;
+  top: 40px;
+  left: -110px;
+  font-size: 15px;
+  width: 130px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.mypostcommentmenusetting.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mypostcommentmenusetting .ul-mypostcommentmenusetting {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mypostcommentmenusetting .li-mypostcommentmenusetting {
+  border-bottom: 1px solid #dddddd;
+}
+
+.mypostcommentmenusetting
+  .li-mypostcommentmenusetting
+  .a-mypostcommentmenusetting {
+  text-decoration: none;
+  color: black;
+  padding: 15px 20px;
+  display: block;
+}
+
+.mypostcommentmenusetting
+  .li-mypostcommentmenusetting
+  .a-mypostcommentmenusetting
+  .a-mypostcommentmenusetting1 {
+  color: black;
+}
+
+.mypostcommentmenusetting
+  .li-mypostcommentmenusetting
+  .a-mypostcommentmenusetting
+  .a-mypostcommentmenusetting1:hover {
+  color: black;
+}
+
+.mypostcommentrow {
+  background-color: rgb(245, 245, 245);
+  width: 80%;
+  display: table;
+  margin-top: -20px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
+}
+
+.imgcommentmypost {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.commenttextarea {
+  margin-top: -10px;
+  margin-left: 75px;
+}
+
+.buttoncommentsave1 {
+  margin-top: -60px;
+  margin-left: 335px;
+}
+
+.buttoncommentsave2 {
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  background-color: #5c83cc;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+
+.buttoncommentsave2:hover {
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  background-color: #3c6fce;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* .mypostcommentrow2 {
+          background-color: tomato;
+      } */

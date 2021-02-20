@@ -1,7 +1,1655 @@
 .h1-index { 
     margin-top: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
-    color: #8B0000;
+    color: #5c5c5c;
+    margin-top: 80px;
+}
+
+.container1-index{
+    width: 60%;
+    height: 300px;
+    background-color: white;
+    /* background-color: tomato; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: 'Kanit', sans-serif;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    border-radius: 10px;
+    padding-top: 25px;
+}
+.row-section1{
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+}
+.column1-index{
+    height: 110px;
+    align-self: center;
+}
+.column2-index{
+    align-items: center;
+    margin-right: 15px;
+}
+
+.line-index {
+    border-left: 3px solid rgba(146, 146, 146, 0.479);
+    height: 250px;
+}
+
+.text1-index{
+    font-size: 19px;
+    text-align: center;
+    color: #5c5c5c;
+}
+
+.box1-index{
+    background-color: rgb(233, 233, 233);
+    border: none;
+    width: 71%;
+    height: 45px;
+    border-radius: 0.5rem;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0px;
+    font-size: 16px;
+    color: #5c5c5c;
+}
+
+.containermini1-index{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button1-index{
+    background-color: #5c83cc;
+    border-radius: 0.5rem;
+    color: white;
+    margin-top: 20px;
+    width: 80px;
+    height: 45px;
+    border: 0px;
+    font-size: 16px;
+}
+.button1-index:hover{
+    background-color: #3c6fce;
+}
+
+
+
+/*dropsearch*/
+.gg-index{
+    position: absolute;
+    left: 84px;
+    top: 80px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 278px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    /* border: 1px solid #cfcdcd; */
+
+}
+
+.search-index{
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    width: 278px;
+    text-align: left;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #5c5c5c;
+}
+.search-index:hover{
+    background-color: rgb(233, 230, 230);
+    border-radius: 0px;
+}
+.dropsearch-index{
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    width: 278px;
+    text-align: center;
+    height: 40px;
+    padding-top: 8px;
+    font-size: 16px;
+    color: #5c5c5c;
+    background-color: #d8d6d6;
+}
+
+
+.textlink-index{
+    text-align: center;
+    display: block;
+}
+
+.image1-index{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    display: block;
+}
+
+
+
+.container2-index{
+    width: 60%;
+    height: 380px;
+    /* background-color: teal; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.column3-index{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    margin-top: 80px;
+}
+.emty-index{
+    height: 70px;
+    width: 100%;
+}
+.coin1-index{
+    background-color: #fc7248;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+.coin2-index{
+    background-color: #f8994a;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+.coin3-index{
+    background-color: #fdc52b;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+
+.rank-index1{
+    font-size: 70px;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    color: white;
+    padding-top: 25px;
+}
+
+.text2-index{
+    font-family: 'Kanit', sans-serif;
+}
+
+.text3-index{
+    text-align: center;
+    color: #5c83cc;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px ;
+}
+.text4-index{
+    text-align: left;
+    width: 220px;
+    margin-left: 10px;
+    font-size: 14px ;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-bottom: 20px;
+}
+
+.container3-index {
+    width: 60%;
+    height: 2840px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    font-size: 16px ;
+    font-family: 'Kanit', sans-serif;
+}
+
+.readmore-index {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+
+/*Facebook*/ 
+.headfacebook-index{
+    background-color: #3b5999;
+    width: 30%;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+    font-size: 22px;
+    padding-top: 2px;
+}
+
+.facebookbox-index{
+    background-color: white;
+    border: 5px solid  #3b5999;
+    width: 100%;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 24px;
+    padding-right: 12px;
+    margin-bottom: 60px;
+}
+
+.column4-index{
+    width: 24.7%;
+    padding: 20px 10px 20px 10px;
+}
+
+.image3-index{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.text5-index{
+    font-size: 17px;
+    text-align: center;
+    display: block;
+    margin-bottom: -10px;
+    margin-top: -5px;
+}
+
+.text7-index{
+    text-align: left;
+    font-size: 12px ;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    margin-left: 0px;
+  
+}
+.Fall-crisp{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.cardbody-index{
+    width: 165px;
+    margin-left: -2px;
+}
+.time-index{
+    background-color: #3b5999;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+    padding-top: 4px;
+    border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
+}
+
+.readmoresize-index{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.readmore1-index{
+    color:  #3b5999;
+}
+.readmore1-index:hover{
+    color:  #2b406d;
+}
+
+/*instargram*/
+.headinstargram-index{
+    /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
+    background-color: #ec3d77;
+    width: 30%;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+    font-size: 22px;
+    padding-top: 2px;
+}
+.instargrambox-index{
+    background-color: white;
+    border: 5px solid #ec3d77;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    margin-bottom: 60px;
+    padding-left: 24px;
+    padding-right: 12px;
+}
+
+.time2-index{
+    background: #ec3d77;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+    padding-top: 4px;
+    border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
+}
+
+.readmore2-index{
+    color:  #ec3d77;
+}
+.readmore2-index:hover{
+    color:  #ac2c57;
+}
+
+
+/*Line*/
+.headline-index{
+    background: #099b09;
+    width: 30%;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+    font-size: 22px;
+    padding-top: 2px;
+}
+.linebox-index{
+    background-color: white;
+    border: 5px solid#099b09;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 24px;
+    padding-right: 12px;
+    margin-bottom: 60px;
+}
+
+.time3-index{
+    background:#099b09;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+    padding-top: 4px;
+    border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
+}
+
+.readmore3-index{
+    color:#099b09;
+}
+.readmore3-index:hover{
+    color:#077407;
+}
+
+/*Twitter*/
+.headtwitter-index{
+    background: #00acee;
+    width: 30%;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+    font-size: 22px;
+    padding-top: 2px;
+}
+.twitterbox-index{
+    background-color: white;
+    border: 5px solid #00acee;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 24px;
+    padding-right: 12px;
+    margin-bottom: 60px;
+}
+
+.time4-index{
+    background:#00acee;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+    padding-top: 4px;
+    border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
+}
+
+.readmore4-index{
+    color:#00acee;
+}
+.readmore4-index:hover{
+    color:#0373a0;
+}
+
+/*Other*/
+.headother-index{
+    background: #727171;
+    width: 30%;
+    text-align: center;
+    border-radius:20px 20px 0px 0px;
+    color: white;
+    font-size: 22px;
+    padding-top: 2px;
+}
+.otherbox-index{
+    background-color: white;
+    border: 5px solid #727171;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    padding-left: 24px;
+    padding-right: 12px;
+    margin-bottom: 60px;
+}
+
+.time5-index{
+    background:#727171;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+    padding-top: 4px;
+    border-radius: 0px 0px 2px 0px;
+    margin-top: -20px;
+}
+
+.readmore5-index{
+    color:#727171;
+}
+.readmore5-index:hover{
+    color:#414040;
+}
+
+.seemore-index{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+/*Responsive*/ 
+@media only screen and (max-width: 1921px) {
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 70px;
+    }
+    .rank-index1{
+        font-size: 55px;
+        padding-top: 30px;
+    }
+    .text5-index{
+        font-size: 16px;
+    }
+    .container3-index {
+        height: 2800px;
+    }
+    .gg-index{
+        left: 68px;
+        top: 80px;
+        width: 309px;
+    }
+    .search-index , .dropsearch-index{
+        width: 309px;
+    }
+}
+@media only screen and (min-width: 1920px) {
+    .h1-index { 
+        margin-top: 50px;
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-top: 80px;
+    }
+    
+    .container1-index{
+        width: 60%;
+        height: 300px;
+        background-color: white;
+        /* background-color: tomato; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        font-family: 'Kanit', sans-serif;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        border-radius: 10px;
+        padding-top: 25px;
+    }
+    .row-section1{
+        display: grid;
+        grid-template-columns: 49% 2% 49%;
+    }
+    .column1-index{
+        height: 110px;
+        align-self: center;
+    }
+    .column2-index{
+        align-items: center;
+        margin-right: 15px;
+    }
+    
+    .line-index {
+        border-left: 3px solid rgba(146, 146, 146, 0.479);
+        height: 250px;
+    }
+    
+    .text1-index{
+        font-size: 19px;
+        text-align: center;
+        color: #5c5c5c;
+    }
+    
+    .box1-index{
+        background-color: rgb(233, 233, 233);
+        border: none;
+        width: 71%;
+        height: 45px;
+        border-radius: 0.5rem;
+        margin-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0px;
+        font-size: 16px;
+        color: #5c5c5c;
+    }
+    
+    .containermini1-index{
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .button1-index{
+        background-color: #5c83cc;
+        border-radius: 0.5rem;
+        color: white;
+        margin-top: 20px;
+        width: 80px;
+        height: 45px;
+        border: 0px;
+        font-size: 16px;
+    }
+    .button1-index:hover{
+        background-color: #3c6fce;
+    }
+    
+    
+    
+    /*dropsearch*/
+    .gg-index{
+        position: absolute;
+        left: 84px;
+        top: 80px;
+        z-index: 1;
+        background-color: white;
+        margin-top: -8px;
+        width: 278px;
+        border-radius: 5px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        /* border: 1px solid #cfcdcd; */
+    
+    }
+    
+    .search-index{
+        font-family: 'Kanit', sans-serif;
+        border: none;
+        background-color: white;
+        border-radius: 5px;
+        width: 278px;
+        text-align: left;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 16px;
+        color: #5c5c5c;
+    }
+    .search-index:hover{
+        background-color: rgb(233, 230, 230);
+        border-radius: 0px;
+    }
+    .dropsearch-index{
+        cursor: pointer;
+        font-family: 'Kanit', sans-serif;
+        border: none;
+        border-radius: 0px 0px 5px 5px;
+        width: 278px;
+        text-align: center;
+        height: 40px;
+        padding-top: 8px;
+        font-size: 16px;
+        color: #5c5c5c;
+        background-color: #d8d6d6;
+    }
+    
+    
+    .textlink-index{
+        text-align: center;
+        display: block;
+    }
+    
+    .image1-index{
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        display: block;
+    }
+    
+    
+    
+    .container2-index{
+        width: 60%;
+        height: 380px;
+        /* background-color: teal; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .column3-index{
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        margin-top: 80px;
+    }
+    .emty-index{
+        height: 70px;
+        width: 100%;
+    }
+    .coin1-index{
+        background-color: #fc7248;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin2-index{
+        background-color: #f8994a;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin3-index{
+        background-color: #fdc52b;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    
+    .rank-index1{
+        font-size: 70px;
+        font-family: 'Kanit', sans-serif;
+        text-align: center;
+        color: white;
+        padding-top: 25px;
+    }
+    
+    .text2-index{
+        font-family: 'Kanit', sans-serif;
+    }
+    
+    .text3-index{
+        text-align: center;
+        color: #5c83cc;
+        font-family: 'Kanit', sans-serif;
+        font-size: 17px ;
+    }
+    .text4-index{
+        text-align: left;
+        width: 220px;
+        margin-left: 10px;
+        font-size: 14px ;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-bottom: 20px;
+    }
+    
+    .container3-index {
+        width: 60%;
+        height: 2840px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+        font-size: 16px ;
+        font-family: 'Kanit', sans-serif;
+    }
+    
+    .readmore-index {
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+    }
+    
+    /*Facebook*/ 
+    .headfacebook-index{
+        background-color: #3b5999;
+        width: 30%;
+        text-align: center;
+        border-radius:20px 20px 0px 0px;
+        color: white;
+        font-size: 22px;
+        padding-top: 2px;
+    }
+    
+    .facebookbox-index{
+        background-color: white;
+        border: 5px solid  #3b5999;
+        width: 100%;
+        border-radius: 0px 10px 10px 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        padding-left: 24px;
+        padding-right: 12px;
+        margin-bottom: 60px;
+    }
+    
+    .column4-index{
+        width: 24.7%;
+        padding: 20px 10px 20px 10px;
+    }
+    
+    .image3-index{
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    
+    .text5-index{
+        font-size: 17px;
+        text-align: center;
+        display: block;
+        margin-bottom: -10px;
+        margin-top: -5px;
+    }
+    
+    .text7-index{
+        text-align: left;
+        font-size: 12px ;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-bottom: 15px;
+        margin-top: 0px;
+        margin-left: 0px;
+      
+    }
+    .Fall-crisp{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .cardbody-index{
+        width: 165px;
+        margin-left: -2px;
+    }
+    .time-index{
+        background-color: #3b5999;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        padding-top: 4px;
+        border-radius: 0px 0px 2px 0px;
+        margin-top: -20px;
+    }
+    
+    .readmoresize-index{
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .readmore1-index{
+        color:  #3b5999;
+    }
+    .readmore1-index:hover{
+        color:  #2b406d;
+    }
+    
+    /*instargram*/
+    .headinstargram-index{
+        /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
+        background-color: #ec3d77;
+        width: 30%;
+        text-align: center;
+        border-radius:20px 20px 0px 0px;
+        color: white;
+        font-size: 22px;
+        padding-top: 2px;
+    }
+    .instargrambox-index{
+        background-color: white;
+        border: 5px solid #ec3d77;
+        width: 100%;
+        font-size: 25px;
+        border-radius: 0px 10px 10px 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        margin-bottom: 60px;
+        padding-left: 24px;
+        padding-right: 12px;
+    }
+    
+    .time2-index{
+        background: #ec3d77;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        padding-top: 4px;
+        border-radius: 0px 0px 2px 0px;
+        margin-top: -20px;
+    }
+    
+    .readmore2-index{
+        color:  #ec3d77;
+    }
+    .readmore2-index:hover{
+        color:  #ac2c57;
+    }
+    
+    
+    /*Line*/
+    .headline-index{
+        background: #099b09;
+        width: 30%;
+        text-align: center;
+        border-radius:20px 20px 0px 0px;
+        color: white;
+        font-size: 22px;
+        padding-top: 2px;
+    }
+    .linebox-index{
+        background-color: white;
+        border: 5px solid#099b09;
+        width: 100%;
+        font-size: 25px;
+        border-radius: 0px 10px 10px 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        padding-left: 24px;
+        padding-right: 12px;
+        margin-bottom: 60px;
+    }
+    
+    .time3-index{
+        background:#099b09;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        padding-top: 4px;
+        border-radius: 0px 0px 2px 0px;
+        margin-top: -20px;
+    }
+    
+    .readmore3-index{
+        color:#099b09;
+    }
+    .readmore3-index:hover{
+        color:#077407;
+    }
+    
+    /*Twitter*/
+    .headtwitter-index{
+        background: #00acee;
+        width: 30%;
+        text-align: center;
+        border-radius:20px 20px 0px 0px;
+        color: white;
+        font-size: 22px;
+        padding-top: 2px;
+    }
+    .twitterbox-index{
+        background-color: white;
+        border: 5px solid #00acee;
+        width: 100%;
+        font-size: 25px;
+        border-radius: 0px 10px 10px 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        padding-left: 24px;
+        padding-right: 12px;
+        margin-bottom: 60px;
+    }
+    
+    .time4-index{
+        background:#00acee;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        padding-top: 4px;
+        border-radius: 0px 0px 2px 0px;
+        margin-top: -20px;
+    }
+    
+    .readmore4-index{
+        color:#00acee;
+    }
+    .readmore4-index:hover{
+        color:#0373a0;
+    }
+    
+    /*Other*/
+    .headother-index{
+        background: #727171;
+        width: 30%;
+        text-align: center;
+        border-radius:20px 20px 0px 0px;
+        color: white;
+        font-size: 22px;
+        padding-top: 2px;
+    }
+    .otherbox-index{
+        background-color: white;
+        border: 5px solid #727171;
+        width: 100%;
+        font-size: 25px;
+        border-radius: 0px 10px 10px 10px;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        padding-left: 24px;
+        padding-right: 12px;
+        margin-bottom: 60px;
+    }
+    
+    .time5-index{
+        background:#727171;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        padding-top: 4px;
+        border-radius: 0px 0px 2px 0px;
+        margin-top: -20px;
+    }
+    
+    .readmore5-index{
+        color:#727171;
+    }
+    .readmore5-index:hover{
+        color:#414040;
+    }
+    
+    .seemore-index{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+}
+@media only screen and (max-width: 1367px) {
+    .container1-index{
+        width: 65%;
+        height: 300px;
+        margin-top: 80px;
+        margin-bottom: 0px;
+    }
+    .text1-index{
+        font-size: 18px;
+    }
+    .containermini1-index{
+        width: 90%;
+    }
+    .column2-index{
+        align-self: center;
+    }
+    .box1-index{
+        width: 72%;
+        padding-left: 19px;
+        font-size: 14.5px;
+    }
+    .button1-index{
+        font-size: 15px;
+        width: 25%;
+    }
+    .image1-index{
+        width: 250px;
+    }
+    .textlink-index{
+        font-size: 15px;
+    }
+
+    .h1-index { 
+        font-size: 22px;
+        margin-top: 70px;
+    }
+    .rank-index1{
+        font-size: 55px;
+        padding-top: 30px;
+    }
+    .text3-index{
+        font-size: 15px;
+    }
+    .text4-index{
+        width: 175px;
+        font-size: 12px;
+        margin-left: 3px;
+    }
+
+    .emty-index{
+        height: 65px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 65px;
+    }
+    
+    .readmore-index {
+        font-size: 14px;
+        margin-top: -5px;
+    }
+    .container2-index{
+        margin-bottom: 60px;
+        width: 65%;
+    }
+    .container3-index {
+        width: 65%;
+        height: 2450px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 37px;
+        top: 85px;
+        width: 257px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 257px;
+        font-size: 15px;
+    }
+
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 17px;
+    }
+    .column4-index{
+        width: 24.6%;
+        padding: 20px 5px 20px 5px;
+    }
+    .image3-index{
+        height: 150px;
+    }
+    .text5-index{
+        font-size: 13px;
+        margin-top: 0px;
+    }
+    .text7-index{
+        font-size: 10px ;
+        margin-bottom: 5px;
+    }
+    .cardbody-index{
+        width: 140px;
+        margin-left: -10px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 12px;
+        padding-top: 7px;
+    }
+    .readmoresize-index{
+        font-size: 13px;
+        margin-right: -10px;
+        margin-top: 3px;
+    }
+    .seemore-index{
+        font-size: 17px;
+    }
+
+}
+
+@media only screen and (max-width: 1025px) {
+    .container1-index , .container2-index , .container3-index{
+        width: 75%;
+    }
+    .container2-index{
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
+    .rank-index1{
+        font-size: 55px;
+        padding-top: 25px;
+    }
+     
+    .emty-index{
+        height: 65px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 130px;
+        height: 130px;
+        margin-top: -65px;
+        margin-left: 55px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 33px;
+        top: 80px;
+        width: 224px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 224px;
+        font-size: 15px;
+    }
+
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 18px;
+    }
+    .cardbody-index{
+        margin-left: -12px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .container1-index , .container2-index , .container3-index{
+        width: 70%;
+    }
+    .container1-index{
+        height: 220px;
+    }
+    .text1-index{
+        font-size: 14px;
+    }
+    .containermini1-index{
+        width: 90%;
+    }
+    .box1-index{
+        width: 71%;
+        padding-left: 15px;
+        font-size: 11px;
+        height: 35px;
+    }
+    .button1-index{
+        font-size: 12px;
+        width: 25%;
+        height: 35px;
+    }
+    .image1-index{
+        width: 190px;
+    }
+    .textlink-index{
+        font-size: 12px;
+    }
+    .column1-index{
+        margin-top: 25px;
+    }
+    .line-index{
+        height: 170px;
+    }
+    .h1-index{
+        font-size: 17px;
+    }
+    .column3-index{
+        width: 31%;
+    }
+    .container2-index{
+        height: 290px;
+        margin-top: 0px;
+        margin-bottom: 70px;
+    }
+    .text3-index{
+        font-size: 12px;
+    }
+    .text4-index{
+        font-size: 11px;
+        margin-left: -1px;
+        width: 140px;
+    }
+    .rank-index1{
+        font-size: 40px;
+        padding-top: 15px;
+    }  
+    .emty-index{
+        height: 40px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 42px;
+    }
+
+    .readmore-index {
+        font-size: 11px;
+        margin-top: -5px;
+    }
+    .container3-index{
+        height: 2000px;
+    }
+
+     /*dropsearch*/
+     .gg-index{
+        left: 28px;
+        top: 70px;
+        width: 208px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        width: 208px;
+        font-size: 12px;
+    }
+    .dropsearch-index{
+        height: 30px;
+        padding-top: 7px;
+    }
+
+    /*social media*/ 
+    .column4-index{
+        width: 24.7%;
+        padding: 20px 3px 20px 3px; 
+    }
+    .facebookbox-index , .instargrambox-index , .linebox-index , .twitterbox-index , .otherbox-index{
+        padding-left: 19px;
+    }
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+    }
+    .cardbody-index{
+        margin-left: -15px;
+        width: 110px;
+        margin-top: -10px;
+        margin-left: -13px;
+    }
+    .image3-index{
+        height: 100px;
+    }
+    .text5-index{
+        font-size: 10px;
+        margin-top: 0px;
+    }
+    .text7-index{
+        font-size: 10px ;
+        margin-bottom: 5px;
+        margin-left: 0px;
+    }
+    .readmoresize-index{
+        font-size: 10px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 10px;
+    }
+    .seemore-index{
+        font-size: 14px;
+        margin-top: -10px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .image1-index{
+        width: 150px;
+    }
+    .container1-index {
+        width: 90%;
+        height: 200px;
+        margin-top: 50px;
+    }
+    .container2-index{
+        width: 85%;
+    }
+    .container3-index{
+        width: 90%;
+        height: 3680px;
+        margin-top: 360px;
+        margin-bottom: 60px;
+    }
+    .column1-index{
+        margin-top: 10px;
+    }
+    .text1-index{
+        font-size: 12px;
+    }
+    .containermini1-index{
+        width: 100%;
+        margin-top: -10px;
+    }
+    .box1-index{
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 0px;
+        font-size: 10px;
+        height: 30px;
+        margin-right: 4px;
+    }
+    .button1-index{
+        font-size: 10px;
+        width: 100%;
+        height: 30px;
+        padding-left: 4px;
+        margin-top: 5px;
+    }
+    .textlink-index{
+        font-size: 10px;
+    }
+
+    .line-index{
+        height: 150px;
+    }
+
+
+    .h1-index{
+        font-size: 17px;
+        margin-top: 50px;
+    }
+    .column3-index{
+        width: 45%;
+        margin-bottom: 0px;
+    }
+    .text4-index{
+        font-size: 10px;
+        margin-left: 0px;
+        width: 150px;
+    }
+    .rank-index1{
+        font-size: 40px;
+        padding-top: 15px;
+    }  
+    .emty-index{
+        height: 40px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 40px;
+    }
+    .readmore-index {
+        font-size: 11px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 15px;
+        top: 53px;
+        width: 152px;
+    }
+    .search-index , .dropsearch-index{
+        border-radius: 3px;
+        font-size: 10px;
+        width: 152px;
+    }
+
+
+    /*social media*/ 
+    .column4-index{
+        width: 48.3%;
+        padding: 20px 7px 20px 7px; 
+        margin-bottom: -25px;
+    }
+    .facebookbox-index , .instargrambox-index , .linebox-index , .twitterbox-index , .otherbox-index{
+        padding-left: 22px;
+    }
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+        width: 50%;
+    }
+    .cardbody-index{
+        margin-left: -15px;
+        width: 140px;
+        margin-top: -10px;
+        margin-left: -10px;
+    }
+    .image3-index{
+        height: 130px;
+    }
+    .text5-index{
+        font-size: 11px;
+    }
+    .text7-index{
+        font-size: 10px ;
+        margin-left: 0px;
+        margin-bottom: 5px;
+        margin-top: -10px;
+    }
+    .readmoresize-index{
+        font-size: 10px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 10px;
+    }
+    .seemore-index{
+        font-size: 13px;
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .image1-index{
+        width: 140px;
+    }
+    .container1-index {
+        height: 160px;
+    }
+    .container3-index{
+        height: 3600px;
+        margin-top: 265px;
+    }
+    .column1-index{
+        margin-top: 17px;
+    }
+    .text1-index{
+        font-size: 10px;
+    }
+    .box1-index{
+        width: 100%;
+        padding-left: 11px;
+        margin-top: 10px;
+    }
+    .button1-index{
+        width: 100%;
+        margin-top: 5px;
+    }
+    .line-index{
+        height: 130px;
+    }
+    .row-section1{
+        margin-top: -10px;
+    }
+    .h1-index{
+        font-size: 15px;
+        margin-top: 40px;
+    }
+    .text3-index{
+        font-size: 11px;
+        width: 130px;
+        margin-left: -6px;
+    }
+    .text4-index{
+        font-size: 10px;
+        margin-left: -6px;
+        margin-top: -5px;
+        width: 130px;
+    }
+    .column3-index{
+        margin-top: 60px;
+    }
+    .rank-index1{
+        font-size: 35px;
+        padding-top: 12px;
+    }  
+    .emty-index{
+        height: 35px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 80px;
+        height: 80px;
+        margin-top: -40px;
+        margin-left: 38px;
+    }
+    .readmore-index {
+        font-size: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -10px;
+    }
+    .fa-chevron-right:before{
+        margin-left: -5px;
+    }
+
+     /*dropsearch*/
+    .gg-index{
+        left: 10px;
+        top: 43px;
+        width: 150px;
+    }
+    .search-index , .dropsearch-index{
+        width: 150px;
+        height: 30px;
+    }
+
+
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+    }
+    .facebookbox-index{
+        margin-bottom: 40px;
+    }
+    .cardbody-index{
+        width: 130px;
+        margin-left: -14px;
+    }
+    .text5-index{
+        font-size: 11px;
+    }
+    .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
+        font-size: 10px;
+        padding-top: 5px;
+        height: 25px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .image1-index{
+        width: 120px;
+    }
+    .container1-index {
+        height: 160px;
+        padding: 25px 4px 25px 0px;
+    }
+    .container3-index{
+        height: 3600px;
+        margin-top: 255px;
+    }
+    .containermini1-index{
+        width: 120px;
+    }
+    .col {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .column1-index{
+        margin-top: 17px;
+    }
+    .column2-index{
+        width: 100%;
+    }
+    .text1-index{
+        font-size: 10px;
+    }
+    .box1-index{
+        width: 100%;
+        padding-left: 5px;
+    }
+    .row-section1{
+        margin-top: -10px;
+    }
+    .text3-index{
+        width: 120px;
+        margin-left: -13px;
+        margin-top: -10px;
+    }
+    .text4-index{
+        margin-left: -16px;
+        width: 127px; 
+    }
+    
+    .rank-index1{
+        font-size: 30px;
+        padding-top: 12px;
+    }  
+    .emty-index{
+        height: 35px;
+    }
+    .coin1-index , .coin2-index , .coin3-index {
+        width: 70px;
+        height: 70px;
+        margin-top: -40px;
+        margin-left: 33px;
+    }
+    
+    .readmore-index {
+        margin-bottom: -10px;
+    }
+
+    /*dropsearch*/
+    .gg-index{
+        left: 0px;
+        top: 41px;
+        width: 139px;
+    }
+    .search-index , .dropsearch-index{
+        width: 139px;
+    }
+
+    /*social media*/ 
+    .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
+        font-size: 13px;
+        width: 55%;
+    }
+    .facebookbox-index{
+        margin-bottom: 40px;
+    }
+    .cardbody-index{
+        width: 108px;
+        margin-left: -15px;
+    }
+    .text5-index{
+        font-size: 11px;
+    }
 }

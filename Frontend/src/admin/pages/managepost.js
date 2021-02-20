@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../user/components/navbar";
 import "./contractus.css";
-
+import NavbarPage from "../../user/components/navnew";
 const Managepost = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarPage />
       <h1 className="h1-contractus">จัดการโพสต์</h1>
     </div>
   );

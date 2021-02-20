@@ -1,64 +1,73 @@
 .container-formpost {
-    width: 70%;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .profile-badformpost-img {
-    text-align: center;
-    padding-bottom: 20px;
-} 
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 .profile-badformpost-img img.img-circle {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    object-position: center; 
-    border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
-.uploadinputprofile{
-    margin-top: 10px;
+.uploadinputprofile {
+  margin-top: 10px;
 }
 
-.uploadiconprofile{ 
-    width: 20px;
+.uploadiconprofile {
+  width: 20px;
 }
 
-#FileInput{ 
-    cursor: pointer;  
-    display: none;
+.uploadprove {
+  width: 100px;
+}
+
+#FileInput {
+  cursor: pointer;
+  display: none;
+}
+
+.FileInput {
+  cursor: pointer;
+  display: none;
 }
 
 .rank-label-container {
-    margin-top: -19px;
-    text-align: center;
+  margin-top: -19px;
+  text-align: center;
 }
 
-.fileinput{ 
-    width: 30px;
-    border-radius: 50%;
-    border: none;
-    background-color: white;
+.fileinput {
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
 }
 
-.formpost-left{ 
-    margin-right: 15px;
+.formpost-left {
+  margin-right: 15px;
 }
 
-.spanformpost { 
-    color: red;
+.spanformpost {
+  color: #ff392e;
 }
 
 /* .linkrule1{
@@ -74,157 +83,163 @@
     margin-bottom: 10px;
 } */
 
-.uploadsformpostuploadslip{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.container-img-holder-imgpreview .imgpreview {
-    width: 100px;
+/* .uploadsformpostuploadslip{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 10px;
+} */
+
+.uploadprove {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.container-img-holder-imgpreview .imgpreview {
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin-left: -200px; */
+  margin-right: 10px;
 }
 
 .imgpreview {
-    overflow: hidden;
-    background-color: white;
+  overflow: hidden;
+  background-color: white;
 }
-  
-.imgpreview img{
-    transition: all 0.3s ease 0s;
-    width: 100%;
+
+.imgpreview img {
+  transition: all 0.3s ease 0s;
+  width: 100%;
 }
-  
+
 .imgpreview:hover {
-    transform: scale(2.5);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(2.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.buttonformpost{
-    width: 100%;
-    font-size: 20px;
-    background-color: #b30101;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    padding: 0.5rem;
-    margin-top: 10px;
+.buttonformpost {
+  width: 100%;
+  font-size: 20px;
+  background-color: #5c83cc;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 10px;
 }
 
-.buttonformpost:hover{
-    width: 100%;
-    font-size: 20px;
-    background-color: #8B0000;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    padding: 0.5rem;
-    margin-top: 10px;
+.buttonformpost:hover {
+  width: 100%;
+  font-size: 20px;
+  background-color: #3c6fce;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 10px;
 }
 
-.buttonformpost:active{
+/* .buttonformpost:active{
     width: 100%;
     font-size: 20px;
-    background-color: #8B0000;
+    background-color: #91a6cf;
     border: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin-top: 10px;
-}
+} */
 
 .h1-formpostfileerror {
-    color: red ;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 20px;
+  color: #ff392e;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/*Responsive*/ 
+/*Responsive*/
 @media only screen and (max-width: 1920px) {
-
 }
 
 @media only screen and (max-width: 1024px) {
-    .container-formpost{
-        width: 75%;
-    }
+  .container-formpost {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-
 }
 
 @media only screen and (max-width: 450px) {
-    .uploadsformedituploadslip{
-        width: 100%;
-        font-size: 18px;
-    }
-    .container-formpost{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-        margin-bottom: 20px;
-    }
-    .spanformpost{
-        font-size: 17px;
-    }
-    .text-formpost{
-        font-size: 19px;
-    }
-    .h1-formpostfileerror{
-        font-size: 17px;
-        margin-top: 15px;
-    }
-    .buttonformpost{
-        font-size: 19px;
-    }
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container-formpost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .spanformpost {
+    font-size: 17px;
+  }
+  .text-formpost {
+    font-size: 19px;
+  }
+  .h1-formpostfileerror {
+    font-size: 17px;
+    margin-top: 15px;
+  }
+  .buttonformpost {
+    font-size: 19px;
+  }
 }
 @media only screen and (max-width: 414px) {
-    .uploadsformedituploadslip{
-        width: 100%;
-        font-size: 18px;
-    }
-    .container-formpost{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-        margin-bottom: 20px;
-    }
-    .spanformpost{
-        font-size: 17px;
-    }
-    .text-formpost{
-        font-size: 19px;
-    }
-    .h1-formpostfileerror{
-        font-size: 17px;
-        margin-top: 15px;
-    }
-    .buttonformpost{
-        font-size: 19px;
-    }
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container-formpost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .spanformpost {
+    font-size: 17px;
+  }
+  .text-formpost {
+    font-size: 19px;
+  }
+  .h1-formpostfileerror {
+    font-size: 17px;
+    margin-top: 15px;
+  }
+  .buttonformpost {
+    font-size: 19px;
+  }
 }
 @media only screen and (max-width: 375px) {
-
 }
 
 @media only screen and (max-width: 320px) {
-    .text-formpost{
-        font-size: 18px;
-    }
-    .spanformpost{
-        font-size: 16px;
-    }
-    .uploadsformedituploadslip{
-        width: 100%;
-        font-size: 17px;
-    }
-    .buttonformpost{
-        font-size: 18px;
-    }
+  .text-formpost {
+    font-size: 18px;
+  }
+  .spanformpost {
+    font-size: 16px;
+  }
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 17px;
+  }
+  .buttonformpost {
+    font-size: 18px;
+  }
 }

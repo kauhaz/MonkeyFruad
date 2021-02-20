@@ -1,55 +1,16 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/navbar";
 import "./signup.css";
 import Chatbot from "../components/chatbot";
-import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-<<<<<<< HEAD
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-} from "../Frontfirebase";
-const Signup = () => {
-let history = useHistory();
-const [firstname,setFirstname] = useState("")
-const [surname,setSurname] = useState("")
-const [sex,setSex] = useState("")
-const [date,setDate] = useState()
-const [phone,setPhone] = useState("")
-const [province,setProvince] = useState("")
-const [country,setCountry] = useState("")
-const [email,setEmail] = useState("")
-const [password,setPassword] = useState("")
-const [repass,setRepass] = useState("")
-const [checkpass , setCheckpass] = useState(false)
-const [bottonfalse,setButtonfalse] = useState()  // 
-const [usersignup,setUsersignup] = useState()
-  const SignupSubmit = (e) =>{
-    e.preventDefault();
-    console.log("submit")
-    if (repass !== password) {
-      setCheckpass(false)
-      setButtonfalse("red") // 
-    }
-   else{
-   const getSignup =  axios.post("http://localhost:7000/user/signup", { firstname: firstname, surname: surname, sex: sex,date:date,phone:phone,
-    province:province,country:country,email:email,password:password,repass:repass
-  }).then((result)=>{
-    auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        console.log(result);
-=======
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
-
+import NavbarPage from "../components/navnew";
 const Signup = () => {
   let history = useHistory();
 
   // ที่เก็บ state
-
   const [username, setUsername] = useState("");
   const [firstname, setFirstname] = useState("");
   const [surname, setSurname] = useState("");
@@ -60,9 +21,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   // ฟังกชันการ Signup
-
   const SignupSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
@@ -97,7 +61,6 @@ const Signup = () => {
   };
 
   // ฟังกชันการ Login ผ่าน Google
-
   const googleLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(googleProvider);
@@ -114,7 +77,6 @@ const Signup = () => {
   };
 
   // ฟังกชันการ Login ผ่าน Facebook
-
   const facebookLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(facebookProvider);
@@ -123,46 +85,21 @@ const Signup = () => {
       .post("http://localhost:7000/user/facebooksignup", { result: result })
       .then((result) => {
         console.log(result.data);
->>>>>>> 283444e4f7ed8dba734b25fdb5eeeb4ffdb60b68
         history.push("/");
       })
       .catch((err) => {
         console.log(err);
       });
-<<<<<<< HEAD
-  }).catch((err)=>{
-    console.log(err)
-  })}
-  }
-  const selectSex = (e) =>{
-    if(e.target.value === "male")
-    {
-      setSex(e.target.value)
-    }
-    else
-    setSex(e.target.value)
-  }
-  
-  return (
-    <div>
-      <Navbar usersignup={usersignup} />
-      <div className="container-login">
-        <form  className='LoginForm'>
-        
-          <img src="/img/logoLogin.png" className="LogoLogin" />
-=======
   };
 
   // ฟังกชันการเลือกเพศใน input
-
   const selectSex = (e) => {
-    if (e.target.value === "male") {
+    if (e.target.value === "ชาย") {
       setSex(e.target.value);
     } else setSex(e.target.value);
   };
 
   // Style มาตรฐานของ Formik
-
   const styles = {
     row: {
       marginTop: "8rem",
@@ -183,7 +120,6 @@ const Signup = () => {
   };
 
   //object schema สำหรับทำ validation
-
   const RegisterSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, "สั้นเกินไป")
@@ -225,17 +161,19 @@ const Signup = () => {
   });
 
   return (
-    <div>
-      <Navbar />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-signup">
         <form className="LoginForm">
-          <img src="/img/logoLogin.png" className="Logo-signup" />
+          <img src="/img/logoLogin.png" className="Logo-signup" alt="" />
           <p className="h2 text-center mb-2 font-weight-bold text1-signup">
             สมัครสมาชิก
           </p>
           {emailis_inVaild ? (
             <div className="alert-signup">
-              {" "}
               <span>อีเมลนี้มีอยู่ในระบบแล้ว</span>
             </div>
           ) : (
@@ -286,7 +224,6 @@ const Signup = () => {
                       className="invalid-feedback"
                     />
                   </div>
->>>>>>> 283444e4f7ed8dba734b25fdb5eeeb4ffdb60b68
 
                   <div className="form-group mb-1">
                     <label htmlFor="email" style={styles.txt2}>
@@ -433,7 +370,7 @@ const Signup = () => {
                           name="gender"
                           type="radio"
                           id="male"
-                          value="male"
+                          value="ชาย"
                           className="mr-1"
                         />
                         <label htmlFor="male">ชาย</label>
@@ -445,7 +382,7 @@ const Signup = () => {
                           name="gender"
                           type="radio"
                           id="female"
-                          value="female"
+                          value="หญิง"
                           className="mr-1"
                         />
                         <label htmlFor="female">หญิง</label>

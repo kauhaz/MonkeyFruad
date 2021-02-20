@@ -1,5 +1,5 @@
 .container-formedit {
-    width: 70%;
+    width: 60%;
     background-color: white;
     border-radius: 10px;
     margin-top: 40px;
@@ -36,13 +36,18 @@
     width: 20px;
 }
 
+.uploadprove{ 
+    width: 100px;
+}
+
+
 #FileInput{ 
     cursor: pointer;  
     display: none;
 }
 
 .rank-label-container-edit {
-    margin-top: -19px;
+    margin-top: -30px;
     text-align: center;
 }
 
@@ -58,7 +63,7 @@
 }
 
 .spanformedit { 
-    color: red;
+    color: #ff392e;
 }
 
 /* .linkruleedit1{
@@ -76,9 +81,15 @@
     margin-bottom: 10px;
 } */
 
-.uploadsformedituploadslip{
+/* .uploadsformedituploadslip{
     margin-top: 10px;
     margin-bottom: 10px;
+} */
+.uploadprove {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .container-img-holder-imgpreviewedit .imgpreviewedit {
@@ -106,7 +117,7 @@
 .buttonformedit{
     width: 100%;
     font-size: 20px;
-    background-color: #b30101;
+    background-color: #5c83cc;
     border: none;
     border-radius: 0.5rem;
     font-size: 20px;
@@ -119,7 +130,7 @@
 .buttonformedit:hover{
     width: 100%;
     font-size: 20px;
-    background-color: #8B0000;
+    background-color: #3c6fce;
     border: none;
     border-radius: 0.5rem;
     font-size: 20px;

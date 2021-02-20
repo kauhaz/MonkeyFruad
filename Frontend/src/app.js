@@ -22,119 +22,66 @@ import History from "./user/pages/history";
 import Mypost from "./user/pages/mypost";
 import Linkruleshow from "./user/pages/linkruleshow";
 import Profile from "./user/pages/profile";
-
+import Editprofile from "./user/pages/editprofile";
+import Changepass from "./user/pages/changpass";
 import HomeAdmin from "./admin/pages/index";
-import ContractusAdmin  from "./admin/pages/contractus";
+import ContractusAdmin from "./admin/pages/contractus";
 import Managepost from "./admin/pages/managepost";
 import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
-
 import "./app.css";
 import usercontext from "./user/context/usercontext";
-
+import Findthief from "./user/pages/findthief";
+import Entersearch from "./user/pages/entersearch";
+import PostFacebook from "./user/pages/postfacebook";
+import PostLine from "./user/pages/postline";
+import PostTwitter from "./user/pages/posttwitter";
+import PostInstragram from "./user/pages/postinstragram";
+import PostOther from "./user/pages/postother";
 // ที่รวม Routh ต่างๆ
 const App = () => {
   const [user, setUser] = useState();
   const [loadingAuth, setLoadingAuth] = useState(true);
-  const [admin,setAdmin] = useState(false)
+  const [admin, setAdmin] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        if(user.uid === "Q8YgWOHIlAeCY0TF8jZK21VL7Hb2"){
-          setAdmin(true)
+        if (user.uid === "Bm4bg6z0KAavVlnCijLzIxjXN9y2") {
+          setAdmin(true);
           setLoadingAuth(false);
         }
         setUser(user);
       } else {
         setUser(null);
       }
-<<<<<<< HEAD
-     
-  });return () =>{
-authUnsubscribe();
-  };
-  },[]);
-console.log(user)
-return (
-  <Router>
-    <usercontext.Provider value={ {user,setUser}}>
-    <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/post/history" exact>
-        <History />
-      </Route>
-      <Route path="/post/create" exact>
-        <Createpost />
-      </Route>
-      <Route path="/post/edit/:uid" exact>
-        <Editpost />
-      </Route>
-      <Route path="/post/:uid" exact>
-        <Post />
-      </Route>
-      <Route path="/ranking" exact>
-        <Rank />
-      </Route>
-      <Route path="/login" exact>
-        <Login />
-      </Route>
-      <Route path="/signup" exact>
-        <Signup />
-      </Route>
-      <Route path="/forgetpass" exact>
-        <Forgetpass />
-      </Route>
-      <Route path="/prevent" exact>
-        <Prevent />
-      </Route>
-      <Route path="/help" exact>
-        <Help />
-      </Route>
-      <Route path="/contractus" exact>
-        <Contractus />
-      </Route>
-      <Route path="/mypost/:uid" exact>
-        <Mypost />
-      </Route>
-      <Route path="/post" exact>
-        <Post />
-      </Route>
-     
-     
-    </Switch>
-=======
       setLoadingAuth(false);
     });
   }, []);
-  console.log(user);
 
   return loadingAuth ? (
     ""
-  ) : (admin ? (
+  ) : admin ? (
     <Router>
-    <usercontext.Provider value={{ user, setUser }}>
-      <Switch>
-        <Route path="/" exact>
-          <HomeAdmin />
-        </Route>
-        <Route path="/managepost" exact>
-          <Managepost />
-        </Route>
-        <Route path="/non_verifypost" exact>
-          <Non_verifypost />
-        </Route>
-        <Route path="/verifypost" exact>
-          <Verifypost />
-        </Route>
-        <Route path="/contractus" exact>
-          <ContractusAdmin />
-        </Route>
-      </Switch>
->>>>>>> 283444e4f7ed8dba734b25fdb5eeeb4ffdb60b68
-    </usercontext.Provider>
-  </Router>
+      <usercontext.Provider value={{ user, setUser }}>
+        <Switch>
+          <Route path="/" exact>
+            <HomeAdmin />
+          </Route>
+          <Route path="/managepost" exact>
+            <Managepost />
+          </Route>
+          <Route path="/non_verifypost" exact>
+            <Non_verifypost />
+          </Route>
+          <Route path="/verifypost" exact>
+            <Verifypost />
+          </Route>
+          <Route path="/contractus" exact>
+            <ContractusAdmin />
+          </Route>
+        </Switch>
+      </usercontext.Provider>
+    </Router>
   ) : (
     <Router>
       <usercontext.Provider value={{ user, setUser }}>
@@ -181,25 +128,55 @@ return (
           <Route path="/post" exact>
             <Post />
           </Route>
+          <Route path="/postfacebook" exact>
+            <PostFacebook />
+          </Route>
+          <Route path="/postline" exact>
+            <PostLine />
+          </Route>
+          <Route path="/posttwitter" exact>
+            <PostTwitter />
+          </Route>
+          <Route path="/postinstragram" exact>
+            <PostInstragram />
+          </Route>
+          <Route path="/postother" exact>
+            <PostOther />
+          </Route>
           <Route path="/linkruleshow" exact>
-            {user ? 
-              <Linkruleshow /> : 
+            {user ? (
+              <Linkruleshow />
+            ) : (
               <Redirect
                 to={{
-                  pathname: '/login',
-                  search: '?login = false',  // query string
-                  state: {  // location state
-                  login: false, 
-                }}}
-                />
-              }
+                  pathname: "/login",
+                  search: "?login = false", // query string
+                  state: {
+                    // location state
+                    login: false,
+                  },
+                }}
+              />
+            )}
           </Route>
-         <Route path="/profile" exact>
+          <Route path="/profile/:uid" exact>
             <Profile />
+          </Route>
+          <Route path="/profile/edit/:uid" exact>
+            <Editprofile />
+          </Route>
+          <Route path="/changepass" exact>
+            <Changepass />
+          </Route>
+          <Route path="/thief/post/:uid" exact>
+            <Findthief />
+          </Route>
+          <Route path="/entersearch" exact>
+            <Entersearch />
           </Route>
         </Switch>
       </usercontext.Provider>
     </Router>
-  ) )
+  );
 };
 export default App;

@@ -1,0 +1,16 @@
+.alert-signup {
+    margin-top: 1rem;
+    color: #be2020;
+    border: 1px solid #be2020;
+    background-color: #f8a9a977;
+    padding: .3rem;
+    border-radius: .4rem;
+}
+.alert-forgetpass {
+    margin-top: 1rem;
+    color: #098656;
+    border: 1px solid #0c9963;
+    background-color: #DEF0D8;
+    padding: .3rem;
+    border-radius: .4rem;
+}

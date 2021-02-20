@@ -1,26 +1,27 @@
-import React, { useState, useParams, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import Navbar from "../components/navbar";
 import "./login.css";
 import Chatbot from "../components/chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
 import { MDBInput } from "mdbreact";
 import axios from "axios";
-
+import NavbarPage from "../components/navnew";
 const Login = () => {
   const location = useLocation();
   let history = useHistory();
 
   // ที่เก็บ state
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
-  const [isLogin, setIslogin] = useState(false);
+  const [isnotLogin, setIsnotlogin] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
 
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
   // ฟังกชันสำหรับ Login ผ่านเว็บ
-
   const LoginSubmit = (e) => {
     e.preventDefault();
     auth
@@ -31,11 +32,11 @@ const Login = () => {
       })
       .catch(() => {
         setEmailis_inVaild(true);
-        setIslogin(false);
+        setIsnotlogin(false);
       });
   };
-  // ฟังกชันสำหรับ Login ผ่าน Google
 
+  // ฟังกชันสำหรับ Login ผ่าน Google
   const googleLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(googleProvider);
@@ -50,8 +51,8 @@ const Login = () => {
         console.log(err);
       });
   };
-  // ฟังกชันสำหรับ Login ผ่าน Facebook
 
+  // ฟังกชันสำหรับ Login ผ่าน Facebook
   const facebookLogin = async (e) => {
     e.preventDefault();
     const result = await auth.signInWithPopup(facebookProvider);
@@ -66,14 +67,14 @@ const Login = () => {
         console.log(err);
       });
   };
-  // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
 
+  // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
   const Islogin = () => {
     if (location.state !== undefined) {
-      setIslogin(true);
+      setIsnotlogin(true);
       setEmailis_inVaild(false);
     } else {
-      setIslogin(false);
+      setIsnotlogin(false);
     }
   };
 
@@ -82,13 +83,16 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar />
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <Chatbot />
       <div className="container-login">
-        <form className="LoginForm">
+        <form className="LoginForm-login">
           <img src="/img/logoLogin.png" className="Logo-login" />
-          <p className="h2 text-center mb-2 font-weight-bold text1-login">
+          <p className="h2-login text-center mb-2 font-weight-bold text1-login">
             เข้าสู่ระบบ
           </p>
           {emailis_inVaild ? (
@@ -99,17 +103,16 @@ const Login = () => {
           ) : (
             ""
           )}
-          {isLogin ? (
+          {isnotLogin ? (
             <div className="alert-login">
-              {" "}
-              <span>กรุณาทำการ Login ก่อนโพสต์</span>
+              <span>กรุณาทำการ Login ก่อนโพสต์หรือคอมเมนต์ </span>
             </div>
           ) : (
             ""
           )}
-          <div className="LoginInputForm">
+          <div className="LoginInputForm-login">
             <MDBInput
-              className="InputEmail"
+              className="InputEmail-login"
               label="Email"
               icon="user"
               group
@@ -122,7 +125,7 @@ const Login = () => {
               }}
             />
             <MDBInput
-              className="InputPassword"
+              className="InputPassword-login"
               label="Password"
               icon="unlock-alt"
               group
@@ -134,26 +137,26 @@ const Login = () => {
             />
           </div>
 
-          <div className="message">
-            <div className="RememberCheckbox">
+          <div className="message-login">
+            <div className="RememberCheckbox-login">
               <input type="checkbox" /> จดจำฉันไว้ในระบบ
             </div>
-            <div className="ForgotPassword">
+            <div className="ForgotPassword-login">
               <a href="./forgetpass">ลืมรหัสผ่าน?</a>
             </div>
           </div>
 
-          <button onClick={LoginSubmit} className="btn-block LoginButton">
+          <button onClick={LoginSubmit} className="btn-block LoginButton-login">
             <p className="mx-auto my-1">เข้าสู่ระบบ</p>
           </button>
 
-          <div className="Signup text-center pt-3">
+          <div className="Signup-login text-center pt-3">
             <span></span>
             <a href="./signup">สมัครสมาชิก</a>
             <hr></hr>
           </div>
 
-          <button onClick={facebookLogin} className="btn-block LoginFacebook">
+          <button onClick={facebookLogin} className="btn-block LoginFacebook-login">
             <svg
               className="FacebookIcon"
               xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +174,7 @@ const Login = () => {
             <p className="mx-auto my-1">เข้าสู่ระบบด้วย Facebook</p>
           </button>
 
-          <button onClick={googleLogin} className="btn-block LoginGoogle">
+          <button onClick={googleLogin} className="btn-block LoginGoogle-login">
             <svg
               className="GoogleIcon"
               xmlns="http://www.w3.org/2000/svg"
