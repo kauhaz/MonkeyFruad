@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./commentitemformypost.css";
 import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
+import Loading from "./clipLoader";
 import _ from "lodash";
 const { v4: uuidv4 } = require("uuid");
 
@@ -22,6 +23,7 @@ const Commentitemformypost = ({ postid }) => {
   const [textcomment, Settextcomment] = useState("");
   const [photourl, Setphotourl] = useState();
   const [photopublic_id, Setphotopublic_id] = useState();
+  const [loading, SetLoading] = useState(false);
 
   let history = useHistory();
   let uuid = uuidv4();
@@ -62,6 +64,7 @@ const Commentitemformypost = ({ postid }) => {
   const handlecomment = async () => {
     try {
       if (user) {
+        SetLoading(true)
         let formdata = new FormData();
         let useruid = user.uid;
         _.forEach(files, (file) => {
@@ -80,6 +83,7 @@ const Commentitemformypost = ({ postid }) => {
         Settextcomment("");
         setImagesFile([]);
         Seterror();
+        SetLoading(false)
       } else {
         history.push({
           pathname: "/login",
@@ -144,7 +148,7 @@ const Commentitemformypost = ({ postid }) => {
     gg();
   }, [click, showdelete, showedit]);
 
-  return (
+  return  (
     <div>
       {showcommentall ? (
         <div>
@@ -233,8 +237,8 @@ const Commentitemformypost = ({ postid }) => {
                 Settextcomment(e.target.value);
               }}
             />
+            {loading ? <div><Loading/></div> : null }
           </div>
-
           <div>
             <div className="column2 mypostbuttonsend">
               <button
@@ -245,7 +249,6 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
-
           {imagesFile ? imagesFile.map((imagePreviewUrl , index) => {
             return (
               <div>
@@ -277,7 +280,7 @@ const Commentitemformypost = ({ postid }) => {
         <h1 className="h1-mypostfileerror">{error}</h1>
       </div>
     </div>
-  );
+  )
 };
 
 export default Commentitemformypost;

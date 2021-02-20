@@ -6,7 +6,7 @@ import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 import Loading from "./pacmanloading";
-
+import ClipLoading from "./clipLoader";
 const { v4: uuidv4 } = require("uuid");
 const Commentitem = ({ postid }) => {
   const onClick = () => setIsActive(!isActive);
@@ -253,6 +253,7 @@ const Commentitem = ({ postid }) => {
                 Settextcomment(e.target.value);
               }}
             />
+             {loading ? <div><ClipLoading/></div> : null }
           </div>
 
           <div>
