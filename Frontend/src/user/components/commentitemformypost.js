@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "./commentitemformypost.css";
 import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
+import Loading from "./clipLoader";
 import _ from "lodash";
-const { v4: uuidv4, NIL } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 const Commentitemformypost = ({ postid }) => {
-  const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
-  let { user, setUser } = useContext(usercontext);
+  let { user } = useContext(usercontext);
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
   const [commentmore, Setcommentmore] = useState();
@@ -20,14 +18,12 @@ const Commentitemformypost = ({ postid }) => {
   const [click, Setclick] = useState();
   const [showdelete, Setshowdelete] = useState();
   const [showedit, Setshowedit] = useState();
-  const [item, Setitem] = useState([]);
-  const [checkedittext, Setcheckedittext] = useState(false);
   const [data, Setdata] = useState();
-  const [show, Setshow] = useState();
   const [error, Seterror] = useState();
   const [textcomment, Settextcomment] = useState("");
   const [photourl, Setphotourl] = useState();
   const [photopublic_id, Setphotopublic_id] = useState();
+  const [loading, SetLoading] = useState(false);
 
   let history = useHistory();
   let uuid = uuidv4();
@@ -35,7 +31,7 @@ const Commentitemformypost = ({ postid }) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -50,9 +46,25 @@ const Commentitemformypost = ({ postid }) => {
     }
   };
 
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+ 
   const handlecomment = async () => {
     try {
       if (user) {
+        
         let formdata = new FormData();
         let useruid = user.uid;
         _.forEach(files, (file) => {
@@ -63,6 +75,13 @@ const Commentitemformypost = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
+          if(!files && !textcomment){
+            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+          }
+          if(files && files.length === 0){
+            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+          }
+          SetLoading(true)
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
           formdata
@@ -70,7 +89,9 @@ const Commentitemformypost = ({ postid }) => {
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
+        Setfiles()
         Seterror();
+        SetLoading(false)
       } else {
         history.push({
           pathname: "/login",
@@ -135,7 +156,7 @@ const Commentitemformypost = ({ postid }) => {
     gg();
   }, [click, showdelete, showedit]);
 
-  return (
+  return  (
     <div>
       {showcommentall ? (
         <div>
@@ -221,11 +242,12 @@ const Commentitemformypost = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value);
+                Settextcomment(e.target.value)
+                Seterror()
               }}
             />
+            {/* {loading ? <div><Loading/></div> : null } */}
           </div>
-
           <div>
             <div className="column2 mypostbuttonsend">
               <button
@@ -236,11 +258,11 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
-
-          {imagesFile.map((imagePreviewUrl) => {
+          {imagesFile ? imagesFile.map((imagePreviewUrl , index) => {
             return (
+              <div>
               <img
-                key={imagePreviewUrl}
+                key={index}
                 className="imgpreview1"
                 alt="previewImg"
                 src={imagePreviewUrl}
@@ -258,14 +280,16 @@ const Commentitemformypost = ({ postid }) => {
                   })
                 }
               />
+             <img src="/img/delete.png" onClick={() => handledeleteimage(index)} />
+              </div>
             );
-          })}
+          }):null}
         </div>
 
         <h1 className="h1-mypostfileerror">{error}</h1>
       </div>
     </div>
-  );
+  )
 };
 
 export default Commentitemformypost;

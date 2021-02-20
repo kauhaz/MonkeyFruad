@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Axios from "axios";
 import usercontext from "../context/usercontext";
 import "./Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash"
+import ClipLoader from "./clipLoader"
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -22,6 +21,7 @@ const Listcomment2 = ({
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
+  const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
@@ -56,18 +56,21 @@ const Listcomment2 = ({
   };
   const handleedit = async (commentid) => {
     try {
+  
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment" , edittextcomment)
-
+      formdata.append("photocomment", commentmore.photocomment);
+      Setloading(true)
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
          formdata
       );
-      handleedittorerender();
+      handleedittorerender(); 
       Setcheckedittext(false);
+      Setloading(false)
 
     } catch (err) {
       console.log(err);
@@ -116,7 +119,7 @@ const Listcomment2 = ({
                 </span>
               </div>
               <br />
-              {checkedittext ? (
+               {checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -140,10 +143,10 @@ const Listcomment2 = ({
               />
             </label>
           </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl) => {
+          {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
                   return (
                 <img
-                key={imagePreviewUrl}
+                key={index}
                 className="imgpreview1"
                 alt="previewImg"
                 src={imagePreviewUrl}
@@ -162,13 +165,17 @@ const Listcomment2 = ({
                 }
               />
             );
-          }) : commentmore ? commentmore.photocomment.map(doc =>{
+          }) : commentmore ? commentmore.photocomment ? commentmore.photocomment.map(doc =>{
             return (     
            
               <img src={doc.url}></img>
           
                 )
-          }) : null}
+          }) 
+          : null
+          : null
+        
+        }
 
          
           </div>
@@ -202,7 +209,8 @@ const Listcomment2 = ({
                       })
                     : null}
                 </div>
-              )}
+              )} 
+            
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (

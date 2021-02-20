@@ -33,7 +33,11 @@ import "./app.css";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
-
+import PostFacebook from "./user/pages/postfacebook";
+import PostLine from "./user/pages/postline";
+import PostTwitter from "./user/pages/posttwitter";
+import PostInstragram from "./user/pages/postinstragram";
+import PostOther from "./user/pages/postother";
 // ที่รวม Routh ต่างๆ
 const App = () => {
   const [user, setUser] = useState();
@@ -123,6 +127,21 @@ const App = () => {
           </Route>
           <Route path="/post" exact>
             <Post />
+          </Route>
+          <Route path="/postfacebook" exact>
+            <PostFacebook />
+          </Route>
+          <Route path="/postline" exact>
+            <PostLine />
+          </Route>
+          <Route path="/posttwitter" exact>
+            <PostTwitter />
+          </Route>
+          <Route path="/postinstragram" exact>
+            <PostInstragram />
+          </Route>
+          <Route path="/postother" exact>
+            <PostOther />
           </Route>
           <Route path="/linkruleshow" exact>
             {user ? (

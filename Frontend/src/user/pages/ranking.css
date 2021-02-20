@@ -6,14 +6,116 @@
     color: #8B0000;
 }
 
-.container-ranking {
-    margin: 40px auto;
-    padding: 20px 40px;
+.emty-rank{
+    height: 70px;
+    width: 100%;
+}
+
+.rank-sort-head {
+    margin-top: .5rem;
+    font-size: 16px;
+    color: #737475;
+    display: block;
+    justify-content: center;
+}
+
+.container2-rank{
+    width: 65%;
+    height: 380px;
+    /* background-color: teal; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.column3-rank{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    margin-top: 80px;
+}
+
+.coin1{
+    background-color: #fc7248;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+.coin2{
+    background-color: #f8994a;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+.coin3{
+    background-color: #fdc52b;
+    width: 150px;
+    height: 150px;
+    margin-top: -80px;
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 100px;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+
+.rank-rank1{
+    font-size: 70px;
     font-family: 'Kanit', sans-serif;
-    background-color: white;
+    text-align: center;
+    color: white;
+    padding-top: 25px;
+}
+
+.text2-rank{
+    font-family: 'Kanit', sans-serif;
+}
+
+.text3-rank{
+    text-align: center;
+    color: #5c83cc;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px ;
+}
+.text4-rank{
+    text-align: left;
+    width: 220px;
+    margin-left: 10px;
+    font-size: 14px ;
+    font-family: 'Kanit', sans-serif;
+    color: #5c5c5c;
+    margin-bottom: 20px;
+}
+
+.readmore {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+
+.container-ranking {
+    width: 65%;
     height: auto;
-    border: 1px solid;
-    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    margin: 40px auto;
+    padding: 0 auto;
+    font-family: 'Kanit', sans-serif;
+    background-color: transparent;
+    height: auto;
+    border: none;
     border-radius: .5rem;
 }
 
@@ -27,20 +129,134 @@
 }
 
 .rank-sort-select {
+    background-color: inherit;
     color: inherit;
     padding: .175rem .55rem;
     font-size: 1rem;
     line-height: 1.5;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border: none;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.MDBDataTable {
-    color: inherit;
-    font-size: inherit;
+.rank-sort-select:focus, .rank-sort-select:active {
+    border: none;
 }
 
-.rank-data {
-    text-align: center;
+.rank-column-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    font-size: 1rem;
+    font-weight: 600;
 }
+
+.rank-data-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    margin: .7rem auto;
+    border-radius: 1rem;
+    box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+}
+
+.rank-column {
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    vertical-align: middle;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+/* =================================================================
+
+/* Responsive */
+@media only screen and (max-width: 321px) { 
+    .coin1 , .coin2 , .coin3 {
+        width: 70px;
+        height: 70px;
+        margin-top: -40px;
+        margin-left: 33px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .column3-rank{
+        margin-top: 60px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 80px;
+        height: 80px;
+        margin-top: -40px;
+        margin-left: 38px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .column3-rank{
+        width: 45%;
+        margin-bottom: 0px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 40px;
+    }
+ }
+
+@media only screen and (max-width: 769px) {
+    .column3-rank{
+        width: 31%;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 42px;
+    }
+ }
+
+@media only screen and (max-width: 1025px) {
+    .container1-rank , .container2-rank , .container3-rank{
+        width: 75%;
+    }
+    .container2-rank{
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
+    .rank-rank1{
+        font-size: 55px;
+        padding-top: 25px;
+    }
+     
+    .emty-rank{
+        height: 65px;
+    }
+    .coin1 , .coin2 , .coin3 {
+        width: 130px;
+        height: 130px;
+        margin-top: -65px;
+        margin-left: 55px;
+    }
+}
+
+@media only screen and (max-width: 1367px) {
+    .coin1 , .coin2 , .coin3 {
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 65px;
+    }
+ }
+

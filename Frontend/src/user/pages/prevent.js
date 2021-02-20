@@ -1,8 +1,7 @@
-import React , { useEffect, useState, useContext } from "react";
+import React , { useState} from "react";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
 import "./prevent.css";
-import { Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Prevent = () => {
   const [showDropdown, SetshowDropdown] = useState(true);

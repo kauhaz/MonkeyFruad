@@ -1,28 +1,25 @@
-import React, { useContext, useEffect, useRef, useState, useMemo } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import {
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavItem,
-  MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBBtn,
 } from "mdbreact";
-import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
+import { BrowserRouter as Router,useHistory } from "react-router-dom";
 import "./navnew.css";
 import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
-import { Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
-const NavbarPage = ({ show, SetshowDropdown, showDropdown }) => {
-  var { user, setUser } = useContext(usercontext);
+import { Nav } from "react-bootstrap";
+const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
+  var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
-  const [role, Setrole] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsopen] = useState(false);

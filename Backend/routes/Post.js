@@ -941,6 +941,24 @@ router.get("/post", async (req, res) => {
   }
 });
 
+router.get("/post/sortmoney", async (req, res) => {
+  try {
+    console.log("ok")
+    const showdata = await firestore.collection("Post").orderBy("money", "desc");
+    showdata.get().then((ok) => {
+      let item = [];
+      ok.forEach((doc) => {
+        item.push(doc.data());
+      });
+      return res.json({
+        item,
+      });
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
 router.get("/orderbyfacebook", async (req, res) => {
   try {
     const showdata = await firestore
@@ -1156,8 +1174,9 @@ router.post("/edit/comment/:id",uploadFile, async (req, res) => {
   try {
     let files = req.files.eiei
     let id = req.params.id;
-    let { edittextcomment } = req.body;
-    if (edittextcomment == "") {
+    let { edittextcomment , photocomment} = req.body;
+
+    if (edittextcomment === "" && photocomment === "undefined"  ) {
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
