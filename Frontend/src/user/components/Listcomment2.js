@@ -4,8 +4,8 @@ import usercontext from "../context/usercontext";
 import "./Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
-import _ from "lodash"
-import ClipLoader from "./clipLoader"
+import _ from "lodash";
+import ClipLoader from "./clipLoader";
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -68,26 +68,24 @@ const Listcomment2 = ({
 
   const edit = async () => {
     Setcheckedittext(true);
-    setIsActive(false)
+    setIsActive(false);
   };
   const handleedit = async (commentid) => {
     try {
-  
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("photocomment", file);
       });
-      formdata.append("edittextcomment" , edittextcomment)
+      formdata.append("edittextcomment", edittextcomment);
       formdata.append("photocomment", commentmore.photocomment);
-      Setloading(true)
+      Setloading(true);
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
-         formdata
+        formdata
       );
-      handleedittorerender(); 
+      handleedittorerender();
       Setcheckedittext(false);
-      Setloading(false)
-
+      Setloading(false);
     } catch (err) {
       console.log(err);
     }
@@ -105,7 +103,7 @@ const Listcomment2 = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-  console.log(imagesFile)
+
 
   return (
     <div>
@@ -135,7 +133,11 @@ const Listcomment2 = ({
                 </span>
               </div>
               <br />
-               {checkedittext ? (
+              {loading ? (
+                <div className="col-lg-10 col-4">
+                  <ClipLoader loading={loading} />
+                </div>
+              ) : checkedittext ? (
                 <div className="row">
                   <div className="commenttextarea">
                     <textarea
@@ -146,61 +148,52 @@ const Listcomment2 = ({
                     ></textarea>
                   </div>
                   <div className="row post-comment-commentsall">
-          <div className="container-img-holder-imgpreview1">
-            <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
-              />
-            </label>
-          </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
-                  return (
-                    <div>
-                <img
-                key={index}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-              <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
-              </div>
-            );
-          }) : commentmore ? commentmore.photocomment ? commentmore.photocomment.map(doc =>{
-            return (<div>
-              <img src={doc.url}></img>;
-      
-           </div>
-             )
-          }) 
-          : null
-          : null
-        
-        }
+                    <div className="container-img-holder-imgpreview1">
+                      <label>
+                        <img className="uploadprove1" src="/img/addphoto.png" />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
+                    {imagesFile
+                      ? imagesFile.map((imagePreviewUrl, index) => {
+                          return (
+                            <img
+                              key={index}
+                              className="imgpreview1"
+                              alt="previewImg"
+                              src={imagePreviewUrl}
+                              style={{ overflow: "hidden" }}
+                              onMouseOver={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1.25)",
+                                  overflow: "hidden",
+                                })
+                              }
+                              onMouseOut={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1)",
+                                  overflow: "hidden",
+                                })
+                              }
+                            />
+                          );
+                        })
+                      : commentmore
+                      ? commentmore.photocomment
+                        ? commentmore.photocomment.map((doc) => {
+                            return <img src={doc.url}></img>;
+                          })
+                        : null
+                      : null}
+                  </div>
 
-         
-          </div>
-
-                     
-              
                   <div className="buttoncommentsave1">
                     <button
                       className="buttoncommentsave2"
@@ -216,8 +209,6 @@ const Listcomment2 = ({
                     {commentmore.textcomment}
                   </div>
 
-                  
-
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (
@@ -228,8 +219,7 @@ const Listcomment2 = ({
                       })
                     : null}
                 </div>
-              )} 
-            
+              )}
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (

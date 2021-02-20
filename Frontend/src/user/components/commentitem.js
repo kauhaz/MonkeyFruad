@@ -6,7 +6,7 @@ import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 import Loading from "./pacmanloading";
-import ClipLoading from "./clipLoader";
+import ClipLoader from "./clipLoader";
 const { v4: uuidv4 } = require("uuid");
 const Commentitem = ({ postid }) => {
   const onClick = () => setIsActive(!isActive);
@@ -256,6 +256,7 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
+               
             <textarea
               rows="3"
               cols="15"
@@ -269,7 +270,7 @@ const Commentitem = ({ postid }) => {
             />
              {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
-
+         
           <div>
             <div className="column2 postbuttonsend">
               <button
@@ -280,10 +281,11 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-
+       
           {imagesFile ? imagesFile.map((imagePreviewUrl,index) => {
             return (
               <div>
+                
               <img
                 key={index}
                 className="imgpreview1"
