@@ -3,6 +3,7 @@ const express = require("express"),
   // passport = require("passport"),
   flash = require("connect-flash"),
    cors = require('cors')
+   compression = require('compression');
   // passportLocal = require('passport-local'),
   userRoutes = require("./routes/User"),
   postRoutes = require("./routes/Post"),
@@ -12,6 +13,7 @@ const express = require("express"),
  app.use(express.json({limit: '50mb' }));
  app.use(express.urlencoded({limit: '50mb' , extended:true }))
  app.use(cors())
+ app.use(compression());
  
 
 // app
