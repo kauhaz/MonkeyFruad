@@ -27,7 +27,7 @@ const Listcomment = ({
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -41,6 +41,22 @@ const Listcomment = ({
       };
     }
   };
+
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
@@ -58,7 +74,7 @@ const Listcomment = ({
      
       let formdata = new FormData();
       _.forEach(files, (file) => {
-        formdata.append("eiei", file);
+        formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
       formdata.append("photocomment", commentmore.photocomment);
@@ -90,7 +106,7 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-
+  console.log(imagesFile)
   return (
     <div> 
       {commentmore ? (
@@ -146,6 +162,7 @@ const Listcomment = ({
                     </div>
                     {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
                           return (
+                            <div>
                             <img
                               key={index}
                               className="imgpreview1"
@@ -165,10 +182,13 @@ const Listcomment = ({
                                 })
                               }
                             />
+                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                            </div>
                           );
                         })
                         : commentmore ? commentmore.photocomment ? commentmore.photocomment.map((doc) => {
-                          return <img src={doc.url}></img>;
+                          return  <img src={doc.url}></img>
+                        
                         }) 
                         : null 
                         :null
@@ -190,6 +210,7 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
+                  {/* {loading ? <ClipLoader /> : <div></div>} */}
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (

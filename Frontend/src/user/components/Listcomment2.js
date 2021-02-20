@@ -28,7 +28,7 @@ const Listcomment2 = ({
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles(files);
+    Setfiles([...files]);
     Seterror();
 
     //ทำการวนข้อมูลภายใน Array
@@ -42,6 +42,22 @@ const Listcomment2 = ({
       };
     }
   };
+
+  const handledeleteimage = async (index) => {
+    try{  
+
+      imagesFile.splice(index,1)
+      setImagesFile([...imagesFile])  
+
+      files.splice(index,1)
+      Setfiles([...files])
+      
+      
+    }catch (err) {
+      console.log(err);
+    }   
+  }
+
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
@@ -59,7 +75,7 @@ const Listcomment2 = ({
   
       let formdata = new FormData();
       _.forEach(files, (file) => {
-        formdata.append("eiei", file);
+        formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment" , edittextcomment)
       formdata.append("photocomment", commentmore.photocomment);
@@ -145,6 +161,7 @@ const Listcomment2 = ({
           </div>
           {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
                   return (
+                    <div>
                 <img
                 key={index}
                 className="imgpreview1"
@@ -164,13 +181,15 @@ const Listcomment2 = ({
                   })
                 }
               />
+              <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+              </div>
             );
           }) : commentmore ? commentmore.photocomment ? commentmore.photocomment.map(doc =>{
-            return (     
-           
-              <img src={doc.url}></img>
-          
-                )
+            return (<div>
+              <img src={doc.url}></img>;
+      
+           </div>
+             )
           }) 
           : null
           : null

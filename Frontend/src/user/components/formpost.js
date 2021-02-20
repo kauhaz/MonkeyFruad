@@ -117,7 +117,7 @@ const Formpost = ({ check, Setcheck }) => {
       if(!files){
         return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
       }
-      if(files.length === 0){
+      if(files && files.length === 0){
         return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
       }
       

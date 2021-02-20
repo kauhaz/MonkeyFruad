@@ -363,6 +363,8 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
     let file = req.files.photo;
     let files = req.files.eiei;
     let uid = req.params.uid;
+
+      console.log(files)
     
     // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
     const {
@@ -1071,6 +1073,7 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
   try {
     const files = req.files.photocomment;
 
+
     const {
       textcomment,
       username,
@@ -1170,11 +1173,12 @@ router.post("/delete/comment/:uid", async (req, res) => {
   }
 });
 
-router.post("/edit/comment/:id",uploadFile, async (req, res) => {
+router.post("/edit/comment/:id",uploadphotocomment, async (req, res) => {
   try {
-    let files = req.files.eiei
+    let files = req.files.photocomment
     let id = req.params.id;
     let { edittextcomment , photocomment} = req.body;
+    console.log(files)
 
     if (edittextcomment === "" && photocomment === "undefined"  ) {
       const commentdelete = await firestore

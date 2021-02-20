@@ -128,7 +128,7 @@ const Formedit = ({ check, Setcheck }) => {
       formdata.append("datetime", datetime);
       formdata.append("social", social);
       formdata.append("other", other);
-      if(files.length === 0){
+      if(files && files.length === 0){
         return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
       }
       // let sentdata = {imagesFile,imagesProfile,name,surname,id,accountnumber,nameproduct,productcategory,money,bank,datetime,social,other}
@@ -143,6 +143,7 @@ const Formedit = ({ check, Setcheck }) => {
     } catch (err) {
       Setloading(false);
       Setcheck(false);
+      console.log(err)
       err && Seterror(err.response.data.msg);
     }
   };
