@@ -5,7 +5,7 @@ import "./listcomment.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
-import ClipLoader from "./clipLoader"
+import ClipLoader from "./clipLoader";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -55,24 +55,23 @@ const Listcomment = ({
   };
   const handleedit = async (commentid) => {
     try {
-     
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
       });
       formdata.append("edittextcomment", edittextcomment);
       formdata.append("photocomment", commentmore.photocomment);
-      
-      Setloading(true)
+
+      Setloading(true);
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
         formdata
       );
-      
+
       handleedittorerender();
-        
+
       Setcheckedittext(false);
-      Setloading(false)
+      Setloading(false);
     } catch (err) {
       console.log(err);
     }
@@ -92,7 +91,7 @@ const Listcomment = ({
   }, [commentmore]);
 
   return (
-    <div> 
+    <div>
       {commentmore ? (
         <div className="row mypostcommentrow">
           <div className="column1 mypostcommentrow1">
@@ -119,9 +118,13 @@ const Listcomment = ({
                 </span>
               </div>
               <br />
-              {loading ? <ClipLoader /> : <div>{checkedittext ? (
+              {loading ? (
+                <div className="col-lg-10 col-4">
+                  <ClipLoader loading={loading} />
+                </div>
+              ) : checkedittext ? (
                 <div className="row">
-                  <div className="commenttextarea">
+                  <div className="commenttextarea ">
                     <textarea
                       value={edittextcomment}
                       onChange={(e) => {
@@ -129,7 +132,7 @@ const Listcomment = ({
                       }}
                     ></textarea>
                   </div>
-                
+
                   <div className="row post-comment-commentsall">
                     <div className="container-img-holder-imgpreview1">
                       <label>
@@ -144,7 +147,8 @@ const Listcomment = ({
                         />
                       </label>
                     </div>
-                    {imagesFile ? imagesFile.map((imagePreviewUrl ,index) => {
+                    {imagesFile
+                      ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
                             <img
                               key={index}
@@ -167,13 +171,13 @@ const Listcomment = ({
                             />
                           );
                         })
-                        : commentmore ? commentmore.photocomment ? commentmore.photocomment.map((doc) => {
-                          return <img src={doc.url}></img>;
-                        }) 
-                        : null 
-                        :null
-                    }
-
+                      : commentmore
+                      ? commentmore.photocomment
+                        ? commentmore.photocomment.map((doc) => {
+                            return <img src={doc.url}></img>;
+                          })
+                        : null
+                      : null}
                   </div>
 
                   <div className="buttoncommentsave1">
@@ -200,9 +204,7 @@ const Listcomment = ({
                       })
                     : null}
                 </div>
-              )}</div>}
-                 
-       
+              )}
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (
