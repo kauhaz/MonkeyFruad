@@ -164,6 +164,7 @@ const Listcomment2 = ({
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
+                            <div>
                             <img
                               key={index}
                               className="imgpreview1"
@@ -183,6 +184,8 @@ const Listcomment2 = ({
                                 })
                               }
                             />
+                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                            </div>
                           );
                         })
                       : commentmore
