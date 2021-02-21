@@ -44,26 +44,22 @@ const Listcomment2 = ({
   };
 
   const handledeleteimage = async (index) => {
-    try{  
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
 
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
       console.log(err);
-    }   
-  }
-
+    }
+  };
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
-    setIsActive(false)
+    setIsActive(false);
     handledeletetorerender();
   };
 
@@ -85,8 +81,8 @@ const Listcomment2 = ({
         formdata
       );
       handleedittorerender();
-      setImagesFile([])
-      Setfiles()
+      setImagesFile([]);
+      Setfiles();
       Setcheckedittext(false);
       Setloading(false);
     } catch (err) {
@@ -107,7 +103,6 @@ const Listcomment2 = ({
     gg();
   }, [commentmore]);
 
-
   return (
     <div>
       {commentmore ? (
@@ -115,7 +110,7 @@ const Listcomment2 = ({
           <div className="column1 mypostcommentrow1">
             <div class="vl"></div>
             <div className="mypost-comment-img1">
-              <div className="post-profilecomment-img1">
+              <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
                     className="img-circle"
@@ -150,13 +145,13 @@ const Listcomment2 = ({
                       }}
                     ></textarea>
                   </div>
-                  <div className="row post-comment-commentsall">
+                  <div className="row mypost-comment-commentsall">
                     <div className="container-img-holder-imgpreview1">
                       <label>
                         <img className="uploadprove1" src="/img/addphoto.png" />
                         <input
                           id="FileInput"
-                          className="uploadspostcomment"
+                          className="uploadsmypostcomment"
                           type="file"
                           onChange={FileUpload}
                           multiple
@@ -168,26 +163,29 @@ const Listcomment2 = ({
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
                             <div>
-                            <img
-                              key={index}
-                              className="imgpreview1"
-                              alt="previewImg"
-                              src={imagePreviewUrl}
-                              style={{ overflow: "hidden" }}
-                              onMouseOver={(e) =>
-                                (e.currentTarget.style = {
-                                  transform: "scale(1.25)",
-                                  overflow: "hidden",
-                                })
-                              }
-                              onMouseOut={(e) =>
-                                (e.currentTarget.style = {
-                                  transform: "scale(1)",
-                                  overflow: "hidden",
-                                })
-                              }
-                            />
-                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                              <img
+                                key={index}
+                                className="imgpreview1"
+                                alt="previewImg"
+                                src={imagePreviewUrl}
+                                style={{ overflow: "hidden" }}
+                                onMouseOver={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1.25)",
+                                    overflow: "hidden",
+                                  })
+                                }
+                                onMouseOut={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1)",
+                                    overflow: "hidden",
+                                  })
+                                }
+                              />
+                              <img
+                                src="/img/delete.png"
+                                onClick={() => handledeleteimage(index)}
+                              />
                             </div>
                           );
                         })
@@ -219,7 +217,10 @@ const Listcomment2 = ({
                     ? commentmore.photocomment.map((doc) => {
                         return (
                           <div>
-                            <img className="imgcomment" src={`${doc.url}`} />
+                            <img
+                              className="imgcommentmypost"
+                              src={`${doc.url}`}
+                            />
                           </div>
                         );
                       })
