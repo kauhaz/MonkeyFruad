@@ -6,6 +6,35 @@
   color: #5c5c5c;
 }
 
+.mypost_deleteimgpost1 {
+  background-color: rgb(245, 245, 245);
+  color: grey;
+  border: none;
+  border-radius: 50px;
+}
+
+.mypost_deleteimgpost2 {
+  width: 8%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: -300px;
+  margin-left: 135px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: box-shadow 0.4s ease;
+}
+
+.mypost_deleteimgpost2:hover {
+  margin-top: -300px;
+  margin-left: 135px;
+  border-radius: 50px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
 .commentother {
   color: blue;
   font-size: 15px;
@@ -341,7 +370,7 @@
 .line-comment2 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   /* width: 700px; */
-  align: center;
+  /* align: center; */
   margin-top: 20px;
 }
 
