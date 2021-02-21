@@ -1292,6 +1292,7 @@ router.post("/report/:postid", uploadfilereports, async (req, res) => {
         count: count
       });
     });
+    return res.json({msg:"succes"})
   } catch (err) {
     console.log(err);
   }

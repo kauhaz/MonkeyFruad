@@ -44,6 +44,7 @@ const Mypost = () => {
     Setcheckselectone(false)
     Setcheckselecttwo(false)
     Setcheckselectthree(false)
+    setReportsubmitsuccess(false)
   }
   const handleShow = () => setShow(true);
   const deleted = async (uid) => {
@@ -110,11 +111,15 @@ const Mypost = () => {
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
-         await Axios.post(
+         Axios.post(
           `http://localhost:7000/post/report/${uid}`,
           formData
-        );
-      
+        ).then((result)=>{
+          console.log(result.msg)
+          setReportsubmitsuccess(true)
+        }).catch((err) => {
+          console.log(err);
+        });
       }
     } catch (err) {
       console.log(err);
