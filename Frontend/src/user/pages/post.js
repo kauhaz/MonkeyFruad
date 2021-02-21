@@ -120,7 +120,7 @@ const Post = () => {
   
 
 
-console.log(result)
+
     var item = [];
     
     getdata.filter((doc) => {
