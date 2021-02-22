@@ -125,7 +125,7 @@ const Rank = () => {
                         </p>
                         <p className="text4-rank">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
-                          ยอดทั้งหมด : {element.summoney} บาท
+                          ยอดทั้งหมด : {element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                           <br />
                           ล่าสุด :{" "}
                           {moment(
@@ -199,7 +199,7 @@ const Rank = () => {
                   </div>
                   <div className="rank-column col">{element.surname}</div>
                   <div className="rank-column col">{element.accountnumber}</div>
-                  <div className="rank-column col">{element.summoney}</div>
+                  <div className="rank-column col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></div>
                   <div className="rank-column col">{element.count}</div>
                   <div className="rank-column col">
                     {moment(new Date(element.wanteedon.seconds * 1000)).format(

@@ -5849,7 +5849,7 @@ console.log(result)
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.money} บาท
+                                      {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -5903,7 +5903,7 @@ console.log(result)
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.summoney} บาท
+                                      {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -6037,7 +6037,7 @@ console.log(result)
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.money} บาท
+                                                {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
@@ -6097,7 +6097,7 @@ console.log(result)
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.summoney} บาท
+                                                {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>

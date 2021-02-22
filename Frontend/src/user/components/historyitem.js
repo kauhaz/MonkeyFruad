@@ -121,7 +121,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
                 </Form.Group>
 
                 <Form.Group>
-                  <span className="spanhistory">{ok.money} </span>
+                  <span className="spanhistory">{ok.money.toLocaleString(undefined, {maximumFractionDigits:2})} </span>
                 </Form.Group>
               </Form.Row>
 
