@@ -5942,7 +5942,7 @@ console.log(result)
                             return (
                               <div>
                                 <div className="container-post2">
-                                  <div className="cotainer-post3">
+                                  <div className="container-post3">
                                     <div className="post-profile-img">
                                       {res.photoURL ? (
                                         <img
