@@ -5,6 +5,7 @@ import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
+import Chatbot from "../components/chatbot";
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
@@ -155,7 +156,6 @@ const Mypost = () => {
             SetshowDropdown={SetshowDropdown}
             showDropdown={showDropdown}
           />
-          <h1 className="h1-mypost">โพสต์ของฉัน</h1>
           {mypost
             ? mypost.map((ok) => {
                 return (
@@ -629,7 +629,10 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
+           <Chatbot />
     </div>
+    
   );
+
 };
 export default Mypost;
