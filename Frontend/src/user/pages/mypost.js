@@ -5,6 +5,7 @@ import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
+import Chatbot from "../components/chatbot";
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
@@ -27,7 +28,8 @@ const Mypost = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState("");
-  const [error, Seterror] = useState();
+  const [ErrorFileUploads, SetErrorFileUploads] = useState();
+  const [ErrorNotselect, SetErrorNotselect] = useState(false);
   const inputTextArea = useRef(null);
   let { user } = useContext(usercontext);
   let { uid } = useParams();
@@ -36,16 +38,18 @@ const Mypost = () => {
     SetshowDropdown(false);
   };
   const handleClose = () => {
-    setShow(false)
-    setSelectone("")
-    setSelecttwo("")
-    setSelectthree("")
-    setDescription("")
-    Setcheckselectone(false)
-    Setcheckselecttwo(false)
-    Setcheckselectthree(false)
-    setReportsubmitsuccess(false)
-  }
+    setShow(false);
+    setSelectone("");
+    setSelecttwo("");
+    setSelectthree("");
+    setDescription("");
+    Setcheckselectone(false);
+    Setcheckselecttwo(false);
+    Setcheckselectthree(false);
+    setReportsubmitsuccess(false);
+    SetErrorFileUploads();
+    SetErrorNotselect(false)
+  };
   const handleShow = () => setShow(true);
   const deleted = async (uid) => {
     await Axios.post(`http://localhost:7000/post/delete/${uid}`);
@@ -65,7 +69,7 @@ const Mypost = () => {
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
-    Seterror();
+    SetErrorFileUploads();
 
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
@@ -102,24 +106,27 @@ const Mypost = () => {
       formData.append("selectTwo", selecttwo);
       formData.append("selectThree", selectthree);
       formData.append("userreport", useruid);
+      if (checkselectone == false && checkselecttwo == false && checkselectthree == false) {
+        console.log("OK")
+        SetErrorNotselect(true);
+      }
       if (!files) {
-        return Seterror(
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else if (files && files.length === 0) {
-        return Seterror(
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
-         Axios.post(
-          `http://localhost:7000/post/report/${uid}`,
-          formData
-        ).then((result)=>{
-          console.log(result.msg)
-          setReportsubmitsuccess(true)
-        }).catch((err) => {
-          console.log(err);
-        });
+        Axios.post(`http://localhost:7000/post/report/${uid}`, formData)
+          .then((result) => {
+            console.log(result.msg);
+            setReportsubmitsuccess(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (err) {
       console.log(err);
@@ -174,7 +181,6 @@ const Mypost = () => {
                               src="/img/profile.png"
                             />
                           )}
-
                           <div className="mypost-name">
                             {ok.username ? "@" : null}
                             {ok ? ok.username : null}
@@ -211,6 +217,15 @@ const Mypost = () => {
                                 </Modal.Header>
                                 <Modal.Body className="bigreport1">
                                   <div class="custom-control custom-checkbox reportcheckbox">
+                                    {ErrorNotselect ? (
+                                      <h1  className="h1-formpostfileerror">
+                                       กรุณาเลือกอย่างน้อย 1 ตัวเลือก
+                                      </h1>
+                                    ) : (
+                                       <h1 className="h1-formpostfileerror">
+                                       
+                                      </h1>
+                                    )}
                                     <input
                                       type="checkbox"
                                       class="custom-control-input reportcheckboxinput1"
@@ -351,12 +366,13 @@ const Mypost = () => {
                                         )
                                       : null}
                                   </div>
-                                  { error ?
-                                  <h1 className="h1-formpostfileerror">
-                                    {error}
-                                  </h1>
-                                  : " "
-                                  }
+                                  {ErrorFileUploads ? (
+                                    <h1 className="h1-formpostfileerror">
+                                      {ErrorFileUploads}
+                                    </h1>
+                                  ) : (
+                                    " "
+                                  )}
                                 </Modal.Body>
                                 <Modal.Footer>
                                   {/* <Button
@@ -366,13 +382,12 @@ const Mypost = () => {
                                     ยกเลิก
                                   </Button> */}
                                   {reportsubmitsuccess ? (
-                                      <div>
-                                        <span>การรายงานโพสต์สำเร็จ</span>
-                                      </div>
-                                    ) : (
-                                     ""
-                                    )
-                                  }
+                                    <div>
+                                      <span>การรายงานโพสต์สำเร็จ</span>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
                                   <Button
                                     clsssName="buttonreportsave"
                                     variant="primary"
@@ -630,6 +645,7 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
+      <Chatbot />
     </div>
   );
 };

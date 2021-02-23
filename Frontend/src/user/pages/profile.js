@@ -54,9 +54,7 @@ const Profile = () => {
           </p>
 
           <div className="profile-badformpost-img">
-            {imagesProfile ? (
-              <img className="img-circle" src={imagesProfile} />
-            ) : photo ? (
+           { photo ? (
               <img className="img-circle" src={`${photo.url}`} />
             ) : (
               <img className="img-circle" src={"/img/profile.png"} />

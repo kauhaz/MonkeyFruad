@@ -260,6 +260,27 @@ router.post("/create", uploadFile, async (req, res) => {
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
+      if(photoURL.public_id === "undefined"){
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          item,
+          username,
+        });
+      }
+      else if(photoURL.public_id !== "undefined"){
       const create = await firestore.collection("Post").doc(uid).set({
         name,
         surname,
@@ -278,7 +299,8 @@ router.post("/create", uploadFile, async (req, res) => {
         item,
         username,
         photoURL,
-      });
+      })
+    }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
