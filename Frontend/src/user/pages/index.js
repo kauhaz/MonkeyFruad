@@ -292,7 +292,7 @@ const Home = () => {
                         </p>
                         <p className="text4-index">
                           จำนวนครั้งที่ถูกแจ้ง : {element.count} ครั้ง <br />
-                          ยอดทั้งหมด : {element.summoney} บาท
+                          ยอดทั้งหมด : {element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                           <br />
                           ล่าสุด :{" "}
                           {moment(
@@ -355,7 +355,7 @@ const Home = () => {
                                 <br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
-                                จำนวนเงิน : {element.money} บาท <br />
+                                จำนวนเงิน : {element.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท <br />
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
@@ -440,7 +440,7 @@ const Home = () => {
                                 สินค้า : {element.nameproduct} <br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
-                                จำนวนเงิน : {element.money} บาท <br />
+                                จำนวนเงิน : {element.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท <br />
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
@@ -525,7 +525,7 @@ const Home = () => {
                                 <br />
                                 เลขบัญชี : {element.accountnumber}
                                 <br />
-                                จำนวนเงิน : {element.money} บาท <br />
+                                จำนวนเงิน : {element.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท <br />
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
@@ -610,7 +610,7 @@ const Home = () => {
                                 {element.name} <br />
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
-                                จำนวนเงิน : {element.money} บาท <br />
+                                จำนวนเงิน : {element.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท <br />
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)
@@ -694,7 +694,7 @@ const Home = () => {
                                 สินค้า : {element.nameproduct} <br />
                                 เลขที่บัญชี : {element.accountnumber}
                                 <br />
-                                จำนวนเงิน : {element.money} บาท <br />
+                                จำนวนเงิน : {element.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท <br />
                                 วันที่โอน :{" "}
                                 {moment(
                                   new Date(element.datetimes.seconds * 1000)

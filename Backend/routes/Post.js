@@ -76,6 +76,19 @@ const uploadphotocomment = (req, res, next) => {
     next();
   });
 };
+const uploadfilereports = (req, res, next) => {
+  const upload2 = upload.fields([{ name: "filereports", maxCount: 20 }]);
+  upload2(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res
+        .status(400)
+        .json({ msg: "** ไฟล์รูปรวมกันต้องมีขนาดไม่เกิน 1 MB **" });
+    } else if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    next();
+  });
+};
 
 // router.get("/", function (req, res) {
 //   res.json({ success: true });
@@ -364,8 +377,8 @@ router.post("/edit/:uid", uploadFile, async (req, res) => {
     let files = req.files.eiei;
     let uid = req.params.uid;
 
-      console.log(files)
-    
+    console.log(files);
+
     // const date = moment().format('MM/DD/YYYY, h:mm:ss a')
     const {
       name,
@@ -816,7 +829,6 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
-
     var postid = [];
     let getid = req.params.uid;
     const getpost = await firestore
@@ -863,19 +875,21 @@ router.post("/delete/:uid", async (req, res) => {
         }
       });
     });
- 
+
     const deletecomment = await firestore
-    .collection("Comment")
-    .where("postid", "==", getid)
-    deletecomment.get().then(dokky => {
+      .collection("Comment")
+      .where("postid", "==", getid);
+    deletecomment.get().then((dokky) => {
       dokky.forEach(async (doc) => {
-        await firestore.collection("Comment").doc(doc.get("commentid")).delete();
-     });
-   
-    })
-  
-  firestore.collection("Post").doc(getid).delete();
-   
+        await firestore
+          .collection("Comment")
+          .doc(doc.get("commentid"))
+          .delete();
+      });
+    });
+
+    firestore.collection("Post").doc(getid).delete();
+
     return res.json({ success: "Delete" });
   } catch (err) {
     console.log(err);
@@ -945,8 +959,10 @@ router.get("/post", async (req, res) => {
 
 router.get("/post/sortmoney", async (req, res) => {
   try {
-    console.log("ok")
-    const showdata = await firestore.collection("Post").orderBy("money", "desc");
+    console.log("ok");
+    const showdata = await firestore
+      .collection("Post")
+      .orderBy("money", "desc");
     showdata.get().then((ok) => {
       let item = [];
       ok.forEach((doc) => {
@@ -1073,7 +1089,6 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
   try {
     const files = req.files.photocomment;
 
-
     const {
       textcomment,
       username,
@@ -1083,7 +1098,7 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
     } = req.body;
 
     let photoURL = { url: photourl, public_id: photopublic_id };
-    
+
     const postid = req.params.id;
     const uuid = uuidv4();
     let datetime = new Date();
@@ -1136,6 +1151,7 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
 router.get("/commentmore/:id", async (req, res) => {
   try {
     let postid = req.params.id;
+    console.log(postid);
     const getcomment = await firestore
       .collection("Comment")
       .where("postid", "==", postid)
@@ -1160,7 +1176,6 @@ router.get("/commentmore/:id", async (req, res) => {
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {
-   
     let getid = req.params.uid;
 
     const postdelete = await firestore
@@ -1173,20 +1188,20 @@ router.post("/delete/comment/:uid", async (req, res) => {
   }
 });
 
-router.post("/edit/comment/:id",uploadphotocomment, async (req, res) => {
+router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
   try {
-    let files = req.files.photocomment
+    let files = req.files.photocomment;
     let id = req.params.id;
-    let { edittextcomment , photocomment} = req.body;
-    console.log(files)
+    let { edittextcomment, photocomment } = req.body;
+    console.log(files);
 
-    if (edittextcomment === "" && photocomment === "undefined"  ) {
+    if (edittextcomment === "" && photocomment === "undefined") {
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
-    } 
+    }
     if (files) {
       let item = [];
       for (const file of files) {
@@ -1198,14 +1213,14 @@ router.post("/edit/comment/:id",uploadphotocomment, async (req, res) => {
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
-        .update({ textcomment: edittextcomment , photocomment : item});
+        .update({ textcomment: edittextcomment, photocomment: item });
       return res.json({ success: "Edit" });
-    }else{
+    } else {
       const commentedit = await firestore
-      .collection("Comment")
-      .doc(id)
-      .update({ textcomment: edittextcomment });
-    return res.json({ success: "Edit" });
+        .collection("Comment")
+        .doc(id)
+        .update({ textcomment: edittextcomment });
+      return res.json({ success: "Edit" });
     }
   } catch (err) {
     console.log(err);
@@ -1213,65 +1228,80 @@ router.post("/edit/comment/:id",uploadphotocomment, async (req, res) => {
   }
 });
 
-router.post("/post/report/:postid", async (req, res) => {
+router.post("/report/:postid", uploadfilereports, async (req, res) => {
   try {
-    const postid = req.params.id;
-    const { detail, selectOne, selectTwo, selecthree, userreport } = req.body;
-    const fileupload = req.files.photo;
-    const uid = uuidv4();
-    moment.locale("th");
-    const date = moment().format("lll");
-    let reportdata = [];
-    var count = 0;
-    await firestore.collection("Report").doc(postid).set({
-      postid,
-      detail,
+    const postid = req.params.postid;
+    const {
+      description,
       selectOne,
       selectTwo,
-      selecthree,
+      selectThree,
+      userreport,
+    } = req.body;
+    const files = req.files.filereports;
+    console.log(
+      postid,
+      description,
+      selectOne,
+      selectTwo,
+      selectThree,
+      userreport,
+      files
+    );
+    const uid = uuidv4();
+    moment.locale("th");
+    let date = new Date();
+    let reportdata = [];
+    let fileUploads = [];
+    let count = 0;
+    for (const file of files) {
+      const { path } = file;
+      const resultfiles = await cloudinary.uploader.upload(path);
+      let { url, public_id } = resultfiles;
+      fileUploads.push({ url, public_id });
+    }
+    await firestore.collection("Report").doc(uid).set({
+      postid,
+      description,
+      selectOne,
+      selectTwo,
+      selectThree,
       userreport,
       date,
+      fileUploads,
+      read: false,
+      uid,
     });
     const reportcount = await firestore
       .collection("Report")
-      .get()
       .where("postid", "==", postid)
-      .orderBy("date", desc);
-    reportcount.forEach((element) => {
-      reportdata.push(element);
+      .orderBy("date", "desc");
+    await reportcount.get().then((element) => {
+      element.forEach((doc) => {
+        reportdata.push(doc.data());
+      });
     });
-    for (let i = 0; i < reportcount.length; i++) {
+    for (let i = 0; i < reportdata.length; i++) {
       count++;
     }
-    await firestore.collection("Reportcount").doc(postid).set({
-      count,
-      postid,
+    await firestore.collection("Report").doc(uid).update({
+      count: count,
     });
+    reportdata.forEach(async (doc) => {
+      await firestore.collection("Report").doc(doc.uid).update({
+        count: count
+      });
+    });
+    return res.json({msg:"succes"})
   } catch (err) {
     console.log(err);
   }
 });
 router.get("/post/report", async (req, res) => {
   try {
-    const uid = uuidv4();
-    const reportdata = [];
-    var nameposter = [];
-    var postdata = [];
-    var reportcount = [];
-    const report = await firestore
-      .collection("Report")
-      .get()
-      .orderBy("date", desc);
-    report.forEach((element) => {
-      reportdata.push(element);
-    });
-    for (let i = 0; i < reportdata.length; i++) {
-      const query = await firestore
-        .collection("Post")
-        .get()
-        .where("postid", "==", `${reportdata[i].postid}`);
-      postdata.push(query);
-    }
+    const report = [];
+    await firestore.collection("Report").get().orderBy("date", desc);
+    return res.json({ report });
   } catch (err) {
     console.log(err);
   }

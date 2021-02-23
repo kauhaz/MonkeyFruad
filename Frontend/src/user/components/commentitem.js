@@ -35,7 +35,7 @@ const Commentitem = ({ postid }) => {
   let history = useHistory();
 
   let uuid = uuidv4();
-  
+
   // ฟังก์ชันอัพโหลดไฟล์
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -58,23 +58,17 @@ const Commentitem = ({ postid }) => {
   // console.log(files)
   // console.log(imagesFile)
   const handledeleteimage = async (index) => {
-    try{  
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
 
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
       console.log(err);
-    }   
-  }
+    }
+  };
 
-  
-
- 
   const handlecomment = async () => {
     try {
       if (user) {
@@ -88,24 +82,24 @@ const Commentitem = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
-        if(!files && !textcomment){
-          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        if (!files && !textcomment) {
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ");
         }
-        if(files && files.length === 0){
-          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
+        if (files && files.length === 0) {
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ");
         }
-        Setloading(true)
+        Setloading(true);
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
           formdata
         );
-        Setloading(false)
+        Setloading(false);
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
-        Setfiles()
+        Setfiles();
         Seterror();
-        Setloading(false)
+        Setloading(false);
       } else {
         history.push({
           pathname: "/login",
@@ -145,13 +139,15 @@ const Commentitem = ({ postid }) => {
     }
   };
 
-  console.log(commentmore)
+  // console.log(commentmore)
 
   const gg = async () => {
     try {
+
       const getcommentall = await Axios.get(
         `http://localhost:7000/post/commentmore/${postid}`
       );
+      // Setloading(true)
       Setcommentmore(getcommentall.data.item);
       if (user) {
         const nameuser = await Axios.post("http://localhost:7000/user/userid", {
@@ -167,6 +163,7 @@ const Commentitem = ({ postid }) => {
         );
         Setphotourl(profiledata.data.data.photoURL.url);
         Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        // Setloading(false)
       }
     } catch (err) {
       console.log(err);
@@ -174,7 +171,7 @@ const Commentitem = ({ postid }) => {
   };
   useEffect(() => {
     gg();
-  }, [click, showdelete, showedit]);
+  }, [click, showdelete, showedit , postid]);
 
   return (
     <div>
@@ -227,9 +224,8 @@ const Commentitem = ({ postid }) => {
         </div>
       ) : null}
 
-      
       <div className="row post-comment-comments1">
-        <div className="post-profilecomment-img1">  
+        <div className="post-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
           ) : (
@@ -264,11 +260,11 @@ const Commentitem = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value) 
-                Seterror()
+                Settextcomment(e.target.value);
+                Seterror();
               }}
             />
-             {/* {loading ? <div><ClipLoading/></div> : null } */}
+            {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
          
           <div>
@@ -281,34 +277,41 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-       
-          {imagesFile ? imagesFile.map((imagePreviewUrl,index) => {
-            return (
-              <div>
-                
-              <img
-                key={index}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-              <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
-              </div>
-            );
-          }): null}
+
+          {imagesFile
+            ? imagesFile.map((imagePreviewUrl, index) => {
+                return (
+                  <div>
+                    <img
+                      key={index}
+                      className="imgpreview1"
+                      alt="previewImg"
+                      src={imagePreviewUrl}
+                      style={{ overflow: "hidden" }}
+                      onMouseOver={(e) =>
+                        (e.currentTarget.style = {
+                          transform: "scale(1.25)",
+                          overflow: "hidden",
+                        })
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.style = {
+                          transform: "scale(1)",
+                          overflow: "hidden",
+                        })
+                      }
+                    />
+                    <div className="deleteimgpost1">
+                      <img
+                        className="deleteimgpost2"
+                        src="/img/delete2.png"
+                        onClick={() => handledeleteimage(index)}
+                      />
+                    </div>
+                  </div>
+                );
+              })
+            : null}
         </div>
 
         <h1 className="h1-postfileerror">{error}</h1>

@@ -47,24 +47,20 @@ const Commentitemformypost = ({ postid }) => {
   };
 
   const handledeleteimage = async (index) => {
-    try{  
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
 
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
       console.log(err);
-    }   
-  }
- 
+    }
+  };
+
   const handlecomment = async () => {
     try {
       if (user) {
-        
         let formdata = new FormData();
         let useruid = user.uid;
         _.forEach(files, (file) => {
@@ -75,13 +71,13 @@ const Commentitemformypost = ({ postid }) => {
         formdata.append("userid", user.uid);
         formdata.append("photourl", photourl);
         formdata.append("photopublic_id", photopublic_id);
-          if(!files && !textcomment){
-            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
-          }
-          if(files && files.length === 0){
-            return Seterror("กรุณาใส่ข้อความหรือรูปภาพ")
-          }
-          SetLoading(true)
+        if (!files && !textcomment) {
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ");
+        }
+        if (files && files.length === 0) {
+          return Seterror("กรุณาใส่ข้อความหรือรูปภาพ");
+        }
+        SetLoading(true);
         const sentcomment = await Axios.post(
           `http://localhost:7000/post/comment/${postid}`,
           formdata
@@ -89,9 +85,9 @@ const Commentitemformypost = ({ postid }) => {
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile([]);
-        Setfiles()
+        Setfiles();
         Seterror();
-        SetLoading(false)
+        SetLoading(false);
       } else {
         history.push({
           pathname: "/login",
@@ -156,7 +152,7 @@ const Commentitemformypost = ({ postid }) => {
     gg();
   }, [click, showdelete, showedit]);
 
-  return  (
+  return (
     <div>
       {showcommentall ? (
         <div>
@@ -242,8 +238,8 @@ const Commentitemformypost = ({ postid }) => {
               placeholder="เขียนความคิดเห็น..."
               value={textcomment}
               onChange={(e) => {
-                Settextcomment(e.target.value)
-                Seterror()
+                Settextcomment(e.target.value);
+                Seterror();
               }}
             />
             {/* {loading ? <div><Loading/></div> : null } */}
@@ -258,38 +254,45 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
-          {imagesFile ? imagesFile.map((imagePreviewUrl , index) => {
-            return (
-              <div>
-              <img
-                key={index}
-                className="imgpreview1"
-                alt="previewImg"
-                src={imagePreviewUrl}
-                style={{ overflow: "hidden" }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1.25)",
-                    overflow: "hidden",
-                  })
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style = {
-                    transform: "scale(1)",
-                    overflow: "hidden",
-                  })
-                }
-              />
-             <img src="/img/delete.png" onClick={() => handledeleteimage(index)} />
-              </div>
-            );
-          }):null}
+          {imagesFile
+            ? imagesFile.map((imagePreviewUrl, index) => {
+                return (
+                  <div>
+                    <img
+                      key={index}
+                      className="imgpreview1"
+                      alt="previewImg"
+                      src={imagePreviewUrl}
+                      style={{ overflow: "hidden" }}
+                      onMouseOver={(e) =>
+                        (e.currentTarget.style = {
+                          transform: "scale(1.25)",
+                          overflow: "hidden",
+                        })
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.style = {
+                          transform: "scale(1)",
+                          overflow: "hidden",
+                        })
+                      }
+                    />
+                    <div clsssName="deleteimgmypost">
+                      <img
+                        src="/img/delete.png"
+                        onClick={() => handledeleteimage(index)}
+                      />
+                    </div>
+                  </div>
+                );
+              })
+            : null}
         </div>
 
         <h1 className="h1-mypostfileerror">{error}</h1>
       </div>
     </div>
-  )
+  );
 };
 
 export default Commentitemformypost;

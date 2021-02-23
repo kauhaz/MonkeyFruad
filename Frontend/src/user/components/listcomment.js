@@ -43,25 +43,22 @@ const Listcomment = ({
   };
 
   const handledeleteimage = async (index) => {
-    try{  
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
 
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
       console.log(err);
-    }   
-  }
-
+    }
+  };
 
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
+    setIsActive(false);
     handledeletetorerender();
   };
 
@@ -85,7 +82,8 @@ const Listcomment = ({
       );
 
       handleedittorerender();
-
+      setImagesFile([]);
+      Setfiles();
       Setcheckedittext(false);
       Setloading(false);
     } catch (err) {
@@ -105,14 +103,14 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-  console.log(imagesFile)
+
   return (
     <div>
       {commentmore ? (
-        <div className="row mypostcommentrow">
-          <div className="column1 mypostcommentrow1">
+        <div className="row postcommentrow">
+          <div className="column1 postcommentrow1">
             <div class="vl"></div>
-            <div className="mypost-comment-img1">
+            <div className="post-comment-img1">
               <div className="post-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
@@ -123,10 +121,10 @@ const Listcomment = ({
                   <img className="img-circle" src="/img/profile.png" />
                 )}
               </div>
-              <div className="mypost-comment-name1">
+              <div className="post-comment-name1">
                 {commentmore ? "@" : null}
                 {commentmore.username}
-                <span className="mypost-comment-time1">
+                <span className="post-comment-time1">
                   {" "}
                   {moment(new Date(commentmore.datetime.seconds * 1000)).format(
                     "LTS"
@@ -140,7 +138,7 @@ const Listcomment = ({
                 </div>
               ) : checkedittext ? (
                 <div className="row">
-                  <div className="commenttextarea ">
+                  <div className="commenttextareapost">
                     <textarea
                       value={edittextcomment}
                       onChange={(e) => {
@@ -148,28 +146,38 @@ const Listcomment = ({
                       }}
                     ></textarea>
                   </div>
+                  <div className="buttoncommentpostsave1">
+                    <button
+                      className="buttoncommentpostsave2"
+                      onClick={() => handleedit(commentmore.commentid)}
+                    >
+                      บันทึก
+                    </button>
+                  </div>
 
-                  <div className="row post-comment-commentsall">
-                    <div className="container-img-holder-imgpreview1">
-                      <label>
-                        <img className="uploadprove1" src="/img/addphoto.png" />
-                        <input
-                          id="FileInput"
-                          className="uploadspostcomment"
-                          type="file"
-                          onChange={FileUpload}
-                          multiple
-                          accept="image/png, image/jpeg , image/jpg"
-                        />
-                      </label>
-                    </div>
-                    {imagesFile
-                      ? imagesFile.map((imagePreviewUrl, index) => {
-                          return (
-                            <div>
+                  <div className="container-img-holder-imgpreview1">
+                    <label>
+                      <img
+                        className="uploadprovepost1"
+                        src="/img/addphoto.png"
+                      />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                  {imagesFile
+                    ? imagesFile.map((imagePreviewUrl, index) => {
+                        return (
+                          <div>
                             <img
                               key={index}
-                              className="imgpreview1"
+                              className="imgpreviewpost1"
                               alt="previewImg"
                               src={imagePreviewUrl}
                               style={{ overflow: "hidden" }}
@@ -186,27 +194,26 @@ const Listcomment = ({
                                 })
                               }
                             />
-                            <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
-                            </div>
+                            <img
+                              className="deleteimgpost2"
+                              src="/img/delete.png"
+                              onClick={() => handledeleteimage(index)}
+                            />
+                          </div>
+                        );
+                      })
+                    : commentmore
+                    ? commentmore.photocomment
+                      ? commentmore.photocomment.map((doc) => {
+                          return (
+                            <img
+                              className="imgpreviewpost1"
+                              src={doc.url}
+                            ></img>
                           );
                         })
-                      : commentmore
-                      ? commentmore.photocomment
-                        ? commentmore.photocomment.map((doc) => {
-                            return <img src={doc.url}></img>;
-                          })
-                        : null
-                      : null}
-                  </div>
-
-                  <div className="buttoncommentsave1">
-                    <button
-                      className="buttoncommentsave2"
-                      onClick={() => handleedit(commentmore.commentid)}
-                    >
-                      บันทึก
-                    </button>
-                  </div>
+                      : null
+                    : null}
                 </div>
               ) : (
                 <div className="mypost-comment-comments1">
@@ -228,36 +235,36 @@ const Listcomment = ({
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (
-            <div className="column2 mypostcommentrow2">
-              <div className="menu-containermypostcommentsetting">
+            <div className="column2 postcommentrow2">
+              <div className="menu-containerpostcommentsetting">
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className="mypostcommentbuttonsetting"
+                  className="postcommentbuttonsetting"
                 >
                   <img
-                    className="mypostcommentimg-setting"
+                    className="postcommentimg-setting"
                     src="/img/setting.png"
                     alt="avatar"
                   ></img>
                 </div>
 
                 <div
-                  className={`mypostcommentmenusetting ${
+                  className={`postcommentmenusetting ${
                     isActive ? "active" : "inactive"
                   }`}
                 >
-                  <ul className="ul-mypostcommentmenusetting">
-                    <li className="li-mypostcommentmenusetting">
+                  <ul className="ul-postcommentmenusetting">
+                    <li className="li-postcommentmenusetting">
                       <a
-                        className="a-mypostcommentmenusetting"
+                        className="a-postcommentmenusetting"
                         onClick={() => edit(commentmore.commentid)}
                       >
                         แก้ไขคอมเมนต์
                       </a>
                     </li>
-                    <li className="li-mypostcommentmenusetting">
+                    <li className="li-postcommentmenusetting">
                       <a
-                        className="a-mypostcommentmenusetting"
+                        className="a-postcommentmenusetting"
                         onClick={() => deleted(commentmore.commentid)}
                       >
                         {" "}

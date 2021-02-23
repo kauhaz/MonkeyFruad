@@ -17,6 +17,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
       const postdelete = await Axios.post(
         `http://localhost:7000/post/delete/${uid}`
       );
+      setIsActive(false)
       handledeletetorerender();
     } catch (err) {
       console.log(err);
@@ -120,7 +121,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
                 </Form.Group>
 
                 <Form.Group>
-                  <span className="spanhistory">{ok.money} </span>
+                  <span className="spanhistory">{ok.money.toLocaleString(undefined, {maximumFractionDigits:2})} </span>
                 </Form.Group>
               </Form.Row>
 
