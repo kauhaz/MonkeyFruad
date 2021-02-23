@@ -393,8 +393,8 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_FacebookPost} className="readmore1-index seemore-index">
-                <div className="">
+              <a onClick={Go_FacebookPost} className=" seemore-index">
+                <div className="readmore1-index">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
@@ -478,8 +478,8 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_Instragram} className="readmore2-index seemore-index">
-                <div className="">
+              <a onClick={Go_Instragram} className=" seemore-index">
+                <div className="readmore2-index">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
@@ -563,8 +563,8 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_Line} className="readmore3-index seemore-index">
-                <div className="">
+              <a onClick={Go_Line} className=" seemore-index">
+                <div className="readmore3-index">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
@@ -648,8 +648,8 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_Twitter} className="readmore4-index seemore-index">
-                <div className="">
+              <a onClick={Go_Twitter} className=" seemore-index">
+                <div className="readmore4-index">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"
@@ -732,8 +732,8 @@ const Home = () => {
                 : null}
             </div>
             <div className="row">
-              <a onClick={Go_Other} className="readmore5-index seemore-index">
-                <div className="">
+              <a onClick={Go_Other} className=" seemore-index">
+                <div className="readmore5-index">
                   ดูทั้งหมด{" "}
                   <MDBIcon
                     icon="chevron-right"

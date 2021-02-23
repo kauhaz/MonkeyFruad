@@ -218,9 +218,10 @@
 }
 .text4-index{
     text-align: left;
-    width: 220px;
-    margin-left: 10px;
-    font-size: 14px ;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
     margin-bottom: 20px;
@@ -239,6 +240,13 @@
 .readmore-index {
     font-family: 'Kanit', sans-serif;
     font-size: 16px;
+}
+
+.seemore-index{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
 
 /*Facebook*/ 
@@ -284,7 +292,7 @@
 
 .text7-index{
     text-align: left;
-    font-size: 12px ;
+    font-size: 13px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
     margin-bottom: 15px;
@@ -299,7 +307,8 @@
 }
 .cardbody-index{
     width: 165px;
-    margin-left: -2px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .time-index{
     background-color: #3b5999;
@@ -323,7 +332,6 @@
 .readmore1-index:hover{
     color:  #2b406d;
 }
-
 /*instargram*/
 .headinstargram-index{
     /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
@@ -406,6 +414,7 @@
     color:#077407;
 }
 
+
 /*Twitter*/
 .headtwitter-index{
     background: #00acee;
@@ -445,6 +454,7 @@
 .readmore4-index:hover{
     color:#0373a0;
 }
+
 
 /*Other*/
 .headother-index{
@@ -486,12 +496,7 @@
     color:#414040;
 }
 
-.seemore-index{
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-    font-size: 20px;
-}
+
 
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
@@ -519,7 +524,15 @@
     .search-index , .dropsearch-index{
         width: 309px;
     }
+    .text4-index{
+        font-size: 14px;
+        width: 180px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
+
 @media only screen and (min-width: 1920px) {
     .h1-index { 
         margin-top: 50px;
@@ -741,9 +754,10 @@
     }
     .text4-index{
         text-align: left;
-        width: 220px;
-        margin-left: 10px;
-        font-size: 14px ;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px ;
         font-family: 'Kanit', sans-serif;
         color: #5c5c5c;
         margin-bottom: 20px;
@@ -762,6 +776,13 @@
     .readmore-index {
         font-family: 'Kanit', sans-serif;
         font-size: 16px;
+    }
+    
+    .seemore-index{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        font-size: 20px;
     }
     
     /*Facebook*/ 
@@ -807,7 +828,7 @@
     
     .text7-index{
         text-align: left;
-        font-size: 12px ;
+        font-size: 13px ;
         font-family: 'Kanit', sans-serif;
         color: #5c5c5c;
         margin-bottom: 15px;
@@ -822,7 +843,8 @@
     }
     .cardbody-index{
         width: 165px;
-        margin-left: -2px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .time-index{
         background-color: #3b5999;
@@ -846,7 +868,6 @@
     .readmore1-index:hover{
         color:  #2b406d;
     }
-    
     /*instargram*/
     .headinstargram-index{
         /* background: linear-gradient(45deg, #3983f3 5%,#6e68f3 25%,#9e4fd3 45%,#d84498 55%,#ec3d77 65%,#fa9654 95%); */
@@ -929,6 +950,7 @@
         color:#077407;
     }
     
+    
     /*Twitter*/
     .headtwitter-index{
         background: #00acee;
@@ -969,6 +991,7 @@
         color:#0373a0;
     }
     
+    
     /*Other*/
     .headother-index{
         background: #727171;
@@ -1008,15 +1031,9 @@
     .readmore5-index:hover{
         color:#414040;
     }
-    
-    .seemore-index{
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 5px;
-        font-size: 20px;
-    }
-
 }
+
+
 @media only screen and (max-width: 1367px) {
     .container1-index{
         width: 65%;
@@ -1061,9 +1078,8 @@
         font-size: 15px;
     }
     .text4-index{
-        width: 175px;
-        font-size: 12px;
-        margin-left: 3px;
+        width: 170px;
+        font-size: 13px;
     }
 
     .emty-index{
@@ -1122,7 +1138,6 @@
     }
     .cardbody-index{
         width: 140px;
-        margin-left: -10px;
     }
     .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
         font-size: 12px;
@@ -1177,9 +1192,6 @@
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 18px;
-    }
-    .cardbody-index{
-        margin-left: -12px;
     }
     .time-index , .time2-index , .time3-index , .time4-index , .time5-index{
         font-size: 11px;
@@ -1605,8 +1617,8 @@
         margin-top: -10px;
     }
     .text4-index{
-        margin-left: -16px;
-        width: 127px; 
+        margin-left: -14px;
+        width: 123px; 
     }
     
     .rank-index1{
