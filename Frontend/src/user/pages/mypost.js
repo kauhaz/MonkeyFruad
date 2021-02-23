@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import {
-  Modal
-} from "react-bootstrap";
-import { Form, Col,  Button } from "react-bootstrap";
-
+import { Modal } from "react-bootstrap";
+import { Form, Col, Button } from "react-bootstrap";
+import _ from "lodash";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 // import Commentitem from "../components/commentitem";
@@ -14,26 +12,43 @@ import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
 const Mypost = () => {
+  const [selectone, setSelectone] = useState("");
+  const [selecttwo, setSelecttwo] = useState("");
+  const [selectthree, setSelectthree] = useState("");
+  const [checkselectone, Setcheckselectone] = useState(false);
+  const [checkselecttwo, Setcheckselecttwo] = useState(false);
+  const [checkselectthree, Setcheckselectthree] = useState(false);
+  const [description, setDescription] = useState("");
+  const [reportsubmitsuccess, setReportsubmitsuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  let { user} = useContext(usercontext);
-
+  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [files, Setfiles] = useState("");
+  const [error, Seterror] = useState();
+  const inputTextArea = useRef(null);
+  let { user } = useContext(usercontext);
   let { uid } = useParams();
   const history = useHistory();
-
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+  const handleClose = () => {
+    setShow(false)
+    setSelectone("")
+    setSelecttwo("")
+    setSelectthree("")
+    setDescription("")
+    Setcheckselectone(false)
+    Setcheckselecttwo(false)
+    Setcheckselectthree(false)
+    setReportsubmitsuccess(false)
+  }
+  const handleShow = () => setShow(true);
   const deleted = async (uid) => {
-     await Axios.post(
-      `http://localhost:7000/post/delete/${uid}`
-    );
-
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
     history.push("/post/history");
   };
 
@@ -45,12 +60,93 @@ const Mypost = () => {
       console.log(err);
     }
   };
+  const FileUpload = (event) => {
+    event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
+    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
+    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    Setfiles([...files]);
+    Seterror();
 
+    //ทำการวนข้อมูลภายใน Array
+    for (var i = 0; i < files.length; i++) {
+      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+      reader.onloadend = () => {
+        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+        setImagesFile((prevState) => [...prevState, reader.result]);
+        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+      };
+    }
+  };
+  const handledeleteimage = async (index) => {
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
+
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handlesubmit = async (e) => {
+    try {
+      e.preventDefault();
+      let formData = new FormData();
+      let useruid = user.uid;
+      _.forEach(files, (file) => {
+        formData.append("filereports", file);
+      });
+      formData.append("description", description);
+      formData.append("selectOne", selectone);
+      formData.append("selectTwo", selecttwo);
+      formData.append("selectThree", selectthree);
+      formData.append("userreport", useruid);
+      if (!files) {
+        return Seterror(
+          "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
+        );
+      } else if (files && files.length === 0) {
+        return Seterror(
+          "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
+        );
+      } else {
+         Axios.post(
+          `http://localhost:7000/post/report/${uid}`,
+          formData
+        ).then((result)=>{
+          console.log(result.msg)
+          setReportsubmitsuccess(true)
+        }).catch((err) => {
+          console.log(err);
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleselect = (e) => {
+    if (!checkselectone) {
+      setSelectone("");
+    }
+    if (!checkselecttwo) {
+      setSelecttwo("");
+    }
+    if (!checkselectthree) {
+      setSelectthree();
+      setDescription("");
+    }
+  };
   useEffect(() => {
     ok();
-  }, []);
-  console.log(mypost);
-
+    handleselect();
+  }, [checkselectone, checkselecttwo, checkselectthree]);
+  console.log("selectonevalue : ", selectone, "check:", checkselectone);
+  console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
+  console.log("selectthreevalue : ", selectthree, "check:", checkselectthree);
+  console.log("description : ", description);
+  console.log("fileupload : ", files);
   return (
     <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (
@@ -86,19 +182,19 @@ const Mypost = () => {
                           </div>
                           <br />
                           <div className="mypost-date">
-                          {moment(
-                                      new Date(ok.date.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                            {moment(new Date(ok.date.seconds * 1000)).format(
+                              "MM/DD/YYYY HH:mm"
+                            )}{" "}
                             {/* <span className="mypost-time">23:38 </span> */}
                           </div>
                         </div>
                         {user && user.uid != ok.useruid ? (
                           <div>
-                            <div className="postbuttonreport">
+                            <div className="mypostbuttonreport">
                               <button
                                 variant="primary"
                                 onClick={handleShow}
-                                className="postbuttonreported"
+                                className="mypostbuttonreported"
                               >
                                 <i class="fa fa-flag"></i>
                               </button>
@@ -114,21 +210,176 @@ const Mypost = () => {
                                     รายงานโพสต์
                                   </Modal.Title>
                                 </Modal.Header>
-                                <Modal.Body>
-                                  Woohoo, you're reading this text in a modal!
+                                <Modal.Body className="bigreport1">
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport1"
+                                      onChange={(e) =>
+                                        setSelectone(e.target.value)
+                                      }
+                                      value="ข้อมูลไม่ถูกต้อง"
+                                      onClick={() =>
+                                        Setcheckselectone(!checkselectone)
+                                      }
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport1"
+                                    >
+                                      ข้อมูลไม่ถูกต้อง
+                                    </label>
+                                  </div>
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport2"
+                                      value="ข้อมูลไม่เหมาะสม"
+                                      onChange={(e) =>
+                                        setSelecttwo(e.target.value)
+                                      }
+                                      onClick={() =>
+                                        Setcheckselecttwo(!checkselecttwo)
+                                      }
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport2"
+                                    >
+                                      ข้อมูลไม่เหมาะสม
+                                    </label>
+                                  </div>
+                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input reportcheckboxinput1"
+                                      id="defaultInlinereport3"
+                                      value="อื่นๆ"
+                                      onChange={(e) =>
+                                        setSelectthree(e.target.value)
+                                      }
+                                      onClick={() =>
+                                        Setcheckselectthree(!checkselectthree)
+                                      }
+                                    ></input>
+                                    <label
+                                      class="custom-control-label reportcheckboxlabel1"
+                                      for="defaultInlinereport3"
+                                    >
+                                      อื่นๆ (กรุณาระบุในช่องเพิ่มเติม)
+                                    </label>
+                                  </div>
+                                  <div className="form-groupreport">
+                                    <label htmlFor="exampleFormControlTextarea1"></label>
+                                    {checkselectthree ? (
+                                      <textarea
+                                        className="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="4"
+                                        placeholder="อธิบายรายละเอียดเพิ่มเติม"
+                                        onChange={(e) =>
+                                          setDescription(e.target.value)
+                                        }
+                                      />
+                                    ) : (
+                                      <textarea
+                                        className="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="4"
+                                        placeholder="อธิบายรายละเอียดเพิ่มเติม"
+                                        readOnly={true}
+                                        ref={inputTextArea}
+                                        value={description}
+                                      />
+                                    )}
+                                  </div>
+                                  <span className="spanreport">
+                                    *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
+                                  </span>
+                                  <div className="container-img-holder-imgpreviewreport">
+                                    <label>
+                                      <img
+                                        className="uploadprovereport"
+                                        src="/img/addimage.png"
+                                      />
+                                      <input
+                                        id="FileInput"
+                                        className="uploadsreport"
+                                        type="file"
+                                        multiple
+                                        accept="image/png, image/jpeg , image/jpg"
+                                        onChange={FileUpload}
+                                      />
+                                    </label>
+                                    {imagesFile
+                                      ? imagesFile.map(
+                                          (imagePreviewUrl, index) => {
+                                            return (
+                                              <div>
+                                                <img
+                                                  key={index}
+                                                  className="imgpreview"
+                                                  alt="previewImg"
+                                                  src={imagePreviewUrl}
+                                                  style={{ overflow: "hidden" }}
+                                                  onMouseOver={(e) =>
+                                                    (e.currentTarget.style = {
+                                                      transform: "scale(1.25)",
+                                                      overflow: "hidden",
+                                                    })
+                                                  }
+                                                  onMouseOut={(e) =>
+                                                    (e.currentTarget.style = {
+                                                      transform: "scale(1)",
+                                                      overflow: "hidden",
+                                                    })
+                                                  }
+                                                />
+                                                <div className="mypost_deleteimgpost1">
+                                                  <img
+                                                    className="mypost_deleteimgpost2"
+                                                    src="/img/delete2.png"
+                                                    onClick={() =>
+                                                      handledeleteimage(index)
+                                                    }
+                                                  />
+                                                </div>
+                                              </div>
+                                            );
+                                          }
+                                        )
+                                      : null}
+                                  </div>
+                                  { error ?
+                                  <h1 className="h1-formpostfileerror">
+                                    {error}
+                                  </h1>
+                                  : " "
+                                  }
                                 </Modal.Body>
                                 <Modal.Footer>
-                                  <Button
+                                  {/* <Button
                                     variant="secondary"
                                     onClick={handleClose}
                                   >
-                                    Close
-                                  </Button>
+                                    ยกเลิก
+                                  </Button> */}
+                                  {reportsubmitsuccess ? (
+                                      <div>
+                                        <span>การรายงานโพสต์สำเร็จ</span>
+                                      </div>
+                                    ) : (
+                                     ""
+                                    )
+                                  }
                                   <Button
+                                    clsssName="buttonreportsave"
                                     variant="primary"
-                                    onClick={handleClose}
+                                    onClick={(e) => handlesubmit(e)}
                                   >
-                                    Save Changes
+                                    บันทึก
                                   </Button>
                                 </Modal.Footer>
                               </Modal>
@@ -295,7 +546,7 @@ const Mypost = () => {
                                 <Form.Label className="text-mypost">
                                   วันที่โดนโกง{" "}
                                   <span className="spanmypost">
-                                  {moment(
+                                    {moment(
                                       new Date(ok.datetimes.seconds * 1000)
                                     ).format("MM/DD/YYYY HH:mm")}{" "}
                                   </span>

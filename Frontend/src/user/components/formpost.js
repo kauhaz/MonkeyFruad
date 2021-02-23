@@ -250,7 +250,7 @@ const Formpost = ({ check, Setcheck }) => {
                     type="text"
                     id="accountnumber"
                     pattern="[0-9]{1,}"
-                    minlength="2"
+                    minlength="12"
                     maxlength="12"
                     title="กรอกตัวเลขเท่านั้น"
                     placeholder=""
