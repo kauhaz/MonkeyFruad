@@ -21,6 +21,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailis_inVaild, setEmailis_inVaild] = useState(false);
+  const [usernameExist, setusernameExist] = useState(false);
   const [showDropdown, SetshowDropdown] = useState(true);
 
   const Hiddendropdown = () => {
@@ -43,20 +44,27 @@ const Signup = () => {
         password: password,
       })
       .then((result) => {
-        console.log("signup success", result);
-        auth
-          .signInWithEmailAndPassword(email, password)
-          .then((result) => {
-            console.log(result);
-            history.push("/");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        history.push("/");
-      })
-      .catch((err) => {
+        if(result.data.usernameExist === true){
+          console.log(result.data)
+          setusernameExist(true)
+          setEmailis_inVaild(false);
+        }
+        else if (result.data.usernameExist === false){
+          auth
+            .signInWithEmailAndPassword(email, password)
+            .then((result) => {
+              console.log(result);
+              history.push("/");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          }
+        })
+      .catch((result) => {
+        console.log(result)
         setEmailis_inVaild(true);
+        setusernameExist(false)
       });
   };
 
@@ -126,14 +134,14 @@ const Signup = () => {
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return !/^[0-9]+$/.test(value);
+        return /[a-z,A-Z,ก-๛]+$/.test(value);
       }),
     lastname: Yup.string()
       .min(2, "สั้นเกินไป")
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return !/^[0-9]+$/.test(value);
+        return  /[a-z,A-Z,ก-๛]+$/.test(value);
       }),
     username: Yup.string()
       .min(2, "สั้นเกินไป")
@@ -175,6 +183,13 @@ const Signup = () => {
           {emailis_inVaild ? (
             <div className="alert-signup">
               <span>อีเมลนี้มีอยู่ในระบบแล้ว</span>
+            </div>
+          ) : (
+            <p></p>
+          )}
+           {usernameExist ? (
+            <div className="alert-signup">
+              <span>Username นี้มีอยู่ในระบบแล้ว</span>
             </div>
           ) : (
             <p></p>

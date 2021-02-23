@@ -143,7 +143,6 @@ const Commentitem = ({ postid }) => {
 
   const gg = async () => {
     try {
-
       const getcommentall = await Axios.get(
         `http://localhost:7000/post/commentmore/${postid}`
       );
@@ -171,7 +170,7 @@ const Commentitem = ({ postid }) => {
   };
   useEffect(() => {
     gg();
-  }, [click, showdelete, showedit , postid]);
+  }, [click, showdelete, showedit, postid]);
 
   return (
     <div>
@@ -252,7 +251,6 @@ const Commentitem = ({ postid }) => {
             className="post-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-               
             <textarea
               rows="3"
               cols="15"
@@ -266,7 +264,7 @@ const Commentitem = ({ postid }) => {
             />
             {/* {loading ? <div><ClipLoading/></div> : null } */}
           </div>
-         
+
           <div>
             <div className="column2 postbuttonsend">
               <button
@@ -277,41 +275,42 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-
-          {imagesFile
-            ? imagesFile.map((imagePreviewUrl, index) => {
-                return (
-                  <div>
-                    <img
-                      key={index}
-                      className="imgpreview1"
-                      alt="previewImg"
-                      src={imagePreviewUrl}
-                      style={{ overflow: "hidden" }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1.25)",
-                          overflow: "hidden",
-                        })
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1)",
-                          overflow: "hidden",
-                        })
-                      }
-                    />
-                    <div className="deleteimgpost1">
+          <div className="row imgcommentitem">
+            {imagesFile
+              ? imagesFile.map((imagePreviewUrl, index) => {
+                  return (
+                    <div className="imgcommentitem1 col-6">
                       <img
-                        className="deleteimgpost2"
-                        src="/img/delete2.png"
-                        onClick={() => handledeleteimage(index)}
+                        key={index}
+                        className="imgpreviewa1"
+                        alt="previewImg"
+                        src={imagePreviewUrl}
+                        style={{ overflow: "hidden" }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style = {
+                            transform: "scale(1.25)",
+                            overflow: "hidden",
+                          })
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style = {
+                            transform: "scale(1)",
+                            overflow: "hidden",
+                          })
+                        }
                       />
+                      <div className="deleteimgpost1">
+                        <img
+                          className="deleteimgpost2"
+                          src="/img/delete2.png"
+                          onClick={() => handledeleteimage(index)}
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : null}
+                  );
+                })
+              : null}
+          </div>
         </div>
 
         <h1 className="h1-postfileerror">{error}</h1>

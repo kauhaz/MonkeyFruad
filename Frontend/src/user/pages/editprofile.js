@@ -154,7 +154,7 @@ const EditProfile = () => {
               </span>
             </div>
           </div>
-
+        
           <div className="col-md-12">
             <div className="form-group my-0">
               <label className="label-form-title-profile pt-2">Username</label>
@@ -277,6 +277,7 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
+                  validate
                 />
               </div>
             </div>

@@ -81,16 +81,15 @@
   color: black;
 }
 
-.postcommentrow {
+.row .postcommentrow {
   background-color: rgb(245, 245, 245);
   width: 85%;
   display: table;
   margin-left: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding-left: 20px;
   padding-top: 15px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
@@ -107,9 +106,9 @@
   margin-left: 5px;
 }
 
-.imgcomment {
-  width: 70%;
-  height: auto;
+.listcomment2 {
+  width: 90%;
+  height: 180px;
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
@@ -118,15 +117,14 @@
 }
 
 .imgpreviewpost1 {
-  width: 40%;
-  height: auto;
+  width: 35%;
+  height: 200px;
   object-fit: cover;
   object-position: center;
   margin-top: -15px;
   margin-left: 25px;
   margin-right: 10px;
   margin-bottom: 30px;
-  height: auto;
 }
 
 .commenttextareapost {

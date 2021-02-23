@@ -254,13 +254,14 @@ const Commentitemformypost = ({ postid }) => {
               </button>
             </div>
           </div>
+          <div className="row imgcommentitem">
           {imagesFile
             ? imagesFile.map((imagePreviewUrl, index) => {
                 return (
-                  <div>
+                  <div className="imgcommentitem1 col-6">
                     <img
                       key={index}
-                      className="imgpreview1"
+                      className="imgpreviews1"
                       alt="previewImg"
                       src={imagePreviewUrl}
                       style={{ overflow: "hidden" }}
@@ -277,16 +278,18 @@ const Commentitemformypost = ({ postid }) => {
                         })
                       }
                     />
-                    <div clsssName="deleteimgmypost">
-                      <img
-                        src="/img/delete.png"
-                        onClick={() => handledeleteimage(index)}
-                      />
+                    <div clsssName="deleteimgmypost1">
+                    <img
+                          className="deleteimgmypost2"
+                          src="/img/delete2.png"
+                          onClick={() => handledeleteimage(index)}
+                        />
                     </div>
                   </div>
                 );
               })
             : null}
+            </div>
         </div>
 
         <h1 className="h1-mypostfileerror">{error}</h1>
