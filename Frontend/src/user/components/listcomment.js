@@ -20,6 +20,7 @@ const Listcomment = ({
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
+  const [imagecomment2, Setimagecomment2] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
@@ -29,19 +30,19 @@ const Listcomment = ({
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
     Seterror();
-
+    
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
       reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
       reader.onloadend = () => {
         // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
+        setImagesFile((prevState) => [ ...prevState, reader.result]);
         //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
       };
     }
   };
-
+  
   const handledeleteimage = async (index) => {
     try {
       imagesFile.splice(index, 1);
@@ -65,6 +66,7 @@ const Listcomment = ({
   const edit = async () => {
     Setcheckedittext(true);
     setIsActive(false);
+    Setimagecomment2(imagecomment)
   };
   const handleedit = async (commentid) => {
     try {
@@ -90,11 +92,14 @@ const Listcomment = ({
       console.log(err);
     }
   };
+ 
+// console.log(imagecomment2)
 
   const gg = async () => {
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
+        Setimagecomment(commentmore.photocomment)
       }
     } catch (err) {
       console.log(err);
@@ -208,8 +213,8 @@ const Listcomment = ({
                           return (
                             <img
                               className="imgpreviewpost1"
-                              src={doc.url}
-                            ></img>
+                              src={`${doc.url}`}
+                            />
                           );
                         })
                       : null
@@ -220,7 +225,7 @@ const Listcomment = ({
                   <div className="mypostcomment1">
                     {commentmore.textcomment}
                   </div>
-                  {/* {loading ? <ClipLoader /> : <div></div>} */}
+           
                   {commentmore.photocomment
                     ? commentmore.photocomment.map((doc) => {
                         return (

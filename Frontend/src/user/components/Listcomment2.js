@@ -22,6 +22,7 @@ const Listcomment2 = ({
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
   const [loading, Setloading] = useState();
+ 
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
@@ -90,10 +91,12 @@ const Listcomment2 = ({
     }
   };
 
+  console.log(imagecomment)
   const gg = async () => {
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
+        Setimagecomment(commentmore.photocomment)
       }
     } catch (err) {
       console.log(err);
