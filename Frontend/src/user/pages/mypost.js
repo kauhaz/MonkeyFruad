@@ -36,16 +36,16 @@ const Mypost = () => {
     SetshowDropdown(false);
   };
   const handleClose = () => {
-    setShow(false)
-    setSelectone("")
-    setSelecttwo("")
-    setSelectthree("")
-    setDescription("")
-    Setcheckselectone(false)
-    Setcheckselecttwo(false)
-    Setcheckselectthree(false)
-    setReportsubmitsuccess(false)
-  }
+    setShow(false);
+    setSelectone("");
+    setSelecttwo("");
+    setSelectthree("");
+    setDescription("");
+    Setcheckselectone(false);
+    Setcheckselecttwo(false);
+    Setcheckselectthree(false);
+    setReportsubmitsuccess(false);
+  };
   const handleShow = () => setShow(true);
   const deleted = async (uid) => {
     await Axios.post(`http://localhost:7000/post/delete/${uid}`);
@@ -111,15 +111,14 @@ const Mypost = () => {
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
-         Axios.post(
-          `http://localhost:7000/post/report/${uid}`,
-          formData
-        ).then((result)=>{
-          console.log(result.msg)
-          setReportsubmitsuccess(true)
-        }).catch((err) => {
-          console.log(err);
-        });
+        Axios.post(`http://localhost:7000/post/report/${uid}`, formData)
+          .then((result) => {
+            console.log(result.msg);
+            setReportsubmitsuccess(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (err) {
       console.log(err);
@@ -164,7 +163,7 @@ const Mypost = () => {
                     <div className="container-mypost">
                       <div className="cotainer-mypost2">
                         <div className="mypost-profile-img">
-                          {ok.photoURL ? (
+                          { ok.photoURL ? (
                             <img
                               className="img-circle"
                               src={`${ok.photoURL.url}`}
@@ -175,7 +174,6 @@ const Mypost = () => {
                               src="/img/profile.png"
                             />
                           )}
-
                           <div className="mypost-name">
                             {ok.username ? "@" : null}
                             {ok ? ok.username : null}
@@ -352,12 +350,13 @@ const Mypost = () => {
                                         )
                                       : null}
                                   </div>
-                                  { error ?
-                                  <h1 className="h1-formpostfileerror">
-                                    {error}
-                                  </h1>
-                                  : " "
-                                  }
+                                  {error ? (
+                                    <h1 className="h1-formpostfileerror">
+                                      {error}
+                                    </h1>
+                                  ) : (
+                                    " "
+                                  )}
                                 </Modal.Body>
                                 <Modal.Footer>
                                   {/* <Button
@@ -367,13 +366,12 @@ const Mypost = () => {
                                     ยกเลิก
                                   </Button> */}
                                   {reportsubmitsuccess ? (
-                                      <div>
-                                        <span>การรายงานโพสต์สำเร็จ</span>
-                                      </div>
-                                    ) : (
-                                     ""
-                                    )
-                                  }
+                                    <div>
+                                      <span>การรายงานโพสต์สำเร็จ</span>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
                                   <Button
                                     clsssName="buttonreportsave"
                                     variant="primary"
