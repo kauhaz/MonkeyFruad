@@ -28,7 +28,8 @@ const Mypost = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState("");
-  const [error, Seterror] = useState();
+  const [ErrorFileUploads, SetErrorFileUploads] = useState();
+  const [ErrorNotselect, SetErrorNotselect] = useState(false);
   const inputTextArea = useRef(null);
   let { user } = useContext(usercontext);
   let { uid } = useParams();
@@ -46,6 +47,8 @@ const Mypost = () => {
     Setcheckselecttwo(false);
     Setcheckselectthree(false);
     setReportsubmitsuccess(false);
+    SetErrorFileUploads();
+    SetErrorNotselect(false)
   };
   const handleShow = () => setShow(true);
   const deleted = async (uid) => {
@@ -66,7 +69,7 @@ const Mypost = () => {
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
-    Seterror();
+    SetErrorFileUploads();
 
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
@@ -103,12 +106,16 @@ const Mypost = () => {
       formData.append("selectTwo", selecttwo);
       formData.append("selectThree", selectthree);
       formData.append("userreport", useruid);
+      if (checkselectone == false && checkselecttwo == false && checkselectthree == false) {
+        console.log("OK")
+        SetErrorNotselect(true);
+      }
       if (!files) {
-        return Seterror(
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else if (files && files.length === 0) {
-        return Seterror(
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
@@ -163,7 +170,7 @@ const Mypost = () => {
                     <div className="container-mypost">
                       <div className="cotainer-mypost2">
                         <div className="mypost-profile-img">
-                          { ok.photoURL ? (
+                          {ok.photoURL ? (
                             <img
                               className="img-circle"
                               src={`${ok.photoURL.url}`}
@@ -210,6 +217,15 @@ const Mypost = () => {
                                 </Modal.Header>
                                 <Modal.Body className="bigreport1">
                                   <div class="custom-control custom-checkbox reportcheckbox">
+                                    {ErrorNotselect ? (
+                                      <h1  className="h1-formpostfileerror">
+                                       กรุณาเลือกอย่างน้อย 1 ตัวเลือก
+                                      </h1>
+                                    ) : (
+                                       <h1 className="h1-formpostfileerror">
+                                       
+                                      </h1>
+                                    )}
                                     <input
                                       type="checkbox"
                                       class="custom-control-input reportcheckboxinput1"
@@ -350,9 +366,9 @@ const Mypost = () => {
                                         )
                                       : null}
                                   </div>
-                                  {error ? (
+                                  {ErrorFileUploads ? (
                                     <h1 className="h1-formpostfileerror">
-                                      {error}
+                                      {ErrorFileUploads}
                                     </h1>
                                   ) : (
                                     " "
@@ -629,10 +645,8 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
-           <Chatbot />
+      <Chatbot />
     </div>
-    
   );
-
 };
 export default Mypost;
