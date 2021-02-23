@@ -145,27 +145,27 @@ const Listcomment2 = ({
                       }}
                     ></textarea>
                   </div>
-                  <div className="row mypost-comment-commentsall">
-                    <div className="container-img-holder-imgpreview1">
-                      <label>
-                        <img className="uploadprove1" src="/img/addphoto.png" />
-                        <input
-                          id="FileInput"
-                          className="uploadsmypostcomment"
-                          type="file"
-                          onChange={FileUpload}
-                          multiple
-                          accept="image/png, image/jpeg , image/jpg"
-                        />
-                      </label>
-                    </div>
+                  <div className="container-img-holder-imgpreview1">
+                    <label>
+                      <img className="uploadprove1" src="/img/addphoto.png" />
+                      <input
+                        id="FileInput"
+                        className="uploadsmypostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                  <div className="row imgcommentitem">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div>
+                            <div clsssName="imagecomment1 col-6">
                               <img
                                 key={index}
-                                className="imgpreview1"
+                                className="imgpreviewmypost1"
                                 alt="previewImg"
                                 src={imagePreviewUrl}
                                 style={{ overflow: "hidden" }}

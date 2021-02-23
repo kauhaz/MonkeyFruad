@@ -282,7 +282,7 @@ const Commentitem = ({ postid }) => {
                     <div className="imgcommentitem1 col-6">
                       <img
                         key={index}
-                        className="imgpreviews1"
+                        className="imgpreview1"
                         alt="previewImg"
                         src={imagePreviewUrl}
                         style={{ overflow: "hidden" }}
