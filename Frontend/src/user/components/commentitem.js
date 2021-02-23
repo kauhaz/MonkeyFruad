@@ -40,7 +40,8 @@ const Commentitem = ({ postid }) => {
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+
+    let files = event.target.files ; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
     Seterror();
 
@@ -55,8 +56,8 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  // console.log(files)
-  // console.log(imagesFile)
+  console.log(files)
+  console.log(imagesFile)
   const handledeleteimage = async (index) => {
     try {
       imagesFile.splice(index, 1);

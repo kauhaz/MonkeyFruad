@@ -34,7 +34,7 @@ const Listcomment = ({
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
       reader.onloadend = () => {
         // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
         setImagesFile((prevState) => [ ...prevState, reader.result]);
@@ -42,12 +42,15 @@ const Listcomment = ({
       };
     }
   };
+  console.log(files)
   
   const handledeleteimage = async (index) => {
     try {
+     
+     
       imagesFile.splice(index, 1);
       setImagesFile([...imagesFile]);
-
+      
       files.splice(index, 1);
       Setfiles([...files]);
     } catch (err) {
@@ -70,19 +73,20 @@ const Listcomment = ({
   };
   const handleedit = async (commentid) => {
     try {
-      let formdata = new FormData();
-      _.forEach(files, (file) => {
-        formdata.append("photocomment", file);
-      });
-      formdata.append("edittextcomment", edittextcomment);
-      formdata.append("photocomment", commentmore.photocomment);
-
-      Setloading(true);
-      const editcomment = await Axios.post(
-        `http://localhost:7000/post/edit/comment/${commentid}`,
-        formdata
-      );
-
+      
+        let formdata = new FormData();
+        _.forEach(files, (file) => {
+          formdata.append("photocomment", file);
+        });
+        formdata.append("edittextcomment", edittextcomment);
+        formdata.append("photocomment", commentmore.photocomment);
+  
+        Setloading(true);
+        const editcomment = await Axios.post(
+          `http://localhost:7000/post/edit/comment/${commentid}`,
+          formdata
+        );
+      
       handleedittorerender();
       setImagesFile([]);
       Setfiles();
@@ -93,13 +97,13 @@ const Listcomment = ({
     }
   };
  
-// console.log(imagecomment2)
+
 
   const gg = async () => {
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
-        Setimagecomment(commentmore.photocomment)
+        Setimagecomment(commentmore)
       }
     } catch (err) {
       console.log(err);
@@ -108,7 +112,8 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-
+ 
+// console.log(imagesFile)
   return (
     <div>
       {commentmore ? (
@@ -176,7 +181,7 @@ const Listcomment = ({
                       />
                     </label>
                   </div>
-                  <div className="row imgcommentitem">
+                    <div className="row imgcommentitem">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
@@ -208,14 +213,20 @@ const Listcomment = ({
                             </div>
                           );
                         })
-                      : commentmore
-                      ? commentmore.photocomment
-                        ? commentmore.photocomment.map((doc) => {
-                            return (
+                      : imagecomment
+                      ? imagecomment.photocomment
+                        ? imagecomment.photocomment.map((doc ,index) => {
+                            return (<div>
                               <img
                                 className="imgpreviewpost1"
-                                src={doc.url}
+                                src={`${doc.url}`}
                               />
+                                {/* <img
+                                className="deleteimgpost2"
+                                src="/img/delete.png"
+                                onClick={() => handledeleteimage(index)}
+                              /> */}
+                              </div>
                             );
                           })
                         : null
@@ -227,8 +238,9 @@ const Listcomment = ({
                   <div className="postcomment1">{commentmore.textcomment}</div>
                   <div className="row imglistcomment">
                     {/* {loading ? <ClipLoader /> : <div></div>} */}
-                    {commentmore.photocomment
-                      ? commentmore.photocomment.map((doc) => {
+                    {imagecomment
+                      ? imagecomment.photocomment 
+                      ? imagecomment.photocomment.map((doc) => {
                           return (
                             <div className="imglistcomment1 col-6">
                               <img
@@ -238,7 +250,8 @@ const Listcomment = ({
                             </div>
                           );
                         })
-                      : null}
+                      : null
+                    :null}
                   </div>
                 </div>
               )}

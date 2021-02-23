@@ -86,7 +86,7 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
-      console.log(search);
+    
       if (search) {
         Seterror();
         Setlastsearch(

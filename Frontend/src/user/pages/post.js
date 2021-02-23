@@ -100,7 +100,7 @@ const Post = () => {
     SetshowDropdown(false);
   };
 
-  console.log(result);
+  
 
   const ok = async () => {
     Setloading(true);
@@ -117,11 +117,7 @@ const Post = () => {
     }
     Setloading(false);
 
-<<<<<<< HEAD
-
-=======
     console.log(result);
->>>>>>> 5c1f4d43946c5fd5e1318543633c0041fb34c6c4
     var item = [];
 
     getdata.filter((doc) => {
