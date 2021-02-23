@@ -156,7 +156,6 @@ const Mypost = () => {
             SetshowDropdown={SetshowDropdown}
             showDropdown={showDropdown}
           />
-          <h1 className="h1-mypost">โพสต์ของฉัน</h1>
           {mypost
             ? mypost.map((ok) => {
                 return (

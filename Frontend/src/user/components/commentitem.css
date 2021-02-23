@@ -3,17 +3,17 @@
   font-size: 15px;
   margin-top: 0px;
   margin-bottom: 20px;
-  margin-left: -15px;
+  margin-left: 20px;
   border: none;
   background-color: white;
 }
 
-.post-comment-comments1 {
+.row .post-comment-comments1 {
   width: 100%;
   margin-left: -50px;
   margin-bottom: 0px;
   padding-top: 15px;
-  padding-left: 5px;
+  padding-left: 70px;
   padding-bottom: 15px;
   border-radius: 15px;
 }
@@ -29,11 +29,11 @@
   margin-right: 30px;
 }
 
-.post-comment-commentsall {
+.row .post-comment-commentsall {
   background-color: rgb(245, 245, 245);
   width: 75%;
-  margin-left: 0px;
-  margin-top: 5px;
+  margin-left: 80px;
+  margin-top: -70px;
   margin-bottom: 0px;
   padding-top: 15px;
   padding-left: 10px;
@@ -72,15 +72,19 @@
   margin-right: 5px;
 }
 
-.imgpreview1 {
-  width: 40%;
-  height: auto;
+.imgpreviews1 {
+  width: 90%;
+  height: 180px;
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-right: 10px;
-  height: auto;
+}
+
+.row .imgcommentitem {
+  margin-left: -5px;
+  margin-right: 5px;
 }
 
 .deleteimgpost1 {
@@ -91,23 +95,16 @@
 }
 
 .deleteimgpost2 {
-  width: 8%;
+  width: 15%;
   height: auto;
   object-fit: cover;
   object-position: center;
-  margin-top: -300px;
-  margin-left: 135px;
+  margin-top: -385px;
+  margin-left: 140px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
   transition: box-shadow 0.4s ease;
-}
-
-.deleteimgpost2:hover {
-  margin-top: -300px;
-  margin-left: 135px;
-  border-radius: 50px;
-  border: none;
   background-color: white;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
@@ -139,7 +136,7 @@
 
 .postbuttonsend {
   width: 30px;
-  margin-left: 275px;
+  margin-left: 300px;
   margin-top: -90px;
   border: none;
   background: rgb(245, 245, 245);
@@ -154,7 +151,7 @@
 }
 
 .postbuttonsend:hover {
-  margin-left: 275px;
+  margin-left: 300px;
   margin-top: -90px;
   border-radius: 50px;
   border: none;
