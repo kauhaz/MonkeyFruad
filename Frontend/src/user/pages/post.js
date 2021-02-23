@@ -5849,7 +5849,7 @@ const Post = () => {
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.money} บาท
+                                      {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -5903,7 +5903,7 @@ const Post = () => {
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.summoney} บาท
+                                      {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -5942,7 +5942,7 @@ const Post = () => {
                             return (
                               <div>
                                 <div className="container-post2">
-                                  <div className="cotainer-post3">
+                                  <div className="container-post3">
                                     <div className="post-profile-img">
                                       {res.photoURL ? (
                                         <img
@@ -6037,7 +6037,7 @@ const Post = () => {
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.money} บาท
+                                                {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
@@ -6097,7 +6097,7 @@ const Post = () => {
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.summoney} บาท
+                                                {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
