@@ -231,6 +231,7 @@ const Commentitemformypost = ({ postid }) => {
             className="mypost-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
+             
             <textarea
               rows="3"
               cols="15"
@@ -255,10 +256,12 @@ const Commentitemformypost = ({ postid }) => {
             </div>
           </div>
           <div className="row imgcommentitem">
+           
           {imagesFile
             ? imagesFile.map((imagePreviewUrl, index) => {
                 return (
                   <div className="imgcommentitem1 col-6">
+                    {loading ? <Loading />: null}
                     <img
                       key={index}
                       className="imgpreviews1"

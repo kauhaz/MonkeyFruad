@@ -41,7 +41,7 @@ const Commentitem = ({ postid }) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
 
-    let files = event.target.files ; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
     Seterror();
 
@@ -280,6 +280,7 @@ const Commentitem = ({ postid }) => {
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
                     <div className="imgcommentitem1 col-6">
+                      {loading ? <ClipLoader /> : null}
                       <img
                         key={index}
                         className="imgpreviewa1"
