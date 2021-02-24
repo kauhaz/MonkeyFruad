@@ -4,6 +4,7 @@ import Listverifypost from "../components/list_verify_post";
 import Axios from "axios";
 const Verifypost = () => {
   const [report, setReport] = useState();
+  const [hideReport, sethideReport] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -16,10 +17,12 @@ const Verifypost = () => {
       console.log("error");
     }
   };
-
+const hideClick = () =>{
+  sethideReport(true)
+}
   useEffect(() => {
     initReport();
-  }, []);
+  }, [hideReport]);
 
   return (
     <div onClick={() => Hiddendropdown()}>
@@ -35,7 +38,7 @@ const Verifypost = () => {
       </div>
       {report
         ? report.map((reportelement, index) => {
-            return <Listverifypost reportelement={reportelement} key={index} />;
+            return <Listverifypost reportelement={reportelement} key={index} hideClick={hideClick} />;
           })
         : null}
     </div>

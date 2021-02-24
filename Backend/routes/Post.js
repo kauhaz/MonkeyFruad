@@ -1354,11 +1354,39 @@ router.get("/report/verify", async (req, res) => {
     console.log(err);
   }
 });
+router.get("/report/hide", async (req, res) => {
+  try {
+    const report = [];
+    await firestore
+      .collection("Report")
+      .where("read", "==", "hide")
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
+    return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
 router.post("/report/changeread/:uid", async (req, res) => {
   try {
     const reportid = req.params.uid;
     console.log(reportid)
     await firestore.collection("Report").doc(reportid).update({ read: true });
+    return res.json({ msg: "success" });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.post("/report/changereadhide/:uid", async (req, res) => {
+  try {
+    const reportid = req.params.uid;
+    console.log(reportid)
+    await firestore.collection("Report").doc(reportid).update({ read: "hide" });
     return res.json({ msg: "success" });
   } catch (err) {
     console.log(err);
