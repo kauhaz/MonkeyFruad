@@ -73,7 +73,6 @@ const Listcomment = ({
   };
   const handleedit = async (commentid) => {
     try {
-      
         let formdata = new FormData();
         _.forEach(files, (file) => {
           formdata.append("photocomment", file);
@@ -86,9 +85,9 @@ const Listcomment = ({
           `http://localhost:7000/post/edit/comment/${commentid}`,
           formdata
         );
-      
+
       handleedittorerender();
-      setImagesFile([]);
+      setImagesFile();
       Setfiles();
       Setcheckedittext(false);
       Setloading(false);
