@@ -107,7 +107,6 @@ const Mypost = () => {
       formData.append("selectThree", selectthree);
       formData.append("userreport", useruid);
       if (checkselectone == false && checkselecttwo == false && checkselectthree == false) {
-        console.log("OK")
         SetErrorNotselect(true);
       }
       if (!files) {
@@ -149,11 +148,11 @@ const Mypost = () => {
     ok();
     handleselect();
   }, [checkselectone, checkselecttwo, checkselectthree]);
-  console.log("selectonevalue : ", selectone, "check:", checkselectone);
-  console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
-  console.log("selectthreevalue : ", selectthree, "check:", checkselectthree);
-  console.log("description : ", description);
-  console.log("fileupload : ", files);
+  // console.log("selectonevalue : ", selectone, "check:", checkselectone);
+  // console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
+  // console.log("selectthreevalue : ", selectthree, "check:", checkselectthree);
+  // console.log("description : ", description);
+  // console.log("fileupload : ", files);
   return (
     <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (

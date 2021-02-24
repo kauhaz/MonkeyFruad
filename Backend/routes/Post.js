@@ -260,7 +260,7 @@ router.post("/create", uploadFile, async (req, res) => {
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
-      if(photoURL.public_id === "undefined"){
+      if (photoURL.public_id === "undefined") {
         const create = await firestore.collection("Post").doc(uid).set({
           name,
           surname,
@@ -279,28 +279,27 @@ router.post("/create", uploadFile, async (req, res) => {
           item,
           username,
         });
+      } else if (photoURL.public_id !== "undefined") {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          item,
+          username,
+          photoURL,
+        });
       }
-      else if(photoURL.public_id !== "undefined"){
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        item,
-        username,
-        photoURL,
-      })
-    }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -1311,19 +1310,56 @@ router.post("/report/:postid", uploadfilereports, async (req, res) => {
     });
     reportdata.forEach(async (doc) => {
       await firestore.collection("Report").doc(doc.uid).update({
-        count: count
+        count: count,
       });
     });
-    return res.json({msg:"succes"})
+    return res.json({ msg: "succes" });
   } catch (err) {
     console.log(err);
   }
 });
-router.get("/post/report", async (req, res) => {
+router.get("/report/non_verify", async (req, res) => {
   try {
     const report = [];
-    await firestore.collection("Report").get().orderBy("date", desc);
+    await firestore
+      .collection("Report")
+      .where("read", "==", false)
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
     return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.get("/report/verify", async (req, res) => {
+  try {
+    const report = [];
+    await firestore
+      .collection("Report")
+      .where("read", "==", true)
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
+    return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.post("/report/changeread/:uid", async (req, res) => {
+  try {
+    const reportid = req.params.uid;
+    console.log(reportid)
+    await firestore.collection("Report").doc(reportid).update({ read: true });
+    return res.json({ msg: "success" });
   } catch (err) {
     console.log(err);
   }

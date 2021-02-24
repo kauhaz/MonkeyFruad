@@ -341,10 +341,30 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
 
 router.get("/profile/:uid", async (req, res) => {
   try {
-    console.log("ok");
     let getid = req.params.uid;
     const Userdetail = await firestore
       .collection("Post")
+      .where("uid", "==", getid)
+      .get();
+    Userdetail.forEach((doc) => {
+      let item = [];
+      item.push(doc.data());
+
+      return res.json({
+        item,
+      });
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
+
+router.get("/session/:uid", async (req, res) => {
+  try {
+    let getid = req.params.uid;
+    const Userdetail = await firestore
+      .collection("User")
       .where("uid", "==", getid)
       .get();
     Userdetail.forEach((doc) => {
