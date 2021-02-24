@@ -27,41 +27,39 @@ const Listcomment = ({
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
-  const FileUpload = (event) => {
+  const FileUpload = async(event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
     let date = new Date()
+
+    
     var myFile = []
-    var files = []
     if(imagecomment){
       if(imagecomment.photocomment){
         imagecomment.photocomment.forEach(async doc => {
           const response = await fetch(doc.url);
           const data = await response.blob();
           myFile.push(new File([data], `filename${uuidv4()}.png`, {type: "image/png" ,lastModified: date}))
+
         })
-        
         Setsecret(myFile)
-        console.log(secret)
-        console.log(myFile)
-  
+      } 
+    }
+    console.log(secret)
+
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
- 
-    secret && secret.forEach(gg => {
-       files.push(gg ,...event.target.files); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    var files = []
+    secret && secret.forEach(doc => {
+      files.push(doc); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     })
-    Setfiles([...files]);
+    let filesnew = [...files,...event.target.files]
+    Setfiles([...files,...event.target.files]);
     Seterror();
 
-      }
-    }
-
-    
 
     // ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      console.log("gg")
+    for (var i = 0; i < filesnew.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
+      reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
       reader.onloadend = () => {
         // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
         setImagesFile((prevState) => [ ...prevState, reader.result]);
@@ -71,7 +69,7 @@ const Listcomment = ({
   };
 
   console.log(files)
-  console.log(imagesFile)
+  
   const handledeleteimage = async (index) => {
     try {
      
