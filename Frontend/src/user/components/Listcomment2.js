@@ -232,6 +232,7 @@ const Listcomment2 = ({
               )}
             </div>
           </div>
+
           {user && commentmore.userid == user.uid ? (
             <div className="column2 mypostcommentrow2">
               <div className="menu-containermypostcommentsetting">
@@ -271,6 +272,7 @@ const Listcomment2 = ({
               </div>
             </div>
           ) : null}
+          
         </div>
       ) : null}
     </div>

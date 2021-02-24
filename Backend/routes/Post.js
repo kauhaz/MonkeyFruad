@@ -1216,12 +1216,20 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
     let { edittextcomment, photocomment } = req.body;
     console.log(files);
 
-    if (edittextcomment === "" && photocomment === "undefined") {
+
+    if (edittextcomment === "" && files === undefined) {
+      console.log("ff")
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
+    }else if(files === undefined){
+      const commentedit = await firestore
+      .collection("Comment")
+      .doc(id)
+      .update({ photocomment: null });
+    return res.json({ success: "Delete" });
     }
     if (files) {
       let item = [];
