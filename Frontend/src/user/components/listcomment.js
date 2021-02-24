@@ -6,6 +6,8 @@ import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
+import { v4 as uuidv4 } from 'uuid'
+
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -21,18 +23,43 @@ const Listcomment = ({
   const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
   const [imagecomment2, Setimagecomment2] = useState();
+  const [secret, Setsecret] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
+    let date = new Date()
+    var myFile = []
+    var files = []
+    if(imagecomment){
+      if(imagecomment.photocomment){
+        imagecomment.photocomment.forEach(async doc => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(new File([data], `filename${uuidv4()}.png`, {type: "image/png" ,lastModified: date}))
+        })
+        
+        Setsecret(myFile)
+        console.log(secret)
+        console.log(myFile)
+  
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+ 
+    secret && secret.forEach(gg => {
+       files.push(gg ,...event.target.files); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    })
     Setfiles([...files]);
     Seterror();
+
+      }
+    }
+
     
-    //ทำการวนข้อมูลภายใน Array
+
+    // ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
+      console.log("gg")
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
       reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
       reader.onloadend = () => {
@@ -42,8 +69,9 @@ const Listcomment = ({
       };
     }
   };
+
   console.log(files)
-  
+  console.log(imagesFile)
   const handledeleteimage = async (index) => {
     try {
      
