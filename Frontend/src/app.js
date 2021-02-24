@@ -24,12 +24,12 @@ import Linkruleshow from "./user/pages/linkruleshow";
 import Profile from "./user/pages/profile";
 import Editprofile from "./user/pages/editprofile";
 import Changepass from "./user/pages/changpass";
-import HomeAdmin from "./admin/pages/index";
+import SeepostAdmin from "./admin/pages/seepost";
 import ContractusAdmin from "./admin/pages/contractus";
 import Managepost from "./admin/pages/managepost";
 import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
-import "./app.css";
+import Hidereport from "./admin/pages/hidereport";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
@@ -38,6 +38,7 @@ import PostLine from "./user/pages/postline";
 import PostTwitter from "./user/pages/posttwitter";
 import PostInstragram from "./user/pages/postinstragram";
 import PostOther from "./user/pages/postother";
+import "./app.css";
 // ที่รวม Routh ต่างๆ
 const App = () => {
   const [user, setUser] = useState();
@@ -65,10 +66,7 @@ const App = () => {
       <usercontext.Provider value={{ user, setUser }}>
         <Switch>
           <Route path="/" exact>
-            <HomeAdmin />
-          </Route>
-          <Route path="/managepost" exact>
-            <Managepost />
+          <Managepost />
           </Route>
           <Route path="/non_verifypost" exact>
             <Non_verifypost />
@@ -76,8 +74,14 @@ const App = () => {
           <Route path="/verifypost" exact>
             <Verifypost />
           </Route>
+          <Route path="/hidereport" exact>
+            <Hidereport />
+          </Route>
           <Route path="/contractus" exact>
             <ContractusAdmin />
+          </Route>
+          <Route path="/post/:uid" exact>
+            <SeepostAdmin />
           </Route>
         </Switch>
       </usercontext.Provider>

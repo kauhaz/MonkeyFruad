@@ -176,6 +176,9 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
                   <MDBDropdownItem href="/verifypost">
                     ตรวจสอบแล้ว
                   </MDBDropdownItem>
+                  <MDBDropdownItem href="/hidereport">
+                   รายงานที่ถูกซ่อน
+                  </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
