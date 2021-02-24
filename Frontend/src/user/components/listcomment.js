@@ -6,6 +6,8 @@ import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
+import { v4 as uuidv4 } from 'uuid'
+
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -21,20 +23,43 @@ const Listcomment = ({
   const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
   const [imagecomment2, Setimagecomment2] = useState();
+  const [secret, Setsecret] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
-  const FileUpload = (event) => {
+  const FileUpload = async(event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    Seterror();
+    let date = new Date()
+
     
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
+    var myFile = []
+    if(imagecomment){
+      if(imagecomment.photocomment){
+        imagecomment.photocomment.forEach(async doc => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(new File([data], `filename${uuidv4()}.png`, {type: "image/png" ,lastModified: date}))
+
+        })
+        Setsecret(myFile)
+      } 
+    }
+    console.log(secret)
+
+    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
+    var files = []
+    secret && secret.forEach(doc => {
+      files.push(doc); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    })
+    let filesnew = [...files,...event.target.files]
+    Setfiles([...files,...event.target.files]);
+    Seterror();
+
+
+    // ทำการวนข้อมูลภายใน Array
+    for (var i = 0; i < filesnew.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
+      reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
       reader.onloadend = () => {
         // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
         setImagesFile((prevState) => [ ...prevState, reader.result]);
@@ -42,6 +67,7 @@ const Listcomment = ({
       };
     }
   };
+
   console.log(files)
   
   const handledeleteimage = async (index) => {

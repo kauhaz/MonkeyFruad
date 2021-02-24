@@ -56,8 +56,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  console.log(files);
-  console.log(imagesFile);
+  
   const handledeleteimage = async (index) => {
     try {
       imagesFile.splice(index, 1);
