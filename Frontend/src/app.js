@@ -30,6 +30,7 @@ import Managepost from "./admin/pages/managepost";
 import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
 import Hidereport from "./admin/pages/hidereport";
+import Reportnew from "./admin/pages/reportnew";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
@@ -70,6 +71,9 @@ const App = () => {
           </Route>
           <Route path="/non_verifypost" exact>
             <Non_verifypost />
+          </Route>
+          <Route path="/reportpost" exact>
+            <Reportnew  />
           </Route>
           <Route path="/verifypost" exact>
             <Verifypost />

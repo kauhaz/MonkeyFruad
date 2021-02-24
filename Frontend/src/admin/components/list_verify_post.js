@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
-const Listverifypost = ({ reportelement, key }) => {
+const Listverifypost = ({ reportelement, key,hideClick }) => {
   const [UsernamePost, SetUsernamePost] = useState("");
   const [UsernameReport, SetUsernameReport] = useState("");
   const InitReport = async () => {
@@ -23,7 +23,13 @@ const Listverifypost = ({ reportelement, key }) => {
       console.log(err);
     }
   };
-
+  const ChangeRead = async (e) => {
+    e.preventDefault()
+    await Axios.post(
+      `http://localhost:7000/post/report/changereadhide/${reportelement.uid}`
+    );
+    hideClick()
+  };
   useEffect(() => {
     InitReport();
   }, []);
@@ -31,6 +37,7 @@ const Listverifypost = ({ reportelement, key }) => {
     <div>
       <div className="container-history1">
         <div className="container-history2">
+          <button onClick={(e)=>ChangeRead(e)}>ซ่อน</button>
           <Form className="formsize-history">
             <Form.Row>
               <Form.Group
@@ -103,7 +110,12 @@ const Listverifypost = ({ reportelement, key }) => {
             </Form.Row>
           </Form>
           <div className="historyother">
-            <Link className="historyother1" to={`/post/${reportelement.postid}`}>ตรวจสอบโพสต์</Link>
+            <Link
+              className="historyother1"
+              to={`/post/${reportelement.postid}`}
+            >
+              ตรวจสอบโพสต์
+            </Link>
           </div>
         </div>
       </div>
