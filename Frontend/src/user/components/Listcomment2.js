@@ -22,7 +22,7 @@ const Listcomment2 = ({
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
   const [loading, Setloading] = useState();
- 
+
   let { user, setUser } = useContext(usercontext);
 
   const FileUpload = (event) => {
@@ -91,12 +91,12 @@ const Listcomment2 = ({
     }
   };
 
-  console.log(imagecomment)
+  console.log(imagecomment);
   const gg = async () => {
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
-        Setimagecomment(commentmore.photocomment)
+        Setimagecomment(commentmore.photocomment);
       }
     } catch (err) {
       console.log(err);
@@ -139,8 +139,8 @@ const Listcomment2 = ({
                   <ClipLoader loading={loading} />
                 </div>
               ) : checkedittext ? (
-                <div className="row">
-                  <div className="commenttextarea">
+                <div className="row commentmypost">
+                  <div className="commenttextareamypost">
                     <textarea
                       value={edittextcomment}
                       onChange={(e) => {
@@ -148,9 +148,21 @@ const Listcomment2 = ({
                       }}
                     ></textarea>
                   </div>
+                  <div className="buttoncommentmypostsave1">
+                    <button
+                      className="buttoncommentmypostsave2"
+                      onClick={() => handleedit(commentmore.commentid)}
+                    >
+                      บันทึก
+                    </button>
+                  </div>
+
                   <div className="container-img-holder-imgpreview1">
                     <label>
-                      <img className="uploadprove1" src="/img/addphoto.png" />
+                      <img
+                        className="uploadprovemypost1"
+                        src="/img/addphoto.png"
+                      />
                       <input
                         id="FileInput"
                         className="uploadsmypostcomment"
@@ -161,7 +173,7 @@ const Listcomment2 = ({
                       />
                     </label>
                   </div>
-                  <div className="row imgcommentitem">
+                  <div className="row imgcommentitemmypost">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
@@ -185,29 +197,28 @@ const Listcomment2 = ({
                                   })
                                 }
                               />
-                              <img
-                                src="/img/delete.png"
-                                onClick={() => handledeleteimage(index)}
-                              />
+                              <div className="deleteimgmyposts1">
+                                <img
+                                  className="deleteimgmyposts2"
+                                  src="/img/delete2.png"
+                                  onClick={() => handledeleteimage(index)}
+                                />
+                              </div>
                             </div>
                           );
                         })
                       : commentmore
                       ? commentmore.photocomment
                         ? commentmore.photocomment.map((doc) => {
-                            return <img src={doc.url}></img>;
+                            return (
+                              <img
+                                className="imgpreviewmypost1"
+                                src={doc.url}
+                              ></img>
+                            );
                           })
                         : null
                       : null}
-                  </div>
-
-                  <div className="buttoncommentsave1">
-                    <button
-                      className="buttoncommentsave2"
-                      onClick={() => handleedit(commentmore.commentid)}
-                    >
-                      บันทึก
-                    </button>
                   </div>
                 </div>
               ) : (
@@ -216,18 +227,20 @@ const Listcomment2 = ({
                     {commentmore.textcomment}
                   </div>
 
-                  {commentmore.photocomment
-                    ? commentmore.photocomment.map((doc) => {
-                        return (
-                          <div>
-                            <img
-                              className="imgcommentmypost"
-                              src={`${doc.url}`}
-                            />
-                          </div>
-                        );
-                      })
-                    : null}
+                  <div className="row imglistcomment">
+                    {commentmore.photocomment
+                      ? commentmore.photocomment.map((doc) => {
+                          return (
+                            <div className="imglistcomment1 col-6">
+                              <img
+                                className="listcommentmypost2"
+                                src={`${doc.url}`}
+                              />
+                            </div>
+                          );
+                        })
+                      : null}
+                  </div>
                 </div>
               )}
             </div>
@@ -241,7 +254,7 @@ const Listcomment2 = ({
                     className="mypostcommentimg-setting"
                     src="/img/setting.png"
                     alt="avatar"
-                  ></img>
+                  />
                 </div>
 
                 <div

@@ -81,13 +81,13 @@
   color: black;
 }
 
-.row .postcommentrow {
+.postcommentrows {
   background-color: rgb(245, 245, 245);
-  width: 85%;
+  width: 75%;
   display: table;
-  margin-left: 20px;
+  margin-left: 20px !important;
   margin-bottom: 30px;
-  padding-left: 20px;
+  padding-left: 40px;
   padding-top: 15px;
   padding-bottom: 20px;
   border-radius: 15px;
@@ -106,9 +106,9 @@
   margin-left: 5px;
 }
 
-.listcomment2 {
-  width: 90%;
-  height: 180px;
+.listcommentpost2 {
+  width: 140px;
+  height: 200px;
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
@@ -117,7 +117,7 @@
 }
 
 .imgpreviewpost1 {
-  width: 35%;
+  width: 140px;
   height: 200px;
   object-fit: cover;
   object-position: center;
@@ -160,6 +160,32 @@
   color: white;
 }
 
-/* .mypostcommentrow2 {
-        background-color: tomato;
-    } */
+.postcommentrow1 {
+  width: 90%;
+}
+
+.postcommentrow2 {
+  width: 10%;
+}
+
+.deleteimgposts1 {
+  background-color: rgb(245, 245, 245);
+  color: grey;
+  border: none;
+  border-radius: 50px;
+}
+
+.deleteimgposts2 {
+  width: 6%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: -490px;
+  margin-left: 150px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: box-shadow 0.4s ease;
+  background-color: white;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
