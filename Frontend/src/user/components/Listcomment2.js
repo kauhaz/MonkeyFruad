@@ -82,7 +82,7 @@ const Listcomment2 = ({
         formdata
       );
       handleedittorerender();
-      setImagesFile([]);
+      setImagesFile();
       Setfiles();
       Setcheckedittext(false);
       Setloading(false);
