@@ -89,8 +89,6 @@ const Listcomment = ({
     }
   };
 
-  console.log(files);
-
   const handledeleteimage = async (index) => {
     try {
       if (imagecomment) {
@@ -172,7 +170,6 @@ const Listcomment = ({
       console.log(err);
     }
   };
-
   const gg = async () => {
     try {
       if (commentmore) {
@@ -340,7 +337,9 @@ const Listcomment = ({
             <div className="column4 postcommentrow2">
               <div className="menu-containerpostcommentsetting">
                 <div
-                  onClick={() => setIsActive(!isActive)}
+                  onClick={() => {
+                    setIsActive(!isActive);
+                  }}
                   className="postcommentbuttonsetting"
                 >
                   <img
