@@ -58,7 +58,7 @@ const Listcomment = ({
     Setfiles([...files,...fuck,...event.target.files]);
     Setfuck((prevState) => [...prevState , ...event.target.files])
     Seterror();
-    
+
    for (var i = 0; i < filesnew.length; i++) {
          let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
          reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
@@ -225,7 +225,7 @@ const Listcomment = ({
                   </div>
 
                   <div className="container-img-holder-imgpreview1">
-                    <label>
+                    {imagecomment ? <div></div> : <div><label>
                       <img
                         className="uploadprovepost1"
                         src="/img/addphoto.png"
@@ -238,7 +238,7 @@ const Listcomment = ({
                         multiple
                         accept="image/png, image/jpeg , image/jpg"
                       />
-                    </label>
+                    </label></div>}
                   </div>
                   <div className="row imgcommentitempost">
                     {imagesFile
@@ -295,6 +295,20 @@ const Listcomment = ({
                           })
                         : null
                       : null}
+                       {imagecomment ? <div><label>
+                      <img
+                        className="uploadprovepost1"
+                        src="/img/addphoto.png"
+                      />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>  </div> : <div></div>}
                   </div>
                 </div>
               ) : (
