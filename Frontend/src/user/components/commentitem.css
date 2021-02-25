@@ -73,8 +73,8 @@
 }
 
 .imgpreviewa1 {
-  width: 90%;
-  height: 180px;
+  width: 140px;
+  height: 200px;
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
@@ -82,7 +82,7 @@
   margin-right: 10px;
 }
 
-.row .imgcommentitem {
+.row .imgcommentitempost {
   margin-left: -5px;
   margin-right: 5px;
 }
@@ -95,12 +95,12 @@
 }
 
 .deleteimgpost2 {
-  width: 15%;
+  width: 23px;
   height: auto;
   object-fit: cover;
   object-position: center;
-  margin-top: -385px;
-  margin-left: 140px;
+  margin-top: -425px;
+  margin-left: 135px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
