@@ -23,71 +23,56 @@ const Listcomment = ({
   const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment, Setimagecomment] = useState();
   const [imagecomment2, Setimagecomment2] = useState();
-  const [fuck,   Setfuck] = useState();
+  const [fuck,   Setfuck] = useState([]);
 
-  const [secret, Setsecret] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
-  // const handleimage = async(event) => {
-  //   try{
-  //     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-  //   var files = [];
-  //   secret &&
-  //     secret.forEach((doc) => {
-  //       files.push(doc); 
-  //     });
-  //     console.log(secret)
-  //   Setfiles([...files, ...event.target.files]);
-  //   Seterror();
-  //   return [...files, ...event.target.files];
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
-  const FileUpload = async (event) => {
+
+  
+
+
+  const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    let date = new Date();
     
-    var myfuck = [];
-    if (imagecomment) {
-        imagecomment.forEach(async (doc) => {
-          // console.log(doc.url)
-          const response = await fetch(doc.url);
-          const data = await response.blob();
-          myfuck.push(new File([data], `filename${uuidv4()}.png`, {type: data.type,lastModified: date,}));
-        });
-        Setsecret(myfuck);
-    }
-
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    
+    setImagesFile([])
+    var myfuck = []
     var files = []
-  
-    if(secret){
-      secret.forEach((doc) => {
-        files.push(doc); 
-      });
-    }
-   
-  
-    let filesnew = [...files, ...event.target.files];
-     Setfiles([...files, ...event.target.files]);
-     Seterror();
-          
-         
-    for (var i = 0; i < filesnew.length; i++) {
-          let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-          reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-          reader.onloadend = () => {
-            // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-            setImagesFile((prevState) => [...prevState, reader.result]);
-            //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-          };
-    }
-    
-  };
+    let date = new Date();
+       if(imagecomment){
+         imagecomment.map(async(doc) => {
+          const response = await Axios({method : "get",url : doc.url,responseType: 'blob'});
+         await myfuck.push( new File([response.data], `filename${uuidv4()}.png`, {type: response.data.type,lastModified: date,}));
+         });
+      }
+     
+    setTimeout(() => {
+      if(myfuck){
+        myfuck.forEach((doc) => {
+          files.push(doc); 
+        }); 
+      }
+      console.log(files)
 
-  console.log(files);
+    let filesnew = [...files,...fuck,...event.target.files];
+  
+    Setfiles([...files,...fuck,...event.target.files]);
+    Setfuck((prevState) => [...prevState , ...event.target.files])
+    Seterror();
+    
+   for (var i = 0; i < filesnew.length; i++) {
+         let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+         reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+         reader.onloadend = () => {
+           // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+           setImagesFile((prevState) => [...prevState, reader.result]);
+           //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+         };
+   }
+    }, 50);
+  };
+  console.log(fuck)
+  // console.log(imagesFile)
+  // console.log(files);
 
   const handledeleteimage = async (index) => {
     try {
@@ -137,7 +122,7 @@ const Listcomment = ({
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
     setIsActive(false);
-    Setsecret()
+    Setfuck([])
     setImagesFile()
     Setfiles()
     handledeletetorerender();
@@ -163,7 +148,7 @@ const Listcomment = ({
       );
 
       handleedittorerender();
-      Setsecret()
+      Setfuck([])
       setImagesFile();
       Setfiles();
       Setcheckedittext(false);
