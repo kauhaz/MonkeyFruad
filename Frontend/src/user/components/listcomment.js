@@ -6,7 +6,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid'
 
 const Listcomment = ({
   commentmore,
@@ -27,57 +27,56 @@ const Listcomment = ({
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
-  const FileUpload = async (event) => {
+  const FileUpload = async(event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    let date = new Date();
+    let date = new Date()
 
-    var myFile = [];
-    if (imagecomment) {
-      if (imagecomment.photocomment) {
-        imagecomment.photocomment.forEach(async (doc) => {
+    
+    var myFile = []
+    if(imagecomment){
+      if(imagecomment.photocomment){
+        imagecomment.photocomment.forEach(async doc => {
           const response = await fetch(doc.url);
           const data = await response.blob();
-          myFile.push(
-            new File([data], `filename${uuidv4()}.png`, {
-              type: "image/png",
-              lastModified: date,
-            })
-          );
-        });
-        Setsecret(myFile);
-      }
+          myFile.push(new File([data], `filename${uuidv4()}.png`, {type: "image/png" ,lastModified: date}))
+
+        })
+        Setsecret(myFile)
+      } 
     }
-    console.log(secret);
+    console.log(secret)
 
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    var files = [];
-    secret &&
-      secret.forEach((doc) => {
-        files.push(doc); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-      });
-    let filesnew = [...files, ...event.target.files];
-    Setfiles([...files, ...event.target.files]);
+    var files = []
+    secret && secret.forEach(doc => {
+      files.push(doc); //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
+    })
+    let filesnew = [...files,...event.target.files]
+    Setfiles([...files,...event.target.files]);
     Seterror();
+
 
     // ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < filesnew.length; i++) {
       let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+      reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file 
       reader.onloadend = () => {
         // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
+        setImagesFile((prevState) => [ ...prevState, reader.result]);
         //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
       };
     }
   };
 
-  console.log(files);
-
+  console.log(files)
+  
   const handledeleteimage = async (index) => {
     try {
+     
+     
       imagesFile.splice(index, 1);
       setImagesFile([...imagesFile]);
-
+      
       files.splice(index, 1);
       Setfiles([...files]);
     } catch (err) {
@@ -96,22 +95,22 @@ const Listcomment = ({
   const edit = async () => {
     Setcheckedittext(true);
     setIsActive(false);
-    Setimagecomment2(imagecomment);
+    Setimagecomment2(imagecomment)
   };
   const handleedit = async (commentid) => {
     try {
-      let formdata = new FormData();
-      _.forEach(files, (file) => {
-        formdata.append("photocomment", file);
-      });
-      formdata.append("edittextcomment", edittextcomment);
-      formdata.append("photocomment", commentmore.photocomment);
-
-      Setloading(true);
-      const editcomment = await Axios.post(
-        `http://localhost:7000/post/edit/comment/${commentid}`,
-        formdata
-      );
+        let formdata = new FormData();
+        _.forEach(files, (file) => {
+          formdata.append("photocomment", file);
+        });
+        formdata.append("edittextcomment", edittextcomment);
+        formdata.append("photocomment", commentmore.photocomment);
+  
+        Setloading(true);
+        const editcomment = await Axios.post(
+          `http://localhost:7000/post/edit/comment/${commentid}`,
+          formdata
+        );
 
       handleedittorerender();
       setImagesFile();
@@ -122,12 +121,14 @@ const Listcomment = ({
       console.log(err);
     }
   };
+ 
+
 
   const gg = async () => {
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
-        Setimagecomment(commentmore);
+        Setimagecomment(commentmore)
       }
     } catch (err) {
       console.log(err);
@@ -136,58 +137,58 @@ const Listcomment = ({
   useEffect(() => {
     gg();
   }, [commentmore]);
-
-  // console.log(imagesFile)
+ 
+// console.log(imagesFile)
   return (
     <div>
       {commentmore ? (
         <div className="row postcommentrow">
           <div className="column1 postcommentrow1">
+          {user && commentmore.userid == user.uid ? (
+            <div className="column2 postcommentrow2">
+              <div className="menu-containerpostcommentsetting">
+                <div
+                  onClick={() => setIsActive(!isActive)}
+                  className="postcommentbuttonsetting"
+                >
+                  <img
+                    className="postcommentimg-setting"
+                    src="/img/setting.png"
+                    alt="avatar"
+                  ></img>
+                </div>
+
+                <div
+                  className={`postcommentmenusetting ${
+                    isActive ? "active" : "inactive"
+                  }`}
+                >
+                  <ul className="ul-postcommentmenusetting">
+                    <li className="li-postcommentmenusetting">
+                      <a
+                        className="a-postcommentmenusetting"
+                        onClick={() => edit(commentmore.commentid)}
+                      >
+                        แก้ไขคอมเมนต์
+                      </a>
+                    </li>
+                    <li className="li-postcommentmenusetting">
+                      <a
+                        className="a-postcommentmenusetting"
+                        onClick={() => deleted(commentmore.commentid)}
+                      >
+                        {" "}
+                        ลบคอมเมนต์{" "}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ) : null}
             <div class="vl"></div>
             <div className="post-comment-img1">
               <div className="post-profilecomment-img1">
-                {user && commentmore.userid == user.uid ? (
-                  <div className="column2 postcommentrow2">
-                    <div className="menu-containerpostcommentsetting">
-                      <div
-                        onClick={() => setIsActive(!isActive)}
-                        className="postcommentbuttonsetting"
-                      >
-                        <img
-                          className="postcommentimg-setting"
-                          src="/img/setting.png"
-                          alt="avatar"
-                        ></img>
-                      </div>
-
-                      <div
-                        className={`postcommentmenusetting ${
-                          isActive ? "active" : "inactive"
-                        }`}
-                      >
-                        <ul className="ul-postcommentmenusetting">
-                          <li className="li-postcommentmenusetting">
-                            <a
-                              className="a-postcommentmenusetting"
-                              onClick={() => edit(commentmore.commentid)}
-                            >
-                              แก้ไขคอมเมนต์
-                            </a>
-                          </li>
-                          <li className="li-postcommentmenusetting">
-                            <a
-                              className="a-postcommentmenusetting"
-                              onClick={() => deleted(commentmore.commentid)}
-                            >
-                              {" "}
-                              ลบคอมเมนต์{" "}
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
                 {commentmore.photoURL ? (
                   <img
                     className="img-circle"
@@ -247,7 +248,7 @@ const Listcomment = ({
                       />
                     </label>
                   </div>
-                  <div className="row imgcommentitem">
+                    <div className="row imgcommentitem">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
@@ -281,13 +282,12 @@ const Listcomment = ({
                         })
                       : imagecomment
                       ? imagecomment.photocomment
-                        ? imagecomment.photocomment.map((doc, index) => {
-                            return (
-                              <div>
-                                <img
-                                  className="imgpreviewpost1"
-                                  src={`${doc.url}`}
-                                />
+                        ? imagecomment.photocomment.map((doc ,index) => {
+                            return (<div>
+                              <img
+                                className="imgpreviewpost1"
+                                src={`${doc.url}`}
+                              />
                                 {/* <img
                                 className="deleteimgpost2"
                                 src="/img/delete.png"
@@ -306,19 +306,19 @@ const Listcomment = ({
                   <div className="row imglistcomment">
                     {/* {loading ? <ClipLoader /> : <div></div>} */}
                     {imagecomment
-                      ? imagecomment.photocomment
-                        ? imagecomment.photocomment.map((doc) => {
-                            return (
-                              <div className="imglistcomment1 col-6">
-                                <img
-                                  className="listcomment2"
-                                  src={`${doc.url}`}
-                                />
-                              </div>
-                            );
-                          })
-                        : null
-                      : null}
+                      ? imagecomment.photocomment 
+                      ? imagecomment.photocomment.map((doc) => {
+                          return (
+                            <div className="imglistcomment1 col-6">
+                              <img
+                                className="listcomment2"
+                                src={`${doc.url}`}
+                              />
+                            </div>
+                          );
+                        })
+                      : null
+                    :null}
                   </div>
                 </div>
               )}
