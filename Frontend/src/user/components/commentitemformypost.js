@@ -231,7 +231,6 @@ const Commentitemformypost = ({ postid }) => {
             className="mypost-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
           >
-             
             <textarea
               rows="3"
               cols="15"
@@ -256,43 +255,42 @@ const Commentitemformypost = ({ postid }) => {
             </div>
           </div>
           <div className="row imgcommentitem">
-           
-          {imagesFile
-            ? imagesFile.map((imagePreviewUrl, index) => {
-                return (
-                  <div className="imgcommentitem1 col-6">
-                    {loading ? <Loading />: null}
-                    <img
-                      key={index}
-                      className="imgpreviews1"
-                      alt="previewImg"
-                      src={imagePreviewUrl}
-                      style={{ overflow: "hidden" }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1.25)",
-                          overflow: "hidden",
-                        })
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1)",
-                          overflow: "hidden",
-                        })
-                      }
-                    />
-                    <div clsssName="deleteimgmypost1">
-                    <img
+            {imagesFile
+              ? imagesFile.map((imagePreviewUrl, index) => {
+                  return (
+                    <div className="imgcommentitem1 col-6">
+                      {loading ? <Loading /> : null}
+                      <img
+                        key={index}
+                        className="imgpreviews1"
+                        alt="previewImg"
+                        src={imagePreviewUrl}
+                        style={{ overflow: "hidden" }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style = {
+                            transform: "scale(1.25)",
+                            overflow: "hidden",
+                          })
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style = {
+                            transform: "scale(1)",
+                            overflow: "hidden",
+                          })
+                        }
+                      />
+                      <div clsssName="deleteimgmypost1">
+                        <img
                           className="deleteimgmypost2"
                           src="/img/delete2.png"
                           onClick={() => handledeleteimage(index)}
                         />
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : null}
-            </div>
+                  );
+                })
+              : null}
+          </div>
         </div>
 
         <h1 className="h1-mypostfileerror">{error}</h1>

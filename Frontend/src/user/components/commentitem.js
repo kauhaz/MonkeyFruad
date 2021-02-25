@@ -275,7 +275,7 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-          <div className="row imgcommentitem">
+          <div className="row imgcommentitempost">
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
