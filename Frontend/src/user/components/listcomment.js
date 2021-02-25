@@ -71,7 +71,7 @@ const Listcomment = ({
     }, 50);
   };
   console.log(fuck)
-  // console.log(imagesFile)
+  console.log(imagesFile)
   // console.log(files);
 
   const handledeleteimage = async (index) => {
@@ -85,6 +85,12 @@ const Listcomment = ({
         console.log("b")
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
+      } 
+
+      if(fuck){
+        console.log("c")
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
       } 
 
       let date = new Date();
@@ -105,7 +111,7 @@ const Listcomment = ({
       }
       console.log(myFile)
       if(files){
-        console.log("c")
+        console.log("d")
         files.splice(index, 1);
         Setfiles([...files]);
       }
