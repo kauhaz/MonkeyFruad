@@ -56,7 +56,7 @@ const Commentitem = ({ postid }) => {
       };
     }
   };
-  
+
   const handledeleteimage = async (index) => {
     try {
       imagesFile.splice(index, 1);
@@ -223,7 +223,7 @@ const Commentitem = ({ postid }) => {
         </div>
       ) : null}
 
-      <div className="row post-comment-comments1">
+      <div className="post-comment-comments1">
         <div className="post-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
@@ -232,9 +232,9 @@ const Commentitem = ({ postid }) => {
           )}
         </div>
 
-        <div className="row post-comment-commentsall">
+        <div className="post-comment-commentsall">
           <div className="container-img-holder-imgpreview1">
-            <label>
+            <span>
               <img className="uploadprove1" src="/img/addphoto.png" />
               <input
                 id="FileInput"
@@ -244,11 +244,11 @@ const Commentitem = ({ postid }) => {
                 multiple
                 accept="image/png, image/jpeg , image/jpg"
               />
-            </label>
+            </span>
           </div>
 
           <div
-            className="post-writecommemt col-lg-6 col-10"
+            className="post-writecommemt"
             controlId="exampleForm.ControlTextarea1"
           >
             <textarea
@@ -266,7 +266,7 @@ const Commentitem = ({ postid }) => {
           </div>
 
           <div>
-            <div className="column2 postbuttonsend">
+            <div className="column2 postbuttonsendss">
               <button
                 className="postbuttonsends"
                 onClick={() => handlecomment()}
