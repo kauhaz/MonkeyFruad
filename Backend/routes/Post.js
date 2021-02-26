@@ -21,7 +21,7 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(
       null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      file.originalname + "-" + Date.now() + "-" + path.extname(file.originalname)
     );
   },
 });
@@ -1216,7 +1216,7 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
     let { edittextcomment, photocomment } = req.body;
     console.log(files);
 
-
+   
     if (edittextcomment === "" && files === undefined) {
       console.log("ff")
       const commentdelete = await firestore
@@ -1224,21 +1224,25 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
-    }else if(files === undefined){
+    }
+
+    else if(files === undefined){
       const commentedit = await firestore
       .collection("Comment")
       .doc(id)
-      .update({ photocomment: null });
+      .update({ photocomment: "" });
     return res.json({ success: "Delete" });
     }
     if (files) {
       let item = [];
       for (const file of files) {
+        console.log(files)
         const { path } = file;
         const resultfiles = await cloudinary.uploader.upload(path);
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
+      console.log(item)
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
