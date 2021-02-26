@@ -1,11 +1,11 @@
-import React, { useState,useMemo } from "react";
-import { Form, Col} from "react-bootstrap";
+import React, { useState, useMemo } from "react";
+import { Form, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./formpost.css";
 import Axios from "axios";
 import _ from "lodash";
-import { auth} from "../Frontfirebase";
+import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 
@@ -70,24 +70,19 @@ const Formpost = ({ check, Setcheck }) => {
   var user = auth.currentUser;
   let history = useHistory();
 
-
   const handledeleteimage = async (index) => {
-    try{  
+    try {
+      imagesFile.splice(index, 1);
+      setImagesFile([...imagesFile]);
 
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
+      files.splice(index, 1);
+      Setfiles([...files]);
+    } catch (err) {
       console.log(err);
-    }   
-  }
+    }
+  };
 
-  console.log(files)
-  
+  console.log(files);
 
   const handlesubmit = async (e) => {
     try {
@@ -114,13 +109,13 @@ const Formpost = ({ check, Setcheck }) => {
       formdata.append("username", username);
       formdata.append("photoprofilepublic_id", photoprofilepublic_id);
       formdata.append("photoprofileurl", photoprofileurl);
-      if(!files){
-        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
+      if (!files) {
+        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **");
       }
-      if(files && files.length === 0){
-        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **")
+      if (files && files.length === 0) {
+        return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **");
       }
-      
+
       Setloading(true);
       Setcheck(true);
       const a = await Axios.post("http://localhost:7000/post/create", formdata);
@@ -451,32 +446,40 @@ const Formpost = ({ check, Setcheck }) => {
                   />
                 </label>
 
-                {imagesFile ? imagesFile.map((imagePreviewUrl,index) => {
-                  return (
-                    <div>
-                    <img
-                      key={index}
-                      className="imgpreview"
-                      alt="previewImg"
-                      src={imagePreviewUrl}
-                      style={{ overflow: "hidden" }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1.25)",
-                          overflow: "hidden",
-                        })
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1)",
-                          overflow: "hidden",
-                        })
-                      }
-                    />
-                      <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
-                    </div>
-                  );
-                }):null}
+                {imagesFile
+                  ? imagesFile.map((imagePreviewUrl, index) => {
+                      return (
+                        <div>
+                          <img
+                            key={index}
+                            className="imgpreview"
+                            alt="previewImg"
+                            src={imagePreviewUrl}
+                            style={{ overflow: "hidden" }}
+                            onMouseOver={(e) =>
+                              (e.currentTarget.style = {
+                                transform: "scale(1.25)",
+                                overflow: "hidden",
+                              })
+                            }
+                            onMouseOut={(e) =>
+                              (e.currentTarget.style = {
+                                transform: "scale(1)",
+                                overflow: "hidden",
+                              })
+                            }
+                          />
+                          <div className="deleteimgformposts1">
+                            <img
+                              className="deleteimgformposts2"
+                              src="/img/delete2.png"
+                              onClick={() => handledeleteimage(index)}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })
+                  : null}
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>

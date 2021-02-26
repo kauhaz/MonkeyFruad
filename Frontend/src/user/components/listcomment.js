@@ -186,30 +186,71 @@ const Listcomment = ({
   return (
     <div>
       {commentmore ? (
-        <div className="row postcommentrows">
+        <div className="postcommentrows">
           <div className="column3 postcommentrow1">
-            <div class="vl"></div>
+            {/* <div class="vl"></div> */}
             <div className="post-comment-img1">
-              <div className="post-profilecomment-img1">
-                {commentmore.photoURL ? (
-                  <img
-                    className="img-circle"
-                    src={`${commentmore.photoURL.url}`}
-                  />
-                ) : (
-                  <img className="img-circle" src="/img/profile.png" />
-                )}
+              <div className="header-post-comment">
+                <div className="post-profilecomment-img1">
+                  {commentmore.photoURL ? (
+                    <img
+                      className="img-circle"
+                      src={`${commentmore.photoURL.url}`}
+                    />
+                  ) : (
+                    <img className="img-circle" src="/img/profile.png" />
+                  )}
+                </div>
+                <div className="post-comment-name1">
+                  {commentmore ? "@" : null}
+                  {commentmore.username}
+                  <span className="post-comment-time1">
+                    {" "}
+                    {moment(
+                      new Date(commentmore.datetime.seconds * 1000)
+                    ).format("LTS")}{" "}
+                  </span>
+                </div>
+                <div className="menu-containerpostcommentsetting">
+                  <div
+                    onClick={() => setIsActive(!isActive)}
+                    className="postcommentbuttonsetting"
+                  >
+                    <img
+                      className="postcommentimg-setting"
+                      src="/img/setting.png"
+                      alt="avatar"
+                    />
+                  </div>
+
+                  <div
+                    className={`postcommentmenusetting ${
+                      isActive ? "active" : "inactive"
+                    }`}
+                  >
+                    <ul className="ul-postcommentmenusetting">
+                      <li className="li-postcommentmenusetting">
+                        <a
+                          className="a-postcommentmenusetting"
+                          onClick={() => edit(commentmore.commentid)}
+                        >
+                          แก้ไขคอมเมนต์
+                        </a>
+                      </li>
+                      <li className="li-postcommentmenusetting">
+                        <a
+                          className="a-postcommentmenusetting"
+                          onClick={() => deleted(commentmore.commentid)}
+                        >
+                          {" "}
+                          ลบคอมเมนต์{" "}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="post-comment-name1">
-                {commentmore ? "@" : null}
-                {commentmore.username}
-                <span className="post-comment-time1">
-                  {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
-                    "LTS"
-                  )}{" "}
-                </span>
-              </div>
+
               <br />
               {loading ? (
                 <div className="col-lg-10 col-4">
@@ -260,7 +301,7 @@ const Listcomment = ({
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div clsssName="imagecomment1 col-6">
+                            <div clsssName="imagecommentpost1 col-6">
                               <img
                                 key={index}
                                 className="imgpreviewpost1"
@@ -294,7 +335,7 @@ const Listcomment = ({
                       ? imagecomment
                         ? imagecomment.map((doc, index) => {
                             return (
-                              <div className="row">
+                              <div className="col-6">
                                 <img
                                   className="imgpreviewpost1"
                                   src={`${doc.url}`}
@@ -336,13 +377,13 @@ const Listcomment = ({
               ) : (
                 <div className="post-comment-comments1">
                   <div className="postcomment1">{commentmore.textcomment}</div>
-                  <div className="row imglistcomment">
+                  <div className="imglistcomment">
                     {/* {loading ? <ClipLoader /> : <div></div>} */}
                     {imagecomment
                       ? imagecomment
                         ? imagecomment.map((doc) => {
                             return (
-                              <div className="imglistcomment1 col-6">
+                              <div className="imglistcommentpost1">
                                 <img
                                   className="listcommentpost2"
                                   src={`${doc.url}`}
@@ -358,46 +399,7 @@ const Listcomment = ({
             </div>
           </div>
           {user && commentmore.userid == user.uid ? (
-            <div className="column4 postcommentrow2">
-              <div className="menu-containerpostcommentsetting">
-                <div
-                  onClick={() => setIsActive(!isActive)}
-                  className="postcommentbuttonsetting"
-                >
-                  <img
-                    className="postcommentimg-setting"
-                    src="/img/setting.png"
-                    alt="avatar"
-                  />
-                </div>
-
-                <div
-                  className={`postcommentmenusetting ${
-                    isActive ? "active" : "inactive"
-                  }`}
-                >
-                  <ul className="ul-postcommentmenusetting">
-                    <li className="li-postcommentmenusetting">
-                      <a
-                        className="a-postcommentmenusetting"
-                        onClick={() => edit(commentmore.commentid)}
-                      >
-                        แก้ไขคอมเมนต์
-                      </a>
-                    </li>
-                    <li className="li-postcommentmenusetting">
-                      <a
-                        className="a-postcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid)}
-                      >
-                        {" "}
-                        ลบคอมเมนต์{" "}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <div className="column4 postcommentrow2"></div>
           ) : null}
         </div>
       ) : null}

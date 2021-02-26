@@ -177,7 +177,7 @@ const Listcomment2 = ({
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div clsssName="imagecomment1 col-6">
+                            <div clsssName="imagecommentmypost1 col-6">
                               <img
                                 key={index}
                                 className="imgpreviewmypost1"
@@ -227,11 +227,11 @@ const Listcomment2 = ({
                     {commentmore.textcomment}
                   </div>
 
-                  <div className="row imglistcomment">
+                  <div className="row imglistcommentmypost">
                     {commentmore.photocomment
                       ? commentmore.photocomment.map((doc) => {
                           return (
-                            <div className="imglistcomment1 col-6">
+                            <div className="imglistcommentmypost1 col-6">
                               <img
                                 className="listcommentmypost2"
                                 src={`${doc.url}`}
