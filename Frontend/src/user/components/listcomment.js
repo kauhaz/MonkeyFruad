@@ -213,7 +213,6 @@ const Listcomment = ({
     <div>
       {commentmore ? (
         <div className="postcommentrows">
-          <div className="column3 postcommentrow1">
             {/* <div class="vl"></div> */}
             <div className="post-comment-img1">
               <div className="header-post-comment">
@@ -239,7 +238,6 @@ const Listcomment = ({
                 </div>
                 {user && commentmore.userid == user.uid ? (
                 <div>
-                <div className="column4 postcommentrow2"></div>
                 <div className="menu-containerpostcommentsetting">
                   <div
                     onClick={() => setIsActive(!isActive)}
@@ -252,59 +250,59 @@ const Listcomment = ({
                     />
                   </div>
 
-                  <div
-                    className={`postcommentmenusetting ${
-                      isActive ? "active" : "inactive"
-                    }`}
-                  >
-                    <ul className="ul-postcommentmenusetting">
-                      <li className="li-postcommentmenusetting">
-                        <a
-                          className="a-postcommentmenusetting"
-                          onClick={() => edit(commentmore.commentid)}
-                        >
-                          แก้ไขคอมเมนต์
-                        </a>
-                      </li>
-                      <li className="li-postcommentmenusetting">
-                        <a
-                          className="a-postcommentmenusetting"
-                          onClick={() => deleted(commentmore.commentid)}
-                        >
-                          {" "}
-                          ลบคอมเมนต์{" "}
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              ) : null}
-              </div>
-
-              <br />
-              {loading ? (
-                <div className="col-lg-10 col-4">
-                  <ClipLoader loading={loading} />
-                </div>
-              ) : checkedittext ? (
-                <div className="row comment">
-                  <div className="commenttextareapost">
-                    <textarea
-                      value={edittextcomment}
-                      onChange={(e) => {
-                        Setedittextcomment(e.target.value);
-                      }}
-                    ></textarea>
-                  </div>
-                  <div className="buttoncommentpostsave1">
-                    <button
-                      className="buttoncommentpostsave2"
-                      onClick={() => handleedit(commentmore.commentid)}
+                    <div
+                      className={`postcommentmenusetting ${
+                        isActive ? "active" : "inactive"
+                      }`}
                     >
-                      บันทึก
-                    </button>
+                      <ul className="ul-postcommentmenusetting">
+                        <li className="li-postcommentmenusetting">
+                          <a
+                            className="a-postcommentmenusetting"
+                            onClick={() => edit(commentmore.commentid)}
+                          >
+                            แก้ไขคอมเมนต์
+                          </a>
+                        </li>
+                        <li className="li-postcommentmenusetting">
+                          <a
+                            className="a-postcommentmenusetting"
+                            onClick={() => deleted(commentmore.commentid)}
+                          >
+                            {" "}
+                            ลบคอมเมนต์{" "}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
+                </div>
+              ) : null}
+            </div>
+
+            <br />
+            {loading ? (
+              <div className="col-lg-10 col-4">
+                <ClipLoader loading={loading} />
+              </div>
+            ) : checkedittext ? (
+              <div className="row comment">
+                <div className="commenttextareapost">
+                  <textarea
+                    value={edittextcomment}
+                    onChange={(e) => {
+                      Setedittextcomment(e.target.value);
+                    }}
+                  ></textarea>
+                </div>
+                <div className="buttoncommentpostsave1">
+                  <button
+                    className="buttoncommentpostsave2"
+                    onClick={() => handleedit(commentmore.commentid)}
+                  >
+                    บันทึก
+                  </button>
+                </div>
 
                   <div className="container-img-holder-imgpreview1">
                       {(!imagecomment && !imagesFile) ?   <div>
@@ -326,29 +324,14 @@ const Listcomment = ({
                       }
                      
                   </div>
-                  <div className="row imgcommentitempost">
+                  <div className="imgcommentitempost">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div clsssName="imagecommentpost1 col-6">
+                            <div className="col-6">
                               <img
-                                key={index}
                                 className="imgpreviewpost1"
-                                alt="previewImg"
-                                src={imagePreviewUrl}
-                                style={{ overflow: "hidden" }}
-                                onMouseOver={(e) =>
-                                  (e.currentTarget.style = {
-                                    transform: "scale(1.25)",
-                                    overflow: "hidden",
-                                  })
-                                }
-                                onMouseOut={(e) =>
-                                  (e.currentTarget.style = {
-                                    transform: "scale(1)",
-                                    overflow: "hidden",
-                                  })
-                                }
+                                src={`${doc.url}`}
                               />
                               <div className="deleteimgposts1">
                                 <img
@@ -385,7 +368,7 @@ const Listcomment = ({
                         <div>
                           <label>
                             <img
-                              // className="uploadprovepost1"
+                              className="uploadprovepost2"
                               src="/img/addphoto.png"
                             />
                             <input
@@ -402,29 +385,28 @@ const Listcomment = ({
                       }
                   </div>
                 </div>
-              ) : (
-                <div className="post-comment-comments1">
-                  <div className="postcomment1">{commentmore.textcomment}</div>
-                  <div className="imglistcomment">
-                    {/* {loading ? <ClipLoader /> : <div></div>} */}
-                    {imagecomment
-                      ? imagecomment
-                        ? imagecomment.map((doc) => {
-                            return (
-                              <div className="imglistcommentpost1">
-                                <img
-                                  className="listcommentpost2"
-                                  src={`${doc.url}`}
-                                />
-                              </div>
-                            );
-                          })
-                        : null
-                      : null}
-                  </div>
+            ) : (
+              <div className="post-comment-comments2">
+                <div className="postcomment1">{commentmore.textcomment}</div>
+                <div className="imglistcomment">
+                  {/* {loading ? <ClipLoader /> : <div></div>} */}
+                  {imagecomment
+                    ? imagecomment
+                      ? imagecomment.map((doc) => {
+                          return (
+                            <div className="imglistcommentpost1">
+                              <img
+                                className="listcommentpost2"
+                                src={`${doc.url}`}
+                              />
+                            </div>
+                          );
+                        })
+                      : null
+                    : null}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
          
         </div>

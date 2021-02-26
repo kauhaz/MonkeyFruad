@@ -338,11 +338,11 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-          <div className="row imgcommentitempost">
+          <div className="imgcommentitempost1">
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
-                    <div className="imgcommentitem1 col-6">
+                    <div className="imgcommentitem1">
                       {loading ? <ClipLoader /> : null}
                       <img
                         key={index}
@@ -363,14 +363,14 @@ const Commentitem = ({ postid }) => {
                           })
                         }
                       />
-                      <div className="deleteimgpost1">
+                      {/* <div className="deleteimgpost1"> */}
                         <img
                           className="deleteimgpost2"
                           src="/img/delete2.png"
                           onClick={() => handledeleteimage(index)}
                         />
                       </div>
-                    </div>
+                    // </div>
                   );
                 })
               : null}

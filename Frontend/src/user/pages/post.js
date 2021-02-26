@@ -5765,7 +5765,7 @@ const Post = () => {
                                 src={"/img/profile.png"}
                               />
                             )}
-                            <div className="post-name">
+                            <div className="posts-name1">
                               {res.username ? "@" : null}
                               {res.username}
                             </div>
@@ -6128,7 +6128,7 @@ const Post = () => {
                                       </div>
 
                                       <div className="line-post1"></div>
-                                      <div className="container-post6">
+                                      <div>
                                         <Commentitem postid={res.uid} />
                                       </div>
                                     </div>
