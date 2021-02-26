@@ -6,9 +6,9 @@ h1 {
     color: #8B0000;
 }
 
-.container-changepass {
+.container-editprofile {
     margin: 25px auto;
-    padding: 20px 20px;
+    padding: 5px 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -17,7 +17,7 @@ h1 {
     border-radius: 20px;
 }
 
-.ProfileForm {
+.EditProfileForm {
     width: 100%;
     height: auto;
     max-width: 376px;
@@ -25,13 +25,13 @@ h1 {
     margin: 0 auto;
 }
 
-.profile-badformpost-img {
+.editprofile-badformpost-img {
     text-align: center;
     margin-bottom: 5px;
     margin-top: 1rem;
 } 
 
-.profile-badformpost-img img.img-circle {
+.editprofile-badformpost-img img.img-circle {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -49,7 +49,11 @@ h1 {
     color: inherit;
 }
 
-.SaveChange {
+.Date {
+    color: inherit;
+}
+
+.SaveEdit {
     background-color: #5c83cc;
     border: 1px solid #5c83cc;
     border-radius: 10px;
@@ -57,19 +61,19 @@ h1 {
     text-align: center;
 }
 
-.SaveChange:hover {
+.SaveEdit:hover {
     background-color: #3c6fce;
     border: 1px solid #3c6fce;
 }
 
 
-.EditProfile p, .SaveChange p {
+.EditProfile p, .SaveEdit p {
     color: white;
     font-size: 16px;
     display: inline-block;
 }
 
-.EditProfile div, .SaveChange div {  
+.EditProfile div, .SaveEdit div {  
     display: inline-block;
     margin: 0 -10px 0 0;
 }

@@ -47,9 +47,9 @@ const Profile = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <div className="container-signup">
-        <form className="LoginForm">
-          <p className="h2 text-center mb-2 font-weight-bold text1-signup">
+      <div className="container-profile">
+        <form className="ProfileForm">
+          <p className="h3 text-center mb-2 font-weight-bold">
             ข้อมูลส่วนตัว
           </p>
 
@@ -103,10 +103,10 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="col-md-12 mt-2">
+          <div className="col-md-12 mt-0">
             <a
               href={`/profile/edit/${user.uid}`}
-              className="btn-block LoginFacebook"
+              className="btn-block EditProfile"
             >
               <div>
                 <i class="fas fa-user-edit"></i>
@@ -114,7 +114,7 @@ const Profile = () => {
               <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
             </a>
 
-            <a href="/changepass" className="btn-block LoginFacebook mt-2">
+            <a href="/changepass" className="btn-block ChangePassword mt-2">
               <div>
                 <i class="fas fa-unlock"></i>
               </div>
