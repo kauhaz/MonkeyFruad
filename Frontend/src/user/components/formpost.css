@@ -70,6 +70,27 @@
   color: #ff392e;
 }
 
+.deleteimgformposts1 {
+  color: grey;
+  border: none;
+  border-radius: 50px;
+}
+
+.deleteimgformposts2 {
+  width: 23px;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-top: -250px;
+  margin-left: 90px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: box-shadow 0.4s ease;
+  background-color: white;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* .linkrule1{
     margin-top: 10px;
 }

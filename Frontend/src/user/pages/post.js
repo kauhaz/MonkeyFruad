@@ -3242,7 +3242,7 @@ const Post = () => {
 
       if (checkother) {
         Setshow();
-        if (doc.social === "อื่นๆ") {
+        if (doc.social === "other") {
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {
