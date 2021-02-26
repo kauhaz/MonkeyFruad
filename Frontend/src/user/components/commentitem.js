@@ -296,49 +296,52 @@ const Commentitem = ({ postid }) => {
             <img className="img-circle" src="/img/profile.png" />
           )}
         </div>
-
-        <div className="post-comment-commentsall">
-          {(!imagesFile && !imagecomment) ? <div className="container-img-holder-imgpreview1">
-            <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
+        <div className="post-section-commment">
+          <div className="post-comment-commentsall">
+            {(!imagesFile && !imagecomment) ? <div className="container-img-holder-imgpreview1">
+              <label>
+                <img className="uploadprove1" src="/img/addphoto.png" />
+                <input
+                  id="FileInput"
+                  className="uploadspostcomment"
+                  type="file"
+                  onChange={FileUpload}
+                  multiple
+                  accept="image/png, image/jpeg , image/jpg"
+                />
+              </label>
+            </div> : <div></div>}
+            
+            <div
+              className="post-writecommemt"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <textarea
+                rows="3"
+                cols="15"
+                className="inputcomment1"
+                placeholder="เขียนความคิดเห็น..."
+                value={textcomment}
+                onChange={(e) => {
+                  Settextcomment(e.target.value);
+                  Seterror();
+                }}
               />
-            </label>
-          </div> : <div></div>}
-          
-          <div
-            className="post-writecommemt"
-            controlId="exampleForm.ControlTextarea1"
-          >
-            <textarea
-              rows="3"
-              cols="15"
-              className="inputcomment1"
-              placeholder="เขียนความคิดเห็น..."
-              value={textcomment}
-              onChange={(e) => {
-                Settextcomment(e.target.value);
-                Seterror();
-              }}
-            />
-            {/* {loading ? <div><ClipLoading/></div> : null } */}
-          </div>
-
-          <div>
-            <div className="column2 postbuttonsendss">
-              <button
-                className="postbuttonsends"
-                onClick={() => handlecomment()}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
+              {/* {loading ? <div><ClipLoading/></div> : null } */}
             </div>
+
+            <div>
+              <div className="postbuttonsendss">
+                <button
+                  className="postbuttonsends1"
+                  onClick={() => handlecomment()}
+                >
+                  <i className="fa fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          
+            
           </div>
           <div className="imgcommentitempost1">
             {imagesFile
@@ -391,9 +394,11 @@ const Commentitem = ({ postid }) => {
           </div> : <div></div>}
           </div>
         </div>
-
-        <h1 className="h1-postfileerror">{error}</h1>
+       
+{/* 
+        <h1 className="h1-postfileerror">{error}</h1> */}
       </div>
+      
     </div>
   );
 };
