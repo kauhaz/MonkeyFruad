@@ -88,6 +88,8 @@ const Commentitem = ({ postid }) => {
       }
     }, 50);
   };
+  console.log(imagecomment)
+  console.log(imagesFile)
 
   const handledeleteimage = async (index) => {
     try {
@@ -296,7 +298,7 @@ const Commentitem = ({ postid }) => {
         </div>
 
         <div className="post-comment-commentsall">
-          {imagesFile ? <div></div> : <div className="container-img-holder-imgpreview1">
+          {(!imagesFile && !imagecomment) ? <div className="container-img-holder-imgpreview1">
             <label>
               <img className="uploadprove1" src="/img/addphoto.png" />
               <input
@@ -308,7 +310,7 @@ const Commentitem = ({ postid }) => {
                 accept="image/png, image/jpeg , image/jpg"
               />
             </label>
-          </div>}
+          </div> : <div></div>}
           
           <div
             className="post-writecommemt"
@@ -370,13 +372,13 @@ const Commentitem = ({ postid }) => {
                           onClick={() => handledeleteimage(index)}
                         />
                       </div>
-                    // </div>
+                    //  </div>
                   );
                 })
               : null}
-               {imagesFile ? <div >
+               {(imagesFile || imagecomment) ? <div className="container-img-holder-imgpreview1">
             <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
+              <img  src="/img/addphoto.png" />
               <input
                 id="FileInput"
                 className="uploadspostcomment"

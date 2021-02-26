@@ -329,9 +329,24 @@ const Listcomment = ({
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
                             <div className="col-6">
-                              <img
-                                className="imgpreviewpost1"
-                                src={`${doc.url}`}
+                             <img
+                                key={index}
+                                className="imgpreviewmypost1"
+                                alt="previewImg"
+                                src={imagePreviewUrl}
+                                style={{ overflow: "hidden" }}
+                                onMouseOver={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1.25)",
+                                    overflow: "hidden",
+                                  })
+                                }
+                                onMouseOut={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1)",
+                                    overflow: "hidden",
+                                  })
+                                }
                               />
                               <div className="deleteimgposts1">
                                 <img
