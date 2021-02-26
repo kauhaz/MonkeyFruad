@@ -96,6 +96,7 @@ const Commentitem = ({ postid }) => {
         console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
+        
       }
       if(imagesFile && imagesFile.length === 0){
         setImagesFile()
@@ -203,6 +204,7 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }
   };
+  console.log(imagesFile)
 
   const gg = async () => {
     try {
@@ -294,23 +296,19 @@ const Commentitem = ({ postid }) => {
         </div>
 
         <div className="post-comment-commentsall">
-        {(!imagesFile) ?   <div>
-                          <label>
-                            <img
-                              className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>
-                        </div> :null 
-                      }
+          {imagesFile ? <div></div> : <div className="container-img-holder-imgpreview1">
+            <label>
+              <img className="uploadprove1" src="/img/addphoto.png" />
+              <input
+                id="FileInput"
+                className="uploadspostcomment"
+                type="file"
+                onChange={FileUpload}
+                multiple
+                accept="image/png, image/jpeg , image/jpg"
+              />
+            </label>
+          </div>}
           
           <div
             className="post-writecommemt"
@@ -340,11 +338,11 @@ const Commentitem = ({ postid }) => {
               </button>
             </div>
           </div>
-          <div className="row imgcommentitempost">
+          <div className="imgcommentitempost1">
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
-                    <div className="imgcommentitem1 col-6">
+                    <div className="imgcommentitem1">
                       {loading ? <ClipLoader /> : null}
                       <img
                         key={index}
@@ -365,36 +363,30 @@ const Commentitem = ({ postid }) => {
                           })
                         }
                       />
-                      <div className="deleteimgpost1">
+                      {/* <div className="deleteimgpost1"> */}
                         <img
                           className="deleteimgpost2"
                           src="/img/delete2.png"
                           onClick={() => handledeleteimage(index)}
                         />
                       </div>
-                    </div>
+                    // </div>
                   );
                 })
               : null}
-               { imagesFile  ? (
-                        <div>
-                          <label>
-                            <img
-                              // className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>{" "}
-                        </div>
-                      ) :null
-                      }
+               {imagesFile ? <div >
+            <label>
+              <img className="uploadprove1" src="/img/addphoto.png" />
+              <input
+                id="FileInput"
+                className="uploadspostcomment"
+                type="file"
+                onChange={FileUpload}
+                multiple
+                accept="image/png, image/jpeg , image/jpg"
+              />
+            </label>
+          </div> : <div></div>}
           </div>
         </div>
 
