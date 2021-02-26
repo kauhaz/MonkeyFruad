@@ -14,6 +14,8 @@ const Listcomment = ({
   handleedittorerender,
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [imagecomment, Setimagecomment] = useState();
+
   const [files, Setfiles] = useState();
   const [error, Seterror] = useState();
   const [isActive, setIsActive] = useState(false);
@@ -21,7 +23,6 @@ const Listcomment = ({
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState("");
-  const [imagecomment, Setimagecomment] = useState();
   const [imagecomment2, Setimagecomment2] = useState();
   const [fuck, Setfuck] = useState([]);
 
@@ -76,9 +77,10 @@ const Listcomment = ({
       }
     }, 50);
   };
-  console.log(fuck);
-  console.log(imagesFile);
+  // console.log(fuck);
+  // console.log(imagesFile);
   // console.log(files);
+  console.log(imagecomment)
 
   const handledeleteimage = async (index) => {
     try {
@@ -125,8 +127,7 @@ const Listcomment = ({
     }
   };
 
-  // console.log(imagecomment)
-
+console.log(files)
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
@@ -139,8 +140,30 @@ const Listcomment = ({
   };
 
   const edit = async () => {
+    
     Setcheckedittext(true);
     setIsActive(false);
+    var myfuck = []
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
+    }
+    setTimeout(() => {
+      Setfiles([...myfuck])
+    },50)
+    
   };
   const handleedit = async (commentid) => {
     try {
@@ -149,7 +172,7 @@ const Listcomment = ({
         formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
-      formdata.append("photocomment", commentmore.photocomment);
+      formdata.append("photocomment", imagecomment);
 
       Setloading(true);
       const editcomment = await Axios.post(
@@ -211,6 +234,9 @@ const Listcomment = ({
                     ).format("LTS")}{" "}
                   </span>
                 </div>
+                {user && commentmore.userid == user.uid ? (
+                <div>
+                <div className="column4 postcommentrow2"></div>
                 <div className="menu-containerpostcommentsetting">
                   <div
                     onClick={() => setIsActive(!isActive)}
@@ -249,6 +275,8 @@ const Listcomment = ({
                     </ul>
                   </div>
                 </div>
+              </div>
+              ) : null}
               </div>
 
               <br />
@@ -398,9 +426,7 @@ const Listcomment = ({
               )}
             </div>
           </div>
-          {user && commentmore.userid == user.uid ? (
-            <div className="column4 postcommentrow2"></div>
-          ) : null}
+         
         </div>
       ) : null}
     </div>

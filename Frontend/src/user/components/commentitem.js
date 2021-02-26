@@ -234,7 +234,7 @@ const Commentitem = ({ postid }) => {
 
         <div className="post-comment-commentsall">
           <div className="container-img-holder-imgpreview1">
-            <span>
+            <label>
               <img className="uploadprove1" src="/img/addphoto.png" />
               <input
                 id="FileInput"
@@ -244,7 +244,7 @@ const Commentitem = ({ postid }) => {
                 multiple
                 accept="image/png, image/jpeg , image/jpg"
               />
-            </span>
+            </label>
           </div>
 
           <div
