@@ -81,7 +81,7 @@ const Commentitemformypost = ({ postid }) => {
 
   const handledeleteimage = async (index) => {
     try {
- 
+   
       if (imagesFile) {
         console.log("b");
         imagesFile.splice(index, 1);
@@ -150,8 +150,8 @@ const Commentitemformypost = ({ postid }) => {
         );
         Setclick(sentcomment);
         Settextcomment("");
-        Setfuck([]);
         setImagesFile();
+        Setfuck([]);
         Setfiles();
         Seterror();
         SetLoading(false);
@@ -280,23 +280,19 @@ const Commentitemformypost = ({ postid }) => {
         </div>
 
         <div className="row mypost-comment-commentsall">
-        {(!imagesFile) ?   <div>
-                          <label>
-                            <img
-                              className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>
-                        </div> :null 
-                      }
+          <div className="container-img-holder-imgpreview2">
+            <label>
+              <img className="uploadprove2" src="/img/addphoto.png" />
+              <input
+                id="FileInput"
+                className="uploadsmypostcomment"
+                type="file"
+                onChange={FileUpload}
+                multiple
+                accept="image/png, image/jpeg , image/jpg"
+              />
+            </label>
+          </div>
 
           <div
             className="mypost-writecommemt col-lg-6 col-10"
@@ -361,25 +357,6 @@ const Commentitemformypost = ({ postid }) => {
                   );
                 })
               : null}
-              { imagesFile ? (
-                        <div>
-                          <label>
-                            <img
-                              // className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>{" "}
-                        </div>
-                      ) :null
-                      }
           </div>
         </div>
 
