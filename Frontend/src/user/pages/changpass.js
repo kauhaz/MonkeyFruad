@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "./changepass.css";
 import Chatbot from "../components/chatbot";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -91,13 +91,13 @@ const Changepass = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <div className="container-signup">
+      <div className="container-changepass">
         <form
-          className="LoginForm"
+          className="ChangePassForm"
           onSubmit={(e) => submitpass(e, password, newpassword)}
         >
           <img src="/img/logoLogin.png" className="Logo-signup" />
-          <p className="h2 text-center mb-2 font-weight-bold text1-signup">
+          <p className="h3 text-center mb-2 font-weight-bold">
             เปลี่ยนรหัสผ่าน
           </p>
           {invalidpass ? (
@@ -214,7 +214,7 @@ const Changepass = () => {
               )}
             </Formik>
 
-            <button type="submit" className="btn-block LoginFacebook mt-5">
+            <button type="submit" className="btn-block SaveChange mt-4">
               <div>
                 <i class="fas fa-save pr-1"></i>
               </div>

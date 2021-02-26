@@ -186,6 +186,8 @@
 /* =================================================================
 
 /* Responsive */
+
+/* iPhone 5s */ 
 @media only screen and (max-width: 321px) { 
     .coin1 , .coin2 , .coin3 {
         width: 70px;
@@ -194,7 +196,7 @@
         margin-left: 33px;
     }
 }
-
+/* iPhone 6 */
 @media only screen and (max-width: 376px) {
     .column3-rank{
         margin-top: 60px;
@@ -206,7 +208,7 @@
         margin-left: 38px;
     }
 }
-
+/* iPhone 6+ */
 @media only screen and (max-width: 415px) {
     .column3-rank{
         width: 45%;
@@ -219,7 +221,7 @@
         margin-left: 40px;
     }
  }
-
+/* iPad */
 @media only screen and (max-width: 769px) {
     .column3-rank{
         width: 31%;
@@ -231,7 +233,7 @@
         margin-left: 42px;
     }
  }
-
+/* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
@@ -255,7 +257,7 @@
         margin-left: 55px;
     }
 }
-
+/* จอฮวก */
 @media only screen and (max-width: 1367px) {
     .coin1 , .coin2 , .coin3 {
         width: 140px;
@@ -263,5 +265,9 @@
         margin-top: -75px;
         margin-left: 65px;
     }
+ }
+/* จอ Notebook */
+ @media only screen and (min-width: 1920) {
+
  }
 
