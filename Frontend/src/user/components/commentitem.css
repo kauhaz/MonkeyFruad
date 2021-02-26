@@ -72,6 +72,10 @@ img.img-circle {
   width: 100%;
 }
 
+.uploadproveedit {
+  width: 100%;
+}
+
 .imgcommentitempost1 {
   display: grid;
   grid-gap: 20px;
@@ -144,9 +148,12 @@ img.img-circle {
   transition: box-shadow 0.4s ease;
 }
 
+.postfileerror {
+  text-align: center;
+}
+
 .h1-postfileerror {
   color: #ff392e;
   font-size: 20px;
-  text-align: center;
   margin: 15px 0;
 }
