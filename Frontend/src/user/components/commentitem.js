@@ -222,98 +222,98 @@ const Commentitem = ({ postid }) => {
           ) : null}{" "}
         </div>
       ) : null}
+      <div>
+        <div className="post-comment-comments1">
+          <div className="post-profilecomment-img1">
+            {photourl ? (
+              <img className="img-circle" src={`${photourl}`} />
+            ) : (
+              <img className="img-circle" src="/img/profile.png" />
+            )}
+          </div>
 
-      <div className="post-comment-comments1">
-        <div className="post-profilecomment-img1">
-          {photourl ? (
-            <img className="img-circle" src={`${photourl}`} />
-          ) : (
-            <img className="img-circle" src="/img/profile.png" />
-          )}
-        </div>
+          <div className="post-comment-commentsall">
+            <div className="container-img-holder-imgpreview1">
+              <label>
+                <img className="uploadprove1" src="/img/addphoto.png" />
+                <input
+                  id="FileInput"
+                  className="uploadspostcomment"
+                  type="file"
+                  onChange={FileUpload}
+                  multiple
+                  accept="image/png, image/jpeg , image/jpg"
+                />
+              </label>
+            </div>
 
-        <div className="post-comment-commentsall">
-          <div className="container-img-holder-imgpreview1">
-          <label>
-              <img className="uploadprove1" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
+            <div
+              className="post-writecommemt"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <textarea
+                rows="3"
+                cols="15"
+                className="inputcomment1"
+                placeholder="เขียนความคิดเห็น..."
+                value={textcomment}
+                onChange={(e) => {
+                  Settextcomment(e.target.value);
+                  Seterror();
+                }}
               />
-            </label>
-          </div>
+              {/* {loading ? <div><ClipLoading/></div> : null } */}
+            </div>
 
-          <div
-            className="post-writecommemt"
-            controlId="exampleForm.ControlTextarea1"
-          >
-            <textarea
-              rows="3"
-              cols="15"
-              className="inputcomment1"
-              placeholder="เขียนความคิดเห็น..."
-              value={textcomment}
-              onChange={(e) => {
-                Settextcomment(e.target.value);
-                Seterror();
-              }}
-            />
-            {/* {loading ? <div><ClipLoading/></div> : null } */}
-          </div>
-
-          <div>
-            <div className="column2 postbuttonsendss">
-              <button
-                className="postbuttonsends"
-                onClick={() => handlecomment()}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
+            <div>
+              <div className="column2 postbuttonsendss">
+                <button
+                  className="postbuttonsends"
+                  onClick={() => handlecomment()}
+                >
+                  <i className="fa fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+            <div className="imgcommentitempost1">
+              {imagesFile
+                ? imagesFile.map((imagePreviewUrl, index) => {
+                    return (
+                      <div className="imgcommentitem1">
+                        {loading ? <ClipLoader /> : null}
+                        <img
+                          key={index}
+                          className="imgpreviewa1"
+                          alt="previewImg"
+                          src={imagePreviewUrl}
+                          style={{ overflow: "hidden" }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1.25)",
+                              overflow: "hidden",
+                            })
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1)",
+                              overflow: "hidden",
+                            })
+                          }
+                        />
+                        {/* <div className="deleteimgpost1"> */}
+                          <img
+                            className="deleteimgpost2"
+                            src="/img/delete2.png"
+                            onClick={() => handledeleteimage(index)}
+                          />
+                        {/* </div> */}
+                      </div>
+                    );
+                  })
+                : null}
             </div>
           </div>
-          <div className="row imgcommentitempost">
-            {imagesFile
-              ? imagesFile.map((imagePreviewUrl, index) => {
-                  return (
-                    <div className="imgcommentitem1 col-6">
-                      {loading ? <ClipLoader /> : null}
-                      <img
-                        key={index}
-                        className="imgpreviewa1"
-                        alt="previewImg"
-                        src={imagePreviewUrl}
-                        style={{ overflow: "hidden" }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1.25)",
-                            overflow: "hidden",
-                          })
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1)",
-                            overflow: "hidden",
-                          })
-                        }
-                      />
-                      <div className="deleteimgpost1">
-                        <img
-                          className="deleteimgpost2"
-                          src="/img/delete2.png"
-                          onClick={() => handledeleteimage(index)}
-                        />
-                      </div>
-                    </div>
-                  );
-                })
-              : null}
-          </div>
         </div>
-
         <h1 className="h1-postfileerror">{error}</h1>
       </div>
     </div>

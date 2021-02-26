@@ -187,139 +187,161 @@ const Listcomment = ({
     <div>
       {commentmore ? (
         <div className="postcommentrows">
-          <div className="column3 postcommentrow1">
-            {/* <div class="vl"></div> */}
-            <div className="post-comment-img1">
-              <div className="header-post-comment">
-                <div className="post-profilecomment-img1">
-                  {commentmore.photoURL ? (
-                    <img
-                      className="img-circle"
-                      src={`${commentmore.photoURL.url}`}
-                    />
+          {/* <div class="vl"></div> */}
+          <div className="post-comment-img1">
+            <div className="header-post-comment">
+              <div className="post-profilecomment-img1">
+                {commentmore.photoURL ? (
+                  <img
+                    className="img-circle"
+                    src={`${commentmore.photoURL.url}`}
+                  />
+                ) : (
+                  <img className="img-circle" src="/img/profile.png" />
+                )}
+              </div>
+              <div className="post-comment-name1">
+                {commentmore ? "@" : null}
+                {commentmore.username}
+                <span className="post-comment-time1">
+                  {" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
+                    "LTS"
+                  )}{" "}
+                </span>
+              </div>
+              {user && commentmore.userid == user.uid ? (
+                <div>
+                  <div className="menu-containerpostcommentsetting">
+                    <div
+                      onClick={() => setIsActive(!isActive)}
+                      className="postcommentbuttonsetting"
+                    >
+                      <img
+                        className="postcommentimg-setting"
+                        src="/img/setting.png"
+                        alt="avatar"
+                      />
+                    </div>
+
+                    <div
+                      className={`postcommentmenusetting ${
+                        isActive ? "active" : "inactive"
+                      }`}
+                    >
+                      <ul className="ul-postcommentmenusetting">
+                        <li className="li-postcommentmenusetting">
+                          <a
+                            className="a-postcommentmenusetting"
+                            onClick={() => edit(commentmore.commentid)}
+                          >
+                            แก้ไขคอมเมนต์
+                          </a>
+                        </li>
+                        <li className="li-postcommentmenusetting">
+                          <a
+                            className="a-postcommentmenusetting"
+                            onClick={() => deleted(commentmore.commentid)}
+                          >
+                            {" "}
+                            ลบคอมเมนต์{" "}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            <br />
+            {loading ? (
+              <div className="col-lg-10 col-4">
+                <ClipLoader loading={loading} />
+              </div>
+            ) : checkedittext ? (
+              <div className="row comment">
+                <div className="commenttextareapost">
+                  <textarea
+                    value={edittextcomment}
+                    onChange={(e) => {
+                      Setedittextcomment(e.target.value);
+                    }}
+                  ></textarea>
+                </div>
+                <div className="buttoncommentpostsave1">
+                  <button
+                    className="buttoncommentpostsave2"
+                    onClick={() => handleedit(commentmore.commentid)}
+                  >
+                    บันทึก
+                  </button>
+                </div>
+
+                <div className="container-img-holder-imgpreview1">
+                  {imagecomment ? (
+                    <div></div>
                   ) : (
-                    <img className="img-circle" src="/img/profile.png" />
+                    <div>
+                      <label>
+                        <img
+                          className="uploadprovepost1"
+                          src="/img/addphoto.png"
+                        />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
                   )}
                 </div>
-                <div className="post-comment-name1">
-                  {commentmore ? "@" : null}
-                  {commentmore.username}
-                  <span className="post-comment-time1">
-                    {" "}
-                    {moment(
-                      new Date(commentmore.datetime.seconds * 1000)
-                    ).format("LTS")}{" "}
-                  </span>
-                </div>
-                <div className="menu-containerpostcommentsetting">
-                  <div
-                    onClick={() => setIsActive(!isActive)}
-                    className="postcommentbuttonsetting"
-                  >
-                    <img
-                      className="postcommentimg-setting"
-                      src="/img/setting.png"
-                      alt="avatar"
-                    />
-                  </div>
-
-                  <div
-                    className={`postcommentmenusetting ${
-                      isActive ? "active" : "inactive"
-                    }`}
-                  >
-                    <ul className="ul-postcommentmenusetting">
-                      <li className="li-postcommentmenusetting">
-                        <a
-                          className="a-postcommentmenusetting"
-                          onClick={() => edit(commentmore.commentid)}
-                        >
-                          แก้ไขคอมเมนต์
-                        </a>
-                      </li>
-                      <li className="li-postcommentmenusetting">
-                        <a
-                          className="a-postcommentmenusetting"
-                          onClick={() => deleted(commentmore.commentid)}
-                        >
-                          {" "}
-                          ลบคอมเมนต์{" "}
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <br />
-              {loading ? (
-                <div className="col-lg-10 col-4">
-                  <ClipLoader loading={loading} />
-                </div>
-              ) : checkedittext ? (
-                <div className="row comment">
-                  <div className="commenttextareapost">
-                    <textarea
-                      value={edittextcomment}
-                      onChange={(e) => {
-                        Setedittextcomment(e.target.value);
-                      }}
-                    ></textarea>
-                  </div>
-                  <div className="buttoncommentpostsave1">
-                    <button
-                      className="buttoncommentpostsave2"
-                      onClick={() => handleedit(commentmore.commentid)}
-                    >
-                      บันทึก
-                    </button>
-                  </div>
-
-                  <div className="container-img-holder-imgpreview1">
-                    {imagecomment ? (
-                      <div></div>
-                    ) : (
-                      <div>
-                        <label>
-                          <img
-                            className="uploadprovepost1"
-                            src="/img/addphoto.png"
-                          />
-                          <input
-                            id="FileInput"
-                            className="uploadspostcomment"
-                            type="file"
-                            onChange={FileUpload}
-                            multiple
-                            accept="image/png, image/jpeg , image/jpg"
-                          />
-                        </label>
-                      </div>
-                    )}
-                  </div>
-                  <div className="row imgcommentitempost">
-                    {imagesFile
-                      ? imagesFile.map((imagePreviewUrl, index) => {
-                          return (
-                            <div clsssName="imagecommentpost1 col-6">
+                <div className="imgcommentitempost">
+                  {imagesFile
+                    ? imagesFile.map((imagePreviewUrl, index) => {
+                        return (
+                          <div clsssName="imagecommentpost1 col-6">
+                            <img
+                              key={index}
+                              className="imgpreviewpost1"
+                              alt="previewImg"
+                              src={imagePreviewUrl}
+                              style={{ overflow: "hidden" }}
+                              onMouseOver={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1.25)",
+                                  overflow: "hidden",
+                                })
+                              }
+                              onMouseOut={(e) =>
+                                (e.currentTarget.style = {
+                                  transform: "scale(1)",
+                                  overflow: "hidden",
+                                })
+                              }
+                            />
+                            <div className="deleteimgposts1">
                               <img
-                                key={index}
+                                className="deleteimgposts2"
+                                src="/img/delete2.png"
+                                onClick={() => handledeleteimage(index)}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })
+                    : imagecomment
+                    ? imagecomment
+                      ? imagecomment.map((doc, index) => {
+                          return (
+                            <div className="col-6">
+                              <img
                                 className="imgpreviewpost1"
-                                alt="previewImg"
-                                src={imagePreviewUrl}
-                                style={{ overflow: "hidden" }}
-                                onMouseOver={(e) =>
-                                  (e.currentTarget.style = {
-                                    transform: "scale(1.25)",
-                                    overflow: "hidden",
-                                  })
-                                }
-                                onMouseOut={(e) =>
-                                  (e.currentTarget.style = {
-                                    transform: "scale(1)",
-                                    overflow: "hidden",
-                                  })
-                                }
+                                src={`${doc.url}`}
                               />
                               <div className="deleteimgposts1">
                                 <img
@@ -331,76 +353,53 @@ const Listcomment = ({
                             </div>
                           );
                         })
-                      : imagecomment
-                      ? imagecomment
-                        ? imagecomment.map((doc, index) => {
-                            return (
-                              <div className="col-6">
-                                <img
-                                  className="imgpreviewpost1"
-                                  src={`${doc.url}`}
-                                />
-                                <div className="deleteimgposts1">
-                                  <img
-                                    className="deleteimgposts2"
-                                    src="/img/delete2.png"
-                                    onClick={() => handledeleteimage(index)}
-                                  />
-                                </div>
-                              </div>
-                            );
-                          })
-                        : null
-                      : null}
-                    {imagecomment ? (
-                      <div>
-                        <label>
-                          <img
-                            className="uploadprovepost1"
-                            src="/img/addphoto.png"
-                          />
-                          <input
-                            id="FileInput"
-                            className="uploadspostcomment"
-                            type="file"
-                            onChange={FileUpload}
-                            multiple
-                            accept="image/png, image/jpeg , image/jpg"
-                          />
-                        </label>{" "}
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
-                  </div>
+                      : null
+                    : null}
+                  {imagecomment ? (
+                    <div>
+                      <label>
+                        <img
+                          className="uploadprovepost2"
+                          src="/img/addphoto.png"
+                        />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>{" "}
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
-              ) : (
-                <div className="post-comment-comments1">
-                  <div className="postcomment1">{commentmore.textcomment}</div>
-                  <div className="imglistcomment">
-                    {/* {loading ? <ClipLoader /> : <div></div>} */}
-                    {imagecomment
-                      ? imagecomment
-                        ? imagecomment.map((doc) => {
-                            return (
-                              <div className="imglistcommentpost1">
-                                <img
-                                  className="listcommentpost2"
-                                  src={`${doc.url}`}
-                                />
-                              </div>
-                            );
-                          })
-                        : null
-                      : null}
-                  </div>
+              </div>
+            ) : (
+              <div className="post-comment-comments2">
+                <div className="postcomment1">{commentmore.textcomment}</div>
+                <div className="imglistcomment">
+                  {/* {loading ? <ClipLoader /> : <div></div>} */}
+                  {imagecomment
+                    ? imagecomment
+                      ? imagecomment.map((doc) => {
+                          return (
+                            <div className="imglistcommentpost1">
+                              <img
+                                className="listcommentpost2"
+                                src={`${doc.url}`}
+                              />
+                            </div>
+                          );
+                        })
+                      : null
+                    : null}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-          {user && commentmore.userid == user.uid ? (
-            <div className="column4 postcommentrow2"></div>
-          ) : null}
         </div>
       ) : null}
     </div>
