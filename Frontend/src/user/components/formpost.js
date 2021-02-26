@@ -8,6 +8,7 @@ import _ from "lodash";
 import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
+import { v4 as uuidv4 } from "uuid";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -31,6 +32,10 @@ const Formpost = ({ check, Setcheck }) => {
   const [photoprofileurl, Setphotoprofileurl] = useState();
   const [photoprofilepublic_id, Setphotoprofilepublic_id] = useState();
   const [loading, Setloading] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagecomment, Setimagecomment] = useState();
+
+
   // var { user , setUser} = useContext(usercontext)
   // let { user , setUser} = useContext(usercontext)
 
@@ -50,38 +55,101 @@ const Formpost = ({ check, Setcheck }) => {
   // ฟังก์ชันอัพโหลดไฟล์
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    Seterror();
 
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-      reader.onloadend = () => {
-        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
-        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-      };
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
+    }
+
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
+  };
+
+  const handledeleteimage = async (index) => {
+    try {
+  
+      if (imagesFile) {
+        console.log("b");
+        imagesFile.splice(index, 1);
+        setImagesFile([...imagesFile]);
+      }
+      if(imagesFile && imagesFile.length === 0){
+        setImagesFile()
+      }
+
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
+
+      let date = new Date();
+      var myFile = [];
+      if (imagecomment) {
+        imagecomment.forEach(async (doc) => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(
+            new File([data], `filename${uuidv4()}.png`, {
+              type: "image/png",
+              lastModified: date,
+            })
+          );
+        });
+        Setfiles(myFile);
+      }
+      console.log(myFile);
+      if (files) {
+        console.log("d");
+        files.splice(index, 1);
+        Setfiles([...files]);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
   var user = auth.currentUser;
   let history = useHistory();
 
-  const handledeleteimage = async (index) => {
-    try {
-      imagesFile.splice(index, 1);
-      setImagesFile([...imagesFile]);
-
-      files.splice(index, 1);
-      Setfiles([...files]);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+ 
   console.log(files);
 
   const handlesubmit = async (e) => {
@@ -119,6 +187,9 @@ const Formpost = ({ check, Setcheck }) => {
       Setloading(true);
       Setcheck(true);
       const a = await Axios.post("http://localhost:7000/post/create", formdata);
+      Setfuck([]);
+      setImagesFile();
+      Setfiles();
       Setloading(false);
       history.push("/post/history");
     } catch (err) {
@@ -434,18 +505,23 @@ const Formpost = ({ check, Setcheck }) => {
               <br></br>
 
               <div className="container-img-holder-imgpreview">
-                <label>
-                  <img className="uploadprove" src="/img/addimage.png" />
-                  <input
-                    id="FileInput"
-                    className="uploadsformpostuploadslip"
-                    type="file"
-                    onChange={FileUpload}
-                    multiple
-                    accept="image/png, image/jpeg , image/jpg"
-                  />
-                </label>
-
+               {(!imagesFile) ?   <div>
+                          <label>
+                            <img
+                              className="uploadprove"
+                              src="/img/addimage.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>
+                        </div> :null 
+                      }
                 {imagesFile
                   ? imagesFile.map((imagePreviewUrl, index) => {
                       return (
@@ -480,6 +556,25 @@ const Formpost = ({ check, Setcheck }) => {
                       );
                     })
                   : null}
+                  { imagesFile  ? (
+                        <div>
+                          <label>
+                            <img
+                              // className="uploadprovepost1"
+                              src="/img/addimage.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>{" "}
+                        </div>
+                      ) :null
+                      }
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>
