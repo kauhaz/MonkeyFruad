@@ -76,8 +76,8 @@ const Listcomment = ({
       }
     }, 50);
   };
-  console.log(fuck)
-  console.log(imagesFile)
+  console.log(fuck);
+  console.log(imagesFile);
   // console.log(files);
 
   const handledeleteimage = async (index) => {
@@ -93,11 +93,11 @@ const Listcomment = ({
         setImagesFile([...imagesFile]);
       }
 
-      if(fuck){
-        console.log("c")
+      if (fuck) {
+        console.log("c");
         fuck.splice(index, 1);
         Setfuck([...fuck]);
-      } 
+      }
 
       let date = new Date();
       var myFile = [];
@@ -114,9 +114,9 @@ const Listcomment = ({
         });
         Setfiles(myFile);
       }
-      console.log(myFile)
-      if(files){
-        console.log("d")
+      console.log(myFile);
+      if (files) {
+        console.log("d");
         files.splice(index, 1);
         Setfiles([...files]);
       }
@@ -167,6 +167,7 @@ const Listcomment = ({
       console.log(err);
     }
   };
+
   const gg = async () => {
     try {
       if (commentmore) {
@@ -360,9 +361,7 @@ const Listcomment = ({
             <div className="column4 postcommentrow2">
               <div className="menu-containerpostcommentsetting">
                 <div
-                  onClick={() => {
-                    setIsActive(!isActive);
-                  }}
+                  onClick={() => setIsActive(!isActive)}
                   className="postcommentbuttonsetting"
                 >
                   <img
