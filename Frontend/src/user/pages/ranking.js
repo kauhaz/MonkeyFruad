@@ -113,7 +113,7 @@ const Rank = () => {
             ? ThiefThreeRank.map((element, index) => {
                 return (
                   <div className="column3-rank" key={index}>
-                    <div className={`coin${index + 1} rank-rank1`}>
+                    <div className={`coin${index + 1}-rank rank-rank1`}>
                       {index + 1}
                     </div>
                     <MDBCard>
@@ -136,7 +136,7 @@ const Rank = () => {
                           onClick={() => RankSeePost(element.accountnumber)}
                           className="orange-text mt-1 d-flex justify-content-end align-items-center"
                         >
-                          <div className="readmore">
+                          <div className="readmore-rank">
                             ดูโพสต์ที่เกี่ยวข้องทั้งหมด{" "}
                             <MDBIcon
                               icon="chevron-right"
@@ -181,7 +181,7 @@ const Rank = () => {
         </div>
 
         <div className="rank-column-row">
-          <div className="rank-column col">อันดับ</div>
+          <div className="rank-column col-1">อันดับ</div>
           <div className="rank-column col">ชื่อ</div>
           <div className="rank-column col">นามสกุล</div>
           <div className="rank-column col">เลขที่บัญชี</div>
@@ -193,7 +193,7 @@ const Rank = () => {
           ? ThiefRank.map((element, index) => {
               return (
                 <div className="rank-data-row">
-                  <div className="rank-column col">{index + 1}</div>
+                  <div className="rank-column col-1">{index + 1}</div>
                   <div className="rank-column col">
                     <span>{element.name}</span>
                   </div>
