@@ -31,7 +31,7 @@ const Listcomment = ({
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-
+    
     setImagesFile([]);
     var myfuck = [];
     var files = [];
@@ -80,7 +80,9 @@ const Listcomment = ({
   // console.log(fuck);
   // console.log(imagesFile);
   // console.log(files);
-  console.log(imagecomment)
+  // console.log(imagecomment)
+  console.log(imagesFile)
+
 
   const handledeleteimage = async (index) => {
     try {
@@ -93,6 +95,9 @@ const Listcomment = ({
         console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
+      }
+      if(imagesFile && imagesFile.length === 0){
+        setImagesFile()
       }
 
       if (fuck) {
@@ -116,7 +121,6 @@ const Listcomment = ({
         });
         Setfiles(myFile);
       }
-      console.log(myFile);
       if (files) {
         console.log("d");
         files.splice(index, 1);
@@ -127,7 +131,6 @@ const Listcomment = ({
     }
   };
 
-console.log(files)
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
@@ -304,26 +307,24 @@ console.log(files)
                   </div>
 
                   <div className="container-img-holder-imgpreview1">
-                    {imagecomment ? (
-                      <div></div>
-                    ) : (
-                      <div>
-                        <label>
-                          <img
-                            className="uploadprovepost1"
-                            src="/img/addphoto.png"
-                          />
-                          <input
-                            id="FileInput"
-                            className="uploadspostcomment"
-                            type="file"
-                            onChange={FileUpload}
-                            multiple
-                            accept="image/png, image/jpeg , image/jpg"
-                          />
-                        </label>
-                      </div>
-                    )}
+                      {(!imagecomment && !imagesFile) ?   <div>
+                          <label>
+                            <img
+                              className="uploadprovepost1"
+                              src="/img/addphoto.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>
+                        </div> :null 
+                      }
+                     
                   </div>
                   <div className="row imgcommentitempost">
                     {imagesFile
@@ -380,26 +381,25 @@ console.log(files)
                           })
                         : null
                       : null}
-                    {imagecomment ? (
-                      <div>
-                        <label>
-                          <img
-                            className="uploadprovepost1"
-                            src="/img/addphoto.png"
-                          />
-                          <input
-                            id="FileInput"
-                            className="uploadspostcomment"
-                            type="file"
-                            onChange={FileUpload}
-                            multiple
-                            accept="image/png, image/jpeg , image/jpg"
-                          />
-                        </label>{" "}
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
+                      {(imagecomment || imagesFile) ? (
+                        <div>
+                          <label>
+                            <img
+                              // className="uploadprovepost1"
+                              src="/img/addphoto.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>{" "}
+                        </div>
+                      ) :null
+                      }
                   </div>
                 </div>
               ) : (
