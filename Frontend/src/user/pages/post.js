@@ -100,8 +100,6 @@ const Post = () => {
     SetshowDropdown(false);
   };
 
-  
-
   const ok = async () => {
     Setloading(true);
     if (sortvalue === "ใหม่ล่าสุด") {
