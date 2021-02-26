@@ -3,6 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
+import ClipLoader from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
@@ -15,7 +16,7 @@ import usercontext from "../context/usercontext";
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
   const [selecttwo, setSelecttwo] = useState("");
-  const [selectthree, setSelectthree] = useState("");
+  const [selecthree, setSelecthree] = useState("");
   const [checkselectone, Setcheckselectone] = useState(false);
   const [checkselecttwo, Setcheckselecttwo] = useState(false);
   const [checkselectthree, Setcheckselectthree] = useState(false);
@@ -29,6 +30,7 @@ const Mypost = () => {
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState("");
   const [ErrorFileUploads, SetErrorFileUploads] = useState();
+  const [loading, Setloading] = useState(false);
   const [ErrorNotselect, SetErrorNotselect] = useState(false);
   const inputTextArea = useRef(null);
   let { user } = useContext(usercontext);
@@ -41,14 +43,14 @@ const Mypost = () => {
     setShow(false);
     setSelectone("");
     setSelecttwo("");
-    setSelectthree("");
+    setSelecthree("");
     setDescription("");
     Setcheckselectone(false);
     Setcheckselecttwo(false);
     Setcheckselectthree(false);
     setReportsubmitsuccess(false);
     SetErrorFileUploads();
-    SetErrorNotselect(false)
+    SetErrorNotselect(false);
   };
   const handleShow = () => setShow(true);
   const deleted = async (uid) => {
@@ -104,12 +106,15 @@ const Mypost = () => {
       formData.append("description", description);
       formData.append("selectOne", selectone);
       formData.append("selectTwo", selecttwo);
-      formData.append("selectThree", selectthree);
+      formData.append("selectThree", selecthree);
       formData.append("userreport", useruid);
-      if (checkselectone == false && checkselecttwo == false && checkselectthree == false) {
+      if (
+        checkselectone == false &&
+        checkselecttwo == false &&
+        checkselectthree == false
+      ) {
         SetErrorNotselect(true);
-      }
-      if (!files) {
+      } else if (!files) {
         SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
@@ -118,10 +123,11 @@ const Mypost = () => {
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
+        Setloading(true);
         Axios.post(`http://localhost:7000/post/report/${uid}`, formData)
           .then((result) => {
-            console.log(result.msg);
             setReportsubmitsuccess(true);
+            Setloading(false);
           })
           .catch((err) => {
             console.log(err);
@@ -140,19 +146,21 @@ const Mypost = () => {
       setSelecttwo("");
     }
     if (!checkselectthree) {
-      setSelectthree();
+      setSelecthree("");
       setDescription("");
     }
   };
   useEffect(() => {
     ok();
     handleselect();
-  }, [checkselectone, checkselecttwo, checkselectthree]);
-  // console.log("selectonevalue : ", selectone, "check:", checkselectone);
-  // console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
-  // console.log("selectthreevalue : ", selectthree, "check:", checkselectthree);
-  // console.log("description : ", description);
-  // console.log("fileupload : ", files);
+  }, [checkselectone, checkselecttwo, checkselectthree, imagesFile]);
+  console.log("selectonevalue : ", selectone, "check:", checkselectone);
+  console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
+  console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
+  console.log("description : ", description);
+  console.log("fileupload : ", files);
+  console.log("reportsubmitsuccess : ", reportsubmitsuccess);
+  console.log("loading : ", loading);
   return (
     <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (
@@ -217,25 +225,25 @@ const Mypost = () => {
                                 <Modal.Body className="bigreport1">
                                   <div class="custom-control custom-checkbox reportcheckbox">
                                     {ErrorNotselect ? (
-                                      <h1  className="h1-formpostfileerror">
-                                       กรุณาเลือกอย่างน้อย 1 ตัวเลือก
+                                      <h1 className="h1-formpostfileerror">
+                                        กรุณาเลือกอย่างน้อย 1 ตัวเลือก
                                       </h1>
                                     ) : (
-                                       <h1 className="h1-formpostfileerror">
-                                       
-                                      </h1>
+                                      <h1 className="h1-formpostfileerror"></h1>
                                     )}
                                     <input
                                       type="checkbox"
                                       class="custom-control-input reportcheckboxinput1"
                                       id="defaultInlinereport1"
-                                      onChange={(e) =>
-                                        setSelectone(e.target.value)
-                                      }
+                                      onChange={(e) => {
+                                        setSelectone(e.target.value);
+                                        SetErrorNotselect(false);
+                                      }}
                                       value="ข้อมูลไม่ถูกต้อง"
-                                      onClick={() =>
-                                        Setcheckselectone(!checkselectone)
-                                      }
+                                      onClick={() => {
+                                        Setcheckselectone(!checkselectone);
+                                        setReportsubmitsuccess(false);
+                                      }}
                                     ></input>
                                     <label
                                       class="custom-control-label reportcheckboxlabel1"
@@ -250,12 +258,14 @@ const Mypost = () => {
                                       class="custom-control-input reportcheckboxinput1"
                                       id="defaultInlinereport2"
                                       value="ข้อมูลไม่เหมาะสม"
-                                      onChange={(e) =>
-                                        setSelecttwo(e.target.value)
-                                      }
-                                      onClick={() =>
-                                        Setcheckselecttwo(!checkselecttwo)
-                                      }
+                                      onChange={(e) => {
+                                        setSelecttwo(e.target.value);
+                                        SetErrorNotselect(false);
+                                      }}
+                                      onClick={() => {
+                                        Setcheckselecttwo(!checkselecttwo);
+                                        setReportsubmitsuccess(false);
+                                      }}
                                     ></input>
                                     <label
                                       class="custom-control-label reportcheckboxlabel1"
@@ -270,12 +280,14 @@ const Mypost = () => {
                                       class="custom-control-input reportcheckboxinput1"
                                       id="defaultInlinereport3"
                                       value="อื่นๆ"
-                                      onChange={(e) =>
-                                        setSelectthree(e.target.value)
-                                      }
-                                      onClick={() =>
-                                        Setcheckselectthree(!checkselectthree)
-                                      }
+                                      onChange={(e) => {
+                                        setSelecthree(e.target.value);
+                                        SetErrorNotselect(false);
+                                      }}
+                                      onClick={() => {
+                                        Setcheckselectthree(!checkselectthree);
+                                        setReportsubmitsuccess(false);
+                                      }}
                                     ></input>
                                     <label
                                       class="custom-control-label reportcheckboxlabel1"
@@ -323,7 +335,10 @@ const Mypost = () => {
                                         type="file"
                                         multiple
                                         accept="image/png, image/jpeg , image/jpg"
-                                        onChange={FileUpload}
+                                        onChange={(e) => {
+                                          FileUpload(e);
+                                          setReportsubmitsuccess(false);
+                                        }}
                                       />
                                     </label>
                                     {imagesFile
@@ -354,9 +369,12 @@ const Mypost = () => {
                                                   <img
                                                     className="mypost_deleteimgpost2"
                                                     src="/img/delete2.png"
-                                                    onClick={() =>
-                                                      handledeleteimage(index)
-                                                    }
+                                                    onClick={() => {
+                                                      handledeleteimage(index);
+                                                      setReportsubmitsuccess(
+                                                        false
+                                                      );
+                                                    }}
                                                   />
                                                 </div>
                                               </div>
@@ -387,13 +405,19 @@ const Mypost = () => {
                                   ) : (
                                     ""
                                   )}
-                                  <Button
+                                  {loading ? (
+                                    <div className="col-lg-6 col-3">
+                                      <ClipLoader loading={loading} />
+                                    </div>
+                                  ) : (
+                                    <Button
                                     clsssName="buttonreportsave"
                                     variant="primary"
                                     onClick={(e) => handlesubmit(e)}
                                   >
                                     บันทึก
                                   </Button>
+                                  )}
                                 </Modal.Footer>
                               </Modal>
                             </Form.Row>
