@@ -258,11 +258,11 @@ const Commentitemformypost = ({ postid }) => {
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
-                    <div className="imgcommentitem1 col-6">
+                    <div className="imgcommentitemmypost1 col-6">
                       {loading ? <Loading /> : null}
                       <img
                         key={index}
-                        className="imgpreviews1"
+                        className="imgpreviewb1"
                         alt="previewImg"
                         src={imagePreviewUrl}
                         style={{ overflow: "hidden" }}

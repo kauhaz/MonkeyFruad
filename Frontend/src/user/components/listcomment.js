@@ -14,6 +14,8 @@ const Listcomment = ({
   handleedittorerender,
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [imagecomment, Setimagecomment] = useState();
+
   const [files, Setfiles] = useState();
   const [error, Seterror] = useState();
   const [isActive, setIsActive] = useState(false);
@@ -21,131 +23,147 @@ const Listcomment = ({
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
   const [edittextcomment, Setedittextcomment] = useState("");
-  const [imagecomment, Setimagecomment] = useState();
   const [imagecomment2, Setimagecomment2] = useState();
-  const [fuck,   Setfuck] = useState();
+  const [fuck, Setfuck] = useState([]);
 
-  const [secret, Setsecret] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
-  // const handleimage = async(event) => {
-  //   try{
-  //     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-  //   var files = [];
-  //   secret &&
-  //     secret.forEach((doc) => {
-  //       files.push(doc); 
-  //     });
-  //     console.log(secret)
-  //   Setfiles([...files, ...event.target.files]);
-  //   Seterror();
-  //   return [...files, ...event.target.files];
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
-  const FileUpload = async (event) => {
-    event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    let date = new Date();
-    
-    var myfuck = [];
-    if (imagecomment) {
-        imagecomment.forEach(async (doc) => {
-          // console.log(doc.url)
-          const response = await fetch(doc.url);
-          const data = await response.blob();
-          myfuck.push(new File([data], `filename${uuidv4()}.png`, {type: data.type,lastModified: date,}));
-        });
-        Setsecret(myfuck);
-    }
 
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    
-    var files = []
-  
-    if(secret){
-      secret.forEach((doc) => {
-        files.push(doc); 
+  const FileUpload = (event) => {
+    event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
+
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
       });
     }
-   
-  
-    let filesnew = [...files, ...event.target.files];
-     Setfiles([...files, ...event.target.files]);
-     Seterror();
-          
-         
-    for (var i = 0; i < filesnew.length; i++) {
-          let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-          reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-          reader.onloadend = () => {
-            // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-            setImagesFile((prevState) => [...prevState, reader.result]);
-            //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-          };
-    }
-    
-  };
 
-  console.log(files);
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
+  };
+  // console.log(fuck);
+  // console.log(imagesFile);
+  // console.log(files);
+  console.log(imagecomment)
 
   const handledeleteimage = async (index) => {
     try {
-      if(imagecomment){
-        console.log("a")
-        imagecomment.splice(index , 1)
-        Setimagecomment([...imagecomment])
-    }
-     if(imagesFile){
-        console.log("b")
+      if (imagecomment) {
+        console.log("a");
+        imagecomment.splice(index, 1);
+        Setimagecomment([...imagecomment]);
+      }
+      if (imagesFile) {
+        console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
-      } 
+      }
+
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
 
       let date = new Date();
-      var myFile = []
+      var myFile = [];
       if (imagecomment) {
-          imagecomment.forEach(async (doc) => {
-            const response = await fetch(doc.url);
-            const data = await response.blob();
-            myFile.push(
-              new File([data], `filename${uuidv4()}.png`, {
-                type: "image/png",
-                lastModified: date,
-              })
-            );
-          });
-          Setfiles(myFile);
-        
+        imagecomment.forEach(async (doc) => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(
+            new File([data], `filename${uuidv4()}.png`, {
+              type: "image/png",
+              lastModified: date,
+            })
+          );
+        });
+        Setfiles(myFile);
       }
-      console.log(myFile)
-      if(files){
-        console.log("c")
+      console.log(myFile);
+      if (files) {
+        console.log("d");
         files.splice(index, 1);
         Setfiles([...files]);
       }
-  
     } catch (err) {
       console.log(err);
     }
   };
 
-// console.log(imagecomment)
-
+console.log(files)
   const deleted = async (commentid) => {
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`
     );
     setIsActive(false);
-    Setsecret()
-    setImagesFile()
-    Setfiles()
+    Setfuck([]);
+    setImagesFile();
+    Setfiles();
     handledeletetorerender();
   };
 
   const edit = async () => {
+    
     Setcheckedittext(true);
     setIsActive(false);
+    var myfuck = []
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
+    }
+    setTimeout(() => {
+      Setfiles([...myfuck])
+    },50)
+    
   };
   const handleedit = async (commentid) => {
     try {
@@ -154,7 +172,7 @@ const Listcomment = ({
         formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
-      formdata.append("photocomment", commentmore.photocomment);
+      formdata.append("photocomment", imagecomment);
 
       Setloading(true);
       const editcomment = await Axios.post(
@@ -163,7 +181,7 @@ const Listcomment = ({
       );
 
       handleedittorerender();
-      Setsecret()
+      Setfuck([]);
       setImagesFile();
       Setfiles();
       Setcheckedittext(false);
@@ -191,30 +209,76 @@ const Listcomment = ({
   return (
     <div>
       {commentmore ? (
-        <div className="row postcommentrows">
+        <div className="postcommentrows">
           <div className="column3 postcommentrow1">
-            <div class="vl"></div>
+            {/* <div class="vl"></div> */}
             <div className="post-comment-img1">
-              <div className="post-profilecomment-img1">
-                {commentmore.photoURL ? (
-                  <img
-                    className="img-circle"
-                    src={`${commentmore.photoURL.url}`}
-                  />
-                ) : (
-                  <img className="img-circle" src="/img/profile.png" />
-                )}
+              <div className="header-post-comment">
+                <div className="post-profilecomment-img1">
+                  {commentmore.photoURL ? (
+                    <img
+                      className="img-circle"
+                      src={`${commentmore.photoURL.url}`}
+                    />
+                  ) : (
+                    <img className="img-circle" src="/img/profile.png" />
+                  )}
+                </div>
+                <div className="post-comment-name1">
+                  {commentmore ? "@" : null}
+                  {commentmore.username}
+                  <span className="post-comment-time1">
+                    {" "}
+                    {moment(
+                      new Date(commentmore.datetime.seconds * 1000)
+                    ).format("LTS")}{" "}
+                  </span>
+                </div>
+                {user && commentmore.userid == user.uid ? (
+                <div>
+                <div className="column4 postcommentrow2"></div>
+                <div className="menu-containerpostcommentsetting">
+                  <div
+                    onClick={() => setIsActive(!isActive)}
+                    className="postcommentbuttonsetting"
+                  >
+                    <img
+                      className="postcommentimg-setting"
+                      src="/img/setting.png"
+                      alt="avatar"
+                    />
+                  </div>
+
+                  <div
+                    className={`postcommentmenusetting ${
+                      isActive ? "active" : "inactive"
+                    }`}
+                  >
+                    <ul className="ul-postcommentmenusetting">
+                      <li className="li-postcommentmenusetting">
+                        <a
+                          className="a-postcommentmenusetting"
+                          onClick={() => edit(commentmore.commentid)}
+                        >
+                          แก้ไขคอมเมนต์
+                        </a>
+                      </li>
+                      <li className="li-postcommentmenusetting">
+                        <a
+                          className="a-postcommentmenusetting"
+                          onClick={() => deleted(commentmore.commentid)}
+                        >
+                          {" "}
+                          ลบคอมเมนต์{" "}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="post-comment-name1">
-                {commentmore ? "@" : null}
-                {commentmore.username}
-                <span className="post-comment-time1">
-                  {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
-                    "LTS"
-                  )}{" "}
-                </span>
+              ) : null}
               </div>
+
               <br />
               {loading ? (
                 <div className="col-lg-10 col-4">
@@ -240,26 +304,32 @@ const Listcomment = ({
                   </div>
 
                   <div className="container-img-holder-imgpreview1">
-                    <label>
-                      <img
-                        className="uploadprovepost1"
-                        src="/img/addphoto.png"
-                      />
-                      <input
-                        id="FileInput"
-                        className="uploadspostcomment"
-                        type="file"
-                        onChange={FileUpload}
-                        multiple
-                        accept="image/png, image/jpeg , image/jpg"
-                      />
-                    </label>
+                    {imagecomment ? (
+                      <div></div>
+                    ) : (
+                      <div>
+                        <label>
+                          <img
+                            className="uploadprovepost1"
+                            src="/img/addphoto.png"
+                          />
+                          <input
+                            id="FileInput"
+                            className="uploadspostcomment"
+                            type="file"
+                            onChange={FileUpload}
+                            multiple
+                            accept="image/png, image/jpeg , image/jpg"
+                          />
+                        </label>
+                      </div>
+                    )}
                   </div>
                   <div className="row imgcommentitempost">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div clsssName="imagecomment1 col-6">
+                            <div clsssName="imagecommentpost1 col-6">
                               <img
                                 key={index}
                                 className="imgpreviewpost1"
@@ -293,7 +363,7 @@ const Listcomment = ({
                       ? imagecomment
                         ? imagecomment.map((doc, index) => {
                             return (
-                              <div className="row">
+                              <div className="col-6">
                                 <img
                                   className="imgpreviewpost1"
                                   src={`${doc.url}`}
@@ -310,18 +380,38 @@ const Listcomment = ({
                           })
                         : null
                       : null}
+                    {imagecomment ? (
+                      <div>
+                        <label>
+                          <img
+                            className="uploadprovepost1"
+                            src="/img/addphoto.png"
+                          />
+                          <input
+                            id="FileInput"
+                            className="uploadspostcomment"
+                            type="file"
+                            onChange={FileUpload}
+                            multiple
+                            accept="image/png, image/jpeg , image/jpg"
+                          />
+                        </label>{" "}
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
                   </div>
                 </div>
               ) : (
                 <div className="post-comment-comments1">
                   <div className="postcomment1">{commentmore.textcomment}</div>
-                  <div className="row imglistcomment">
+                  <div className="imglistcomment">
                     {/* {loading ? <ClipLoader /> : <div></div>} */}
                     {imagecomment
                       ? imagecomment
                         ? imagecomment.map((doc) => {
                             return (
-                              <div className="imglistcomment1 col-6">
+                              <div className="imglistcommentpost1">
                                 <img
                                   className="listcommentpost2"
                                   src={`${doc.url}`}
@@ -336,48 +426,7 @@ const Listcomment = ({
               )}
             </div>
           </div>
-          {user && commentmore.userid == user.uid ? (
-            <div className="column4 postcommentrow2">
-              <div className="menu-containerpostcommentsetting">
-                <div
-                  onClick={() => setIsActive(!isActive)}
-                  className="postcommentbuttonsetting"
-                >
-                  <img
-                    className="postcommentimg-setting"
-                    src="/img/setting.png"
-                    alt="avatar"
-                  />
-                </div>
-
-                <div
-                  className={`postcommentmenusetting ${
-                    isActive ? "active" : "inactive"
-                  }`}
-                >
-                  <ul className="ul-postcommentmenusetting">
-                    <li className="li-postcommentmenusetting">
-                      <a
-                        className="a-postcommentmenusetting"
-                        onClick={() => edit(commentmore.commentid)}
-                      >
-                        แก้ไขคอมเมนต์
-                      </a>
-                    </li>
-                    <li className="li-postcommentmenusetting">
-                      <a
-                        className="a-postcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid)}
-                      >
-                        {" "}
-                        ลบคอมเมนต์{" "}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ) : null}
+         
         </div>
       ) : null}
     </div>

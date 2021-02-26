@@ -107,15 +107,19 @@
   margin-right: 10px;
 }
 
+.imglistcommentmypost1 {
+  margin-left: -40px;
+}
+
 .listcommentmypost2 {
   width: 140px;
   height: 200px;
   object-fit: cover;
   object-position: center;
   margin-top: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 100px;
 }
 
 .imgpreviewmypost1 {
@@ -124,9 +128,9 @@
   object-fit: cover;
   object-position: center;
   margin-top: -15px;
-  margin-left: 25px;
+  margin-left: 65px;
   margin-right: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .uploadprovemypost1 {
@@ -186,7 +190,6 @@
 }
 
 .deleteimgmyposts1 {
-  background-color: rgb(245, 245, 245);
   color: grey;
   border: none;
   border-radius: 50px;
@@ -197,8 +200,8 @@
   height: auto;
   object-fit: cover;
   object-position: center;
-  margin-top: -490px;
-  margin-left: 150px;
+  margin-top: -475px;
+  margin-left: 195px;
   border-radius: 50px;
   cursor: pointer;
   border: none;

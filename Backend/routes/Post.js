@@ -1089,7 +1089,7 @@ router.get("/orderbywebsite", async (req, res) => {
   try {
     const showdata = await firestore
       .collection("Post")
-      .where("social", "==", "อื่นๆ")
+      .where("social", "==", "other")
       .orderBy("date", "desc")
       .limit(4);
     showdata.get().then((element) => {
@@ -1214,9 +1214,10 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
     let files = req.files.photocomment;
     let id = req.params.id;
     let { edittextcomment, photocomment } = req.body;
-    console.log(files);
+    // console.log(files);
+    console.log(photocomment)
 
-
+   
     if (edittextcomment === "" && files === undefined) {
       console.log("ff")
       const commentdelete = await firestore
@@ -1224,11 +1225,13 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
-    }else if(files === undefined){
+    }
+
+    else if(files === undefined){
       const commentedit = await firestore
       .collection("Comment")
       .doc(id)
-      .update({ photocomment: null });
+      .update({ photocomment: "" });
     return res.json({ success: "Delete" });
     }
     if (files) {
