@@ -13,6 +13,8 @@ import "./mypost.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
+import Modalimage from "../components/Modalimage"
+
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
   const [selecttwo, setSelecttwo] = useState("");
@@ -35,6 +37,8 @@ const Mypost = () => {
   const inputTextArea = useRef(null);
   let { user } = useContext(usercontext);
   let { uid } = useParams();
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
   const history = useHistory();
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -52,9 +56,16 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
   };
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
+
   const handleShow = () => setShow(true);
-  const deleted = async (uid) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+  const deleted = async (uid,ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`,ok);
     history.push("/post/history");
   };
 
@@ -452,7 +463,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() => deleted(ok.uid)}
+                                    onClick={() => deleted(ok.uid,ok)}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
@@ -628,22 +639,13 @@ const Mypost = () => {
                                       alt=""
                                       src={`${res.url}`}
                                       style={{ overflow: "hidden" }}
-                                      onMouseOver={(e) =>
-                                        (e.currentTarget.style = {
-                                          transform: "scale(1.25)",
-                                          overflow: "hidden",
-                                        })
-                                      }
-                                      onMouseOut={(e) =>
-                                        (e.currentTarget.style = {
-                                          transform: "scale(1)",
-                                          overflow: "hidden",
-                                        })
-                                      }
+                                     
+                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
                                     />
                                   );
                                 })
                               : null}
+                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
                           </div>
                         </Form>
                         <div className="line-comment1"></div>

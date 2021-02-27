@@ -7,6 +7,8 @@ import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
+import Modalimage from "./Modalimage"
+
 
 const Listcomment2 = ({
   commentmore,
@@ -25,9 +27,17 @@ const Listcomment2 = ({
   const [imagecomment, Setimagecomment] = useState();
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
-
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
 
   let { user, setUser } = useContext(usercontext);
+
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -127,9 +137,9 @@ const Listcomment2 = ({
   };
 
 
-  const deleted = async (commentid) => {
+  const deleted = async (commentid,commentmore) => {
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`
+      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore
     );
     setIsActive(false);
     Setfuck([]);
@@ -297,6 +307,7 @@ const Listcomment2 = ({
                                     overflow: "hidden",
                                   })
                                 }
+
                               />
                               <div className="deleteimgmyposts1">
                                 <img
@@ -316,6 +327,8 @@ const Listcomment2 = ({
                               <img
                                 className="imgpreviewmypost1"
                                 src={doc.url}
+                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+
                               />
                               <div className="deleteimgmyposts1">
                               <img
@@ -329,6 +342,8 @@ const Listcomment2 = ({
                           })
                         : null
                       : null}
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+
                       {(imagecomment || imagesFile) ? (
                         <div>
                           <label>
@@ -365,11 +380,13 @@ const Listcomment2 = ({
                               <img
                                 className="listcommentmypost2"
                                 src={`${doc.url}`}
+                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
                               />
                             </div>
                           );
                         })
                       : null}
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
                   </div>
                 </div>
               )}
@@ -404,7 +421,7 @@ const Listcomment2 = ({
                     <li className="li-mypostcommentmenusetting">
                       <a
                         className="a-mypostcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid)}
+                        onClick={() => deleted(commentmore.commentid,commentmore)}
                       >
                         {" "}
                         ลบคอมเมนต์{" "}

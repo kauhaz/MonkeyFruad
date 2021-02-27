@@ -90,6 +90,8 @@ const Entersearch = () => {
   const [checkothercatalog, Setcheckothercatalog] = useState(false);
   const [searchstart, Setsearchstart] = useState();
   const [searchend, Setsearchend] = useState();
+  const [showdata, Setshowdata] = useState();
+
 
   const [sortvalue, Setsortvalue] = useState("ใหม่ล่าสุด");
 
@@ -102,6 +104,10 @@ const Entersearch = () => {
   let location = useLocation();
   console.log(show);
   const ok = async () => {
+<<<<<<< HEAD
+=======
+    await Setshowdata(location.state.getdata)
+>>>>>>> be6dc519211894b75c77809d6d34733e8c41a02a
     await Setshow(location.state.getdata);
     await Setsearch(location.state.search);
     Setloading(true);
@@ -5016,8 +5022,12 @@ const Entersearch = () => {
     ""
   ) : (
     <div onClick={() => Hiddendropdown()}>
+<<<<<<< HEAD
       {show && show.length !== 0 ? (
         <div>
+=======
+      {showdata && showdata.length !== 0  ? <div>
+>>>>>>> be6dc519211894b75c77809d6d34733e8c41a02a
           {" "}
           <NavbarPage
             SetshowDropdown={SetshowDropdown}

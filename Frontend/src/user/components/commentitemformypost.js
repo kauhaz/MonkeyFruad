@@ -6,7 +6,10 @@ import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
 import Loading from "./clipLoader";
 import _ from "lodash";
+import Modalimage from "./Modalimage"
+
 const { v4: uuidv4 } = require("uuid");
+
 
 const Commentitemformypost = ({ postid }) => {
   let { user } = useContext(usercontext);
@@ -29,6 +32,7 @@ const Commentitemformypost = ({ postid }) => {
 
   let history = useHistory();
   let uuid = uuidv4();
+  
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
 

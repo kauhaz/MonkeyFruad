@@ -9,6 +9,8 @@ import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
+import Modal from 'react-modal'
+import Modalimage from "./Modalimage"
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -34,10 +36,8 @@ const Formpost = ({ check, Setcheck }) => {
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
   const [imagecomment, Setimagecomment] = useState();
+ 
 
-
-  // var { user , setUser} = useContext(usercontext)
-  // let { user , setUser} = useContext(usercontext)
 
   // ฟังก์ชันเปลี่ยนรูปโปร
   const ProfileChange = (event) => {
@@ -211,8 +211,10 @@ const Formpost = ({ check, Setcheck }) => {
     }
   }, [user]);
 
+  
+
   return (
-    <div>
+    <div >
       {loading ? (
         <Loading loading={loading} />
       ) : (
@@ -552,6 +554,7 @@ const Formpost = ({ check, Setcheck }) => {
                               onClick={() => handledeleteimage(index)}
                             />
                           </div>
+                         
                         </div>
                       );
                     })
