@@ -6,11 +6,15 @@ import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
 import Loading from "./clipLoader";
 import _ from "lodash";
+import Modalimage from "./Modalimage"
+
 const { v4: uuidv4 } = require("uuid");
+
 
 const Commentitemformypost = ({ postid }) => {
   let { user } = useContext(usercontext);
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [imagecomment, Setimagecomment] = useState();
+  const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
   const [commentmore, Setcommentmore] = useState();
   const [showcommentall, Setshowcommentall] = useState();
@@ -24,35 +28,98 @@ const Commentitemformypost = ({ postid }) => {
   const [photourl, Setphotourl] = useState();
   const [photopublic_id, Setphotopublic_id] = useState();
   const [loading, SetLoading] = useState(false);
+  const [fuck, Setfuck] = useState([]);
 
   let history = useHistory();
   let uuid = uuidv4();
+  
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    Seterror();
 
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-      reader.onloadend = () => {
-        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
-        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-      };
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
     }
+
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
   };
 
   const handledeleteimage = async (index) => {
     try {
-      imagesFile.splice(index, 1);
-      setImagesFile([...imagesFile]);
+      if (imagesFile) {
+        console.log("b");
+        imagesFile.splice(index, 1);
+        setImagesFile([...imagesFile]);
+      }
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
+      }
 
-      files.splice(index, 1);
-      Setfiles([...files]);
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
+
+      let date = new Date();
+      var myFile = [];
+      if (imagecomment) {
+        imagecomment.forEach(async (doc) => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(
+            new File([data], `filename${uuidv4()}.png`, {
+              type: "image/png",
+              lastModified: date,
+            })
+          );
+        });
+        Setfiles(myFile);
+      }
+      console.log(myFile);
+      if (files) {
+        console.log("d");
+        files.splice(index, 1);
+        Setfiles([...files]);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -84,7 +151,8 @@ const Commentitemformypost = ({ postid }) => {
         );
         Setclick(sentcomment);
         Settextcomment("");
-        setImagesFile([]);
+        setImagesFile();
+        Setfuck([]);
         Setfiles();
         Seterror();
         SetLoading(false);
@@ -203,7 +271,7 @@ const Commentitemformypost = ({ postid }) => {
         </div>
       ) : null}
 
-      <div className="row mypost-comment-comments2">
+      <div className="mypost-comment-comments2">
         <div className="mypost-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
@@ -211,85 +279,111 @@ const Commentitemformypost = ({ postid }) => {
             <img className="img-circle" src="/img/profile.png" />
           )}
         </div>
+        <div className="mypost-section-commment2">
+          <div className="mypost-comment-commentsall">
+            {!imagesFile && !imagecomment ? (
+              <div className="container-img-holder-imgpreview2">
+                <label>
+                  <img className="uploadprove2" src="/img/addphoto.png" />
+                  <input
+                    id="FileInput"
+                    className="uploadsmypostcomment"
+                    type="file"
+                    onChange={FileUpload}
+                    multiple
+                    accept="image/png, image/jpeg , image/jpg"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div></div>
+            )}
 
-        <div className="row mypost-comment-commentsall">
-          <div className="container-img-holder-imgpreview2">
-            <label>
-              <img className="uploadprove2" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadsmypostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
+            <div
+              className="mypost-writecommemt col-lg-6 col-10"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <textarea
+                rows="3"
+                cols="15"
+                className="inputmypostcomment2"
+                placeholder="เขียนความคิดเห็น..."
+                value={textcomment}
+                onChange={(e) => {
+                  Settextcomment(e.target.value);
+                  Seterror();
+                }}
               />
-            </label>
-          </div>
-
-          <div
-            className="mypost-writecommemt col-lg-6 col-10"
-            controlId="exampleForm.ControlTextarea1"
-          >
-            <textarea
-              rows="3"
-              cols="15"
-              className="inputmypostcomment2"
-              placeholder="เขียนความคิดเห็น..."
-              value={textcomment}
-              onChange={(e) => {
-                Settextcomment(e.target.value);
-                Seterror();
-              }}
-            />
-            {/* {loading ? <div><Loading/></div> : null } */}
-          </div>
-          <div>
-            <div className="column2 mypostbuttonsend">
-              <button
-                className="mypostbuttonsends"
-                onClick={() => handlecomment()}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
+              {/* {loading ? <div><Loading/></div> : null } */}
+            </div>
+            <div>
+              <div className="column2 mypostbuttonsend">
+                <button
+                  className="mypostbuttonsends"
+                  onClick={() => handlecomment()}
+                >
+                  <i className="fa fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+            <div className="row imgcommentitem">
+              {imagesFile
+                ? imagesFile.map((imagePreviewUrl, index) => {
+                    return (
+                      <div className="imgcommentitemmypost1 col-6">
+                        {loading ? <Loading /> : null}
+                        <img
+                          key={index}
+                          className="imgpreviewb1"
+                          alt="previewImg"
+                          src={imagePreviewUrl}
+                          style={{ overflow: "hidden" }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1.25)",
+                              overflow: "hidden",
+                            })
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1)",
+                              overflow: "hidden",
+                            })
+                          }
+                        />
+                        <div clsssName="deleteimgmypost1">
+                          <img
+                            className="deleteimgmypost2"
+                            src="/img/delete2.png"
+                            onClick={() => handledeleteimage(index)}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })
+                : null}
+              {imagesFile || imagecomment ? (
+                <div className="container-img-holder-imgpreview1">
+                  <label>
+                    <img src="/img/addphoto.png" />
+                    <input
+                      id="FileInput"
+                      className="uploadspostcomment"
+                      type="file"
+                      onChange={FileUpload}
+                      multiple
+                      accept="image/png, image/jpeg , image/jpg"
+                    />
+                  </label>
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
-          {imagesFile
-            ? imagesFile.map((imagePreviewUrl, index) => {
-                return (
-                  <div>
-                    <img
-                      key={index}
-                      className="imgpreview1"
-                      alt="previewImg"
-                      src={imagePreviewUrl}
-                      style={{ overflow: "hidden" }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1.25)",
-                          overflow: "hidden",
-                        })
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style = {
-                          transform: "scale(1)",
-                          overflow: "hidden",
-                        })
-                      }
-                    />
-                    <div clsssName="deleteimgmypost">
-                      <img
-                        src="/img/delete.png"
-                        onClick={() => handledeleteimage(index)}
-                      />
-                    </div>
-                  </div>
-                );
-              })
-            : null}
-        </div>
 
-        <h1 className="h1-mypostfileerror">{error}</h1>
+          <h1 className="h1-mypostfileerror">{error}</h1>
+        </div>
       </div>
     </div>
   );

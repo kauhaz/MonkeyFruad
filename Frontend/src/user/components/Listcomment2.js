@@ -6,6 +6,10 @@ import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
+import { v4 as uuidv4 } from "uuid";
+import Modalimage from "./Modalimage"
+
+
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -22,51 +26,154 @@ const Listcomment2 = ({
   const [edittextcomment, Setedittextcomment] = useState();
   const [imagecomment, Setimagecomment] = useState();
   const [loading, Setloading] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
+
   let { user, setUser } = useContext(usercontext);
+
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    Seterror();
 
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-      reader.onloadend = () => {
-        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
-        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-      };
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
     }
+
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
   };
 
   const handledeleteimage = async (index) => {
     try {
-      imagesFile.splice(index, 1);
-      setImagesFile([...imagesFile]);
+      if (imagecomment) {
+        console.log("a");
+        imagecomment.splice(index, 1);
+        Setimagecomment([...imagecomment]);
+      }
+      if (imagesFile) {
+        console.log("b");
+        imagesFile.splice(index, 1);
+        setImagesFile([...imagesFile]);
+      }
+      if(imagesFile && imagesFile.length === 0){
+        setImagesFile()
+      }
 
-      files.splice(index, 1);
-      Setfiles([...files]);
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
+
+      let date = new Date();
+      var myFile = [];
+      if (imagecomment) {
+        imagecomment.forEach(async (doc) => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(
+            new File([data], `filename${uuidv4()}.png`, {
+              type: "image/png",
+              lastModified: date,
+            })
+          );
+        });
+        Setfiles(myFile);
+      }
+      console.log(myFile);
+      if (files) {
+        console.log("d");
+        files.splice(index, 1);
+        Setfiles([...files]);
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
-  const deleted = async (commentid) => {
+
+  const deleted = async (commentid,commentmore) => {
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`
+      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore
     );
     setIsActive(false);
+    Setfuck([]);
+    setImagesFile();
+    Setfiles();
     handledeletetorerender();
   };
 
   const edit = async () => {
+    
     Setcheckedittext(true);
     setIsActive(false);
+    var myfuck = []
+    let date = new Date();
+    if (imagecomment) {
+      imagecomment.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
+    }
+    setTimeout(() => {
+      Setfiles([...myfuck])
+    },50)
   };
+
   const handleedit = async (commentid) => {
     try {
       let formdata = new FormData();
@@ -74,14 +181,17 @@ const Listcomment2 = ({
         formdata.append("photocomment", file);
       });
       formdata.append("edittextcomment", edittextcomment);
-      formdata.append("photocomment", commentmore.photocomment);
+      formdata.append("photocomment", imagecomment);
+
       Setloading(true);
       const editcomment = await Axios.post(
         `http://localhost:7000/post/edit/comment/${commentid}`,
         formdata
       );
+
       handleedittorerender();
-      setImagesFile([]);
+      Setfuck([]);
+      setImagesFile();
       Setfiles();
       Setcheckedittext(false);
       Setloading(false);
@@ -94,6 +204,7 @@ const Listcomment2 = ({
     try {
       if (commentmore) {
         Setedittextcomment(commentmore.textcomment);
+        Setimagecomment(commentmore.photocomment);
       }
     } catch (err) {
       console.log(err);
@@ -136,8 +247,8 @@ const Listcomment2 = ({
                   <ClipLoader loading={loading} />
                 </div>
               ) : checkedittext ? (
-                <div className="row">
-                  <div className="commenttextarea">
+                <div className="row commentmypost">
+                  <div className="commenttextareamypost">
                     <textarea
                       value={edittextcomment}
                       onChange={(e) => {
@@ -145,27 +256,42 @@ const Listcomment2 = ({
                       }}
                     ></textarea>
                   </div>
-                  <div className="row mypost-comment-commentsall">
-                    <div className="container-img-holder-imgpreview1">
-                      <label>
-                        <img className="uploadprove1" src="/img/addphoto.png" />
-                        <input
-                          id="FileInput"
-                          className="uploadsmypostcomment"
-                          type="file"
-                          onChange={FileUpload}
-                          multiple
-                          accept="image/png, image/jpeg , image/jpg"
-                        />
-                      </label>
-                    </div>
+                  <div className="buttoncommentmypostsave1">
+                    <button
+                      className="buttoncommentmypostsave2"
+                      onClick={() => handleedit(commentmore.commentid)}
+                    >
+                      บันทึก
+                    </button>
+                  </div>
+
+                  <div className="container-img-holder-imgpreview1">
+                  {(!imagecomment && !imagesFile) ?   <div>
+                          <label>
+                            <img
+                              className="uploadprovepost1"
+                              src="/img/addphoto.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>
+                        </div> :null 
+                      }
+                  </div>
+                  <div className="row imgcommentitemmypost">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div>
+                            <div clsssName="imagecommentmypost1 col-6">
                               <img
                                 key={index}
-                                className="imgpreview1"
+                                className="imgpreviewmypost1"
                                 alt="previewImg"
                                 src={imagePreviewUrl}
                                 style={{ overflow: "hidden" }}
@@ -181,30 +307,63 @@ const Listcomment2 = ({
                                     overflow: "hidden",
                                   })
                                 }
+
                               />
-                              <img
-                                src="/img/delete.png"
-                                onClick={() => handledeleteimage(index)}
-                              />
+                              <div className="deleteimgmyposts1">
+                                <img
+                                  className="deleteimgmyposts2"
+                                  src="/img/delete2.png"
+                                  onClick={() => handledeleteimage(index)}
+                                />
+                              </div>
                             </div>
                           );
                         })
-                      : commentmore
-                      ? commentmore.photocomment
-                        ? commentmore.photocomment.map((doc) => {
-                            return <img src={doc.url}></img>;
+                      : imagecomment
+                      ? imagecomment
+                        ? imagecomment.map((doc , index) => {
+                            return (
+                              <div >
+                              <img
+                                className="imgpreviewmypost1"
+                                src={doc.url}
+                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+
+                              />
+                              <div className="deleteimgmyposts1">
+                              <img
+                                className="deleteimgposts2"
+                                src="/img/delete2.png"
+                                onClick={() => handledeleteimage(index)}
+                              />
+                            </div>
+                            </div>
+                            );
                           })
                         : null
                       : null}
-                  </div>
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
 
-                  <div className="buttoncommentsave1">
-                    <button
-                      className="buttoncommentsave2"
-                      onClick={() => handleedit(commentmore.commentid)}
-                    >
-                      บันทึก
-                    </button>
+                      {(imagecomment || imagesFile) ? (
+                        <div>
+                          <label>
+                            <img
+                              // className="uploadprovepost1"
+                              src="/img/addphoto.png"
+                            />
+                            
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>{" "}
+                        </div>
+                      ) :null
+                      }
                   </div>
                 </div>
               ) : (
@@ -213,22 +372,27 @@ const Listcomment2 = ({
                     {commentmore.textcomment}
                   </div>
 
-                  {commentmore.photocomment
-                    ? commentmore.photocomment.map((doc) => {
-                        return (
-                          <div>
-                            <img
-                              className="imgcommentmypost"
-                              src={`${doc.url}`}
-                            />
-                          </div>
-                        );
-                      })
-                    : null}
+                  <div className="row imglistcommentmypost">
+                    {imagecomment
+                      ? imagecomment.map((doc) => {
+                          return (
+                            <div className="imglistcommentmypost1 col-6">
+                              <img
+                                className="listcommentmypost2"
+                                src={`${doc.url}`}
+                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+                              />
+                            </div>
+                          );
+                        })
+                      : null}
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                  </div>
                 </div>
               )}
             </div>
           </div>
+
           {user && commentmore.userid == user.uid ? (
             <div className="column2 mypostcommentrow2">
               <div className="menu-containermypostcommentsetting">
@@ -237,7 +401,7 @@ const Listcomment2 = ({
                     className="mypostcommentimg-setting"
                     src="/img/setting.png"
                     alt="avatar"
-                  ></img>
+                  />
                 </div>
 
                 <div
@@ -257,7 +421,7 @@ const Listcomment2 = ({
                     <li className="li-mypostcommentmenusetting">
                       <a
                         className="a-mypostcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid)}
+                        onClick={() => deleted(commentmore.commentid,commentmore)}
                       >
                         {" "}
                         ลบคอมเมนต์{" "}
@@ -268,6 +432,7 @@ const Listcomment2 = ({
               </div>
             </div>
           ) : null}
+          
         </div>
       ) : null}
     </div>

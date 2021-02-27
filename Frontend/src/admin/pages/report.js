@@ -1,0 +1,164 @@
+import React, { useEffect, useState } from "react";
+import NavbarPage from "../../user/components/navnew";
+import "../../user/pages/history.css";
+import ListNonverifypost from "../components/list_non_verifypost";
+import Listverifypost from "../components/list_verify_post";
+import Listhidereport from "../components/listhidereport";
+import Axios from "axios";
+const Report = () => {
+  const [verifypost, setverifypost] = useState();
+  const [nonverifypost, setNonverifypost] = useState();
+  const [hidereport, setHidereport] = useState();
+  const [hide, setHide] = useState(false);
+  const [cancleHide, setCancleHide] = useState(false);
+  const [deleteReport, setDeleteReport] = useState(false);
+  const [showDropdown, SetshowDropdown] = useState(true);
+  const [clicknavverify, setClicknavverify] = useState(false);
+  const [clicknavhide, setClicknavhide] = useState(false);
+  const Hiddendropdown = () => {
+    SetshowDropdown(false);
+  };
+  const initReport = async () => {
+    try {
+      const Allreport = await Axios.get(
+        "http://localhost:7000/post/report/non_verify"
+      );
+      setNonverifypost(Allreport.data.report);
+    } catch (err) {
+      console.log("error");
+    }
+  };
+  const NavVerify = async () => {
+    try {
+      const Allreport = await Axios.get(
+        "http://localhost:7000/post/report/verify"
+      );
+      setverifypost(Allreport.data.report);
+      setNonverifypost();
+      setHidereport();
+      setCancleHide(false);
+      setDeleteReport(false);
+      setClicknavverify(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const NavNonVerify = async () => {
+    try {
+      const Allreport = await Axios.get(
+        "http://localhost:7000/post/report/non_verify"
+      );
+      setNonverifypost(Allreport.data.report);
+      setverifypost();
+      setHidereport();
+      setHide(false);
+      setCancleHide(false);
+      setDeleteReport(false);
+    } catch (err) {
+      console.log("error");
+    }
+  };
+  const Navhide = async () => {
+    console.log("OK");
+    try {
+      const Allreport = await Axios.get(
+        "http://localhost:7000/post/report/hide"
+      );
+      setHidereport(Allreport.data.report);
+      setverifypost();
+      setNonverifypost();
+      setHide(false);
+      setClicknavhide(true);
+    } catch (err) {
+      console.log("error");
+    }
+  };
+  const hideClick = () => {
+    setHide(true);
+  };
+  const CancleClick = () => {
+    setCancleHide(true);
+  };
+  const DeleteClick = () => {
+    setDeleteReport(true);
+  };
+  useEffect(() => {
+    if (hide == true) {
+      NavVerify();
+    } else if (cancleHide == true || deleteReport == true) {
+      Navhide();
+    } else {
+      if (clicknavhide == false || clicknavverify == false) {
+        initReport();
+      }
+    }
+  }, [hide, cancleHide, deleteReport]);
+  // console.log("hide", hide);
+  // console.log("canclehide", cancleHide);
+  // console.log("deleteReport", deleteReport);
+  // console.log("clicknavverify", clicknavverify);
+  // console.log("clicknavhide", clicknavhide);
+  return (
+    <div onClick={() => Hiddendropdown()}>
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
+      <h1 className="h1-contractus">รายงานโพสต์</h1>
+      <div className="container-history5">
+        <div className="" onClick={(e) => NavVerify(e)}>
+          ตรวจสอบแล้ว
+        </div>
+        <div className="" onClick={(e) => NavNonVerify(e)}>
+          ยังไม่ตรวจสอบ
+        </div>
+        <div className="" onClick={(e) => Navhide(e)}>
+          ซ่อน
+        </div>
+      </div>
+      {nonverifypost ? (
+        <h2 className="h2-history">ทั้งหมด {nonverifypost.length} รายงาน</h2>
+      ) : (
+        ""
+      )}
+      {nonverifypost
+        ? nonverifypost.map((reportelement) => {
+            return <ListNonverifypost reportelement={reportelement} />;
+          })
+        : null}
+      {verifypost ? (
+        <h2 className="h2-history">ทั้งหมด {verifypost.length} รายงาน</h2>
+      ) : (
+        ""
+      )}
+      {verifypost
+        ? verifypost.map((reportelement) => {
+            return (
+              <Listverifypost
+                reportelement={reportelement}
+                hideClick={hideClick}
+              />
+            );
+          })
+        : null}
+      {hidereport ? (
+        <h2 className="h2-history">ทั้งหมด {hidereport.length} รายงาน</h2>
+      ) : (
+        ""
+      )}
+      {hidereport
+        ? hidereport.map((reportelement) => {
+            return (
+              <Listhidereport
+                reportelement={reportelement}
+                CancleClick={CancleClick}
+                DeleteClick={DeleteClick}
+              />
+            );
+          })
+        : null}
+    </div>
+  );
+};
+
+export default Report;

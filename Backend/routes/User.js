@@ -49,53 +49,70 @@ const uploadFile = (req, res, next) => {
 };
 
 router.post("/signup", async (req, res) => {
-  try {
-    const {
-      firstname,
-      surname,
-      sex,
-      province,
-      email,
-      password,
-      username,
-      phone,
-    } = req.body;
-    console.log(
-      firstname,
-      surname,
-      sex,
-      province,
-      email,
-      password,
-      username,
-      phone
-    );
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        console.log(result);
-        if (result) {
-          const userRef = firestore.collection("User").doc(result.user.uid);
-          userRef.set({
-            uid: result.user.uid,
-            username: username,
-            email: result.user.email,
-            firstname: firstname,
-            surname: surname,
-            sex: sex,
-            phone: phone,
-            province: province,
-            role: "user",
-          });
-          return res.json({ user: result });
-        }
-      })
-      .catch((err) => {
-        res.status(400).json({ error: err });
+  var usernameExist = false;
+  var item = [];
+  const {
+    firstname,
+    surname,
+    sex,
+    province,
+    email,
+    password,
+    username,
+    phone,
+  } = req.body;
+  console.log(
+    firstname,
+    surname,
+    sex,
+    province,
+    email,
+    password,
+    username,
+    phone
+  );
+  await firestore
+    .collection("User")
+    .where("username", "==", username)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        item.push(doc.data());
       });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+      if (item[0] === undefined) {
+        console.log("OK");
+        auth
+          .createUserWithEmailAndPassword(email, password)
+          .then((result) => {
+            console.log(result);
+            if (result) {
+              const userRef = firestore.collection("User").doc(result.user.uid);
+              userRef.set({
+                uid: result.user.uid,
+                username: username,
+                email: result.user.email,
+                firstname: firstname,
+                surname: surname,
+                sex: sex,
+                phone: phone,
+                province: province,
+                role: "user",
+              });
+              return res.json({ user: result, usernameExist: usernameExist });
+            }
+          })
+          .catch((err) => {
+            res.status(400).json({ error: err });
+          });
+      } else if (item[0] !== undefined) {
+        usernameExist = true;
+        return res.json({ usernameExist: usernameExist });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  // console.log("EIEI");
 });
 router.post("/googlesignup", function (req, res) {
   try {
@@ -324,10 +341,30 @@ router.post("/edit/profile/:uid", uploadFile, async (req, res) => {
 
 router.get("/profile/:uid", async (req, res) => {
   try {
-    console.log("ok");
     let getid = req.params.uid;
     const Userdetail = await firestore
       .collection("Post")
+      .where("uid", "==", getid)
+      .get();
+    Userdetail.forEach((doc) => {
+      let item = [];
+      item.push(doc.data());
+
+      return res.json({
+        item,
+      });
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
+
+router.get("/session/:uid", async (req, res) => {
+  try {
+    let getid = req.params.uid;
+    const Userdetail = await firestore
+      .collection("User")
       .where("uid", "==", getid)
       .get();
     Userdetail.forEach((doc) => {

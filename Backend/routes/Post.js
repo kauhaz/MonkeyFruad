@@ -11,7 +11,7 @@ const multer = require("multer");
 const path = require("path");
 const e = require("express");
 const { text } = require("body-parser");
-const { search } = require("../utils/cloudinary");
+const { search, image } = require("../utils/cloudinary");
 
 let storage = multer.diskStorage({
   // destination: (req,file,cb) =>{
@@ -21,7 +21,11 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(
       null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      file.originalname +
+        "-" +
+        Date.now() +
+        "-" +
+        path.extname(file.originalname)
     );
   },
 });
@@ -260,25 +264,46 @@ router.post("/create", uploadFile, async (req, res) => {
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        item,
-        username,
-        photoURL,
-      });
+      if (photoURL.public_id === "undefined") {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          item,
+          username,
+        });
+      } else if (photoURL.public_id !== "undefined") {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          item,
+          username,
+          photoURL,
+        });
+      }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -829,8 +854,19 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
+    let {item , resultfile} = req.body
+    console.log(item)
     var postid = [];
     let getid = req.params.uid;
+    if(item){
+      item.forEach(doc => {
+        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
+      })
+    }
+    if(resultfile){
+        cloudinary.uploader.destroy(resultfile.public_id, function(result) { console.log(result) })
+    }
+    
     const getpost = await firestore
       .collection("Post")
       .where("uid", "==", getid)
@@ -887,7 +923,14 @@ router.post("/delete/:uid", async (req, res) => {
           .delete();
       });
     });
-
+    const deleteReport = await firestore
+      .collection("Report")
+      .where("postid", "==", getid);
+    deleteReport.get().then((element) => {
+      element.forEach(async (doc) => {
+        await firestore.collection("Report").doc(doc.get("uid")).delete();
+      });
+    });
     firestore.collection("Post").doc(getid).delete();
 
     return res.json({ success: "Delete" });
@@ -1068,7 +1111,7 @@ router.get("/orderbywebsite", async (req, res) => {
   try {
     const showdata = await firestore
       .collection("Post")
-      .where("social", "==", "อื่นๆ")
+      .where("social", "==", "other")
       .orderBy("date", "desc")
       .limit(4);
     showdata.get().then((element) => {
@@ -1176,8 +1219,14 @@ router.get("/commentmore/:id", async (req, res) => {
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {
+    let {photocomment} = req.body
+  
     let getid = req.params.uid;
-
+    if(photocomment){
+      photocomment.forEach(doc => {
+        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
+      })
+    }
     const postdelete = await firestore
       .collection("Comment")
       .doc(getid)
@@ -1195,21 +1244,30 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
     let { edittextcomment, photocomment } = req.body;
     console.log(files);
 
-    if (edittextcomment === "" && photocomment === "undefined") {
+    if (edittextcomment === "" && files === undefined) {
+      console.log("ff");
       const commentdelete = await firestore
         .collection("Comment")
         .doc(id)
         .delete();
       return res.json({ success: "Delete" });
+    } else if (files === undefined) {
+      const commentedit = await firestore
+        .collection("Comment")
+        .doc(id)
+        .update({ photocomment: "" });
+      return res.json({ success: "Delete" });
     }
     if (files) {
       let item = [];
       for (const file of files) {
+        console.log(files);
         const { path } = file;
         const resultfiles = await cloudinary.uploader.upload(path);
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
+      console.log(item);
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
@@ -1289,19 +1347,94 @@ router.post("/report/:postid", uploadfilereports, async (req, res) => {
     });
     reportdata.forEach(async (doc) => {
       await firestore.collection("Report").doc(doc.uid).update({
-        count: count
+        count: count,
       });
     });
-    return res.json({msg:"succes"})
+    return res.json({ msg: "succes" });
   } catch (err) {
     console.log(err);
   }
 });
-router.get("/post/report", async (req, res) => {
+router.get("/report/non_verify", async (req, res) => {
   try {
     const report = [];
-    await firestore.collection("Report").get().orderBy("date", desc);
+    await firestore
+      .collection("Report")
+      .where("read", "==", false)
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
     return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.get("/report/verify", async (req, res) => {
+  try {
+    const report = [];
+    await firestore
+      .collection("Report")
+      .where("read", "==", true)
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
+    return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.get("/report/hide", async (req, res) => {
+  try {
+    const report = [];
+    await firestore
+      .collection("Report")
+      .where("read", "==", "hide")
+      .orderBy("date", "desc")
+      .get()
+      .then((element) => {
+        element.forEach((doc) => {
+          report.push(doc.data());
+        });
+      });
+    return res.json({ report });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.post("/report/changeread/:uid", async (req, res) => {
+  try {
+    const reportid = req.params.uid;
+    console.log(reportid);
+    await firestore.collection("Report").doc(reportid).update({ read: true });
+    return res.json({ msg: "success" });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.post("/report/changereadhide/:uid", async (req, res) => {
+  try {
+    const reportid = req.params.uid;
+    console.log(reportid);
+    await firestore.collection("Report").doc(reportid).update({ read: "hide" });
+    return res.json({ msg: "success" });
+  } catch (err) {
+    console.log(err);
+  }
+});
+router.post("/report/delete/:uid", async (req, res) => {
+  try {
+    const reportid = req.params.uid;
+    console.log(reportid);
+    await firestore.collection("Report").doc(reportid).delete();
+    return res.json({ msg: "success" });
   } catch (err) {
     console.log(err);
   }
