@@ -9,6 +9,8 @@ import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
+import Modal from 'react-modal'
+import Modalimage from "./Modalimage"
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -34,11 +36,17 @@ const Formpost = ({ check, Setcheck }) => {
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
   const [imagecomment, Setimagecomment] = useState();
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
 
 
-  // var { user , setUser} = useContext(usercontext)
-  // let { user , setUser} = useContext(usercontext)
+  
 
+
+
+
+
+  Modal.setAppElement('#root')
   // ฟังก์ชันเปลี่ยนรูปโปร
   const ProfileChange = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -211,8 +219,16 @@ const Formpost = ({ check, Setcheck }) => {
     }
   }, [user]);
 
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
+
+console.log(isopen)
   return (
-    <div>
+    <div >
       {loading ? (
         <Loading loading={loading} />
       ) : (
@@ -544,6 +560,7 @@ const Formpost = ({ check, Setcheck }) => {
                                 overflow: "hidden",
                               })
                             }
+                            onClick = {() => (Setimagemodal(imagePreviewUrl),handleopenmodal())}
                           />
                           <div className="deleteimgformposts1">
                             <img
@@ -552,6 +569,7 @@ const Formpost = ({ check, Setcheck }) => {
                               onClick={() => handledeleteimage(index)}
                             />
                           </div>
+                         
                         </div>
                       );
                     })
@@ -575,6 +593,7 @@ const Formpost = ({ check, Setcheck }) => {
                         </div>
                       ) :null
                       }
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>
