@@ -64,10 +64,11 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
         });
         Setsearch("");
         if (getdata) {
+          console.log(getdata)
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
-            state: {
+            state: {  
               getdata,
               search,
             },

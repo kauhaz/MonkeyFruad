@@ -100,25 +100,28 @@ const Post = () => {
     SetshowDropdown(false);
   };
 
+  
+
   const ok = async () => {
-    Setloading(true);
-    if (sortvalue === "ใหม่ล่าสุด") {
-      const getpost = await Axios.get(`http://localhost:7000/post/post`);
-      Setshow(getpost.data.item);
-      var getdata = getpost.data.item;
-    } else if (sortvalue === "จำนวนเงินมากที่สุด") {
-      const getpost = await Axios.get(
-        `http://localhost:7000/post/post/sortmoney`
-      );
-      Setshow(getpost.data.item);
-      var getdata = getpost.data.item;
-    }
+        Setloading(true);
+    const getpost = await Axios.get(`http://localhost:7000/post/post`)
+    Setshow(getpost.data.item)
+    if(sortvalue === "ใหม่ล่าสุด"){
+      var getsort = getpost.data.item.sort((a,b) =>{
+          return b.date.seconds - a.date.seconds
+        })
+       
+      }else if (sortvalue === "จำนวนเงินมากที่สุด"){
+        var getsort = getpost.data.item.sort((a,b) => {
+          return b.money - a.money
+        })
+      }
     Setloading(false);
 
     console.log(result);
     var item = [];
 
-    getdata.filter((doc) => {
+    getsort.filter((doc) => {
       if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
@@ -5763,7 +5766,7 @@ const Post = () => {
                                 src={"/img/profile.png"}
                               />
                             )}
-                            <div className="posts-name1">
+                            <div className="post-name">
                               {res.username ? "@" : null}
                               {res.username}
                             </div>
@@ -6126,7 +6129,7 @@ const Post = () => {
                                       </div>
 
                                       <div className="line-post1"></div>
-                                      <div>
+                                      <div className="container-post6">
                                         <Commentitem postid={res.uid} />
                                       </div>
                                     </div>
