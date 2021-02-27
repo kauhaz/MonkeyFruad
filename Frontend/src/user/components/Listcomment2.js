@@ -310,12 +310,21 @@ const Listcomment2 = ({
                         })
                       : imagecomment
                       ? imagecomment
-                        ? imagecomment.map((doc) => {
+                        ? imagecomment.map((doc , index) => {
                             return (
+                              <div >
                               <img
                                 className="imgpreviewmypost1"
                                 src={doc.url}
-                              ></img>
+                              />
+                              <div className="deleteimgmyposts1">
+                              <img
+                                className="deleteimgposts2"
+                                src="/img/delete2.png"
+                                onClick={() => handledeleteimage(index)}
+                              />
+                            </div>
+                            </div>
                             );
                           })
                         : null
@@ -327,6 +336,7 @@ const Listcomment2 = ({
                               // className="uploadprovepost1"
                               src="/img/addphoto.png"
                             />
+                            
                             <input
                               id="FileInput"
                               className="uploadspostcomment"

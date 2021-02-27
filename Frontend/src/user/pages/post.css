@@ -106,15 +106,13 @@
 }
 
 .container-posts2 {
-  width: 9 0%;
+  width: 90%;
   border-radius: 10px;
   background-color: white;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   font-family: "Kanit", sans-serif;
   font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
@@ -130,7 +128,7 @@
 
 .posts-name1 {
   margin-left: 80px;
-  margin-top: -75px;
+  margin-top: -55px;
   font-size: 20px;
 }
 

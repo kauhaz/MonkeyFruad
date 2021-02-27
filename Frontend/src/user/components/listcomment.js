@@ -31,7 +31,7 @@ const Listcomment = ({
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    
+
     setImagesFile([]);
     var myfuck = [];
     var files = [];
@@ -81,8 +81,7 @@ const Listcomment = ({
   // console.log(imagesFile);
   // console.log(files);
   // console.log(imagecomment)
-  console.log(imagesFile)
-
+  console.log(imagesFile);
 
   const handledeleteimage = async (index) => {
     try {
@@ -96,8 +95,8 @@ const Listcomment = ({
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
-      if(imagesFile && imagesFile.length === 0){
-        setImagesFile()
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
       }
 
       if (fuck) {
@@ -143,10 +142,9 @@ const Listcomment = ({
   };
 
   const edit = async () => {
-    
     Setcheckedittext(true);
     setIsActive(false);
-    var myfuck = []
+    var myfuck = [];
     let date = new Date();
     if (imagecomment) {
       imagecomment.map(async (doc) => {
@@ -164,9 +162,8 @@ const Listcomment = ({
       });
     }
     setTimeout(() => {
-      Setfiles([...myfuck])
-    },50)
-    
+      Setfiles([...myfuck]);
+    }, 50);
   };
   const handleedit = async (commentid) => {
     try {
@@ -213,42 +210,42 @@ const Listcomment = ({
     <div>
       {commentmore ? (
         <div className="postcommentrows">
-            {/* <div class="vl"></div> */}
-            <div className="post-comment-img1">
-              <div className="header-post-comment">
-                <div className="post-profilecomment-img1">
-                  {commentmore.photoURL ? (
-                    <img
-                      className="img-circle"
-                      src={`${commentmore.photoURL.url}`}
-                    />
-                  ) : (
-                    <img className="img-circle" src="/img/profile.png" />
-                  )}
-                </div>
-                <div className="post-comment-name1">
-                  {commentmore ? "@" : null}
-                  {commentmore.username}
-                  <span className="post-comment-time1">
-                    {" "}
-                    {moment(
-                      new Date(commentmore.datetime.seconds * 1000)
-                    ).format("LTS")}{" "}
-                  </span>
-                </div>
-                {user && commentmore.userid == user.uid ? (
+          {/* <div class="vl"></div> */}
+          <div className="post-comment-img1">
+            <div className="header-post-comment">
+              <div className="post-profilecomment-img1">
+                {commentmore.photoURL ? (
+                  <img
+                    className="img-circle"
+                    src={`${commentmore.photoURL.url}`}
+                  />
+                ) : (
+                  <img className="img-circle" src="/img/profile.png" />
+                )}
+              </div>
+              <div className="post-comment-name1">
+                {commentmore ? "@" : null}
+                {commentmore.username}
+                <span className="post-comment-time1">
+                  {" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
+                    "LTS"
+                  )}{" "}
+                </span>
+              </div>
+              {user && commentmore.userid == user.uid ? (
                 <div>
-                <div className="menu-containerpostcommentsetting">
-                  <div
-                    onClick={() => setIsActive(!isActive)}
-                    className="postcommentbuttonsetting"
-                  >
-                    <img
-                      className="postcommentimg-setting"
-                      src="/img/setting.png"
-                      alt="avatar"
-                    />
-                  </div>
+                  <div className="menu-containerpostcommentsetting">
+                    <div
+                      onClick={() => setIsActive(!isActive)}
+                      className="postcommentbuttonsetting"
+                    >
+                      <img
+                        className="postcommentimg-setting"
+                        src="/img/setting.png"
+                        alt="avatar"
+                      />
+                    </div>
 
                     <div
                       className={`postcommentmenusetting ${
@@ -304,34 +301,50 @@ const Listcomment = ({
                   </button>
                 </div>
 
-                  <div className="container-img-holder-imgpreview1">
-                      {(!imagecomment && !imagesFile) ?   <div>
-                          <label>
-                            <img
-                              className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>
-                        </div> :null 
-                      }
-                     
-                  </div>
+                <div className="container-img-holder-imgpreview1">
+                  {!imagecomment && !imagesFile ? (
+                    <div>
+                      <label>
+                        <img
+                          className="uploadprovepost1"
+                          src="/img/addphoto.png"
+                        />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
+                  ) : null}
+                </div>
+                <div>
                   <div className="imgcommentitempost">
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div className="col-6">
+                            <div className="imgcommentitempost1">
                               <img
-                                className="imgpreviewpost1"
-                                src={`${doc.url}`}
+                                key={index}
+                                className="imgpreviewmypost1"
+                                alt="previewImg"
+                                src={imagePreviewUrl}
+                                style={{ overflow: "hidden" }}
+                                onMouseOver={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1.25)",
+                                    overflow: "hidden",
+                                  })
+                                }
+                                onMouseOut={(e) =>
+                                  (e.currentTarget.style = {
+                                    transform: "scale(1)",
+                                    overflow: "hidden",
+                                  })
+                                }
                               />
                               <div className="deleteimgposts1">
                                 <img
@@ -347,7 +360,7 @@ const Listcomment = ({
                       ? imagecomment
                         ? imagecomment.map((doc, index) => {
                             return (
-                              <div className="col-6">
+                              <div>
                                 <img
                                   className="imgpreviewpost1"
                                   src={`${doc.url}`}
@@ -364,27 +377,27 @@ const Listcomment = ({
                           })
                         : null
                       : null}
-                      {(imagecomment || imagesFile) ? (
-                        <div>
-                          <label>
-                            <img
-                              className="uploadprovepost2"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>{" "}
-                        </div>
-                      ) :null
-                      }
+                    {imagecomment || imagesFile ? (
+                      <div>
+                        <label>
+                          <img
+                            className="uploadprovepost2"
+                            src="/img/addphoto.png"
+                          />
+                          <input
+                            id="FileInput"
+                            className="uploadspostcomment"
+                            type="file"
+                            onChange={FileUpload}
+                            multiple
+                            accept="image/png, image/jpeg , image/jpg"
+                          />
+                        </label>{" "}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
+              </div>
             ) : (
               <div className="post-comment-comments2">
                 <div className="postcomment1">{commentmore.textcomment}</div>
@@ -408,7 +421,6 @@ const Listcomment = ({
               </div>
             )}
           </div>
-         
         </div>
       ) : null}
     </div>

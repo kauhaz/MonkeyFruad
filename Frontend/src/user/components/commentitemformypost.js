@@ -280,7 +280,7 @@ const Commentitemformypost = ({ postid }) => {
         </div>
 
         <div className="row mypost-comment-commentsall">
-          <div className="container-img-holder-imgpreview2">
+        {(!imagesFile && !imagecomment) ? <div className="container-img-holder-imgpreview2">
             <label>
               <img className="uploadprove2" src="/img/addphoto.png" />
               <input
@@ -292,8 +292,8 @@ const Commentitemformypost = ({ postid }) => {
                 accept="image/png, image/jpeg , image/jpg"
               />
             </label>
-          </div>
-
+          </div> : <div></div>}
+        
           <div
             className="mypost-writecommemt col-lg-6 col-10"
             controlId="exampleForm.ControlTextarea1"
@@ -357,6 +357,19 @@ const Commentitemformypost = ({ postid }) => {
                   );
                 })
               : null}
+                {(imagesFile || imagecomment) ? <div className="container-img-holder-imgpreview1">
+            <label>
+              <img  src="/img/addphoto.png" />
+              <input
+                id="FileInput"
+                className="uploadspostcomment"
+                type="file"
+                onChange={FileUpload}
+                multiple
+                accept="image/png, image/jpeg , image/jpg"
+              />
+            </label>
+          </div> : <div></div>}
           </div>
         </div>
 
