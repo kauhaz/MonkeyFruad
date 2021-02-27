@@ -5766,7 +5766,7 @@ const Post = () => {
                                 src={"/img/profile.png"}
                               />
                             )}
-                            <div className="post-name">
+                            <div className="posts-name1">
                               {res.username ? "@" : null}
                               {res.username}
                             </div>
