@@ -7,6 +7,8 @@ import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
+import Modalimage from "./Modalimage"
+
 
 const Listcomment = ({
   commentmore,
@@ -25,9 +27,17 @@ const Listcomment = ({
   const [edittextcomment, Setedittextcomment] = useState("");
   const [imagecomment2, Setimagecomment2] = useState();
   const [fuck, Setfuck] = useState([]);
-
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
+
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -363,6 +373,8 @@ const Listcomment = ({
                                 <img
                                   className="imgpreviewpost1"
                                   src={`${doc.url}`}
+                                  onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+
                                 />
                                 <span className="deleteimgposts1">
                                   <img
@@ -376,6 +388,8 @@ const Listcomment = ({
                           })
                         : null
                       : null}
+                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+
                     {imagecomment || imagesFile ? (
                       <div className="uploadproveedits">
                         <label className="uploadproveedits1">
@@ -410,12 +424,14 @@ const Listcomment = ({
                               <img
                                 className="listcommentpost2"
                                 src={`${doc.url}`}
+                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
                               />
                             </div>
                           );
                         })
                       : null
                     : null}
+                  <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
                 </div>
               </div>
             )}

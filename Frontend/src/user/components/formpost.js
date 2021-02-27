@@ -36,8 +36,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
   const [imagecomment, Setimagecomment] = useState();
-  const [isopen, Setisopen] = useState(false);
-  const [imagemodal, Setimagemodal] = useState();
+ 
 
 
   // ฟังก์ชันเปลี่ยนรูปโปร
@@ -212,14 +211,8 @@ const Formpost = ({ check, Setcheck }) => {
     }
   }, [user]);
 
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  
 
-console.log(isopen)
   return (
     <div >
       {loading ? (
@@ -553,7 +546,6 @@ console.log(isopen)
                                 overflow: "hidden",
                               })
                             }
-                            onClick = {() => (Setimagemodal(imagePreviewUrl),handleopenmodal())}
                           />
                           <div className="deleteimgformposts1">
                             <img
@@ -586,7 +578,6 @@ console.log(isopen)
                         </div>
                       ) :null
                       }
-                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>

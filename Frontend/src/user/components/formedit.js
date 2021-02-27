@@ -8,6 +8,8 @@ import _ from "lodash";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
+import Modalimage from "./Modalimage"
+
 
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -33,7 +35,8 @@ const Formedit = ({ check, Setcheck }) => {
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
   const [imagepost, Setimagepost] = useState();
-
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
 
   // const [files, setfiles] = useState();
 
@@ -106,6 +109,12 @@ const Formedit = ({ check, Setcheck }) => {
   // console.log(imagecomment)
   console.log(imagesFile)
 
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
 
   const handledeleteimage = async (index) => {
     try {
@@ -657,6 +666,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     <img
                                       className="imgpreviewedit"
                                       src={`${res.url}`}
+                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
                                     />
                                     <div className="deleteimgformposts1">
                                     <img
@@ -669,6 +679,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   );
                                 })
                               : null}
+                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
                               {(imagepost || imagesFile) ? (
                         <div>
                           <label>

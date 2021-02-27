@@ -34,22 +34,10 @@ const Modalimage = ({isopen,handleopenmodal,handleclosemodal , imagemodal}) =>{
         >
             <img
                             
-                            className="imgpreview"
                             alt="previewImg"
                             src={imagemodal}
                             style={{ overflow: "hidden" }}
-                            onMouseOver={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1.25)",
-                                overflow: "hidden",
-                              })
-                            }
-                            onMouseOut={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1)",
-                                overflow: "hidden",
-                              })
-                            }
+                           
                           />
            </Modal>
         </div>
