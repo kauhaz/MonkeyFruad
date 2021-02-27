@@ -297,7 +297,7 @@ const Commentitem = ({ postid }) => {
             {!imagesFile && !imagecomment ? (
               <div className="container-img-holder-imgpreview1">
                 <label>
-                  <img className="uploadprove1" src="/img/addphoto.png" />
+                  <img className="uploadprove1" src="/img/addimg.png" />
                   <input
                     id="FileInput"
                     className="uploadspostcomment"
@@ -345,45 +345,32 @@ const Commentitem = ({ postid }) => {
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
-                    <div className="imgcommentitem1">
+                    <div className="postdelete">
                       {loading ? <ClipLoader /> : null}
                       <img
                         key={index}
                         className="imgpreviewa1"
                         alt="previewImg"
                         src={imagePreviewUrl}
-                        style={{ overflow: "hidden" }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1.25)",
-                            overflow: "hidden",
-                          })
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1)",
-                            overflow: "hidden",
-                          })
-                        }
                       />
-                      {/* <div className="deleteimgpost1"> */}
-                      <img
-                        className="deleteimgpost2"
-                        src="/img/delete2.png"
-                        onClick={() => handledeleteimage(index)}
-                      />
+                      <span className="deleteimgposts1">
+                        <img
+                          className="deleteimgposts2"
+                          src="/img/delete2.png"
+                          onClick={() => handledeleteimage(index)}
+                        />
+                      </span>
                     </div>
-                    //  </div>
                   );
                 })
               : null}
             {imagesFile || imagecomment ? (
-              <div className="container-img-holder-imgpreview1">
-                <label>
-                  <img className="uploadproveedit" src="/img/adds.png" />
+              <div className="uploadproveedit">
+                <label className="uploadproveedit1">
+                  <img className="uploadproveedit2" src="/img/last1.png" />
                   <input
                     id="FileInput"
-                    className="uploadspostcomment1"
+                    className="uploadspostcomment"
                     type="file"
                     onChange={FileUpload}
                     multiple

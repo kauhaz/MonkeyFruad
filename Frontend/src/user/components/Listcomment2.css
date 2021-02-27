@@ -123,14 +123,9 @@
 }
 
 .imgpreviewmypost1 {
-  width: 140px;
-  height: 200px;
+  width: 100%;
   object-fit: cover;
   object-position: center;
-  margin-top: -15px;
-  margin-left: 65px;
-  margin-right: 10px;
-  margin-bottom: 20px;
 }
 
 .uploadprovemypost1 {
