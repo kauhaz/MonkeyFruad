@@ -40,13 +40,6 @@ const Formpost = ({ check, Setcheck }) => {
   const [imagemodal, Setimagemodal] = useState();
 
 
-  
-
-
-
-
-
-  Modal.setAppElement('#root')
   // ฟังก์ชันเปลี่ยนรูปโปร
   const ProfileChange = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ

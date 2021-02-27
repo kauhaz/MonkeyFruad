@@ -127,9 +127,9 @@ const Listcomment2 = ({
   };
 
 
-  const deleted = async (commentid) => {
+  const deleted = async (commentid,commentmore) => {
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`
+      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore
     );
     setIsActive(false);
     Setfuck([]);
@@ -404,7 +404,7 @@ const Listcomment2 = ({
                     <li className="li-mypostcommentmenusetting">
                       <a
                         className="a-mypostcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid)}
+                        onClick={() => deleted(commentmore.commentid,commentmore)}
                       >
                         {" "}
                         ลบคอมเมนต์{" "}

@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from 'react-modal'
 
 const Modalimage = ({isopen,handleopenmodal,handleclosemodal , imagemodal}) =>{
+  Modal.setAppElement('#root')
     const customStyles = {
         content : {
           top                   : '50%',

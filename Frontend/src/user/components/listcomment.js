@@ -129,11 +129,13 @@ const Listcomment = ({
       console.log(err);
     }
   };
-
-  const deleted = async (commentid) => {
+  if(commentmore && commentmore.photocomment){
+    console.log(commentmore.photocomment)
+  }
+  const deleted = async (commentid,commentmore) => {
+      console.log(commentmore)
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`
-    );
+      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore);
     setIsActive(false);
     Setfuck([]);
     setImagesFile();
@@ -264,7 +266,7 @@ const Listcomment = ({
                         <li className="li-postcommentmenusetting">
                           <a
                             className="a-postcommentmenusetting"
-                            onClick={() => deleted(commentmore.commentid)}
+                            onClick={() => deleted(commentmore.commentid,commentmore)}
                           >
                             {" "}
                             ลบคอมเมนต์{" "}

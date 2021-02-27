@@ -53,8 +53,8 @@ const Mypost = () => {
     SetErrorNotselect(false);
   };
   const handleShow = () => setShow(true);
-  const deleted = async (uid) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+  const deleted = async (uid,ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`,ok);
     history.push("/post/history");
   };
 
@@ -452,7 +452,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() => deleted(ok.uid)}
+                                    onClick={() => deleted(ok.uid,ok)}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
