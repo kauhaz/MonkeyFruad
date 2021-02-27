@@ -5,7 +5,8 @@ import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Chatbot from "../components/chatbot";
-import { Form, Col,  } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
+import ClipLoader from "../components/clipLoader";
 import "./findthief.css";
 
 const Findthief = () => {
@@ -14,6 +15,7 @@ const Findthief = () => {
   let { uid } = useParams();
 
   const [show, Setshow] = useState();
+  const [loading, Setloading] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
 
   const ok = async () => {
@@ -31,15 +33,14 @@ const Findthief = () => {
   console.log(show);
   return (
     <div onClick={() => Hiddendropdown()}>
-      
-          <NavbarPage
-            SetshowDropdown={SetshowDropdown}
-            showDropdown={showDropdown}
-          />
+      <NavbarPage
+        SetshowDropdown={SetshowDropdown}
+        showDropdown={showDropdown}
+      />
       <div className="container-bigpost1">
         <div className="row postbigrow">
           <div className="column-post-left1">
-              <Link to={`/linkruleshow/`}>
+            <Link to={`/linkruleshow/`}>
               <div className="container-post1">
                 <div className="row postrow">
                   <div className="column1-postrow1">
@@ -56,7 +57,15 @@ const Findthief = () => {
               </div>
             </Link>
 
-            <div>
+            <h1 className="h1-posts">
+              {" "}
+              ผลการค้นหา ... มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
+            </h1>
+
+            {loading ? (
+              <ClipLoader />
+            ) : (
+              <div>
                 {show ? (
                   show.map((res) => {
                     return (
@@ -147,25 +156,6 @@ const Findthief = () => {
                                   <Form.Group
                                     as={Col}
                                     className="post-left col-lg-6 col-12"
-                                    controlId="formGridPrice"
-                                  >
-                                    <Form.Label>จำนวนเงิน</Form.Label>
-                                  </Form.Group>
-
-                                  <Form.Group>
-                                    <span className="spanpost">
-                                      {res.money.toLocaleString(undefined, {
-                                        maximumFractionDigits: 2,
-                                      })}{" "}
-                                      บาท
-                                    </span>
-                                  </Form.Group>
-                                </Form.Row>
-
-                                <Form.Row>
-                                  <Form.Group
-                                    as={Col}
-                                    className="post-left col-lg-6 col-12"
                                     controlId="formGridDate"
                                   >
                                     <Form.Label>วันที่โดนโกง</Form.Label>
@@ -176,45 +166,6 @@ const Findthief = () => {
                                       {moment(
                                         new Date(res.datetimes.seconds * 1000)
                                       ).format("MM/DD/YYYY HH:mm")}{" "}
-                                    </span>
-                                  </Form.Group>
-                                </Form.Row>
-
-                                <Form.Row>
-                                  <Form.Group
-                                    as={Col}
-                                    className="post-left col-lg-6 col-12"
-                                    controlId="formGridDate"
-                                  >
-                                    <Form.Label>
-                                      จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                      ถูกแจ้ง{" "}
-                                    </Form.Label>
-                                  </Form.Group>
-                                  <Form.Group>
-                                    <span className="spanpost">
-                                      {res.count} ครั้ง
-                                    </span>
-                                  </Form.Group>
-                                </Form.Row>
-                                <Form.Row>
-                                  <Form.Group
-                                    as={Col}
-                                    className="post-left col-lg-6 col-12"
-                                    controlId="formGridPrice"
-                                  >
-                                    <Form.Label>
-                                      {" "}
-                                      ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                    </Form.Label>
-                                  </Form.Group>
-
-                                  <Form.Group>
-                                    <span className="spanpost">
-                                      {res.summoney.toLocaleString(undefined, {
-                                        maximumFractionDigits: 2,
-                                      })}{" "}
-                                      บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -231,20 +182,21 @@ const Findthief = () => {
                                 </Link>
                               </div>
                             </div>
-
-                            <div className="line-posts1"></div>
-                          
                           </div>
-
                         </div>
                       </div>
                     );
                   })
-                ) : null}
+                ) : (
+                  <div> {loading ? <ClipLoader /> : null}</div>
+                )}
               </div>
+            )}
+            <div className="container-bottoms"></div>
+          </div>
 
-                  <div className="column-post-right1">
-                  <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+          <div className="column-post-right1">
+            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
                   ติดต่อเพจน้องพะโล้ <br />
@@ -255,11 +207,10 @@ const Findthief = () => {
                 </div>
               </div>
             </a>
-                 </div>
-            </div>
           </div>
         </div>
-        <Chatbot />{" "}
+      </div>
+      <Chatbot />
     </div>
   );
 };

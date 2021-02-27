@@ -14,7 +14,6 @@
 .column-post-right1 {
   width: 34%;
   height: 50px;
-  /* background-color: rgb(255, 0, 128); */
 }
 
 .h1-posts {
@@ -83,8 +82,6 @@
   text-align: center;
   color: white;
   padding: 0.5rem;
-  /* margin-top: 10px;
-    margin-left: 50px; */
 }
 
 .buttonpost:hover {
@@ -143,15 +140,6 @@
   margin-left: 20px;
   color: grey;
 }
-
-/* .container-post3 {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 20px;
-  font-family: "Kanit", sans-serif;
-  font-size: 20px;
-} */
 
 .container-left {
   width: 30%;
@@ -371,7 +359,6 @@
   font-size: 17px;
   background-color: #3c6fce;
   margin-left: 15px;
-  /* margin-top: 10px; */
   border: none;
   border-radius: 0.5rem;
   font-size: 20px;
