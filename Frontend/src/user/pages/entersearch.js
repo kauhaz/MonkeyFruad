@@ -92,7 +92,6 @@ const Entersearch = () => {
   const [searchend, Setsearchend] = useState();
   const [showdata, Setshowdata] = useState();
 
-
   const [sortvalue, Setsortvalue] = useState("ใหม่ล่าสุด");
 
   const [error, Seterror] = useState();
@@ -104,10 +103,7 @@ const Entersearch = () => {
   let location = useLocation();
   console.log(show);
   const ok = async () => {
-<<<<<<< HEAD
-=======
-    await Setshowdata(location.state.getdata)
->>>>>>> be6dc519211894b75c77809d6d34733e8c41a02a
+    await Setshowdata(location.state.getdata);
     await Setshow(location.state.getdata);
     await Setsearch(location.state.search);
     Setloading(true);
@@ -5022,12 +5018,8 @@ const Entersearch = () => {
     ""
   ) : (
     <div onClick={() => Hiddendropdown()}>
-<<<<<<< HEAD
-      {show && show.length !== 0 ? (
+      {showdata && showdata.length !== 0 ? (
         <div>
-=======
-      {showdata && showdata.length !== 0  ? <div>
->>>>>>> be6dc519211894b75c77809d6d34733e8c41a02a
           {" "}
           <NavbarPage
             SetshowDropdown={SetshowDropdown}
@@ -5052,6 +5044,13 @@ const Entersearch = () => {
                     </div>
                   </div>
                 </Link>
+
+                <h1 className="h1-posts">
+                  {" "}
+                  ผลการค้นหา ... มีโพสต์ทั้งหมด {show ? show.length : null}{" "}
+                  โพสต์
+                </h1>
+
                 {loading ? (
                   <ClipLoader />
                 ) : (
@@ -5087,153 +5086,88 @@ const Entersearch = () => {
                                 </div>
                               </div>
 
-                              <div className="container-post3">
-                                <div className="container-post4">
-                                  <Form className="formsize-post">
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="้post-left col-lg-6 col-12"
-                                        controlId="formGridName"
-                                      >
-                                        <Form.Label>
-                                          ชื่อ - นามสกุลผู้โกง
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.name} {res.surname}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridId"
-                                      >
-                                        <Form.Label>
-                                          เลขที่บัญชี (ผู้โกง)
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.accountnumber}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridNameproduct"
-                                      >
-                                        <Form.Label>ชื่อสินค้า</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.nameproduct}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>จำนวนเงิน</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.money.toLocaleString(undefined, {
-                                            maximumFractionDigits: 2,
-                                          })}{" "}
-                                          บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>วันที่โดนโกง</Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {moment(
-                                            new Date(
-                                              res.datetimes.seconds * 1000
-                                            )
-                                          ).format("MM/DD/YYYY HH:mm")}{" "}
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridDate"
-                                      >
-                                        <Form.Label>
-                                          จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                          ถูกแจ้ง{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.count} ครั้ง
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                    <Form.Row>
-                                      <Form.Group
-                                        as={Col}
-                                        className="post-left col-lg-6 col-12"
-                                        controlId="formGridPrice"
-                                      >
-                                        <Form.Label>
-                                          {" "}
-                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                        </Form.Label>
-                                      </Form.Group>
-
-                                      <Form.Group>
-                                        <span className="spanpost">
-                                          {res.summoney.toLocaleString(
-                                            undefined,
-                                            {
-                                              maximumFractionDigits: 2,
-                                            }
-                                          )}{" "}
-                                          บาท
-                                        </span>
-                                      </Form.Group>
-                                    </Form.Row>
-                                  </Form>
-                                  <div className="postothers">
-                                    <Link
-                                      className="postothers1"
-                                      onClick={() => (
-                                        history.push(`/mypost/${res.uid}`),
-                                        window.location.reload(true)
-                                      )}
+                              <div className="container-posts3">
+                                <Form className="formsize-post">
+                                  <Form.Row>
+                                    <Form.Group
+                                      as={Col}
+                                      className="้post-left col-lg-6 col-12"
+                                      controlId="formGridName"
                                     >
-                                      ดูเพิ่มเติม
-                                    </Link>
-                                  </div>
+                                      <Form.Label>
+                                        ชื่อ - นามสกุลผู้โกง
+                                      </Form.Label>
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                      <span className="spanpost">
+                                        {res.name} {res.surname}
+                                      </span>
+                                    </Form.Group>
+                                  </Form.Row>
+
+                                  <Form.Row>
+                                    <Form.Group
+                                      as={Col}
+                                      className="post-left col-lg-6 col-12"
+                                      controlId="formGridId"
+                                    >
+                                      <Form.Label>
+                                        เลขที่บัญชี (ผู้โกง)
+                                      </Form.Label>
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                      <span className="spanpost">
+                                        {res.accountnumber}
+                                      </span>
+                                    </Form.Group>
+                                  </Form.Row>
+
+                                  <Form.Row>
+                                    <Form.Group
+                                      as={Col}
+                                      className="post-left col-lg-6 col-12"
+                                      controlId="formGridNameproduct"
+                                    >
+                                      <Form.Label>ชื่อสินค้า</Form.Label>
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                      <span className="spanpost">
+                                        {res.nameproduct}{" "}
+                                      </span>
+                                    </Form.Group>
+                                  </Form.Row>
+
+                                  <Form.Row>
+                                    <Form.Group
+                                      as={Col}
+                                      className="post-left col-lg-6 col-12"
+                                      controlId="formGridDate"
+                                    >
+                                      <Form.Label>วันที่โดนโกง</Form.Label>
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                      <span className="spanpost">
+                                        {moment(
+                                          new Date(res.datetimes.seconds * 1000)
+                                        ).format("MM/DD/YYYY HH:mm")}{" "}
+                                      </span>
+                                    </Form.Group>
+                                  </Form.Row>
+                                </Form>
+                                <div className="postothers">
+                                  <Link
+                                    className="postother1"
+                                    onClick={() => (
+                                      history.push(`/mypost/${res.uid}`),
+                                      window.location.reload(true)
+                                    )}
+                                  >
+                                    ดูเพิ่มเติม
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -5251,200 +5185,125 @@ const Entersearch = () => {
                               result.map((res) => {
                                 return (
                                   <div>
-                                    <div className="container-postcomment2">
-                                      <div className="container-postcomment3">
-                                        <div className="post-profile-img">
-                                          {res.photoURL ? (
-                                            <img
-                                              className="img-circle"
-                                              src={`${res.photoURL.url}`}
-                                            />
-                                          ) : (
-                                            <img
-                                              className="img-circle"
-                                              src={"/img/profile.png"}
-                                            />
-                                          )}
-                                          <div className="post-name">
-                                            {res.username ? "@" : null}
-                                            {res.username}
-                                          </div>
-                                          <br />
-                                          <div className="post-date">
-                                            <span className="post-time">
-                                              {moment(
-                                                new Date(
-                                                  res.date.seconds * 1000
-                                                )
-                                              ).format("MM/DD/YYYY HH:mm")}{" "}
-                                            </span>
-                                          </div>
+                                    <div className="container-posts2">
+                                      <div className="post-profile-img">
+                                        {res.photoURL ? (
+                                          <img
+                                            className="img-circle"
+                                            src={`${res.photoURL.url}`}
+                                          />
+                                        ) : (
+                                          <img
+                                            className="img-circle"
+                                            src={"/img/profile.png"}
+                                          />
+                                        )}
+                                        <div className="posts-name1">
+                                          {res.username ? "@" : null}
+                                          {res.username}
                                         </div>
+                                        <br />
+                                        <div className="post-date">
+                                          <span className="post-time">
+                                            {moment(
+                                              new Date(res.date.seconds * 1000)
+                                            ).format("MM/DD/YYYY HH:mm")}{" "}
+                                          </span>
+                                        </div>
+                                      </div>
 
-                                        <div className="container-post4">
-                                          <div className="container-post5">
-                                            <Form className="formsize-post">
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="้post-left col-lg-6 col-12"
-                                                  controlId="formGridName"
-                                                >
-                                                  <Form.Label>
-                                                    ชื่อ - นามสกุลผู้โกง
-                                                  </Form.Label>
-                                                </Form.Group>
+                                      <div className="container-posts3">
+                                        <Form className="formsize-post">
+                                          <Form.Row>
+                                            <Form.Group
+                                              as={Col}
+                                              className="้post-left col-lg-6 col-12"
+                                              controlId="formGridName"
+                                            >
+                                              <Form.Label>
+                                                ชื่อ - นามสกุลผู้โกง
+                                              </Form.Label>
+                                            </Form.Group>
 
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.name} {res.surname}
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
+                                            <Form.Group>
+                                              <span className="spanpost">
+                                                {res.name} {res.surname}
+                                              </span>
+                                            </Form.Group>
+                                          </Form.Row>
 
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridId"
-                                                >
-                                                  <Form.Label>
-                                                    เลขที่บัญชี (ผู้โกง)
-                                                  </Form.Label>
-                                                </Form.Group>
+                                          <Form.Row>
+                                            <Form.Group
+                                              as={Col}
+                                              className="post-left col-lg-6 col-12"
+                                              controlId="formGridId"
+                                            >
+                                              <Form.Label>
+                                                เลขที่บัญชี (ผู้โกง)
+                                              </Form.Label>
+                                            </Form.Group>
 
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.accountnumber}
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
+                                            <Form.Group>
+                                              <span className="spanpost">
+                                                {res.accountnumber}
+                                              </span>
+                                            </Form.Group>
+                                          </Form.Row>
 
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridNameproduct"
-                                                >
-                                                  <Form.Label>
-                                                    ชื่อสินค้า
-                                                  </Form.Label>
-                                                </Form.Group>
+                                          <Form.Row>
+                                            <Form.Group
+                                              as={Col}
+                                              className="post-left col-lg-6 col-12"
+                                              controlId="formGridNameproduct"
+                                            >
+                                              <Form.Label>
+                                                ชื่อสินค้า
+                                              </Form.Label>
+                                            </Form.Group>
 
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.nameproduct}{" "}
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
+                                            <Form.Group>
+                                              <span className="spanpost">
+                                                {res.nameproduct}{" "}
+                                              </span>
+                                            </Form.Group>
+                                          </Form.Row>
 
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridPrice"
-                                                >
-                                                  <Form.Label>
-                                                    จำนวนเงิน
-                                                  </Form.Label>
-                                                </Form.Group>
+                                          <Form.Row>
+                                            <Form.Group
+                                              as={Col}
+                                              className="post-left col-lg-6 col-12"
+                                              controlId="formGridDate"
+                                            >
+                                              <Form.Label>
+                                                วันที่โดนโกง
+                                              </Form.Label>
+                                            </Form.Group>
 
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.money.toLocaleString(
-                                                      undefined,
-                                                      {
-                                                        maximumFractionDigits: 2,
-                                                      }
-                                                    )}{" "}
-                                                    บาท
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
-
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridDate"
-                                                >
-                                                  <Form.Label>
-                                                    วันที่โดนโกง
-                                                  </Form.Label>
-                                                </Form.Group>
-
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {moment(
-                                                      new Date(
-                                                        res.datetimes.seconds *
-                                                          1000
-                                                      )
-                                                    ).format(
-                                                      "MM/DD/YYYY HH:mm"
-                                                    )}{" "}
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
-
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridDate"
-                                                >
-                                                  <Form.Label>
-                                                    จำนวนครั้งที่ {res.name}{" "}
-                                                    {res.surname} ถูกแจ้ง{" "}
-                                                  </Form.Label>
-                                                </Form.Group>
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.count} ครั้ง
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
-                                              <Form.Row>
-                                                <Form.Group
-                                                  as={Col}
-                                                  className="post-left col-lg-6 col-12"
-                                                  controlId="formGridPrice"
-                                                >
-                                                  <Form.Label>
-                                                    {" "}
-                                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                                  </Form.Label>
-                                                </Form.Group>
-
-                                                <Form.Group>
-                                                  <span className="spanpost">
-                                                    {res.summoney.toLocaleString(
-                                                      undefined,
-                                                      {
-                                                        maximumFractionDigits: 2,
-                                                      }
-                                                    )}{" "}
-                                                    บาท
-                                                  </span>
-                                                </Form.Group>
-                                              </Form.Row>
-                                            </Form>
-                                            <div className="postother">
-                                              <Link
-                                                className="postother1"
-                                                onClick={() => (
-                                                  history.push(
-                                                    `/mypost/${res.uid}`
-                                                  ),
-                                                  window.location.reload(true)
-                                                )}
-                                              >
-                                                ดูเพิ่มเติม
-                                              </Link>
-                                            </div>
-                                          </div>
-
-                                          <div className="line-post1"></div>
+                                            <Form.Group>
+                                              <span className="spanpost">
+                                                {moment(
+                                                  new Date(
+                                                    res.datetimes.seconds * 1000
+                                                  )
+                                                ).format(
+                                                  "MM/DD/YYYY HH:mm"
+                                                )}{" "}
+                                              </span>
+                                            </Form.Group>
+                                          </Form.Row>
+                                        </Form>
+                                        <div className="postother">
+                                          <Link
+                                            className="postother1"
+                                            onClick={() => (
+                                              history.push(
+                                                `/mypost/${res.uid}`
+                                              ),
+                                              window.location.reload(true)
+                                            )}
+                                          >
+                                            ดูเพิ่มเติม
+                                          </Link>
                                         </div>
                                       </div>
                                     </div>
