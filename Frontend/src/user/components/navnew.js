@@ -11,13 +11,13 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
 } from "mdbreact";
-import { BrowserRouter as Router,useHistory } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import "./navnew.css";
 import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 import { Nav } from "react-bootstrap";
-const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
+const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
   const [admin, setAdmin] = useState(false);
@@ -64,11 +64,11 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
         });
         Setsearch("");
         if (getdata) {
-          console.log(getdata)
+          console.log(getdata);
           history.push({
             pathname: "/entersearch",
             search: "?are you ok",
-            state: {  
+            state: {
               getdata,
               search,
             },
@@ -87,7 +87,7 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
-    
+
       if (search) {
         Seterror();
         Setlastsearch(
@@ -163,28 +163,10 @@ const NavbarPage = ({  SetshowDropdown, showDropdown }) => {
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
-              <Nav.Link href="/managepost"> จัดการโพสต์ </Nav.Link>
+              <Nav.Link href="/"> จัดการโพสต์ </Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">ดูรายงาน</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="/non_verifypost">
-                    ยังไม่ตรวจสอบ
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="/verifypost">
-                    ตรวจสอบแล้ว
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="/hidereport">
-                   รายงานที่ถูกซ่อน
-                  </MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-            <MDBNavItem>
-              <Nav.Link href="/contractus">ติดต่อเรา</Nav.Link>
+              <Nav.Link href="/report">ดูรายงาน</Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
               <Nav.Link onClick={logout} href="/login">

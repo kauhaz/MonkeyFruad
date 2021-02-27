@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./contractus.css";
 import NavbarPage from "../../user/components/navnew";
 const Managepost = () => {
 

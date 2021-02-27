@@ -25,12 +25,11 @@ import Profile from "./user/pages/profile";
 import Editprofile from "./user/pages/editprofile";
 import Changepass from "./user/pages/changpass";
 import SeepostAdmin from "./admin/pages/seepost";
-import ContractusAdmin from "./admin/pages/contractus";
 import Managepost from "./admin/pages/managepost";
 import Non_verifypost from "./admin/pages/non_verifypost";
 import Verifypost from "./admin/pages/verifypost";
 import Hidereport from "./admin/pages/hidereport";
-import Reportnew from "./admin/pages/reportnew";
+import Report from "./admin/pages/report";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
@@ -72,17 +71,14 @@ const App = () => {
           <Route path="/non_verifypost" exact>
             <Non_verifypost />
           </Route>
-          <Route path="/reportpost" exact>
-            <Reportnew  />
+          <Route path="/report" exact>
+            <Report />
           </Route>
           <Route path="/verifypost" exact>
             <Verifypost />
           </Route>
           <Route path="/hidereport" exact>
             <Hidereport />
-          </Route>
-          <Route path="/contractus" exact>
-            <ContractusAdmin />
           </Route>
           <Route path="/post/:uid" exact>
             <SeepostAdmin />

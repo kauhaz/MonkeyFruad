@@ -18,6 +18,7 @@ const Seepost = () => {
   const [files, Setfiles] = useState("");
   const inputTextArea = useRef(null);
   let { uid } = useParams();
+  const history = useHistory();
   const ok = async () => {
     try {
       const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
@@ -26,7 +27,11 @@ const Seepost = () => {
       console.log(err);
     }
   };
-
+  const deleteClick = async (e) => {
+    e.preventDefault();
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+    history.push("/report");
+  };
   useEffect(() => {
     ok();
   }, []);
@@ -41,6 +46,13 @@ const Seepost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
+                      <button
+                        onClick={(e) => deleteClick(e)}
+                        variant="primary"
+                        className="mypostbuttonreported"
+                      >
+                        ลบโพสต์
+                      </button>
                       <div className="cotainer-mypost2">
                         <div className="mypost-profile-img">
                           {ok.photoURL ? (
