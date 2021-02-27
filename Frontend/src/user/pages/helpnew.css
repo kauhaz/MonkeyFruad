@@ -474,6 +474,7 @@
     .container-helpnew2{
         width: 70%;
         height: 1660px;
+        margin-bottom: 70px;
     }
     .card-helpnew2 {
         width: 265px;
@@ -534,7 +535,7 @@
     }
     .container-helpnew2{
         width: 70%;
-        height: 1660px;
+        height: 1600px;
     }
     .card-helpnew2 {
         width: 265px;
@@ -587,7 +588,7 @@
     }
     .container-helpnew2{
         width: 60%;
-        height: 1660px;
+        height: 1600px;
     }
     .card-helpnew2 {
         width: 245px;
