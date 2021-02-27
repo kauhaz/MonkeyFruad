@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import "./profile.css";
+import "./editprofile.css";
 import Chatbot from "../components/chatbot";
 import axios from "axios";
 import NavbarPage from "../components/navnew";
@@ -119,12 +119,12 @@ const EditProfile = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <div className="container-signup">
-        <form className="LoginForm" onSubmit={SubmitHandle}>
-          <p className="h2 text-center mb-2 font-weight-bold text1-signup">
+      <div className="container-editprofile">
+        <form className="EditProfileForm" onSubmit={SubmitHandle}>
+          <p className="h3 text-center mb-2 font-weight-bold">
             แก้ไขข้อมูลส่วนตัว
           </p>
-          <div className="profile-badformpost-img">
+          <div className="editprofile-badformpost-img">
             {imagesProfile ? (
               <img className="img-circle" src={imagesProfile} />
             ) : photo ? (
@@ -154,7 +154,7 @@ const EditProfile = () => {
               </span>
             </div>
           </div>
-
+        
           <div className="col-md-12">
             <div className="form-group my-0">
               <label className="label-form-title-profile pt-2">Username</label>
@@ -277,11 +277,12 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
+                  validate
                 />
               </div>
             </div>
 
-            <div className="form-group mt-0 mb-5">
+            <div className="form-group mt-0 mb-4">
               <label className="label-form-title-profile pt-1">จังหวัด</label>
               <div className="form-inside-profile">
                 <select
@@ -375,8 +376,8 @@ const EditProfile = () => {
               </div>
             </div>
 
-            <div className="col-md-12 mt-2">
-              <button type="submit" className="btn-block LoginFacebook">
+            <div className="col-md-12">
+              <button type="submit" className="btn-block SaveEdit">
                 <div>
                   <i class="fas fa-save pr-1"></i>
                 </div>

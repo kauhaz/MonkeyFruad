@@ -68,7 +68,7 @@ const Contractus = () => {
                         ติดต่อเพจน้องพะโล้ <br />
                         เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
                         <div className="post-img1">
-                          <img className="imgfb-contract" src="/img/facebook.jpg" />
+                          <img className="imgfb-contract" src="/img/facebooklogo.png" />
                         </div>
                       </div>
                     </a>

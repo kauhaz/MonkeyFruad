@@ -7,10 +7,13 @@ import Axios from "axios";
 import _ from "lodash";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
-// import image from "D:/PROJECT ALL/MonkeyFruad/Frontend/src/uploads/logo192.png"
+import { v4 as uuidv4 } from "uuid";
+import Modalimage from "./Modalimage"
+
 
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
+  
   const [show, Setshow] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagesProfile, setImagesProfile] = useState(); //สร้าง State เพื่อเก็บรูปโปรไฟล์
@@ -30,6 +33,11 @@ const Formedit = ({ check, Setcheck }) => {
   const [other, setOther] = useState("");
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagepost, Setimagepost] = useState();
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
+
   // const [files, setfiles] = useState();
 
   // console.log(files)
@@ -46,23 +54,112 @@ const Formedit = ({ check, Setcheck }) => {
       setImagesProfile(event.target.result); // ใส่ข้อมูลเข้าไปยัง state ผาน setImagesProfile
     };
   };
-
-  // ฟังก์ชันอัพโหลดไฟล์
+  //ฟังชัน upload รูป
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    Seterror();
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-      reader.onload = (event) => {
-        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, event.target.result]);
-        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-      };
+    
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+    if (imagepost) {
+      imagepost.map(async (doc) => {
+        const response = await Axios({
+          method: "get",
+          url: doc.url,
+          responseType: "blob",
+        });
+        await myfuck.push(
+          new File([response.data], `filename${uuidv4()}.png`, {
+            type: response.data.type,
+            lastModified: date,
+          })
+        );
+      });
+    }
+
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
+  };
+  // console.log(fuck);
+  // console.log(imagesFile);
+  // console.log(files);
+  // console.log(imagecomment)
+  console.log(imagesFile)
+
+  const handleopenmodal = async() =>{
+    Setisopen(true)
+  }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
+
+  const handledeleteimage = async (index) => {
+    try {
+      if (imagepost) {
+        console.log("a");
+        imagepost.splice(index, 1);
+        Setimagepost([...imagepost]);
+      }
+      if (imagesFile) {
+        console.log("b");
+        imagesFile.splice(index, 1);
+        setImagesFile([...imagesFile]);
+      }
+      if(imagesFile && imagesFile.length === 0){
+        setImagesFile()
+      }
+
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
+
+      let date = new Date();
+      var myFile = [];
+      if (imagepost) {
+        imagepost.forEach(async (doc) => {
+          const response = await fetch(doc.url);
+          const data = await response.blob();
+          myFile.push(
+            new File([data], `filename${uuidv4()}.png`, {
+              type: "image/png",
+              lastModified: date,
+            })
+          );
+        });
+        Setfiles(myFile);
+      }
+      if (files) {
+        console.log("d");
+        files.splice(index, 1);
+        Setfiles([...files]);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -86,26 +183,15 @@ const Formedit = ({ check, Setcheck }) => {
     setDatetime(getDatetime);
     setSocial(gethistory[0].social);
     setOther(gethistory[0].other);
+    Setimagepost(gethistory[0].item);
+
   };
 
   useEffect(() => {
     ok();
   }, []);
 
-  const handledeleteimage = async (index) => {
-    try{  
-
-      imagesFile.splice(index,1)
-      setImagesFile([...imagesFile])  
-
-      files.splice(index,1)
-      Setfiles([...files])
-      
-      
-    }catch (err) {
-      console.log(err);
-    }   
-  }
+  console.log(imagepost)
 
   const handlesubmit = async (e) => {
     try {
@@ -138,6 +224,9 @@ const Formedit = ({ check, Setcheck }) => {
         `http://localhost:7000/post/edit/${uid}`,
         formdata
       );
+      Setfuck([]);
+      setImagesFile();
+      Setfiles();
       Setloading(false);
       history.push(`/mypost/${uid}`);
     } catch (err) {
@@ -520,21 +609,24 @@ const Formedit = ({ check, Setcheck }) => {
                           <br></br>
 
                           <div className="container-img-holder-imgpreviewedit">
-                            <label>
-                              <img
-                                className="uploadprove"
-                                src="/img/addimage.png"
-                              />
-                              <input
-                                id="FileInput"
-                                className="uploadsformedituploadslip"
-                                type="file"
-                                onChange={FileUpload}
-                                multiple
-                                accept="image/png, image/jpeg , image/jpg"
-                              />
-                            </label>
-
+                          {(!imagepost && !imagesFile) ?   <div>
+                          <label>
+                            <img
+                              className="uploadprove"
+                              src="/img/addimage.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>
+                        </div> :null 
+                      }
+                           
                             {imagesFile
                               ? imagesFile.map((imagePreviewUrl,index) => {
                                   return (
@@ -558,20 +650,55 @@ const Formedit = ({ check, Setcheck }) => {
                                         })
                                       }
                                     />
-                                    <img src="/img/delete.png"onClick={() => handledeleteimage(index)} />
+                          <div className="deleteimgformposts1">
+                                    <img  
+                              className="deleteimgformposts2"
+                              src="/img/delete2.png"
+                                    onClick={() => handledeleteimage(index)} />
+                                    </div>
                                     </div>
                                   );
                                 })
-                              : ok.item
-                              ? ok.item.map((res) => {
+                              : imagepost
+                              ? imagepost.map((res , index) => {
                                   return (
+                                <div >
                                     <img
                                       className="imgpreviewedit"
                                       src={`${res.url}`}
+                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
                                     />
+                                    <div className="deleteimgformposts1">
+                                    <img
+                                     className="deleteimgformposts2"
+                                     src="/img/delete2.png"
+                                    onClick={() => handledeleteimage(index)}
+                                    />
+                                    </div>
+                                </div>
                                   );
                                 })
                               : null}
+                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                              {(imagepost || imagesFile) ? (
+                        <div>
+                          <label>
+                            <img
+                              // className="uploadprovepost1"
+                              src="/img/addimage.png"
+                            />
+                            <input
+                              id="FileInput"
+                              className="uploadspostcomment"
+                              type="file"
+                              onChange={FileUpload}
+                              multiple
+                              accept="image/png, image/jpeg , image/jpg"
+                            />
+                          </label>{" "}
+                        </div>
+                      ) :null
+                      }
                           </div>
 
                           <h1 className="h1-formpostfileerror">{error}</h1>

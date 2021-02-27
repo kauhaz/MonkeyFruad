@@ -3,18 +3,22 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
+import ClipLoader from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
+import Chatbot from "../components/chatbot";
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
+import Modalimage from "../components/Modalimage"
+
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
   const [selecttwo, setSelecttwo] = useState("");
-  const [selectthree, setSelectthree] = useState("");
+  const [selecthree, setSelecthree] = useState("");
   const [checkselectone, Setcheckselectone] = useState(false);
   const [checkselecttwo, Setcheckselecttwo] = useState(false);
   const [checkselectthree, Setcheckselectthree] = useState(false);
@@ -27,28 +31,41 @@ const Mypost = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState("");
-  const [error, Seterror] = useState();
+  const [ErrorFileUploads, SetErrorFileUploads] = useState();
+  const [loading, Setloading] = useState(false);
+  const [ErrorNotselect, SetErrorNotselect] = useState(false);
   const inputTextArea = useRef(null);
   let { user } = useContext(usercontext);
   let { uid } = useParams();
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
   const history = useHistory();
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
   const handleClose = () => {
-    setShow(false)
-    setSelectone("")
-    setSelecttwo("")
-    setSelectthree("")
-    setDescription("")
-    Setcheckselectone(false)
-    Setcheckselecttwo(false)
-    Setcheckselectthree(false)
-    setReportsubmitsuccess(false)
+    setShow(false);
+    setSelectone("");
+    setSelecttwo("");
+    setSelecthree("");
+    setDescription("");
+    Setcheckselectone(false);
+    Setcheckselecttwo(false);
+    Setcheckselectthree(false);
+    setReportsubmitsuccess(false);
+    SetErrorFileUploads();
+    SetErrorNotselect(false);
+  };
+  const handleopenmodal = async() =>{
+    Setisopen(true)
   }
+  const handleclosemodal = async() =>{
+    Setisopen(false)
+  }
+
   const handleShow = () => setShow(true);
-  const deleted = async (uid) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+  const deleted = async (uid,ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`,ok);
     history.push("/post/history");
   };
 
@@ -65,7 +82,7 @@ const Mypost = () => {
     setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
     let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
     Setfiles([...files]);
-    Seterror();
+    SetErrorFileUploads();
 
     //ทำการวนข้อมูลภายใน Array
     for (var i = 0; i < files.length; i++) {
@@ -100,26 +117,32 @@ const Mypost = () => {
       formData.append("description", description);
       formData.append("selectOne", selectone);
       formData.append("selectTwo", selecttwo);
-      formData.append("selectThree", selectthree);
+      formData.append("selectThree", selecthree);
       formData.append("userreport", useruid);
-      if (!files) {
-        return Seterror(
+      if (
+        checkselectone == false &&
+        checkselecttwo == false &&
+        checkselectthree == false
+      ) {
+        SetErrorNotselect(true);
+      } else if (!files) {
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else if (files && files.length === 0) {
-        return Seterror(
+        SetErrorFileUploads(
           "** กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน **"
         );
       } else {
-         Axios.post(
-          `http://localhost:7000/post/report/${uid}`,
-          formData
-        ).then((result)=>{
-          console.log(result.msg)
-          setReportsubmitsuccess(true)
-        }).catch((err) => {
-          console.log(err);
-        });
+        Setloading(true);
+        Axios.post(`http://localhost:7000/post/report/${uid}`, formData)
+          .then((result) => {
+            setReportsubmitsuccess(true);
+            Setloading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (err) {
       console.log(err);
@@ -134,19 +157,21 @@ const Mypost = () => {
       setSelecttwo("");
     }
     if (!checkselectthree) {
-      setSelectthree();
+      setSelecthree("");
       setDescription("");
     }
   };
   useEffect(() => {
     ok();
     handleselect();
-  }, [checkselectone, checkselecttwo, checkselectthree]);
+  }, [checkselectone, checkselecttwo, checkselectthree, imagesFile]);
   console.log("selectonevalue : ", selectone, "check:", checkselectone);
   console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
-  console.log("selectthreevalue : ", selectthree, "check:", checkselectthree);
+  console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
   console.log("description : ", description);
   console.log("fileupload : ", files);
+  console.log("reportsubmitsuccess : ", reportsubmitsuccess);
+  console.log("loading : ", loading);
   return (
     <div className="allpage" onClick={() => Hiddendropdown()}>
       {mypost ? (
@@ -156,224 +181,242 @@ const Mypost = () => {
             SetshowDropdown={SetshowDropdown}
             showDropdown={showDropdown}
           />
-          <h1 className="h1-mypost">โพสต์ของฉัน</h1>
           {mypost
             ? mypost.map((ok) => {
                 return (
                   <div>
                     <div className="container-mypost">
-                      <div className="cotainer-mypost2">
-                        <div className="mypost-profile-img">
-                          {ok.photoURL ? (
-                            <img
-                              className="img-circle"
-                              src={`${ok.photoURL.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src="/img/profile.png"
-                            />
-                          )}
-
-                          <div className="mypost-name">
-                            {ok.username ? "@" : null}
-                            {ok ? ok.username : null}
-                          </div>
-                          <br />
-                          <div className="mypost-date">
-                            {moment(new Date(ok.date.seconds * 1000)).format(
-                              "MM/DD/YYYY HH:mm"
-                            )}{" "}
-                            {/* <span className="mypost-time">23:38 </span> */}
-                          </div>
+                      <div className="mypost-profile-img">
+                        {ok.photoURL ? (
+                          <img
+                            className="img-circle"
+                            src={`${ok.photoURL.url}`}
+                          />
+                        ) : (
+                          <img className="img-circle" src="/img/profile.png" />
+                        )}
+                        <div className="mypost-name">
+                          {ok.username ? "@" : null}
+                          {ok ? ok.username : null}
                         </div>
-                        {user && user.uid != ok.useruid ? (
-                          <div>
-                            <div className="mypostbuttonreport">
-                              <button
-                                variant="primary"
-                                onClick={handleShow}
-                                className="mypostbuttonreported"
-                              >
-                                <i class="fa fa-flag"></i>
-                              </button>
-                            </div>
-                            <Form.Row>
-                              <Modal
-                                show={Show}
-                                onHide={handleClose}
-                                className="modalreport"
-                              >
-                                <Modal.Header closeButton>
-                                  <Modal.Title className="namereport">
-                                    รายงานโพสต์
-                                  </Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body className="bigreport1">
-                                  <div class="custom-control custom-checkbox reportcheckbox">
-                                    <input
-                                      type="checkbox"
-                                      class="custom-control-input reportcheckboxinput1"
-                                      id="defaultInlinereport1"
+                        <br />
+                        <div className="mypost-date">
+                          {moment(new Date(ok.date.seconds * 1000)).format(
+                            "MM/DD/YYYY HH:mm"
+                          )}{" "}
+                          {/* <span className="mypost-time">23:38 </span> */}
+                        </div>
+                      </div>
+                      {user && user.uid != ok.useruid ? (
+                        <div>
+                          <div className="mypostbuttonreport">
+                            <button
+                              variant="primary"
+                              onClick={handleShow}
+                              className="mypostbuttonreported"
+                            >
+                              <i class="fa fa-flag"></i>
+                            </button>
+                          </div>
+                          <Form.Row>
+                            <Modal
+                              show={Show}
+                              onHide={handleClose}
+                              className="modalreport"
+                            >
+                              <Modal.Header closeButton>
+                                <Modal.Title className="namereport">
+                                  รายงานโพสต์
+                                </Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body className="bigreport1">
+                                <div class="custom-control custom-checkbox reportcheckbox">
+                                  {ErrorNotselect ? (
+                                    <h1 className="h1-formpostfileerror">
+                                      กรุณาเลือกอย่างน้อย 1 ตัวเลือก
+                                    </h1>
+                                  ) : (
+                                    <h1 className="h1-formpostfileerror"></h1>
+                                  )}
+                                  <input
+                                    type="checkbox"
+                                    class="custom-control-input reportcheckboxinput1"
+                                    id="defaultInlinereport1"
+                                    onChange={(e) => {
+                                      setSelectone(e.target.value);
+                                      SetErrorNotselect(false);
+                                    }}
+                                    value="ข้อมูลไม่ถูกต้อง"
+                                    onClick={() => {
+                                      Setcheckselectone(!checkselectone);
+                                      setReportsubmitsuccess(false);
+                                    }}
+                                  ></input>
+                                  <label
+                                    class="custom-control-label reportcheckboxlabel1"
+                                    for="defaultInlinereport1"
+                                  >
+                                    ข้อมูลไม่ถูกต้อง
+                                  </label>
+                                </div>
+                                <div class="custom-control custom-checkbox reportcheckbox">
+                                  <input
+                                    type="checkbox"
+                                    class="custom-control-input reportcheckboxinput1"
+                                    id="defaultInlinereport2"
+                                    value="ข้อมูลไม่เหมาะสม"
+                                    onChange={(e) => {
+                                      setSelecttwo(e.target.value);
+                                      SetErrorNotselect(false);
+                                    }}
+                                    onClick={() => {
+                                      Setcheckselecttwo(!checkselecttwo);
+                                      setReportsubmitsuccess(false);
+                                    }}
+                                  ></input>
+                                  <label
+                                    class="custom-control-label reportcheckboxlabel1"
+                                    for="defaultInlinereport2"
+                                  >
+                                    ข้อมูลไม่เหมาะสม
+                                  </label>
+                                </div>
+                                <div class="custom-control custom-checkbox reportcheckbox">
+                                  <input
+                                    type="checkbox"
+                                    class="custom-control-input reportcheckboxinput1"
+                                    id="defaultInlinereport3"
+                                    value="อื่นๆ"
+                                    onChange={(e) => {
+                                      setSelecthree(e.target.value);
+                                      SetErrorNotselect(false);
+                                    }}
+                                    onClick={() => {
+                                      Setcheckselectthree(!checkselectthree);
+                                      setReportsubmitsuccess(false);
+                                    }}
+                                  ></input>
+                                  <label
+                                    class="custom-control-label reportcheckboxlabel1"
+                                    for="defaultInlinereport3"
+                                  >
+                                    อื่นๆ (กรุณาระบุในช่องเพิ่มเติม)
+                                  </label>
+                                </div>
+                                <div className="form-groupreport">
+                                  <label htmlFor="exampleFormControlTextarea1"></label>
+                                  {checkselectthree ? (
+                                    <textarea
+                                      className="form-control"
+                                      id="exampleFormControlTextarea1"
+                                      rows="4"
+                                      placeholder="อธิบายรายละเอียดเพิ่มเติม"
                                       onChange={(e) =>
-                                        setSelectone(e.target.value)
+                                        setDescription(e.target.value)
                                       }
-                                      value="ข้อมูลไม่ถูกต้อง"
-                                      onClick={() =>
-                                        Setcheckselectone(!checkselectone)
-                                      }
-                                    ></input>
-                                    <label
-                                      class="custom-control-label reportcheckboxlabel1"
-                                      for="defaultInlinereport1"
-                                    >
-                                      ข้อมูลไม่ถูกต้อง
-                                    </label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox reportcheckbox">
+                                    />
+                                  ) : (
+                                    <textarea
+                                      className="form-control"
+                                      id="exampleFormControlTextarea1"
+                                      rows="4"
+                                      placeholder="อธิบายรายละเอียดเพิ่มเติม"
+                                      readOnly={true}
+                                      ref={inputTextArea}
+                                      value={description}
+                                    />
+                                  )}
+                                </div>
+                                <span className="spanreport">
+                                  *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
+                                </span>
+                                <div className="container-img-holder-imgpreviewreport">
+                                  <label>
+                                    <img
+                                      className="uploadprovereport"
+                                      src="/img/addimage.png"
+                                    />
                                     <input
-                                      type="checkbox"
-                                      class="custom-control-input reportcheckboxinput1"
-                                      id="defaultInlinereport2"
-                                      value="ข้อมูลไม่เหมาะสม"
-                                      onChange={(e) =>
-                                        setSelecttwo(e.target.value)
-                                      }
-                                      onClick={() =>
-                                        Setcheckselecttwo(!checkselecttwo)
-                                      }
-                                    ></input>
-                                    <label
-                                      class="custom-control-label reportcheckboxlabel1"
-                                      for="defaultInlinereport2"
-                                    >
-                                      ข้อมูลไม่เหมาะสม
-                                    </label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox reportcheckbox">
-                                    <input
-                                      type="checkbox"
-                                      class="custom-control-input reportcheckboxinput1"
-                                      id="defaultInlinereport3"
-                                      value="อื่นๆ"
-                                      onChange={(e) =>
-                                        setSelectthree(e.target.value)
-                                      }
-                                      onClick={() =>
-                                        Setcheckselectthree(!checkselectthree)
-                                      }
-                                    ></input>
-                                    <label
-                                      class="custom-control-label reportcheckboxlabel1"
-                                      for="defaultInlinereport3"
-                                    >
-                                      อื่นๆ (กรุณาระบุในช่องเพิ่มเติม)
-                                    </label>
-                                  </div>
-                                  <div className="form-groupreport">
-                                    <label htmlFor="exampleFormControlTextarea1"></label>
-                                    {checkselectthree ? (
-                                      <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="4"
-                                        placeholder="อธิบายรายละเอียดเพิ่มเติม"
-                                        onChange={(e) =>
-                                          setDescription(e.target.value)
-                                        }
-                                      />
-                                    ) : (
-                                      <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="4"
-                                        placeholder="อธิบายรายละเอียดเพิ่มเติม"
-                                        readOnly={true}
-                                        ref={inputTextArea}
-                                        value={description}
-                                      />
-                                    )}
-                                  </div>
-                                  <span className="spanreport">
-                                    *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
-                                  </span>
-                                  <div className="container-img-holder-imgpreviewreport">
-                                    <label>
-                                      <img
-                                        className="uploadprovereport"
-                                        src="/img/addimage.png"
-                                      />
-                                      <input
-                                        id="FileInput"
-                                        className="uploadsreport"
-                                        type="file"
-                                        multiple
-                                        accept="image/png, image/jpeg , image/jpg"
-                                        onChange={FileUpload}
-                                      />
-                                    </label>
-                                    {imagesFile
-                                      ? imagesFile.map(
-                                          (imagePreviewUrl, index) => {
-                                            return (
-                                              <div>
+                                      id="FileInput"
+                                      className="uploadsreport"
+                                      type="file"
+                                      multiple
+                                      accept="image/png, image/jpeg , image/jpg"
+                                      onChange={(e) => {
+                                        FileUpload(e);
+                                        setReportsubmitsuccess(false);
+                                      }}
+                                    />
+                                  </label>
+                                  {imagesFile
+                                    ? imagesFile.map(
+                                        (imagePreviewUrl, index) => {
+                                          return (
+                                            <div>
+                                              <img
+                                                key={index}
+                                                className="imgpreview"
+                                                alt="previewImg"
+                                                src={imagePreviewUrl}
+                                                style={{ overflow: "hidden" }}
+                                                onMouseOver={(e) =>
+                                                  (e.currentTarget.style = {
+                                                    transform: "scale(1.25)",
+                                                    overflow: "hidden",
+                                                  })
+                                                }
+                                                onMouseOut={(e) =>
+                                                  (e.currentTarget.style = {
+                                                    transform: "scale(1)",
+                                                    overflow: "hidden",
+                                                  })
+                                                }
+                                              />
+                                              <div className="mypost_deleteimgpost1">
                                                 <img
-                                                  key={index}
-                                                  className="imgpreview"
-                                                  alt="previewImg"
-                                                  src={imagePreviewUrl}
-                                                  style={{ overflow: "hidden" }}
-                                                  onMouseOver={(e) =>
-                                                    (e.currentTarget.style = {
-                                                      transform: "scale(1.25)",
-                                                      overflow: "hidden",
-                                                    })
-                                                  }
-                                                  onMouseOut={(e) =>
-                                                    (e.currentTarget.style = {
-                                                      transform: "scale(1)",
-                                                      overflow: "hidden",
-                                                    })
-                                                  }
+                                                  className="mypost_deleteimgpost2"
+                                                  src="/img/delete2.png"
+                                                  onClick={() => {
+                                                    handledeleteimage(index);
+                                                    setReportsubmitsuccess(
+                                                      false
+                                                    );
+                                                  }}
                                                 />
-                                                <div className="mypost_deleteimgpost1">
-                                                  <img
-                                                    className="mypost_deleteimgpost2"
-                                                    src="/img/delete2.png"
-                                                    onClick={() =>
-                                                      handledeleteimage(index)
-                                                    }
-                                                  />
-                                                </div>
                                               </div>
-                                            );
-                                          }
-                                        )
-                                      : null}
-                                  </div>
-                                  { error ?
+                                            </div>
+                                          );
+                                        }
+                                      )
+                                    : null}
+                                </div>
+                                {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
-                                    {error}
+                                    {ErrorFileUploads}
                                   </h1>
-                                  : " "
-                                  }
-                                </Modal.Body>
-                                <Modal.Footer>
-                                  {/* <Button
+                                ) : (
+                                  " "
+                                )}
+                              </Modal.Body>
+                              <Modal.Footer>
+                                {/* <Button
                                     variant="secondary"
                                     onClick={handleClose}
                                   >
                                     ยกเลิก
                                   </Button> */}
-                                  {reportsubmitsuccess ? (
-                                      <div>
-                                        <span>การรายงานโพสต์สำเร็จ</span>
-                                      </div>
-                                    ) : (
-                                     ""
-                                    )
-                                  }
+                                {reportsubmitsuccess ? (
+                                  <div>
+                                    <span>การรายงานโพสต์สำเร็จ</span>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                {loading ? (
+                                  <div className="col-lg-6 col-3">
+                                    <ClipLoader loading={loading} />
+                                  </div>
+                                ) : (
                                   <Button
                                     clsssName="buttonreportsave"
                                     variant="primary"
@@ -381,248 +424,235 @@ const Mypost = () => {
                                   >
                                     บันทึก
                                   </Button>
-                                </Modal.Footer>
-                              </Modal>
-                            </Form.Row>
-                          </div>
-                        ) : null}
+                                )}
+                              </Modal.Footer>
+                            </Modal>
+                          </Form.Row>
+                        </div>
+                      ) : null}
 
-                        {user && user.uid == ok.useruid ? (
-                          <div className="container-mypostsetiing">
-                            <div className="menu-containermypostsetting">
-                              <div
-                                onClick={onClick}
-                                className="mypostbuttonsetting"
-                              >
-                                <img
-                                  className="mypostimg-setting"
-                                  src="/img/setting.png"
-                                  alt="avatar"
-                                ></img>
-                              </div>
-                              <div
-                                className={`mypostmenusetting ${
-                                  isActive ? "active" : "inactive"
-                                }`}
-                              >
-                                <ul className="ul-mypostmenusetting">
-                                  <li className="li-mypostmenusetting">
-                                    <a className="a-mypostmenusetting">
-                                      <Link
-                                        className="a-mypostmenusetting1"
-                                        to={`/post/edit/${ok.uid}`}
-                                      >
-                                        แก้ไขโพสต์
-                                      </Link>
-                                    </a>
-                                  </li>
-                                  <li className="li-mypostmenusetting">
-                                    <a
-                                      className="a-mypostmenusetting"
-                                      onClick={() => deleted(ok.uid)}
+                      {user && user.uid == ok.useruid ? (
+                        <div className="container-mypostsetiing">
+                          <div className="menu-containermypostsetting">
+                            <div
+                              onClick={onClick}
+                              className="mypostbuttonsetting"
+                            >
+                              <img
+                                className="mypostimg-setting"
+                                src="/img/setting.png"
+                                alt="avatar"
+                              ></img>
+                            </div>
+                            <div
+                              className={`mypostmenusetting ${
+                                isActive ? "active" : "inactive"
+                              }`}
+                            >
+                              <ul className="ul-mypostmenusetting">
+                                <li className="li-mypostmenusetting">
+                                  <a className="a-mypostmenusetting">
+                                    <Link
+                                      className="a-mypostmenusetting1"
+                                      to={`/post/edit/${ok.uid}`}
                                     >
-                                      {" "}
-                                      ลบโพสต์{" "}
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
+                                      แก้ไขโพสต์
+                                    </Link>
+                                  </a>
+                                </li>
+                                <li className="li-mypostmenusetting">
+                                  <a
+                                    className="a-mypostmenusetting"
+                                    onClick={() => deleted(ok.uid,ok)}
+                                  >
+                                    {" "}
+                                    ลบโพสต์{" "}
+                                  </a>
+                                </li>
+                              </ul>
                             </div>
                           </div>
-                        ) : null}
+                        </div>
+                      ) : null}
 
-                        <div className="container-mypost3">
-                          <div className="mypostprofile-bad-img">
-                            {ok.resultfile ? (
-                              <img
-                                className="img-circle"
-                                src={`${ok.resultfile.url}`}
-                              />
-                            ) : (
-                              <img
-                                className="img-circle"
-                                src="/img/profile.png"
-                              />
-                            )}
-                          </div>
-                          <Form className="formsize-mypost">
-                            <Form.Row>
-                              <Form.Group
-                                as={Col}
-                                className="mypost-left col-lg-6 col-sm-6 col-12"
-                                controlId="formGridName"
-                              >
-                                <Form.Label className="text-mypost">
-                                  ชื่อ (ผู้โกง){" "}
-                                  <span className="spanmypost">{ok.name}</span>
-                                </Form.Label>
-                              </Form.Group>
-
-                              <Form.Group as={Col} controlId="formGridLastname">
-                                <Form.Label className="text-mypost">
-                                  นามสกุล (ผู้โกง){" "}
-                                  <span className="spanmypost">
-                                    {ok.surname}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
-                              <Form.Group
-                                as={Col}
-                                className="mypost-left col-lg-6 col-sm-6 col-12"
-                                controlId="formGridId"
-                              >
-                                <Form.Label className="text-mypost">
-                                  เลขบัตรประชาชน (ผู้โกง){" "}
-                                  <span className="spanmypost">{ok.id}</span>
-                                </Form.Label>
-                              </Form.Group>
-
-                              <Form.Group
-                                as={Col}
-                                controlId="formGridAccountnumber"
-                              >
-                                <Form.Label className="text-mypost">
-                                  เลขที่บัญชี (ผู้โกง){" "}
-                                  <span className="spanmypost">
-                                    {ok.accountnumber}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
-                              <Form.Group
-                                as={Col}
-                                className="mypost-left col-lg-6 col-sm-6 col-12"
-                                controlId="formGridNameproduct"
-                              >
-                                <Form.Label className="text-mypost">
-                                  ชื่อสินค้า{" "}
-                                  <span className="spanmypost">
-                                    {ok.nameproduct}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-
-                              <Form.Group as={Col} controlId="formGridCategory">
-                                <Form.Label className="text-mypost">
-                                  หมวดหมู่สินค้า{" "}
-                                  <span className="spanmypost">
-                                    {ok.productcategory}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
-                              <Form.Group
-                                as={Col}
-                                className="mypost-left col-lg-6 col-sm-6 col-12"
-                                controlId="formGridPrice"
-                              >
-                                <Form.Label className="text-mypost">
-                                  จำนวนเงิน (บาท){" "}
-                                  <span className="spanmypost">{ok.money}</span>
-                                </Form.Label>
-                              </Form.Group>
-
-                              <Form.Group as={Col} controlId="formGridCategory">
-                                <Form.Label className="text-mypost">
-                                  ธนาคาร{" "}
-                                  <span className="spanmypost">{ok.bank}</span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
-                              <Form.Group
-                                as={Col}
-                                className="mypost-left col-lg-6 col-sm-6 col-12"
-                                controlId="formGridDate"
-                              >
-                                <Form.Label className="text-mypost">
-                                  วันที่โดนโกง{" "}
-                                  <span className="spanmypost">
-                                    {moment(
-                                      new Date(ok.datetimes.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-
-                              <Form.Group as={Col} controlId="formGridSocial">
-                                <Form.Label className="text-mypost">
-                                  ช่องทางที่โดนโกง{" "}
-                                  <span className="spanmypost">
-                                    {ok.social}
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
-                              <Form.Group as={Col} controlId="formGridSocial">
-                                <Form.Label className="text-mypost">
-                                  จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง{" "}
-                                  <span className="spanmypost">
-                                    {ok.count} ครั้ง
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-                            <Form.Row>
-                              <Form.Group as={Col} controlId="formGridSocial">
-                                <Form.Label className="text-mypost">
-                                  ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                  <span className="spanmypost">
-                                    {ok.summoney} บาท
-                                  </span>
-                                </Form.Label>
-                              </Form.Group>
-                            </Form.Row>
-
-                            <Form.Group controlId="exampleForm.ControlTextarea1">
+                      <div className="container-mypost3">
+                        <div className="mypostprofile-bad-img">
+                          {ok.resultfile ? (
+                            <img
+                              className="img-circle"
+                              src={`${ok.resultfile.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src="/img/profile.png"
+                            />
+                          )}
+                        </div>
+                        <Form className="formsize-mypost">
+                          <Form.Row>
+                            <Form.Group
+                              as={Col}
+                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              controlId="formGridName"
+                            >
                               <Form.Label className="text-mypost">
-                                รายละเอียดเพิ่มเติม{" "}
-                                <span className="spanmypost">{ok.other}</span>
+                                ชื่อ (ผู้โกง){" "}
+                                <span className="spanmypost">{ok.name}</span>
                               </Form.Label>
                             </Form.Group>
-                            <div className="img-holder-badslip">
-                              {ok.item
-                                ? ok.item.map((res) => {
-                                    return (
-                                      <img
-                                        className="img-bad"
-                                        alt=""
-                                        src={`${res.url}`}
-                                        style={{ overflow: "hidden" }}
-                                        onMouseOver={(e) =>
-                                          (e.currentTarget.style = {
-                                            transform: "scale(1.25)",
-                                            overflow: "hidden",
-                                          })
-                                        }
-                                        onMouseOut={(e) =>
-                                          (e.currentTarget.style = {
-                                            transform: "scale(1)",
-                                            overflow: "hidden",
-                                          })
-                                        }
-                                      />
-                                    );
-                                  })
-                                : null}
-                            </div>
-                          </Form>
-                          <div className="line-comment1"></div>
-                          <div className="container-mypost4">
-                            <Commentitemformypost postid={ok.uid} />
+
+                            <Form.Group as={Col} controlId="formGridLastname">
+                              <Form.Label className="text-mypost">
+                                นามสกุล (ผู้โกง){" "}
+                                <span className="spanmypost">{ok.surname}</span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Row>
+                            <Form.Group
+                              as={Col}
+                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              controlId="formGridId"
+                            >
+                              <Form.Label className="text-mypost">
+                                เลขบัตรประชาชน (ผู้โกง){" "}
+                                <span className="spanmypost">{ok.id}</span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              controlId="formGridAccountnumber"
+                            >
+                              <Form.Label className="text-mypost">
+                                เลขที่บัญชี (ผู้โกง){" "}
+                                <span className="spanmypost">
+                                  {ok.accountnumber}
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Row>
+                            <Form.Group
+                              as={Col}
+                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              controlId="formGridNameproduct"
+                            >
+                              <Form.Label className="text-mypost">
+                                ชื่อสินค้า{" "}
+                                <span className="spanmypost">
+                                  {ok.nameproduct}
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridCategory">
+                              <Form.Label className="text-mypost">
+                                หมวดหมู่สินค้า{" "}
+                                <span className="spanmypost">
+                                  {ok.productcategory}
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Row>
+                            <Form.Group
+                              as={Col}
+                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              controlId="formGridPrice"
+                            >
+                              <Form.Label className="text-mypost">
+                                จำนวนเงิน (บาท){" "}
+                                <span className="spanmypost">{ok.money}</span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridCategory">
+                              <Form.Label className="text-mypost">
+                                ธนาคาร{" "}
+                                <span className="spanmypost">{ok.bank}</span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Row>
+                            <Form.Group
+                              as={Col}
+                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              controlId="formGridDate"
+                            >
+                              <Form.Label className="text-mypost">
+                                วันที่โดนโกง{" "}
+                                <span className="spanmypost">
+                                  {moment(
+                                    new Date(ok.datetimes.seconds * 1000)
+                                  ).format("MM/DD/YYYY HH:mm")}{" "}
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridSocial">
+                              <Form.Label className="text-mypost">
+                                ช่องทางที่โดนโกง{" "}
+                                <span className="spanmypost">{ok.social}</span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Row>
+                            <Form.Group as={Col} controlId="formGridSocial">
+                              <Form.Label className="text-mypost">
+                                จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง{" "}
+                                <span className="spanmypost">
+                                  {ok.count} ครั้ง
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+                          <Form.Row>
+                            <Form.Group as={Col} controlId="formGridSocial">
+                              <Form.Label className="text-mypost">
+                                ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                <span className="spanmypost">
+                                  {ok.summoney} บาท
+                                </span>
+                              </Form.Label>
+                            </Form.Group>
+                          </Form.Row>
+
+                          <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Label className="text-mypost">
+                              รายละเอียดเพิ่มเติม{" "}
+                              <span className="spanmypost">{ok.other}</span>
+                            </Form.Label>
+                          </Form.Group>
+                          <div className="img-holder-badslip">
+                            {ok.item
+                              ? ok.item.map((res) => {
+                                  return (
+                                    <img
+                                      className="img-bad"
+                                      alt=""
+                                      src={`${res.url}`}
+                                      style={{ overflow: "hidden" }}
+                                     
+                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
+                                    />
+                                  );
+                                })
+                              : null}
+                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
                           </div>
-                          {/* <button onClick={()=>handle()}></button> */}
+                        </Form>
+                        <div className="line-comment1"></div>
+                        <div className="container-mypost4">
+                          <Commentitemformypost postid={ok.uid} />
                         </div>
+                        {/* <button onClick={()=>handle()}></button> */}
                       </div>
                     </div>
                   </div>
@@ -631,6 +661,7 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
+      <Chatbot />
     </div>
   );
 };

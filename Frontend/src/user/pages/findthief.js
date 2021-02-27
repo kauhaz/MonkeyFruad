@@ -31,43 +31,65 @@ const Findthief = () => {
   console.log(show);
   return (
     <div onClick={() => Hiddendropdown()}>
-      {show ? (
-        <div>
+      
           <NavbarPage
             SetshowDropdown={SetshowDropdown}
             showDropdown={showDropdown}
           />
-          <div className="container-bigpost1">
-            <div className="row postbigrow">
-              <div className="column-post-left1">
-                <Link to={`/linkruleshow/`}>
-                  <div className="container-post1">
-                    <div className="row postrow">
-                      <div className="column1-postrow1">
-                        <div className="post-img">
-                          <img className="monkey" src="/img/logo v3.png" />
-                        </div>
-                      </div>
-                      <div className="column2-postrow2">
-                        <div className="post-linkpost1">
-                          แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                        </div>
-                      </div>
+      <div className="container-bigpost1">
+        <div className="row postbigrow">
+          <div className="column-post-left1">
+              <Link to={`/linkruleshow/`}>
+              <div className="container-post1">
+                <div className="row postrow">
+                  <div className="column1-postrow1">
+                    <div className="post-img">
+                      <img className="monkey" src="/img/logo v3.png" />
                     </div>
                   </div>
-                </Link>
+                  <div className="column2-postrow2">
+                    <div className="post-linkpost1">
+                      แจ้งข้อมูลคนโกงได้ที่นี่เลย
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
 
-                <h1 className="h1-posts">
-                  {" "}
-                  มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
-                </h1>
+            <div>
+                {show ? (
+                  show.map((res) => {
+                    return (
+                      <div>
+                        <div className="container-posts2">
+                          <div className="post-profile-img">
+                            {res.photoURL ? (
+                              <img
+                                className="img-circle"
+                                src={`${res.photoURL.url}`}
+                              />
+                            ) : (
+                              <img
+                                className="img-circle"
+                                src={"/img/profile.png"}
+                              />
+                            )}
+                            <div className="posts-name1">
+                              {res.username ? "@" : null}
+                              {res.username}
+                            </div>
+                            <br />
+                            <div className="post-date">
+                              <span className="post-time">
+                                {moment(
+                                  new Date(res.date.seconds * 1000)
+                                ).format("MM/DD/YYYY HH:mm")}{" "}
+                              </span>
+                            </div>
+                          </div>
 
-                {show
-                  ? show.map((res) => {
-                      return (
-                        <div>
-                          <div className="container-findthief2">
-                            <div className="container-findthief3">
+                          <div className="container-post3">
+                            <div className="container-post4">
                               <Form className="formsize-post">
                                 <Form.Row>
                                   <Form.Group
@@ -86,6 +108,7 @@ const Findthief = () => {
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
+
                                 <Form.Row>
                                   <Form.Group
                                     as={Col}
@@ -124,6 +147,25 @@ const Findthief = () => {
                                   <Form.Group
                                     as={Col}
                                     className="post-left col-lg-6 col-12"
+                                    controlId="formGridPrice"
+                                  >
+                                    <Form.Label>จำนวนเงิน</Form.Label>
+                                  </Form.Group>
+
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.money.toLocaleString(undefined, {
+                                        maximumFractionDigits: 2,
+                                      })}{" "}
+                                      บาท
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
+
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
                                     controlId="formGridDate"
                                   >
                                     <Form.Label>วันที่โดนโกง</Form.Label>
@@ -137,10 +179,49 @@ const Findthief = () => {
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
+
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
+                                    controlId="formGridDate"
+                                  >
+                                    <Form.Label>
+                                      จำนวนครั้งที่ {res.name} {res.surname}{" "}
+                                      ถูกแจ้ง{" "}
+                                    </Form.Label>
+                                  </Form.Group>
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.count} ครั้ง
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
+                                <Form.Row>
+                                  <Form.Group
+                                    as={Col}
+                                    className="post-left col-lg-6 col-12"
+                                    controlId="formGridPrice"
+                                  >
+                                    <Form.Label>
+                                      {" "}
+                                      ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                    </Form.Label>
+                                  </Form.Group>
+
+                                  <Form.Group>
+                                    <span className="spanpost">
+                                      {res.summoney.toLocaleString(undefined, {
+                                        maximumFractionDigits: 2,
+                                      })}{" "}
+                                      บาท
+                                    </span>
+                                  </Form.Group>
+                                </Form.Row>
                               </Form>
-                              <div className="postother">
+                              <div className="postothers">
                                 <Link
-                                  className="postother1"
+                                  className="postothers1"
                                   onClick={() => (
                                     history.push(`/mypost/${res.uid}`),
                                     window.location.reload(true)
@@ -149,32 +230,36 @@ const Findthief = () => {
                                   ดูเพิ่มเติม
                                 </Link>
                               </div>
-                            </div>{" "}
+                            </div>
+
+                            <div className="line-posts1"></div>
+                          
                           </div>
+
                         </div>
-                      );
-                    })
-                  : null}
+                      </div>
+                    );
+                  })
+                ) : null}
               </div>
 
-              <div className="column-post-right1">
-                <Link to={`https://www.facebook.com/porpraewz.mgn`}>
-                  <div className="container-postright1">
-                    <div className="post-linkpost2">
-                      ติดต่อเพจน้องพะโล้ <br />
-                      เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
-                    </div>
-                    <div className="post-img1">
-                      <img className="facebook" src="/img/facebook.jpg" />
-                    </div>
-                  </div>
-                </Link>
+                  <div className="column-post-right1">
+                  <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+              <div className="container-postright1">
+                <div className="post-linkpost2">
+                  ติดต่อเพจน้องพะโล้ <br />
+                  เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
+                </div>
+                <div className="post-img1">
+                  <img className="facebook" src="/img/facebooklogo.png" />
+                </div>
               </div>
+            </a>
+                 </div>
             </div>
           </div>
-          <Chatbot />{" "}
         </div>
-      ) : null}
+        <Chatbot />{" "}
     </div>
   );
 };

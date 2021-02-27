@@ -100,29 +100,28 @@ const Post = () => {
     SetshowDropdown(false);
   };
 
-    console.log(result)
- 
-  const ok = async () => {
-    Setloading(true)
-     if(sortvalue === "ใหม่ล่าสุด"){
-      const getpost = await Axios.get(`http://localhost:7000/post/post`);
-      Setshow(getpost.data.item);
-      var getdata = getpost.data.item;
-     }
-     else if(sortvalue === "จำนวนเงินมากที่สุด"){
-        const getpost = await Axios.get(`http://localhost:7000/post/post/sortmoney`)
-        Setshow(getpost.data.item);
-        var getdata = getpost.data.item;
-      }
-      Setloading(false)
   
 
+  const ok = async () => {
+        Setloading(true);
+    const getpost = await Axios.get(`http://localhost:7000/post/post`)
+    Setshow(getpost.data.item)
+    if(sortvalue === "ใหม่ล่าสุด"){
+      var getsort = getpost.data.item.sort((a,b) =>{
+          return b.date.seconds - a.date.seconds
+        })
+       
+      }else if (sortvalue === "จำนวนเงินมากที่สุด"){
+        var getsort = getpost.data.item.sort((a,b) => {
+          return b.money - a.money
+        })
+      }
+    Setloading(false);
 
-console.log(result)
+    console.log(result);
     var item = [];
 
-    getdata.filter((doc) => {
-    
+    getsort.filter((doc) => {
       if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
@@ -151,7 +150,6 @@ console.log(result)
                   Setshow();
                 }
               }
-
             }
           }
           if (checkassesory) {
@@ -3245,7 +3243,7 @@ console.log(result)
 
       if (checkother) {
         Setshow();
-        if (doc.social === "อื่นๆ") {
+        if (doc.social === "other") {
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {
@@ -4973,7 +4971,6 @@ console.log(result)
             Setshow();
           }
         }
-
       }
 
       // if (cloth && doc.productcategory === "เสื้อผ้า") {
@@ -5685,7 +5682,7 @@ console.log(result)
     });
     Setresult(item);
   };
-  
+
   useEffect(() => {
     ok();
   }, [
@@ -5756,7 +5753,7 @@ console.log(result)
                   show.map((res) => {
                     return (
                       <div>
-                        <div className="container-post2">
+                        <div className="container-posts2">
                           <div className="post-profile-img">
                             {res.photoURL ? (
                               <img
@@ -5769,7 +5766,7 @@ console.log(result)
                                 src={"/img/profile.png"}
                               />
                             )}
-                            <div className="post-name">
+                            <div className="posts-name1">
                               {res.username ? "@" : null}
                               {res.username}
                             </div>
@@ -5849,7 +5846,10 @@ console.log(result)
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
+                                      {res.money.toLocaleString(undefined, {
+                                        maximumFractionDigits: 2,
+                                      })}{" "}
+                                      บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
@@ -5903,14 +5903,17 @@ console.log(result)
 
                                   <Form.Group>
                                     <span className="spanpost">
-                                      {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
+                                      {res.summoney.toLocaleString(undefined, {
+                                        maximumFractionDigits: 2,
+                                      })}{" "}
+                                      บาท
                                     </span>
                                   </Form.Group>
                                 </Form.Row>
                               </Form>
-                              <div className="postother">
+                              <div className="postothers">
                                 <Link
-                                  className="postother1"
+                                  className="postothers1"
                                   onClick={() => (
                                     history.push(`/mypost/${res.uid}`),
                                     window.location.reload(true)
@@ -5921,7 +5924,7 @@ console.log(result)
                               </div>
                             </div>
 
-                            <div className="line-post1"></div>
+                            <div className="line-posts1"></div>
                             <div className="container-post6">
                               <Commentitem postid={res.uid} />
                             </div>
@@ -5941,8 +5944,8 @@ console.log(result)
                           result.map((res) => {
                             return (
                               <div>
-                                <div className="container-post2">
-                                  <div className="container-post3">
+                                <div className="container-postcomment2">
+                                  <div className="container-postcomment3">
                                     <div className="post-profile-img">
                                       {res.photoURL ? (
                                         <img
@@ -6037,7 +6040,11 @@ console.log(result)
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.money.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
+                                                {res.money.toLocaleString(
+                                                  undefined,
+                                                  { maximumFractionDigits: 2 }
+                                                )}{" "}
+                                                บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
@@ -6097,7 +6104,11 @@ console.log(result)
 
                                             <Form.Group>
                                               <span className="spanpost">
-                                                {res.summoney.toLocaleString(undefined, {maximumFractionDigits:2})} บาท
+                                                {res.summoney.toLocaleString(
+                                                  undefined,
+                                                  { maximumFractionDigits: 2 }
+                                                )}{" "}
+                                                บาท
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
@@ -6136,6 +6147,7 @@ console.log(result)
                 )}
               </div>
             )}
+            <div className="container-bottoms"></div>
           </div>
 
           <div className="column-post-right1">
@@ -6146,7 +6158,7 @@ console.log(result)
                   เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
                 </div>
                 <div className="post-img1">
-                  <img className="facebook" src="/img/facebook.jpg" />
+                  <img className="facebook" src="/img/facebooklogo.png" />
                 </div>
               </div>
             </a>
