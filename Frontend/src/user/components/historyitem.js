@@ -5,6 +5,7 @@ import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 
+
 const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -12,10 +13,11 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 
-  const deleted = async (uid) => {
+  const deleted = async (uid,ok) => {
     try {
+      console.log(ok)
       const postdelete = await Axios.post(
-        `http://localhost:7000/post/delete/${uid}`
+        `http://localhost:7000/post/delete/${uid}`,ok
       );
       setIsActive(false)
       handledeletetorerender();
@@ -55,7 +57,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
                   <li className="li-historymenusetting">
                     <a
                       className="a-historymenusetting"
-                      onClick={() => deleted(ok.uid)}
+                      onClick={() => deleted(ok.uid,ok)}
                     >
                       {" "}
                       ลบโพสต์{" "}

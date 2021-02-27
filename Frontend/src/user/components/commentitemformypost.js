@@ -6,7 +6,10 @@ import usercontext from "../context/usercontext";
 import Listcomment2 from "./Listcomment2";
 import Loading from "./clipLoader";
 import _ from "lodash";
+import Modalimage from "./Modalimage"
+
 const { v4: uuidv4 } = require("uuid");
+
 
 const Commentitemformypost = ({ postid }) => {
   let { user } = useContext(usercontext);
@@ -27,9 +30,9 @@ const Commentitemformypost = ({ postid }) => {
   const [loading, SetLoading] = useState(false);
   const [fuck, Setfuck] = useState([]);
 
-
   let history = useHistory();
   let uuid = uuidv4();
+  
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
 
@@ -81,14 +84,13 @@ const Commentitemformypost = ({ postid }) => {
 
   const handledeleteimage = async (index) => {
     try {
-   
       if (imagesFile) {
         console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
-      if(imagesFile && imagesFile.length === 0){
-        setImagesFile()
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
       }
 
       if (fuck) {
@@ -122,7 +124,6 @@ const Commentitemformypost = ({ postid }) => {
       console.log(err);
     }
   };
-
 
   const handlecomment = async () => {
     try {
@@ -270,7 +271,7 @@ const Commentitemformypost = ({ postid }) => {
         </div>
       ) : null}
 
-      <div className="row mypost-comment-comments2">
+      <div className="mypost-comment-comments2">
         <div className="mypost-profilecomment-img1">
           {photourl ? (
             <img className="img-circle" src={`${photourl}`} />
@@ -278,102 +279,111 @@ const Commentitemformypost = ({ postid }) => {
             <img className="img-circle" src="/img/profile.png" />
           )}
         </div>
+        <div className="mypost-section-commment2">
+          <div className="mypost-comment-commentsall">
+            {!imagesFile && !imagecomment ? (
+              <div className="container-img-holder-imgpreview2">
+                <label>
+                  <img className="uploadprove2" src="/img/addphoto.png" />
+                  <input
+                    id="FileInput"
+                    className="uploadsmypostcomment"
+                    type="file"
+                    onChange={FileUpload}
+                    multiple
+                    accept="image/png, image/jpeg , image/jpg"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div></div>
+            )}
 
-        <div className="row mypost-comment-commentsall">
-        {(!imagesFile && !imagecomment) ? <div className="container-img-holder-imgpreview2">
-            <label>
-              <img className="uploadprove2" src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadsmypostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
+            <div
+              className="mypost-writecommemt col-lg-6 col-10"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <textarea
+                rows="3"
+                cols="15"
+                className="inputmypostcomment2"
+                placeholder="เขียนความคิดเห็น..."
+                value={textcomment}
+                onChange={(e) => {
+                  Settextcomment(e.target.value);
+                  Seterror();
+                }}
               />
-            </label>
-          </div> : <div></div>}
-        
-          <div
-            className="mypost-writecommemt col-lg-6 col-10"
-            controlId="exampleForm.ControlTextarea1"
-          >
-            <textarea
-              rows="3"
-              cols="15"
-              className="inputmypostcomment2"
-              placeholder="เขียนความคิดเห็น..."
-              value={textcomment}
-              onChange={(e) => {
-                Settextcomment(e.target.value);
-                Seterror();
-              }}
-            />
-            {/* {loading ? <div><Loading/></div> : null } */}
-          </div>
-          <div>
-            <div className="column2 mypostbuttonsend">
-              <button
-                className="mypostbuttonsends"
-                onClick={() => handlecomment()}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
+              {/* {loading ? <div><Loading/></div> : null } */}
+            </div>
+            <div>
+              <div className="column2 mypostbuttonsend">
+                <button
+                  className="mypostbuttonsends"
+                  onClick={() => handlecomment()}
+                >
+                  <i className="fa fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+            <div className="row imgcommentitem">
+              {imagesFile
+                ? imagesFile.map((imagePreviewUrl, index) => {
+                    return (
+                      <div className="imgcommentitemmypost1 col-6">
+                        {loading ? <Loading /> : null}
+                        <img
+                          key={index}
+                          className="imgpreviewb1"
+                          alt="previewImg"
+                          src={imagePreviewUrl}
+                          style={{ overflow: "hidden" }}
+                          onMouseOver={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1.25)",
+                              overflow: "hidden",
+                            })
+                          }
+                          onMouseOut={(e) =>
+                            (e.currentTarget.style = {
+                              transform: "scale(1)",
+                              overflow: "hidden",
+                            })
+                          }
+                        />
+                        <div clsssName="deleteimgmypost1">
+                          <img
+                            className="deleteimgmypost2"
+                            src="/img/delete2.png"
+                            onClick={() => handledeleteimage(index)}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })
+                : null}
+              {imagesFile || imagecomment ? (
+                <div className="container-img-holder-imgpreview1">
+                  <label>
+                    <img src="/img/addphoto.png" />
+                    <input
+                      id="FileInput"
+                      className="uploadspostcomment"
+                      type="file"
+                      onChange={FileUpload}
+                      multiple
+                      accept="image/png, image/jpeg , image/jpg"
+                    />
+                  </label>
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
-          <div className="row imgcommentitem">
-            {imagesFile
-              ? imagesFile.map((imagePreviewUrl, index) => {
-                  return (
-                    <div className="imgcommentitemmypost1 col-6">
-                      {loading ? <Loading /> : null}
-                      <img
-                        key={index}
-                        className="imgpreviewb1"
-                        alt="previewImg"
-                        src={imagePreviewUrl}
-                        style={{ overflow: "hidden" }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1.25)",
-                            overflow: "hidden",
-                          })
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style = {
-                            transform: "scale(1)",
-                            overflow: "hidden",
-                          })
-                        }
-                      />
-                      <div clsssName="deleteimgmypost1">
-                        <img
-                          className="deleteimgmypost2"
-                          src="/img/delete2.png"
-                          onClick={() => handledeleteimage(index)}
-                        />
-                      </div>
-                    </div>
-                  );
-                })
-              : null}
-                {(imagesFile || imagecomment) ? <div className="container-img-holder-imgpreview1">
-            <label>
-              <img  src="/img/addphoto.png" />
-              <input
-                id="FileInput"
-                className="uploadspostcomment"
-                type="file"
-                onChange={FileUpload}
-                multiple
-                accept="image/png, image/jpeg , image/jpg"
-              />
-            </label>
-          </div> : <div></div>}
-          </div>
-        </div>
 
-        <h1 className="h1-mypostfileerror">{error}</h1>
+          <h1 className="h1-mypostfileerror">{error}</h1>
+        </div>
       </div>
     </div>
   );

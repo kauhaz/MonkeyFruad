@@ -11,7 +11,7 @@ const multer = require("multer");
 const path = require("path");
 const e = require("express");
 const { text } = require("body-parser");
-const { search } = require("../utils/cloudinary");
+const { search, image } = require("../utils/cloudinary");
 
 let storage = multer.diskStorage({
   // destination: (req,file,cb) =>{
@@ -854,8 +854,19 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
+    let {item , resultfile} = req.body
+    console.log(item)
     var postid = [];
     let getid = req.params.uid;
+    if(item){
+      item.forEach(doc => {
+        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
+      })
+    }
+    if(resultfile){
+        cloudinary.uploader.destroy(resultfile.public_id, function(result) { console.log(result) })
+    }
+    
     const getpost = await firestore
       .collection("Post")
       .where("uid", "==", getid)
@@ -1208,8 +1219,14 @@ router.get("/commentmore/:id", async (req, res) => {
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {
+    let {photocomment} = req.body
+  
     let getid = req.params.uid;
-
+    if(photocomment){
+      photocomment.forEach(doc => {
+        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
+      })
+    }
     const postdelete = await firestore
       .collection("Comment")
       .doc(getid)
