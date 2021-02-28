@@ -11,7 +11,9 @@ const History = () => {
   const [mypost, Setmypost] = useState();
   const [click, Setclick] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  let { user} = useContext(usercontext);
+  const [closeSetting, SetCloseSetting] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  let { user } = useContext(usercontext);
   let uuid = uuidv4();
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -35,7 +37,14 @@ const History = () => {
   console.log(mypost);
 
   return (
-    <div onClick={() => Hiddendropdown()}>
+    <div
+      onClick={() => {
+        Hiddendropdown();
+        if(isActive == true){
+          setIsActive(false)
+        }
+      }}
+    >
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
@@ -54,6 +63,8 @@ const History = () => {
                 user={user}
                 key={index}
                 handledeletetorerender={handledeletetorerender}
+                isActive={isActive}
+                setIsActive={setIsActive}
               />
             );
           })

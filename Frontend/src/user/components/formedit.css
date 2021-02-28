@@ -1,69 +1,68 @@
 .container-formedit {
-    width: 60%;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .profile-badformedit-img {
-    text-align: center;
-    padding-bottom: 20px;
-} 
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 .profile-badformedit-img img.img-circle {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    object-position: center; 
-    border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
-.uploadinputeditprofile{
-    margin-top: 10px;
+.uploadinputeditprofile {
+  margin-top: 10px;
 }
 
-.uploadiconprofileedit{ 
-    width: 20px;
+.uploadiconprofileedit {
+  width: 20px;
 }
 
-.uploadprove{ 
-    width: 100px;
+.uploadproveformpost {
+  width: 100px;
 }
 
-
-#FileInput{ 
-    cursor: pointer;  
-    display: none;
+#FileInput {
+  cursor: pointer;
+  display: none;
 }
 
 .rank-label-container-edit {
-    margin-top: -30px;
-    text-align: center;
+  margin-top: -30px;
+  text-align: center;
 }
 
-.fileinputedit{ 
-    width: 30px;
-    border-radius: 50%;
-    border: none;
-    background-color: white;
+.fileinputedit {
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
 }
 
-.formedit-left{ 
-    margin-right: 15px;
+.formedit-left {
+  margin-right: 15px;
 }
 
-.spanformedit { 
-    color: #ff392e;
+.spanformedit {
+  color: #ff392e;
 }
 
 /* .linkruleedit1{
@@ -86,143 +85,140 @@
     margin-bottom: 10px;
 } */
 .uploadprove {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .container-img-holder-imgpreviewedit .imgpreviewedit {
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .imgpreviewedit {
-    overflow: hidden;
-    background-color: white;
+  overflow: hidden;
+  background-color: white;
 }
-  
-.imgpreviewedit img{
-    transition: all 0.3s ease 0s;
-    width: 100%;
+
+.imgpreviewedit img {
+  transition: all 0.3s ease 0s;
+  width: 100%;
 }
-  
+
 .imgpreviewedit:hover {
-    transform: scale(2.5);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(2.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.buttonformedit{
-    width: 100%;
-    font-size: 20px;
-    background-color: #5c83cc;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    padding: 0.5rem;
-    margin-top: 10px;
+.buttonformedit {
+  width: 100%;
+  font-size: 20px;
+  background-color: #5c83cc;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 10px;
 }
 
-.buttonformedit:hover{
-    width: 100%;
-    font-size: 20px;
-    background-color: #3c6fce;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    padding: 0.5rem;
-    margin-top: 10px;
+.buttonformedit:hover {
+  width: 100%;
+  font-size: 20px;
+  background-color: #3c6fce;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 10px;
 }
 
-.buttonformedit:active{
-    width: 100%;
-    font-size: 20px;
-    background-color: #8B0000;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-top: 10px;
+.buttonformedit:active {
+  width: 100%;
+  font-size: 20px;
+  background-color: #8b0000;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 10px;
 }
 
-/*Responsive*/ 
+/*Responsive*/
 @media only screen and (max-width: 1920px) {
-
 }
 
 @media only screen and (max-width: 1024px) {
-    .container-formedit{
-        width: 75%;
-    }
+  .container-formedit {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-
 }
 
 @media only screen and (max-width: 450px) {
-    .uploadsformpostuploadslip{
-        width: 100%;
-        font-size: 18px;
-    }
-    .container-formedit{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-        margin-bottom: 20px;
-    }
-    .spanformedit{
-        font-size: 17px;
-    }
-    .text-formedit{
-        font-size: 19px;
-    }
-    .buttonformedit{
-        font-size: 19px;
-    }
+  .uploadsformpostuploadslip {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container-formedit {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .spanformedit {
+    font-size: 17px;
+  }
+  .text-formedit {
+    font-size: 19px;
+  }
+  .buttonformedit {
+    font-size: 19px;
+  }
 }
 @media only screen and (max-width: 414px) {
-    .uploadsformpostuploadslip{
-        width: 100%;
-        font-size: 18px;
-    }
-    .container-formedit{
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        margin-top: -10px;
-        margin-bottom: 20px;
-    }
-    .spanformedit{
-        font-size: 17px;
-    }
-    .text-formedit{
-        font-size: 19px;
-    }
-    .buttonformedit{
-        font-size: 19px;
-    }
+  .uploadsformpostuploadslip {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container-formedit {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .spanformedit {
+    font-size: 17px;
+  }
+  .text-formedit {
+    font-size: 19px;
+  }
+  .buttonformedit {
+    font-size: 19px;
+  }
 }
 @media only screen and (max-width: 375px) {
-
 }
 
 @media only screen and (max-width: 320px) {
-    .text-formedit{
-        font-size: 18px;
-    }
-    .spanformedit{
-        font-size: 16px;
-    }
-    .uploadsformedituploadslip{
-        width: 100%;
-        font-size: 17px;
-    }
-    .buttonformedit{
-        font-size: 18px;
-    }
+  .text-formedit {
+    font-size: 18px;
+  }
+  .spanformedit {
+    font-size: 16px;
+  }
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 17px;
+  }
+  .buttonformedit {
+    font-size: 18px;
+  }
 }

@@ -5,21 +5,19 @@ import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 
-
-const Historyitem = ({ ok, user, handledeletetorerender }) => {
-  const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
+const Historyitem = ({ ok, user, handledeletetorerender,isActive,setIsActive }) => {
 
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 
-  const deleted = async (uid,ok) => {
+  const deleted = async (uid, ok) => {
     try {
-      console.log(ok)
+      console.log(ok);
       const postdelete = await Axios.post(
-        `http://localhost:7000/post/delete/${uid}`,ok
+        `http://localhost:7000/post/delete/${uid}`,
+        ok
       );
-      setIsActive(false)
+      setIsActive(false);
       handledeletetorerender();
     } catch (err) {
       console.log(err);
@@ -31,7 +29,12 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
         <div className="container-history2">
           <div className="container-historysetiing">
             <div className="menu-containerhistorysetting">
-              <div onClick={onClick} className="historybuttonsetting">
+              <div
+                onClick={() => {
+                  setIsActive(!isActive)
+                }}
+                className="historybuttonsetting"
+              >
                 <img
                   className="historyimg-setting"
                   src="/img/setting.png"
@@ -57,7 +60,7 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
                   <li className="li-historymenusetting">
                     <a
                       className="a-historymenusetting"
-                      onClick={() => deleted(ok.uid,ok)}
+                      onClick={() => deleted(ok.uid, ok)}
                     >
                       {" "}
                       ลบโพสต์{" "}
@@ -123,7 +126,11 @@ const Historyitem = ({ ok, user, handledeletetorerender }) => {
                 </Form.Group>
 
                 <Form.Group>
-                  <span className="spanhistory">{ok.money.toLocaleString(undefined, {maximumFractionDigits:2})} </span>
+                  <span className="spanhistory">
+                    {ok.money.toLocaleString(undefined, {
+                      maximumFractionDigits: 2,
+                    })}{" "}
+                  </span>
                 </Form.Group>
               </Form.Row>
 

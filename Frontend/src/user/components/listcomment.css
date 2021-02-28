@@ -91,7 +91,7 @@
   background-color: rgb(245, 245, 245);
   width: 100%;
   padding: 20px;
-  margin: 0 0 30px 0;
+  margin: 10px 0 30px 0;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
@@ -100,6 +100,7 @@
 .postcomment1 {
   margin-top: -10px;
   margin-bottom: 10px;
+  color: #5c5c5c;
 }
 
 .commentbox {
@@ -111,9 +112,10 @@
 .listcommentpost2 {
   margin: 0;
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
 }
 
 .imgcommentitempost {
@@ -132,8 +134,8 @@
 .imgpreviewpost1 {
   position: relative;
   margin: 0;
-  width: 100%;
-  height: 250px;
+  width: 205px;
+  height: 205px;
   object-fit: cover;
   object-position: center;
 }
@@ -153,8 +155,8 @@
 }
 
 .uploadproveedits1 {
-  width: 100%;
-  height: 250px;
+  width: 92%;
+  height: 205px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -199,11 +201,10 @@
 
 .deleteimgposts1 {
   position: relative;
-  right: 10px;
+  right: 15px;
   top: -10px;
   height: 20px;
   width: 20px;
-  background-color: red;
   border-radius: 50%;
   display: inline-block;
   font-size: 13px;
@@ -211,12 +212,16 @@
 }
 
 .deleteimgposts2 {
-  width: 20px;
+  width: 30px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  transition: box-shadow 0.4s ease;
   background-color: white;
+}
+
+.deleteimgposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -225,4 +230,34 @@
   border: none;
   background-color: rgb(245, 245, 245);
   padding: 0 10px;
+}
+
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+  .listcommentpost2 {
+    height: 280px;
+  }
+  .imgpreviewpost1 {
+    width: 275px;
+    height: 275px;
+  }
+  .uploadproveedits1 {
+    width: 93%;
+    height: 275px;
+  }
+}
+
+@media only screen and (max-width: 1367px){
+  .listcommentpost2 {
+    height: 200px;
+  }
+  .imgpreviewpost1 {
+    width: 170px;
+    height: 170px;
+  }
+  .uploadproveedits1 {
+    width: 90%;
+    height: 170px;
+  }
 }

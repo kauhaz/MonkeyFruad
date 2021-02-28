@@ -36,7 +36,7 @@
   width: 20px;
 }
 
-.uploadprove {
+.uploadproveformpost {
   width: 100px;
 }
 
@@ -70,45 +70,45 @@
   color: #ff392e;
 }
 
+.imgpreview {
+  margin: 10px;
+  width: 20%;
+  height: 160px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+
+.postdelete {
+  display: flex;
+  width: 100%;
+}
+
 .deleteimgformposts1 {
-  color: grey;
-  border: none;
-  border-radius: 50px;
+  position: relative;
+  right: 25px;
+  top: 0px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
 }
 
 .deleteimgformposts2 {
-  width: 23px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  margin-top: -250px;
-  margin-left: 90px;
+  width: 30px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  transition: box-shadow 0.4s ease;
   background-color: white;
+}
+
+.deleteimgformposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
-/* .linkrule1{
-    margin-top: 10px;
-}
-.linkrule2{ 
-    display: inline;
-}
-.linkrule3, .linkrule3:hover{ 
-    display: inline-block;
-    color: red;
-    margin-left: 2px;
-    margin-bottom: 10px;
-} */
-
-/* .uploadsformpostuploadslip{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-} */
 
 .uploadprove {
   margin-top: 10px;
@@ -117,28 +117,35 @@
   cursor: pointer;
 }
 
-.container-img-holder-imgpreview .imgpreview {
-  width: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /* margin-left: -200px; */
-  margin-right: 10px;
+/* .uploadproveedits {
+  justify-items: center;
+  align-items: center;
 }
 
-.imgpreview {
-  overflow: hidden;
-  background-color: white;
+.uploadproveedits1 {
+  width: 10%;
+  height: 160px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
 
-.imgpreview img {
-  transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-.imgpreview:hover {
-  transform: scale(2.5);
+.uploadproveedits1:hover {
+  background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+
+.uploadproveedits2 {
+  width: 100%;
+  padding: 60px;
+} */
+
+/* .imgpreview:hover {
+  transform: scale(2.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+} */
 
 .buttonformpost {
   width: 100%;

@@ -78,7 +78,13 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
     InitReport();
   }, []);
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       <div className="container-history1">
         <div className="container-history2">
           <Form className="formsize-history">
