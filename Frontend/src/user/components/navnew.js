@@ -111,7 +111,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`http://localhost:7000/post/post`);
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
       Setallpost(getallpost.data.item);
@@ -243,10 +243,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/admin/thief/post/${thiefid}`,
-                                search: "?are you ok",
-                                state: {
-                                  doc
-                                }
+                                search: "?are you ok"
+  
                               })
                               ,
                               window.location.reload(true)
@@ -384,10 +382,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/thief/post/${thiefid}`,
-                                search: "?are you ok",
-                                state: {
-                                  doc
-                                }
+                                search: "?are you ok"
+      
                               })
                               ,
                               window.location.reload(true)
