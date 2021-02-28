@@ -5047,7 +5047,7 @@ const Entersearch = () => {
 
                 <h1 className="h1-posts">
                   {" "}
-                  ผลการค้นหา ... มีโพสต์ทั้งหมด {show ? show.length : null}{" "}
+                  ผลการค้นหา * {search} * มีทั้งหมด {show ? show.length : null}{" "}
                   โพสต์
                 </h1>
 
@@ -5805,14 +5805,8 @@ const Entersearch = () => {
           search={search}
           SetshowDropdown={SetshowDropdown}
           showDropdown={showDropdown}
-<<<<<<< HEAD
-        /> 
-        }
-        
-=======
         />
       )}
->>>>>>> 1b0eba2e83c5858bf459eff82cca10579df23d67
     </div>
   );
 };
