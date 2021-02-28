@@ -65,6 +65,36 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         if (getdata) {
           console.log(getdata);
           history.push({
+            pathname: "/entersearch",
+            search: "?are you ok",
+            state: {
+              getdata,
+              search,
+            },
+          });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const adminhandlesearch = () => {
+    try {
+      if (search) {
+        const getdata = allpost.filter((doc) => {
+          return (
+            doc.name.toLowerCase().includes(search.toLowerCase()) ||
+            doc.surname.toLowerCase().includes(search.toLowerCase()) ||
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
+          );
+        });
+        Setsearch("");
+        if (getdata) {
+          console.log(getdata);
+          history.push({
             pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
@@ -185,7 +215,7 @@ console.log(showDropdown)
               </div>
             </MDBNavItem>
 
-            <button onClick={() => handlesearch()} className="button-nav">
+            <button onClick={() => adminhandlesearch()} className="button-nav">
               ค้นหา
             </button>
             <MDBNavItem>
@@ -237,7 +267,7 @@ console.log(showDropdown)
           : null}
         {lastsearch ? (
           showDropdown ? (
-            <div className="dropsearch-nav" onClick={() => handlesearch()}>
+            <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
               ค้นหา {search}
             </div>
           ) : null
