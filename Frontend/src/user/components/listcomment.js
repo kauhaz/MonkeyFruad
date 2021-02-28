@@ -13,11 +13,6 @@ const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
-<<<<<<< HEAD
-  setIsActive,
-  isActive,
-=======
->>>>>>> 26e273b44aa8f854a70b9e9b253bab9d9b4bd606
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
@@ -308,6 +303,27 @@ const Listcomment = ({
             ) : checkedittext ? (
               <div className="comment">
                 <div className="commentbox">
+                  {!imagecomment && !imagesFile ? (
+                    <div className="container-img-holder-imgpreview1">
+                      <label>
+                        <img
+                          className="uploadprovepost1"
+                          src="/img/addimg.png"
+                        />
+                        <input
+                          id="FileInput"
+                          className="uploadspostcomment"
+                          type="file"
+                          onChange={FileUpload}
+                          multiple
+                          accept="image/png, image/jpeg , image/jpg"
+                        />
+                      </label>
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
+
                   <div
                     className="post-writecommemt"
                     controlId="exampleForm.ControlTextarea1"
@@ -315,7 +331,7 @@ const Listcomment = ({
                     <textarea
                       rows="3"
                       cols="15"
-                      className="inputcomment2"
+                      className="inputcomment1"
                       placeholder="เขียนความคิดเห็น..."
                       value={edittextcomment}
                       onChange={(e) => {
@@ -334,26 +350,6 @@ const Listcomment = ({
                   </div>
                 </div>
 
-                <div className="container-img-holder-imgpreview1">
-                  {!imagecomment && !imagesFile ? (
-                    <div>
-                      <label>
-                        <img
-                          className="uploadprovepost1"
-                          src="/img/addphoto.png"
-                        />
-                        <input
-                          id="FileInput"
-                          className="uploadspostcomment"
-                          type="file"
-                          onChange={FileUpload}
-                          multiple
-                          accept="image/png, image/jpeg , image/jpg"
-                        />
-                      </label>
-                    </div>
-                  ) : null}
-                </div>
                 <div>
                   <div className="imgcommentitempost">
                     {imagesFile

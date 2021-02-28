@@ -5717,12 +5717,6 @@ const Post = () => {
     <div
       onClick={() => {
         Hiddendropdown();
-<<<<<<< HEAD
-        if (isActive == true) {
-          setIsActive(false);
-        }
-=======
->>>>>>> 26e273b44aa8f854a70b9e9b253bab9d9b4bd606
       }}
     >
       <NavbarPage

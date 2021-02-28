@@ -113,7 +113,7 @@
 
 .commentbox {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 40px 60% 40px;
 }
 
 .listcommentpost2 {
@@ -156,6 +156,11 @@
   object-position: center;
 } */
 
+.uploadprovepost1 {
+  width: 100%;
+  cursor: pointer;
+}
+
 .uploadproveedits {
   justify-items: center;
   align-items: center;
@@ -182,9 +187,10 @@
 }
 
 .buttoncommentpostsave2 {
-  width: 50%;
+  width: 160%;
   height: 40px;
-  font-size: 17px;
+  margin-left: 10px;
+  font-size: 16px !important;
   background-color: #5c83cc;
   border: none;
   border-radius: 0.5rem;
@@ -232,14 +238,6 @@
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
-.inputcomment2 {
-  width: 100%;
-  border: none;
-  background-color: rgb(245, 245, 245);
-  padding: 0 10px;
-}
-
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
