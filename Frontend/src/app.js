@@ -26,9 +26,6 @@ import Editprofile from "./user/pages/editprofile";
 import Changepass from "./user/pages/changpass";
 import SeepostAdmin from "./admin/pages/seepost";
 import Managepost from "./admin/pages/managepost";
-import Non_verifypost from "./admin/pages/non_verifypost";
-import Verifypost from "./admin/pages/verifypost";
-import Hidereport from "./admin/pages/hidereport";
 import Report from "./admin/pages/report";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
@@ -66,19 +63,10 @@ const App = () => {
       <usercontext.Provider value={{ user, setUser }}>
         <Switch>
           <Route path="/" exact>
-          <Managepost />
-          </Route>
-          <Route path="/non_verifypost" exact>
-            <Non_verifypost />
+            <Managepost />
           </Route>
           <Route path="/report" exact>
             <Report />
-          </Route>
-          <Route path="/verifypost" exact>
-            <Verifypost />
-          </Route>
-          <Route path="/hidereport" exact>
-            <Hidereport />
           </Route>
           <Route path="/post/:uid" exact>
             <SeepostAdmin />
