@@ -500,7 +500,7 @@ const Formpost = ({ check, Setcheck }) => {
 
               <br></br>
 
-              <div className="container-img-holder-imgpreview">
+              <div className="imgcommentitemformpost1">
                 {!imagesFile ? (
                   <div>
                     <label>
@@ -554,15 +554,15 @@ const Formpost = ({ check, Setcheck }) => {
                     })
                   : null}
                 {imagesFile ? (
-                  <div>
-                    <label>
+                  <div className="uploadproveeditpost">
+                    <label className="uploadproveeditpost1">
                       <img
-                        className="uploadproveformpost"
-                        src="/img/addimage.png"
+                        className="uploadproveeditpost2"
+                        src="/img/last1.png"
                       />
                       <input
                         id="FileInput"
-                        className="uploadproveformpost"
+                        className="uploadspostcomment1"
                         type="file"
                         onChange={FileUpload}
                         multiple

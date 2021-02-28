@@ -7,7 +7,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../components/clipLoader";
-import "./findthief.css";
+import "./post.css";
 
 const Findthief = () => {
   const history = useHistory();
