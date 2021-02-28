@@ -143,7 +143,28 @@ router.post("/create", uploadFile, async (req, res) => {
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
-
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
+      const create = await firestore.collection("Post").doc(uid).set({
+        name,
+        surname,
+        id,
+        accountnumber,
+        nameproduct,
+        productcategory,
+        money: newmoney,
+        bank,
+        datetimes,
+        social,
+        other,
+        uid,
+        useruid,
+        date,
+        resultfile: singlephoto,
+        item,
+        username,
+      });
+    }
+    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
       const create = await firestore.collection("Post").doc(uid).set({
         name,
         surname,
@@ -164,7 +185,7 @@ router.post("/create", uploadFile, async (req, res) => {
         username,
         photoURL,
       });
-
+    }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -202,6 +223,27 @@ router.post("/create", uploadFile, async (req, res) => {
       const resultfile = await cloudinary.uploader.upload(file[0].path);
       let { url, public_id } = resultfile;
       let singlephoto = { url, public_id };
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
+      const create = await firestore.collection("Post").doc(uid).set({
+        name,
+        surname,
+        id,
+        accountnumber,
+        nameproduct,
+        productcategory,
+        money: newmoney,
+        bank,
+        datetimes,
+        social,
+        other,
+        uid,
+        useruid,
+        date,
+        resultfile: singlephoto,
+        username,
+      })
+    }
+    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
       const create = await firestore.collection("Post").doc(uid).set({
         name,
         surname,
@@ -220,7 +262,8 @@ router.post("/create", uploadFile, async (req, res) => {
         resultfile: singlephoto,
         username,
         photoURL,
-      });
+      })
+    }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -264,7 +307,7 @@ router.post("/create", uploadFile, async (req, res) => {
         let { url, public_id } = resultfiles;
         item.push({ url, public_id });
       }
-      if (photoURL.public_id === "undefined") {
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
         const create = await firestore.collection("Post").doc(uid).set({
           name,
           surname,
@@ -283,7 +326,7 @@ router.post("/create", uploadFile, async (req, res) => {
           item,
           username,
         });
-      } else if (photoURL.public_id !== "undefined") {
+      } else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
         const create = await firestore.collection("Post").doc(uid).set({
           name,
           surname,
@@ -337,6 +380,26 @@ router.post("/create", uploadFile, async (req, res) => {
         }
       });
     } else if (!file && !files) {
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
+      const create = await firestore.collection("Post").doc(uid).set({
+        name,
+        surname,
+        id,
+        accountnumber,
+        nameproduct,
+        productcategory,
+        money: newmoney,
+        bank,
+        datetimes,
+        social,
+        other,
+        uid,
+        useruid,
+        date,
+        username
+      });
+    }
+    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
       const create = await firestore.collection("Post").doc(uid).set({
         name,
         surname,
@@ -355,6 +418,7 @@ router.post("/create", uploadFile, async (req, res) => {
         username,
         photoURL,
       });
+    }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
