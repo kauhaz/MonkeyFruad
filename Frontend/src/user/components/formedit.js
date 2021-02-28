@@ -308,7 +308,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="name"
-                                  pattern="[a-z,ก-๛]{1,}"
+                                  pattern="[a-z,A-Z,ก-๛]{1,}"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={name}
@@ -330,7 +330,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="lastname"
-                                  pattern="[a-z,ก-๛]{1,}"
+                                  pattern="[a-z,A-Z,ก-๛]{1,}"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={surname}
@@ -386,7 +386,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   type="text"
                                   id="accountnumber"
                                   pattern="[0-9]{1,}"
-                                  minlength="2"
+                                  minlength="12"
                                   maxlength="12"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
@@ -413,7 +413,7 @@ const Formedit = ({ check, Setcheck }) => {
                               </Form.Label>
                               {show ? (
                                 <Form.Control
-                                  type="name"
+                                  type="nameproduct"
                                   placeholder=""
                                   value={nameproduct}
                                   onChange={(event) => {
@@ -484,7 +484,7 @@ const Formedit = ({ check, Setcheck }) => {
                               </Form.Label>
                               {show ? (
                                 <Form.Control
-                                  type="text"
+                                  type="number"
                                   id="nameproduct"
                                   pattern="[0-9]{1,}"
                                   title="กรอกตัวเลขเท่านั้น"
@@ -586,8 +586,8 @@ const Formedit = ({ check, Setcheck }) => {
                             </Form.Label>
                             {show ? (
                               <Form.Control
-                                type="name"
-                                placeholder=""
+                                as="textarea"
+                                rows={3}
                                 value={other}
                                 onChange={(event) => {
                                   setOther(event.target.value);
@@ -602,14 +602,14 @@ const Formedit = ({ check, Setcheck }) => {
                               เช่น ภาพถ่ายหน้าจอ (แชท)
                             </span>
                             <br></br>
-                            <span className="spanformpost">
+                            <span className="spanformedit">
                               **ต้องเป็นไฟล์ png หรือ jpeg เท่านั้น
                             </span>
                           </Form.File.Label>
 
                           <br></br>
 
-                          <div className="container-img-holder-imgpreviewedit">
+                          <div className="imgcommentitemformpost1">
                             {!imagepost && !imagesFile ? (
                               <div>
                                 <label>
@@ -635,22 +635,9 @@ const Formedit = ({ check, Setcheck }) => {
                                     <div className="postdelete">
                                       <img
                                         key={index}
-                                        className="imgpreviewedit"
+                                        className="imgpreview"
                                         alt="previewImg"
                                         src={imagePreviewUrl}
-                                        style={{ overflow: "hidden" }}
-                                        onMouseOver={(e) =>
-                                          (e.currentTarget.style = {
-                                            transform: "scale(1.25)",
-                                            overflow: "hidden",
-                                          })
-                                        }
-                                        onMouseOut={(e) =>
-                                          (e.currentTarget.style = {
-                                            transform: "scale(1)",
-                                            overflow: "hidden",
-                                          })
-                                        }
                                       />
                                       <div className="deleteimgformposts1">
                                         <img
@@ -669,7 +656,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   return (
                                     <div className="postdelete">
                                       <img
-                                        className="imgpreviewedit"
+                                        className="imgpreview"
                                         src={`${res.url}`}
                                         onClick={() => (
                                           Setimagemodal(res.url),
@@ -685,26 +672,26 @@ const Formedit = ({ check, Setcheck }) => {
                                           }
                                         />
                                       </div>
+                                      <Modalimage
+                                        isopen={isopen}
+                                        handleopenmodal={handleopenmodal}
+                                        handleclosemodal={handleclosemodal}
+                                        imagemodal={imagemodal}
+                                      />
                                     </div>
                                   );
                                 })
                               : null}
-                            <Modalimage
-                              isopen={isopen}
-                              handleopenmodal={handleopenmodal}
-                              handleclosemodal={handleclosemodal}
-                              imagemodal={imagemodal}
-                            />
                             {imagepost || imagesFile ? (
-                              <div>
-                                <label>
+                              <div className="uploadproveeditpost">
+                                <label className="uploadproveeditpost1">
                                   <img
-                                    className="uploadproveformpost"
+                                    className="uploadproveeditpost2"
                                     src="/img/addimage.png"
                                   />
                                   <input
                                     id="FileInput"
-                                    className="uploadspostcomment"
+                                    className="uploadspostcomment1"
                                     type="file"
                                     onChange={FileUpload}
                                     multiple
@@ -715,7 +702,7 @@ const Formedit = ({ check, Setcheck }) => {
                             ) : null}
                           </div>
 
-                          <h1 className="h1-formpostfileerror">{error}</h1>
+                          <h1 className="h1-formeditfileerror">{error}</h1>
 
                           <button
                             className="buttonformedit"

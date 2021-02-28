@@ -528,19 +528,6 @@ const Formpost = ({ check, Setcheck }) => {
                             className="imgpreview"
                             alt="previewImg"
                             src={imagePreviewUrl}
-                            style={{ overflow: "hidden" }}
-                            onMouseOver={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1.25)",
-                                overflow: "hidden",
-                              })
-                            }
-                            onMouseOut={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1)",
-                                overflow: "hidden",
-                              })
-                            }
                           />
                           <div className="deleteimgformposts1">
                             <img

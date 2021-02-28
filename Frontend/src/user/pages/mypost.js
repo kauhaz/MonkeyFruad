@@ -176,8 +176,8 @@ const Mypost = () => {
       className="allpage"
       onClick={() => {
         Hiddendropdown();
-        if(isActive == true){
-          setIsActive(false)
+        if (isActive == true) {
+          setIsActive(false);
         }
       }}
     >
@@ -193,6 +193,15 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
+                      <div className="mypostbuttonreport">
+                        <button
+                          variant="primary"
+                          onClick={handleShow}
+                          className="mypostbuttonreported"
+                        >
+                          <i class="fa fa-flag"></i>
+                        </button>
+                      </div>
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
@@ -216,15 +225,6 @@ const Mypost = () => {
                       </div>
                       {user && user.uid != ok.useruid ? (
                         <div>
-                          <div className="mypostbuttonreport">
-                            <button
-                              variant="primary"
-                              onClick={handleShow}
-                              className="mypostbuttonreported"
-                            >
-                              <i class="fa fa-flag"></i>
-                            </button>
-                          </div>
                           <Form.Row>
                             <Modal
                               show={Show}
@@ -337,7 +337,7 @@ const Mypost = () => {
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
                                 </span>
-                                <div className="container-img-holder-imgpreviewreport">
+                                <div className="imgcommentitemreport1">
                                   <label>
                                     <img
                                       className="uploadprovereport"
@@ -359,29 +359,16 @@ const Mypost = () => {
                                     ? imagesFile.map(
                                         (imagePreviewUrl, index) => {
                                           return (
-                                            <div>
+                                            <div className="postdeletereport">
                                               <img
                                                 key={index}
-                                                className="imgpreview"
+                                                className="imgpreviewreport"
                                                 alt="previewImg"
                                                 src={imagePreviewUrl}
-                                                style={{ overflow: "hidden" }}
-                                                onMouseOver={(e) =>
-                                                  (e.currentTarget.style = {
-                                                    transform: "scale(1.25)",
-                                                    overflow: "hidden",
-                                                  })
-                                                }
-                                                onMouseOut={(e) =>
-                                                  (e.currentTarget.style = {
-                                                    transform: "scale(1)",
-                                                    overflow: "hidden",
-                                                  })
-                                                }
                                               />
-                                              <div className="mypost_deleteimgpost1">
+                                              <div className="deleteimgreports1">
                                                 <img
-                                                  className="mypost_deleteimgpost2"
+                                                  className="deleteimgreports2"
                                                   src="/img/delete2.png"
                                                   onClick={() => {
                                                     handledeleteimage(index);

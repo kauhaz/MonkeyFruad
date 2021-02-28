@@ -5039,8 +5039,7 @@ const Entersearch = () => {
                         return (
                           <div>
                             <div className="container-posts2">
-
-                              <div className="container-posts3">
+                              <div className="container-postss3">
                                 <Form className="formsize-post">
                                   <Form.Row>
                                     <Form.Group
@@ -5114,7 +5113,7 @@ const Entersearch = () => {
                                 </Form>
                                 <div className="postothers">
                                   <Link
-                                    className="postother1"
+                                    className="postothers1"
                                     onClick={() => (
                                       history.push(`/post/${res.uid}`),
                                       window.location.reload(true)
@@ -5140,7 +5139,7 @@ const Entersearch = () => {
                                 return (
                                   <div>
                                     <div className="container-posts2">
-                                      <div className="container-posts3">
+                                      <div className="container-postss3">
                                         <Form className="formsize-post">
                                           <Form.Row>
                                             <Form.Group
@@ -5220,13 +5219,11 @@ const Entersearch = () => {
                                             </Form.Group>
                                           </Form.Row>
                                         </Form>
-                                        <div className="postother">
+                                        <div className="postothers">
                                           <Link
-                                            className="postother1"
+                                            className="postothers1"
                                             onClick={() => (
-                                              history.push(
-                                                `/post/${res.uid}`
-                                              ),
+                                              history.push(`/post/${res.uid}`),
                                               window.location.reload(true)
                                             )}
                                           >
@@ -5252,7 +5249,7 @@ const Entersearch = () => {
 
               <div className="column-post-right1">
                 <div className="biggroup">
-                  <div className="container-postright2">
+                  <div className="container-postrights2">
                     <div className="post-group1">
                       เรียงตาม :
                       <select

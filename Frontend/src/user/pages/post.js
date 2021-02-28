@@ -5916,9 +5916,7 @@ const Post = () => {
 
                           <div className="line-posts1"></div>
                           <div className="container-posts4">
-                            <Commentitem
-                              postid={res.uid}
-                            />
+                            <Commentitem postid={res.uid} />
                           </div>
                         </div>
                       </div>

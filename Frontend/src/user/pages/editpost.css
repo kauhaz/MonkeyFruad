@@ -20,12 +20,12 @@
 
 @media only screen and (max-width: 414px) {
     .h1-editpost{
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 @media only screen and (min-width: 414px) {
     .h1-editpost{
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 @media only screen and (max-width: 375px) {

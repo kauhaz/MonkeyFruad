@@ -63,12 +63,17 @@
   background-color: white;
 }
 
+.text-formpost { 
+  font-size: 16px;
+}
+
 .formpost-left {
   margin-right: 15px;
 }
 
 .spanformpost {
   color: #ff392e;
+  font-size: 17px;
 }
 
 .imgpreview {
@@ -146,9 +151,13 @@
 
 .imgcommentitemformpost1 {
   display: grid;
-  /* padding-left: 15px; */
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.uploadprovereport {
+  width: 20%;
+  margin-top: 20px;
 }
 
 .buttonformpost {
@@ -157,7 +166,7 @@
   background-color: #5c83cc;
   border: none;
   border-radius: 0.5rem;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   color: white;
   padding: 0.5rem;
@@ -165,16 +174,8 @@
 }
 
 .buttonformpost:hover {
-  width: 100%;
-  font-size: 20px;
   background-color: #3c6fce;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 20px;
-  text-align: center;
   color: white;
-  padding: 0.5rem;
-  margin-top: 10px;
 }
 
 /* .buttonformpost:active{
@@ -189,7 +190,7 @@
 
 .h1-formpostfileerror {
   color: #ff392e;
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   margin-bottom: 20px;
 }

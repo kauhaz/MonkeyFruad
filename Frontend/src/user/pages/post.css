@@ -102,6 +102,7 @@
   padding: 40px 40px 20px 40px;
 }
 
+/* หน้า entersearch, findthief */
 .container-postss3 {
   width: 94%;
   margin-top: 20px;
@@ -315,10 +316,38 @@
   margin-right: 10px;
 }
 
+/* หน้า entersearch, findthief */
 .h1-posts {
   margin-top: 50px;
   text-align: center;
   font-size: 25px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
+}
+
+/* หน้า managepost */
+
+.adminbuttonreported {
+  float: right;
+  border: none;
+  background-color: white;
+  color: gray;
+  border-radius: 50px;
+}
+
+.adminbuttonreported:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.column-post-lefts1 {
+  width: 63%;
+  margin-left: 15px;
+  height: 2000px;
+  margin-top: 30px;
+}
+
+.column-post-rights1 {
+  width: 34%;
+  height: 50px;
+  margin-top: 30px;
 }

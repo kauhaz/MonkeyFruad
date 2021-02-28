@@ -98,7 +98,7 @@ const ManagePost = () => {
 
   const deleteClick = async (uid) => {
     await Axios.post(`http://localhost:7000/post/delete/${uid}`);
-    setDelectClick(!delectClick)
+    setDelectClick(!delectClick);
   };
   const ok = async () => {
     Setloading(true);
@@ -5713,7 +5713,7 @@ const ManagePost = () => {
     searchstart,
     searchend,
     sortvalue,
-    delectClick
+    delectClick,
   ]);
   return (
     <div
@@ -5730,7 +5730,7 @@ const ManagePost = () => {
       />
       <div className="container-bigpost1">
         <div className="row postbigrow">
-          <div className="column-post-left1">
+          <div className="column-post-lefts1">
             {loading ? (
               <ClipLoader />
             ) : (
@@ -5743,7 +5743,7 @@ const ManagePost = () => {
                           <button
                             onClick={() => deleteClick(res.uid)}
                             variant="primary"
-                            className="mypostbuttonreported"
+                            className="adminbuttonreported"
                           >
                             <i class="far fa-trash-alt"></i>
                           </button>
@@ -6129,7 +6129,7 @@ const ManagePost = () => {
             <div className="container-bottoms"></div>
           </div>
 
-          <div className="column-post-right1">
+          <div className="column-post-rights1">
             <div className="biggroup">
               <div className="container-postright2">
                 <div className="post-group1">

@@ -73,7 +73,7 @@
   color: grey;
 }
 
-.mypostbuttonreported {
+/* .mypostbuttonreported {
   margin-top: -55px;
   width: 30px;
   background: #ffffff;
@@ -89,12 +89,23 @@
   margin-left: auto;
   margin-right: 0px;
   color: grey;
+}*/
+
+.mypostbuttonreported {
+  float: right;
+  border: none;
+  background-color: white;
+  color: grey;
+  border-radius: 50px;
 }
 
 .mypostbuttonreported:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  color: grey;
   border-radius: 50%;
+}
+
+.mypostbuttonreported:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .modalreport {
@@ -130,7 +141,7 @@
 .btn {
   font-size: 16px !important;
   border-radius: 0.5rem !important;
-  padding: 10px 25px 10px 25px !important;
+  padding: 5px 15px 5px 15px !important;
 }
 
 /* .imgpreview {
@@ -149,8 +160,8 @@
 } */
 
 .uploadprovereport {
-  width: 20%;
-  margin-top: 20px;
+  width: 100px;
+  padding: 10px;
 }
 
 .mypostimg-setting {
@@ -372,6 +383,51 @@
   display: none;
 }
 
+.imgcommentitemreport1 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.postdeletereport {
+  display: flex;
+  width: 100%;
+}
+
+.imgpreviewreport {
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+
+.deleteimgreports1 {
+  position: relative;
+  right: 15px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.deleteimgreports2 {
+  width: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.deleteimgreports2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
 /*Responsive*/
 @media only screen and (max-width: 1920px) {
 }

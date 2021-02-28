@@ -3,7 +3,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../../user/components/navnew";
 import Axios from "axios";
-import { Link, useHistory, useParams ,useLocation} from "react-router-dom";
+import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../../user/components/clipLoader";
 
@@ -19,10 +19,10 @@ const Findthief = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [doc, Setdoc] = useState();
 
-  let location = useLocation()
+  let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-    Setdoc(location.state.doc)
+    Setdoc(location.state.doc);
     Setshow(getpost.data.item);
   };
   const Hiddendropdown = () => {
@@ -42,7 +42,9 @@ const Findthief = () => {
           <div className="column-post-left1">
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา * {show && show[0].name} {show && show[0].surname} {show && show[0].accountnumber} * มีทั้งหมด {show ? show.length : null} โพสต์
+              ผลการค้นหา * {show && show[0].name} {show && show[0].surname}{" "}
+              {show && show[0].accountnumber} * มีทั้งหมด{" "}
+              {show ? show.length : null} โพสต์
             </h1>
 
             {loading ? (
@@ -54,7 +56,7 @@ const Findthief = () => {
                     return (
                       <div>
                         <div className="container-posts2">
-                          <div className="container-posts3">
+                          <div className="container-postss3">
                             <Form className="formsize-post">
                               <Form.Row>
                                 <Form.Group
@@ -146,8 +148,7 @@ const Findthief = () => {
             <div className="container-bottoms"></div>
           </div>
 
-          <div className="column-post-right1">
-          </div>
+          <div className="column-post-right1"></div>
         </div>
       </div>
     </div>
