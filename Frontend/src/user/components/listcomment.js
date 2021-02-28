@@ -14,8 +14,6 @@ const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
-  setIsActive,
-  isActive
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
@@ -31,6 +29,7 @@ const Listcomment = ({
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
   const [loading, Setloading] = useState();
+  const [isActive, setIsActive] = useState(false);
   let { user, setUser } = useContext(usercontext);
 
   const handleopenmodal = async() =>{
