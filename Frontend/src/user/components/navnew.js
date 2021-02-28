@@ -352,10 +352,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/thief/post/${thiefid}`,
-                                search: "?are you ok",
-                                state: {
-                                  doc
-                                }
+                                search: "?are you ok"
+      
                               })
                               ,
                               window.location.reload(true)
