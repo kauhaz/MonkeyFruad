@@ -91,7 +91,7 @@
   background-color: rgb(245, 245, 245);
   width: 100%;
   padding: 20px;
-  margin: 0 0 30px 0;
+  margin: 10px 0 30px 0;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
@@ -100,6 +100,7 @@
 .postcomment1 {
   margin-top: -10px;
   margin-bottom: 10px;
+  color: #5c5c5c;
 }
 
 .commentbox {
@@ -114,6 +115,7 @@
   height: 250px;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
 }
 
 .imgcommentitempost {
@@ -199,11 +201,10 @@
 
 .deleteimgposts1 {
   position: relative;
-  right: 10px;
+  right: 15px;
   top: -10px;
   height: 20px;
   width: 20px;
-  background-color: red;
   border-radius: 50%;
   display: inline-block;
   font-size: 13px;
@@ -211,12 +212,16 @@
 }
 
 .deleteimgposts2 {
-  width: 20px;
+  width: 30px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  transition: box-shadow 0.4s ease;
   background-color: white;
+}
+
+.deleteimgposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 

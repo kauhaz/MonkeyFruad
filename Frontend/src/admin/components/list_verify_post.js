@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col,  Modal } from "react-bootstrap";
+import { Form, Col, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
@@ -159,7 +159,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                 controlId="formGridName"
               >
                 <Form.Label>
-                รูปหลักฐาน :
+                  รูปหลักฐาน :
                   <div className="mypostbuttonreport">
                     <button
                       variant="primary"
@@ -178,30 +178,27 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                   >
                     <Modal.Header closeButton>
                       <Modal.Title className="namereport">
-                      รูปหลักฐาน
+                        รูปหลักฐาน
                       </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="bigreport1">
                       <Form.Row>
-                      {reportelement.fileUploads ? (
-                        reportelement.fileUploads.map((element, index) => {
-                          return (
-                            <div className="img-holder-badslip">
-                              <a href={`${element.url}`}>
-                              <img
-                                className="img-bad"
-                                alt=""
-                                src={`${element.url}`}
-                                style={{ overflow: "hidden" }}
-
-                              />
-                              </a>
-                            </div>
-                          );
-                        })
-                      ) : (
-                        null
-                      )}
+                        {reportelement.fileUploads
+                          ? reportelement.fileUploads.map((element, index) => {
+                              return (
+                                <div className="img-holder-badslip">
+                                  <a href={`${element.url}`}>
+                                    <img
+                                      className="img-bad"
+                                      alt=""
+                                      src={`${element.url}`}
+                                      style={{ overflow: "hidden" }}
+                                    />
+                                  </a>
+                                </div>
+                              );
+                            })
+                          : null}
                       </Form.Row>
                     </Modal.Body>
                   </Modal>

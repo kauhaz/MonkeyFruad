@@ -14,13 +14,14 @@ const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
+  setIsActive,
+  isActive
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
 
   const [files, Setfiles] = useState();
   const [error, Seterror] = useState();
-  const [isActive, setIsActive] = useState(false);
   const [item, Setitem] = useState([]);
   const [checkedittext, Setcheckedittext] = useState(false);
   const [textcomment, Settextcomment] = useState();
@@ -388,7 +389,6 @@ const Listcomment = ({
                           })
                         : null
                       : null}
-                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
 
                     {imagecomment || imagesFile ? (
                       <div className="uploadproveedits">

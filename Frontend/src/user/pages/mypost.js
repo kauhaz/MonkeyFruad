@@ -13,7 +13,7 @@ import "./mypost.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
-import Modalimage from "../components/Modalimage"
+import Modalimage from "../components/Modalimage";
 
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
@@ -25,7 +25,6 @@ const Mypost = () => {
   const [description, setDescription] = useState("");
   const [reportsubmitsuccess, setReportsubmitsuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
   const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -56,16 +55,16 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
   };
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const handleShow = () => setShow(true);
-  const deleted = async (uid,ok) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`,ok);
+  const deleted = async (uid, ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`, ok);
     history.push("/post/history");
   };
 
@@ -165,15 +164,23 @@ const Mypost = () => {
     ok();
     handleselect();
   }, [checkselectone, checkselecttwo, checkselectthree, imagesFile]);
-  console.log("selectonevalue : ", selectone, "check:", checkselectone);
-  console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
-  console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
-  console.log("description : ", description);
-  console.log("fileupload : ", files);
-  console.log("reportsubmitsuccess : ", reportsubmitsuccess);
-  console.log("loading : ", loading);
+  // console.log("selectonevalue : ", selectone, "check:", checkselectone);
+  // console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
+  // console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
+  // console.log("description : ", description);
+  // console.log("fileupload : ", files);
+  // console.log("reportsubmitsuccess : ", reportsubmitsuccess);
+  // console.log("loading : ", loading);
   return (
-    <div className="allpage" onClick={() => Hiddendropdown()}>
+    <div
+      className="allpage"
+      onClick={() => {
+        Hiddendropdown();
+        if(isActive == true){
+          setIsActive(false)
+        }
+      }}
+    >
       {mypost ? (
         <div>
           {" "}
@@ -435,7 +442,7 @@ const Mypost = () => {
                         <div className="container-mypostsetiing">
                           <div className="menu-containermypostsetting">
                             <div
-                              onClick={onClick}
+                              onClick={() => setIsActive(!isActive)}
                               className="mypostbuttonsetting"
                             >
                               <img
@@ -463,7 +470,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() => deleted(ok.uid,ok)}
+                                    onClick={() => deleted(ok.uid, ok)}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
@@ -639,13 +646,20 @@ const Mypost = () => {
                                       alt=""
                                       src={`${res.url}`}
                                       style={{ overflow: "hidden" }}
-                                     
-                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
+                                      onClick={() => (
+                                        Setimagemodal(res.url),
+                                        handleopenmodal()
+                                      )}
                                     />
                                   );
                                 })
                               : null}
-                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                            <Modalimage
+                              isopen={isopen}
+                              handleopenmodal={handleopenmodal}
+                              handleclosemodal={handleclosemodal}
+                              imagemodal={imagemodal}
+                            />
                           </div>
                         </Form>
                         <div className="line-comment1"></div>

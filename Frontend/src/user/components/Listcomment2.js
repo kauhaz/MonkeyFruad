@@ -342,7 +342,6 @@ const Listcomment2 = ({
                           })
                         : null
                       : null}
-                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
 
                       {(imagecomment || imagesFile) ? (
                         <div>
