@@ -345,7 +345,14 @@ console.log(showDropdown)
                           <button
                             className="search-nav"
                             onClick={() => (
-                              history.push(`/thief/post/${thiefid}`),
+                              history.push({
+                                pathname: `/thief/post/${thiefid}`,
+                                search: "?are you ok",
+                                state: {
+                                  doc
+                                }
+                              })
+                              ,
                               window.location.reload(true)
                             )}
                           >
