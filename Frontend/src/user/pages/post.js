@@ -92,7 +92,7 @@ const Post = () => {
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
+
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
@@ -5714,11 +5714,15 @@ const Post = () => {
     searchend,
     sortvalue,
   ]);
-
-  // console.log(result);
-
   return (
-    <div onClick={() => Hiddendropdown()}>
+    <div
+      onClick={() => {
+        Hiddendropdown();
+         if(isActive == true){
+          setIsActive(false)
+        }
+      }}
+    >
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
@@ -5918,7 +5922,11 @@ const Post = () => {
 
                           <div className="line-posts1"></div>
                           <div className="container-posts4">
-                            <Commentitem postid={res.uid} />
+                            <Commentitem
+                              postid={res.uid}
+                              setIsActive={setIsActive}
+                              isActive={isActive}
+                            />
                           </div>
                         </div>
                       </div>
