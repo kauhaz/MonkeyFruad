@@ -91,7 +91,6 @@ const Post = () => {
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
-  const [isActive, setIsActive] = useState(false);
 
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -5718,9 +5717,6 @@ const Post = () => {
     <div
       onClick={() => {
         Hiddendropdown();
-         if(isActive == true){
-          setIsActive(false)
-        }
       }}
     >
       <NavbarPage
@@ -5924,8 +5920,6 @@ const Post = () => {
                           <div className="container-posts4">
                             <Commentitem
                               postid={res.uid}
-                              setIsActive={setIsActive}
-                              isActive={isActive}
                             />
                           </div>
                         </div>

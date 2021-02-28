@@ -51,7 +51,7 @@ const Seepost = () => {
                         variant="primary"
                         className="mypostbuttonreported"
                       >
-                        ลบโพสต์
+                        <i class="far fa-trash-alt"></i>
                       </button>
                       <div className="cotainer-mypost2">
                         <div className="mypost-profile-img">
