@@ -6098,7 +6098,7 @@ const Post = () => {
                                     </Form>
                                     <div className="postothers">
                                       <Link
-                                        className="postother1"
+                                        className="postothers1"
                                         onClick={() => (
                                           history.push(`/mypost/${res.uid}`),
                                           window.location.reload(true)

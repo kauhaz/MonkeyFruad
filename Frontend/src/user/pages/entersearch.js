@@ -9,8 +9,7 @@ import Chatbot from "../components/chatbot";
 
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
-
-import "./entersearch.css";
+import "./post.css";
 
 const Entersearch = () => {
   const [show, Setshow] = useState();
@@ -5058,33 +5057,7 @@ const Entersearch = () => {
                         return (
                           <div>
                             <div className="container-posts2">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="posts-name1">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="container-posts3">
+                              <div className="container-postss3">
                                 <Form className="formsize-post">
                                   <Form.Row>
                                     <Form.Group
@@ -5158,7 +5131,7 @@ const Entersearch = () => {
                                 </Form>
                                 <div className="postothers">
                                   <Link
-                                    className="postother1"
+                                    className="postothers1"
                                     onClick={() => (
                                       history.push(`/mypost/${res.uid}`),
                                       window.location.reload(true)
@@ -5184,33 +5157,7 @@ const Entersearch = () => {
                                 return (
                                   <div>
                                     <div className="container-posts2">
-                                      <div className="post-profile-img">
-                                        {res.photoURL ? (
-                                          <img
-                                            className="img-circle"
-                                            src={`${res.photoURL.url}`}
-                                          />
-                                        ) : (
-                                          <img
-                                            className="img-circle"
-                                            src={"/img/profile.png"}
-                                          />
-                                        )}
-                                        <div className="posts-name1">
-                                          {res.username ? "@" : null}
-                                          {res.username}
-                                        </div>
-                                        <br />
-                                        <div className="post-date">
-                                          <span className="post-time">
-                                            {moment(
-                                              new Date(res.date.seconds * 1000)
-                                            ).format("MM/DD/YYYY HH:mm")}{" "}
-                                          </span>
-                                        </div>
-                                      </div>
-
-                                      <div className="container-posts3">
+                                      <div className="container-postss3">
                                         <Form className="formsize-post">
                                           <Form.Row>
                                             <Form.Group
@@ -5290,9 +5237,9 @@ const Entersearch = () => {
                                             </Form.Group>
                                           </Form.Row>
                                         </Form>
-                                        <div className="postother">
+                                        <div className="postothers">
                                           <Link
-                                            className="postother1"
+                                            className="postothers1"
                                             onClick={() => (
                                               history.push(
                                                 `/mypost/${res.uid}`
@@ -5333,7 +5280,7 @@ const Entersearch = () => {
                   </div>
                 </a>
                 <div className="biggroup">
-                  <div className="container-postright2">
+                  <div className="container-postrights2">
                     <div className="post-group1">
                       เรียงตาม :
                       <select
