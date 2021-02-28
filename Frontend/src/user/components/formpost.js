@@ -9,8 +9,8 @@ import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
-import Modal from 'react-modal'
-import Modalimage from "./Modalimage"
+import Modal from "react-modal";
+import Modalimage from "./Modalimage";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -36,8 +36,6 @@ const Formpost = ({ check, Setcheck }) => {
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
   const [imagecomment, Setimagecomment] = useState();
- 
-
 
   // ฟังก์ชันเปลี่ยนรูปโปร
   const ProfileChange = (event) => {
@@ -104,14 +102,13 @@ const Formpost = ({ check, Setcheck }) => {
 
   const handledeleteimage = async (index) => {
     try {
-  
       if (imagesFile) {
         console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
-      if(imagesFile && imagesFile.length === 0){
-        setImagesFile()
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
       }
 
       if (fuck) {
@@ -149,7 +146,6 @@ const Formpost = ({ check, Setcheck }) => {
   var user = auth.currentUser;
   let history = useHistory();
 
- 
   console.log(files);
 
   const handlesubmit = async (e) => {
@@ -211,10 +207,8 @@ const Formpost = ({ check, Setcheck }) => {
     }
   }, [user]);
 
-  
-
   return (
-    <div >
+    <div>
       {loading ? (
         <Loading loading={loading} />
       ) : (
@@ -507,27 +501,28 @@ const Formpost = ({ check, Setcheck }) => {
               <br></br>
 
               <div className="container-img-holder-imgpreview">
-               {(!imagesFile) ?   <div>
-                          <label>
-                            <img
-                              className="uploadprove"
-                              src="/img/addimage.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>
-                        </div> :null 
-                      }
+                {!imagesFile ? (
+                  <div>
+                    <label>
+                      <img
+                        className="uploadproveformpost"
+                        src="/img/addimage.png"
+                      />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                ) : null}
                 {imagesFile
                   ? imagesFile.map((imagePreviewUrl, index) => {
                       return (
-                        <div>
+                        <div className="postdelete">
                           <img
                             key={index}
                             className="imgpreview"
@@ -549,35 +544,33 @@ const Formpost = ({ check, Setcheck }) => {
                           />
                           <div className="deleteimgformposts1">
                             <img
-                              className="deleteimgformposts2"
+                              className="deleteimgposts2"
                               src="/img/delete2.png"
                               onClick={() => handledeleteimage(index)}
                             />
                           </div>
-                         
                         </div>
                       );
                     })
                   : null}
-                  { imagesFile  ? (
-                        <div>
-                          <label>
-                            <img
-                              // className="uploadprovepost1"
-                              src="/img/addimage.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>{" "}
-                        </div>
-                      ) :null
-                      }
+                {imagesFile ? (
+                  <div>
+                    <label>
+                      <img
+                        className="uploadproveformpost"
+                        src="/img/addimage.png"
+                      />
+                      <input
+                        id="FileInput"
+                        className="uploadproveformpost"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>{" "}
+                  </div>
+                ) : null}
               </div>
 
               <h1 className="h1-formpostfileerror">{error}</h1>
