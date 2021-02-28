@@ -65,7 +65,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         if (getdata) {
           console.log(getdata);
           history.push({
-            pathname: "/entersearch",
+            pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
               getdata,
@@ -211,7 +211,14 @@ console.log(showDropdown)
                           <button
                             className="search-nav"
                             onClick={() => (
-                              history.push(`/thief/post/${thiefid}`),
+                              history.push({
+                                pathname: `/admin/thief/post/${thiefid}`,
+                                search: "?are you ok",
+                                state: {
+                                  doc
+                                }
+                              })
+                              ,
                               window.location.reload(true)
                             )}
                           >
