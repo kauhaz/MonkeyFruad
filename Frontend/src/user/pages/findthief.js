@@ -3,7 +3,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
-import { Link, useHistory, useParams ,useLocation} from "react-router-dom";
+import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../components/clipLoader";
@@ -19,10 +19,10 @@ const Findthief = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [doc, Setdoc] = useState();
 
-  let location = useLocation()
+  let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-    Setdoc(location.state.doc)
+    Setdoc(location.state.doc);
     Setshow(getpost.data.item);
   };
   const Hiddendropdown = () => {
@@ -31,7 +31,7 @@ const Findthief = () => {
   useEffect(() => {
     ok();
   }, []);
-  
+
   console.log(show);
   return (
     <div onClick={() => Hiddendropdown()}>
@@ -44,16 +44,14 @@ const Findthief = () => {
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
-                <div className="row postrow">
-                  <div className="column1-postrow1">
-                    <div className="post-img">
-                      <img className="monkey" src="/img/logo v3.png" />
-                    </div>
+                <div className="column1-postrow1">
+                  <div className="post-img">
+                    <img className="monkey" src="/img/logo v3.png" />
                   </div>
-                  <div className="column2-postrow2">
-                    <div className="post-linkpost1">
-                      แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                    </div>
+                </div>
+                <div className="column2-postrow2">
+                  <div className="post-linkpost1">
+                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
                   </div>
                 </div>
               </div>
@@ -61,7 +59,9 @@ const Findthief = () => {
 
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา * {show && show[0].name} {show && show[0].surname} {show && show[0].accountnumber} * มีทั้งหมด {show ? show.length : null} โพสต์
+              ผลการค้นหา * {show && show[0].name} {show && show[0].surname}{" "}
+              {show && show[0].accountnumber} * มีทั้งหมด{" "}
+              {show ? show.length : null} โพสต์
             </h1>
 
             {loading ? (

@@ -5030,16 +5030,14 @@ const Entersearch = () => {
               <div className="column-post-left1">
                 <Link to={`/linkruleshow/`}>
                   <div className="container-post1">
-                    <div className="row postrow">
-                      <div className="column1-postrow1">
-                        <div className="post-img">
-                          <img className="monkey" src="/img/logo v3.png" />
-                        </div>
+                    <div className="column1-postrow1">
+                      <div className="post-img">
+                        <img className="monkey" src="/img/logo v3.png" />
                       </div>
-                      <div className="column2-postrow2">
-                        <div className="post-linkpost1">
-                          แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                        </div>
+                    </div>
+                    <div className="column2-postrow2">
+                      <div className="post-linkpost1">
+                        แจ้งข้อมูลคนโกงได้ที่นี่เลย
                       </div>
                     </div>
                   </div>
