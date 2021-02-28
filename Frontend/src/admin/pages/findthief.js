@@ -23,11 +23,7 @@ const Findthief = () => {
   let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-<<<<<<< HEAD
-    Setdoc(location.state.doc);
-=======
     SetLoading(false)
->>>>>>> 983933ee09e1f405f7a26631639709d1bd9898d8
     Setshow(getpost.data.item);
   };
   const Hiddendropdown = () => {
