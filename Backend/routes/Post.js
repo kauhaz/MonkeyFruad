@@ -1000,6 +1000,26 @@ router.get("/post", async (req, res) => {
   }
 });
 
+router.get("/postforfindthief", async (req, res) => {
+  try {
+    console.log("ok")
+    var item = []
+    const showdata = await firestore.collection("Post").orderBy("date", "desc");
+    showdata.get().then((ok) => {
+      ok.forEach((doc,num) => {
+          if(doc)
+          item.push(doc.data());
+      });
+      console.log(item)
+      return res.json({
+        item
+      })
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
 router.get("/post/sortmoney", async (req, res) => {
   try {
     console.log("ok");

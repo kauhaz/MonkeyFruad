@@ -101,6 +101,9 @@ const Listcomment = ({
         imagecomment.splice(index, 1);
         Setimagecomment([...imagecomment]);
       }
+      if (imagecomment && imagecomment.length === 0) {
+        Setimagecomment();
+      }
       if (imagesFile) {
         console.log("b");
         imagesFile.splice(index, 1);
