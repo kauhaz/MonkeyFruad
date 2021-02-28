@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
-import "../../user/components/commentitemformypost.css";
-import Listcomment from "./listcommentmypost";
+import "../../user/components/commentitem.css";
+import Listcomment from "./listcommentpost";
 import _ from "lodash";
-const { v4: uuidv4 } = require("uuid");
-
-const Commentmypost = ({ postid }) => {
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+const Commentpost = ({ postid, isActive, setIsActive }) => {
+  const [imagecomment, Setimagecomment] = useState();
+  const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
   const [commentmore, Setcommentmore] = useState();
   const [showcommentall, Setshowcommentall] = useState();
@@ -15,15 +14,19 @@ const Commentmypost = ({ postid }) => {
   const [click, Setclick] = useState();
   const [showdelete, Setshowdelete] = useState();
   const [showedit, Setshowedit] = useState();
+  const [item, Setitem] = useState([]);
+  const [checkedittext, Setcheckedittext] = useState(false);
+  const [fuck, Setfuck] = useState([]);
+
+  const [loading, Setloading] = useState();
   const [data, Setdata] = useState();
+  const [show, Setshow] = useState();
   const [error, Seterror] = useState();
+
   const [textcomment, Settextcomment] = useState("");
   const [photourl, Setphotourl] = useState();
   const [photopublic_id, Setphotopublic_id] = useState();
-  const [loading, SetLoading] = useState(false);
-
   let history = useHistory();
-  let uuid = uuidv4();
 
   const handlemorecomment = async () => {
     try {
@@ -46,7 +49,7 @@ const Commentmypost = ({ postid }) => {
   };
   useEffect(() => {
     gg();
-  }, []);
+  }, [click, showdelete, showedit, postid]);
 
   return (
     <div>
@@ -55,7 +58,13 @@ const Commentmypost = ({ postid }) => {
           {" "}
           {commentmore
             ? commentmore.map((commentmore) => {
-                return <Listcomment commentmore={commentmore} />;
+                return (
+                  <Listcomment
+                    commentmore={commentmore}
+                    setIsActive={setIsActive}
+                    isActive={isActive}
+                  />
+                );
               })
             : null}{" "}
         </div>
@@ -63,9 +72,21 @@ const Commentmypost = ({ postid }) => {
         <div>
           {commentmore ? (
             <div>
-              <Listcomment commentmore={commentmore[0]} />{" "}
-              <Listcomment commentmore={commentmore[1]} />{" "}
-              <Listcomment commentmore={commentmore[2]} />{" "}
+              <Listcomment
+                commentmore={commentmore[0]}
+                setIsActive={setIsActive}
+                isActive={isActive}
+              />{" "}
+              <Listcomment
+                commentmore={commentmore[1]}
+                setIsActive={setIsActive}
+                isActive={isActive}
+              />{" "}
+              <Listcomment
+                commentmore={commentmore[2]}
+                setIsActive={setIsActive}
+                isActive={isActive}
+              />{" "}
             </div>
           ) : null}
         </div>
@@ -84,4 +105,4 @@ const Commentmypost = ({ postid }) => {
   );
 };
 
-export default Commentmypost;
+export default Commentpost;
