@@ -60,7 +60,7 @@ img.img-circle {
 }
 
 .uploadproveedit1 {
-  width: 92%;
+  width: 90%;
   height: auto;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
@@ -89,8 +89,8 @@ img.img-circle {
 .imgpreviewa1 {
   position: relative;
   margin: 0;
-  width: 100%;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   object-position: center;
 }
@@ -168,4 +168,23 @@ img.img-circle {
   color: #ff392e;
   font-size: 20px;
   margin: 15px 0;
+}
+
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+  .imgpreviewa1 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 1367px){
+  .imgpreviewa1 {
+    width: 150px;
+    height: 150px;
+  }
+  .uploadproveedit1 {
+    width: 89%;
+  }
 }
