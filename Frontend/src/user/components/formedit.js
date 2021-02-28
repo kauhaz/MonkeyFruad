@@ -122,6 +122,9 @@ const Formedit = ({ check, Setcheck }) => {
         imagepost.splice(index, 1);
         Setimagepost([...imagepost]);
       }
+      if (imagepost && imagepost.length === 0) {
+        Setimagepost();
+      }
       if (imagesFile) {
         console.log("b");
         imagesFile.splice(index, 1);

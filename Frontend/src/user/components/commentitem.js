@@ -10,7 +10,11 @@ import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
+<<<<<<< HEAD
 const Commentitem = ({ postid, isActive, setIsActive }) => {
+=======
+const Commentitem = ({ postid}) => {
+>>>>>>> 26e273b44aa8f854a70b9e9b253bab9d9b4bd606
   let { user, setUser } = useContext(usercontext);
   const [imagecomment, Setimagecomment] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -244,8 +248,6 @@ const Commentitem = ({ postid, isActive, setIsActive }) => {
                     commentmore={commentmore}
                     handledeletetorerender={handledeletetorerender}
                     handleedittorerender={handleedittorerender}
-                    setIsActive={setIsActive}
-                    isActive={isActive}
                   />
                 );
               })
@@ -259,22 +261,16 @@ const Commentitem = ({ postid, isActive, setIsActive }) => {
                 commentmore={commentmore[0]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-                setIsActive={setIsActive}
-                isActive={isActive}
               />{" "}
               <Listcomment
                 commentmore={commentmore[1]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-                setIsActive={setIsActive}
-                isActive={isActive}
               />{" "}
               <Listcomment
                 commentmore={commentmore[2]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-                setIsActive={setIsActive}
-                isActive={isActive}
               />{" "}
             </div>
           ) : null}

@@ -13,8 +13,11 @@ const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
+<<<<<<< HEAD
   setIsActive,
   isActive,
+=======
+>>>>>>> 26e273b44aa8f854a70b9e9b253bab9d9b4bd606
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
@@ -30,6 +33,7 @@ const Listcomment = ({
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
   const [loading, Setloading] = useState();
+  const [isActive, setIsActive] = useState(false);
   let { user, setUser } = useContext(usercontext);
 
   const handleopenmodal = async () => {
@@ -99,6 +103,9 @@ const Listcomment = ({
         console.log("a");
         imagecomment.splice(index, 1);
         Setimagecomment([...imagecomment]);
+      }
+      if (imagecomment && imagecomment.length === 0) {
+        Setimagecomment();
       }
       if (imagesFile) {
         console.log("b");
