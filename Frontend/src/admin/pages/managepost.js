@@ -88,7 +88,7 @@ const ManagePost = () => {
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
   const [isActive, setIsActive] = useState(false);
-
+  const [delectClick, setDelectClick] = useState(false);
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
@@ -96,6 +96,10 @@ const ManagePost = () => {
     SetshowDropdown(false);
   };
 
+  const deleteClick = async (uid) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+    setDelectClick(!delectClick)
+  };
   const ok = async () => {
     Setloading(true);
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
@@ -5709,6 +5713,7 @@ const ManagePost = () => {
     searchstart,
     searchend,
     sortvalue,
+    delectClick
   ]);
   return (
     <div
@@ -5735,6 +5740,13 @@ const ManagePost = () => {
                     return (
                       <div>
                         <div className="container-posts2">
+                          <button
+                            onClick={() => deleteClick(res.uid)}
+                            variant="primary"
+                            className="mypostbuttonreported"
+                          >
+                            <i class="far fa-trash-alt"></i>
+                          </button>
                           <div className="post-profile-img">
                             {res.photoURL ? (
                               <img

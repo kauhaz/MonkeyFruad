@@ -71,6 +71,12 @@ const App = () => {
           <Route path="/post/:uid" exact>
             <SeepostAdmin />
           </Route>
+          <Route path="/thief/post/:uid" exact>
+            <Findthief />
+          </Route>
+          <Route path="/entersearch" exact>
+            <Entersearch />
+          </Route>
         </Switch>
       </usercontext.Provider>
     </Router>
