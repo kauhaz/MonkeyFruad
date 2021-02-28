@@ -10,7 +10,7 @@ import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
-const Commentitem = ({ postid,isActive,setIsActive }) => {
+const Commentitem = ({ postid, isActive, setIsActive }) => {
   let { user, setUser } = useContext(usercontext);
   const [imagecomment, Setimagecomment] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด

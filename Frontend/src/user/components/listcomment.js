@@ -7,15 +7,14 @@ import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
-import Modalimage from "./Modalimage"
-
+import Modalimage from "./Modalimage";
 
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
   setIsActive,
-  isActive
+  isActive,
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
@@ -33,12 +32,12 @@ const Listcomment = ({
   const [loading, Setloading] = useState();
   let { user, setUser } = useContext(usercontext);
 
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -140,13 +139,15 @@ const Listcomment = ({
       console.log(err);
     }
   };
-  if(commentmore && commentmore.photocomment){
-    console.log(commentmore.photocomment)
+  if (commentmore && commentmore.photocomment) {
+    console.log(commentmore.photocomment);
   }
-  const deleted = async (commentid,commentmore) => {
-      console.log(commentmore)
+  const deleted = async (commentid, commentmore) => {
+    console.log(commentmore);
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore);
+      `http://localhost:7000/post/delete/comment/${commentid}`,
+      commentmore
+    );
     setIsActive(false);
     Setfuck([]);
     setImagesFile();
@@ -277,7 +278,9 @@ const Listcomment = ({
                         <li className="li-postcommentmenusetting">
                           <a
                             className="a-postcommentmenusetting"
-                            onClick={() => deleted(commentmore.commentid,commentmore)}
+                            onClick={() =>
+                              deleted(commentmore.commentid, commentmore)
+                            }
                           >
                             {" "}
                             ลบคอมเมนต์{" "}
@@ -374,8 +377,9 @@ const Listcomment = ({
                                 <img
                                   className="imgpreviewpost1"
                                   src={`${doc.url}`}
-                                  onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
-
+                                  onClick={() => (
+                                    Setimagemodal(doc.url), handleopenmodal()
+                                  )}
                                 />
                                 <span className="deleteimgposts1">
                                   <img
@@ -424,14 +428,21 @@ const Listcomment = ({
                               <img
                                 className="listcommentpost2"
                                 src={`${doc.url}`}
-                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+                                onClick={() => (
+                                  Setimagemodal(doc.url), handleopenmodal()
+                                )}
                               />
                             </div>
                           );
                         })
                       : null
                     : null}
-                  <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                  <Modalimage
+                    isopen={isopen}
+                    handleopenmodal={handleopenmodal}
+                    handleclosemodal={handleclosemodal}
+                    imagemodal={imagemodal}
+                  />
                 </div>
               </div>
             )}
