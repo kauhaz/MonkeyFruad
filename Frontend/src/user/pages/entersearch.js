@@ -5928,7 +5928,6 @@ const Entersearch = () => {
         /> 
         }
         
-      
     </div>
   );
 };
