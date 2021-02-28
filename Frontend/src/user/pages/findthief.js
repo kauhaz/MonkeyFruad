@@ -17,12 +17,12 @@ const Findthief = () => {
   const [show, Setshow] = useState();
   const [loading, Setloading] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const [doc, Setdoc] = useState();
+  
 
   let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-    Setdoc(location.state.doc);
+   
     Setshow(getpost.data.item);
   };
   const Hiddendropdown = () => {

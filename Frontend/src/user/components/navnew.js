@@ -65,6 +65,36 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         if (getdata) {
           console.log(getdata);
           history.push({
+            pathname: "/entersearch",
+            search: "?are you ok",
+            state: {
+              getdata,
+              search,
+            },
+          });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const adminhandlesearch = () => {
+    try {
+      if (search) {
+        const getdata = allpost.filter((doc) => {
+          return (
+            doc.name.toLowerCase().includes(search.toLowerCase()) ||
+            doc.surname.toLowerCase().includes(search.toLowerCase()) ||
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
+          );
+        });
+        Setsearch("");
+        if (getdata) {
+          console.log(getdata);
+          history.push({
             pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
@@ -81,7 +111,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`http://localhost:7000/post/post`);
+      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
       Setsearching(getallthief.data.item);
       const getallpost = await axios.get(`http://localhost:7000/post/post`);
       Setallpost(getallpost.data.item);
@@ -185,7 +215,7 @@ console.log(showDropdown)
               </div>
             </MDBNavItem>
 
-            <button onClick={() => handlesearch()} className="button-nav">
+            <button onClick={() => adminhandlesearch()} className="button-nav">
               ค้นหา
             </button>
             <MDBNavItem>
@@ -213,10 +243,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/admin/thief/post/${thiefid}`,
-                                search: "?are you ok",
-                                state: {
-                                  doc
-                                }
+                                search: "?are you ok"
+  
                               })
                               ,
                               window.location.reload(true)
@@ -237,7 +265,7 @@ console.log(showDropdown)
           : null}
         {lastsearch ? (
           showDropdown ? (
-            <div className="dropsearch-nav" onClick={() => handlesearch()}>
+            <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
               ค้นหา {search}
             </div>
           ) : null
@@ -354,10 +382,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/thief/post/${thiefid}`,
-                                search: "?are you ok",
-                                state: {
-                                  doc
-                                }
+                                search: "?are you ok"
+      
                               })
                               ,
                               window.location.reload(true)
