@@ -55,11 +55,7 @@ const Commentmypost = ({ postid }) => {
           {" "}
           {commentmore
             ? commentmore.map((commentmore) => {
-                return (
-                  <Listcomment
-                    commentmore={commentmore}
-                  />
-                );
+                return <Listcomment commentmore={commentmore} />;
               })
             : null}{" "}
         </div>
@@ -67,15 +63,9 @@ const Commentmypost = ({ postid }) => {
         <div>
           {commentmore ? (
             <div>
-              <Listcomment
-                commentmore={commentmore[0]}
-              />{" "}
-              <Listcomment
-                commentmore={commentmore[1]}
-              />{" "}
-              <Listcomment
-                commentmore={commentmore[2]}
-              />{" "}
+              <Listcomment commentmore={commentmore[0]} />{" "}
+              <Listcomment commentmore={commentmore[1]} />{" "}
+              <Listcomment commentmore={commentmore[2]} />{" "}
             </div>
           ) : null}
         </div>
