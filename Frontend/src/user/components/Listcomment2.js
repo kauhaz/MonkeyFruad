@@ -5,7 +5,7 @@ import "./Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
-import ClipLoader from "./clipLoader";
+import ClipLoaderEdit from "./clipLoaderEdit";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
@@ -291,7 +291,7 @@ const Listcomment2 = ({
             <br />
             {loading ? (
               <div>
-                <ClipLoader loading={loading} />
+                <ClipLoaderEdit loading={loading} />
               </div>
             ) : checkedittext ? (
               <div className="commentmypost">
