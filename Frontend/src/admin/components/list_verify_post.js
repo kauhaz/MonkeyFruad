@@ -50,8 +50,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
       setCheckSelectThree(true);
     }
   };
-  const ChangeRead = async (e) => {
-    e.preventDefault();
+  const ChangeRead = async () => {
     await Axios.post(
       `http://localhost:7000/post/report/changereadhide/${reportelement.uid}`
     );
@@ -64,7 +63,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
     <div>
       <div className="container-report1">
         <div className="container-report2">
-          <div onClick={(e) => ChangeRead(e)} className="hide-report-button" name="ซ่อนรายงาน">
+          <div onClick={() => ChangeRead()} className="hide-report-button" name="ซ่อนรายงาน">
             <i class="far fa-eye-slash"></i>
           </div>
           <Form className="formsize-report">
