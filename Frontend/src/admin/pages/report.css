@@ -46,6 +46,7 @@
     border-radius: 50%;
     background-color: #dadada;
     padding: 5px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .textarea-report {
@@ -116,14 +117,10 @@
 }
 
 .proof-button-reported:hover {
-    background-color: #2b91ff;
-    border-radius: .5rem;
     margin-left: auto;
-    color: white;
-    padding: 0 5px;
-    transition: box-shadow 0.4s ease;
-    font-weight: 300;
-    opacity: 1;
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .count-report {
