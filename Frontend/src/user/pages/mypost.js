@@ -470,7 +470,9 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
-                                    <span className="spanreport">การรายงานโพสต์สำเร็จ</span>
+                                    <span className="spanreport">
+                                      การรายงานโพสต์สำเร็จ
+                                    </span>
                                   </div>
                                 ) : (
                                   ""
@@ -669,7 +671,11 @@ const Mypost = () => {
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
-                                จำนวนครั้งที่ <span className="spanmypostname">{ok.name} {ok.surname}</span> ถูกแจ้ง{" "}
+                                จำนวนครั้งที่{" "}
+                                <span className="spanmypostname">
+                                  {ok.name} {ok.surname}
+                                </span>{" "}
+                                ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
                                 </span>
@@ -693,7 +699,7 @@ const Mypost = () => {
                               <span className="spanmypost">{ok.other}</span>
                             </Form.Label>
                           </Form.Group>
-                          <div className="img-holder-badslip">
+                          <div className="imgcommentitemmypost1">
                             {ok.item
                               ? ok.item.map((res) => {
                                   return (
@@ -718,7 +724,7 @@ const Mypost = () => {
                             />
                           </div>
                         </Form>
-                        <div className="line-comment1"></div>
+                        <div className="line-comments1"></div>
                         <div className="container-mypost4">
                           <Commentitemformypost postid={ok.uid} />
                         </div>
