@@ -96,19 +96,19 @@ const Changepass = () => {
           className="ChangePassForm"
           onSubmit={(e) => submitpass(e, password, newpassword)}
         >
-          <img src="/img/logoLogin.png" className="Logo-signup" />
-          <p className="h3 text-center mb-2 font-weight-bold">
+          <img src="/img/logoLogin.png" className="Logo-changepass" />
+          <p className="h1 text-center mb-2 font-weight-bold">
             เปลี่ยนรหัสผ่าน
           </p>
           {invalidpass ? (
-            <div className="alert-signup">
+            <div className="alert-changepass-fail">
               <span>คุณกรอกรหัสผ่านเก่าผิด</span>
             </div>
           ) : (
             <p></p>
           )}
           {successpass ? (
-            <div className="alert-forgetpass">
+            <div className="alert-changepass-success">
               <span>รหัสผ่านของคุณถูกเปลี่ยนแล้ว</span>
             </div>
           ) : (
@@ -134,9 +134,6 @@ const Changepass = () => {
               {({ errors, touched }) => (
                 <Form>
                   <div className="form-group mb-1">
-                    <label htmlFor="oldPassword" style={styles.txt2}>
-                      รหัสผ่านปัจจุบัน
-                    </label>
                     <Field
                       name="oldPassword"
                       type="password"
@@ -161,9 +158,6 @@ const Changepass = () => {
                   </div>
 
                   <div className="form-group mb-1">
-                    <label htmlFor="password" style={styles.txt2}>
-                      รหัสผ่านใหม่
-                    </label>
                     <Field
                       name="password"
                       type="password"
@@ -188,9 +182,6 @@ const Changepass = () => {
                   </div>
 
                   <div className="form-group mb-1">
-                    <label htmlFor="confirmPassword" style={styles.txt2}>
-                      ยืนยันรหัสผ่านใหม่
-                    </label>
                     <Field
                       name="confirmPassword"
                       type="password"
