@@ -97,11 +97,11 @@ const Report = () => {
       }
     }
   }, [hide, cancleHide, deleteReport]);
-  console.log("hide", hide);
-  console.log("canclehide", cancleHide);
-  console.log("deleteReport", deleteReport);
-  console.log("clicknavverify", clicknavverify);
-  console.log("clicknavhide", clicknavhide);
+  // console.log("hide", hide);
+  // console.log("canclehide", cancleHide);
+  // console.log("deleteReport", deleteReport);
+  // console.log("clicknavverify", clicknavverify);
+  // console.log("clicknavhide", clicknavhide);
   return (
     <div onClick={() => Hiddendropdown()}>
       <NavbarPage
@@ -132,47 +132,53 @@ const Report = () => {
           <i class="far fa-eye-slash"></i>
         </div>
       </div>
-      {nonverifypost ? (
-        <h2 className="h2-report">ทั้งหมด {nonverifypost.length} รายงาน</h2>
-      ) : (
-        ""
-      )}
-      {nonverifypost
-        ? nonverifypost.map((reportelement) => {
-            return <ListNonverifypost reportelement={reportelement} />;
-          })
-        : null}
-      {verifypost ? (
-        <h2 className="h2-report">ทั้งหมด {verifypost.length} รายงาน</h2>
-      ) : (
-        ""
-      )}
-      {verifypost
-        ? verifypost.map((reportelement) => {
-            return (
-              <Listverifypost
-                reportelement={reportelement}
-                hideClick={hideClick}
-              />
-            );
-          })
-        : null}
-      {hidereport ? (
-        <h2 className="h2-report">ทั้งหมด {hidereport.length} รายงาน</h2>
-      ) : (
-        ""
-      )}
-      {hidereport
-        ? hidereport.map((reportelement) => {
-            return (
-              <Listhidereport
-                reportelement={reportelement}
-                CancleClick={CancleClick}
-                DeleteClick={DeleteClick}
-              />
-            );
-          })
-        : null}
+
+      <div>
+
+        {nonverifypost ? (
+          <h2 className="h2-report">ทั้งหมด {nonverifypost.length} รายงาน</h2>
+        ) : (
+          ""
+        )}
+        {nonverifypost
+          ? nonverifypost.map((reportelement) => {
+              return <ListNonverifypost reportelement={reportelement} />;
+            })
+          : null}
+        {verifypost ? (
+          <h2 className="h2-report">ทั้งหมด {verifypost.length} รายงาน</h2>
+        ) : (
+          ""
+        )}
+        {verifypost
+          ? verifypost.map((reportelement) => {
+              return (
+                <Listverifypost
+                  reportelement={reportelement}
+                  hideClick={hideClick}
+                />
+              );
+            })
+          : null}
+        {hidereport ? (
+          <h2 className="h2-report">ทั้งหมด {hidereport.length} รายงาน</h2>
+        ) : (
+          ""
+        )}
+        {hidereport
+          ? hidereport.map((reportelement) => {
+              return (
+                <Listhidereport
+                  reportelement={reportelement}
+                  CancleClick={CancleClick}
+                  DeleteClick={DeleteClick}
+                />
+              );
+            })
+          : null}
+          
+      </div>
+
     </div>
   );
 };
