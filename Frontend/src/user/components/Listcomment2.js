@@ -239,9 +239,8 @@ const Listcomment2 = ({
                 {commentmore.username}
                 <span className="mypost-comment-time1">
                   {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
-                    "LTS"
-                  )}{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000)).startOf().fromNow()}{" "}
+{" "}
                 </span>
               </div>
               <br />
