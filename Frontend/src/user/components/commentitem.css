@@ -156,12 +156,9 @@ img.img-circle {
   transition: box-shadow 0.4s ease;
 }
 
-.postfileerror {
-  text-align: center;
-}
-
 .h1-postfileerror {
   color: #ff392e;
+  text-align: center;
   font-size: 20px;
   margin: 15px 0;
 }
