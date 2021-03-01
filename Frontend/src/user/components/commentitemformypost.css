@@ -129,7 +129,7 @@
   width: 100%;
 }
 
-.deleteimgmypost1 {
+.deleteimgmyposts1 {
   position: relative;
   right: 15px;
   top: -10px;
@@ -141,7 +141,7 @@
   font-family: sans-serif;
 }
 
-.deleteimgmypost2 {
+.deleteimgmyposts2 {
   width: 30px;
   border-radius: 50px;
   cursor: pointer;
@@ -149,7 +149,7 @@
   background-color: white;
 }
 
-.deleteimgmypost2:hover {
+.deleteimgmyposts2:hover {
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);

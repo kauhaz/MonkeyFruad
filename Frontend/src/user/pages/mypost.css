@@ -75,24 +75,6 @@
   color: grey;
 }
 
-/* .mypostbuttonreported {
-  margin-top: -55px;
-  width: 30px;
-  background: #ffffff;
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1px 5px;
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  margin-left: auto;
-  margin-right: 0px;
-  color: grey;
-}*/
-
 .mypostbuttonreported {
   float: right;
   border: none;
@@ -122,6 +104,10 @@
   margin-bottom: 15px;
 }
 
+.text-mypost { 
+  width: 180% !important;
+}
+
 .spanreport {
   font-size: 16px;
   color: #ff392e;
@@ -136,7 +122,6 @@
   width: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* margin-left: -200px; */
   margin-right: 10px;
 }
 
@@ -145,21 +130,6 @@
   border-radius: 0.5rem !important;
   padding: 5px 15px 5px 15px !important;
 }
-
-/* .imgpreview {
-  overflow: hidden;
-  background-color: white;
-}
-
-.imgpreview img {
-  transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-.imgpreview:hover {
-  transform: scale(2.5);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-} */
 
 .imgcommentitempost1 {
   margin-top: 10px;
@@ -280,23 +250,13 @@
   .a-mypostmenusetting1:hover {
   color: black;
 }
-/* 
-.container-myposts2 {
-  width: 100%;
-  border-radius: 10px;
-  background-color: white;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-} */
 
-.container-mypost3 {
+.container-myposts3 {
   width: 94%;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-left: auto;
   margin-right: auto;
-  padding: 40px 40px 20px 40px;
+  padding: 0 35px;
 }
 
 .mypostprofile-bad-img {
@@ -472,7 +432,7 @@
     margin-top: 320px;
   }
 }
-/* @media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1920px) {
 }
 
 @media only screen and (max-width: 1024px) {
@@ -636,4 +596,4 @@
   .mypost-comment-comments2 {
     font-size: 15px;
   }
-} */
+}

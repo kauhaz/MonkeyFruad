@@ -59,8 +59,8 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
     setImagesFile();
-    Setfiles("")
-    Setfuck([])
+    Setfiles("");
+    Setfuck([]);
   };
   const handleModalSuccessReportClose = () => {
     setShowmodalsuccessreport(false);
@@ -86,10 +86,10 @@ const Mypost = () => {
       console.log(err);
     }
   };
-  console.log("files",files)
+  console.log("files", files);
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    SetErrorFileUploads()
+    SetErrorFileUploads();
     setImagesFile([]);
     var myfuck = [];
     var files = [];
@@ -574,7 +574,7 @@ const Mypost = () => {
                           <img className="img-circle" src="/img/profile.png" />
                         )}
                       </div>
-                      <div className="container-posts3">
+                      <div className="container-myposts3">
                         <Form className="formsize-mypost">
                           <Form.Row>
                             <Form.Group
@@ -688,7 +688,7 @@ const Mypost = () => {
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
-
+                          <br />
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">

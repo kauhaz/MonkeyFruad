@@ -345,9 +345,9 @@ const Commentitemformypost = ({ postid }) => {
                               alt="previewImg"
                               src={imagePreviewUrl}
                             />
-                            <span clsssName="deleteimgmypost1">
+                              <span className="deleteimgposts1">
                               <img
-                                className="deleteimgmypost2"
+                                className="deleteimgmyposts2"
                                 src="/img/delete2.png"
                                 onClick={() => handledeleteimage(index)}
                               />
