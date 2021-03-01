@@ -111,8 +111,8 @@
 
 .listcommentpost2 {
   margin: 0;
-  width: 100%;
-  height: 220px;
+  width: 155px;
+  height: 155px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -121,23 +121,24 @@
 .imgcommentitempost {
   display: grid;
   padding: 20px;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 00px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .imglistcomment {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .imgpreviewpost1 {
   position: relative;
   margin: 0;
-  width: 205px;
-  height: 205px;
+  width: 135px;
+  height: 135px;
   object-fit: cover;
   object-position: center;
+  margin-bottom: 20px;
 }
 
 /* .imgpreviewpost2 {
@@ -169,8 +170,8 @@
 }
 
 .uploadproveedits1 {
-  width: 205px;
-  height: 205px;
+  width: 135px;
+  height: 135px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -185,7 +186,7 @@
 
 .uploadproveedits2 {
   width: 100%;
-  padding: 60px;
+  padding: 50px;
 }
 
 .buttoncommentpostsave2 {
@@ -199,6 +200,7 @@
   font-size: 20px;
   text-align: center;
   color: white;
+  cursor: pointer;
 }
 
 .buttoncommentpostsave2:hover {
@@ -251,22 +253,28 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .listcommentpost2 {
-    height: 280px;
+    width: 210px;
+    height: 210px;
   }
+  
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 275px;
-    height: 275px;
+    width: 185px;
+    height: 185px;
   }
 }
 
 @media only screen and (max-width: 1367px) {
   .listcommentpost2 {
-    height: 200px;
+    width: 135px;
+    height: 135px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 170px;
-    height: 170px;
+    width: 175px;
+    height: 175px;
+  }
+  .imgcommentitempost {
+    grid-template-columns: 1fr 1fr;
   }
 }
