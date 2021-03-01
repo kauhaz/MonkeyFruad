@@ -7,7 +7,7 @@ import Listcomment2 from "./Listcomment2";
 import Loading from "./clipLoader";
 import _ from "lodash";
 import Modalimage from "./Modalimage";
-import ClipLoader from "./clipLoader";
+import ClipLoaderComentMypost from "./clipLoaderComentMypost";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -283,7 +283,7 @@ const Commentitemformypost = ({ postid }) => {
           {loading ? (
             <div className="col-lg-10 col-4">
               {" "}
-              <ClipLoader />{" "}
+              <ClipLoaderComentMypost />{" "}
             </div>
           ) : (
             <div>
