@@ -360,8 +360,8 @@ const Commentitemformypost = ({ postid }) => {
                     <div className="uploadproveeditmypost">
                       <label className="uploadproveeditmypost1">
                         <img
-                          className="uploadproveeditmypost2"
-                          src="/img/addphoto.png"
+                          className="uploadproveedit2"
+                          src="/img/last1.png"
                         />
                         <input
                           id="FileInput"
