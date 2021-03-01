@@ -673,7 +673,7 @@ const Mypost = () => {
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
-                                จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง{" "}
+                                จำนวนครั้งที่ <span className="spanmypostname">{ok.name} {ok.surname}</span> ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
                                 </span>
