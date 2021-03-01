@@ -28,6 +28,10 @@ h1 {
     margin: 0 auto;
 }
 
+.SignupForm .h3 {
+    color: #5c5c5c;
+}
+
 .SignupForm p {
     margin-bottom: -.25rem;
 }

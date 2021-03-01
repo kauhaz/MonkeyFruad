@@ -26,7 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .column3-rank{
@@ -93,10 +93,10 @@
     font-size: 17px ;
 }
 .text4-rank{
-    text-align: left;
+    text-align: center;
     width: 200px;
     margin-left: auto;
-    font-size: auto;
+    margin-right: auto;
     font-size: 15px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
@@ -133,6 +133,7 @@
 }
 
 .rank-sort-select {
+    cursor: pointer;
     background-color: inherit;
     color: inherit;
     padding: .175rem .55rem;
@@ -188,34 +189,239 @@
 
 /* Responsive */
 
-/* iPhone 5s */ 
-@media only screen and (max-width: 321px) { 
+/* จอ Notebook */
+@media only screen and (max-width: 1921px) {
     .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 70px;
-        height: 70px;
-        margin-top: -40px;
-        margin-left: 33px;
-    }
-    .emty-rank{
-        height: 35px;
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 70px;
     }
     .rank-rank1{
-        font-size: 30px;
-        padding-top: 12px;
-    }  
-    .text3-rank{
-        width: 120px;
-        margin-left: -13px;
-        margin-top: -10px;
+        font-size: 55px;
+        padding-top: 30px;
     }
-    .text4-rank{
-        margin-left: -14px;
-        width: 123px; 
-    }
-    .readmore-rank {
-        margin-bottom: -10px;
+    .text4-rank1{
+        font-size: 14px;
+        width: 180px;
     }
 }
+
+/* จอ Computer */
+@media only screen and (min-width: 1920px) {
+    .container2-rank{
+        width: 60%;
+        height: 380px;
+        /* background-color: teal; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .column3-rank{
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        margin-top: 80px;
+    }
+    .coin1-rank{
+        background-color: #fc7248;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin2-rank{
+        background-color: #f8994a;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin3-rank{
+        background-color: #fdc52b;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .rank-rank1{
+        font-size: 70px;
+        font-family: 'Kanit', sans-serif;
+        text-align: center;
+        color: white;
+        padding-top: 25px;
+    }
+    .emty-rank{
+        height: 70px;
+        width: 100%;
+    }
+    .text3-rank{
+        text-align: center;
+        color: #5c83cc;
+        font-family: 'Kanit', sans-serif;
+        font-size: 17px ;
+    }
+    .text4-rank{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        font-size: 15px ;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-bottom: 20px;
+    }
+    .readmore-rank {
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+    }
+}
+
+/* จอฮวก */
+@media only screen and (max-width: 1367px) {
+    .coin1-rank , .coin2-rank , .coin3-rank {
+        width: 140px;
+        height: 140px;
+        margin-top: -75px;
+        margin-left: 65px;
+    }
+    .container2-rank{
+        margin-bottom: 60px;
+        width: 65%;
+    }
+    .emty-rank{
+        height: 65px;
+    }
+    .rank-rank1{
+        font-size: 55px;
+        padding-top: 30px;
+    }
+    .text3-rank{
+        font-size: 15px ;
+    }
+    .text4-rank{
+        width: 170px;
+        font-size: 13px;
+    }
+    .readmore-rank {
+        font-size: 14px;
+        margin-top: -5px;
+    }
+}
+
+/* iPad Pro */
+@media only screen and (max-width: 1025px) {
+    .container1-rank , .container2-rank , .container3-rank{
+        width: 75%;
+    }
+    .container2-rank{
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
+    .rank-rank1{
+        font-size: 55px;
+        padding-top: 25px;
+    }
+    
+    .emty-rank{
+        height: 65px;
+    }
+    .coin1-rank , .coin2-rank , .coin3-rank {
+        width: 130px;
+        height: 130px;
+        margin-top: -65px;
+        margin-left: 55px;
+    }
+}
+
+/* iPad */
+@media only screen and (max-width: 769px) {
+    .container1-rank , .container2-rank , .container3-rank{
+        width: 75%;
+    }
+    .container2-rank{
+        height: 290px;
+        margin-top: 0px;
+        margin-bottom: 70px;
+    }
+    .column3-rank{
+        width: 31%;
+    }
+    .coin1-rank , .coin2-rank , .coin3-rank {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 42px;
+    }
+    .emty-rank{
+        height: 40px;
+    }
+    .rank-rank1{
+        font-size: 40px;
+        padding-top: 15px;
+    }
+    .text3-rank{
+        font-size: 12px ;
+    }
+    .text4-rank{
+        font-size: 11px;
+        width: 140px;
+    }
+    .readmore-rank {
+        font-size: 11px;
+        margin-top: -5px;
+    }
+}
+
+/* iPhone 6+ */
+@media only screen and (max-width: 415px) {
+    .container2-rank{
+        width: 85%;
+    }
+    .column3-rank{
+        width: 45%;
+        margin-bottom: 0px;
+    }
+    .coin1-rank , .coin2-rank , .coin3-rank {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-left: 40px;
+    }
+    .emty-rank{
+        height: 40px;
+    }
+    .rank-rank1{
+        font-size: 40px;
+        padding-top: 15px;
+    }
+    .text4-rank{
+        font-size: 10px;
+        width: 150px;
+        margin-left: -10px;
+    }
+    .readmore-rank {
+        font-size: 11px;
+    }
+}
+
 /* iPhone 6 */
 @media only screen and (max-width: 376px) {
     .column3-rank{
@@ -255,152 +461,32 @@
         margin-top: -10px;
     }
 }
-/* iPhone 6+ */
-@media only screen and (max-width: 415px) {
-    .container2-rank{
-        width: 85%;
-    }
-    .column3-rank{
-        width: 45%;
-        margin-bottom: 0px;
-    }
+
+/* iPhone 5s */ 
+@media only screen and (max-width: 321px) { 
     .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 90px;
-        height: 90px;
-        margin-top: -45px;
-        margin-left: 40px;
+        width: 70px;
+        height: 70px;
+        margin-top: -40px;
+        margin-left: 33px;
     }
     .emty-rank{
-        height: 40px;
+        height: 35px;
     }
     .rank-rank1{
-        font-size: 40px;
-        padding-top: 15px;
-    }
-    .text4-rank{
-        font-size: 10px;
-        margin-left: 0px;
-        width: 150px;
-    }
-    .readmore-rank {
-        font-size: 11px;
-    }
- }
-/* iPad */
-@media only screen and (max-width: 769px) {
-    .container1-rank , .container2-rank , .container3-rank{
-        width: 75%;
-    }
-    .container2-rank{
-        height: 290px;
-        margin-top: 0px;
-        margin-bottom: 70px;
-    }
-    .column3-rank{
-        width: 31%;
-    }
-    .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 90px;
-        height: 90px;
-        margin-top: -45px;
-        margin-left: 42px;
-    }
-    .emty-rank{
-        height: 40px;
-    }
-    .rank-rank1{
-        font-size: 40px;
-        padding-top: 15px;
-    }
+        font-size: 30px;
+        padding-top: 12px;
+    }  
     .text3-rank{
-        font-size: 12px ;
+        width: 120px;
+        margin-left: -13px;
+        margin-top: -10px;
     }
     .text4-rank{
-        font-size: 11px;
-        margin-left: -1px;
-        width: 140px;
+        margin-left: -14px;
+        width: 123px; 
     }
     .readmore-rank {
-        font-size: 11px;
-        margin-top: -5px;
-    }
- }
-/* iPad Pro */
-@media only screen and (max-width: 1025px) {
-    .container1-rank , .container2-rank , .container3-rank{
-        width: 75%;
-    }
-    .container2-rank{
-        margin-bottom: 60px;
-        margin-top: 20px;
-    }
-    .rank-rank1{
-        font-size: 55px;
-        padding-top: 25px;
-    }
-     
-    .emty-rank{
-        height: 65px;
-    }
-    .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 130px;
-        height: 130px;
-        margin-top: -65px;
-        margin-left: 55px;
+        margin-bottom: -10px;
     }
 }
-/* จอฮวก */
-@media only screen and (max-width: 1367px) {
-    .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 140px;
-        height: 140px;
-        margin-top: -75px;
-        margin-left: 65px;
-    }
-    .container2-rank {
-        margin-bottom: 60px;
-        width: 65%;
-    }
-    .emty-rank{
-        height: 65px;
-    }
-    .rank-rank1{
-        font-size: 55px;
-        padding-top: 30px;
-    }
-    .text3-rank{
-        font-size: 15px ;
-    }
-    .text4-rank{
-        width: 170px;
-        font-size: 13px;
-    }
-    .readmore-rank {
-        font-size: 14px;
-        margin-top: -5px;
-    }
- }
-/* จอ Notebook */
- @media only screen and (min-width: 1920) {
-
- }
-
- @media only screen and (max-width: 1921px) {
-    .coin1-rank , .coin2-rank , .coin3-rank {
-        width: 140px;
-        height: 140px;
-        margin-top: -75px;
-        margin-left: 70px;
-    }
-    .rank-rank1{
-        font-size: 55px;
-        padding-top: 30px;
-    }
-    .text4-rank{
-        font-size: 14px;
-        width: 180px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-  }
-
