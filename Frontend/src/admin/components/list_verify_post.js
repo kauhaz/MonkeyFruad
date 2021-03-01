@@ -162,12 +162,8 @@ const Listverifypost = ({ reportelement, hideClick }) => {
               >
                 <Form.Label>
                   รูปหลักฐาน :
-<<<<<<< HEAD
-                    <div
-=======
                   <div className="mypostbuttonreport">
                     <button
->>>>>>> b7f22b1a656db3ecb1fedd8a0e6f8d4175f9e005
                       variant="primary"
                       onClick={(e) => handleShow(e)}
                       className="proof-button-reported"
