@@ -57,6 +57,8 @@ const Mypost = () => {
     setReportsubmitsuccess(false);
     SetErrorFileUploads();
     SetErrorNotselect(false);
+    setImagesFile()
+    
   };
   const handleopenmodal = async () => {
     Setisopen(true);
@@ -174,6 +176,7 @@ const Mypost = () => {
           .then((result) => {
             setReportsubmitsuccess(true);
             Setloading(false);
+            handleClose()
           })
           .catch((err) => {
             console.log(err);
