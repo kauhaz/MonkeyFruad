@@ -26,6 +26,7 @@ const Mypost = () => {
   const [reportsubmitsuccess, setReportsubmitsuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [Show, setShow] = useState(false);
+  const [Showmodalsuccessreport, setShowmodalsuccessreport] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -57,8 +58,10 @@ const Mypost = () => {
     setReportsubmitsuccess(false);
     SetErrorFileUploads();
     SetErrorNotselect(false);
-    setImagesFile()
-    
+    setImagesFile();
+  };
+  const handleModalSuccessReportClose = () => {
+    setShowmodalsuccessreport(false)
   };
   const handleopenmodal = async () => {
     Setisopen(true);
@@ -176,7 +179,8 @@ const Mypost = () => {
           .then((result) => {
             setReportsubmitsuccess(true);
             Setloading(false);
-            handleClose()
+            handleClose();
+            setShowmodalsuccessreport(true)
           })
           .catch((err) => {
             console.log(err);
@@ -220,6 +224,11 @@ const Mypost = () => {
         }
       }}
     >
+      <Modal show={Showmodalsuccessreport} onHide={handleModalSuccessReportClose} className="modalreport">
+        <Modal.Header closeButton>
+          <Modal.Title className="namereport">การรายงานโพสต์สำเร็จ</Modal.Title>
+        </Modal.Header>
+      </Modal>
       {mypost ? (
         <div>
           {" "}
