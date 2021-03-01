@@ -144,48 +144,50 @@ router.post("/create", uploadFile, async (req, res) => {
         item.push({ url, public_id });
       }
       if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        resultfile: singlephoto,
-        item,
-        username,
-      });
-    }
-    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        resultfile: singlephoto,
-        item,
-        username,
-        photoURL,
-      });
-    }
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          resultfile: singlephoto,
+          item,
+          username,
+        });
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          resultfile: singlephoto,
+          item,
+          username,
+          photoURL,
+        });
+      }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -224,46 +226,48 @@ router.post("/create", uploadFile, async (req, res) => {
       let { url, public_id } = resultfile;
       let singlephoto = { url, public_id };
       if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        resultfile: singlephoto,
-        username,
-      })
-    }
-    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        resultfile: singlephoto,
-        username,
-        photoURL,
-      })
-    }
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          resultfile: singlephoto,
+          username,
+        });
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          resultfile: singlephoto,
+          username,
+          photoURL,
+        });
+      }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -326,7 +330,10 @@ router.post("/create", uploadFile, async (req, res) => {
           item,
           username,
         });
-      } else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
         const create = await firestore.collection("Post").doc(uid).set({
           name,
           surname,
@@ -381,44 +388,46 @@ router.post("/create", uploadFile, async (req, res) => {
       });
     } else if (!file && !files) {
       if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        username
-      });
-    }
-    else if (photoURL.public_id !== "undefined" &&  photoURL.url !== "undefined") {
-      const create = await firestore.collection("Post").doc(uid).set({
-        name,
-        surname,
-        id,
-        accountnumber,
-        nameproduct,
-        productcategory,
-        money: newmoney,
-        bank,
-        datetimes,
-        social,
-        other,
-        uid,
-        useruid,
-        date,
-        username,
-        photoURL,
-      });
-    }
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          username,
+        });
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
+        const create = await firestore.collection("Post").doc(uid).set({
+          name,
+          surname,
+          id,
+          accountnumber,
+          nameproduct,
+          productcategory,
+          money: newmoney,
+          bank,
+          datetimes,
+          social,
+          other,
+          uid,
+          useruid,
+          date,
+          username,
+          photoURL,
+        });
+      }
       const getpost = await firestore
         .collection("Post")
         .where("accountnumber", "==", accountnumber)
@@ -918,19 +927,23 @@ router.get("/edit/:uid", async (req, res) => {
 
 router.post("/delete/:uid", async (req, res) => {
   try {
-    let {item , resultfile} = req.body
-    console.log(item)
+    let { item, resultfile } = req.body;
+    console.log(item);
     var postid = [];
     let getid = req.params.uid;
-    if(item){
-      item.forEach(doc => {
-        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
-      })
+    if (item) {
+      item.forEach((doc) => {
+        cloudinary.uploader.destroy(doc.public_id, function (result) {
+          console.log(result);
+        });
+      });
     }
-    if(resultfile){
-        cloudinary.uploader.destroy(resultfile.public_id, function(result) { console.log(result) })
+    if (resultfile) {
+      cloudinary.uploader.destroy(resultfile.public_id, function (result) {
+        console.log(result);
+      });
     }
-    
+
     const getpost = await firestore
       .collection("Post")
       .where("uid", "==", getid)
@@ -1066,18 +1079,17 @@ router.get("/post", async (req, res) => {
 
 router.get("/postforfindthief", async (req, res) => {
   try {
-    console.log("ok")
-    var item = []
+    console.log("ok");
+    var item = [];
     const showdata = await firestore.collection("Post").orderBy("date", "desc");
     showdata.get().then((ok) => {
-      ok.forEach((doc,num) => {
-          if(doc)
-          item.push(doc.data());
+      ok.forEach((doc, num) => {
+        if (doc) item.push(doc.data());
       });
-      console.log(item)
+      console.log(item);
       return res.json({
-        item
-      })
+        item,
+      });
     });
   } catch (err) {
     return res.status(500).json({ msg: err });
@@ -1245,27 +1257,55 @@ router.post("/comment/:id", uploadphotocomment, async (req, res) => {
         let { url, public_id } = resultfiles;
         photocomment.push({ url, public_id });
       }
-
-      const savetodb = await firestore.collection("Comment").doc(uuid).set({
-        commentid: uuid,
-        postid,
-        username,
-        textcomment,
-        datetime,
-        userid,
-        photoURL,
-        photocomment,
-      });
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
+        const savetodb = await firestore.collection("Comment").doc(uuid).set({
+          commentid: uuid,
+          postid,
+          username,
+          textcomment,
+          datetime,
+          userid,
+          photocomment,
+        });
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
+        const savetodb = await firestore.collection("Comment").doc(uuid).set({
+          commentid: uuid,
+          postid,
+          username,
+          textcomment,
+          datetime,
+          userid,
+          photoURL,
+          photocomment,
+        });
+      }
     } else {
-      const savetodb = await firestore.collection("Comment").doc(uuid).set({
-        commentid: uuid,
-        postid,
-        username,
-        textcomment,
-        datetime,
-        userid,
-        photoURL,
-      });
+      if (photoURL.public_id === "undefined" && photoURL.url === "undefined") {
+        const savetodb = await firestore.collection("Comment").doc(uuid).set({
+          commentid: uuid,
+          postid,
+          username,
+          textcomment,
+          datetime,
+          userid,
+        });
+      } else if (
+        photoURL.public_id !== "undefined" &&
+        photoURL.url !== "undefined"
+      ) {
+        const savetodb = await firestore.collection("Comment").doc(uuid).set({
+          commentid: uuid,
+          postid,
+          username,
+          textcomment,
+          datetime,
+          userid,
+          photoURL,
+        });
+      }
     }
     return res.json({
       success: "โพสสำเร็จ",
@@ -1303,13 +1343,15 @@ router.get("/commentmore/:id", async (req, res) => {
 
 router.post("/delete/comment/:uid", async (req, res) => {
   try {
-    let {photocomment} = req.body
-  
+    let { photocomment } = req.body;
+
     let getid = req.params.uid;
-    if(photocomment){
-      photocomment.forEach(doc => {
-        cloudinary.uploader.destroy(doc.public_id, function(result) { console.log(result) })
-      })
+    if (photocomment) {
+      photocomment.forEach((doc) => {
+        cloudinary.uploader.destroy(doc.public_id, function (result) {
+          console.log(result);
+        });
+      });
     }
     const postdelete = await firestore
       .collection("Comment")
@@ -1336,15 +1378,15 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .delete();
       return res.json({ success: "Delete" });
     } else if (files === undefined) {
-      console.log("nahee")
+      console.log("nahee");
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
-        .update({ textcomment: edittextcomment , photocomment: "" });
+        .update({ textcomment: edittextcomment, photocomment: "" });
       return res.json({ success: "Delete" });
     }
     if (files) {
-      console.log("hee")
+      console.log("hee");
       let item = [];
       for (const file of files) {
         // console.log(files);
@@ -1360,7 +1402,7 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .update({ textcomment: edittextcomment, photocomment: item });
       return res.json({ success: "Edit" });
     } else {
-      console.log("kuay")
+      console.log("kuay");
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
