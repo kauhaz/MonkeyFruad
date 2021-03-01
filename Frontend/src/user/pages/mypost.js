@@ -474,7 +474,7 @@ const Mypost = () => {
                                   </div>
                                 ) : (
                                   ""
-                                )}<ClipLoaderReport loading={loading} />
+                                )}
                                 {loading ? (
                                   <div className="col-lg-6 col-3">
                                     <ClipLoaderReport loading={loading} />
