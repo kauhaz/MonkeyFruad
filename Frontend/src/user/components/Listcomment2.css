@@ -1,3 +1,9 @@
+.header-mypost-comment {
+  display: grid;
+  grid-template-columns: 50px 1fr 20px;
+  align-items: center;
+}
+
 .mypostcommentimg-setting {
   width: 25px;
 }
@@ -91,16 +97,31 @@
 
 .mypostcommentrow {
   background-color: rgb(245, 245, 245);
-  width: 70%;
-  display: table;
-  margin-left: 20px;
-  margin-bottom: 40px;
-  padding-left: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0 30px 0;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   word-wrap: break-word;
+}
+
+.mypostcomment1 {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #5c5c5c;
+}
+
+.commentboxmypost {
+  display: grid;
+  grid-template-columns: 40px 60% 40px;
+}
+
+.imgcommentitemmypost {
+  display: grid;
+  padding: 20px;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .imgpreview1 {
@@ -113,31 +134,67 @@
   margin-right: 10px;
 }
 
-.imglistcommentmypost1 {
-  margin-left: -40px;
+.imglistcommentmypost {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .listcommentmypost2 {
-  width: 140px;
-  height: 200px;
+  margin: 0;
+  width: 100%;
+  height: 220px;
   object-fit: cover;
   object-position: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 0px;
-  margin-left: 100px;
+  cursor: pointer;
 }
 
 .imgpreviewmypost1 {
-  width: 100%;
+  position: relative;
+  margin: 0;
+  width: 205px;
+  height: 205px;
   object-fit: cover;
   object-position: center;
 }
 
+.inputcommentmypost2 {
+  width: 100%;
+  border: none;
+  margin-top: 8px;
+  font-size: 16px;
+  background-color: rgb(245, 245, 245);
+  padding: 0 10px;
+}
+
 .uploadprovemypost1 {
-  width: 20%;
-  margin-top: -150px;
-  margin-left: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.uploadproveeditmyposts {
+  justify-items: center;
+  align-items: center;
+}
+
+.uploadproveeditmyposts1 {
+  width: 205px;
+  height: 205px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.uploadproveeditmyposts1:hover {
+  background-color: rgb(201, 200, 200);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.uploadproveeditmyposts2 {
+  width: 100%;
+  padding: 60px;
 }
 
 .commenttextarea {
@@ -145,15 +202,11 @@
   margin-left: 75px;
 }
 
-.buttoncommentmypostsave1 {
-  margin-top: -60px;
-  margin-left: 315px;
-}
-
 .buttoncommentmypostsave2 {
-  width: 100%;
+  width: 160%;
   height: 40px;
-  font-size: 17px;
+  margin-left: 10px;
+  font-size: 16px !important;
   background-color: #5c83cc;
   border: none;
   border-radius: 0.5rem;
@@ -163,27 +216,24 @@
 }
 
 .buttoncommentmypostsave2:hover {
-  width: 100%;
-  height: 40px;
-  font-size: 17px;
   background-color: #3c6fce;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 20px;
-  text-align: center;
-  color: white;
 }
 
-/* .mypostcommentrow2 {
-          background-color: tomato;
-      } */
-
-.mypostcommentrow1 {
-  width: 90%;
+.mypost-comment-name1 {
+  margin-left: 10px;
+  font-size: 18px;
 }
 
-.mypostcommentrow2 {
-  width: 10%;
+.mypost-comment-time1 {
+  margin-left: 5px;
+  margin-top: -55px;
+  font-size: 14px;
+  color: grey;
+}
+
+.postdeletemypost {
+  display: flex;
+  width: 100%;
 }
 
 .commenttextareamypost {
@@ -191,22 +241,27 @@
 }
 
 .deleteimgmyposts1 {
-  color: grey;
-  border: none;
-  border-radius: 50px;
+  position: relative;
+  right: 15px;
+  top: -10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
 }
 
 .deleteimgmyposts2 {
-  width: 23px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  margin-top: -475px;
-  margin-left: 195px;
+  width: 30px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  transition: box-shadow 0.4s ease;
   background-color: white;
+}
+
+.deleteimgmyposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }

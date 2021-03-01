@@ -226,7 +226,7 @@ const Listcomment = ({
     <div>
       {commentmore ? (
         <div className="postcommentrows">
-          {/* <div class="vl"></div> */}
+          <div class="vl"></div>
           <div className="post-comment-img1">
             <div className="header-post-comment">
               <div className="post-profilecomment-img1">
@@ -244,7 +244,9 @@ const Listcomment = ({
                 {commentmore.username}
                 <span className="post-comment-time1">
                   {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).startOf().fromNow()}{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000))
+                    .startOf()
+                    .fromNow()}{" "}
                 </span>
               </div>
               {user && commentmore.userid == user.uid ? (
