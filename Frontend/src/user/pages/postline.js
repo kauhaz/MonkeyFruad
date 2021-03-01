@@ -5876,44 +5876,42 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridDate"
-                                >
-                                  <Form.Label>
-                                    จำนวนครั้งที่ {res.name} {res.surname}{" "}
-                                    ถูกแจ้ง{" "}
-                                  </Form.Label>
-                                </Form.Group>
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.count} ครั้ง
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
-                              <Form.Row>
-                                <Form.Group
-                                  as={Col}
-                                  className="post-left col-lg-6 col-12"
-                                  controlId="formGridPrice"
-                                >
-                                  <Form.Label>
-                                    {" "}
-                                    ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                  </Form.Label>
-                                </Form.Group>
-
-                                <Form.Group>
-                                  <span className="spanpost">
-                                    {res.summoney.toLocaleString(undefined, {
-                                      maximumFractionDigits: 2,
-                                    })}{" "}
-                                    บาท
-                                  </span>
-                                </Form.Group>
-                              </Form.Row>
+                              <br/>
+                                      <Form.Group
+                                        as={Col}
+                                        className="post-left col-lg-6 col-12"
+                                        controlId="formGridDate"
+                                      >
+                                        <Form.Label className="post-lefts">
+                                          จำนวนครั้งที่{" "}
+                                          <span className="spanpostname">
+                                            {res.name} {res.surname}
+                                          </span>{" "}
+                                          ถูกแจ้งทั้งหมด{" "}
+                                          <span className="spanpost1">
+                                            {res.count} ครั้ง
+                                          </span>
+                                        </Form.Label>
+                                      </Form.Group>
+                                      <Form.Group
+                                        as={Col}
+                                        className="post-left col-lg-6 col-12"
+                                        controlId="formGridPrice"
+                                      >
+                                        <Form.Label className="post-lefts">
+                                          {" "}
+                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                          <span className="spanpost1">
+                                            {res.summoney.toLocaleString(
+                                              undefined,
+                                              {
+                                                maximumFractionDigits: 2,
+                                              }
+                                            )}{" "}
+                                            บาท
+                                          </span>
+                                        </Form.Label>
+                                      </Form.Group>
                             </Form>
                             <div className="postothers">
                               <Link
@@ -6084,45 +6082,42 @@ const Post = () => {
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
-                                      <Form.Row>
-                                        <Form.Group
-                                          as={Col}
-                                          className="post-left col-lg-6 col-12"
-                                          controlId="formGridDate"
-                                        >
-                                          <Form.Label>
-                                            จำนวนครั้งที่{" "}
-                                            <span className="spanpostname">
-                                              {res.name} {res.surname}
-                                            </span>{" "}
-                                            ถูกแจ้ง{" "}
-                                            <span className="spanpost1">
-                                              {res.count} ครั้ง
-                                            </span>
-                                          </Form.Label>
-                                        </Form.Group>
-                                      </Form.Row>
-                                      <Form.Row>
-                                        <Form.Group
-                                          as={Col}
-                                          className="post-left col-lg-6 col-12"
-                                          controlId="formGridPrice"
-                                        >
-                                          <Form.Label>
-                                            {" "}
-                                            ยอดเงินรวมทั้งหมดที่โกงไป{" "}
-                                            <span className="spanpost1">
-                                              {res.summoney.toLocaleString(
-                                                undefined,
-                                                {
-                                                  maximumFractionDigits: 2,
-                                                }
-                                              )}{" "}
-                                              บาท
-                                            </span>
-                                          </Form.Label>
-                                        </Form.Group>
-                                      </Form.Row>
+                                      <br/>
+                                      <Form.Group
+                                        as={Col}
+                                        className="post-left col-lg-6 col-12"
+                                        controlId="formGridDate"
+                                      >
+                                        <Form.Label className="post-lefts">
+                                          จำนวนครั้งที่{" "}
+                                          <span className="spanpostname">
+                                            {res.name} {res.surname}
+                                          </span>{" "}
+                                          ถูกแจ้งทั้งหมด{" "}
+                                          <span className="spanpost1">
+                                            {res.count} ครั้ง
+                                          </span>
+                                        </Form.Label>
+                                      </Form.Group>
+                                      <Form.Group
+                                        as={Col}
+                                        className="post-left col-lg-6 col-12"
+                                        controlId="formGridPrice"
+                                      >
+                                        <Form.Label className="post-lefts">
+                                          {" "}
+                                          ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                          <span className="spanpost1">
+                                            {res.summoney.toLocaleString(
+                                              undefined,
+                                              {
+                                                maximumFractionDigits: 2,
+                                              }
+                                            )}{" "}
+                                            บาท
+                                          </span>
+                                        </Form.Label>
+                                      </Form.Group>
                                     </Form>
                                     <div className="postothers">
                                       <Link
