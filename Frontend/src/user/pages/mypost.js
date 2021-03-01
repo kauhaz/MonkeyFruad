@@ -3,7 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
-import ClipLoader from "../components/clipLoaderReport";
+import ClipLoaderReport from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
@@ -474,10 +474,10 @@ const Mypost = () => {
                                   </div>
                                 ) : (
                                   ""
-                                )}
+                                )}<ClipLoaderReport loading={loading} />
                                 {loading ? (
                                   <div className="col-lg-6 col-3">
-                                    <ClipLoader loading={loading} />
+                                    <ClipLoaderReport loading={loading} />
                                   </div>
                                 ) : (
                                   <Button
