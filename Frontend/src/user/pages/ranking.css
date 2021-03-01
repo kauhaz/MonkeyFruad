@@ -26,7 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .column3-rank{
@@ -93,10 +93,10 @@
     font-size: 17px ;
 }
 .text4-rank{
-    text-align: left;
+    text-align: center;
     width: 200px;
     margin-left: auto;
-    font-size: auto;
+    margin-right: auto;
     font-size: 15px ;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
@@ -201,18 +201,97 @@
         font-size: 55px;
         padding-top: 30px;
     }
-    .text4-rank{
+    .text4-rank1{
         font-size: 14px;
         width: 180px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
 /* จอ Computer */
-@media only screen and (min-width: 1920) {
-    
-    
+@media only screen and (min-width: 1920px) {
+    .container2-rank{
+        width: 60%;
+        height: 380px;
+        /* background-color: teal; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .column3-rank{
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        margin-top: 80px;
+    }
+    .coin1-rank{
+        background-color: #fc7248;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin2-rank{
+        background-color: #f8994a;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .coin3-rank{
+        background-color: #fdc52b;
+        width: 150px;
+        height: 150px;
+        margin-top: -80px;
+        color: white;
+        border-radius: 50%;
+        z-index: 1;
+        position: absolute;
+        margin-left: 100px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+    }
+    .rank-rank1{
+        font-size: 70px;
+        font-family: 'Kanit', sans-serif;
+        text-align: center;
+        color: white;
+        padding-top: 25px;
+    }
+    .emty-rank{
+        height: 70px;
+        width: 100%;
+    }
+    .text3-rank{
+        text-align: center;
+        color: #5c83cc;
+        font-family: 'Kanit', sans-serif;
+        font-size: 17px ;
+    }
+    .text4-rank{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        font-size: 15px ;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-bottom: 20px;
+    }
+    .readmore-rank {
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+    }
 }
 
 /* จอฮวก */
@@ -223,7 +302,7 @@
         margin-top: -75px;
         margin-left: 65px;
     }
-    .container2-rank {
+    .container2-rank{
         margin-bottom: 60px;
         width: 65%;
     }
@@ -303,7 +382,6 @@
     }
     .text4-rank{
         font-size: 11px;
-        margin-left: -1px;
         width: 140px;
     }
     .readmore-rank {
@@ -336,8 +414,8 @@
     }
     .text4-rank{
         font-size: 10px;
-        margin-left: 0px;
         width: 150px;
+        margin-left: -10px;
     }
     .readmore-rank {
         font-size: 11px;
