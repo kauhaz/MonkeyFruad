@@ -248,6 +248,9 @@
 
 
 @media only screen and (max-width: 376px) {
+    .h1-prevent { 
+        font-size: 20px;
+    }
     .container-prevent{
         width: 100%;
         padding-left: 10px;
@@ -275,7 +278,7 @@
         width: 110px;
     }
     .text-content-prevent{
-        font-size: 14px;
+        font-size: 15px;
         width: 130px;
     }
     .column-prevent ,.column-prevent2 {
