@@ -1336,16 +1336,18 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .delete();
       return res.json({ success: "Delete" });
     } else if (files === undefined) {
+      console.log("nahee")
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
-        .update({ photocomment: "" });
+        .update({ textcomment: edittextcomment , photocomment: "" });
       return res.json({ success: "Delete" });
     }
     if (files) {
+      console.log("hee")
       let item = [];
       for (const file of files) {
-        console.log(files);
+        // console.log(files);
         const { path } = file;
         const resultfiles = await cloudinary.uploader.upload(path);
         let { url, public_id } = resultfiles;
@@ -1358,6 +1360,7 @@ router.post("/edit/comment/:id", uploadphotocomment, async (req, res) => {
         .update({ textcomment: edittextcomment, photocomment: item });
       return res.json({ success: "Edit" });
     } else {
+      console.log("kuay")
       const commentedit = await firestore
         .collection("Comment")
         .doc(id)
