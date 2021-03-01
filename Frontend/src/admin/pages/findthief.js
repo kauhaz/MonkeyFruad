@@ -23,7 +23,7 @@ const Findthief = () => {
   let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-    SetLoading(false)
+    SetLoading(false);
     Setshow(getpost.data.item);
   };
   const Hiddendropdown = () => {
@@ -123,6 +123,21 @@ const Findthief = () => {
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
                                     ).format("MM/DD/YYYY HH:mm")}{" "}
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>ช่องทางการโดนโกง</Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.social}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>

@@ -5866,6 +5866,22 @@ const ManagePost = () => {
                                   className="post-left col-lg-6 col-12"
                                   controlId="formGridDate"
                                 >
+                                  <Form.Label>ช่องทางการโดนโกง</Form.Label>
+                                </Form.Group>
+
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.social}{" "}
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
+
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
                                   <Form.Label>
                                     จำนวนครั้งที่ {res.name} {res.surname}{" "}
                                     ถูกแจ้ง{" "}
@@ -5936,6 +5952,13 @@ const ManagePost = () => {
                             return (
                               <div>
                                 <div className="container-posts2">
+                                  <button
+                                    onClick={() => deleteClick(res.uid)}
+                                    variant="primary"
+                                    className="adminbuttonreported"
+                                  >
+                                    <i class="far fa-trash-alt"></i>
+                                  </button>
                                   <div className="post-profile-img">
                                     {res.photoURL ? (
                                       <img
@@ -6052,6 +6075,24 @@ const ManagePost = () => {
                                                 res.datetimes.seconds * 1000
                                               )
                                             ).format("MM/DD/YYYY HH:mm")}{" "}
+                                          </span>
+                                        </Form.Group>
+                                      </Form.Row>
+
+                                      <Form.Row>
+                                        <Form.Group
+                                          as={Col}
+                                          className="post-left col-lg-6 col-12"
+                                          controlId="formGridDate"
+                                        >
+                                          <Form.Label>
+                                            ช่องทางการโดนโกง
+                                          </Form.Label>
+                                        </Form.Group>
+
+                                        <Form.Group>
+                                          <span className="spanpost">
+                                            {res.social}{" "}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>

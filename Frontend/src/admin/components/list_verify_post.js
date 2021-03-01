@@ -50,8 +50,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
       setCheckSelectThree(true);
     }
   };
-  const ChangeRead = async (e) => {
-    e.preventDefault();
+  const ChangeRead = async () => {
     await Axios.post(
       `http://localhost:7000/post/report/changereadhide/${reportelement.uid}`
     );
@@ -62,18 +61,20 @@ const Listverifypost = ({ reportelement, hideClick }) => {
   }, []);
   return (
     <div>
-      <div className="container-history1">
-        <div className="container-history2">
-          <button onClick={(e) => ChangeRead(e)}>ซ่อน</button>
-          <Form className="formsize-history">
+      <div className="container-report1">
+        <div className="container-report2">
+          <div onClick={() => ChangeRead()} className="hide-report-button" name="ซ่อนรายงาน">
+            <i class="far fa-eye-slash"></i>
+          </div>
+          <Form className="formsize-report">
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผุ้แจ้งการรายงาน :{" "}
+                  ผู้แจ้งการรายงาน :{" "}
                   {UsernameReport && UsernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>
@@ -99,7 +100,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -133,7 +134,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -155,20 +156,18 @@ const Listverifypost = ({ reportelement, hideClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                  <div className="mypostbuttonreport">
-                    <button
+                    <div
                       variant="primary"
                       onClick={(e) => handleShow(e)}
-                      className="mypostbuttonreported"
+                      className="proof-button-reported"
                     >
                       คลิกเพื่อดู
-                    </button>
-                  </div>
+                      </div>
                 </Form.Label>
                 <Form.Row>
                   <Modal
@@ -204,24 +203,28 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                   </Modal>
                 </Form.Row>
                 <Form.Label>
-                  จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  <div className="count-report">  
+                    จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  </div>
                 </Form.Label>
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={4}
-                  readOnly={true}
-                  value={reportelement.description}
-                />
+                <div className="textarea-report"> 
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    readOnly={true}
+                    value={reportelement.description}
+                  />
+                </div>
               </Form.Group>
             </Form.Row>
           </Form>
-          <div className="historyother">
+          <div className="reportother">
             <Link
-              className="historyother1"
+              className="reportother1"
               to={`/post/${reportelement.postid}`}
             >
               ตรวจสอบโพสต์

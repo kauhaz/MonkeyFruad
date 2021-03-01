@@ -5861,7 +5861,21 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>ช่องทางการโดนโกง</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.social}{" "}
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -6053,7 +6067,23 @@ const Post = () => {
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
+                                      <Form.Row>
+                                        <Form.Group
+                                          as={Col}
+                                          className="post-left col-lg-6 col-12"
+                                          controlId="formGridDate"
+                                        >
+                                          <Form.Label>
+                                            ช่องทางการโดนโกง
+                                          </Form.Label>
+                                        </Form.Group>
 
+                                        <Form.Group>
+                                          <span className="spanpost">
+                                            {res.social}{" "}
+                                          </span>
+                                        </Form.Group>
+                                      </Form.Row>
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}

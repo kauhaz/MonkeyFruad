@@ -90,9 +90,9 @@ const Login = () => {
       />
       <Chatbot />
       <div className="container-login">
-        <form className="LoginForm-login">
+        <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-login" />
-          <p className="h2-login text-center mb-2 font-weight-bold text1-login">
+          <p className="h3 text-center mb-2 font-weight-bold">
             เข้าสู่ระบบ
           </p>
           {emailis_inVaild ? (
@@ -110,11 +110,12 @@ const Login = () => {
           ) : (
             ""
           )}
-          <div className="LoginInputForm-login">
+          <div className="LoginInputForm">
             <MDBInput
               className="InputEmail-login"
               label="Email"
               icon="user"
+              size="sm"
               group
               type="email"
               validate
@@ -128,6 +129,7 @@ const Login = () => {
               className="InputPassword-login"
               label="Password"
               icon="unlock-alt"
+              size="sm"
               group
               type="password"
               validate
@@ -150,18 +152,16 @@ const Login = () => {
             <p className="mx-auto my-1">เข้าสู่ระบบ</p>
           </button>
 
-          <div className="Signup-login text-center pt-3">
-            <span></span>
+          <div className="login-signup text-center mt-2">
             <a href="./signup">สมัครสมาชิก</a>
-            <hr></hr>
           </div>
 
-          <button onClick={facebookLogin} className="btn-block LoginFacebook-login">
+          <button onClick={facebookLogin} className="btn-block LoginFacebook-login mt-3">
             <svg
               className="FacebookIcon"
               xmlns="http://www.w3.org/2000/svg"
-              width="26px"
-              height="26px"
+              width="24px"
+              height="24px"
               viewBox="0 0 90 90"
             >
               <g>
@@ -178,8 +178,8 @@ const Login = () => {
             <svg
               className="GoogleIcon"
               xmlns="http://www.w3.org/2000/svg"
-              width="26px"
-              height="26px"
+              width="24px"
+              height="24px"
               fill="#FFFFFF"
               viewBox="0 0 50 50"
             >
