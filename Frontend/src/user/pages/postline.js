@@ -6091,14 +6091,15 @@ const Post = () => {
                                           controlId="formGridDate"
                                         >
                                           <Form.Label>
-                                            จำนวนครั้งที่ {res.name}{" "}
-                                            {res.surname} ถูกแจ้ง{" "}
+                                            จำนวนครั้งที่{" "}
+                                            <span className="spanpostname">
+                                              {res.name} {res.surname}
+                                            </span>{" "}
+                                            ถูกแจ้ง{" "}
+                                            <span className="spanpost1">
+                                              {res.count} ครั้ง
+                                            </span>
                                           </Form.Label>
-                                        </Form.Group>
-                                        <Form.Group>
-                                          <span className="spanpost">
-                                            {res.count} ครั้ง
-                                          </span>
                                         </Form.Group>
                                       </Form.Row>
                                       <Form.Row>
@@ -6110,17 +6111,16 @@ const Post = () => {
                                           <Form.Label>
                                             {" "}
                                             ยอดเงินรวมทั้งหมดที่โกงไป{" "}
+                                            <span className="spanpost1">
+                                              {res.summoney.toLocaleString(
+                                                undefined,
+                                                {
+                                                  maximumFractionDigits: 2,
+                                                }
+                                              )}{" "}
+                                              บาท
+                                            </span>
                                           </Form.Label>
-                                        </Form.Group>
-
-                                        <Form.Group>
-                                          <span className="spanpost">
-                                            {res.summoney.toLocaleString(
-                                              undefined,
-                                              { maximumFractionDigits: 2 }
-                                            )}{" "}
-                                            บาท
-                                          </span>
                                         </Form.Group>
                                       </Form.Row>
                                     </Form>
