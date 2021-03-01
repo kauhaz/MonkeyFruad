@@ -353,3 +353,10 @@
   height: 50px;
   margin-top: 30px;
 }
+
+.post-left1 {
+  width: 63%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 2000px;
+}
