@@ -334,7 +334,7 @@ const Commentitemformypost = ({ postid }) => {
                   </div>
                 </div>
 
-                <div className="imgcommentitemmypost1">
+                <div className="imgcommentitemmypost2">
                   {imagesFile
                     ? imagesFile.map((imagePreviewUrl, index) => {
                         return (
