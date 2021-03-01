@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavbarPage from "../../user/components/navnew";
-import "../../user/pages/history.css";
+import "./report.css";
 import ListNonverifypost from "../components/list_non_verifypost";
 import Listverifypost from "../components/list_verify_post";
 import Listhidereport from "../components/listhidereport";
@@ -52,8 +52,6 @@ const Report = () => {
       setverifypost();
       setHidereport();
       setHide(false);
-      setCancleHide(false);
-      setDeleteReport(false);
     } catch (err) {
       console.log("error");
     }
@@ -85,39 +83,57 @@ const Report = () => {
   useEffect(() => {
     if (hide == true) {
       NavVerify();
+      setHide(false);
     } else if (cancleHide == true || deleteReport == true) {
       Navhide();
+      if (cancleHide == true) {
+        setCancleHide(false);
+      } else if (deleteReport == true) {
+        setDeleteReport(false);
+      }
     } else {
-      if (clicknavhide == false || clicknavverify == false) {
+      if (clicknavhide == false && clicknavverify == false) {
         initReport();
       }
     }
   }, [hide, cancleHide, deleteReport]);
-  // console.log("hide", hide);
-  // console.log("canclehide", cancleHide);
-  // console.log("deleteReport", deleteReport);
-  // console.log("clicknavverify", clicknavverify);
-  // console.log("clicknavhide", clicknavhide);
+  console.log("hide", hide);
+  console.log("canclehide", cancleHide);
+  console.log("deleteReport", deleteReport);
+  console.log("clicknavverify", clicknavverify);
+  console.log("clicknavhide", clicknavhide);
   return (
     <div onClick={() => Hiddendropdown()}>
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <h1 className="h1-contractus">รายงานโพสต์</h1>
-      <div className="container-history5">
-        <div className="" onClick={(e) => NavVerify(e)}>
-          ตรวจสอบแล้ว
+      <h1 className="h1-report">รายงานโพสต์</h1>
+      <div className="container-report5">
+        <div
+          className="status-report verify-report"
+          onClick={(e) => NavVerify(e)}
+        >
+          <span>ตรวจสอบแล้ว</span>
+          <i class="far fa-check-circle"></i>
         </div>
-        <div className="" onClick={(e) => NavNonVerify(e)}>
-          ยังไม่ตรวจสอบ
+        <div
+          className="status-report nonverify-report"
+          onClick={(e) => NavNonVerify(e)}
+        >
+          <span>ยังไม่ตรวจสอบ</span>
+          <i class="far fa-times-circle"></i>
         </div>
-        <div className="" onClick={(e) => Navhide(e)}>
-          ซ่อน
+        <div
+          className="status-report hidden-report"
+          onClick={(e) => Navhide(e)}
+        >
+          <span>ซ่อน</span>
+          <i class="far fa-eye-slash"></i>
         </div>
       </div>
       {nonverifypost ? (
-        <h2 className="h2-history">ทั้งหมด {nonverifypost.length} รายงาน</h2>
+        <h2 className="h2-report">ทั้งหมด {nonverifypost.length} รายงาน</h2>
       ) : (
         ""
       )}
@@ -127,7 +143,7 @@ const Report = () => {
           })
         : null}
       {verifypost ? (
-        <h2 className="h2-history">ทั้งหมด {verifypost.length} รายงาน</h2>
+        <h2 className="h2-report">ทั้งหมด {verifypost.length} รายงาน</h2>
       ) : (
         ""
       )}
@@ -142,7 +158,7 @@ const Report = () => {
           })
         : null}
       {hidereport ? (
-        <h2 className="h2-history">ทั้งหมด {hidereport.length} รายงาน</h2>
+        <h2 className="h2-report">ทั้งหมด {hidereport.length} รายงาน</h2>
       ) : (
         ""
       )}

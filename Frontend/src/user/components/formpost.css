@@ -1,5 +1,5 @@
 .container-formpost {
-  width: 60%;
+  width: 50%;
   background-color: white;
   border-radius: 10px;
   margin-top: 40px;
@@ -38,6 +38,7 @@
 
 .uploadproveformpost {
   width: 100px;
+  padding: 10px;
 }
 
 #FileInput {
@@ -62,18 +63,23 @@
   background-color: white;
 }
 
+.text-formpost { 
+  font-size: 16px;
+}
+
 .formpost-left {
   margin-right: 15px;
 }
 
 .spanformpost {
   color: #ff392e;
+  font-size: 17px;
 }
 
 .imgpreview {
-  margin: 10px;
-  width: 20%;
-  height: 160px;
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -86,8 +92,8 @@
 
 .deleteimgformposts1 {
   position: relative;
-  right: 25px;
-  top: 0px;
+  right: 15px;
+  top: 5px;
   height: 20px;
   width: 20px;
   border-radius: 50%;
@@ -117,14 +123,15 @@
   cursor: pointer;
 }
 
-/* .uploadproveedits {
+.uploadproveeditpost {
   justify-items: center;
   align-items: center;
 }
 
-.uploadproveedits1 {
-  width: 10%;
-  height: 160px;
+.uploadproveeditpost1 {
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -132,20 +139,26 @@
   display: block;
 }
 
-.uploadproveedits1:hover {
+.uploadproveeditpost1:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.uploadproveedits2 {
+.uploadproveeditpost2 {
   width: 100%;
   padding: 60px;
-} */
+}
 
-/* .imgpreview:hover {
-  transform: scale(2.5);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-} */
+.imgcommentitemformpost1 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.uploadprovereport {
+  width: 20%;
+  margin-top: 20px;
+}
 
 .buttonformpost {
   width: 100%;
@@ -153,7 +166,7 @@
   background-color: #5c83cc;
   border: none;
   border-radius: 0.5rem;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   color: white;
   padding: 0.5rem;
@@ -161,16 +174,8 @@
 }
 
 .buttonformpost:hover {
-  width: 100%;
-  font-size: 20px;
   background-color: #3c6fce;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 20px;
-  text-align: center;
   color: white;
-  padding: 0.5rem;
-  margin-top: 10px;
 }
 
 /* .buttonformpost:active{
@@ -185,7 +190,7 @@
 
 .h1-formpostfileerror {
   color: #ff392e;
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   margin-bottom: 20px;
 }

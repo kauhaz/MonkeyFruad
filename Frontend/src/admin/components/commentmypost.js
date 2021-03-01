@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "../../user/components/commentitemformypost.css";
-import Listcomment from "./listcomment";
+import Listcomment from "./listcommentmypost";
 import _ from "lodash";
 const { v4: uuidv4 } = require("uuid");
 

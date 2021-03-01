@@ -1,5 +1,5 @@
 .container-linkrule1 {
-    width: 60%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 0px;
@@ -9,38 +9,31 @@
 .container-linkrule2 {
     background-color: white;
     border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 30px;
-    padding-bottom: 40px;
-    padding-left: 60px;
-    padding-right: 60px;
+    margin: 40px auto;
+    padding: 30px 60px 60px 40px;
     font-family: 'Kanit', sans-serif;
-    font-size: 20px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
 }
 
 .h3-linkrule {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .p-linkrule {
     margin-top:  20px;
     color: gray;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .linkrule1 {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 17px;
     color: #ff392e;
 }
 
 .buttonrule {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px !important;
     background-color: #5c83cc;
     border: none;
     border-radius: 0.5rem;
@@ -52,35 +45,9 @@
     border: 2px solid #5c83cc;
 }
 
-/* .buttonrule:hover {
-    width: 100%;
-    font-size: 20px;
-    background-color: #8B0000;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    padding: 0.5rem;
-    margin-top: 10px;
-    border: 2px solid #8B0000;
-} */
-
-.buttonrule:active {
-    width: 100%;
-    font-size: 20px;
-    color: white;
-    background-color: #3c6fce;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-top: 10px;
-    border: 2px solid #3c6fce;
-}
-
 .buttonrule1 {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px !important;
     background-color: white;
     border: none;
     border-radius: 0.5rem;

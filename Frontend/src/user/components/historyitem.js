@@ -5,8 +5,8 @@ import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 
-const Historyitem = ({ ok, user, handledeletetorerender,isActive,setIsActive }) => {
-
+const Historyitem = ({ ok, user, handledeletetorerender}) => {
+  const [isActive, setIsActive] = useState(false);
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 

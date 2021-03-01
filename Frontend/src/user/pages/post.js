@@ -91,7 +91,6 @@ const Post = () => {
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
-  const [isActive, setIsActive] = useState(false);
 
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -5718,9 +5717,6 @@ const Post = () => {
     <div
       onClick={() => {
         Hiddendropdown();
-         if(isActive == true){
-          setIsActive(false)
-        }
       }}
     >
       <NavbarPage
@@ -5732,16 +5728,14 @@ const Post = () => {
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
-                <div className="row postrow">
-                  <div className="column1-postrow1">
-                    <div className="post-img">
-                      <img className="monkey" src="/img/logo v3.png" />
-                    </div>
+                <div className="column1-postrow1">
+                  <div className="post-img">
+                    <img className="monkey" src="/img/logo v3.png" />
                   </div>
-                  <div className="column2-postrow2">
-                    <div className="post-linkpost1">
-                      แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                    </div>
+                </div>
+                <div className="column2-postrow2">
+                  <div className="post-linkpost1">
+                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
                   </div>
                 </div>
               </div>
@@ -5867,7 +5861,21 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridDate"
+                                >
+                                  <Form.Label>ช่องทางการโดนโกง</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.social}{" "}
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
@@ -5922,11 +5930,7 @@ const Post = () => {
 
                           <div className="line-posts1"></div>
                           <div className="container-posts4">
-                            <Commentitem
-                              postid={res.uid}
-                              setIsActive={setIsActive}
-                              isActive={isActive}
-                            />
+                            <Commentitem postid={res.uid} />
                           </div>
                         </div>
                       </div>
@@ -6063,7 +6067,23 @@ const Post = () => {
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
+                                      <Form.Row>
+                                        <Form.Group
+                                          as={Col}
+                                          className="post-left col-lg-6 col-12"
+                                          controlId="formGridDate"
+                                        >
+                                          <Form.Label>
+                                            ช่องทางการโดนโกง
+                                          </Form.Label>
+                                        </Form.Group>
 
+                                        <Form.Group>
+                                          <span className="spanpost">
+                                            {res.social}{" "}
+                                          </span>
+                                        </Form.Group>
+                                      </Form.Row>
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
@@ -6106,7 +6126,7 @@ const Post = () => {
                                     </Form>
                                     <div className="postothers">
                                       <Link
-                                        className="postother1"
+                                        className="postothers1"
                                         onClick={() => (
                                           history.push(`/mypost/${res.uid}`),
                                           window.location.reload(true)

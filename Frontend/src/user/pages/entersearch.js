@@ -9,8 +9,7 @@ import Chatbot from "../components/chatbot";
 
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
-
-import "./entersearch.css";
+import "./post.css";
 
 const Entersearch = () => {
   const [show, Setshow] = useState();
@@ -5030,16 +5029,14 @@ const Entersearch = () => {
               <div className="column-post-left1">
                 <Link to={`/linkruleshow/`}>
                   <div className="container-post1">
-                    <div className="row postrow">
-                      <div className="column1-postrow1">
-                        <div className="post-img">
-                          <img className="monkey" src="/img/logo v3.png" />
-                        </div>
+                    <div className="column1-postrow1">
+                      <div className="post-img">
+                        <img className="monkey" src="/img/logo v3.png" />
                       </div>
-                      <div className="column2-postrow2">
-                        <div className="post-linkpost1">
-                          แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                        </div>
+                    </div>
+                    <div className="column2-postrow2">
+                      <div className="post-linkpost1">
+                        แจ้งข้อมูลคนโกงได้ที่นี่เลย
                       </div>
                     </div>
                   </div>
@@ -5047,7 +5044,7 @@ const Entersearch = () => {
 
                 <h1 className="h1-posts">
                   {" "}
-                  ผลการค้นหา ... มีโพสต์ทั้งหมด {show ? show.length : null}{" "}
+                  ผลการค้นหา * {search} * มีทั้งหมด {show ? show.length : "0"}{" "}
                   โพสต์
                 </h1>
 
@@ -5060,33 +5057,7 @@ const Entersearch = () => {
                         return (
                           <div>
                             <div className="container-posts2">
-                              <div className="post-profile-img">
-                                {res.photoURL ? (
-                                  <img
-                                    className="img-circle"
-                                    src={`${res.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle"
-                                    src={"/img/profile.png"}
-                                  />
-                                )}
-                                <div className="posts-name1">
-                                  {res.username ? "@" : null}
-                                  {res.username}
-                                </div>
-                                <br />
-                                <div className="post-date">
-                                  <span className="post-time">
-                                    {moment(
-                                      new Date(res.date.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="container-posts3">
+                              <div className="container-postss3">
                                 <Form className="formsize-post">
                                   <Form.Row>
                                     <Form.Group
@@ -5157,10 +5128,25 @@ const Entersearch = () => {
                                       </span>
                                     </Form.Group>
                                   </Form.Row>
+                                  <Form.Row>
+                                    <Form.Group
+                                      as={Col}
+                                      className="post-left col-lg-6 col-12"
+                                      controlId="formGridDate"
+                                    >
+                                      <Form.Label>ช่องทางการโดนโกง</Form.Label>
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                      <span className="spanpost">
+                                        {res.social}{" "}
+                                      </span>
+                                    </Form.Group>
+                                  </Form.Row>
                                 </Form>
                                 <div className="postothers">
                                   <Link
-                                    className="postother1"
+                                    className="postothers1"
                                     onClick={() => (
                                       history.push(`/mypost/${res.uid}`),
                                       window.location.reload(true)
@@ -5186,33 +5172,7 @@ const Entersearch = () => {
                                 return (
                                   <div>
                                     <div className="container-posts2">
-                                      <div className="post-profile-img">
-                                        {res.photoURL ? (
-                                          <img
-                                            className="img-circle"
-                                            src={`${res.photoURL.url}`}
-                                          />
-                                        ) : (
-                                          <img
-                                            className="img-circle"
-                                            src={"/img/profile.png"}
-                                          />
-                                        )}
-                                        <div className="posts-name1">
-                                          {res.username ? "@" : null}
-                                          {res.username}
-                                        </div>
-                                        <br />
-                                        <div className="post-date">
-                                          <span className="post-time">
-                                            {moment(
-                                              new Date(res.date.seconds * 1000)
-                                            ).format("MM/DD/YYYY HH:mm")}{" "}
-                                          </span>
-                                        </div>
-                                      </div>
-
-                                      <div className="container-posts3">
+                                      <div className="container-postss3">
                                         <Form className="formsize-post">
                                           <Form.Row>
                                             <Form.Group
@@ -5291,10 +5251,27 @@ const Entersearch = () => {
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
+                                          <Form.Row>
+                                            <Form.Group
+                                              as={Col}
+                                              className="post-left col-lg-6 col-12"
+                                              controlId="formGridDate"
+                                            >
+                                              <Form.Label>
+                                                ช่องทางการโดนโกง
+                                              </Form.Label>
+                                            </Form.Group>
+
+                                            <Form.Group>
+                                              <span className="spanpost">
+                                                {res.social}{" "}
+                                              </span>
+                                            </Form.Group>
+                                          </Form.Row>
                                         </Form>
-                                        <div className="postother">
+                                        <div className="postothers">
                                           <Link
-                                            className="postother1"
+                                            className="postothers1"
                                             onClick={() => (
                                               history.push(
                                                 `/mypost/${res.uid}`
@@ -5335,7 +5312,7 @@ const Entersearch = () => {
                   </div>
                 </a>
                 <div className="biggroup">
-                  <div className="container-postright2">
+                  <div className="container-postrights2">
                     <div className="post-group1">
                       เรียงตาม :
                       <select

@@ -30,6 +30,8 @@ import Report from "./admin/pages/report";
 import usercontext from "./user/context/usercontext";
 import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
+import AdminFindthief from "./admin/pages/findthief";
+import AdminEntersearch from "./admin/pages/entersearch";
 import PostFacebook from "./user/pages/postfacebook";
 import PostLine from "./user/pages/postline";
 import PostTwitter from "./user/pages/posttwitter";
@@ -70,6 +72,12 @@ const App = () => {
           </Route>
           <Route path="/post/:uid" exact>
             <SeepostAdmin />
+          </Route>
+          <Route path="/admin/thief/post/:uid" exact>
+            <AdminFindthief />
+          </Route>
+          <Route path="/adminentersearch" exact>
+            <AdminEntersearch />
           </Route>
         </Switch>
       </usercontext.Provider>

@@ -1,5 +1,5 @@
 .container-formedit {
-  width: 60%;
+  width: 50%;
   background-color: white;
   border-radius: 10px;
   margin-top: 40px;
@@ -57,12 +57,17 @@
   background-color: white;
 }
 
+.text-formedit { 
+  font-size: 16px;
+}
+
 .formedit-left {
   margin-right: 15px;
 }
 
 .spanformedit {
   color: #ff392e;
+  font-size: 17px;
 }
 
 /* .linkruleedit1{
@@ -91,26 +96,24 @@
   cursor: pointer;
 }
 
-.container-img-holder-imgpreviewedit .imgpreviewedit {
+.imgcommentitemformpost1 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.uploadproveformpost {
   width: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  padding: 10px;
 }
 
-.imgpreviewedit {
-  overflow: hidden;
-  background-color: white;
-}
-
-.imgpreviewedit img {
-  transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-.imgpreviewedit:hover {
-  transform: scale(2.5);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+.imgpreview {
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
 }
 
 .buttonformedit {
@@ -119,7 +122,7 @@
   background-color: #5c83cc;
   border: none;
   border-radius: 0.5rem;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   color: white;
   padding: 0.5rem;
@@ -127,16 +130,9 @@
 }
 
 .buttonformedit:hover {
-  width: 100%;
-  font-size: 20px;
   background-color: #3c6fce;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 20px;
-  text-align: center;
   color: white;
-  padding: 0.5rem;
-  margin-top: 10px;
+
 }
 
 .buttonformedit:active {
@@ -147,6 +143,70 @@
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin-top: 10px;
+}
+
+.postdelete {
+  display: flex;
+  width: 100%;
+}
+
+.deleteimgformposts1 {
+  position: relative;
+  right: 15px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.deleteimgformposts2 {
+  width: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.deleteimgformposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.uploadproveeditedit {
+  justify-items: center;
+  align-items: center;
+}
+
+.uploadproveeditedit1 {
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.uploadproveeditedit1:hover {
+  background-color: rgb(201, 200, 200);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.uploadproveeditedit2 {
+  width: 100%;
+  padding: 60px;
+}
+
+.h1-formeditfileerror {
+  color: #ff392e;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /*Responsive*/

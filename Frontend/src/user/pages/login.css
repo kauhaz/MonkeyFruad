@@ -1,48 +1,61 @@
 .container-login {
-    margin: 40px auto;
-    padding: 30px 40px;
+    margin: 25px auto;
+    padding: 5px 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 500px;
+    width: 450px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
-}
-.h2-login{
-    font-size: 32px;
-    margin-top: -5px;
-}
-.LoginForm-login {
-    width: 100%;
-    max-width: 376px;
-    padding: 15px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.LoginInputForm-login {
-    font-size: 16px;
-    color: grey;
+.Logo-login  {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    display: block;
+}
+
+.LoginForm {
+    width: 100%;
+    height: auto;
+    max-width: 376px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.LoginForm p {
+    margin-top: -.5rem;
+}
+
+.LoginInputForm {
+    font-size: inherit;
+    color: inherit;
 }
 
 .message-login{
     display:flex;
     justify-content:space-between;
-    margin-top: -1rem;
-    margin-bottom: 2rem;
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 32px;
 }
 
 .RememberCheckbox-login, .ForgotPassword-login a {
     color: #5c5c5c;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .LoginButton-login {
     background-color: #f87c7c;
     border: none;
     border-radius: 1.5rem;
-    padding: 6px;
+    padding: 4px;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .LoginButton-login:hover {
@@ -50,25 +63,25 @@
     border: none;
 }
 
-.Signup-login a {
+.login-signup {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.login-signup a {
     color: #212529;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-.Signup-login a:hover, .ForgotPassword-login a:hover {
+.login-signup a:hover, .ForgotPassword-login a:hover {
     color: #9b1b1b;
-}
-
-.Signup-login hr {
-    margin-top: 2rem;
-    color:black;
 }
 
 .LoginFacebook-login {
     background-color: #4d70bd;
     border: none;
     border-radius: 10px;
-    padding: 6px;
+    padding: 4px;
 }
 
 .LoginFacebook-login:hover {
@@ -80,7 +93,7 @@
     background-color: #fa5f40;
     border: none;
     border-radius: 10px;
-    padding: 6px;
+    padding: 4px;
 }
 
 .LoginGoogle-login:hover {
@@ -91,7 +104,7 @@
 
 .LoginFacebook-login p, .LoginGoogle-login {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .LoginFacebook-login svg, .LoginFacebook-login p, .LoginGoogle-login svg, .LoginGoogle-login p{
@@ -101,13 +114,6 @@
 .LoginFacebook-login svg, .LoginGoogle-login svg {
     vertical-align: middle;
     margin: 0 .5rem 4px 0;
-}
-
-.Logo-login  {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    display: block;
 }
 
 .alert-login {
