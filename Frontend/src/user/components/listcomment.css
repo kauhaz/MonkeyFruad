@@ -1,10 +1,3 @@
-.post-comment-time1 {
-  margin-left: 5px;
-  margin-top: -55px;
-  font-size: 14px;
-  color: grey;
-}
-
 .postcommentimg-setting {
   width: 25px;
 }
@@ -156,6 +149,15 @@
   object-position: center;
 } */
 
+.inputcomment1 {
+  width: 100%;
+  border: none;
+  margin-top: 8px;
+  font-size: 16px;
+  background-color: rgb(245, 245, 245);
+  padding: 0 10px;
+}
+
 .uploadprovepost1 {
   width: 100%;
   cursor: pointer;
@@ -208,6 +210,13 @@
   font-size: 18px;
 }
 
+.post-comment-time1 {
+  margin-left: 5px;
+  margin-top: -55px;
+  font-size: 14px;
+  color: grey;
+}
+
 .postdelete {
   display: flex;
   width: 100%;
@@ -244,17 +253,19 @@
   .listcommentpost2 {
     height: 280px;
   }
-  .imgpreviewpost1 , .uploadproveedits1 {
+  .imgpreviewpost1,
+  .uploadproveedits1 {
     width: 275px;
     height: 275px;
   }
 }
 
-@media only screen and (max-width: 1367px){
+@media only screen and (max-width: 1367px) {
   .listcommentpost2 {
     height: 200px;
   }
-  .imgpreviewpost1 , .uploadproveedits1 {
+  .imgpreviewpost1,
+  .uploadproveedits1 {
     width: 170px;
     height: 170px;
   }
