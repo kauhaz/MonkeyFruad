@@ -297,7 +297,7 @@ const Listcomment = ({
 
             <br />
             {loading ? (
-              <div className="col-lg-10 col-4">
+              <div>
                 <ClipLoaderComent loading={loading} />
               </div>
             ) : checkedittext ? (

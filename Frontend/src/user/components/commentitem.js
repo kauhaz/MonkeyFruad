@@ -292,7 +292,8 @@ const Commentitem = ({ postid}) => {
           )}
         </div>
         <div className="post-section-commment">
-       
+        {loading ? <ClipLoaderMycoment /> :
+        <div>
           <div className="post-comment-commentsall">
             {!imagesFile && !imagecomment ? (
               <div className="container-img-holder-imgpreview1">
@@ -341,12 +342,12 @@ const Commentitem = ({ postid}) => {
               </div>
             </div>
           </div>
+         
           <div className="imgcommentitempost1">
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
                     <div className="postdelete">
-                      {loading ? <ClipLoaderMycoment /> : null}
                       <img
                         key={index}
                         className="imgpreviewa1"
@@ -382,7 +383,8 @@ const Commentitem = ({ postid}) => {
               <div></div>
             )}
           </div>
-          
+          </div>
+}
           <h1 className="h1-postfileerror">{error}</h1>
         </div>
       </div>
