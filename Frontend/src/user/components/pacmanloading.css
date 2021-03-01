@@ -1,4 +1,4 @@
-.box-load{
+.box-load-pac{
     width: 430px;
     height: 200px;
     left: 39%;
@@ -32,21 +32,21 @@
 
 /*reponsive*/
 @media only screen and (max-width: 1367px) {
-    .box-load{
+    .box-load-pac{
         left: 34.5%;
         top: 34.5%;
     }
 }
 
 @media only screen and (max-width: 1025px) {
-    .box-load{
+    .box-load-pac{
         left: 29%;
         top: 42.5%;
     }
 }
 
 @media only screen and (max-width: 769px) {
-    .box-load{
+    .box-load-pac{
         left: 22%;
         top: 45%;
         height: 100px;
@@ -71,7 +71,7 @@
 }
 
 @media only screen and (max-width: 415px) {
-    .box-load{
+    .box-load-pac{
         height: 100px;
         left: 0%;
         top: 43%;
@@ -104,13 +104,13 @@
 }
 
 @media only screen and (max-width: 376px) {
-    .box-load{
+    .box-load-pac{
         top: 47.5%;
     }
 }
 
 @media only screen and (max-width: 321px) {
-    .box-load{
+    .box-load-pac{
         top: 58%;
     }
 }
