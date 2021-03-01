@@ -195,7 +195,7 @@ const Non_listverifypost = ({ reportelement }) => {
                           ? reportelement.fileUploads.map((element, index) => {
                               return (
                                 <div className="img-holder-badslip">
-                               
+                              
                                     <img
                                       className="img-bad"
                                       alt=""

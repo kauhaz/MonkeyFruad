@@ -477,7 +477,7 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
-                                    <span className="spanreport">การรายงานโพสต์สำเร็จ</span>
+                                    <span className="spanreport2">การรายงานโพสต์สำเร็จ</span>
                                   </div>
                                 ) : (
                                   ""
