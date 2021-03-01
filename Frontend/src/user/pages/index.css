@@ -500,6 +500,14 @@
 
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
+    .h1-index { 
+        margin-top: 50px;
+        text-align: center;
+        font-size: 22px;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-top: 80px;
+    }
     .coin1-index , .coin2-index , .coin3-index {
         width: 140px;
         height: 140px;
@@ -1233,7 +1241,7 @@
         height: 170px;
     }
     .h1-index{
-        font-size: 17px;
+        font-size: 22px;
     }
     .column3-index{
         width: 31%;
@@ -1382,7 +1390,7 @@
 
 
     .h1-index{
-        font-size: 17px;
+        font-size: 22px;
         margin-top: 50px;
     }
     .column3-index{
@@ -1500,7 +1508,7 @@
         margin-top: -10px;
     }
     .h1-index{
-        font-size: 15px;
+        font-size: 20px;
         margin-top: 40px;
     }
     .text3-index{
