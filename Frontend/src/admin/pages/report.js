@@ -52,8 +52,6 @@ const Report = () => {
       setverifypost();
       setHidereport();
       setHide(false);
-      setCancleHide(false);
-      setDeleteReport(false);
     } catch (err) {
       console.log("error");
     }
@@ -85,19 +83,25 @@ const Report = () => {
   useEffect(() => {
     if (hide == true) {
       NavVerify();
+      setHide(false);
     } else if (cancleHide == true || deleteReport == true) {
       Navhide();
+      if (cancleHide == true) {
+        setCancleHide(false);
+      } else if (deleteReport == true) {
+        setDeleteReport(false);
+      }
     } else {
-      if (clicknavhide == false || clicknavverify == false) {
+      if (clicknavhide == false && clicknavverify == false) {
         initReport();
       }
     }
   }, [hide, cancleHide, deleteReport]);
-  // console.log("hide", hide);
-  // console.log("canclehide", cancleHide);
-  // console.log("deleteReport", deleteReport);
-  // console.log("clicknavverify", clicknavverify);
-  // console.log("clicknavhide", clicknavhide);
+  console.log("hide", hide);
+  console.log("canclehide", cancleHide);
+  console.log("deleteReport", deleteReport);
+  console.log("clicknavverify", clicknavverify);
+  console.log("clicknavhide", clicknavhide);
   return (
     <div onClick={() => Hiddendropdown()}>
       <NavbarPage
@@ -106,15 +110,24 @@ const Report = () => {
       />
       <h1 className="h1-report">รายงานโพสต์</h1>
       <div className="container-report5">
-        <div className="status-report verify-report" onClick={(e) => NavVerify(e)}>
+        <div
+          className="status-report verify-report"
+          onClick={(e) => NavVerify(e)}
+        >
           <span>ตรวจสอบแล้ว</span>
           <i class="far fa-check-circle"></i>
         </div>
-        <div className="status-report nonverify-report" onClick={(e) => NavNonVerify(e)}>
+        <div
+          className="status-report nonverify-report"
+          onClick={(e) => NavNonVerify(e)}
+        >
           <span>ยังไม่ตรวจสอบ</span>
           <i class="far fa-times-circle"></i>
         </div>
-        <div className="status-report hidden-report" onClick={(e) => Navhide(e)}>
+        <div
+          className="status-report hidden-report"
+          onClick={(e) => Navhide(e)}
+        >
           <span>ซ่อน</span>
           <i class="far fa-eye-slash"></i>
         </div>

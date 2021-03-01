@@ -51,28 +51,18 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
       setCheckSelectThree(true);
     }
   };
-  const cancleHide = async (e) => {
-    e.preventDefault();
-    try {
+  const cancleHide = async () => {
+    console.log("CanCleHide ACtive")
       await Axios.post(
         `http://localhost:7000/post/report/changeread/${reportelement.uid}`
       );
       CancleClick();
-    } catch (err) {
-      console.log(err);
-    }
   };
-  const deleteReport = async (e) => {
-    console.log("OK");
-    e.preventDefault();
-    try {
+  const deleteReport = async () => {
       await Axios.post(
         `http://localhost:7000/post/report/delete/${reportelement.uid}`
       );
       DeleteClick();
-    } catch (err) {
-      console.log(err);
-    }
   };
   useEffect(() => {
     InitReport();
@@ -107,23 +97,22 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                 >
                   <ul className="ul-reportmenusetting">
                     <li className="li-reportmenusetting">
-                      <a className="a-reportmenusetting">
-                        <a
+                      <a className="a-reportmenusetting" onClick={() => cancleHide()}>
+                        <div
                           className="a-reportmenusetting1"
-                          onClick={(e) => cancleHide(e)}
                         >
                           ยกเลิกการซ่อน
-                        </a>
+                        </div>
                       </a>
                     </li>
                     <li className="li-reportmenusetting">
-                      <a
+                      <div
                         className="a-reportmenusetting"
-                        onClick={(e) => deleteReport(e)}
+                        onClick={() => deleteReport()}
                       >
                         {" "}
                         ลบประวัติการรายงาน{" "}
-                      </a>
+                      </div>
                     </li>
                   </ul>
                 </div>
