@@ -56,7 +56,7 @@
 /*dropsearch*/
 .gg{
     position: absolute;
-    left: 1532px;
+    left: 1565px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -168,7 +168,7 @@
     /*dropsearch*/
     .gg{
         position: absolute;
-        left: 1532px;
+        left: 1565px;
         top: 70px;
         z-index: 1;
         background-color: white;
@@ -230,7 +230,7 @@
     }
     /*dropsearch*/
     .gg{
-        left: 960px;
+        left: 977px;
         top: 65px;
     }
     .search-nav , .dropsearch-nav{
