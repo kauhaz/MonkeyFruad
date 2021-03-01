@@ -7,8 +7,7 @@ import "moment/locale/th";
 import _ from "lodash";
 import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
-import Modalimage from "./Modalimage"
-
+import Modalimage from "./Modalimage";
 
 const Listcomment2 = ({
   commentmore,
@@ -32,12 +31,12 @@ const Listcomment2 = ({
 
   let { user, setUser } = useContext(usercontext);
 
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -103,8 +102,8 @@ const Listcomment2 = ({
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
-      if(imagesFile && imagesFile.length === 0){
-        setImagesFile()
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
       }
 
       if (fuck) {
@@ -139,10 +138,10 @@ const Listcomment2 = ({
     }
   };
 
-
-  const deleted = async (commentid,commentmore) => {
+  const deleted = async (commentid, commentmore) => {
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`,commentmore
+      `http://localhost:7000/post/delete/comment/${commentid}`,
+      commentmore
     );
     setIsActive(false);
     Setfuck([]);
@@ -152,10 +151,9 @@ const Listcomment2 = ({
   };
 
   const edit = async () => {
-    
     Setcheckedittext(true);
     setIsActive(false);
-    var myfuck = []
+    var myfuck = [];
     let date = new Date();
     if (imagecomment) {
       imagecomment.map(async (doc) => {
@@ -173,8 +171,8 @@ const Listcomment2 = ({
       });
     }
     setTimeout(() => {
-      Setfiles([...myfuck])
-    },50)
+      Setfiles([...myfuck]);
+    }, 50);
   };
 
   const handleedit = async (commentid) => {
@@ -220,7 +218,7 @@ const Listcomment2 = ({
   return (
     <div>
       {commentmore ? (
-        <div className="row mypostcommentrow">
+        <div className="mypostcommentrow">
           <div className="column1 mypostcommentrow1">
             <div class="vl"></div>
             <div className="mypost-comment-img1">
@@ -239,8 +237,9 @@ const Listcomment2 = ({
                 {commentmore.username}
                 <span className="mypost-comment-time1">
                   {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).startOf().fromNow()}{" "}
-{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000))
+                    .startOf()
+                    .fromNow()}{" "}
                 </span>
               </div>
               <br />
@@ -268,23 +267,24 @@ const Listcomment2 = ({
                   </div>
 
                   <div className="container-img-holder-imgpreview1">
-                  {(!imagecomment && !imagesFile) ?   <div>
-                          <label>
-                            <img
-                              className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>
-                        </div> :null 
-                      }
+                    {!imagecomment && !imagesFile ? (
+                      <div>
+                        <label>
+                          <img
+                            className="uploadprovepost1"
+                            src="/img/addphoto.png"
+                          />
+                          <input
+                            id="FileInput"
+                            className="uploadspostcomment"
+                            type="file"
+                            onChange={FileUpload}
+                            multiple
+                            accept="image/png, image/jpeg , image/jpg"
+                          />
+                        </label>
+                      </div>
+                    ) : null}
                   </div>
                   <div className="row imgcommentitemmypost">
                     {imagesFile
@@ -309,7 +309,6 @@ const Listcomment2 = ({
                                     overflow: "hidden",
                                   })
                                 }
-
                               />
                               <div className="deleteimgmyposts1">
                                 <img
@@ -323,48 +322,48 @@ const Listcomment2 = ({
                         })
                       : imagecomment
                       ? imagecomment
-                        ? imagecomment.map((doc , index) => {
+                        ? imagecomment.map((doc, index) => {
                             return (
-                              <div >
-                              <img
-                                className="imgpreviewmypost1"
-                                src={doc.url}
-                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
-
-                              />
-                              <div className="deleteimgmyposts1">
-                              <img
-                                className="deleteimgposts2"
-                                src="/img/delete2.png"
-                                onClick={() => handledeleteimage(index)}
-                              />
-                            </div>
-                            </div>
+                              <div>
+                                <img
+                                  className="imgpreviewmypost1"
+                                  src={doc.url}
+                                  onClick={() => (
+                                    Setimagemodal(doc.url), handleopenmodal()
+                                  )}
+                                />
+                                <div className="deleteimgmyposts1">
+                                  <img
+                                    className="deleteimgposts2"
+                                    src="/img/delete2.png"
+                                    onClick={() => handledeleteimage(index)}
+                                  />
+                                </div>
+                              </div>
                             );
                           })
                         : null
                       : null}
 
-                      {(imagecomment || imagesFile) ? (
-                        <div>
-                          <label>
-                            <img
-                              // className="uploadprovepost1"
-                              src="/img/addphoto.png"
-                            />
-                            
-                            <input
-                              id="FileInput"
-                              className="uploadspostcomment"
-                              type="file"
-                              onChange={FileUpload}
-                              multiple
-                              accept="image/png, image/jpeg , image/jpg"
-                            />
-                          </label>{" "}
-                        </div>
-                      ) :null
-                      }
+                    {imagecomment || imagesFile ? (
+                      <div>
+                        <label>
+                          <img
+                            // className="uploadprovepost1"
+                            src="/img/addphoto.png"
+                          />
+
+                          <input
+                            id="FileInput"
+                            className="uploadspostcomment"
+                            type="file"
+                            onChange={FileUpload}
+                            multiple
+                            accept="image/png, image/jpeg , image/jpg"
+                          />
+                        </label>{" "}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               ) : (
@@ -381,13 +380,20 @@ const Listcomment2 = ({
                               <img
                                 className="listcommentmypost2"
                                 src={`${doc.url}`}
-                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
+                                onClick={() => (
+                                  Setimagemodal(doc.url), handleopenmodal()
+                                )}
                               />
                             </div>
                           );
                         })
                       : null}
-                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                    <Modalimage
+                      isopen={isopen}
+                      handleopenmodal={handleopenmodal}
+                      handleclosemodal={handleclosemodal}
+                      imagemodal={imagemodal}
+                    />
                   </div>
                 </div>
               )}
@@ -422,7 +428,9 @@ const Listcomment2 = ({
                     <li className="li-mypostcommentmenusetting">
                       <a
                         className="a-mypostcommentmenusetting"
-                        onClick={() => deleted(commentmore.commentid,commentmore)}
+                        onClick={() =>
+                          deleted(commentmore.commentid, commentmore)
+                        }
                       >
                         {" "}
                         ลบคอมเมนต์{" "}
@@ -433,7 +441,6 @@ const Listcomment2 = ({
               </div>
             </div>
           ) : null}
-          
         </div>
       ) : null}
     </div>
