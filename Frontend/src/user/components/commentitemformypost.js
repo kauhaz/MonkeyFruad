@@ -334,7 +334,7 @@ const Commentitemformypost = ({ postid }) => {
                   </div>
                 </div>
 
-                <div className="imgcommentitemmypost1">
+                <div className="imgcommentitemmypost2">
                   {imagesFile
                     ? imagesFile.map((imagePreviewUrl, index) => {
                         return (
@@ -345,7 +345,7 @@ const Commentitemformypost = ({ postid }) => {
                               alt="previewImg"
                               src={imagePreviewUrl}
                             />
-                            <span clsssName="deleteimgmyposts1">
+                              <span className="deleteimgposts1">
                               <img
                                 className="deleteimgmyposts2"
                                 src="/img/delete2.png"
@@ -357,10 +357,10 @@ const Commentitemformypost = ({ postid }) => {
                       })
                     : null}
                   {imagesFile || imagecomment ? (
-                    <div className="uploadproveedit">
-                      <label className="uploadproveedit1">
+                    <div className="uploadproveeditmypost">
+                      <label className="uploadproveeditmypost1">
                         <img
-                          className="uploadproveedit2"
+                          className="uploadproveeditmypost2"
                           src="/img/last1.png"
                         />
                         <input
