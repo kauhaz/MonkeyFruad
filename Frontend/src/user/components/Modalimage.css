@@ -1,0 +1,7 @@
+.imgmodal{
+    width: 500px;
+    height: 500px;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+}

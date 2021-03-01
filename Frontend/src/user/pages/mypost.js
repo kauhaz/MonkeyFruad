@@ -86,7 +86,7 @@ const Mypost = () => {
     var myfuck = [];
     var files = [];
     let date = new Date();
-  
+
     setTimeout(() => {
       if (myfuck) {
         myfuck.forEach((doc) => {
@@ -131,7 +131,7 @@ const Mypost = () => {
 
       let date = new Date();
       var myFile = [];
-     
+
       if (files) {
         console.log("d");
         files.splice(index, 1);
@@ -266,7 +266,7 @@ const Mypost = () => {
                               show={Show}
                               onHide={handleClose}
                               className="modalreport"
-                            > 
+                            >
                               <Modal.Header closeButton>
                                 <Modal.Title className="namereport">
                                   รายงานโพสต์
@@ -373,31 +373,33 @@ const Mypost = () => {
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
                                 </span>
-                         
-                                <div className="imgcommentitemreport1">
-                                {!imagesFile  ? (
-              <div className="container-img-holder-imgpreview1">
-                <label>
-                  <img className="uploadprovereport" src="/img/addimg.png" />
-                  <input
-                    id="FileInput"
-                    className="uploadsreport"
-                    type="file"
-                    onChange={(e) => {
-                      FileUpload(e);
-                      setReportsubmitsuccess(false);
-                    }}
-                    multiple
-                    accept="image/png, image/jpeg , image/jpg"
-                  />
-                </label>
-              </div>
-            ) : (
-              <div></div>
-            )}
-            </div>
-            <div className="imgcommentitempost1">
 
+                                <div className="imgcommentitemreport1">
+                                  {!imagesFile ? (
+                                    <div>
+                                      <label>
+                                        <img
+                                          className="uploadprovereport"
+                                          src="/img/addimage.png"
+                                        />
+                                        <input
+                                          id="FileInput"
+                                          className="uploadsreport"
+                                          type="file"
+                                          onChange={(e) => {
+                                            FileUpload(e);
+                                            setReportsubmitsuccess(false);
+                                          }}
+                                          multiple
+                                          accept="image/png, image/jpeg , image/jpg"
+                                        />
+                                      </label>
+                                    </div>
+                                  ) : (
+                                    <div></div>
+                                  )}
+                                </div>
+                                <div className="imgcommentitempost1">
                                   {imagesFile
                                     ? imagesFile.map(
                                         (imagePreviewUrl, index) => {
@@ -426,28 +428,31 @@ const Mypost = () => {
                                         }
                                       )
                                     : null}
-                               {imagesFile ? (
-              <div className="uploadproveedit">
-                <label className="uploadproveedit1">
-                  <img className="uploadprovereport" src="/img/last1.png" />
-                  <input
-                    id="FileInput"
-                    className="uploadsreport"
-                    type="file"
-                    onChange={(e) => {
-                      FileUpload(e);
-                      setReportsubmitsuccess(false);
-                    }}
-                    multiple
-                    accept="image/png, image/jpeg , image/jpg"
-                  />
-                </label>
-              </div>
-            ) : (
-              <div></div>
-            )}
-            </div>
-                                
+                                  {imagesFile ? (
+                                    <div className="uploadprovereport">
+                                      <label className="uploadprovereport1">
+                                        <img
+                                          className="uploadprovereport2"
+                                          src="/img/last1.png"
+                                        />
+                                        <input
+                                          id="FileInput"
+                                          className="uploadsreport"
+                                          type="file"
+                                          onChange={(e) => {
+                                            FileUpload(e);
+                                            setReportsubmitsuccess(false);
+                                          }}
+                                          multiple
+                                          accept="image/png, image/jpeg , image/jpg"
+                                        />
+                                      </label>
+                                    </div>
+                                  ) : (
+                                    <div></div>
+                                  )}
+                                </div>
+
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}

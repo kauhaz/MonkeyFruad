@@ -226,6 +226,7 @@
 
 .post-group1 {
   font-size: 18px;
+  color: #5c5c5c;
 }
 
 .post-groupsorting1 {
@@ -236,6 +237,7 @@
   color: #5c5c5c;
   padding-left: 10px;
   border-radius: 0.5rem;
+  border: 1px solid #5c5c5c;
 }
 
 .line-postgroup1 {
@@ -256,6 +258,7 @@
   color: #5c5c5c;
   font-size: 16px;
   margin-bottom: 5px;
+  z-index: 0;
 }
 
 .line-postgroup2 {
@@ -276,6 +279,7 @@
   color: #5c5c5c;
   font-size: 16px;
   margin-bottom: 5px;
+  z-index: 0;
 }
 
 .line-postgroup3 {
@@ -300,15 +304,17 @@
   margin-left: 15px;
   padding-left: 10px;
   border-radius: 0.5rem;
+  border: 1px solid #5c5c5c;
 }
 
 .postnumber2 {
   width: 30%;
   height: 35px;
-  font-size: 18px;
+  font-size: 16px;
   color: #5c5c5c;
   padding-left: 10px;
   border-radius: 0.5rem;
+  border: 1px solid #5c5c5c;
 }
 
 .post-numbergroup2 {
@@ -350,4 +356,11 @@
   width: 34%;
   height: 50px;
   margin-top: 30px;
+}
+
+.post-left1 {
+  width: 63%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 2000px;
 }

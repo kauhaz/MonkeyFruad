@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Form, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./formpost.css";
+import "./Modalimage.css";
 import Axios from "axios";
 import _ from "lodash";
 import { auth } from "../Frontfirebase";
@@ -37,7 +37,12 @@ const Modalimage = ({
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <img alt="previewImg" src={imagemodal} style={{ overflow: "hidden" }} />
+        <img
+          className="imgmodal"
+          alt="previewImg"
+          src={imagemodal}
+          style={{ overflow: "hidden" }}
+        />
       </Modal>
     </div>
   );
