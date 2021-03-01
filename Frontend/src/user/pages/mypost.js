@@ -376,11 +376,11 @@ const Mypost = () => {
 
                                 <div className="imgcommentitemreport1">
                                   {!imagesFile ? (
-                                    <div className="container-img-holder-imgpreview1">
+                                    <div>
                                       <label>
                                         <img
                                           className="uploadprovereport"
-                                          src="/img/addimg.png"
+                                          src="/img/addimage.png"
                                         />
                                         <input
                                           id="FileInput"
@@ -429,10 +429,10 @@ const Mypost = () => {
                                       )
                                     : null}
                                   {imagesFile ? (
-                                    <div className="uploadproveedit">
-                                      <label className="uploadproveedit1">
+                                    <div className="uploadprovereport">
+                                      <label className="uploadprovereport1">
                                         <img
-                                          className="uploadprovereport"
+                                          className="uploadprovereport2"
                                           src="/img/last1.png"
                                         />
                                         <input
