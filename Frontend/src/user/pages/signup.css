@@ -50,10 +50,11 @@ h1 {
     background-color: #f8a9a977;
     padding: .3rem;
     border-radius: .4rem;
+    margin-bottom: 1rem;
 }
 
 .alert-signup span {
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .label-form-title {
