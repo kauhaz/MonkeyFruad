@@ -322,8 +322,8 @@
 
 .img-bad {
   margin: 5px 0 15px 0;
-  width: 212px;
-  height: 212px;
+  width: 152px;
+  height: 152px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -333,7 +333,7 @@
 .imgcommentitemmypost1 {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .container-mypost4 {
@@ -471,8 +471,22 @@
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+
 /*Responsive*/
-@media only screen and (max-width: 1920px) {
+@media only screen and (min-width: 1920px) {
+  .img-bad {
+    width: 192px;
+    height: 192px;
+  }
+}
+
+@media only screen and (max-width: 1367px) {
+  .img-bad {
+    width: 136px;
+    height: 136px;
+  }
+}
+/* @media only screen and (max-width: 1920px) {
 }
 
 @media only screen and (max-width: 1024px) {
@@ -636,4 +650,4 @@
   .mypost-comment-comments2 {
     font-size: 15px;
   }
-}
+} */
