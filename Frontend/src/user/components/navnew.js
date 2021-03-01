@@ -226,7 +226,7 @@ console.log(showDropdown)
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg">
+      <div className="ggadmin">
         {lastsearch
           ? lastsearch.map((doc) => {
               let thiefid = doc.accountnumber;
