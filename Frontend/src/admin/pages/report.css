@@ -53,38 +53,6 @@
     height: auto;
 }
 
-.container-report3{
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 40px;
-    padding-left: 60px;
-    padding-right: 20px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-}
-
-.container-report4{
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    padding-bottom: 40px;
-    padding-left: 60px;
-    padding-right: 20px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
-}
-
 .container-report5{
     width: 60%;
     margin: 3rem auto 1rem auto;
@@ -246,19 +214,49 @@
     margin-right: .5rem;
 }
 
+/*----------------------------------------------------------------
 
 /*Responsive*/ 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1921px) {
+    .h1-report { 
+        font-size: 22px;
+    }
+    .container-report2{
+        font-size: 16px;
+    }
+    .container-report1{
+        width: 45%;
+    }
+}
 
+@media only screen and (min-width: 1920px) {
+    .h1-report { 
+        font-size: 25px;
+    }
+    .container-report2{
+        font-size: 18px;
+    }
+    .container-report1{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1367px) {
+    .h1-report { 
+        font-size: 22px;
+    }
+    .container-report2{
+        font-size: 16px;
+    }
+    .container-report1{
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
 
 }
 
-@media only screen and (max-width: 1367px) {
-
-}
 
 @media only screen and (max-width: 768px) {
     .container-report1{
