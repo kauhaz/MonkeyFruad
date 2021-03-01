@@ -345,9 +345,9 @@ const Commentitemformypost = ({ postid }) => {
                               alt="previewImg"
                               src={imagePreviewUrl}
                             />
-                            <span clsssName="deleteimgmyposts1">
+                            <span clsssName="deleteimgmypost1">
                               <img
-                                className="deleteimgmyposts2"
+                                className="deleteimgmypost2"
                                 src="/img/delete2.png"
                                 onClick={() => handledeleteimage(index)}
                               />
@@ -357,10 +357,10 @@ const Commentitemformypost = ({ postid }) => {
                       })
                     : null}
                   {imagesFile || imagecomment ? (
-                    <div className="uploadproveedit">
-                      <label className="uploadproveedit1">
+                    <div className="uploadproveeditmypost">
+                      <label className="uploadproveeditmypost1">
                         <img
-                          className="uploadproveedit2"
+                          className="uploadproveeditmypost2"
                           src="/img/addphoto.png"
                         />
                         <input
