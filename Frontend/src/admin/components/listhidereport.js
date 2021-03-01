@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
+import Modalimage from "../../user/components/Modalimage";
+
 const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
   const [UsernamePost, SetUsernamePost] = useState("");
   const [Show, setShow] = useState(false);
@@ -12,12 +14,22 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
   const [checkselectOne, setCheckSelectOne] = useState(false);
   const [checkselectTwo, setCheckSelectTwo] = useState(false);
   const [checkselectThree, setCheckSelectThree] = useState(false);
+  const [isopen, Setisopen] = useState(false);
+  const [imagemodal, Setimagemodal] = useState();
   const handleShow = (e) => {
     e.preventDefault();
     setShow(true);
   };
   const handleClose = () => {
     setShow(false);
+  };
+  const handleopenmodal = async () => {
+    Setisopen(true);
+    handleClose()
+  };
+  const handleclosemodal = async (e) => {
+    Setisopen(false);
+    handleShow(e)
   };
   const InitReport = async () => {
     try {
@@ -238,14 +250,18 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                           ? reportelement.fileUploads.map((element, index) => {
                               return (
                                 <div className="img-holder-badslip">
-                                  <a href={`${element.url}`}>
+                                
                                     <img
                                       className="img-bad"
                                       alt=""
                                       src={`${element.url}`}
                                       style={{ overflow: "hidden" }}
+                                      onClick={() => (
+                                        Setimagemodal(element.url),
+                                        handleopenmodal()
+                                      )}
                                     />
-                                  </a>
+                               
                                 </div>
                               );
                             })
@@ -253,6 +269,12 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                       </Form.Row>
                     </Modal.Body>
                   </Modal>
+                  <Modalimage
+                                        isopen={isopen}
+                                        handleopenmodal={handleopenmodal}
+                                        handleclosemodal={handleclosemodal}
+                                        imagemodal={imagemodal}
+                            />
                 </Form.Row>
                 <Form.Label>
                 <div className="count-report">  
