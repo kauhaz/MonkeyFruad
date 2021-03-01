@@ -45,9 +45,12 @@ const Findthief = () => {
           <div className="post-left1">
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา <span className="spansearch">"{show && show[0].name} {show && show[0].surname}{" "}
-              {show && show[0].accountnumber}"</span> มีทั้งหมด{" "}
-              {show ? show.length : null} โพสต์
+              ผลการค้นหา{" "}
+              <span className="spansearch">
+                "{show && show[0].name} {show && show[0].surname}{" "}
+                {show && show[0].accountnumber}"
+              </span>{" "}
+              มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 
             {loading ? (
@@ -108,7 +111,24 @@ const Findthief = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
+                              <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money.toLocaleString(undefined, {
+                                      maximumFractionDigits: 2,
+                                    })}{" "}
+                                    บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
