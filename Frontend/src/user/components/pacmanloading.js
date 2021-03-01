@@ -5,7 +5,7 @@ import "./pacmanloading.css";
 const Loading = ({loading}) => {
     return (
         <div>
-            <div className="box-load">
+            <div className="box-load-pac">
                 <PacmanLoader color="#FFCD28" loading={loading}  size={99} css/>
             </div>
         </div>
