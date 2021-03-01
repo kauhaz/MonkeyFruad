@@ -292,6 +292,7 @@ const Commentitem = ({ postid}) => {
           )}
         </div>
         <div className="post-section-commment">
+       
           <div className="post-comment-commentsall">
             {!imagesFile && !imagecomment ? (
               <div className="container-img-holder-imgpreview1">
@@ -326,7 +327,7 @@ const Commentitem = ({ postid}) => {
                   Seterror();
                 }}
               />
-              {/* {loading ? <div><ClipLoading/></div> : null } */}
+              {/* {loading ? <div><ClipLoader /></div> : null } */}
             </div>
 
             <div>
@@ -381,6 +382,7 @@ const Commentitem = ({ postid}) => {
               <div></div>
             )}
           </div>
+          
           <h1 className="h1-postfileerror">{error}</h1>
         </div>
       </div>
