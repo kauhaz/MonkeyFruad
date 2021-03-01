@@ -154,7 +154,7 @@ const Rank = () => {
         </div>
       </div>
 
-      <div className="container-ranking container">
+      <div className="container-ranking">
         <div className="rank-sorting">
           <select
             as="select"
@@ -210,7 +210,7 @@ const Rank = () => {
                       )}
                     </div>
                   </div>
-                  
+
               );
             })
           : null}
