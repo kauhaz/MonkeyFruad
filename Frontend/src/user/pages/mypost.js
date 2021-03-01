@@ -26,6 +26,7 @@ const Mypost = () => {
   const [reportsubmitsuccess, setReportsubmitsuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [Show, setShow] = useState(false);
+  const [Showmodalsuccessreport, setShowmodalsuccessreport] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -57,6 +58,10 @@ const Mypost = () => {
     setReportsubmitsuccess(false);
     SetErrorFileUploads();
     SetErrorNotselect(false);
+    setImagesFile();
+  };
+  const handleModalSuccessReportClose = () => {
+    setShowmodalsuccessreport(false)
   };
   const handleopenmodal = async () => {
     Setisopen(true);
@@ -174,6 +179,8 @@ const Mypost = () => {
           .then((result) => {
             setReportsubmitsuccess(true);
             Setloading(false);
+            handleClose();
+            setShowmodalsuccessreport(true)
           })
           .catch((err) => {
             console.log(err);
@@ -217,6 +224,11 @@ const Mypost = () => {
         }
       }}
     >
+      <Modal show={Showmodalsuccessreport} onHide={handleModalSuccessReportClose} className="modalreport">
+        <Modal.Header closeButton>
+          <Modal.Title className="namereport">การรายงานโพสต์สำเร็จ</Modal.Title>
+        </Modal.Header>
+      </Modal>
       {mypost ? (
         <div>
           {" "}
@@ -229,18 +241,17 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
-                    {user && user.uid != ok.useruid ? (
-                           <div className="mypostbuttonreport">
-                        <button
-                          variant="primary"
-                          onClick={handleShow}
-                          className="mypostbuttonreported"
-                        >
-                          <i class="fa fa-flag"></i>
-                        </button>
-                      </div>)
-                      :
-                      null}
+                      {user && user.uid != ok.useruid ? (
+                        <div className="mypostbuttonreport">
+                          <button
+                            variant="primary"
+                            onClick={handleShow}
+                            className="mypostbuttonreported"
+                          >
+                            <i class="fa fa-flag"></i>
+                          </button>
+                        </div>
+                      ) : null}
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
@@ -402,61 +413,61 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
-                                {loading ? null :
-                                <div className="imgcommentitempost1">
-                                  {imagesFile
-                                    ? imagesFile.map(
-                                        (imagePreviewUrl, index) => {
-                                          return (
-                                            <div className="postdeletereport">
-                                              <img
-                                                key={index}
-                                                className="imgpreviewreport"
-                                                alt="previewImg"
-                                                src={imagePreviewUrl}
-                                              />
-                                              <div className="deleteimgreports1">
+                                {loading ? null : (
+                                  <div className="imgcommentitempost1">
+                                    {imagesFile
+                                      ? imagesFile.map(
+                                          (imagePreviewUrl, index) => {
+                                            return (
+                                              <div className="postdeletereport">
                                                 <img
-                                                  className="deleteimgreports2"
-                                                  src="/img/delete2.png"
-                                                  onClick={() => {
-                                                    handledeleteimage(index);
-                                                    setReportsubmitsuccess(
-                                                      false
-                                                    );
-                                                  }}
+                                                  key={index}
+                                                  className="imgpreviewreport"
+                                                  alt="previewImg"
+                                                  src={imagePreviewUrl}
                                                 />
+                                                <div className="deleteimgreports1">
+                                                  <img
+                                                    className="deleteimgreports2"
+                                                    src="/img/delete2.png"
+                                                    onClick={() => {
+                                                      handledeleteimage(index);
+                                                      setReportsubmitsuccess(
+                                                        false
+                                                      );
+                                                    }}
+                                                  />
+                                                </div>
                                               </div>
-                                            </div>
-                                          );
-                                        }
-                                      )
-                                    : null}
-                                  {imagesFile ? (
-                                    <div className="uploadproveeditreport">
-                                      <label className="uploadproveeditreport1">
-                                        <img
-                                          className="uploadproveeditreport2"
-                                          src="/img/last1.png"
-                                        />
-                                        <input
-                                          id="FileInput"
-                                          className="uploadsreport"
-                                          type="file"
-                                          onChange={(e) => {
-                                            FileUpload(e);
-                                            setReportsubmitsuccess(false);
-                                          }}
-                                          multiple
-                                          accept="image/png, image/jpeg , image/jpg"
-                                        />
-                                      </label>
-                                    </div>
-                                  ) : (
-                                    <div></div>
-                                  )}
-                                </div>
-                            }
+                                            );
+                                          }
+                                        )
+                                      : null}
+                                    {imagesFile ? (
+                                      <div className="uploadproveeditreport">
+                                        <label className="uploadproveeditreport1">
+                                          <img
+                                            className="uploadproveeditreport2"
+                                            src="/img/last1.png"
+                                          />
+                                          <input
+                                            id="FileInput"
+                                            className="uploadsreport"
+                                            type="file"
+                                            onChange={(e) => {
+                                              FileUpload(e);
+                                              setReportsubmitsuccess(false);
+                                            }}
+                                            multiple
+                                            accept="image/png, image/jpeg , image/jpg"
+                                          />
+                                        </label>
+                                      </div>
+                                    ) : (
+                                      <div></div>
+                                    )}
+                                  </div>
+                                )}
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}
@@ -474,7 +485,9 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
-                                    <span className="spanreport2">การรายงานโพสต์สำเร็จ</span>
+                                    <span className="spanreport2">
+                                      การรายงานโพสต์สำเร็จ
+                                    </span>
                                   </div>
                                 ) : (
                                   ""
@@ -673,7 +686,11 @@ const Mypost = () => {
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
-                                จำนวนครั้งที่ <span className="spanmypostname">{ok.name} {ok.surname}</span> ถูกแจ้ง{" "}
+                                จำนวนครั้งที่{" "}
+                                <span className="spanmypostname">
+                                  {ok.name} {ok.surname}
+                                </span>{" "}
+                                ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
                                 </span>
@@ -697,7 +714,7 @@ const Mypost = () => {
                               <span className="spanmypost">{ok.other}</span>
                             </Form.Label>
                           </Form.Group>
-                          <div className="img-holder-badslip">
+                          <div className="imgcommentitemmypost1">
                             {ok.item
                               ? ok.item.map((res) => {
                                   return (
@@ -722,7 +739,7 @@ const Mypost = () => {
                             />
                           </div>
                         </Form>
-                        <div className="line-comment1"></div>
+                        <div className="line-comments1"></div>
                         <div className="container-mypost4">
                           <Commentitemformypost postid={ok.uid} />
                         </div>

@@ -489,7 +489,7 @@ const Formpost = ({ check, Setcheck }) => {
 
               <Form.File.Label>
                 <span className="spanformpost">
-                  *กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น
+                  * กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง เช่น
                   ภาพถ่ายหน้าจอ (แชท)
                 </span>
                 <br></br>

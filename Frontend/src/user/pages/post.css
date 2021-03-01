@@ -124,6 +124,11 @@
   color: #ff392e;
 }
 
+.post-lefts {
+  width: 500px;
+  margin-left: -15px;
+}
+
 .formsize-post {
   width: 150%;
   font-size: 18px;
@@ -334,9 +339,13 @@
 .h1-posts {
   margin-top: 50px;
   text-align: center;
-  font-size: 25px;
+  font-size: 21px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
+}
+
+.spansearch {
+  color: #ff392e;
 }
 
 /* หน้า managepost */

@@ -45,8 +45,8 @@ const Findthief = () => {
           <div className="post-left1">
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา * {show && show[0].name} {show && show[0].surname}{" "}
-              {show && show[0].accountnumber} * มีทั้งหมด{" "}
+              ผลการค้นหา <span className="spansearch">"{show && show[0].name} {show && show[0].surname}{" "}
+              {show && show[0].accountnumber}"</span> มีทั้งหมด{" "}
               {show ? show.length : null} โพสต์
             </h1>
 
