@@ -244,9 +244,7 @@ const Listcomment = ({
                 {commentmore.username}
                 <span className="post-comment-time1">
                   {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
-                    "LTS"
-                  )}{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000)).startOf().fromNow()}{" "}
                 </span>
               </div>
               {user && commentmore.userid == user.uid ? (
