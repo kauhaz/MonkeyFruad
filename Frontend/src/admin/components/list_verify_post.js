@@ -162,15 +162,13 @@ const Listverifypost = ({ reportelement, hideClick }) => {
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                  <div className="mypostbuttonreport">
-                    <button
+                    <div
                       variant="primary"
                       onClick={(e) => handleShow(e)}
                       className="proof-button-reported"
                     >
                       คลิกเพื่อดู
-                      </button>
-                    </div>
+                      </div>
                 </Form.Label>
                 <Form.Row>
                   <Modal
