@@ -687,7 +687,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <label className="uploadproveeditpost1">
                                   <img
                                     className="uploadproveeditpost2"
-                                    src="/img/addimage.png"
+                                    src="/img/last1.png"
                                   />
                                   <input
                                     id="FileInput"
