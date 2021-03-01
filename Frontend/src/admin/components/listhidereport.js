@@ -79,40 +79,40 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
   }, []);
   return (
     <div>
-      <div className="container-history1">
-        <div className="container-history2">
-          <Form className="formsize-history">
-            <div className="container-mypostsetiing">
-              <div className="menu-containermypostsetting">
+      <div className="container-report1">
+        <div className="container-report2">
+          <Form className="formsize-report">
+            <div className="container-reportsetiing">
+              <div className="menu-containerreportsetting">
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className="mypostbuttonsetting"
+                  className="reportbuttonsetting"
                 >
                   <img
-                    className="mypostimg-setting"
+                    className="reportimg-setting"
                     src="/img/setting.png"
                     alt="avatar"
                   ></img>
                 </div>
                 <div
-                  className={`mypostmenusetting ${
+                  className={`reportmenusetting ${
                     isActive ? "active" : "inactive"
                   }`}
                 >
-                  <ul className="ul-mypostmenusetting">
-                    <li className="li-mypostmenusetting">
-                      <a className="a-mypostmenusetting">
+                  <ul className="ul-reportmenusetting">
+                    <li className="li-reportmenusetting">
+                      <a className="a-reportmenusetting">
                         <a
-                          className="a-mypostmenusetting1"
+                          className="a-reportmenusetting1"
                           onClick={(e) => cancleHide(e)}
                         >
                           ยกเลิกการซ่อน
                         </a>
                       </a>
                     </li>
-                    <li className="li-mypostmenusetting">
+                    <li className="li-reportmenusetting">
                       <a
-                        className="a-mypostmenusetting"
+                        className="a-reportmenusetting"
                         onClick={(e) => deleteReport(e)}
                       >
                         {" "}
@@ -126,7 +126,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -158,7 +158,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -191,7 +191,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -213,19 +213,17 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                  <div className="mypostbuttonreport">
-                    <button
+                    <div
                       variant="primary"
                       onClick={(e) => handleShow(e)}
-                      className="mypostbuttonreported"
+                      className="proof-button-reported"
                     >
                       คลิกเพื่อดู
-                    </button>
                   </div>{" "}
                 </Form.Label>
                 <Form.Row>
@@ -262,18 +260,22 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                   </Modal>
                 </Form.Row>
                 <Form.Label>
-                  จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                <div className="count-report">  
+                      จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                </div>
                 </Form.Label>
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={4}
-                  readOnly={true}
-                  value={reportelement.description}
-                />
+                <div className="textarea-report"> 
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    readOnly={true}
+                    value={reportelement.description}
+                  />
+                </div>
               </Form.Group>
             </Form.Row>
           </Form>

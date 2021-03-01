@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavbarPage from "../../user/components/navnew";
 import Listhidereport from "../components/listhidereport";
-import "../../user/pages/history.css";
+import "./hidereport.css";
 import Axios from "axios";
 const Hidereport = () => {
   const [report, setReport] = useState();
@@ -31,10 +31,10 @@ const Hidereport = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <h1 className="h1-history">การรายงานโพสต์ของผู้ใช้งาน</h1>
-      <div className="container-history5">
+      <h1 className="h1-report">การรายงานโพสต์ของผู้ใช้งาน</h1>
+      <div className="container-report5">
         {report ? (
-          <h2 className="h2-history">ทั้งหมด {report.length} รายงาน</h2>
+          <h2 className="h2-report">ทั้งหมด {report.length} รายงาน</h2>
         ) : null}
       </div>
       {report

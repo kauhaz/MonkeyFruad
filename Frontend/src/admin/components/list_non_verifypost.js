@@ -62,17 +62,17 @@ const Non_listverifypost = ({ reportelement }) => {
   }, []);
   return (
     <div>
-      <div className="container-history1">
-        <div className="container-history2">
-          <Form className="formsize-history">
+      <div className="container-report1">
+        <div className="container-report2">
+          <Form className="formsize-report">
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผุ้แจ้งการรายงาน :{" "}
+                  ผู้แจ้งการรายงาน :{" "}
                   {usernameReport && usernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>
@@ -99,7 +99,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -132,7 +132,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -153,20 +153,18 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                  <div className="mypostbuttonreport">
-                    <button
+                    <div
                       variant="primary"
                       onClick={(e) => handleShow(e)}
-                      className="mypostbuttonreported"
+                      className="proof-button-reported"
                     >
                       คลิกเพื่อดู
-                    </button>
-                  </div>
+                    </div>
                 </Form.Label>
                 <Form.Row>
                   <Modal
@@ -205,24 +203,28 @@ const Non_listverifypost = ({ reportelement }) => {
                   </Modal>
                 </Form.Row>
                 <Form.Label>
-                  จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  <div className="count-report">  
+                      จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  </div>
                 </Form.Label>
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={4}
-                  readOnly={true}
-                  value={reportelement.description}
-                />
+                <div className="textarea-report"> 
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    readOnly={true}
+                    value={reportelement.description}
+                  />
+                </div>
               </Form.Group>
             </Form.Row>
           </Form>
-          <div onClick={(e) => ChangeRead(e)} className="historyother">
+          <div onClick={(e) => ChangeRead(e)} className="reportother">
             <Link
-              className="historyother1"
+              className="reportother1"
               to={`/post/${reportelement.postid}`}
             >
               ตรวจสอบโพสต์
