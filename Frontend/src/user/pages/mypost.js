@@ -402,6 +402,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
+                                {loading ? null :
                                 <div className="imgcommentitempost1">
                                   {imagesFile
                                     ? imagesFile.map(
@@ -455,7 +456,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
-
+                            }
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}
