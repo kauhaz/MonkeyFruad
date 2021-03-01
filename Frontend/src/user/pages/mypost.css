@@ -159,9 +159,39 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 } */
 
+.imgcommentitempost1 {
+  margin-top: 10px;
+}
+
 .uploadprovereport {
   width: 100px;
   padding: 10px;
+}
+
+.uploadproveeditreport {
+  justify-items: center;
+  align-items: center;
+}
+
+.uploadproveeditreport1 {
+  margin-top: 15px;
+  width: 195px;
+  height: 195px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.uploadproveeditreport1:hover {
+  background-color: rgb(201, 200, 200);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.uploadproveeditreport2 {
+  width: 100%;
+  padding: 60px;
 }
 
 .mypostimg-setting {

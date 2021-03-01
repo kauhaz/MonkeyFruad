@@ -429,10 +429,10 @@ const Mypost = () => {
                                       )
                                     : null}
                                   {imagesFile ? (
-                                    <div className="uploadprovereport">
-                                      <label className="uploadprovereport1">
+                                    <div className="uploadproveeditreport">
+                                      <label className="uploadproveeditreport1">
                                         <img
-                                          className="uploadprovereport2"
+                                          className="uploadproveeditreport2"
                                           src="/img/last1.png"
                                         />
                                         <input
@@ -470,7 +470,7 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
-                                    <span>การรายงานโพสต์สำเร็จ</span>
+                                    <span className="spanreport">การรายงานโพสต์สำเร็จ</span>
                                   </div>
                                 ) : (
                                   ""
