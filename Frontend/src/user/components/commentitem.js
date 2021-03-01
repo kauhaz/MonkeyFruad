@@ -6,7 +6,7 @@ import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 import Loading from "./pacmanloading";
-import ClipLoader from "./clipLoader";
+import ClipLoaderMycoment from "./clipLoaderMycoment";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
@@ -345,7 +345,7 @@ const Commentitem = ({ postid}) => {
               ? imagesFile.map((imagePreviewUrl, index) => {
                   return (
                     <div className="postdelete">
-                      {loading ? <ClipLoader /> : null}
+                      {loading ? <ClipLoaderMycoment /> : null}
                       <img
                         key={index}
                         className="imgpreviewa1"
