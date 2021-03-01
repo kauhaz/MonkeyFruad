@@ -30,14 +30,16 @@
 }
 
 .hide-report-button {
-    text-align: right;
+    position: relative;
     cursor: pointer;
     color: #212529;
     font-size: 18px;
 }
 
 .hide-report-button i {
-    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .hide-report-button i:hover {
@@ -45,7 +47,6 @@
     font-size: 18px;
     border-radius: 50%;
     background-color: #dadada;
-    padding: 5px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
