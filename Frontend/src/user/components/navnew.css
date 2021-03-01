@@ -67,7 +67,19 @@
     /* border: 1px solid #cfcdcd; */
 
 }
+.ggadmin{
+    position: absolute;
+    left: 1532px;
+    top: 70px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 260px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+    /* border: 1px solid #cfcdcd; */
 
+}
 .search-nav{
     font-family: 'Kanit', sans-serif;
     border: none;
@@ -230,7 +242,11 @@
     }
     /*dropsearch*/
     .gg{
-        left: 977px;
+        left: 930px;
+        top: 65px;
+    }
+    .ggadmin{
+        left: 950px;
         top: 65px;
     }
     .search-nav , .dropsearch-nav{
