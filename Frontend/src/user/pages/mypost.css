@@ -472,12 +472,26 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+.modalreport2{
+ margin-top: 290px;
+}
+.showsuccessreport{
+  width: 500px;
+  color: #238516;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Kanit", sans-serif;
+}
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
     width: 192px;
     height: 192px;
   }
+  .modalreport2{
+    margin-top: 390px;
+   }
 }
 
 @media only screen and (max-width: 1367px) {
@@ -485,6 +499,9 @@
     width: 136px;
     height: 136px;
   }
+  .modalreport2{
+    margin-top: 320px;
+   }
 }
 /* @media only screen and (max-width: 1920px) {
 }

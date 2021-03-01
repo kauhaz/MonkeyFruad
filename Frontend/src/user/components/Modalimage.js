@@ -37,12 +37,15 @@ const Modalimage = ({
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <img
-          className="imgmodal"
-          alt="previewImg"
-          src={imagemodal}
-          style={{ overflow: "hidden" }}
-        />
+        <div className="box-modal">
+          <img
+            className="imgmodal"
+            alt="previewImg"
+            src={imagemodal}
+            style={{ overflow: "hidden" }}
+          />
+        </div>
+        
       </Modal>
     </div>
   );
