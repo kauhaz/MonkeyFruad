@@ -86,17 +86,18 @@
 .imgcommentitemmypost2 {
   display: grid;
   padding-left: 15px;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .imgpreviewb1 {
   position: relative;
   margin: 0;
-  width: 250px;
-  height: 250px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   object-position: center;
+  margin-bottom: 20px;
 }
 
 .uploadproveeditmypost {
@@ -105,8 +106,8 @@
 }
 
 .uploadproveeditmypost1 {
-  width: 250px;
-  height: 250px;
+  width: 160px;
+  height: 160px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -211,4 +212,27 @@
   text-align: center;
   font-size: 20px;
   margin: 15px 0;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+  .imgpreviewb1 , .uploadproveeditmypost1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .uploadproveeditmypost2 {
+    padding: 70px;
+  }
+}
+
+@media only screen and (max-width: 1367px) {
+  .imgpreviewb1 , .uploadproveeditmypost1 {
+    width: 130px;
+    height: 130px;
+  }
+
+  .uploadproveeditmypost2 {
+    padding: 40px;
+  }
 }

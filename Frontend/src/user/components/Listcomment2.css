@@ -120,8 +120,8 @@
 .imgcommentitemmypost {
   display: grid;
   padding: 20px;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .imgpreview1 {
@@ -136,14 +136,14 @@
 
 .imglistcommentmypost {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .listcommentmypost2 {
   margin: 0;
-  width:235px;
-  height: 235px;
+  width:205px;
+  height: 205px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -152,10 +152,11 @@
 .imgpreviewmypost1 {
   position: relative;
   margin: 0;
-  width: 280px;
-  height: 280px;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
   object-position: center;
+  margin-bottom: 20px;
 }
 
 .inputcommentmypost2 {
@@ -178,13 +179,14 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 280px;
-  height: 280px;
+  width: 175px;
+  height: 175px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
   display: block;
+  cursor: pointer;
 }
 
 .uploadproveeditmyposts1:hover {
@@ -269,13 +271,35 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
+  }
+  .uploadproveeditmyposts2 {
+    width: 100%;
+    padding: 70px;
+  }
+
+  .listcommentmypost2{
+    width: 265px;
+    height: 265px;
+    
   }
 }
 
 @media only screen and (max-width: 1367px) {
-
+  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
+    width: 150px;
+    height: 150px;
+  }
+  .uploadproveeditmyposts2 {
+    width: 100%;
+    padding: 50px;
+  }
+  
+  .listcommentmypost2{
+    width: 175px;
+    height: 175px;
+  }
 }
 
 

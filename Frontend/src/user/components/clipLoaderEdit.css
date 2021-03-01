@@ -1,0 +1,18 @@
+.box-load-edit{
+    position: static;
+    margin-left: 270px;
+    margin-bottom: 50px;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+    .box-load-edit{
+        margin-left: 370px;
+    }
+}
+
+@media only screen and (max-width: 1367px) {
+    .box-load-edit{
+        margin-left: 230px;
+    }
+}

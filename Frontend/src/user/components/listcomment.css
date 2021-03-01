@@ -271,10 +271,10 @@
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 175px;
-    height: 175px;
+    width: 115px;
+    height: 115px;
   }
-  .imgcommentitempost {
-    grid-template-columns: 1fr 1fr;
+  .uploadproveedits2{
+    padding: 40px;
   }
 }
