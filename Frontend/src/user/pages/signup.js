@@ -110,19 +110,19 @@ const Signup = () => {
   // Style มาตรฐานของ Formik
   const styles = {
     row: {
-      marginTop: "8rem",
+      marginTop: "2rem",
     },
     txt1: {
-      fontFamily: "Roboto",
-      fontSize: "2.2rem",
+      fontFamily: "Kanit",
+      fontSize: "14px",
       color: "#fff",
       marginBottom: "1rem",
-      fontWeight: "700",
+      fontWeight: "500",
       textAlign: "center",
     },
     txt2: {
-      fontFamily: "Roboto",
-      fontSize: "1rem",
+      fontFamily: "Kanit",
+      fontSize: "14px",
       color: "#fff",
     },
   };
@@ -175,9 +175,9 @@ const Signup = () => {
         showDropdown={showDropdown}
       />
       <div className="container-signup">
-        <form className="LoginForm">
+        <form className="SignupForm">
           <img src="/img/logoLogin.png" className="Logo-signup" alt="" />
-          <p className="h2 text-center mb-2 font-weight-bold text1-signup">
+          <p className="h3 text-center font-weight-bold mb-4">
             สมัครสมาชิก
           </p>
           {emailis_inVaild ? (
@@ -213,10 +213,7 @@ const Signup = () => {
             >
               {({ errors, touched }) => (
                 <Form>
-                  <div className="form-group mb-1">
-                    <label htmlFor="name" style={styles.txt2}>
-                      Username
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="username"
                       type="text"
@@ -240,10 +237,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
-                    <label htmlFor="email" style={styles.txt2}>
-                      Email
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="email"
                       type="email"
@@ -267,10 +261,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
-                    <label htmlFor="password" style={styles.txt2}>
-                      Password
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="password"
                       type="password"
@@ -294,10 +285,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
-                    <label htmlFor="confirmPassword" style={styles.txt2}>
-                      Confirm Password
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="confirmPassword"
                       type="password"
@@ -318,10 +306,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
-                    <label htmlFor="name" style={styles.txt2}>
-                      ชื่อจริง
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="name"
                       type="text"
@@ -345,10 +330,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-4">
-                    <label htmlFor="lastname" style={styles.txt2}>
-                      นามสกุลจริง
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="lastname"
                       type="text"
@@ -373,7 +355,7 @@ const Signup = () => {
                   </div>
 
                   <div
-                    className="form-group mb-0 gender"
+                    className="form-group mb-2 gender"
                     style={{ color: "#6C757D" }}
                   >
                     <label className="label-form-title">เพศ</label>
@@ -405,10 +387,7 @@ const Signup = () => {
                     </div>
                   </div>
 
-                  <div className="form-group mb-4 ">
-                    <label htmlFor="phone" style={styles.txt2}>
-                      เบอร์โทรศัพท์
-                    </label>
+                  <div className="form-group mb-3">
                     <Field
                       name="phone"
                       type="tel"
@@ -432,7 +411,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="Province mb-5" style={{ color: "#6C757D" }}>
+                  <div className="Province mb-4" style={{ color: "#6C757D" }}>
                     <label for="province" className="label-form-title">
                       จังหวัด
                     </label>
@@ -535,26 +514,25 @@ const Signup = () => {
                 </Form>
               )}
             </Formik>
+
             <button
               type="submit"
               onClick={SignupSubmit}
-              className="btn-block LoginButton"
+              className="btn-block SignupButton"
             >
               <p className="mx-auto my-1">สมัครสมาชิก</p>
             </button>
 
-            <div className="Signup text-center pt-3">
-              <span></span>
+            <div className="signup-login text-center pt-3">
               <a href="/login">เข้าสู่ระบบ</a>
-              <hr></hr>
             </div>
 
-            <button onClick={facebookLogin} className="btn-block LoginFacebook">
+            <button onClick={facebookLogin} className="btn-block LoginFacebook-signup mt-3">
               <svg
                 className="FacebookIcon"
                 xmlns="http://www.w3.org/2000/svg"
-                width="26px"
-                height="26px"
+                width="24px"
+                height="24px"
                 viewBox="0 0 90 90"
               >
                 <g>
@@ -567,12 +545,12 @@ const Signup = () => {
               <p className="mx-auto my-1">เข้าสู่ระบบด้วย Facebook</p>
             </button>
 
-            <button onClick={googleLogin} className="btn-block LoginGoogle">
+            <button onClick={googleLogin} className="btn-block LoginGoogle-signup">
               <svg
                 className="GoogleIcon"
                 xmlns="http://www.w3.org/2000/svg"
-                width="26px"
-                height="26px"
+                width="24px"
+                height="24px"
                 fill="#FFFFFF"
                 viewBox="0 0 50 50"
               >

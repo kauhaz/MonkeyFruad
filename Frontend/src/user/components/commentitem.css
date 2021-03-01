@@ -22,13 +22,6 @@ img.img-circle {
   border-radius: 50%;
 } */
 
-.post-comment-name1 .post-comment-time1 {
-  margin-left: 5px;
-  margin-top: -55px;
-  font-size: 14px;
-  color: grey;
-}
-
 .post-comment-comments1 {
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -130,6 +123,7 @@ img.img-circle {
   width: 100%;
   border: none;
   margin-top: 8px;
+  font-size: 16px;
   background-color: rgb(245, 245, 245);
   padding: 0 10px;
 }

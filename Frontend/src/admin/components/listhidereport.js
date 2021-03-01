@@ -51,28 +51,18 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
       setCheckSelectThree(true);
     }
   };
-  const cancleHide = async (e) => {
-    e.preventDefault();
-    try {
+  const cancleHide = async () => {
+    console.log("CanCleHide ACtive")
       await Axios.post(
         `http://localhost:7000/post/report/changeread/${reportelement.uid}`
       );
       CancleClick();
-    } catch (err) {
-      console.log(err);
-    }
   };
-  const deleteReport = async (e) => {
-    console.log("OK");
-    e.preventDefault();
-    try {
+  const deleteReport = async () => {
       await Axios.post(
         `http://localhost:7000/post/report/delete/${reportelement.uid}`
       );
       DeleteClick();
-    } catch (err) {
-      console.log(err);
-    }
   };
   useEffect(() => {
     InitReport();
@@ -85,45 +75,44 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
         }
       }}
     >
-      <div className="container-history1">
-        <div className="container-history2">
-          <Form className="formsize-history">
-            <div className="container-mypostsetiing">
-              <div className="menu-containermypostsetting">
+      <div className="container-report1">
+        <div className="container-report2">
+          <Form className="formsize-report">
+            <div className="container-reportsetiing">
+              <div className="menu-containerreportsetting">
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className="mypostbuttonsetting"
+                  className="reportbuttonsetting"
                 >
                   <img
-                    className="mypostimg-setting"
+                    className="reportimg-setting"
                     src="/img/setting.png"
                     alt="avatar"
                   ></img>
                 </div>
                 <div
-                  className={`mypostmenusetting ${
+                  className={`reportmenusetting ${
                     isActive ? "active" : "inactive"
                   }`}
                 >
-                  <ul className="ul-mypostmenusetting">
-                    <li className="li-mypostmenusetting">
-                      <a className="a-mypostmenusetting">
-                        <a
-                          className="a-mypostmenusetting1"
-                          onClick={(e) => cancleHide(e)}
+                  <ul className="ul-reportmenusetting">
+                    <li className="li-reportmenusetting">
+                      <a className="a-reportmenusetting" onClick={() => cancleHide()}>
+                        <div
+                          className="a-reportmenusetting1"
                         >
                           ยกเลิกการซ่อน
-                        </a>
+                        </div>
                       </a>
                     </li>
-                    <li className="li-mypostmenusetting">
-                      <a
-                        className="a-mypostmenusetting"
-                        onClick={(e) => deleteReport(e)}
+                    <li className="li-reportmenusetting">
+                      <div
+                        className="a-reportmenusetting"
+                        onClick={() => deleteReport()}
                       >
                         {" "}
                         ลบประวัติการรายงาน{" "}
-                      </a>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -132,7 +121,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -164,7 +153,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -197,7 +186,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -219,19 +208,17 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้history-left col-lg-6 col-12"
+                className="้report-left col-lg-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                  <div className="mypostbuttonreport">
-                    <button
+                    <div
                       variant="primary"
                       onClick={(e) => handleShow(e)}
-                      className="mypostbuttonreported"
+                      className="proof-button-reported"
                     >
                       คลิกเพื่อดู
-                    </button>
                   </div>{" "}
                 </Form.Label>
                 <Form.Row>
@@ -268,18 +255,22 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                   </Modal>
                 </Form.Row>
                 <Form.Label>
-                  จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                <div className="count-report">  
+                      จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                </div>
                 </Form.Label>
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={4}
-                  readOnly={true}
-                  value={reportelement.description}
-                />
+                <div className="textarea-report"> 
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    readOnly={true}
+                    value={reportelement.description}
+                  />
+                </div>
               </Form.Group>
             </Form.Row>
           </Form>
