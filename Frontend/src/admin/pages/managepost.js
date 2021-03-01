@@ -5936,6 +5936,13 @@ const ManagePost = () => {
                             return (
                               <div>
                                 <div className="container-posts2">
+                                  <button
+                                    onClick={() => deleteClick(res.uid)}
+                                    variant="primary"
+                                    className="adminbuttonreported"
+                                  >
+                                    <i class="far fa-trash-alt"></i>
+                                  </button>
                                   <div className="post-profile-img">
                                     {res.photoURL ? (
                                       <img
