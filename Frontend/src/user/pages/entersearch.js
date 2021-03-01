@@ -5044,7 +5044,7 @@ const Entersearch = () => {
 
                 <h1 className="h1-posts">
                   {" "}
-                  ผลการค้นหา * {search} * มีทั้งหมด {show ? show.length : "0"}{" "}
+                  ผลการค้นหา * {search} * มีทั้งหมด {show ? show.length : result ? result.length : " 0 "} {" "}
                   โพสต์
                 </h1>
 
