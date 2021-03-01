@@ -1,12 +1,14 @@
 .box-load-mycoment{
     position: static;
-    margin-left: 150px;
+    margin-left: 200px;
+    margin-top: 15px;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-mycoment{
-        margin-left: 240px;
+        margin-left: 290px;
+        margin-top: 15px;
     }
 }
 
