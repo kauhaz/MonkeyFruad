@@ -348,7 +348,7 @@ const Listcomment2 = ({
                     {imagesFile
                       ? imagesFile.map((imagePreviewUrl, index) => {
                           return (
-                            <div clsssName="postdeletemypost">
+                            <div className="postdeletemypost">
                               <img
                                 key={index}
                                 className="imgpreviewmypost1"
