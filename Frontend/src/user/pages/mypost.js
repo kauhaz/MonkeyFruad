@@ -61,7 +61,7 @@ const Mypost = () => {
     setImagesFile();
   };
   const handleModalSuccessReportClose = () => {
-    setShowmodalsuccessreport(false)
+    setShowmodalsuccessreport(false);
   };
   const handleopenmodal = async () => {
     Setisopen(true);
@@ -180,7 +180,7 @@ const Mypost = () => {
             setReportsubmitsuccess(true);
             Setloading(false);
             handleClose();
-            setShowmodalsuccessreport(true)
+            setShowmodalsuccessreport(true);
           })
           .catch((err) => {
             console.log(err);
