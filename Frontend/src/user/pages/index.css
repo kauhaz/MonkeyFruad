@@ -504,7 +504,7 @@
         width: 140px;
         height: 140px;
         margin-top: -75px;
-        margin-left: 90px;
+        margin-left: 70px;
     }
     .rank-index1{
         font-size: 55px;
@@ -704,7 +704,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     .coin2-index{
@@ -716,7 +716,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     .coin3-index{
@@ -728,7 +728,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     
@@ -1087,7 +1087,7 @@
         width: 140px;
         height: 140px;
         margin-top: -75px;
-        margin-left: 70px;
+        margin-left: 65px;
     }
     
     .readmore-index {
