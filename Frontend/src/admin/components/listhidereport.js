@@ -261,7 +261,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                                         handleopenmodal()
                                       )}
                                     />
-                               
+                              
                                 </div>
                               );
                             })

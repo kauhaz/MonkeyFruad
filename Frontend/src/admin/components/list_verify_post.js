@@ -209,7 +209,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                                         handleopenmodal()
                                       )}
                                     />
-                               
+                              
                                 </div>
                               );
                             })
