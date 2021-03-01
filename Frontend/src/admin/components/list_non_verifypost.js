@@ -49,7 +49,7 @@ const Non_listverifypost = ({ reportelement }) => {
     } else if (reportelement.selectThree != "") {
       setCheckSelectThree(true);
     }
-  }
+  };
   const ChangeRead = async (e) => {
     e.preventDefault();
     console.log("KUYSUS");
@@ -179,25 +179,22 @@ const Non_listverifypost = ({ reportelement }) => {
                     </Modal.Header>
                     <Modal.Body className="bigreport1">
                       <Form.Row>
-                      {reportelement.fileUploads ? (
-                        reportelement.fileUploads.map((element, index) => {
-                          return (
-                            <div className="img-holder-badslip">
-                              <a href={`${element.url}`}>
-                              <img
-                                className="img-bad"
-                                alt=""
-                                src={`${element.url}`}
-                                style={{ overflow: "hidden" }}
-
-                              />
-                              </a>
-                            </div>
-                          );
-                        })
-                      ) : (
-                        null
-                      )}
+                        {reportelement.fileUploads
+                          ? reportelement.fileUploads.map((element, index) => {
+                              return (
+                                <div className="img-holder-badslip">
+                                  <a href={`${element.url}`}>
+                                    <img
+                                      className="img-bad"
+                                      alt=""
+                                      src={`${element.url}`}
+                                      style={{ overflow: "hidden" }}
+                                    />
+                                  </a>
+                                </div>
+                              );
+                            })
+                          : null}
                       </Form.Row>
                     </Modal.Body>
                   </Modal>

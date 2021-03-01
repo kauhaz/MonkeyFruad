@@ -78,7 +78,13 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
     InitReport();
   }, []);
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       <div className="container-report1">
         <div className="container-report2">
           <Form className="formsize-report">

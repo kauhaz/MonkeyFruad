@@ -1,4 +1,4 @@
-.container-bigpost1 {
+/* .container-bigpost1 {
   width: 70%;
   height: 100px;
   margin-left: auto;
@@ -32,8 +32,6 @@
   padding-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
-  font-family: "Kanit", sans-serif;
-  font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -50,7 +48,8 @@
 .post-linkpost1 {
   text-align: center;
   margin-top: 50px;
-  font-size: 25px;
+  font-size: 20px;
+  font-family: "Kanit", sans-serif;
   margin-bottom: -20px;
   color: black;
 }
@@ -83,14 +82,14 @@
 .posts-name1 {
   margin-left: 80px;
   margin-top: -55px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .post-date {
   margin-left: 60px;
   margin-top: -25px;
   color: grey;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .post-time {
@@ -104,8 +103,6 @@
   margin-left: auto;
   margin-right: auto;
   padding: 40px 40px 20px 40px;
-  font-family: "Kanit", sans-serif;
-  font-size: 20px;
 }
 
 .spanpost {
@@ -171,4 +168,4 @@
 .post-img1 {
   text-align: center;
 }
-
+ */

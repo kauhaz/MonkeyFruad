@@ -1,7 +1,4 @@
-import React, {
-  useState,
-  useContext
-} from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Col, Image, roundedCircle } from "react-bootstrap";
 import { auth, googleProvider, facebookProvider } from "../Frontfirebase";
@@ -23,7 +20,7 @@ const Rule = () => {
     const newData = !state;
     setState(newData);
   };
-  
+
   return (
     <div>
       <div className="container-linkrule1">

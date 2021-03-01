@@ -14,7 +14,7 @@ import Modalimage from "./Modalimage";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagesProfile, setImagesProfile] = useState("/img/profile.png"); //สร้าง State เพื่อเก็บรูปโปรไฟล์
   const [files, Setfiles] = useState("");
   const [photo, Setphoto] = useState("");
@@ -500,7 +500,7 @@ const Formpost = ({ check, Setcheck }) => {
 
               <br></br>
 
-              <div className="container-img-holder-imgpreview">
+              <div className="imgcommentitemformpost1">
                 {!imagesFile ? (
                   <div>
                     <label>
@@ -528,19 +528,6 @@ const Formpost = ({ check, Setcheck }) => {
                             className="imgpreview"
                             alt="previewImg"
                             src={imagePreviewUrl}
-                            style={{ overflow: "hidden" }}
-                            onMouseOver={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1.25)",
-                                overflow: "hidden",
-                              })
-                            }
-                            onMouseOut={(e) =>
-                              (e.currentTarget.style = {
-                                transform: "scale(1)",
-                                overflow: "hidden",
-                              })
-                            }
                           />
                           <div className="deleteimgformposts1">
                             <img
@@ -554,15 +541,15 @@ const Formpost = ({ check, Setcheck }) => {
                     })
                   : null}
                 {imagesFile ? (
-                  <div>
-                    <label>
+                  <div className="uploadproveeditpost">
+                    <label className="uploadproveeditpost1">
                       <img
-                        className="uploadproveformpost"
-                        src="/img/addimage.png"
+                        className="uploadproveeditpost2"
+                        src="/img/last1.png"
                       />
                       <input
                         id="FileInput"
-                        className="uploadproveformpost"
+                        className="uploadspostcomment1"
                         type="file"
                         onChange={FileUpload}
                         multiple

@@ -3,11 +3,11 @@ import * as moment from "moment";
 import "moment/locale/th";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../components/clipLoader";
-import "./findthief.css";
+import "./post.css";
 
 const Findthief = () => {
   const history = useHistory();
@@ -16,12 +16,17 @@ const Findthief = () => {
 
   const [show, Setshow] = useState();
   const [loading, Setloading] = useState();
-  const [showDropdown, SetshowDropdown] = useState(true);
+  const [Loading, SetLoading] = useState(true);
 
+  const [showDropdown, SetshowDropdown] = useState(true);
+  
+
+  let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
-
     Setshow(getpost.data.item);
+    SetLoading(false)
+
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -31,7 +36,9 @@ const Findthief = () => {
   }, []);
 
   console.log(show);
-  return (
+  return Loading ? (
+    ""
+  ) : (
     <div onClick={() => Hiddendropdown()}>
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
@@ -42,16 +49,14 @@ const Findthief = () => {
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
-                <div className="row postrow">
-                  <div className="column1-postrow1">
-                    <div className="post-img">
-                      <img className="monkey" src="/img/logo v3.png" />
-                    </div>
+                <div className="column1-postrow1">
+                  <div className="post-img">
+                    <img className="monkey" src="/img/logo v3.png" />
                   </div>
-                  <div className="column2-postrow2">
-                    <div className="post-linkpost1">
-                      แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                    </div>
+                </div>
+                <div className="column2-postrow2">
+                  <div className="post-linkpost1">
+                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
                   </div>
                 </div>
               </div>
@@ -59,7 +64,9 @@ const Findthief = () => {
 
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา ... มีโพสต์ทั้งหมด {show ? show.length : null} โพสต์
+              ผลการค้นหา * {show && show[0].name} {show && show[0].surname}{" "}
+              {show && show[0].accountnumber} * มีทั้งหมด{" "}
+              {show ? show.length : null} โพสต์
             </h1>
 
             {loading ? (
@@ -71,33 +78,7 @@ const Findthief = () => {
                     return (
                       <div>
                         <div className="container-posts2">
-                          <div className="post-profile-img">
-                            {res.photoURL ? (
-                              <img
-                                className="img-circle"
-                                src={`${res.photoURL.url}`}
-                              />
-                            ) : (
-                              <img
-                                className="img-circle"
-                                src={"/img/profile.png"}
-                              />
-                            )}
-                            <div className="posts-name1">
-                              {res.username ? "@" : null}
-                              {res.username}
-                            </div>
-                            <br />
-                            <div className="post-date">
-                              <span className="post-time">
-                                {moment(
-                                  new Date(res.date.seconds * 1000)
-                                ).format("MM/DD/YYYY HH:mm")}{" "}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="container-posts3">
+                          <div className="container-postss3">
                             <Form className="formsize-post">
                               <Form.Row>
                                 <Form.Group

@@ -91,8 +91,7 @@ const Post = () => {
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
-  const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
+
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
@@ -5714,11 +5713,12 @@ const Post = () => {
     searchend,
     sortvalue,
   ]);
-
-  // console.log(result);
-
   return (
-    <div onClick={() => Hiddendropdown()}>
+    <div
+      onClick={() => {
+        Hiddendropdown();
+      }}
+    >
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
@@ -5728,16 +5728,14 @@ const Post = () => {
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
-                <div className="row postrow">
-                  <div className="column1-postrow1">
-                    <div className="post-img">
-                      <img className="monkey" src="/img/logo v3.png" />
-                    </div>
+                <div className="column1-postrow1">
+                  <div className="post-img">
+                    <img className="monkey" src="/img/logo v3.png" />
                   </div>
-                  <div className="column2-postrow2">
-                    <div className="post-linkpost1">
-                      แจ้งข้อมูลคนโกงได้ที่นี่เลย
-                    </div>
+                </div>
+                <div className="column2-postrow2">
+                  <div className="post-linkpost1">
+                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
                   </div>
                 </div>
               </div>
@@ -6098,7 +6096,7 @@ const Post = () => {
                                     </Form>
                                     <div className="postothers">
                                       <Link
-                                        className="postother1"
+                                        className="postothers1"
                                         onClick={() => (
                                           history.push(`/mypost/${res.uid}`),
                                           window.location.reload(true)

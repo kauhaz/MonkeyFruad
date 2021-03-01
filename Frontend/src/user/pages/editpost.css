@@ -1,7 +1,7 @@
 .h1-editpost { 
     margin-top: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 22px;
     font-family: 'Kanit', sans-serif;
     color: #5c5c5c;
 }
@@ -20,12 +20,12 @@
 
 @media only screen and (max-width: 414px) {
     .h1-editpost{
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 @media only screen and (min-width: 414px) {
     .h1-editpost{
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 @media only screen and (max-width: 375px) {

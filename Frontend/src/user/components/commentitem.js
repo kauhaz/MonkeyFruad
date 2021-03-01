@@ -8,16 +8,13 @@ import _ from "lodash";
 import Loading from "./pacmanloading";
 import ClipLoader from "./clipLoader";
 import { v4 as uuidv4 } from "uuid";
-import Modalimage from "./Modalimage"
+import Modalimage from "./Modalimage";
 
-
-const Commentitem = ({ postid }) => {
-  const onClick = () => setIsActive(!isActive);
+const Commentitem = ({ postid}) => {
   let { user, setUser } = useContext(usercontext);
   const [imagecomment, Setimagecomment] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
-  const [isActive, setIsActive] = useState(false);
   const [commentmore, Setcommentmore] = useState();
   const [showcommentall, Setshowcommentall] = useState();
   const [hidebutton, Sethidebutton] = useState(true);
@@ -37,9 +34,8 @@ const Commentitem = ({ postid }) => {
   const [photourl, Setphotourl] = useState();
   const [photopublic_id, Setphotopublic_id] = useState();
   let history = useHistory();
-  
-  let uuid = uuidv4();
 
+  let uuid = uuidv4();
 
   // ฟังก์ชันอัพโหลดไฟล์
   const FileUpload = (event) => {

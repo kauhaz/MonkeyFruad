@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Col,  Modal } from "react-bootstrap";
+import { Form, Col, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
@@ -162,7 +162,12 @@ const Listverifypost = ({ reportelement, hideClick }) => {
               >
                 <Form.Label>
                   รูปหลักฐาน :
+<<<<<<< HEAD
                     <div
+=======
+                  <div className="mypostbuttonreport">
+                    <button
+>>>>>>> b7f22b1a656db3ecb1fedd8a0e6f8d4175f9e005
                       variant="primary"
                       onClick={(e) => handleShow(e)}
                       className="proof-button-reported"
@@ -178,30 +183,27 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                   >
                     <Modal.Header closeButton>
                       <Modal.Title className="namereport">
-                      รูปหลักฐาน
+                        รูปหลักฐาน
                       </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="bigreport1">
                       <Form.Row>
-                      {reportelement.fileUploads ? (
-                        reportelement.fileUploads.map((element, index) => {
-                          return (
-                            <div className="img-holder-badslip">
-                              <a href={`${element.url}`}>
-                              <img
-                                className="img-bad"
-                                alt=""
-                                src={`${element.url}`}
-                                style={{ overflow: "hidden" }}
-
-                              />
-                              </a>
-                            </div>
-                          );
-                        })
-                      ) : (
-                        null
-                      )}
+                        {reportelement.fileUploads
+                          ? reportelement.fileUploads.map((element, index) => {
+                              return (
+                                <div className="img-holder-badslip">
+                                  <a href={`${element.url}`}>
+                                    <img
+                                      className="img-bad"
+                                      alt=""
+                                      src={`${element.url}`}
+                                      style={{ overflow: "hidden" }}
+                                    />
+                                  </a>
+                                </div>
+                              );
+                            })
+                          : null}
                       </Form.Row>
                     </Modal.Body>
                   </Modal>

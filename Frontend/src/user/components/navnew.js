@@ -48,7 +48,6 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   const toggleCollapse = () => {
     setIsopen(!isOpen);
   };
-
   const handlesearch = () => {
     try {
       if (search) {
@@ -67,6 +66,36 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
           console.log(getdata);
           history.push({
             pathname: "/entersearch",
+            search: "?are you ok",
+            state: {
+              getdata,
+              search,
+            },
+          });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const adminhandlesearch = () => {
+    try {
+      if (search) {
+        const getdata = allpost.filter((doc) => {
+          return (
+            doc.name.toLowerCase().includes(search.toLowerCase()) ||
+            doc.surname.toLowerCase().includes(search.toLowerCase()) ||
+            doc.accountnumber.includes(search) ||
+            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
+              search.toLowerCase()
+            )
+          );
+        });
+        Setsearch("");
+        if (getdata) {
+          console.log(getdata);
+          history.push({
+            pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
               getdata,
@@ -150,7 +179,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     await ok();
     setLoading(false);
   }, [user, search]);
-
+console.log(showDropdown)
   return loading ? (
     ""
   ) : admin ? (
@@ -168,6 +197,27 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             <MDBNavItem>
               <Nav.Link href="/report">ดูรายงาน</Nav.Link>
             </MDBNavItem>
+          </MDBNavbarNav>
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              <div className=" my-0">
+                <input
+                  className="box-nav mr-sm-2"
+                  type="text"
+                  placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
+                  aria-label="Search"
+                  value={search}
+                  onChange={(e) => {
+                    Setsearch(e.target.value);
+                    SetshowDropdown(true);
+                  }}
+                />
+              </div>
+            </MDBNavItem>
+
+            <button onClick={() => adminhandlesearch()} className="button-nav">
+              ค้นหา
+            </button>
             <MDBNavItem>
               <Nav.Link onClick={logout} href="/login">
                 ออกจากระบบ
@@ -176,6 +226,51 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
+      <div className="gg">
+        {lastsearch
+          ? lastsearch.map((doc) => {
+              let thiefid = doc.accountnumber;
+              i++;
+              return (
+                <div className="boxsearch-nav">
+                  {i <= 10 ? (
+                    <div>
+                      {" "}
+                      {haha ? (
+                        showDropdown ? (
+                          <button
+                            className="search-nav"
+                            onClick={() => (
+                              history.push({
+                                pathname: `/admin/thief/post/${thiefid}`,
+                                search: "?are you ok"
+  
+                              })
+                              ,
+                              window.location.reload(true)
+                            )}
+                          >
+                            <div>
+                              {" "}
+                              {doc.name} {doc.surname} {doc.accountnumber}
+                            </div>
+                          </button>
+                        ) : null
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })
+          : null}
+        {lastsearch ? (
+          showDropdown ? (
+            <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
+              ค้นหา {search}
+            </div>
+          ) : null
+        ) : null}
+      </div>
     </Router>
   ) : (
     <Router>
@@ -285,7 +380,12 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                           <button
                             className="search-nav"
                             onClick={() => (
-                              history.push(`/thief/post/${thiefid}`),
+                              history.push({
+                                pathname: `/thief/post/${thiefid}`,
+                                search: "?are you ok"
+      
+                              })
+                              ,
                               window.location.reload(true)
                             )}
                           >

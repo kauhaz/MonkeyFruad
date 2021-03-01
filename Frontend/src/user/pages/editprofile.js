@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import "./editprofile.css";
+import "./post.css";
 import Chatbot from "../components/chatbot";
 import axios from "axios";
 import NavbarPage from "../components/navnew";

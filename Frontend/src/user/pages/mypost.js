@@ -13,7 +13,7 @@ import "./mypost.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
-import Modalimage from "../components/Modalimage"
+import Modalimage from "../components/Modalimage";
 
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
@@ -25,7 +25,6 @@ const Mypost = () => {
   const [description, setDescription] = useState("");
   const [reportsubmitsuccess, setReportsubmitsuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
   const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -56,16 +55,16 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
   };
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const handleShow = () => setShow(true);
-  const deleted = async (uid,ok) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`,ok);
+  const deleted = async (uid, ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`, ok);
     history.push("/post/history");
   };
 
@@ -165,15 +164,23 @@ const Mypost = () => {
     ok();
     handleselect();
   }, [checkselectone, checkselecttwo, checkselectthree, imagesFile]);
-  console.log("selectonevalue : ", selectone, "check:", checkselectone);
-  console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
-  console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
-  console.log("description : ", description);
-  console.log("fileupload : ", files);
-  console.log("reportsubmitsuccess : ", reportsubmitsuccess);
-  console.log("loading : ", loading);
+  // console.log("selectonevalue : ", selectone, "check:", checkselectone);
+  // console.log("selecttwovalue : ", selecttwo, "check:", checkselecttwo);
+  // console.log("selectthreevalue : ", selecthree, "check:", checkselectthree);
+  // console.log("description : ", description);
+  // console.log("fileupload : ", files);
+  // console.log("reportsubmitsuccess : ", reportsubmitsuccess);
+  // console.log("loading : ", loading);
   return (
-    <div className="allpage" onClick={() => Hiddendropdown()}>
+    <div
+      className="allpage"
+      onClick={() => {
+        Hiddendropdown();
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       {mypost ? (
         <div>
           {" "}
@@ -186,6 +193,15 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
+                      <div className="mypostbuttonreport">
+                        <button
+                          variant="primary"
+                          onClick={handleShow}
+                          className="mypostbuttonreported"
+                        >
+                          <i class="fa fa-flag"></i>
+                        </button>
+                      </div>
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
@@ -209,15 +225,6 @@ const Mypost = () => {
                       </div>
                       {user && user.uid != ok.useruid ? (
                         <div>
-                          <div className="mypostbuttonreport">
-                            <button
-                              variant="primary"
-                              onClick={handleShow}
-                              className="mypostbuttonreported"
-                            >
-                              <i class="fa fa-flag"></i>
-                            </button>
-                          </div>
                           <Form.Row>
                             <Modal
                               show={Show}
@@ -330,7 +337,7 @@ const Mypost = () => {
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
                                 </span>
-                                <div className="container-img-holder-imgpreviewreport">
+                                <div className="imgcommentitemreport1">
                                   <label>
                                     <img
                                       className="uploadprovereport"
@@ -352,29 +359,16 @@ const Mypost = () => {
                                     ? imagesFile.map(
                                         (imagePreviewUrl, index) => {
                                           return (
-                                            <div>
+                                            <div className="postdeletereport">
                                               <img
                                                 key={index}
-                                                className="imgpreview"
+                                                className="imgpreviewreport"
                                                 alt="previewImg"
                                                 src={imagePreviewUrl}
-                                                style={{ overflow: "hidden" }}
-                                                onMouseOver={(e) =>
-                                                  (e.currentTarget.style = {
-                                                    transform: "scale(1.25)",
-                                                    overflow: "hidden",
-                                                  })
-                                                }
-                                                onMouseOut={(e) =>
-                                                  (e.currentTarget.style = {
-                                                    transform: "scale(1)",
-                                                    overflow: "hidden",
-                                                  })
-                                                }
                                               />
-                                              <div className="mypost_deleteimgpost1">
+                                              <div className="deleteimgreports1">
                                                 <img
-                                                  className="mypost_deleteimgpost2"
+                                                  className="deleteimgreports2"
                                                   src="/img/delete2.png"
                                                   onClick={() => {
                                                     handledeleteimage(index);
@@ -435,7 +429,7 @@ const Mypost = () => {
                         <div className="container-mypostsetiing">
                           <div className="menu-containermypostsetting">
                             <div
-                              onClick={onClick}
+                              onClick={() => setIsActive(!isActive)}
                               className="mypostbuttonsetting"
                             >
                               <img
@@ -463,7 +457,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() => deleted(ok.uid,ok)}
+                                    onClick={() => deleted(ok.uid, ok)}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
@@ -639,13 +633,20 @@ const Mypost = () => {
                                       alt=""
                                       src={`${res.url}`}
                                       style={{ overflow: "hidden" }}
-                                     
-                                      onClick = {() => (Setimagemodal(res.url),handleopenmodal())}
+                                      onClick={() => (
+                                        Setimagemodal(res.url),
+                                        handleopenmodal()
+                                      )}
                                     />
                                   );
                                 })
                               : null}
-                              <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
+                            <Modalimage
+                              isopen={isopen}
+                              handleopenmodal={handleopenmodal}
+                              handleclosemodal={handleclosemodal}
+                              imagemodal={imagemodal}
+                            />
                           </div>
                         </Form>
                         <div className="line-comment1"></div>
