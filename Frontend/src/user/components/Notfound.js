@@ -17,7 +17,7 @@ const Notfound = ({ search, SetshowDropdown, showDropdown }) => {
       />
 
       <h1 className="h1-notfound">
-        คำที่คุณค้นหา "{search}" ไม่ตรงกับผลลัพธ์ใด ๆ
+        คำที่คุณค้นหา <span className="spansearch">"{search}"</span> ไม่ตรงกับผลลัพธ์ใด ๆ
       </h1>
     </div>
   );
