@@ -28,7 +28,7 @@ const Mypost = () => {
   const [Show, setShow] = useState(false);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+  const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState("");
   const [ErrorFileUploads, SetErrorFileUploads] = useState();
   const [loading, Setloading] = useState(false);
@@ -39,6 +39,9 @@ const Mypost = () => {
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
   const history = useHistory();
+  const [error, Seterror] = useState();
+
+  const [fuck, Setfuck] = useState([]);
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
@@ -78,29 +81,62 @@ const Mypost = () => {
   };
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    setImagesFile([]); // reset state รูป เพื่อกันในกรณีที่กดเลือกไฟล์ซ้ำแล้วรูปต่อกันจากอันเดิม
-    let files = event.target.files; //ใช้เพื่อแสดงไฟลทั้งหมดที่กดเลือกไฟล
-    Setfiles([...files]);
-    SetErrorFileUploads();
 
-    //ทำการวนข้อมูลภายใน Array
-    for (var i = 0; i < files.length; i++) {
-      let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
-      reader.readAsDataURL(files[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
-      reader.onloadend = () => {
-        // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
-        setImagesFile((prevState) => [...prevState, reader.result]);
-        //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
-      };
-    }
+    setImagesFile([]);
+    var myfuck = [];
+    var files = [];
+    let date = new Date();
+  
+    setTimeout(() => {
+      if (myfuck) {
+        myfuck.forEach((doc) => {
+          files.push(doc);
+        });
+      }
+      console.log(files);
+
+      let filesnew = [...files, ...fuck, ...event.target.files];
+
+      Setfiles([...files, ...fuck, ...event.target.files]);
+      Setfuck((prevState) => [...prevState, ...event.target.files]);
+      Seterror();
+
+      for (var i = 0; i < filesnew.length; i++) {
+        let reader = new FileReader(); //ใช้ Class  FileReader เป็นตัวอ่านไฟล์
+        reader.readAsDataURL(filesnew[i]); //เป็นคำสั่งสำหรับการแปลง url มาเป็น file
+        reader.onloadend = () => {
+          // ใส่ข้อมูลเข้าไปยัง state ผาน  setimagesPreviewUrls
+          setImagesFile((prevState) => [...prevState, reader.result]);
+          //  PrevState เป็น Parameter ในการเรียก State ก่อนหน้ามาแล้วรวม Array กับ fileที่อัพโหลดเข้ามา
+        };
+      }
+    }, 50);
   };
   const handledeleteimage = async (index) => {
     try {
-      imagesFile.splice(index, 1);
-      setImagesFile([...imagesFile]);
+      if (imagesFile) {
+        console.log("b");
+        imagesFile.splice(index, 1);
+        setImagesFile([...imagesFile]);
+      }
+      if (imagesFile && imagesFile.length === 0) {
+        setImagesFile();
+      }
 
-      files.splice(index, 1);
-      Setfiles([...files]);
+      if (fuck) {
+        console.log("c");
+        fuck.splice(index, 1);
+        Setfuck([...fuck]);
+      }
+
+      let date = new Date();
+      var myFile = [];
+     
+      if (files) {
+        console.log("d");
+        files.splice(index, 1);
+        Setfiles([...files]);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -230,7 +266,7 @@ const Mypost = () => {
                               show={Show}
                               onHide={handleClose}
                               className="modalreport"
-                            >
+                            > 
                               <Modal.Header closeButton>
                                 <Modal.Title className="namereport">
                                   รายงานโพสต์
@@ -337,24 +373,31 @@ const Mypost = () => {
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
                                 </span>
+                         
                                 <div className="imgcommentitemreport1">
-                                  <label>
-                                    <img
-                                      className="uploadprovereport"
-                                      src="/img/addimage.png"
-                                    />
-                                    <input
-                                      id="FileInput"
-                                      className="uploadsreport"
-                                      type="file"
-                                      multiple
-                                      accept="image/png, image/jpeg , image/jpg"
-                                      onChange={(e) => {
-                                        FileUpload(e);
-                                        setReportsubmitsuccess(false);
-                                      }}
-                                    />
-                                  </label>
+                                {!imagesFile  ? (
+              <div className="container-img-holder-imgpreview1">
+                <label>
+                  <img className="uploadprovereport" src="/img/addimg.png" />
+                  <input
+                    id="FileInput"
+                    className="uploadsreport"
+                    type="file"
+                    onChange={(e) => {
+                      FileUpload(e);
+                      setReportsubmitsuccess(false);
+                    }}
+                    multiple
+                    accept="image/png, image/jpeg , image/jpg"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div></div>
+            )}
+            </div>
+            <div className="imgcommentitempost1">
+
                                   {imagesFile
                                     ? imagesFile.map(
                                         (imagePreviewUrl, index) => {
@@ -383,7 +426,28 @@ const Mypost = () => {
                                         }
                                       )
                                     : null}
-                                </div>
+                               {imagesFile ? (
+              <div className="uploadproveedit">
+                <label className="uploadproveedit1">
+                  <img className="uploadprovereport" src="/img/last1.png" />
+                  <input
+                    id="FileInput"
+                    className="uploadsreport"
+                    type="file"
+                    onChange={(e) => {
+                      FileUpload(e);
+                      setReportsubmitsuccess(false);
+                    }}
+                    multiple
+                    accept="image/png, image/jpeg , image/jpg"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div></div>
+            )}
+            </div>
+                                
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}
