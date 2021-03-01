@@ -224,9 +224,9 @@ const Mypost = () => {
         }
       }}
     >
-      <Modal show={Showmodalsuccessreport} onHide={handleModalSuccessReportClose} className="modalreport">
+      <Modal show={Showmodalsuccessreport} onHide={handleModalSuccessReportClose} className="modalreport2">
         <Modal.Header closeButton>
-          <Modal.Title className="namereport">การรายงานโพสต์สำเร็จ</Modal.Title>
+          <Modal.Title className="showsuccessreport">รายงานโพสต์สำเร็จ</Modal.Title>
         </Modal.Header>
       </Modal>
       {mypost ? (
