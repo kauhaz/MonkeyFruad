@@ -229,7 +229,8 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
-                      <div className="mypostbuttonreport">
+                    {user && user.uid != ok.useruid ? (
+                           <div className="mypostbuttonreport">
                         <button
                           variant="primary"
                           onClick={handleShow}
@@ -237,7 +238,9 @@ const Mypost = () => {
                         >
                           <i class="fa fa-flag"></i>
                         </button>
-                      </div>
+                      </div>)
+                      :
+                      null}
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
