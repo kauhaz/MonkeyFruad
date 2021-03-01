@@ -37,6 +37,7 @@ import PostLine from "./user/pages/postline";
 import PostTwitter from "./user/pages/posttwitter";
 import PostInstragram from "./user/pages/postinstragram";
 import PostOther from "./user/pages/postother";
+import Loading from "./user/components/pacmanloading";
 import "./app.css";
 // ที่รวม Routh ต่างๆ
 const App = () => {
@@ -173,6 +174,9 @@ const App = () => {
           </Route>
           <Route path="/entersearch" exact>
             <Entersearch />
+          </Route>
+          <Route path="/pacman" exact>
+            <Loading />
           </Route>
         </Switch>
       </usercontext.Provider>

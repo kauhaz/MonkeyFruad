@@ -127,6 +127,11 @@
   color: #ff392e;
 }
 
+.spanreport2 {
+  font-size: 16px;
+  color: #1fd307;
+}
+
 .container-img-holder-imgpreviewreport .imgpreview {
   width: 100px;
   margin-top: 10px;
@@ -163,6 +168,7 @@
 .uploadprovereport {
   width: 100px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .uploadproveeditreport {
@@ -189,6 +195,7 @@
 .uploadproveeditreport2 {
   width: 100%;
   padding: 60px;
+  cursor: pointer;
 }
 
 .mypostimg-setting {

@@ -229,7 +229,8 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
-                      <div className="mypostbuttonreport">
+                    {user && user.uid != ok.useruid ? (
+                           <div className="mypostbuttonreport">
                         <button
                           variant="primary"
                           onClick={handleShow}
@@ -237,7 +238,9 @@ const Mypost = () => {
                         >
                           <i class="fa fa-flag"></i>
                         </button>
-                      </div>
+                      </div>)
+                      :
+                      null}
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
@@ -399,6 +402,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
+                                {loading ? null :
                                 <div className="imgcommentitempost1">
                                   {imagesFile
                                     ? imagesFile.map(
@@ -452,7 +456,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
-
+                            }
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}
@@ -470,9 +474,13 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
+<<<<<<< HEAD
                                     <span className="spanreport">
                                       การรายงานโพสต์สำเร็จ
                                     </span>
+=======
+                                    <span className="spanreport2">การรายงานโพสต์สำเร็จ</span>
+>>>>>>> 63e80e9dfcb0c4561c1c5c31dd11841a8f4281b1
                                   </div>
                                 ) : (
                                   ""
