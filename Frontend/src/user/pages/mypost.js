@@ -59,6 +59,8 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
     setImagesFile();
+    Setfiles("")
+    Setfuck([])
   };
   const handleModalSuccessReportClose = () => {
     setShowmodalsuccessreport(false)
@@ -84,9 +86,10 @@ const Mypost = () => {
       console.log(err);
     }
   };
+  console.log("files",files)
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-
+    SetErrorFileUploads()
     setImagesFile([]);
     var myfuck = [];
     var files = [];
