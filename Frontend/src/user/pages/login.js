@@ -92,7 +92,7 @@ const Login = () => {
       <div className="container-login">
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-login" />
-          <p className="h3 text-center mb-2 font-weight-bold">
+          <p className="h1 text-center mb-2 font-weight-bold">
             เข้าสู่ระบบ
           </p>
           {emailis_inVaild ? (

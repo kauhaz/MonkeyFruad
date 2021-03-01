@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import "./post.css";
+import "./editprofile.css";
 import Chatbot from "../components/chatbot";
 import axios from "axios";
 import NavbarPage from "../components/navnew";
@@ -121,7 +121,7 @@ const EditProfile = () => {
       />
       <div className="container-editprofile">
         <form className="EditProfileForm" onSubmit={SubmitHandle}>
-          <p className="h3 text-center mb-2 font-weight-bold">
+          <p className="h1 text-center mb-2 font-weight-bold">
             แก้ไขข้อมูลส่วนตัว
           </p>
           <div className="editprofile-badformpost-img">
@@ -201,7 +201,7 @@ const EditProfile = () => {
               </div>
             </div>
 
-            <div className="form-group my-0">
+            <div className="form-group mb-2">
               <label className="label-form-title-profile">เพศ</label>
               <div className="form-inside-profile">
                 {male ? (
@@ -214,10 +214,10 @@ const EditProfile = () => {
                         type="radio"
                         id="male"
                         value="ชาย"
-                        className="mr-1"
+                        className="mr-1 gender"
                         checked="checked"
                       />
-                      <label htmlFor="male">ชาย</label>
+                      <label htmlFor="male" className="gender">ชาย</label>
                     </div>
                     <div className="profile-data d-inline">
                       <input
@@ -227,9 +227,9 @@ const EditProfile = () => {
                         type="radio"
                         id="female"
                         value="หญิง"
-                        className="mr-1"
+                        className="mr-1 gender"
                       />
-                      <label htmlFor="female">หญิง</label>
+                      <label htmlFor="female" className="gender">หญิง</label>
                     </div>
                   </div>
                 ) : (
