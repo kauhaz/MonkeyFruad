@@ -169,6 +169,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
                       className="proof-button-reported"
                     >
                       คลิกเพื่อดู
+                      </button>
                     </div>
                 </Form.Label>
                 <Form.Row>
