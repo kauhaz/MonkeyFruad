@@ -15,8 +15,12 @@
     color: #5c5c5c;
 }
 
+.container-report0{
+    margin: 0 auto 100px auto;
+}
+
 .container-report1{
-    margin: 1rem auto 100px auto;
+    margin: 1rem auto 30px auto;
     width: 45%;
 }
 
