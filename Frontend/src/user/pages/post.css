@@ -226,6 +226,7 @@
 
 .post-group1 {
   font-size: 18px;
+  color: #5c5c5c;
 }
 
 .post-groupsorting1 {
@@ -309,6 +310,7 @@
   color: #5c5c5c;
   padding-left: 10px;
   border-radius: 0.5rem;
+  border: 1px solid #5c5c5c;
 }
 
 .post-numbergroup2 {
