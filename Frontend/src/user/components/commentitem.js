@@ -6,7 +6,7 @@ import usercontext from "../context/usercontext";
 import Listcomment from "./listcomment";
 import _ from "lodash";
 import Loading from "./pacmanloading";
-import ClipLoader from "./clipLoader";
+import ClipLoaderMycoment from "./clipLoaderMycoment";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
@@ -292,7 +292,8 @@ const Commentitem = ({ postid}) => {
           )}
         </div>
         <div className="post-section-commment">
-        {loading ?  <div className="col-lg-10 col-4"> <ClipLoader /> </div> : <div>
+        {loading ? <ClipLoaderMycoment /> :
+        <div>
           <div className="post-comment-commentsall">
             {!imagesFile && !imagecomment ? (
               <div className="container-img-holder-imgpreview1">
@@ -341,6 +342,7 @@ const Commentitem = ({ postid}) => {
               </div>
             </div>
           </div>
+         
           <div className="imgcommentitempost1">
             {imagesFile
               ? imagesFile.map((imagePreviewUrl, index) => {
@@ -381,8 +383,8 @@ const Commentitem = ({ postid}) => {
               <div></div>
             )}
           </div>
-          </div>}
-          
+          </div>
+}
           <h1 className="h1-postfileerror">{error}</h1>
         </div>
       </div>
