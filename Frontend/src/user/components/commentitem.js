@@ -10,7 +10,7 @@ import ClipLoaderMycoment from "./clipLoaderMycoment";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
-const Commentitem = ({ postid}) => {
+const Commentitem = ({ postid }) => {
   let { user, setUser } = useContext(usercontext);
   const [imagecomment, Setimagecomment] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -292,99 +292,101 @@ const Commentitem = ({ postid}) => {
           )}
         </div>
         <div className="post-section-commment">
-        {loading ? <ClipLoaderMycoment /> :
-        <div>
-          <div className="post-comment-commentsall">
-            {!imagesFile && !imagecomment ? (
-              <div className="container-img-holder-imgpreview1">
-                <label>
-                  <img className="uploadprove1" src="/img/addimg.png" />
-                  <input
-                    id="FileInput"
-                    className="uploadspostcomment"
-                    type="file"
-                    onChange={FileUpload}
-                    multiple
-                    accept="image/png, image/jpeg , image/jpg"
-                  />
-                </label>
-              </div>
-            ) : (
-              <div></div>
-            )}
-
-            <div
-              className="post-writecommemt"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <textarea
-                rows="3"
-                cols="15"
-                className="inputcomment1"
-                placeholder="เขียนความคิดเห็น..."
-                value={textcomment}
-                onChange={(e) => {
-                  Settextcomment(e.target.value);
-                  Seterror();
-                }}
-              />
-              {/* {loading ? <div><ClipLoader /></div> : null } */}
-            </div>
-
+          {loading ? (
+            <ClipLoaderMycoment />
+          ) : (
             <div>
-              <div className="postbuttonsendss">
-                <button
-                  className="postbuttonsends1"
-                  onClick={() => handlecomment()}
+              <div className="post-comment-commentsall">
+                {!imagesFile && !imagecomment ? (
+                  <div className="container-img-holder-imgpreview1">
+                    <label>
+                      <img className="uploadprove1" src="/img/addimg.png" />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                <div
+                  className="post-writecommemt"
+                  controlId="exampleForm.ControlTextarea1"
                 >
-                  <i className="fa fa-paper-plane"></i>
-                </button>
+                  <textarea
+                    rows="3"
+                    cols="15"
+                    className="inputcomment1"
+                    placeholder="เขียนความคิดเห็น..."
+                    value={textcomment}
+                    onChange={(e) => {
+                      Settextcomment(e.target.value);
+                      Seterror();
+                    }}
+                  />
+                  {/* {loading ? <div><ClipLoader /></div> : null } */}
+                </div>
+
+                <div>
+                  <div className="postbuttonsendss">
+                    <button
+                      className="postbuttonsends1"
+                      onClick={() => handlecomment()}
+                    >
+                      <i className="fa fa-paper-plane"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="imgcommentitempost1">
+                {imagesFile
+                  ? imagesFile.map((imagePreviewUrl, index) => {
+                      return (
+                        <div className="postdelete">
+                          <img
+                            key={index}
+                            className="imgpreviewa1"
+                            alt="previewImg"
+                            src={imagePreviewUrl}
+                          />
+                          <span className="deleteimgposts1">
+                            <img
+                              className="deleteimgposts2"
+                              src="/img/delete2.png"
+                              onClick={() => handledeleteimage(index)}
+                            />
+                          </span>
+                        </div>
+                      );
+                    })
+                  : null}
+                {imagesFile || imagecomment ? (
+                  <div className="uploadproveedit">
+                    <label className="uploadproveedit1">
+                      <img className="uploadproveedit2" src="/img/last1.png" />
+                      <input
+                        id="FileInput"
+                        className="uploadspostcomment"
+                        type="file"
+                        onChange={FileUpload}
+                        multiple
+                        accept="image/png, image/jpeg , image/jpg"
+                      />
+                    </label>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
             </div>
-          </div>
-         
-          <div className="imgcommentitempost1">
-            {imagesFile
-              ? imagesFile.map((imagePreviewUrl, index) => {
-                  return (
-                    <div className="postdelete">
-                      <img
-                        key={index}
-                        className="imgpreviewa1"
-                        alt="previewImg"
-                        src={imagePreviewUrl}
-                      />
-                      <span className="deleteimgposts1">
-                        <img
-                          className="deleteimgposts2"
-                          src="/img/delete2.png"
-                          onClick={() => handledeleteimage(index)}
-                        />
-                      </span>
-                    </div>
-                  );
-                })
-              : null}
-            {imagesFile || imagecomment ? (
-              <div className="uploadproveedit">
-                <label className="uploadproveedit1">
-                  <img className="uploadproveedit2" src="/img/last1.png" />
-                  <input
-                    id="FileInput"
-                    className="uploadspostcomment"
-                    type="file"
-                    onChange={FileUpload}
-                    multiple
-                    accept="image/png, image/jpeg , image/jpg"
-                  />
-                </label>
-              </div>
-            ) : (
-              <div></div>
-            )}
-          </div>
-          </div>
-}
+          )}
           <h1 className="h1-postfileerror">{error}</h1>
         </div>
       </div>

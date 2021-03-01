@@ -1,6 +1,6 @@
 .mypost-comment-commentsall {
   display: grid;
-  grid-template-columns: 30px 1fr 40px;
+  grid-template-columns: 40px 1fr 40px;
 }
 
 .mypost-comment-img1 img.img-circle1 {
@@ -8,14 +8,14 @@
   border-radius: 50%;
 }
 
-.mypost-comment-comments2 {
+.mypost-comment-comments1 {
   display: grid;
   grid-template-columns: 50px 1fr;
   font-size: 18px;
   padding: 10px 0;
 }
 
-.mypost-section-commment2 {
+.mypost-section-commment {
   background-color: rgb(245, 245, 245);
   margin: 0 10px;
   padding: 15px;
@@ -28,12 +28,11 @@
 }
 
 .uploadprove2 {
-  width: 20%;
-  margin-top: -5px;
-  margin-right: 5px;
+  width: 100%;
+  cursor: pointer;
 }
 
-.inputcommentmypost1 {
+.inputcommentmypost2 {
   width: 100%;
   border: none;
   margin-top: 8px;
@@ -42,7 +41,33 @@
   padding: 0 10px;
 }
 
-.row .imgcommentitemmypost {
+.mypostbuttonsends1 {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  color: grey;
+}
+
+.mypostbuttonsends1:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.4s ease;
+}
+
+.mypostbuttonsendss {
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  padding: 0px 0px;
+  transition: box-shadow 0.4s ease;
+}
+
+.imgcommentitemmypost {
   margin-left: -5px;
   margin-right: 5px;
 }
@@ -59,38 +84,49 @@
 }
 
 .imgcommentitemmypost1 {
-  margin-left: -20px;
-  margin-bottom: -20px;
+  display: grid;
+  padding-left: 15px;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .imgpreviewb1 {
-  width: 140px;
-  height: 200px;
+  position: relative;
+  margin: 0;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   object-position: center;
-  margin-top: 20px;
-  margin-left: 60px;
-  margin-right: 10px;
 }
 
-.deleteimgmypost1 {
-  color: grey;
-  border: none;
-  border-radius: 50px;
+.postdeletemypost {
+  display: flex;
+  width: 100%;
 }
 
-.deleteimgmypost2 {
-  width: 23px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  margin-top: -430px;
-  margin-left: 190px;
+.deleteimgmyposts1 {
+  position: relative;
+  right: 15px;
+  top: -10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.deleteimgmyposts2 {
+  width: 30px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  transition: box-shadow 0.4s ease;
   background-color: white;
+}
+
+.deleteimgmyposts2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -143,4 +179,11 @@
   border: none;
   background-color: rgb(245, 245, 245);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.h1-mypostfileerror {
+  color: #ff392e;
+  text-align: center;
+  font-size: 20px;
+  margin: 15px 0;
 }

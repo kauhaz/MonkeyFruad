@@ -318,13 +318,13 @@ const Listcomment2 = ({
                   )}
 
                   <div
-                    className="post-writecommemt"
+                    className="mypost-writecommemt"
                     controlId="exampleForm.ControlTextarea1"
                   >
                     <textarea
                       rows="3"
                       cols="15"
-                      className="inputcommentmypost1"
+                      className="inputcommentmypost2"
                       placeholder="เขียนความคิดเห็น..."
                       value={edittextcomment}
                       onChange={(e) => {
