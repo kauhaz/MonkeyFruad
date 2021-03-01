@@ -7,9 +7,6 @@
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .Logo-login  {
@@ -25,6 +22,10 @@
     max-width: 376px;
     padding: 10px;
     margin: 0 auto;
+}
+
+.LoginForm .h3{
+    color:  #5c5c5c;
 }
 
 .LoginForm p {
@@ -147,11 +148,26 @@
         font-size: 25px;
         margin-top: -5px;
     } */
+    .container-login {
+        margin: 2.1% auto 0 auto;
+    }
+    .LoginForm img {
+        width: 130px;
+        height: 130px;
+    }
 
 }
 @media only screen and (min-width: 1920px) {
+    .container-login {
+        margin: 7% auto 0 auto;
+    }
 
 }
+
+@media only screen and (max-width: 1367px) {
+
+}
+
 @media only screen and (max-width: 1024px) {
     .container-login {
         margin-top: 220px;

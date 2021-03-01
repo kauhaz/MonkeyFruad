@@ -59,13 +59,15 @@
 .mypost-name {
   margin-left: 65px;
   margin-top: -55px;
+  color: #212529;
+  font-size: 18px;
 }
 
 .mypost-date {
   margin-left: 65px;
   margin-top: -25px;
   color: grey;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .mypost-time {
@@ -97,11 +99,6 @@
   background-color: white;
   color: grey;
   border-radius: 50px;
-}
-
-.mypostbuttonreported:hover {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
 }
 
 .mypostbuttonreported:hover {
@@ -213,7 +210,7 @@
 }
 
 .mypostbuttonsetting {
-  margin-top: -90px;
+  margin-top: -60px;
   width: 30px;
   background: #ffffff;
   border-radius: 50px;
@@ -236,7 +233,7 @@
   background: #ffffff;
   border-radius: 7px;
   position: absolute;
-  top: -20px;
+  top: 0px;
   right: 0;
   font-size: 15px;
   width: 110px;
@@ -304,8 +301,8 @@
 }
 
 .mypostprofile-bad-img img.img-circle {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
@@ -324,18 +321,19 @@
 }
 
 .img-bad {
-  transition: all 0.3s ease 0s;
-  width: 100px;
-  overflow: hidden;
-  margin-left: 10px;
-  background-color: white;
-  margin-right: 10px;
-  margin-bottom: 15px;
+  margin: 5px 0 15px 0;
+  width: 212px;
+  height: 212px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
 }
 
-.img-bad:hover {
-  transform: scale(2.5);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+.imgcommentitemmypost1 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .container-mypost4 {
@@ -405,16 +403,20 @@
   margin-top: -10px;
 }
 
-.line-comment1,
-.line-comment2 {
+.line-comments1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
-  /* width: 700px; */
-  /* align: center; */
-  margin-top: 20px;
+  align: center;
+  margin-top: 40px;
 }
 
 .formsize-mypost {
   margin-top: 15px;
+  width: 100%;
+  font-size: 18px;
+  margin-left: -30px;
+  margin-bottom: 0px;
+  font-family: "Kanit", sans-serif;
+  font-size: 16px;
 }
 
 .vl {
