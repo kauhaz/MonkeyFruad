@@ -75,24 +75,6 @@
   color: grey;
 }
 
-/* .mypostbuttonreported {
-  margin-top: -55px;
-  width: 30px;
-  background: #ffffff;
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1px 5px;
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  margin-left: auto;
-  margin-right: 0px;
-  color: grey;
-}*/
-
 .mypostbuttonreported {
   float: right;
   border: none;
@@ -122,6 +104,10 @@
   margin-bottom: 15px;
 }
 
+.text-mypost { 
+  width: 180% !important;
+}
+
 .spanreport {
   font-size: 16px;
   color: #ff392e;
@@ -136,7 +122,6 @@
   width: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* margin-left: -200px; */
   margin-right: 10px;
 }
 
@@ -145,21 +130,6 @@
   border-radius: 0.5rem !important;
   padding: 5px 15px 5px 15px !important;
 }
-
-/* .imgpreview {
-  overflow: hidden;
-  background-color: white;
-}
-
-.imgpreview img {
-  transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-.imgpreview:hover {
-  transform: scale(2.5);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-} */
 
 .imgcommentitempost1 {
   margin-top: 10px;
@@ -281,17 +251,12 @@
   color: black;
 }
 
-.container-mypost3 {
-  width: 80%;
-  margin-top: -10px;
-  margin-bottom: 0px;
+.container-myposts3 {
+  width: 94%;
+  /* margin-top: 30px; */
   margin-left: auto;
   margin-right: auto;
-  padding-top: 20px;
-  /* padding-left: 10px;
-      padding-right: 10px; */
-  font-family: "Kanit", sans-serif;
-  font-size: 20px;
+  padding: 0 35px;
 }
 
 .mypostprofile-bad-img {
@@ -322,8 +287,8 @@
 
 .img-bad {
   margin: 5px 0 15px 0;
-  width: 137px;
-  height: 137px;
+  width: 150px;
+  height: 150px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -436,10 +401,10 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.modalreport2{
- margin-top: 290px;
+.modalreport2 {
+  margin-top: 290px;
 }
-.showsuccessreport{
+.showsuccessreport {
   width: 500px;
   color: #238516;
   text-align: center;
@@ -453,9 +418,9 @@
     width: 175px;
     height: 175px;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 390px;
-   }
+  }
 }
 
 @media only screen and (max-width: 1367px) {
@@ -463,11 +428,11 @@
     width: 118px;
     height: 118px;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 320px;
-   }
+  }
 }
-/* @media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1920px) {
 }
 
 @media only screen and (max-width: 1024px) {
@@ -631,4 +596,4 @@
   .mypost-comment-comments2 {
     font-size: 15px;
   }
-} */
+}

@@ -83,7 +83,7 @@
   margin-right: 30px;
 }
 
-.imgcommentitemmypost1 {
+.imgcommentitemmypost2 {
   display: grid;
   padding-left: 15px;
   grid-gap: 20px;
@@ -93,10 +93,35 @@
 .imgpreviewb1 {
   position: relative;
   margin: 0;
-  width: 180px;
-  height: 180px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
+}
+
+.uploadproveeditmypost {
+  justify-items: center;
+  align-items: center;
+}
+
+.uploadproveeditmypost1 {
+  width: 250px;
+  height: 250px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.uploadproveedit1mypost:hover {
+  background-color: rgb(201, 200, 200);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.uploadproveeditmypost2 {
+  width: 100%;
+  padding: 60px;
 }
 
 .postdeletemypost {

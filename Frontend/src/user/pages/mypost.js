@@ -59,8 +59,8 @@ const Mypost = () => {
     SetErrorFileUploads();
     SetErrorNotselect(false);
     setImagesFile();
-    Setfiles("")
-    Setfuck([])
+    Setfiles("");
+    Setfuck([]);
   };
   const handleModalSuccessReportClose = () => {
     setShowmodalsuccessreport(false);
@@ -86,10 +86,10 @@ const Mypost = () => {
       console.log(err);
     }
   };
-  console.log("files",files)
+  console.log("files", files);
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
-    SetErrorFileUploads()
+    SetErrorFileUploads();
     setImagesFile([]);
     var myfuck = [];
     var files = [];
@@ -227,9 +227,15 @@ const Mypost = () => {
         }
       }}
     >
-      <Modal show={Showmodalsuccessreport} onHide={handleModalSuccessReportClose} className="modalreport2">
+      <Modal
+        show={Showmodalsuccessreport}
+        onHide={handleModalSuccessReportClose}
+        className="modalreport2"
+      >
         <Modal.Header closeButton>
-          <Modal.Title className="showsuccessreport">รายงานโพสต์สำเร็จ</Modal.Title>
+          <Modal.Title className="showsuccessreport">
+            รายงานโพสต์สำเร็จ
+          </Modal.Title>
         </Modal.Header>
       </Modal>
       {mypost ? (
@@ -558,20 +564,17 @@ const Mypost = () => {
                         </div>
                       ) : null}
 
-                      <div className="container-mypost3">
-                        <div className="mypostprofile-bad-img">
-                          {ok.resultfile ? (
-                            <img
-                              className="img-circle"
-                              src={`${ok.resultfile.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src="/img/profile.png"
-                            />
-                          )}
-                        </div>
+                      <div className="mypostprofile-bad-img">
+                        {ok.resultfile ? (
+                          <img
+                            className="img-circle"
+                            src={`${ok.resultfile.url}`}
+                          />
+                        ) : (
+                          <img className="img-circle" src="/img/profile.png" />
+                        )}
+                      </div>
+                      <div className="container-myposts3">
                         <Form className="formsize-mypost">
                           <Form.Row>
                             <Form.Group
@@ -685,7 +688,7 @@ const Mypost = () => {
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
-
+                          <br />
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
@@ -742,12 +745,12 @@ const Mypost = () => {
                             />
                           </div>
                         </Form>
-                        <div className="line-comments1"></div>
-                        <div className="container-mypost4">
-                          <Commentitemformypost postid={ok.uid} />
-                        </div>
-                        {/* <button onClick={()=>handle()}></button> */}
                       </div>
+                      <div className="line-comments1"></div>
+                      <div className="container-mypost4">
+                        <Commentitemformypost postid={ok.uid} />
+                      </div>
+                      {/* <button onClick={()=>handle()}></button> */}
                     </div>
                   </div>
                 );
