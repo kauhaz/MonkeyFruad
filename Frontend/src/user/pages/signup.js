@@ -177,7 +177,7 @@ const Signup = () => {
       <div className="container-signup">
         <form className="SignupForm">
           <img src="/img/logoLogin.png" className="Logo-signup" alt="" />
-          <p className="h3 text-center font-weight-bold mb-4">
+          <p className="h1 text-center font-weight-bold mb-4">
             สมัครสมาชิก
           </p>
           {emailis_inVaild ? (
@@ -368,9 +368,9 @@ const Signup = () => {
                           type="radio"
                           id="male"
                           value="ชาย"
-                          className="mr-1"
+                          className="mr-1 gender"
                         />
-                        <label htmlFor="male">ชาย</label>
+                        <label htmlFor="male" className="gender">ชาย</label>
                       </div>
                       <div className="profile-data d-inline">
                         <input
@@ -380,9 +380,9 @@ const Signup = () => {
                           type="radio"
                           id="female"
                           value="หญิง"
-                          className="mr-1"
+                          className="mr-1 gender"
                         />
-                        <label htmlFor="female">หญิง</label>
+                        <label htmlFor="female" className="gender">หญิง</label>
                       </div>
                     </div>
                   </div>

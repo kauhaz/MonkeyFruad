@@ -1,6 +1,6 @@
 .container-changepass {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 15px 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -31,12 +31,7 @@
 
 .form-group {
     color: #6C757D;
-}
-
-.label-form-title-profile, .form-inside-profile {
-    font-size: inherit;
-    display: inline-block;
-    color: inherit;
+    font-size: 16px;
 }
 
 .SaveChange {
@@ -54,7 +49,7 @@
 }
 
 
-.EditProfile p, .SaveChange p {
+.SaveChange p {
     color: white;
     font-size: 16px;
     display: inline-block;
@@ -96,7 +91,7 @@
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .container-changepass {
-        margin: 7% auto 0 auto;
+        margin: 8% auto 0 auto;
     }
     .ChangePassForm img {
         width: 130px;
@@ -106,7 +101,11 @@
         font-size: 16px;
     }
     .ChangePassForm .h1 {
+        color:  #5c5c5c;
         font-size: 22px
+    }
+    .SaveChange p, .form-group {
+        font-size: 16px;
     }
 }
 
@@ -115,13 +114,24 @@
         margin: 10% auto 0 auto;
     }
     .ChangePassForm .h1 {
+        color:  #5c5c5c;
         font-size: 25px
+    }
+    .SaveChange p, .form-group {
+        font-size: 18px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
+    .container-changepass {
+        margin: 8% auto 0 auto;
+    }
     .ChangePassForm .h1 {
+        color:  #5c5c5c;
         font-size: 22px
+    }
+    .SaveChange p, .form-group {
+        font-size: 16px;
     }
 }
 

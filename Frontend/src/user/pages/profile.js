@@ -49,7 +49,7 @@ const Profile = () => {
       />
       <div className="container-profile">
         <form className="ProfileForm">
-          <p className="h3 text-center mb-2 font-weight-bold">
+          <p className="h1 text-center mb-2 font-weight-bold">
             ข้อมูลส่วนตัว
           </p>
 
