@@ -582,7 +582,7 @@ const Mypost = () => {
                               className="mypost-left col-lg-6 col-sm-6 col-12"
                               controlId="formGridName"
                             >
-                              <Form.Label className="text-mypost">
+                              <Form.Label className="text-mypost ">
                                 ชื่อ (ผู้โกง){" "}
                                 <span className="spanmypost">{ok.name}</span>
                               </Form.Label>
