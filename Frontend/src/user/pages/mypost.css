@@ -322,8 +322,8 @@
 
 .img-bad {
   margin: 5px 0 15px 0;
-  width: 152px;
-  height: 152px;
+  width: 137px;
+  height: 137px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -450,8 +450,8 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
-    width: 192px;
-    height: 192px;
+    width: 175px;
+    height: 175px;
   }
   .modalreport2{
     margin-top: 390px;
@@ -460,8 +460,8 @@
 
 @media only screen and (max-width: 1367px) {
   .img-bad {
-    width: 136px;
-    height: 136px;
+    width: 118px;
+    height: 118px;
   }
   .modalreport2{
     margin-top: 320px;

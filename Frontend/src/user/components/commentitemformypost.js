@@ -361,7 +361,7 @@ const Commentitemformypost = ({ postid }) => {
                       <label className="uploadproveedit1">
                         <img
                           className="uploadproveedit2"
-                          src="/img/addphoto.png"
+                          src="/img/last1.png"
                         />
                         <input
                           id="FileInput"
