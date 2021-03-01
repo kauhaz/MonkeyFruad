@@ -415,8 +415,8 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
-    width: 175px;
-    height: 175px;
+    width: 196px;
+    height: 196px;
   }
   .modalreport2 {
     margin-top: 390px;
@@ -425,14 +425,16 @@
 
 @media only screen and (max-width: 1367px) {
   .img-bad {
-    width: 118px;
-    height: 118px;
+    width: 132px;
+    height: 132px;
   }
   .modalreport2 {
     margin-top: 320px;
   }
 }
-@media only screen and (max-width: 1920px) {
+
+
+/* @media only screen and (max-width: 1920px) {
 }
 
 @media only screen and (max-width: 1024px) {
@@ -596,4 +598,4 @@
   .mypost-comment-comments2 {
     font-size: 15px;
   }
-}
+} */
