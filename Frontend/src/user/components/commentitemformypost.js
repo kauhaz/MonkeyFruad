@@ -291,7 +291,7 @@ const Commentitemformypost = ({ postid }) => {
                 {!imagesFile && !imagecomment ? (
                   <div className="container-img-holder-imgpreview2">
                     <label>
-                      <img className="uploadprove2" src="/img/addphoto.png" />
+                      <img className="uploadprove2" src="/img/addimg.png" />
                       <input
                         id="FileInput"
                         className="uploadsmypostcomment"

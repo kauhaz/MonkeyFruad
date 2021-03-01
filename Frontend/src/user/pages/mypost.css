@@ -358,34 +358,6 @@
   color: grey;
 }
 
-.mypost-comment-comments2 {
-  /* background-color: rgb(245, 245, 245); */
-  width: 80%;
-  height: 10%;
-  margin-left: 250px;
-  margin-bottom: 0px;
-  padding-top: 15px;
-  padding-left: 20px;
-  padding-bottom: 15px;
-  border-radius: 15px;
-  /* box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2); */
-}
-
-.uploadprove2 {
-  width: 20%;
-  margin-top: -5px;
-}
-
-.mypost-writecommemt {
-  margin-left: -170px;
-  /* margin-top: -30px; */
-}
-
-.inputcomment {
-  background-color: rgb(245, 245, 245);
-  border: none;
-}
-
 .mypost-profilecomment-img img.img-circle {
   width: 50px;
   height: 50px;

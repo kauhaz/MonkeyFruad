@@ -1,11 +1,11 @@
-.postcommentimg-setting {
-  width: 25px;
-}
-
 .header-post-comment {
   display: grid;
   grid-template-columns: 50px 1fr 20px;
   align-items: center;
+}
+
+.postcommentimg-setting {
+  width: 25px;
 }
 
 .menu-containerpostcommentsetting {
