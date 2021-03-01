@@ -64,12 +64,12 @@ const Forgetpass = () => {
         showDropdown={showDropdown}
       />
       <div className="container-forget">
-        <form className="LoginForm">
+        <form className="ForgetPassForm">
           <img src="/img/logoLogin.png" className="Logo-forget" />
-          <p className="h2 text-center mb-4 font-weight-bold text1-forget">
+          <p className="h1 text-center mb-4 font-weight-bold">
             Reset password
           </p>
-          <p className="text-left my-0 instruction-forgetpass text2-forget">
+          <p className="text-left my-0 mb-4 text2-forget">
             Enter the email associated with your account and we'll send you an
             email with instructions to reset your password.
           </p>
@@ -80,7 +80,7 @@ const Forgetpass = () => {
           ) : (
             ""
           )}
-          <div className="LoginInputForm">
+          <div className="ForgetPassInputForm">
             <Formik
               initialValues={{
                 email: "",
@@ -95,9 +95,6 @@ const Forgetpass = () => {
               {({ errors, touched }) => (
                 <Form>
                   <div className="form-group mb-4">
-                    <label htmlFor="email" style={styles.txt2}>
-                      Email
-                    </label>
                     <Field
                       name="email"
                       type="email"
@@ -125,7 +122,7 @@ const Forgetpass = () => {
             </Formik>
           </div>
 
-          <button onClick={ForgetEmailSubmit} className="btn-block LoginButton">
+          <button onClick={ForgetEmailSubmit} className="btn-block ForgetPassButton">
             <p className="mx-auto my-1">Send Instructions</p>
           </button>
         </form>

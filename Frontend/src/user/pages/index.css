@@ -86,7 +86,7 @@
     position: absolute;
     left: 84px;
     top: 80px;
-    z-index: 1;
+    z-index: 2;
     background-color: white;
     margin-top: -8px;
     width: 278px;
@@ -628,7 +628,7 @@
         position: absolute;
         left: 84px;
         top: 80px;
-        z-index: 1;
+        z-index: 2;
         background-color: white;
         margin-top: -8px;
         width: 278px;
