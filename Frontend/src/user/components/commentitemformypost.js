@@ -7,6 +7,8 @@ import Listcomment2 from "./Listcomment2";
 import Loading from "./clipLoader";
 import _ from "lodash";
 import Modalimage from "./Modalimage"
+import ClipLoader from "./clipLoader";
+
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -280,6 +282,7 @@ const Commentitemformypost = ({ postid }) => {
           )}
         </div>
         <div className="mypost-section-commment2">
+        {loading ?  <div className="col-lg-10 col-4"> <ClipLoader /> </div> :  <div>
           <div className="mypost-comment-commentsall">
             {!imagesFile && !imagecomment ? (
               <div className="container-img-holder-imgpreview2">
@@ -314,7 +317,6 @@ const Commentitemformypost = ({ postid }) => {
                   Seterror();
                 }}
               />
-              {/* {loading ? <div><Loading/></div> : null } */}
             </div>
             <div>
               <div className="column2 mypostbuttonsend">
@@ -331,7 +333,6 @@ const Commentitemformypost = ({ postid }) => {
                 ? imagesFile.map((imagePreviewUrl, index) => {
                     return (
                       <div className="imgcommentitemmypost1 col-6">
-                        {loading ? <Loading /> : null}
                         <img
                           key={index}
                           className="imgpreviewb1"
@@ -381,7 +382,8 @@ const Commentitemformypost = ({ postid }) => {
               )}
             </div>
           </div>
-
+          </div>}
+         
           <h1 className="h1-mypostfileerror">{error}</h1>
         </div>
       </div>
