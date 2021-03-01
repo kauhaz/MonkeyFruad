@@ -145,14 +145,14 @@
     background: #ffffff;
     border-radius: 50px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1px 0px;
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
     vertical-align: middle;
     transition: box-shadow 0.4s ease;
     margin-left: auto; /* Strictly for positioning */
+    position: absolute;
+    top: 0;
+    right: 0;
 }
   
 .reportbuttonsetting:hover {
@@ -160,6 +160,7 @@
 }
   
 .reportmenusetting {
+    cursor: pointer;
     background: #ffffff;
     border-radius: 7px;
     position: absolute;
