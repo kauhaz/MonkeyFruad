@@ -41,8 +41,8 @@ const Findthief = () => {
         showDropdown={showDropdown}
       />
       <div className="container-bigpost1">
-        <div className="row postbigrow">
-          <div className="column-post-left1">
+        <div className="postbigrows">
+          <div className="post-left1">
             <h1 className="h1-posts">
               {" "}
               ผลการค้นหา * {show && show[0].name} {show && show[0].surname}{" "}
@@ -165,8 +165,6 @@ const Findthief = () => {
             )}
             <div className="container-bottoms"></div>
           </div>
-
-          <div className="column-post-right1"></div>
         </div>
       </div>
     </div>
