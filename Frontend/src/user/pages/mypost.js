@@ -3,7 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
-import ClipLoader from "../components/clipLoaderReport";
+import ClipLoaderReport from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
@@ -229,7 +229,8 @@ const Mypost = () => {
                 return (
                   <div>
                     <div className="container-mypost">
-                      <div className="mypostbuttonreport">
+                    {user && user.uid != ok.useruid ? (
+                           <div className="mypostbuttonreport">
                         <button
                           variant="primary"
                           onClick={handleShow}
@@ -237,7 +238,9 @@ const Mypost = () => {
                         >
                           <i class="fa fa-flag"></i>
                         </button>
-                      </div>
+                      </div>)
+                      :
+                      null}
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
@@ -399,6 +402,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
+                                {loading ? null :
                                 <div className="imgcommentitempost1">
                                   {imagesFile
                                     ? imagesFile.map(
@@ -429,10 +433,10 @@ const Mypost = () => {
                                       )
                                     : null}
                                   {imagesFile ? (
-                                    <div className="uploadprovereport">
-                                      <label className="uploadprovereport1">
+                                    <div className="uploadproveeditreport">
+                                      <label className="uploadproveeditreport1">
                                         <img
-                                          className="uploadprovereport2"
+                                          className="uploadproveeditreport2"
                                           src="/img/last1.png"
                                         />
                                         <input
@@ -452,7 +456,7 @@ const Mypost = () => {
                                     <div></div>
                                   )}
                                 </div>
-
+                            }
                                 {ErrorFileUploads ? (
                                   <h1 className="h1-formpostfileerror">
                                     {ErrorFileUploads}
@@ -470,14 +474,14 @@ const Mypost = () => {
                                   </Button> */}
                                 {reportsubmitsuccess ? (
                                   <div>
-                                    <span>การรายงานโพสต์สำเร็จ</span>
+                                    <span className="spanreport">การรายงานโพสต์สำเร็จ</span>
                                   </div>
                                 ) : (
                                   ""
                                 )}
                                 {loading ? (
                                   <div className="col-lg-6 col-3">
-                                    <ClipLoader loading={loading} />
+                                    <ClipLoaderReport loading={loading} />
                                   </div>
                                 ) : (
                                   <Button
@@ -669,7 +673,7 @@ const Mypost = () => {
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
-                                จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง{" "}
+                                จำนวนครั้งที่ <span className="spanmypostname">{ok.name} {ok.surname}</span> ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
                                 </span>
