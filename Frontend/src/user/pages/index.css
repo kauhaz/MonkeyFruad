@@ -500,11 +500,19 @@
 
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
+    .h1-index { 
+        margin-top: 50px;
+        text-align: center;
+        font-size: 22px;
+        font-family: 'Kanit', sans-serif;
+        color: #5c5c5c;
+        margin-top: 80px;
+    }
     .coin1-index , .coin2-index , .coin3-index {
         width: 140px;
         height: 140px;
         margin-top: -75px;
-        margin-left: 90px;
+        margin-left: 70px;
     }
     .rank-index1{
         font-size: 55px;
@@ -704,7 +712,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     .coin2-index{
@@ -716,7 +724,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     .coin3-index{
@@ -728,7 +736,7 @@
         border-radius: 50%;
         z-index: 1;
         position: absolute;
-        margin-left: 120px;
+        margin-left: 100px;
         box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     }
     
@@ -1087,7 +1095,7 @@
         width: 140px;
         height: 140px;
         margin-top: -75px;
-        margin-left: 70px;
+        margin-left: 65px;
     }
     
     .readmore-index {
@@ -1233,7 +1241,7 @@
         height: 170px;
     }
     .h1-index{
-        font-size: 17px;
+        font-size: 22px;
     }
     .column3-index{
         width: 31%;
@@ -1382,7 +1390,7 @@
 
 
     .h1-index{
-        font-size: 17px;
+        font-size: 22px;
         margin-top: 50px;
     }
     .column3-index{
@@ -1500,7 +1508,7 @@
         margin-top: -10px;
     }
     .h1-index{
-        font-size: 15px;
+        font-size: 20px;
         margin-top: 40px;
     }
     .text3-index{
