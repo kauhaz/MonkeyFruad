@@ -5110,7 +5110,24 @@ const Entersearch = () => {
                                       </span>
                                     </Form.Group>
                                   </Form.Row>
+                                  <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money.toLocaleString(undefined, {
+                                      maximumFractionDigits: 2,
+                                    })}{" "}
+                                    บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
@@ -5227,7 +5244,24 @@ const Entersearch = () => {
                                               </span>
                                             </Form.Group>
                                           </Form.Row>
+                                          <Form.Row>
+                                <Form.Group
+                                  as={Col}
+                                  className="post-left col-lg-6 col-12"
+                                  controlId="formGridPrice"
+                                >
+                                  <Form.Label>จำนวนเงิน</Form.Label>
+                                </Form.Group>
 
+                                <Form.Group>
+                                  <span className="spanpost">
+                                    {res.money.toLocaleString(undefined, {
+                                      maximumFractionDigits: 2,
+                                    })}{" "}
+                                    บาท
+                                  </span>
+                                </Form.Group>
+                              </Form.Row>
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
