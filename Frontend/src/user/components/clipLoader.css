@@ -1,3 +1,18 @@
 .box-load{
     position: static;
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+    .box-load{
+        margin-left: 370px;
+    }
+}
+
+@media only screen and (max-width: 1367px) {
+    .box-load{
+        margin-left: 270px;
+    }
 }

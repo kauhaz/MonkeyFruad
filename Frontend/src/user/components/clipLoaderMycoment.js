@@ -1,15 +1,15 @@
 import React from "react";
 import Default from "@bit/joshk.react-spinners-css.ouroboro";
-import "./clipLoader.css";
+import "./clipLoaderMycoment.css";
 
-const clipLoader = ({ loading }) => {
+const clipLoaderMycoment = ({ loading }) => {
   return (
     <div>
-      <div className="box-load">
+      <div className="box-load-mycoment">
         <Default color="#FFCD28" loading={loading} size={60} css />
       </div>
     </div>
   );
 };
 
-export default clipLoader;
+export default clipLoaderMycoment;
