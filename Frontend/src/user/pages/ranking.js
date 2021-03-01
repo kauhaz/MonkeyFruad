@@ -154,7 +154,7 @@ const Rank = () => {
         </div>
       </div>
 
-      <div className="container-ranking">
+      <div className="container-ranking container">
         <div className="rank-sorting">
           <select
             as="select"
@@ -180,33 +180,37 @@ const Rank = () => {
           </select>
         </div>
 
-        <div className="rank-column-row">
-          <div className="rank-column col-1">อันดับ</div>
-          <div className="rank-column col">ชื่อ</div>
-          <div className="rank-column col">นามสกุล</div>
-          <div className="rank-column col">เลขที่บัญชี</div>
-          <div className="rank-column col">ยอดเงินทั้งหมด</div>
-          <div className="rank-column col">จำนวนครั้งที่โกง</div>
-          <div className="rank-column col">วันที่โกง</div>
-        </div>
+
+          <div className="rank-column-row row">
+            <div className="rank-column cell col-1">อันดับ</div>
+            <div className="rank-column cell col">ชื่อ</div>
+            <div className="rank-column cell col">นามสกุล</div>
+            <div className="rank-column cell col">เลขที่บัญชี</div>
+            <div className="rank-column cell col">ยอดเงินทั้งหมด</div>
+            <div className="rank-column cell col">จำนวนครั้งที่โกง</div>
+            <div className="rank-column cell col">วันที่โกง</div>
+          </div>
+
         {ThiefRank
           ? ThiefRank.map((element, index) => {
               return (
-                <div className="rank-data-row">
-                  <div className="rank-column col-1">{index + 1}</div>
-                  <div className="rank-column col">
-                    <span>{element.name}</span>
+
+                  <div className="rank-data-row row">
+                    <div className="rank-column cell col-1">{index + 1}</div>
+                    <div className="rank-column cell col">
+                      <span>{element.name}</span>
+                    </div>
+                    <div className="rank-column cell col">{element.surname}</div>
+                    <div className="rank-column cell col">{element.accountnumber}</div>
+                    <div className="rank-column cell col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></div>
+                    <div className="rank-column cell col">{element.count}</div>
+                    <div className="rank-column cell col">
+                      {moment(new Date(element.wanteedon.seconds * 1000)).format(
+                        'MM/DD/YYYY HH:mm'
+                      )}
+                    </div>
                   </div>
-                  <div className="rank-column col">{element.surname}</div>
-                  <div className="rank-column col">{element.accountnumber}</div>
-                  <div className="rank-column col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></div>
-                  <div className="rank-column col">{element.count}</div>
-                  <div className="rank-column col">
-                    {moment(new Date(element.wanteedon.seconds * 1000)).format(
-                      'MM/DD/YYYY HH:mm'
-                    )}
-                  </div>
-                </div>
+                  
               );
             })
           : null}
