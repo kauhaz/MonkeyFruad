@@ -252,7 +252,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                                 <div className="img-holder-badslip">
                                 
                                     <img
-                                      className="img-bad"
+                                      className="img-badreport"
                                       alt=""
                                       src={`${element.url}`}
                                       style={{ overflow: "hidden" }}
