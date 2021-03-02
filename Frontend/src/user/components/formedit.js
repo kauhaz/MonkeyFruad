@@ -522,6 +522,8 @@ const Formedit = ({ check, Setcheck }) => {
                                   <option>ไทยพาณิชย์</option>
                                   <option>ธนชาต</option>
                                   <option>ยูโอบี</option>
+                                  <option>พร้อมเพย์</option>
+                                  <option>ทรูวอลเลต</option>
                                 </Form.Control>
                               ) : null}
                             </Form.Group>
