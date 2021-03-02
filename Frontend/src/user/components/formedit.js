@@ -20,7 +20,7 @@ const Formedit = ({ check, Setcheck }) => {
   const [photo, Setphoto] = useState();
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [id, setId] = useState();
+  const [id, setId] = useState("-");
   const [accountnumber, setAccountnumber] = useState();
   const [oldaccountnumber, setOldAccountnumber] = useState();
   const [nameproduct, setNameproduct] = useState();
@@ -29,7 +29,7 @@ const Formedit = ({ check, Setcheck }) => {
   const [bank, setBank] = useState();
   const [datetime, setDatetime] = useState();
   const [social, setSocial] = useState();
-  const [other, setOther] = useState("");
+  const [other, setOther] = useState("-");
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [fuck, Setfuck] = useState([]);
@@ -522,6 +522,8 @@ const Formedit = ({ check, Setcheck }) => {
                                   <option>ไทยพาณิชย์</option>
                                   <option>ธนชาต</option>
                                   <option>ยูโอบี</option>
+                                  <option>พร้อมเพย์</option>
+                                  <option>ทรูวอลเลต</option>
                                 </Form.Control>
                               ) : null}
                             </Form.Group>
