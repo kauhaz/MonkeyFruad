@@ -8,6 +8,8 @@ import _ from "lodash";
 import ClipLoaderEdit from "./clipLoaderEdit";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
+import Modaldelete from "./Modaldelete";
+
 
 const Listcomment2 = ({
   commentmore,
@@ -28,6 +30,9 @@ const Listcomment2 = ({
   const [fuck, Setfuck] = useState([]);
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
 
   let { user, setUser } = useContext(usercontext);
 
@@ -37,6 +42,13 @@ const Listcomment2 = ({
   const handleclosemodal = async () => {
     Setisopen(false);
   };
+  const handlemodalopen = async () => {
+    Setopenmodal(true)
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false) 
+   };
+
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -274,7 +286,7 @@ const Listcomment2 = ({
                           <a
                             className="a-mypostcommentmenusetting"
                             onClick={() =>
-                              deleted(commentmore.commentid, commentmore)
+                              (Setmodalcommentid(commentmore.commentid),Setmodalcommentmore(commentmore),setIsActive(false),handlemodalopen())
                             }
                           >
                             {" "}
@@ -286,6 +298,19 @@ const Listcomment2 = ({
                   </div>
                 </div>
               ) : null}
+                <Modaldelete
+                   text={"deletecomment"}
+                    openmodal={openmodal}
+                    handlemodalopen={handlemodalopen}
+                    handlemodalclose={handlemodalclose}
+                    modalcommentid={modalcommentid}
+                    modalcommentmore={modalcommentmore}
+                    setIsActive={setIsActive}
+                    Setfuck={Setfuck}
+                    setImagesFile={setImagesFile}
+                    Setfiles={Setfiles}
+                    handledeletetorerender={handledeletetorerender}
+                  />
             </div>
 
             <br />
