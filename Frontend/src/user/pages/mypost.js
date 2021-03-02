@@ -715,9 +715,9 @@ const Mypost = () => {
                           </Form.Row>
 
                           <Form.Group controlId="exampleForm.ControlTextarea1">
-                            <Form.Label className="text-mypost">
+                            <Form.Label className="text-mypost1">
                               รายละเอียดเพิ่มเติม{" "}
-                              <span className="spanmypost">{ok.other}</span>
+                              <span className="spanmypostmore">{ok.other}</span>
                             </Form.Label>
                           </Form.Group>
                           <div className="imgcommentitemmypost1">
