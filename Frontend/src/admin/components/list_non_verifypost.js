@@ -76,6 +76,16 @@ const Non_listverifypost = ({ reportelement }) => {
     <div>
       <div className="container-report1">
         <div className="container-report2">
+          <div
+            onClick={(e) => ChangeRead(e)}
+            className="hide-report-button"
+            name="ซ่อนรายงาน"
+          >
+            <Link className="reportother1" to={`/post/${reportelement.postid}`}>
+              <i className="fa fa-check-circle"> </i>
+            </Link>
+          </div>
+
           <Form className="formsize-report">
             <Form.Row>
               <Form.Group
@@ -239,11 +249,6 @@ const Non_listverifypost = ({ reportelement }) => {
               </Form.Group>
             </Form.Row>
           </Form>
-          <div onClick={(e) => ChangeRead(e)} className="reportother">
-            <Link className="reportother1" to={`/post/${reportelement.postid}`}>
-              ตรวจสอบโพสต์
-            </Link>
-          </div>
         </div>
       </div>
     </div>
