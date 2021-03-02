@@ -367,7 +367,6 @@ const Formedit = ({ check, Setcheck }) => {
                                   onChange={(event) => {
                                     setId(event.target.value);
                                   }}
-                                  required
                                 />
                               ) : null}
                               {/* <Form.Control type="name" placeholder=""  onChange={(event)=>{setId(event.target.value)}} required />} */}
