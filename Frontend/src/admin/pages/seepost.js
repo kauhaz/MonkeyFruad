@@ -55,7 +55,7 @@ const Seepost = () => {
             ? mypost.map((ok) => {
                 return (
                   <div>
-                    <div className="container-mypost">
+                    <div className="container-post2">
                       <button
                         onClick={(e) => deleteClick(e)}
                         variant="primary"
@@ -63,34 +63,29 @@ const Seepost = () => {
                       >
                         <i class="far fa-trash-alt"></i>
                       </button>
-                      <div className="cotainer-mypost2">
-                        <div className="mypost-profile-img">
-                          {ok.photoURL ? (
-                            <img
-                              className="img-circle"
-                              src={`${ok.photoURL.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src="/img/profile.png"
-                            />
-                          )}
-                          <div className="mypost-name">
-                            {ok.username ? "@" : null}
-                            {ok ? ok.username : null}
-                          </div>
-                          <br />
-                          <div className="mypost-date">
-                            {moment(new Date(ok.date.seconds * 1000)).format(
-                              "MM/DD/YYYY HH:mm"
-                            )}{" "}
-                            {/* <span className="mypost-time">23:38 </span> */}
-                          </div>
+                      <div className="mypost-profile-img">
+                        {ok.photoURL ? (
+                          <img
+                            className="img-circle"
+                            src={`${ok.photoURL.url}`}
+                          />
+                        ) : (
+                          <img className="img-circle" src="/img/profile.png" />
+                        )}
+                        <div className="mypost-name">
+                          {ok.username ? "@" : null}
+                          {ok ? ok.username : null}
                         </div>
+                        <br />
+                        <div className="mypost-date">
+                          {moment(new Date(ok.date.seconds * 1000)).format(
+                            "MM/DD/YYYY HH:mm"
+                          )}{" "}
+                          {/* <span className="mypost-time">23:38 </span> */}
+                        </div>
+                      </div>
 
-
-                        <div className="container-mypost3">
+                      <div className="container-mypost2">
                         <div className="mypostprofile-bad-img">
                           {ok.resultfile ? (
                             <img
@@ -104,6 +99,7 @@ const Seepost = () => {
                             />
                           )}
                         </div>
+                        <div className="container-myposts3">
                         <Form className="formsize-mypost">
                           <Form.Row>
                             <Form.Group
@@ -217,11 +213,15 @@ const Seepost = () => {
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
-
+                          <br />
                           <Form.Row>
                             <Form.Group as={Col} controlId="formGridSocial">
                               <Form.Label className="text-mypost">
-                                จำนวนครั้งที่ {ok.name} {ok.surname} ถูกแจ้ง{" "}
+                                จำนวนครั้งที่{" "}
+                                <span className="spanmypostname">
+                                  {ok.name} {ok.surname}
+                                </span>{" "}
+                                ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
                                 </span>
@@ -245,7 +245,7 @@ const Seepost = () => {
                               <span className="spanmypost">{ok.other}</span>
                             </Form.Label>
                           </Form.Group>
-                          <div className="img-holder-badslip">
+                          <div className="imgcommentitemmypost1">
                             {ok.item
                               ? ok.item.map((res) => {
                                   return (
@@ -270,11 +270,11 @@ const Seepost = () => {
                             />
                           </div>
                         </Form>
-                        <div className="line-comment1"></div>
-                        <div className="container-mypost4">
-                          <Commentmypost postid={ok.uid} />
-                        </div>
-                        </div>
+                      </div>
+                      <div className="line-comments1"></div>
+                      <div className="container-mypost4">
+                        <Commentmypost postid={ok.uid} />
+                      </div>
                       </div>
                     </div>
                   </div>
