@@ -20,7 +20,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [photo, Setphoto] = useState("");
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
   const [accountnumber, setAccountnumber] = useState();
   const [nameproduct, setNameproduct] = useState();
   const [productcategory, setProductcategory] = useState();
