@@ -249,7 +249,7 @@ const Mypost = () => {
             ? mypost.map((ok) => {
                 return (
                   <div>
-                    <div className="container-mypost">
+                    <div className="container-post2">
                       {user && user.uid != ok.useruid ? (
                         <div className="mypostbuttonreport">
                           <button

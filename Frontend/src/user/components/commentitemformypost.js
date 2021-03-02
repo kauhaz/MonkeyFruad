@@ -345,7 +345,7 @@ const Commentitemformypost = ({ postid }) => {
                               alt="previewImg"
                               src={imagePreviewUrl}
                             />
-                              <span className="deleteimgposts1">
+                              <span className="deleteimgmyposts1">
                               <img
                                 className="deleteimgmyposts2"
                                 src="/img/delete2.png"

@@ -48,6 +48,19 @@
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
+.container-post2 {
+  width: 50%;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+}
+
 .mypost-profile-img img.img-circle {
   width: 50px;
   height: 50px;
@@ -335,7 +348,7 @@
 .line-comments1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .formsize-mypost {
@@ -450,7 +463,7 @@
   .container-mypost {
     width: 88%;
   }
-  .container-mypost3 {
+  .container-myposts3 {
     width: 95%;
   }
   .container-mypost4 {
@@ -467,7 +480,7 @@
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     margin-top: -10px;
   }
-  .container-mypost3 {
+  .container-myposts3 {
     width: 85%;
   }
   .img-bad {
@@ -514,7 +527,7 @@
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     margin-top: -10px;
   }
-  .container-mypost3 {
+  .container-myposts3 {
     width: 85%;
   }
   .img-bad {
@@ -526,13 +539,8 @@
     display: block;
   }
   .container-mypost4 {
-    margin-top: -100px;
     width: 100%;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-    margin-top: -100px;
-    margin-bottom: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 20px;
   }
   .text-mypost,
   .spanmypost {
