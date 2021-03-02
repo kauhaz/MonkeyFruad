@@ -5871,7 +5871,7 @@ const Post = () => {
                                 </Form.Group>
 
                                 <Form.Group>
-                                  <span className="spanpost2">
+                                  <span className="spanpost">
                                     {res.social}{" "}
                                   </span>
                                 </Form.Group>
