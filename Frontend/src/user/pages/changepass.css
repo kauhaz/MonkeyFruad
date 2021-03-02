@@ -1,6 +1,6 @@
 .container-changepass {
     margin: 25px auto;
-    padding: 15px 20px;
+    padding: 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -91,7 +91,7 @@
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .container-changepass {
-        margin: 8% auto 0 auto;
+        margin: 7% auto 0 auto;
     }
     .ChangePassForm img {
         width: 130px;
@@ -111,7 +111,7 @@
 
 @media only screen and (min-width: 1920px) {
     .container-changepass {
-        margin: 10% auto 0 auto;
+        margin: 9% auto 0 auto;
     }
     .ChangePassForm .h1 {
         color:  #5c5c5c;

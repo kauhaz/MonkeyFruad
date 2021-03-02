@@ -1,6 +1,6 @@
 .container-forget {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -73,7 +73,7 @@
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .container-forget {
-        margin: 7% auto 0 auto;
+        margin: 6% auto 0 auto;
     }
     .ForgetPassForm img {
         width: 130px;
@@ -89,7 +89,7 @@
 
 @media only screen and (min-width: 1920px) {
     .container-forget {
-        margin: 10% auto 0 auto;
+        margin: 9% auto 0 auto;
     }
     .ForgetPassForm .h1 {
         font-size: 25px
