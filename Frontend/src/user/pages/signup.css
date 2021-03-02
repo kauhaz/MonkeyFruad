@@ -1,6 +1,6 @@
 .container-signup {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -88,8 +88,9 @@
 }
 
 .signup-login a {
-    color: #212529;
+    color: #525252;
     font-size: 16px;
+    font-weight: 500;
 }
 
 .signup-login a:hover {
