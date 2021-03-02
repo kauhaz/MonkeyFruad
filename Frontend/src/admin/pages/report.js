@@ -134,7 +134,6 @@ const Report = () => {
       </div>
 
       <div className="container-report0">
-
         {nonverifypost ? (
           <h2 className="h2-report">ทั้งหมด {nonverifypost.length} รายงาน</h2>
         ) : (
@@ -176,9 +175,7 @@ const Report = () => {
               );
             })
           : null}
-
       </div>
-
     </div>
   );
 };

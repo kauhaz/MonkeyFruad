@@ -371,7 +371,6 @@ const Mypost = () => {
                                 </div>
                                 <div className="form-groupreport">
                                   <label htmlFor="exampleFormControlTextarea1"></label>
-                                  {checkselectthree ? (
                                     <textarea
                                       className="form-control"
                                       id="exampleFormControlTextarea1"
@@ -381,17 +380,6 @@ const Mypost = () => {
                                         setDescription(e.target.value)
                                       }
                                     />
-                                  ) : (
-                                    <textarea
-                                      className="form-control"
-                                      id="exampleFormControlTextarea1"
-                                      rows="4"
-                                      placeholder="อธิบายรายละเอียดเพิ่มเติม"
-                                      readOnly={true}
-                                      ref={inputTextArea}
-                                      value={description}
-                                    />
-                                  )}
                                 </div>
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
