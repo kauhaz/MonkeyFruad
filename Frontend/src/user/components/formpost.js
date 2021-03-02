@@ -11,6 +11,7 @@ import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
 import Modalimage from "./Modalimage";
+import * as moment from "moment";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -397,6 +398,7 @@ const Formpost = ({ check, Setcheck }) => {
                     id="number"
                     pattern="[0-9]{1,}"
                     title="กรอกตัวเลขเท่านั้น"
+                    min='1'
                     placeholder=""
                     required
                     onChange={(event) => {
@@ -445,6 +447,7 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Label>
                   <Form.Control
                     type="datetime-local"
+                    max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
                     placeholder=""
                     required
                     onChange={(event) => {
