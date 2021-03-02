@@ -249,7 +249,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
               className="reportother1"
               to={`/post/${reportelement.postid}`}
             >
-              ตรวจสอบโพสต์
+              ดูเพิ่มเติม
             </Link>
           </div>
         </div>

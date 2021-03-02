@@ -98,7 +98,8 @@ const Post = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-
+  console.log(searchstart)
+  console.log(searchend)
   const ok = async () => {
     Setloading(true);
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
@@ -118,9 +119,10 @@ const Post = () => {
     var item = [];
 
     getsort.filter((doc) => {
-      if (checkfacebook) {
+      if (checkfacebook) {  
         Setshow();
         if (doc.social === "Facebook") {
+         
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {
@@ -186,7 +188,9 @@ const Post = () => {
             if (doc.productcategory === "รองเท้า") {
               if (searchstart && searchend) {
                 Setshow();
-                if (doc.money >= searchstart) {
+                if (doc.money >= searchstart) 
+                {
+
                   if (doc.money <= searchend) {
                     item.push(doc);
                     Setshow();
@@ -194,6 +198,9 @@ const Post = () => {
                 }
               } else if (searchstart) {
                 Setshow();
+                if(searchstart < 0){
+                  Setshow()
+                }
                 if (doc.money >= searchstart) {
                   console.log(doc);
                   item.push(doc);
@@ -862,7 +869,9 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-            if (searchstart && searchend) {
+        
+             if (searchstart && searchend) {
+               console.log("a")
               Setshow();
               if (doc.money >= searchstart) {
                 if (doc.money <= searchend) {
@@ -871,15 +880,26 @@ const Post = () => {
                 }
               }
             } else if (searchstart) {
+              console.log("b")
               Setshow();
-              if (doc.money >= searchstart) {
+              if(searchstart < 0){
+                Setshow()
+              } 
+              else if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
-            } else if (searchend) {
+            } 
+
+             else if (searchend) {
+               console.log(searchend)
+              console.log("c")
               Setshow();
-              if (doc.money <= searchend) {
+              if(searchend < 0){
+                Setshow()
+              }
+              else if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -1651,14 +1671,21 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if (doc.money >= searchstart) {
-                console.log(doc);
+              if(searchstart < 0){
+                Setshow()
+              }
+              else if (doc.money >= searchstart) {
+                
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
+              console.log(doc);
               Setshow();
-              if (doc.money <= searchend) {
+              if(searchend < 0){
+                Setshow()
+              }
+              else if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -2432,14 +2459,21 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if (doc.money >= searchstart) {
+              if(searchstart < 0){
+                Setshow()
+              }
+              else if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
-            } else if (searchend) {
+            } 
+             if (searchend) {
               Setshow();
-              if (doc.money <= searchend) {
+              if(searchend < 0){
+                Setshow()
+              }
+              else if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -3214,14 +3248,20 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if (doc.money >= searchstart) {
+              if(searchstart < 0){
+                Setshow()
+              }
+              else if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
               Setshow();
-              if (doc.money <= searchend) {
+              if(searchend < 0){
+                Setshow()
+              }
+              else if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -3996,14 +4036,20 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if (doc.money >= searchstart) {
+              if(searchstart < 0){
+                Setshow()
+              }
+              else if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
               Setshow();
-              if (doc.money <= searchend) {
+              if(searchend < 0){
+                Setshow()
+              }
+              else if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -4956,13 +5002,19 @@ const Post = () => {
           }
         } else if (searchstart) {
           Setshow();
-          if (doc.money >= searchstart) {
+          if(searchstart < 0){
+            Setshow()
+          }
+          else if (doc.money >= searchstart) {
             item.push(doc);
             Setshow();
           }
         } else if (searchend) {
           Setshow();
-          if (doc.money <= searchend) {
+          if(searchend < 0){
+            Setshow()
+          }
+          else if (doc.money <= searchend) {
             item.push(doc);
             Setshow();
           }
