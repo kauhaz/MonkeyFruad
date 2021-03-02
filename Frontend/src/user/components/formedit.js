@@ -352,7 +352,6 @@ const Formedit = ({ check, Setcheck }) => {
                             >
                               <Form.Label className="text-formedit">
                                 เลขบัตรประชาชน (ผู้โกง)
-                                <span className="spanformedit">*</span>
                               </Form.Label>
                               {show ? (
                                 <Form.Control

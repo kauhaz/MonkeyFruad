@@ -562,7 +562,9 @@ const Formpost = ({ check, Setcheck }) => {
 
               <h1 className="h1-formpostfileerror">{error}</h1>
 
-              <button className="buttonformpost" type="submit">
+              <button 
+              className="buttonformpost" 
+              type="submit">
                 โพสต์
               </button>
             </Form>
