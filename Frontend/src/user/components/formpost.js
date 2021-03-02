@@ -20,7 +20,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [photo, Setphoto] = useState("");
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [id, setId] = useState("-");
+  const [id, setId] = useState("");
   const [accountnumber, setAccountnumber] = useState();
   const [nameproduct, setNameproduct] = useState();
   const [productcategory, setProductcategory] = useState();
@@ -28,7 +28,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [bank, setBank] = useState();
   const [datetime, setDatetime] = useState();
   const [social, setSocial] = useState();
-  const [other, setOther] = useState("-");
+  const [other, setOther] = useState("");
   const [error, Seterror] = useState();
   const [username, setUsername] = useState("");
   const [photoprofileurl, Setphotoprofileurl] = useState();
