@@ -132,18 +132,13 @@
 
 .buttonformedit:hover {
   background-color: #3c6fce;
-  color: white;
-
 }
 
-.buttonformedit:active {
-  width: 100%;
-  font-size: 20px;
-  background-color: #8b0000;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  margin-top: 10px;
+.h1-formeditfileerror {
+  color: #ff392e;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .postdelete {
@@ -202,13 +197,6 @@
 .uploadproveeditedit2 {
   width: 100%;
   padding: 60px;
-}
-
-.h1-formeditfileerror {
-  color: #ff392e;
-  font-size: 17px;
-  text-align: center;
-  margin-bottom: 20px;
 }
 
 /*Responsive*/

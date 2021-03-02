@@ -121,6 +121,10 @@
   width: 180% !important;
 }
 
+.text-mypost1 { 
+  width: 110% !important;
+}
+
 .spanreport {
   font-size: 16px;
   color: #ff392e;
@@ -129,6 +133,11 @@
 .spanreport2 {
   font-size: 16px;
   color: #1fd307;
+}
+
+.spanmypostmore{
+  color: #ff392e;
+  font-size: 16px;
 }
 
 .container-img-holder-imgpreviewreport .imgpreview {

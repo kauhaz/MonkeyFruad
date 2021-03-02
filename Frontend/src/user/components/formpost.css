@@ -177,18 +177,7 @@
 
 .buttonformpost:hover {
   background-color: #3c6fce;
-  color: white;
 }
-
-/* .buttonformpost:active{
-    width: 100%;
-    font-size: 20px;
-    background-color: #91a6cf;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-top: 10px;
-} */
 
 .h1-formpostfileerror {
   color: #ff392e;
