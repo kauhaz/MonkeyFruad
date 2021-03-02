@@ -20,7 +20,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [photo, Setphoto] = useState("");
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
   const [accountnumber, setAccountnumber] = useState();
   const [nameproduct, setNameproduct] = useState();
   const [productcategory, setProductcategory] = useState();
@@ -428,6 +428,8 @@ const Formpost = ({ check, Setcheck }) => {
                     <option>ไทยพาณิชย์</option>
                     <option>ธนชาต</option>
                     <option>ยูโอบี</option>
+                    <option>พร้อมเพย์</option>
+                    <option>ทรูวอลเลต</option>
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
@@ -562,7 +564,9 @@ const Formpost = ({ check, Setcheck }) => {
 
               <h1 className="h1-formpostfileerror">{error}</h1>
 
-              <button className="buttonformpost" type="submit">
+              <button 
+              className="buttonformpost" 
+              type="submit">
                 โพสต์
               </button>
             </Form>

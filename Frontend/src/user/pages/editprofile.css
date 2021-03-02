@@ -141,7 +141,7 @@
 
 @media only screen and (max-width: 1367px) {
     .container-editprofile {
-        margin: 1% auto 0 auto;
+        margin: .5% auto 0 auto;
     }
     .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
         font-size: 16px;

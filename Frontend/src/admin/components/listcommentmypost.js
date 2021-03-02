@@ -4,12 +4,9 @@ import "../../user/components/Listcomment2.css";
 import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
-import Modalimage from "../../user/components/Modalimage"
+import Modalimage from "../../user/components/Modalimage";
 
-
-const Listcommentmypost = ({
-  commentmore,
-}) => {
+const Listcommentmypost = ({ commentmore }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [files, Setfiles] = useState();
   const [error, Seterror] = useState();
@@ -25,13 +22,12 @@ const Listcommentmypost = ({
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
 
-
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const gg = async () => {
     try {
@@ -51,9 +47,9 @@ const Listcommentmypost = ({
     <div>
       {commentmore ? (
         <div className="row mypostcommentrow">
-          <div className="column1 mypostcommentrow1">
-            <div class="vl"></div>
-            <div className="mypost-comment-img1">
+          <div class="vl"></div>
+          <div className="mypost-comment-img1">
+            <div className="header-mypost-comment">
               <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
@@ -74,30 +70,33 @@ const Listcommentmypost = ({
                   )}{" "}
                 </span>
               </div>
-              <br />
-              
-                <div className="mypost-comment-comments1">
-                  <div className="mypostcomment1">
-                    {commentmore.textcomment}
-                  </div>
-
-                  <div className="row imglistcommentmypost">
-                    {imagecomment
-                      ? imagecomment.map((doc) => {
-                          return (
-                            <div className="imglistcommentmypost1 col-6">
-                              <img
-                                className="listcommentmypost2"
-                                src={`${doc.url}`}
-                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
-                              />
-                            </div>
-                          );
-                        })
-                      : null}
-                      <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
-                  </div>
-                </div>
+            </div>
+            <br />
+            <div className="mypost-comment-comments2">
+              <div className="mypostcomment1">{commentmore.textcomment}</div>
+              <div className="imglistcommentmypost">
+                {imagecomment
+                  ? imagecomment.map((doc) => {
+                      return (
+                        <div className="imglistcommentmypost1">
+                          <img
+                            className="listcommentmypost2"
+                            src={`${doc.url}`}
+                            onClick={() => (
+                              Setimagemodal(doc.url), handleopenmodal()
+                            )}
+                          />
+                        </div>
+                      );
+                    })
+                  : null}
+                <Modalimage
+                  isopen={isopen}
+                  handleopenmodal={handleopenmodal}
+                  handleclosemodal={handleclosemodal}
+                  imagemodal={imagemodal}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -106,6 +105,3 @@ const Listcommentmypost = ({
   );
 };
 export default Listcommentmypost;
-
-
-
