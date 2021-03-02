@@ -24,11 +24,11 @@ const Non_listverifypost = ({ reportelement }) => {
   };
   const handleopenmodal = async () => {
     Setisopen(true);
-    handleClose()
+    handleClose();
   };
   const handleclosemodal = async (e) => {
     Setisopen(false);
-    handleShow(e)
+    handleShow(e);
   };
   const initReport = async () => {
     try {
@@ -170,13 +170,13 @@ const Non_listverifypost = ({ reportelement }) => {
               >
                 <Form.Label>
                   รูปหลักฐาน :
-                    <div
-                      variant="primary"
-                      onClick={(e) => handleShow(e)}
-                      className="proof-button-reported"
-                    >
-                      คลิกเพื่อดู
-                    </div>
+                  <div
+                    variant="primary"
+                    onClick={(e) => handleShow(e)}
+                    className="proof-button-reported"
+                  >
+                    คลิกเพื่อดู
+                  </div>
                 </Form.Label>
                 <Form.Row>
                   <Modal
@@ -195,18 +195,16 @@ const Non_listverifypost = ({ reportelement }) => {
                           ? reportelement.fileUploads.map((element, index) => {
                               return (
                                 <div className="img-holder-badslip">
-                              
-                                    <img
-                                      className="img-bad"
-                                      alt=""
-                                      src={`${element.url}`}
-                                      style={{ overflow: "hidden" }}
-                                      onClick={() => (
-                                        Setimagemodal(element.url),
-                                        handleopenmodal()
-                                      )}
-                                    />
-                                  
+                                  <img
+                                    className="img-badreport"
+                                    alt=""
+                                    src={`${element.url}`}
+                                    style={{ overflow: "hidden" }}
+                                    onClick={() => (
+                                      Setimagemodal(element.url),
+                                      handleopenmodal()
+                                    )}
+                                  />
                                 </div>
                               );
                             })
@@ -215,22 +213,22 @@ const Non_listverifypost = ({ reportelement }) => {
                     </Modal.Body>
                   </Modal>
                   <Modalimage
-                                        isopen={isopen}
-                                        handleopenmodal={handleopenmodal}
-                                        handleclosemodal={handleclosemodal}
-                                        imagemodal={imagemodal}
-                            />
+                    isopen={isopen}
+                    handleopenmodal={handleopenmodal}
+                    handleclosemodal={handleclosemodal}
+                    imagemodal={imagemodal}
+                  />
                 </Form.Row>
                 <Form.Label>
-                  <div className="count-report">  
-                      จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  <div className="count-report">
+                    จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
                   </div>
                 </Form.Label>
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
-                <div className="textarea-report"> 
+                <div className="textarea-report">
                   <Form.Control
                     as="textarea"
                     rows={4}
@@ -242,10 +240,7 @@ const Non_listverifypost = ({ reportelement }) => {
             </Form.Row>
           </Form>
           <div onClick={(e) => ChangeRead(e)} className="reportother">
-            <Link
-              className="reportother1"
-              to={`/post/${reportelement.postid}`}
-            >
+            <Link className="reportother1" to={`/post/${reportelement.postid}`}>
               ตรวจสอบโพสต์
             </Link>
           </div>
