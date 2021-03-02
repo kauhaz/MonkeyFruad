@@ -398,6 +398,7 @@ const Formpost = ({ check, Setcheck }) => {
                     id="nameproduct"
                     pattern="[0-9]{1,}"
                     title="กรอกตัวเลขเท่านั้น"
+                    min='1'
                     placeholder=""
                     required
                     onChange={(event) => {
