@@ -487,6 +487,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   pattern="[0-9]{1,}"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
+                                  min='1'
                                   value={money}
                                   onChange={(event) => {
                                     setMoney(event.target.value);
