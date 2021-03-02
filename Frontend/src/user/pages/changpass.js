@@ -133,7 +133,7 @@ const Changepass = () => {
             >
               {({ errors, touched }) => (
                 <Form>
-                  <div className="form-group mb-1">
+                  <div className="form-group mb-3">
                     <Field
                       name="oldPassword"
                       type="password"
@@ -157,7 +157,7 @@ const Changepass = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
+                  <div className="form-group mb-3">
                     <Field
                       name="password"
                       type="password"
