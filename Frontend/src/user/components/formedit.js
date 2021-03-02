@@ -9,7 +9,7 @@ import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
-
+import * as moment from "moment";
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
 
@@ -543,6 +543,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
+                                  max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);
