@@ -428,6 +428,8 @@ const Formpost = ({ check, Setcheck }) => {
                     <option>ไทยพาณิชย์</option>
                     <option>ธนชาต</option>
                     <option>ยูโอบี</option>
+                    <option>พร้อมเพย์</option>
+                    <option>ทรูวอลเลต</option>
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
