@@ -449,7 +449,7 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Label>
                   <Form.Control
                     type="datetime-local"
-                    max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm ')}`} 
+                    max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
 
                     placeholder=""
                     required
