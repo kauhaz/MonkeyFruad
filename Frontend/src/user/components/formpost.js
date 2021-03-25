@@ -38,6 +38,7 @@ const Formpost = ({ check, Setcheck }) => {
   const [fuck, Setfuck] = useState([]);
   const [imagecomment, Setimagecomment] = useState();
 
+  
   // ฟังก์ชันเปลี่ยนรูปโปร
   const ProfileChange = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -52,6 +53,7 @@ const Formpost = ({ check, Setcheck }) => {
   };
 
   // ฟังก์ชันอัพโหลดไฟล์
+  console.log(datetime)
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
 
@@ -448,6 +450,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="datetime-local"
                     max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
+
                     placeholder=""
                     required
                     onChange={(event) => {

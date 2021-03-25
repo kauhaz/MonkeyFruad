@@ -4,12 +4,28 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
+import Modaldelete from "./Modaldelete";
+
 
 const Historyitem = ({ ok, user, handledeletetorerender}) => {
   const [isActive, setIsActive] = useState(false);
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState()
+  const [files, Setfiles] = useState();
+
+
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 
+  const handlemodalopen = async () => {
+    Setopenmodal(true)
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false) 
+   };
   const deleted = async (uid, ok) => {
     try {
       console.log(ok);
@@ -60,7 +76,7 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   <li className="li-historymenusetting">
                     <a
                       className="a-historymenusetting"
-                      onClick={() => deleted(ok.uid, ok)}
+                      onClick={() =>  (Setmodalcommentid(ok.uid),Setmodalcommentmore(ok),setIsActive(false),handlemodalopen())}
                     >
                       {" "}
                       ลบโพสต์{" "}
@@ -69,6 +85,19 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                 </ul>
               </div>
             </div>
+            <Modaldelete
+                    text={"deletepost"}
+                    openmodal={openmodal}
+                    handlemodalopen={handlemodalopen}
+                    handlemodalclose={handlemodalclose}
+                    modalcommentid={modalcommentid}
+                    modalcommentmore={modalcommentmore}
+                    setIsActive={setIsActive}
+                    Setfuck={Setfuck}
+                    setImagesFile={setImagesFile}
+                    Setfiles={Setfiles}
+                    handledeletetorerender={handledeletetorerender}
+                  />
           </div>
           <div className="container-history">
             <Form className="formsize-history">
