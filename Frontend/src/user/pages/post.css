@@ -464,6 +464,9 @@ color:gray
   .h1-posts {
     font-size: 23px;
   }
+  .monkey {
+    margin-left: 100px;
+  }
 }
 
 @media only screen and (max-width: 1367px){
