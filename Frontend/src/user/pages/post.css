@@ -385,11 +385,20 @@ color:gray
 
 /*Responsive*/ 
 @media only screen and (min-width: 1920px){
+  .container-bigpost1 {
+    width: 60%;
+  }
+
+  /* .container-post1 {
+    width: 80%;
+  } */
+
   .post-linkpost1 {
     font-size: 22px;
   }
   
   .container-posts2 {
+    /* width: 80%; */
     font-size: 22px;
   }
   
@@ -410,6 +419,7 @@ color:gray
   }
   
   .container-postright1 {
+    /* width: 80%; */
     font-size: 22px;
   }
   
@@ -418,6 +428,7 @@ color:gray
   }
   
   .container-postright2 {
+    /* width: 80%; */
     font-size: 22px;
   }
   
@@ -463,9 +474,6 @@ color:gray
   
   .h1-posts {
     font-size: 23px;
-  }
-  .monkey {
-    margin-left: 100px;
   }
 }
 

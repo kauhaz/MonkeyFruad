@@ -73,6 +73,7 @@ img.img-circle {
 .uploadproveedit2 {
   width: 100%;
   padding: 40px;
+    cursor: pointer;
 }
 
 .imgcommentitempost1 {
@@ -169,8 +170,8 @@ img.img-circle {
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreviewa1,.uploadproveedit1 {
-    width: 160px;
-    height: 160px;
+    width: 135px;
+    height: 135px;
   }
 }
 
