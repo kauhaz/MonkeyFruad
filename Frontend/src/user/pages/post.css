@@ -403,7 +403,6 @@
   }
 
   .container-postright1 {
-    /* width: 80%; */
     font-size: 22px;
   }
 
@@ -547,11 +546,16 @@
     width: 90%;
   }
 
+  .container-post1 {
+    margin-top: 30px;
+  }
+
   .post-linkpost1 {
     font-size: 20px;
   }
 
   .container-posts2 {
+    margin-top: 30px;
     font-size: 20px;
   }
 
@@ -572,6 +576,7 @@
   }
 
   .container-postright1 {
+    display: none;
     font-size: 20px;
   }
 
@@ -580,6 +585,8 @@
   }
 
   .container-postright2 {
+    display: none;
+    margin-top: 30px;
     font-size: 20px;
   }
 
@@ -668,6 +675,7 @@
   }
 
   .container-postright1 {
+    display: none;
     margin-top: 30px;
     font-size: 20px;
   }
@@ -677,8 +685,9 @@
   }
 
   .container-postright2 {
-    margin-top: 30px;
-    font-size: 20px;
+    display: none;
+    /* margin-top: 30px;
+    font-size: 20px; */
   }
 
   .container-postrights2 {
@@ -765,6 +774,7 @@
   }
 
   .container-postright1 {
+    display: none;
     font-size: 20px;
   }
 
@@ -773,6 +783,7 @@
   }
 
   .container-postright2 {
+    display: none;
     font-size: 20px;
   }
 
@@ -846,6 +857,7 @@
   }
 
   .container-postright1 {
+    display: none;
     font-size: 20px;
   }
 
@@ -854,6 +866,7 @@
   }
 
   .container-postright2 {
+    display: none;
     font-size: 20px;
   }
 
@@ -928,6 +941,7 @@
   }
 
   .container-postright1 {
+    display: none;
     font-size: 20px;
   }
 
@@ -936,6 +950,7 @@
   }
 
   .container-postright2 {
+    display: none;
     font-size: 20px;
   }
 
