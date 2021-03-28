@@ -7,7 +7,6 @@
 
 .column-post-left1 {
   width: 63%;
-  margin-left: 15px;
   height: 2000px;
 }
 
@@ -22,12 +21,11 @@
   background-color: white;
   border-radius: 10px;
   margin-top: 60px;
-  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
   align-items: center;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 30% 70%;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -37,7 +35,7 @@
 }
 
 .monkey {
-  width: 180%;
+  width: 80%;
   margin-left: 80px;
 }
 
@@ -45,7 +43,6 @@
   width: 100%;
   font-size: 20px;
   text-align: center;
-  margin-left: 45px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
@@ -152,14 +149,6 @@
 .container-posts4 {
   width: 100%;
   padding: 20px;
-}
-
-.column1-postrow1 {
-  width: 30%;
-}
-
-.column2-postrow2 {
-  width: 70%;
 }
 
 .container-postright1 {
@@ -379,672 +368,618 @@
   margin-right: auto;
   height: 2000px;
 }
-.fa-check-circle{
-color:gray
+.fa-check-circle {
+  color: gray;
 }
 
-/*Responsive*/ 
-@media only screen and (min-width: 1920px){
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
   .container-bigpost1 {
     width: 60%;
   }
 
-  /* .container-post1 {
-    width: 80%;
-  } */
-
   .post-linkpost1 {
     font-size: 22px;
   }
-  
+
   .container-posts2 {
-    /* width: 80%; */
     font-size: 22px;
   }
-  
+
   .posts-name1 {
     font-size: 20px;
   }
-  
+
   .post-date {
     font-size: 16px;
   }
-  
+
   .formsize-post {
     font-size: 18px;
   }
-  
+
   .postothers {
     font-size: 18px;
   }
-  
+
   .container-postright1 {
     /* width: 80%; */
     font-size: 22px;
   }
-  
+
   .post-linkpost2 {
     font-size: 20px;
   }
-  
+
   .container-postright2 {
-    /* width: 80%; */
     font-size: 22px;
   }
-  
+
   .container-postrights2 {
     font-size: 22px;
   }
-  
+
   .post-group1 {
-    font-size: 20px;
-  }
-  
-  .post-groupsorting1 {
     font-size: 18px;
   }
-  
+
+  .post-groupsorting1 {
+    font-size: 16px;
+  }
+
   .post-namegroup1 {
     font-size: 20px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 18px;
   }
-  
+
   .post-namegroup2 {
     font-size: 20px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 18px;
   }
-  
+
   .post-namegroup3 {
     font-size: 20px;
   }
-  
+
   .postnumber1 {
     font-size: 18px;
   }
-  
+
   .postnumber2 {
     font-size: 18px;
   }
-  
+
   .h1-posts {
     font-size: 23px;
   }
 }
 
-@media only screen and (max-width: 1367px){
+@media only screen and (max-width: 1367px) {
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
     font-size: 20px;
   }
-  
+
   .posts-name1 {
     font-size: 18px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 16px;
   }
-  
+
   .postothers {
     font-size: 16px;
   }
-  
+
   .container-postright1 {
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
     font-size: 18px;
   }
-  
+
   .container-postright2 {
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
     font-size: 18px;
   }
-  
+
   .post-groupsorting1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup1 {
     font-size: 18px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup2 {
     font-size: 18px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 16px;
   }
-  
+
   .post-namegroup3 {
     font-size: 18px;
   }
-  
+
   .postnumber1 {
     font-size: 16px;
   }
-  
+
   .postnumber2 {
     font-size: 16px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .post-linkpost1 {
-    font-size: 20px;
+@media only screen and (max-width: 1025px) {
+  .container-bigpost1 {
+    width: 90%;
   }
-  
-  .container-posts2 {
-    font-size: 20px;
-  }
-  
-  .posts-name1 {
-    font-size: 18px;
-  }
-  
-  .post-date {
-    font-size: 14px;
-  }
-  
-  .formsize-post {
-    font-size: 16px;
-  }
-  
-  .postothers {
-    font-size: 16px;
-  }
-  
-  .container-postright1 {
-    font-size: 20px;
-  }
-  
-  .post-linkpost2 {
-    font-size: 18px;
-  }
-  
-  .container-postright2 {
-    font-size: 20px;
-  }
-  
-  .container-postrights2 {
-    font-size: 20px;
-  }
-  
-  .post-group1 {
-    font-size: 18px;
-  }
-  
-  .post-groupsorting1 {
-    font-size: 16px;
-  }
-  
-  .post-namegroup1 {
-    font-size: 18px;
-  }
-  
-  .groupcheckbox1 {
-    font-size: 16px;
-  }
-  
-  .post-namegroup2 {
-    font-size: 18px;
-  }
-  
-  .groupcheckbox2 {
-    font-size: 16px;
-  }
-  
-  .post-namegroup3 {
-    font-size: 18px;
-  }
-  
-  .postnumber1 {
-    font-size: 16px;
-  }
-  
-  .postnumber2 {
-    font-size: 16px;
-  }
-  
-  .h1-posts {
-    font-size: 21px;
-  }
-}
 
-@media only screen and (max-width: 1025px){
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
     font-size: 20px;
   }
-  
+
   .posts-name1 {
     font-size: 18px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 15px;
   }
-  
+
   .postothers {
     font-size: 15px;
   }
-  
+
   .container-postright1 {
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
     font-size: 18px;
   }
-  
+
   .container-postright2 {
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
     font-size: 18px;
   }
-  
+
   .post-groupsorting1 {
+    width: 60%;
+    height: 30px;
+    margin-left: 10px;
     font-size: 16px;
   }
-  
+
   .post-namegroup1 {
     font-size: 18px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 15px;
   }
-  
+
   .post-namegroup2 {
     font-size: 18px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 15px;
   }
-  
+
   .post-namegroup3 {
     font-size: 18px;
   }
-  
+
   .postnumber1 {
+    height: 30px;
     font-size: 15px;
   }
-  
+
   .postnumber2 {
+    height: 30px;
     font-size: 15px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
-  }  
+  }
 }
 
 @media only screen and (max-width: 769px) {
+  .container-bigpost1 {
+    width: 95%;
+  }
+
+  .container-post1 {
+    margin-top: 30px;
+  }
+
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
+    margin-top: 30px;
     font-size: 20px;
   }
-  
+
   .posts-name1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 16px;
   }
-  
+
   .postothers {
     font-size: 16px;
   }
-  
+
   .container-postright1 {
+    margin-top: 30px;
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .container-postright2 {
+    margin-top: 30px;
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-groupsorting1 {
-    font-size: 16px;
+    width: 65%;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 14px;
   }
-  
+
   .post-namegroup1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 16px;
   }
-  
+
   .post-namegroup3 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .postnumber1 {
+    height: 30px;
     font-size: 16px;
   }
-  
+
   .postnumber2 {
+    height: 30px;
     font-size: 16px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
-  }  
+  }
+
+  .monkey {
+    margin-left: 50px;
+  }
+
+  .container-bottoms {
+    padding-bottom: 20px;
+  }
 }
+
 @media only screen and (max-width: 415px) {
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
     font-size: 20px;
   }
-  
+
   .posts-name1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 16px;
   }
-  
+
   .postothers {
     font-size: 16px;
   }
-  
+
   .container-postright1 {
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .container-postright2 {
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-groupsorting1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 16px;
   }
-  
+
   .post-namegroup3 {
     font-size: 18px;
   }
-  
+
   .postnumber1 {
     font-size: 16px;
   }
-  
+
   .postnumber2 {
     font-size: 16px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
-  }  
+  }
 }
 @media only screen and (max-width: 376px) {
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
     font-size: 20px;
   }
-  
+
   .posts-name1 {
     font-size: 18px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 15px;
   }
-  
+
   .postothers {
     font-size: 15px;
   }
-  
+
   .container-postright1 {
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .container-postright2 {
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-groupsorting1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 15px;
   }
-  
+
   .post-namegroup2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 15px;
   }
-  
+
   .post-namegroup3 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .postnumber1 {
     font-size: 15px;
   }
-  
+
   .postnumber2 {
     font-size: 15px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
-  }  
+  }
 }
 
 @media only screen and (max-width: 321px) {
   .post-linkpost1 {
     font-size: 20px;
   }
-  
+
   .container-posts2 {
     font-size: 20px;
   }
-  
+
   .posts-name1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-date {
     font-size: 14px;
   }
-  
+
   .formsize-post {
     font-size: 15px;
   }
-  
+
   .postothers {
     font-size: 15px;
   }
-  
+
   .container-postright1 {
     font-size: 20px;
   }
-  
+
   .post-linkpost2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .container-postright2 {
     font-size: 20px;
   }
-  
+
   .container-postrights2 {
     font-size: 20px;
   }
-  
+
   .post-group1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .post-groupsorting1 {
     font-size: 16px;
   }
-  
+
   .post-namegroup1 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox1 {
     font-size: 15px;
   }
-  
+
   .post-namegroup2 {
-    font-size: 18px;
+    font-size: 17px;
   }
-  
+
   .groupcheckbox2 {
     font-size: 15px;
   }
-  
+
   .post-namegroup3 {
     font-size: 18px;
   }
-  
+
   .postnumber1 {
     font-size: 15px;
   }
-  
+
   .postnumber2 {
     font-size: 15px;
   }
-  
+
   .h1-posts {
     font-size: 21px;
-  }  
+  }
 }

@@ -880,7 +880,6 @@ const Post = () => {
             } else if (searchend) {
               Setshow();
               if (doc.money <= searchend) {
-                
                 item.push(doc);
                 Setshow();
               }
@@ -5729,12 +5728,12 @@ const Post = () => {
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
               <div className="container-post1">
-                <div className="column1-postrow1">
+                <div className="post1-postrow1">
                   <div className="post-img">
                     <img className="monkey" src="/img/logo v3.png" />
                   </div>
                 </div>
-                <div className="column2-postrow2">
+                <div className="post1-postrow2">
                   <div className="post-linkpost1">
                     แจ้งข้อมูลคนโกงได้ที่นี่เลย
                   </div>
@@ -5877,7 +5876,7 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-                              <br/>
+                              <br />
                               <Form.Group
                                 as={Col}
                                 className="post-left col-lg-6 col-12"
@@ -6080,7 +6079,7 @@ const Post = () => {
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
-                                      <br/>
+                                      <br />
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"
