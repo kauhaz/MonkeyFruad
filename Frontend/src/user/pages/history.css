@@ -150,8 +150,11 @@
         font-size: 23px;
     }
 
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 18px ;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 16px;
     }
 
 }
@@ -165,24 +168,32 @@
         font-size: 20px;
     }
 
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 16px ;
     }
-
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 1025px){
     .container-history1,.container-history5{
         width: 65%;
     }
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 15px ;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 13px;
     }
 }
 
 @media only screen and (max-width: 769px) {
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 16px ;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 14px;
     }
 
 }
@@ -193,8 +204,11 @@
     .container-history2{
         padding: 45px 20px 20px 20px;
     }
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 15px ;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 13px;
     }
     .historyimg-setting,.historybuttonsetting {
         width: 25px;
@@ -213,8 +227,11 @@
         font-size: 18px;
     }
 
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
         font-size: 14px;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
+        font-size: 12px;
     }
 
     .container-history2{
@@ -223,7 +240,10 @@
 }
 
 @media only screen and (max-width: 321px) {
-    .historyother,.left-history,.spanhistory,.a-historymenusetting,.a-historymenusetting1{
+    .historyother,.left-history,.spanhistory{
+        font-size: 13px;
+    }
+    .a-historymenusetting,.a-historymenusetting1{
         font-size: 13px;
     }
     .container-history2{
