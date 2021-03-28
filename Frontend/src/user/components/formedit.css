@@ -97,7 +97,7 @@
   cursor: pointer;
 }
 
-.imgcommentitemformpost1 {
+.imgcommentitemformpost1-edit {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
