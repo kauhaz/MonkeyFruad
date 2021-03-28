@@ -6,8 +6,8 @@
   margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 40px;
   padding-right: 40px;
   font-family: "Kanit", sans-serif;
@@ -262,8 +262,8 @@
     padding-top: 30px;
   }
   .profile-badformpost-img img.img-circle {
-    width: 130px;
-    height: 130px;
+    width: 130px !important;
+    height: 130px !important;
   }
   .imgcommentitemformpost1 {
     grid-gap: 10px;

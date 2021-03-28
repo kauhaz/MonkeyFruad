@@ -104,10 +104,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="้history-left col-lg-6 col-12"
+                  className="้history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridName"
                 >
-                  <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
+                  <Form.Label className="left-history">ชื่อ - นามสกุลผู้โกง</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -120,10 +120,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridId"
                 >
-                  <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
+                  <Form.Label className="left-history">เลขที่บัญชี (ผู้โกง)</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -134,10 +134,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridNameproduct"
                 >
-                  <Form.Label>ชื่อสินค้า</Form.Label>
+                  <Form.Label className="left-history">ชื่อสินค้า</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -148,17 +148,17 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridPrice"
                 >
-                  <Form.Label>จำนวนเงิน (บาท)</Form.Label>
+                  <Form.Label className="left-history">จำนวนเงิน</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
                   <span className="spanhistory">
                     {ok.money.toLocaleString(undefined, {
                       maximumFractionDigits: 2,
-                    })}{" "}
+                    })}{" "}บาท
                   </span>
                 </Form.Group>
               </Form.Row>
@@ -166,10 +166,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridDate"
                 >
-                  <Form.Label>วันที่โพสต์</Form.Label>
+                  <Form.Label className="left-history">วันที่โพสต์</Form.Label>
                 </Form.Group>
 
                 <Form.Group>

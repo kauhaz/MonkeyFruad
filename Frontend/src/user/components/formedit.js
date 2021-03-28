@@ -637,7 +637,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     <div className="postdelete">
                                       <img
                                         key={index}
-                                        className="imgpreview"
+                                        className="imgpreview-edit"
                                         alt="previewImg"
                                         src={imagePreviewUrl}
                                       />
