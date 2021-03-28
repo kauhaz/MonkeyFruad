@@ -611,7 +611,7 @@ const Formedit = ({ check, Setcheck }) => {
 
                           <br></br>
 
-                          <div className="imgcommentitemformpost1">
+                          <div className="imgcommentitemformpost1-edit">
                             {!imagepost && !imagesFile ? (
                               <div>
                                 <label>
