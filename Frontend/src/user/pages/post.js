@@ -880,6 +880,7 @@ const Post = () => {
             } else if (searchend) {
               Setshow();
               if (doc.money <= searchend) {
+                
                 item.push(doc);
                 Setshow();
               }

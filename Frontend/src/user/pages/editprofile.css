@@ -1,6 +1,6 @@
 .container-editprofile {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -90,7 +90,7 @@
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .container-editprofile {
-        margin: 1% auto 0 auto;
+        margin: .5% auto 0 auto;
     }
     .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
         font-size: 16px;
@@ -123,7 +123,7 @@
 
 @media only screen and (min-width: 1920px) {
     .container-editprofile {
-        margin: 6% auto 0 auto;
+        margin: 5% auto 0 auto;
     }
     .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
         font-size: 18px;
