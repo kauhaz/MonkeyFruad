@@ -7,13 +7,13 @@
 }
 /*Responsive*/ 
 @media only screen and (min-width: 1920px){
-    .h1-editpost {
+    .h1-editpost{
         font-size: 25px;
     }
 }
 
 @media only screen and (max-width: 1367px){
-    .h1-editpost {
+    .h1-editpost{
         font-size: 22px;
     }
 }
@@ -29,7 +29,7 @@
 
 }
 @media only screen and (max-width: 376px) {
-    .h1-editpost {
+    .h1-editpost{
         font-size: 20px;
     }
 }
