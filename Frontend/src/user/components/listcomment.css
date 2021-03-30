@@ -170,8 +170,8 @@
 }
 
 .uploadproveedits1 {
-  width: 135px;
-  height: 135px;
+  width: 150px;
+  height: 150px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -266,13 +266,13 @@
 
 @media only screen and (max-width: 1367px) {
   .listcommentpost2 {
-    width: 140px;
-    height: 140px;
+    width: 135px;
+    height: 135px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 120px;
-    height: 120px;
+    width: 125px;
+    height: 125px;
   }
   .uploadproveedits2 {
     padding: 40px;
