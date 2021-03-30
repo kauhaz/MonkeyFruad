@@ -5802,7 +5802,6 @@ const Post = () => {
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
                                 </Form.Group>
 
-
                                 <Form.Group>
                                   <span className="spanpost">
                                     {res.accountnumber}
