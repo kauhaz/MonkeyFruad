@@ -397,7 +397,7 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Label>
                   <Form.Control
                     type="number"
-                    id="nameproduct"
+                    id="number"
                     pattern="[0-9]{1,}"
                     title="กรอกตัวเลขเท่านั้น"
                     min='1'

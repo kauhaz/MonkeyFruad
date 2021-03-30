@@ -611,7 +611,7 @@ const Formedit = ({ check, Setcheck }) => {
 
                           <br></br>
 
-                          <div className="imgcommentitemformpost1">
+                          <div className="imgcommentitemformpost1-edit">
                             {!imagepost && !imagesFile ? (
                               <div>
                                 <label>
@@ -637,7 +637,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     <div className="postdelete">
                                       <img
                                         key={index}
-                                        className="imgpreview"
+                                        className="imgpreview-edit"
                                         alt="previewImg"
                                         src={imagePreviewUrl}
                                       />

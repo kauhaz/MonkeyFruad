@@ -7,32 +7,34 @@
 }
 
 /*Responsive*/ 
-@media only screen and (max-width: 1920px) {
-
-}
-
-@media only screen and (max-width: 1024px) {
-
-}
-
-@media only screen and (max-width: 768px) {
-
-}
-
-@media only screen and (max-width: 414px) {
-    .h1-linkruleshow{
+@media only screen and (min-width: 1920px){
+    .h1-createpost{
         font-size: 25px;
     }
 }
-@media only screen and (min-width: 414px) {
-    .h1-linkruleshow{
-        font-size: 25px;
+
+@media only screen and (max-width: 1367px){
+    .h1-createpost{
+        font-size: 22px;
     }
 }
-@media only screen and (max-width: 375px) {
+
+@media only screen and (max-width: 1025px){
 
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 769px) {
+
+}
+@media only screen and (max-width: 415px) {
+
+}
+@media only screen and (max-width: 376px) {
+    .h1-createpost{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
 
 }

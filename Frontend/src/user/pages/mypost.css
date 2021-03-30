@@ -151,9 +151,12 @@
   padding: 5px 15px 5px 15px !important;
 }
 
-.imgcommentitempost1 {
+/* .imgcommentitempost1 {
   margin-top: 10px;
-}
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+} */
 
 .uploadprovereport {
   width: 100px;
@@ -168,8 +171,8 @@
 
 .uploadproveeditreport1 {
   margin-top: 15px;
-  width: 195px;
-  height: 195px;
+  width: 115px;
+  height: 115px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -184,7 +187,7 @@
 
 .uploadproveeditreport2 {
   width: 100%;
-  padding: 60px;
+  padding: 40px;
   cursor: pointer;
 }
 
@@ -388,8 +391,8 @@
 
 .imgpreviewreport {
   margin-top: 15px;
-  width: 195px;
-  height: 195px;
+  width: 115px;
+  height: 115px;
   position: relative;
   object-fit: cover;
   object-position: center;
