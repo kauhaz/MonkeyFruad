@@ -1,6 +1,6 @@
 .container-profile {
     margin: 25px auto;
-    padding: 20px;
+    padding: 5px 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -129,7 +129,7 @@
 
 @media only screen and (min-width: 1920px) {
     .container-profile {
-        margin: 4% auto 0 auto;
+        margin: 6% auto 0 auto;
     }
     .label-form-title-profile, .form-inside-profile p{
         font-size: 18px;
@@ -150,7 +150,7 @@
 
 @media only screen and (max-width: 1367px) {
     .container-profile {
-        margin: .4% auto 0 auto;
+        margin: .5% auto 0 auto;
     }
     .label-form-title-profile, .form-inside-profile p{
         font-size: 16px;

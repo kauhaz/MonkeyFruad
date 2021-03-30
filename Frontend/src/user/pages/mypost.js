@@ -14,8 +14,6 @@ import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
 import Modalimage from "../components/Modalimage";
-import Modaldelete from "../components/Modaldelete";
-
 
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
@@ -45,9 +43,6 @@ const Mypost = () => {
   const [error, Seterror] = useState();
 
   const [fuck, Setfuck] = useState([]);
-  const [openmodal, Setopenmodal] = useState(false);
-  const [modalcommentid, Setmodalcommentid] = useState();
-  const [modalcommentmore, Setmodalcommentmore] = useState();
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
@@ -77,21 +72,11 @@ const Mypost = () => {
     Setisopen(false);
   };
 
-  const handlemodalopen = async () => {
-    Setopenmodal(true)
-  };
-  const handlemodalclose = async () => {
-    Setopenmodal(false) 
-   };
-
-   const handledeletetorerender = async () => {
-    history.push("/post/history");
-   };
   const handleShow = () => setShow(true);
-  // const deleted = async (uid, ok) => {
-  //   await Axios.post(`http://localhost:7000/post/delete/${uid}`, ok);
-  //   history.push("/post/history");
-  // };
+  const deleted = async (uid, ok) => {
+    await Axios.post(`http://localhost:7000/post/delete/${uid}`, ok);
+    history.push("/post/history");
+  };
 
   const ok = async () => {
     try {
@@ -555,7 +540,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() =>  (Setmodalcommentid(ok.uid),Setmodalcommentmore(ok),setIsActive(false),handlemodalopen())}
+                                    onClick={() => deleted(ok.uid, ok)}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
@@ -566,19 +551,7 @@ const Mypost = () => {
                           </div>
                         </div>
                       ) : null}
-                      <Modaldelete
-                    text={"deletepost"}
-                    openmodal={openmodal}
-                    handlemodalopen={handlemodalopen}
-                    handlemodalclose={handlemodalclose}
-                    modalcommentid={modalcommentid}
-                    modalcommentmore={modalcommentmore}
-                    setIsActive={setIsActive}
-                    Setfuck={Setfuck}
-                    setImagesFile={setImagesFile}
-                    Setfiles={Setfiles}
-                    handledeletetorerender={handledeletetorerender}
-                  />
+
                       <div className="mypostprofile-bad-img">
                         {ok.resultfile ? (
                           <img
