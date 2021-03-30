@@ -9,7 +9,7 @@ import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
-
+import * as moment from "moment";
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
 
@@ -487,6 +487,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   pattern="[0-9]{1,}"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
+                                  min='1'
                                   value={money}
                                   onChange={(event) => {
                                     setMoney(event.target.value);
@@ -543,6 +544,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
+                                  max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);
@@ -609,7 +611,7 @@ const Formedit = ({ check, Setcheck }) => {
 
                           <br></br>
 
-                          <div className="imgcommentitemformpost1">
+                          <div className="imgcommentitemformpost1-edit">
                             {!imagepost && !imagesFile ? (
                               <div>
                                 <label>
@@ -635,7 +637,7 @@ const Formedit = ({ check, Setcheck }) => {
                                     <div className="postdelete">
                                       <img
                                         key={index}
-                                        className="imgpreview"
+                                        className="imgpreview-edit"
                                         alt="previewImg"
                                         src={imagePreviewUrl}
                                       />
