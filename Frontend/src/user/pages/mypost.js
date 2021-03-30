@@ -411,7 +411,7 @@ const Mypost = () => {
                                   )}
                                 </div>
                                 {loading ? null : (
-                                  <div className="imgcommentitempost1">
+                                  <div className="imgcommentitempostreport1">
                                     {imagesFile
                                       ? imagesFile.map(
                                           (imagePreviewUrl, index) => {

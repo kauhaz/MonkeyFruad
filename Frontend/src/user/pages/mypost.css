@@ -151,8 +151,12 @@
   padding: 5px 15px 5px 15px !important;
 }
 
-.imgcommentitempost1 {
+.imgcommentitempostreport1 {
   margin-top: 10px;
+  display: grid;
+  padding-left: 15px;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .uploadprovereport {
