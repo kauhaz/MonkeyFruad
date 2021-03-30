@@ -280,9 +280,12 @@ const Listcomment = ({
                         <li className="li-postcommentmenusetting">
                           <a
                             className="a-postcommentmenusetting"
-                            onClick={() =>
-                              deleted(commentmore.commentid, commentmore)
-                            }
+                            onClick={() => (
+                              Setmodalcommentid(commentmore.commentid),
+                              Setmodalcommentmore(commentmore),
+                              setIsActive(false),
+                              handlemodalopen()
+                            )}
                           >
                             {" "}
                             ลบคอมเมนต์{" "}
@@ -293,6 +296,19 @@ const Listcomment = ({
                   </div>
                 </div>
               ) : null}
+              <Modaldelete
+                text={"deletecomment"}
+                openmodal={openmodal}
+                handlemodalopen={handlemodalopen}
+                handlemodalclose={handlemodalclose}
+                modalcommentid={modalcommentid}
+                modalcommentmore={modalcommentmore}
+                setIsActive={setIsActive}
+                Setfuck={Setfuck}
+                setImagesFile={setImagesFile}
+                Setfiles={Setfiles}
+                handledeletetorerender={handledeletetorerender}
+              />
             </div>
 
             <br />
