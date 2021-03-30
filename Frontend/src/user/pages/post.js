@@ -1,5 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavbarPage from "../components/navnew";
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+} from "mdbreact";
 import Axios from "axios";
 import "./post.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -91,15 +99,16 @@ const Post = () => {
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
-
+  const [isOpen, SetisOpen] = useState(false);
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
-  console.log(searchstart)
-  console.log(searchend)
+  const toggle = () => {
+    SetisOpen(!isOpen);
+  };
   const ok = async () => {
     Setloading(true);
     const getpost = await Axios.get(`http://localhost:7000/post/post`);
@@ -119,10 +128,9 @@ const Post = () => {
     var item = [];
 
     getsort.filter((doc) => {
-      if (checkfacebook) {  
+      if (checkfacebook) {
         Setshow();
         if (doc.social === "Facebook") {
-         
           if (checkcloth) {
             Setshow();
             if (doc.productcategory === "เสื้อผ้า") {
@@ -188,9 +196,7 @@ const Post = () => {
             if (doc.productcategory === "รองเท้า") {
               if (searchstart && searchend) {
                 Setshow();
-                if (doc.money >= searchstart) 
-                {
-
+                if (doc.money >= searchstart) {
                   if (doc.money <= searchend) {
                     item.push(doc);
                     Setshow();
@@ -198,9 +204,6 @@ const Post = () => {
                 }
               } else if (searchstart) {
                 Setshow();
-                if(searchstart < 0){
-                  Setshow()
-                }
                 if (doc.money >= searchstart) {
                   console.log(doc);
                   item.push(doc);
@@ -869,9 +872,7 @@ const Post = () => {
             !checkmusic &&
             !checkothercatalog
           ) {
-        
-             if (searchstart && searchend) {
-               console.log("a")
+            if (searchstart && searchend) {
               Setshow();
               if (doc.money >= searchstart) {
                 if (doc.money <= searchend) {
@@ -880,26 +881,15 @@ const Post = () => {
                 }
               }
             } else if (searchstart) {
-              console.log("b")
               Setshow();
-              if(searchstart < 0){
-                Setshow()
-              } 
-              else if (doc.money >= searchstart) {
+              if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
-            } 
-
-             else if (searchend) {
-               console.log(searchend)
-              console.log("c")
+            } else if (searchend) {
               Setshow();
-              if(searchend < 0){
-                Setshow()
-              }
-              else if (doc.money <= searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -1671,21 +1661,14 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if(searchstart < 0){
-                Setshow()
-              }
-              else if (doc.money >= searchstart) {
-                
+              if (doc.money >= searchstart) {
+                console.log(doc);
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
-              console.log(doc);
               Setshow();
-              if(searchend < 0){
-                Setshow()
-              }
-              else if (doc.money <= searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -2459,21 +2442,14 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if(searchstart < 0){
-                Setshow()
-              }
-              else if (doc.money >= searchstart) {
+              if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
-            } 
-             if (searchend) {
+            } else if (searchend) {
               Setshow();
-              if(searchend < 0){
-                Setshow()
-              }
-              else if (doc.money <= searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -3248,20 +3224,14 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if(searchstart < 0){
-                Setshow()
-              }
-              else if (doc.money >= searchstart) {
+              if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
               Setshow();
-              if(searchend < 0){
-                Setshow()
-              }
-              else if (doc.money <= searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -4036,20 +4006,14 @@ const Post = () => {
               }
             } else if (searchstart) {
               Setshow();
-              if(searchstart < 0){
-                Setshow()
-              }
-              else if (doc.money >= searchstart) {
+              if (doc.money >= searchstart) {
                 console.log(doc);
                 item.push(doc);
                 Setshow();
               }
             } else if (searchend) {
               Setshow();
-              if(searchend < 0){
-                Setshow()
-              }
-              else if (doc.money <= searchend) {
+              if (doc.money <= searchend) {
                 item.push(doc);
                 Setshow();
               }
@@ -5002,19 +4966,13 @@ const Post = () => {
           }
         } else if (searchstart) {
           Setshow();
-          if(searchstart < 0){
-            Setshow()
-          }
-          else if (doc.money >= searchstart) {
+          if (doc.money >= searchstart) {
             item.push(doc);
             Setshow();
           }
         } else if (searchend) {
           Setshow();
-          if(searchend < 0){
-            Setshow()
-          }
-          else if (doc.money <= searchend) {
+          if (doc.money <= searchend) {
             item.push(doc);
             Setshow();
           }
@@ -5776,6 +5734,483 @@ const Post = () => {
         showDropdown={showDropdown}
       />
       <div className="container-bigpost1">
+        <MDBContainer>
+          <MDBBtn color="info" onClick={() => toggle()}>
+            Right
+          </MDBBtn>
+          <MDBModal
+            isOpen={isOpen}
+            toggle={() => toggle()}
+            fullHeight
+            position="right"
+          >
+            <MDBModalHeader toggle={() => toggle()}>
+            ค้นหาโพสต์แบบละเอียด
+            </MDBModalHeader>
+            <MDBModalBody>
+            <div className="biggroup">
+              <div className="container-postright2">
+                <div className="post-group1">
+                  เรียงตาม :
+                  <select
+                    as="select"
+                    name="post-groupsorting1"
+                    className="post-groupsorting1"
+                    onChange={(e) => Setsortvalue(e.target.value)}
+                  >
+                    <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
+                    <option value="จำนวนเงินมากที่สุด">
+                      จำนวนเงินมากที่สุด
+                    </option>
+                  </select>
+                </div>
+
+                <div className="line-postgroup1"></div>
+                <div className="post-group2">
+                  <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline1"
+                      onChange={(e) => Setfacebook(e.target.value)}
+                      onClick={() => Setcheckfacebook(!checkfacebook)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline1"
+                    >
+                      Facebook
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline2"
+                      onChange={(e) => Setline(e.target.value)}
+                      onClick={() => Setcheckline(!checkline)}
+                    />
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline2"
+                    >
+                      Line
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline3"
+                      onChange={(e) => Setinstagram(e.target.value)}
+                      onClick={() => Setcheckinstagram(!checkinstagram)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline3"
+                    >
+                      Instagram
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline4"
+                      onChange={(e) => Settwitter(e.target.value)}
+                      onClick={() => Setchecktwitter(!checktwitter)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline4"
+                    >
+                      Twitter
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox1">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput1"
+                      id="defaultInline5"
+                      onChange={(e) => Setother(e.target.value)}
+                      onClick={() => Setcheckother(!checkother)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline5"
+                    >
+                      อื่นๆ
+                    </label>
+                  </div>
+                </div>
+                <div className="line-postgroup2"></div>
+                <div className="post-group3">
+                  <div className="post-namegroup2">หมวดหมู่</div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline1-2"
+                      onChange={(e) => Setcloth(e.target.value)}
+                      onClick={() => Setcheckcloth(!checkcloth)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline1-2"
+                    >
+                      เสื้อผ้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline2-2"
+                      onChange={(e) => Setassesory(e.target.value)}
+                      onClick={() => Setcheckassesory(!checkassesory)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline2-2"
+                    >
+                      เครื่องประดับ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline3-2"
+                      onChange={(e) => Setshoe(e.target.value)}
+                      onClick={() => Setcheckshoe(!checkshoe)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline3-2"
+                    >
+                      รองเท้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline4-2"
+                      onChange={(e) => Setbag(e.target.value)}
+                      onClick={() => Setcheckbag(!checkbag)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline4-2"
+                    >
+                      กระเป๋า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline5-2"
+                      onChange={(e) => Setphone(e.target.value)}
+                      onClick={() => Setcheckphone(!checkphone)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel1"
+                      for="defaultInline5-2"
+                    >
+                      มือถือและอุปกรณ์เสริม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline6"
+                      onChange={(e) => Setfood(e.target.value)}
+                      onClick={() => Setcheckfood(!checkfood)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline6"
+                    >
+                      อาหารและเครื่องดื่ม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline7"
+                      onChange={(e) => Setfoodwealth(e.target.value)}
+                      onClick={() => Setcheckfoodwealth(!checkfoodwealth)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline7"
+                    >
+                      อาหารเสริมและผลิตภัณฑ์สุขภาพ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline8"
+                      onChange={(e) => Setbeauty(e.target.value)}
+                      onClick={() => Setcheckbeauty(!checkbeauty)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline8"
+                    >
+                      เครื่องสำอางค์และอุปกรณ์เสริมความงาม
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline9"
+                      onChange={(e) => Setcomputer(e.target.value)}
+                      onClick={() => Setcheckcomputer(!checkcomputer)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline9"
+                    >
+                      คอมพิวเตอร์แล็ปท็อป
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline10"
+                      onChange={(e) => Setcamera(e.target.value)}
+                      onClick={() => Setcheckcamera(!checkcamera)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline10"
+                    >
+                      กล้องและอุปกรณ์ถ่ายภาพ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline11"
+                      onChange={(e) => Setsport(e.target.value)}
+                      onClick={() => Setchecksport(!checksport)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline11"
+                    >
+                      กีฬาและกิจกรรมกลางแจ้ง
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline12"
+                      onChange={(e) => Setmedia(e.target.value)}
+                      onClick={() => Setcheckmedia(!checkmedia)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline12"
+                    >
+                      สื่อบันเทิงภายในบ้าน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline13"
+                      onChange={(e) => Setgame(e.target.value)}
+                      onClick={() => Setcheckgame(!checkgame)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline13"
+                    >
+                      เกมส์และฮ๊อบบี้
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline14"
+                      onChange={(e) => Setcar(e.target.value)}
+                      onClick={() => Setcheckcar(!checkcar)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline14"
+                    >
+                      ยานยนต์
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline15"
+                      onChange={(e) => Setticket(e.target.value)}
+                      onClick={() => Setcheckticket(!checkticket)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline15"
+                    >
+                      ตั๋วและบัตรกำนัน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline16"
+                      onChange={(e) => Setelectronic(e.target.value)}
+                      onClick={() => Setcheckelectronic(!checkelectronic)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline16"
+                    >
+                      เครื่องใช้ไฟฟ้า
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline17"
+                      onChange={(e) => Setfurniture(e.target.value)}
+                      onClick={() => Setcheckfurniture(!checkfurniture)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline17"
+                    >
+                      เฟอร์นิเจอร์และของตกแต่งบ้าน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline18"
+                      onChange={(e) => Setpet(e.target.value)}
+                      onClick={() => Setcheckpet(!checkpet)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline18"
+                    >
+                      สัตว์เลี้ยง
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline19"
+                      onChange={(e) => Setkian(e.target.value)}
+                      onClick={() => Setcheckkian(!checkkian)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline19"
+                    >
+                      เครื่องเขียน
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline20"
+                      onChange={(e) => Setbook(e.target.value)}
+                      onClick={() => Setcheckbook(!checkbook)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline20"
+                    >
+                      หนังสือ
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline21"
+                      onChange={(e) => Setmusic(e.target.value)}
+                      onClick={() => Setcheckmusic(!checkmusic)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline21"
+                    >
+                      เครื่องดนตรี
+                    </label>
+                  </div>
+                  <div class="custom-control custom-checkbox groupcheckbox2">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input groupcheckboxinput2"
+                      id="defaultInline22"
+                      onChange={(e) => Setothercatalog(e.target.value)}
+                      onClick={() => Setcheckothercatalog(!checkothercatalog)}
+                    ></input>
+                    <label
+                      class="custom-control-label groupcheckboxlabel2"
+                      for="defaultInline22"
+                    >
+                      อื่นๆ
+                    </label>
+                  </div>
+                </div>
+                <div className="line-postgroup3"></div>
+                <div className="post-group4">
+                  <div className="post-namegroup3">จำนวนเงิน</div>
+                  <div className="row post-numbergroup1">
+                    <input
+                      type="number"
+                      id="nameproduct"
+                      pattern="[0-9]{1,}"
+                      className="postnumber1"
+                      onChange={(e) => Setsearchstart(parseInt(e.target.value))}
+                      value={searchstart}
+                    ></input>
+                    <div className="post-numbergroup2">-</div>
+                    <input
+                      type="number"
+                      id="nameproduct"
+                      pattern="[0-9]{1,}"
+                      className="postnumber2"
+                      onChange={(e) => Setsearchend(parseInt(e.target.value))}
+                      value={searchend}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </MDBModalBody>
+            <MDBModalFooter>
+              <MDBBtn color="secondary" onClick={() => toggle()}>
+                ปิด
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBContainer>
         <div className="row postbigrow">
           <div className="column-post-left1">
             <Link to={`/linkruleshow/`}>
@@ -5928,7 +6363,7 @@ const Post = () => {
                                   </span>
                                 </Form.Group>
                               </Form.Row>
-                              <br/>
+                              <br />
                               <Form.Group
                                 as={Col}
                                 className="post-left col-lg-6 col-12"
@@ -6131,7 +6566,7 @@ const Post = () => {
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
-                                      <br/>
+                                      <br />
                                       <Form.Group
                                         as={Col}
                                         className="post-left col-lg-6 col-12"

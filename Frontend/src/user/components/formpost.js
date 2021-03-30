@@ -397,7 +397,7 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Label>
                   <Form.Control
                     type="number"
-                    id="nameproduct"
+                    id="number"
                     pattern="[0-9]{1,}"
                     title="กรอกตัวเลขเท่านั้น"
                     min='1'
@@ -449,7 +449,7 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Label>
                   <Form.Control
                     type="datetime-local"
-                    max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm ')}`} 
+                    max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
 
                     placeholder=""
                     required

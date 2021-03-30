@@ -4,12 +4,28 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
+import Modaldelete from "./Modaldelete";
+
 
 const Historyitem = ({ ok, user, handledeletetorerender}) => {
   const [isActive, setIsActive] = useState(false);
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState()
+  const [files, Setfiles] = useState();
+
+
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 
+  const handlemodalopen = async () => {
+    Setopenmodal(true)
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false) 
+   };
   const deleted = async (uid, ok) => {
     try {
       console.log(ok);
@@ -60,7 +76,7 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   <li className="li-historymenusetting">
                     <a
                       className="a-historymenusetting"
-                      onClick={() => deleted(ok.uid, ok)}
+                      onClick={() =>  (Setmodalcommentid(ok.uid),Setmodalcommentmore(ok),setIsActive(false),handlemodalopen())}
                     >
                       {" "}
                       ลบโพสต์{" "}
@@ -69,16 +85,29 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                 </ul>
               </div>
             </div>
+            <Modaldelete
+                    text={"deletepost"}
+                    openmodal={openmodal}
+                    handlemodalopen={handlemodalopen}
+                    handlemodalclose={handlemodalclose}
+                    modalcommentid={modalcommentid}
+                    modalcommentmore={modalcommentmore}
+                    setIsActive={setIsActive}
+                    Setfuck={Setfuck}
+                    setImagesFile={setImagesFile}
+                    Setfiles={Setfiles}
+                    handledeletetorerender={handledeletetorerender}
+                  />
           </div>
           <div className="container-history">
             <Form className="formsize-history">
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="้history-left col-lg-6 col-12"
+                  className="้history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridName"
                 >
-                  <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
+                  <Form.Label className="left-history">ชื่อ - นามสกุลผู้โกง</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -91,10 +120,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridId"
                 >
-                  <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
+                  <Form.Label className="left-history">เลขที่บัญชี (ผู้โกง)</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -105,10 +134,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridNameproduct"
                 >
-                  <Form.Label>ชื่อสินค้า</Form.Label>
+                  <Form.Label className="left-history">ชื่อสินค้า</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -119,17 +148,17 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridPrice"
                 >
-                  <Form.Label>จำนวนเงิน (บาท)</Form.Label>
+                  <Form.Label className="left-history">จำนวนเงิน</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
                   <span className="spanhistory">
                     {ok.money.toLocaleString(undefined, {
                       maximumFractionDigits: 2,
-                    })}{" "}
+                    })}{" "}บาท
                   </span>
                 </Form.Group>
               </Form.Row>
@@ -137,10 +166,10 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               <Form.Row>
                 <Form.Group
                   as={Col}
-                  className="history-left col-lg-6 col-12"
+                  className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridDate"
                 >
-                  <Form.Label>วันที่โพสต์</Form.Label>
+                  <Form.Label className="left-history">วันที่โพสต์</Form.Label>
                 </Form.Group>
 
                 <Form.Group>
