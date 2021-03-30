@@ -73,7 +73,6 @@ img.img-circle {
 .uploadproveedit2 {
   width: 100%;
   padding: 40px;
-    cursor: pointer;
 }
 
 .imgcommentitempost1 {
@@ -170,22 +169,12 @@ img.img-circle {
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreviewa1,.uploadproveedit1 {
-    width: 135px;
-    height: 135px;
+    width: 160px;
+    height: 160px;
   }
 }
 
 @media only screen and (max-width: 1367px){
-  .imgpreviewa1,.uploadproveedit1 {
-    width: 150px;
-    height: 150px;
-  }
-  .imgcommentitempost1 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (max-width: 1025px){
   .imgpreviewa1,.uploadproveedit1 {
     width: 150px;
     height: 150px;

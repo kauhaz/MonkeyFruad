@@ -6,8 +6,8 @@
   margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   padding-left: 40px;
   padding-right: 40px;
   font-family: "Kanit", sans-serif;
@@ -74,7 +74,7 @@
 
 .spanformpost {
   color: #ff392e;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .imgpreview {
@@ -154,7 +154,7 @@
 .imgcommentitemformpost1 {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .uploadprovereport {
@@ -181,26 +181,16 @@
 
 .h1-formpostfileerror {
   color: #ff392e;
-  font-size: 16px;
+  font-size: 17px;
   text-align: center;
   margin-bottom: 20px;
 }
-.form-control{
-  font-size: 14px !important;
-}
+
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreview , .uploadproveeditpost1{
     width: 255px;
     height: 255px;
-  }
-
-  /*พั้น*/
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
-    font-size: 18px;
-  }
-  .form-control{
-    font-size: 16px !important;
   }
 }
 
@@ -209,117 +199,82 @@
     width: 165px;
     height: 165px;
   }
-
-    /*พั้น*/
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
-    font-size: 16px;
-  }
-  .form-control{
-    font-size: 14px !important;
-  }
 }
 
-@media only screen and (max-width: 1025px){
-  .container-formpost{
+/* @media only screen and (max-width: 1024px) {
+  .container-formpost {
     width: 75%;
   }
-
-  /*พั้น*/
-  .imgpreview , .uploadproveeditpost1{
-    width: 195px;
-    height: 195px;
-  }
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
-    font-size: 15px;
-  }
-  .form-control{
-    font-size: 13px !important;
-  }
-
 }
 
-@media only screen and (max-width: 769px) {
-  /*พั้น*/
-  .imgpreview , .uploadproveeditpost1{
-    width: 130px;
-    height: 130px;
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 450px) {
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 18px;
   }
-  .uploadproveeditpost2{
-    padding: 40px;
+  .container-formpost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
   }
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
+  .spanformpost {
+    font-size: 17px;
+  }
+  .text-formpost {
+    font-size: 19px;
+  }
+  .h1-formpostfileerror {
+    font-size: 17px;
+    margin-top: 15px;
+  }
+  .buttonformpost {
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container-formpost {
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .spanformpost {
+    font-size: 17px;
+  }
+  .text-formpost {
+    font-size: 19px;
+  }
+  .h1-formpostfileerror {
+    font-size: 17px;
+    margin-top: 15px;
+  }
+  .buttonformpost {
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 375px) {
+}
+
+@media only screen and (max-width: 320px) {
+  .text-formpost {
+    font-size: 18px;
+  }
+  .spanformpost {
     font-size: 16px;
   }
-  .form-control{
-    font-size: 14px !important;
+  .uploadsformedituploadslip {
+    width: 100%;
+    font-size: 17px;
   }
-
-}
-@media only screen and (max-width: 415px) {
-  .container-formpost{
-    width: 85%;
-    margin-bottom: 80px;
-    padding-top: 30px;
+  .buttonformpost {
+    font-size: 18px;
   }
-  .profile-badformpost-img img.img-circle {
-    width: 130px !important;
-    height: 130px !important;
-  }
-  .imgcommentitemformpost1 {
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
-  }
-  .imgpreview , .uploadproveeditpost1{
-    width: 110px;
-    height: 110px;
-  }
-  .h1-formpostfileerror,.spanformpost { 
-    font-size: 15px;
-  }
-
-}
-@media only screen and (max-width: 376px) {
-  /*พั้น*/
-  .container-formpost{
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 20px;
-  }
-  .text-formpost,.h1-formpostfileerror,.buttonformpost { 
-    font-size: 15px;
-  }
-  .spanformpost{
-    font-size: 15px;
-  }
-  .form-control{
-    font-size: 13px !important;
-  }
-  .imgpreview , .uploadproveeditpost1{
-    width: 105px;
-    height: 105px;
-  }
-  .uploadproveeditpost2{
-    padding: 35px;
-  }
-}
-
-@media only screen and (max-width: 321px) {
-  .container-formpost{
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 10px;
-  }
-  .spanformpost{
-    font-size: 12px;
-  }
-  .imgpreview , .uploadproveeditpost1{
-    width: 88px;
-    height: 88px;
-  }
-  .imgcommentitemformpost1 {
-    grid-gap: 5px;
-  }
-  .uploadproveeditpost2{
-    padding: 30px;
-  }
-}
+} */
