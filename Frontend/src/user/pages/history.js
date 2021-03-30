@@ -63,7 +63,6 @@ const History = () => {
             );
           })
         : null}
-      <div className="containeremty-history"></div>
 
       <Chatbot />
     </div>
