@@ -1,6 +1,6 @@
 .container-login {
     margin: 25px auto;
-    padding: 20px;
+    padding: 5px 20px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 450px;
@@ -71,9 +71,8 @@
 }
 
 .login-signup a {
-    color: #525252;
+    color: #212529;
     font-size: 16px;
-    font-weight: 500;
 }
 
 .login-signup a:hover, .ForgotPassword-login a:hover {
@@ -140,7 +139,7 @@
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .container-login {
-        margin: 1% auto 0 auto;
+        margin: 2% auto 0 auto;
     }
     .LoginForm img {
         width: 130px;
@@ -153,7 +152,7 @@
 }
 @media only screen and (min-width: 1920px) {
     .container-login {
-        margin: 6% auto 0 auto;
+        margin: 7% auto 0 auto;
     }
     .btn-block, .login-signup a{
         font-size: 18px;
@@ -163,7 +162,7 @@
 
 @media only screen and (max-width: 1367px) {
     .container-login {
-        margin: .25% auto 0 auto;
+        margin: .5% auto 0 auto;
     }
     .LoginForm img {
         width: 130px;
