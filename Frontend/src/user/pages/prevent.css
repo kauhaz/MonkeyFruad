@@ -178,27 +178,35 @@
 }
 
 @media only screen and (max-width: 1025px) {
+    .h1-prevent { 
+        font-size: 20px;
+    }
     .container-prevent{
         width: 80%;
     }
     .text-content-prevent{
         font-size: 15px;
-        width: 220px;
-        background-color: rgba(255, 255, 255, 0.575);
-        border-radius: 0.5rem;
+        width: 215px;
+    }
+    .image1-prevent{
+        width: 150px;
     }
 }
 
 @media only screen and (max-width: 769px) {
-    .image1-prevent{
-        width: 150px;
+    .h1-prevent { 
+        font-size: 19px;
     }
-    .container-prevent {
-        width: 95%;
+    .container-prevent{
+        width: 80%;
+        height: auto;
+    }
+    .image1-prevent{
+        width: 130px;
     }
     .text-content-prevent{
-        font-size: 16px;
-        width: 170px;
+        font-size: 13px;
+        width: 155px;
         background-color: rgba(255, 255, 255, 0.575);
         border-radius: 0.5rem;
     }
@@ -207,25 +215,38 @@
     }
     .column-prevent2-l{
         margin-left: 90px;
+        margin-top: -30px;
+        margin-bottom: -30px;
     }
     .column-prevent2-r{
         margin-left: 10px;
+        margin-top: -30px;
+        margin-bottom: -30px;
     }
 }
 @media only screen and (max-width: 415px) {
+    .container-prevent{
+        width: 85%;
+        height: auto;
+    }
+    .h1-prevent { 
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: -30px;
+    }
     .column-prevent ,.column-prevent2 {
         width: 50%;
         margin-bottom: -40px;
     }
     .image1-prevent{
-        width: 130px;
+        width: 120px;
     }
     .container-prevent {
         width: 100%;
     }
     .text-content-prevent{
-        font-size: 16px;
-        width: 150px;
+        font-size: 13px;
+        width: 100%;
         background-color: rgba(255, 255, 255, 0.575);
         border-radius: 0.5rem;
     }
@@ -234,14 +255,15 @@
     }
     .column-prevent2-l{
         margin-left: 167px;
-        margin-top: -260px;
+        margin-top: -237px;
+        margin-bottom: 0px;
     }
     .column-prevent2-r{
         margin-left: 10px;
-        margin-left: 0px;
+        margin-bottom: -15px;
     }
     .column-prevent3-1{
-        margin-top: -310px;
+        margin-top: -281px;
         margin-left: 165px;
     }
 }
@@ -250,43 +272,44 @@
 @media only screen and (max-width: 376px) {
     .h1-prevent { 
         font-size: 20px;
+        margin-bottom: -10px;
     }
     .container-prevent{
-        width: 100%;
+        width: 85%;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 30px;
     }
     .text-content-prevent{
-        font-size: 15px;
+        font-size: 13px;
     }
     .image1-prevent{
-        width: 120px;
+        width: 110px;
     }
     .column-prevent2-l{
-        margin-left: 167px;
-        margin-top: -246px;
+        margin-left: 150px;
+        margin-top: -228px;
     }
     .column-prevent3-1{
-        margin-top: -269px;
-        margin-left: 165px;
+        margin-top: -291px;
+        margin-left: 150px;
     }
 }
 
 @media only screen and (max-width: 320px) {
     .image1-prevent{
-        width: 110px;
+        width: 100px;
     }
     .text-content-prevent{
-        font-size: 15px;
-        width: 130px;
+        font-size: 13px;
+        width: 100%;
     }
     .column-prevent ,.column-prevent2 {
         width: 50%;
         margin-bottom: -50px;
     }
     .column-prevent2-l{
-        margin-left: 149px;
+        margin-left: 127px;
         margin-top: -223px;
     }
     .column-prevent2-r{
@@ -295,7 +318,7 @@
     }
     .column-prevent3-1{
         margin-top: -265px;
-        margin-left: 149px;
+        margin-left: 127px;
     }
 }
 
