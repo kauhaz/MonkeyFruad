@@ -184,3 +184,13 @@ img.img-circle {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media only screen and (max-width: 1025px){
+  .imgpreviewa1,.uploadproveedit1 {
+    width: 150px;
+    height: 150px;
+  }
+  .imgcommentitempost1 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
