@@ -40,7 +40,7 @@ const Commentpost = ({ postid, isActive, setIsActive }) => {
   const gg = async () => {
     try {
       const getcommentall = await Axios.get(
-        `http://localhost:7000/post/commentmore/${postid}`
+        `https://monkeyfruad01.herokuapp.com/post/commentmore/${postid}`
       );
       Setcommentmore(getcommentall.data.item);
     } catch (err) {

@@ -24,7 +24,7 @@ const Profile = () => {
   };
   useMemo(async () => {
     try {
-      var profiledata = await axios.post("http://localhost:7000/user/session", {
+      var profiledata = await axios.post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       });
       setUsername(profiledata.data.data.username);

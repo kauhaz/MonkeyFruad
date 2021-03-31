@@ -34,20 +34,6 @@
   margin-bottom: 30px;
 }
 
-/* .container-mypost {
-  width: 50%;
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 100px;
-  margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  font-family: "Kanit", sans-serif;
-  font-size: 20px;
-  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
-} */
-
 .container-post2 {
   width: 50%;
   border-radius: 10px;
@@ -113,14 +99,6 @@
 
 .form-groupreport {
   margin-bottom: 15px;
-}
-
-.text-mypost { 
-  width: 180% !important;
-}
-
-.text-mypost1 { 
-  width: 110% !important;
 }
 
 .spanreport {
@@ -276,7 +254,7 @@
 }
 
 .container-myposts3 {
-  width: 94%;
+  width: 100%;
   /* margin-top: 30px; */
   margin-left: auto;
   margin-right: auto;
@@ -297,20 +275,17 @@
   border-radius: 50%;
 }
 
-.mypost-left {
-  margin-right: 90px;
+
+
+.spanmypost,.spanmypostname {
+  color: #ff392e;
+  font-size: 16px;
 }
 
-.spanmypost {
-  color: #ff392e;
-}
 
-.spanmypostname {
-  color: #ff392e;
-}
 
 .img-bad {
-  margin: 5px 0 15px 0;
+  margin: 5px 5px 5px 5px;
   width: 150px;
   height: 150px;
   position: relative;
@@ -321,7 +296,7 @@
 
 .imgcommentitemmypost1 {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 0px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -366,7 +341,7 @@
   margin-top: 15px;
   width: 100%;
   font-size: 18px;
-  margin-left: -30px;
+  margin-left: 0px;
   margin-bottom: 0px;
   font-family: "Kanit", sans-serif;
   font-size: 16px;
@@ -436,185 +411,221 @@
   padding-bottom: 10px;
   font-family: "Kanit", sans-serif;
 }
+.none-mypost{
+  display: none;
+}
+
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
-    width: 196px;
-    height: 196px;
+    margin: 10px 10px 10px 10px;
+    width: 190px;
+    height: 190px;
   }
   .modalreport2 {
     margin-top: 390px;
+  }
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 18px;
+  }
+  .mypost-name {
+    font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 1367px) {
   .img-bad {
+    margin: 5px 5px 5px 5px;
     width: 132px;
     height: 132px;
   }
   .modalreport2 {
     margin-top: 320px;
   }
-}
-
-
-/* @media only screen and (max-width: 1920px) {
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 16px;
+  }
+  .mypost-name {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-  .container-mypost {
-    width: 80%;
+  .container-post2{
+    width: 75%;
   }
-  .container-mypost4 {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .container-mypost {
-    width: 88%;
-  }
-  .container-myposts3 {
-    width: 95%;
-  }
-  .container-mypost4 {
-    width: 88%;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .h1-mypost {
-    font-size: 25px;
-  }
-  .container-mypost {
-    width: 100%;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-    margin-top: -10px;
-  }
-  .container-myposts3 {
-    width: 85%;
-  }
-  .img-bad {
-    width: 100px;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-  .vl {
-    display: block;
-  }
-  .container-mypost4 {
-    margin-top: -100px;
-    width: 100%;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-    margin-top: -100px;
-    margin-bottom: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .text-mypost,
-  .spanmypost {
-    font-size: 19px;
-  }
-  .mypost-comment-name1,
-  .mypost-comment-name2,
-  .mypost-comment-name3 {
-    font-size: 19px;
-  }
-  .mypost-comment-comments1,
-  .mypost-comment-comments2 {
-    font-size: 16px;
-  }
-  .mypostprofile-bad-img img.img-circle {
-    width: 120px;
-    height: 120px;
-  }
-}
-@media only screen and (max-width: 414px) {
-  .h1-mypost {
-    font-size: 25px;
-  }
-  .container-mypost {
-    width: 100%;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-    margin-top: -10px;
-  }
-  .container-myposts3 {
-    width: 85%;
-  }
-  .img-bad {
-    width: 100px;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-  .vl {
-    display: block;
-  }
-  .container-mypost4 {
-    width: 100%;
-    padding: 20px;
-  }
-  .text-mypost,
-  .spanmypost {
-    font-size: 19px;
-  }
-  .mypost-comment-name1,
-  .mypost-comment-name2,
-  .mypost-comment-name3 {
-    font-size: 19px;
-  }
-  .mypost-comment-comments1,
-  .mypost-comment-comments2 {
-    font-size: 16px;
-  }
-  .mypostprofile-bad-img img.img-circle {
-    width: 120px;
-    height: 120px;
-  }
-  .formsize-mypost {
-    margin-top: 15px;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .img-bad {
-    width: 90px;
-    margin-left: 2px;
-    margin-right: 2px;
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 15px;
   }
   .mypost-name {
-    font-size: 19px;
+    font-size: 17px;
+    margin-top: -50px;
+  }
+  .img-bad {
+    width: 155px;
+    height: 155px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 13px;
+  }
+  .mypost-name {
+    font-size: 15px;
+  }
+  .img-bad {
+    width: 105px;
+    height: 105px;
+  }
+
+}
+@media only screen and (max-width: 414px) {
+  .container-post2{
+    width: 85%;
+    margin-top: 30px;
+  }
+
+  .container-myposts3 {
+    width: 100%;
+    /* margin-top: 30px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0px;
+  }
+  .text-mypost-left{
+    margin-left: -10px;
+  }
+  .text-mypost-right{
+    margin-left: -10px;
+  }
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 15px;
+  }
+  .mypost-name {
+    font-size: 17px;
+    margin-top: -45px;
+  }
+  .imgcommentitemmypost1 {
+    grid-template-columns: 1fr 1fr;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .img-bad {
+    width: 133px;
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mypostprofile-bad-img img.img-circle {
+    width: 120px;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .none-mypost{
+    display: block;
+  }
+  .number-mypost{
+    margin-left: 17px;
+  }
+  .moredetail-mypost{
+    width: 89%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mypostimg-setting, .mypostbuttonsetting{
+    width: 25px;
+    height: 25px;
   }
   .mypost-date {
+    font-size: 12px;
+    margin-top: -30px;
+  }
+  .profile-mypost{
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+}
+@media only screen and (max-width: 375px) {
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 13px;
+  }
+  .mypost-name {
     font-size: 15px;
+  }
+  .img-bad {
+    width: 115px;
+    height: 115px;
+  }
+  .text-mypost-left{
+    margin-left: -15px;
+  }
+  .text-mypost-right{
+    margin-left: -5px;
+  }
+
+  .imgcommentitemmypost1 {
+    width: 90%;
+  }
+  .mypostprofile-bad-img img.img-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .number-mypost{
+    margin-left: 10px;
+  }
+  .moredetail-mypost{
+    width: 93%;
+  }
+  .mypost-date{
+    font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .text-mypost,
-  .spanmypost {
-    font-size: 16px;
+  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+    font-size: 12px;
+  }
+  .mypost-name {
+    font-size: 14px;
+  }
+  .mypost-name {
+    margin-top: -40px;
+    margin-left: 50px;
   }
   .img-bad {
-    width: 75px;
-    margin-left: 2px;
-    margin-right: 2px;
+    width: 100px;
+    height: 100px;
   }
-  .container-mypost4 {
-    margin-top: -120px;
-    padding-left: 30px;
-    padding-right: 30px;
+  .text-mypost-left{
+    margin-left: -10px;
   }
-  .mypost-comment-img1 img.img-circle1,
-  .mypost-comment-img2 img.img-circle2,
-  .mypost-comment-img3 img.img-circle3 {
-    width: 40px;
+  .text-mypost-right{
+    margin-left: -3px;
   }
-  .mypost-comment-name1,
-  .mypost-comment-name2,
-  .mypost-comment-name3 {
-    font-size: 16px;
+
+  .imgcommentitemmypost1 {
+    width: 95%;
   }
-  .mypost-comment-comments1,
-  .mypost-comment-comments2 {
-    font-size: 15px;
+  .mypostprofile-bad-img img.img-circle {
+    width: 100px;
+    height: 100px;
   }
-} */
+  .number-mypost{
+    margin-left: 10px;
+  }
+  .moredetail-mypost{
+    width: 96%;
+  }
+  .mypost-date{
+    font-size: 10px;
+    margin-left: 50px;
+  }
+  .profile-mypost{
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

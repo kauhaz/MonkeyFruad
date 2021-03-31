@@ -44,7 +44,7 @@ const App = () => {
   const [user, setUser] = useState();
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [admin, setAdmin] = useState(false);
-  useEffect(() => {
+  useEffect(()=>{
     auth.onAuthStateChanged((user) => {
       if (user) {
         if (user.uid === "Bm4bg6z0KAavVlnCijLzIxjXN9y2") {
@@ -58,7 +58,6 @@ const App = () => {
       setLoadingAuth(false);
     });
   }, []);
-
   return loadingAuth ? (
     ""
   ) : admin ? (
