@@ -153,7 +153,7 @@ const Commentitem = ({ postid }) => {
         }
         Setloading(true);
         const sentcomment = await Axios.post(
-          `https://monkeyfruad01.herokuapp.com/comment/${postid}`,
+          `https://monkeyfruad01.herokuapp.com/post/comment/${postid}`,
           formdata
         );
         Setclick(sentcomment);
