@@ -30,7 +30,7 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
     try {
       console.log(ok);
       const postdelete = await Axios.post(
-        `http://localhost:7000/post/delete/${uid}`,
+        `https://monkeyfruad01.herokuapp.com/post/delete/${uid}`,
         ok
       );
       setIsActive(false);

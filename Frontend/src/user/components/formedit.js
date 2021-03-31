@@ -168,7 +168,7 @@ const Formedit = ({ check, Setcheck }) => {
   let history = useHistory();
 
   const ok = async () => {
-    const hello = await Axios.get(`http://localhost:7000/post/edit/${uid}`);
+    const hello = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/edit/${uid}`);
 
     let gethistory = hello.data.item;
     let getDatetime = hello.data.datetime;
@@ -222,7 +222,7 @@ const Formedit = ({ check, Setcheck }) => {
       Setloading(true);
       Setcheck(true);
       let data = await Axios.post(
-        `http://localhost:7000/post/edit/${uid}`,
+        `https://monkeyfruad01.herokuapp.com/post/edit/${uid}`,
         formdata
       );
       Setfuck([]);

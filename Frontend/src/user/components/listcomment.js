@@ -147,7 +147,7 @@ const Listcomment = ({
   const deleted = async (commentid, commentmore) => {
     console.log(commentmore);
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`,
+      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
       commentmore
     );
     setIsActive(false);
@@ -192,7 +192,7 @@ const Listcomment = ({
 
       Setloading(true);
       const editcomment = await Axios.post(
-        `http://localhost:7000/post/edit/comment/${commentid}`,
+        `https://monkeyfruad01.herokuapp.com/post/edit/comment/${commentid}`,
         formdata
       );
 

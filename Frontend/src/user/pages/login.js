@@ -42,7 +42,7 @@ const Login = () => {
     const result = await auth.signInWithPopup(googleProvider);
     console.log(result);
     axios
-      .post("http://localhost:7000/user/googlesignup", { result: result })
+      .post("https://monkeyfruad01.herokuapp.com/user/googlesignup", { result: result })
       .then((result) => {
         console.log(result.data);
         history.push("/");
@@ -58,7 +58,7 @@ const Login = () => {
     const result = await auth.signInWithPopup(facebookProvider);
     console.log(result);
     axios
-      .post("http://localhost:7000/user/facebooksignup", { result: result })
+      .post("https://monkeyfruad01.herokuapp.com/user/facebooksignup", { result: result })
       .then((result) => {
         console.log(result.data);
         history.push("/");

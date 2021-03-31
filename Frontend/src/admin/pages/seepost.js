@@ -24,7 +24,7 @@ const Seepost = () => {
   const history = useHistory();
   const ok = async () => {
     try {
-      const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
+      const ok = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/mypost/${uid}`);
       Setmypost(ok.data.item);
     } catch (err) {
       console.log(err);
@@ -32,7 +32,7 @@ const Seepost = () => {
   };
   const deleteClick = async (e) => {
     e.preventDefault();
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+    await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`);
     history.push("/report");
   };
   const handleopenmodal = async () => {

@@ -58,7 +58,6 @@ const App = () => {
       setLoadingAuth(false);
     });
   }, []);
-console.log("eiei2")
   return loadingAuth ? (
     ""
   ) : admin ? (
