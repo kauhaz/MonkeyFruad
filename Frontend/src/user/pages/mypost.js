@@ -798,6 +798,7 @@ const Mypost = () => {
                                 <span className="spanmypostname">
                                   {ok.name} {ok.surname}
                                 </span>{" "}
+                                <div className="none-mypost"></div>
                                 ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง

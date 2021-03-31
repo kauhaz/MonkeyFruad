@@ -414,6 +414,7 @@
 .none-mypost{
   display: none;
 }
+
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
