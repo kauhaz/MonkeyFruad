@@ -110,6 +110,45 @@
     background-color: #c5c5c5;
 }
 
+.navbar-noti {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    speed: 500ms;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-noti:hover {
+    background-color: #fff;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    padding: 14px;
+}
+
+.navbar-noti .noti-logo{
+    width: 23px;
+    height: 23px;
+}
+
+.navbar-noti .badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.dropdown-top-noti {
+    margin-right: 40px !important;
+
+}
+
 /*reponsive*/
 @media only screen and (max-width: 1921px) {
         /*dropsearch*/

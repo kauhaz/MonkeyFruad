@@ -6272,7 +6272,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="้post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-4 col-12"
                                   controlId="formGridName"
                                 >
                                   <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
@@ -6288,7 +6288,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="post-left col-lg-4 col-12"
                                   controlId="formGridId"
                                 >
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
@@ -6304,7 +6304,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="post-left col-lg-4 col-12"
                                   controlId="formGridNameproduct"
                                 >
                                   <Form.Label>ชื่อสินค้า</Form.Label>
@@ -6320,7 +6320,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="post-left col-lg-4 col-12"
                                   controlId="formGridPrice"
                                 >
                                   <Form.Label>จำนวนเงิน</Form.Label>
@@ -6339,7 +6339,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="post-left col-lg-4 col-12"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
@@ -6356,7 +6356,7 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="post-left col-lg-4 col-12"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>ช่องทางการโดนโกง</Form.Label>
@@ -6371,7 +6371,7 @@ const Post = () => {
                               <br />
                               <Form.Group
                                 as={Col}
-                                className="post-left col-lg-6 col-12"
+                                className="post-left col-lg-4 col-12"
                                 controlId="formGridDate"
                               >
                                 <Form.Label className="post-lefts">
@@ -6387,7 +6387,7 @@ const Post = () => {
                               </Form.Group>
                               <Form.Group
                                 as={Col}
-                                className="post-left col-lg-6 col-12"
+                                className="post-left col-lg-4 col-12"
                                 controlId="formGridPrice"
                               >
                                 <Form.Label className="post-lefts">
