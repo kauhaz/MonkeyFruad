@@ -97,7 +97,7 @@ const ManagePost = () => {
   };
 
   const deleteClick = async (uid) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`);
+    await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`);
     setDelectClick(!delectClick);
   };
   const ok = async () => {

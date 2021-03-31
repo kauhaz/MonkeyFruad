@@ -74,13 +74,13 @@ const Mypost = () => {
 
   const handleShow = () => setShow(true);
   const deleted = async (uid, ok) => {
-    await Axios.post(`http://localhost:7000/post/delete/${uid}`, ok);
+    await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`, ok);
     history.push("/post/history");
   };
 
   const ok = async () => {
     try {
-      const ok = await Axios.get(`http://localhost:7000/post/mypost/${uid}`);
+      const ok = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/mypost/${uid}`);
       Setmypost(ok.data.item);
     } catch (err) {
       console.log(err);
@@ -178,7 +178,7 @@ const Mypost = () => {
         );
       } else {
         Setloading(true);
-        Axios.post(`http://localhost:7000/post/report/${uid}`, formData)
+        Axios.post(`https://monkeyfruad01.herokuapp.com/post/report/${uid}`, formData)
           .then((result) => {
             setReportsubmitsuccess(true);
             Setloading(false);

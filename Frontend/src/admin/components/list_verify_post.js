@@ -34,11 +34,11 @@ const Listverifypost = ({ reportelement, hideClick }) => {
     try {
       InitOtherData();
       const usernamepost = await Axios.get(
-        `http://localhost:7000/post/mypost/${reportelement.postid}`
+        `https://monkeyfruad01.herokuapp.com/post/mypost/${reportelement.postid}`
       );
       SetUsernamePost(usernamepost.data.item);
       const usernamereport = await Axios.get(
-        `http://localhost:7000/user/session/${reportelement.userreport}`
+        `https://monkeyfruad01.herokuapp.com/user/session/${reportelement.userreport}`
       );
       SetUsernameReport(usernamereport.data.item);
     } catch (err) {

@@ -111,9 +111,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
+      const getallthief = await axios.get(`hhttps://monkeyfruad01.herokuapp.com/thief/thief`);
       Setsearching(getallthief.data.item);
-      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
 
@@ -164,7 +164,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   useMemo(async () => {
     if (user) {
       await axios
-        .post("http://localhost:7000/user/session", { user: user })
+        .post("https://monkeyfruad01.herokuapp.com/user/session", { user: user })
         .then((result) => {
           if (result.data.data.role === "admin") {
             setAdmin(true);

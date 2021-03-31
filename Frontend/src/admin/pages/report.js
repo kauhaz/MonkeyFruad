@@ -21,7 +21,7 @@ const Report = () => {
   const initReport = async () => {
     try {
       const Allreport = await Axios.get(
-        "http://localhost:7000/post/report/non_verify"
+        "https://monkeyfruad01.herokuapp.com/post/report/non_verify"
       );
       setNonverifypost(Allreport.data.report);
     } catch (err) {
@@ -31,7 +31,7 @@ const Report = () => {
   const NavVerify = async () => {
     try {
       const Allreport = await Axios.get(
-        "http://localhost:7000/post/report/verify"
+        "https://monkeyfruad01.herokuapp.com/post/report/verify"
       );
       setverifypost(Allreport.data.report);
       setNonverifypost();
@@ -46,7 +46,7 @@ const Report = () => {
   const NavNonVerify = async () => {
     try {
       const Allreport = await Axios.get(
-        "http://localhost:7000/post/report/non_verify"
+        "https://monkeyfruad01.herokuapp.com/post/report/non_verify"
       );
       setNonverifypost(Allreport.data.report);
       setverifypost();
@@ -60,7 +60,7 @@ const Report = () => {
     console.log("OK");
     try {
       const Allreport = await Axios.get(
-        "http://localhost:7000/post/report/hide"
+        "https://monkeyfruad01.herokuapp.com/post/report/hide"
       );
       setHidereport(Allreport.data.report);
       setverifypost();

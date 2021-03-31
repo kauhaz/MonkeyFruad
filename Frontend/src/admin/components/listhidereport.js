@@ -35,11 +35,11 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
     try {
       InitOtherData();
       const usernamepost = await Axios.get(
-        `http://localhost:7000/post/mypost/${reportelement.postid}`
+        `https://monkeyfruad01.herokuapp.com/post/mypost/${reportelement.postid}`
       );
       SetUsernamePost(usernamepost.data.item);
       const usernamereport = await Axios.get(
-        `http://localhost:7000/user/session/${reportelement.userreport}`
+        `https://monkeyfruad01.herokuapp.com/user/session/${reportelement.userreport}`
       );
       SetUsernameReport(usernamereport.data.item);
     } catch (err) {
@@ -66,13 +66,13 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
   const cancleHide = async () => {
     console.log("CanCleHide ACtive")
       await Axios.post(
-        `http://localhost:7000/post/report/changeread/${reportelement.uid}`
+        `https://monkeyfruad01.herokuapp.com/post/report/changeread/${reportelement.uid}`
       );
       CancleClick();
   };
   const deleteReport = async () => {
       await Axios.post(
-        `http://localhost:7000/post/report/delete/${reportelement.uid}`
+        `https://monkeyfruad01.herokuapp.com/post/report/delete/${reportelement.uid}`
       );
       DeleteClick();
   };

@@ -182,7 +182,7 @@ const Formpost = ({ check, Setcheck }) => {
 
       Setloading(true);
       Setcheck(true);
-      const a = await Axios.post("http://localhost:7000/post/create", formdata);
+      const a = await Axios.post("https://monkeyfruad01.herokuapp.com/post/create", formdata);
       Setfuck([]);
       setImagesFile();
       Setfiles();
@@ -196,7 +196,7 @@ const Formpost = ({ check, Setcheck }) => {
   };
   useMemo(async () => {
     try {
-      var profiledata = await Axios.post("http://localhost:7000/user/session", {
+      var profiledata = await Axios.post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       });
       setUsername(profiledata.data.data.username);

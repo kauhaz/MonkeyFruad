@@ -153,7 +153,7 @@ const Commentitem = ({ postid }) => {
         }
         Setloading(true);
         const sentcomment = await Axios.post(
-          `http://localhost:7000/post/comment/${postid}`,
+          `https://monkeyfruad01.herokuapp.com/comment/${postid}`,
           formdata
         );
         Setclick(sentcomment);
@@ -206,17 +206,17 @@ const Commentitem = ({ postid }) => {
   const gg = async () => {
     try {
       const getcommentall = await Axios.get(
-        `http://localhost:7000/post/commentmore/${postid}`
+        `https://monkeyfruad01.herokuapp.com/post/commentmore/${postid}`
       );
       Setcommentmore(getcommentall.data.item);
       if (user) {
-        const nameuser = await Axios.post("http://localhost:7000/user/userid", {
+        const nameuser = await Axios.post("https://monkeyfruad01.herokuapp.com/user/userid", {
           result: user,
         });
         Setdata(nameuser.data.item);
 
         var profiledata = await Axios.post(
-          "http://localhost:7000/user/session",
+          "https://monkeyfruad01.herokuapp.com/user/session",
           {
             user: user,
           }

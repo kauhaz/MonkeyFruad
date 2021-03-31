@@ -31,27 +31,27 @@ const Home = () => {
   const Getdata = async () => {
     try {
       const thiefcount = await axios.get(
-        "http://localhost:7000/thief/orderbycount"
+        "https://monkeyfruad01.herokuapp.com/thief/orderbycount"
       );
       setThiefCount(thiefcount.data.data);
       const facebookCount = await axios.get(
-        "http://localhost:7000/post/orderbyfacebook"
+        "https://monkeyfruad01.herokuapp.com/post/orderbyfacebook"
       );
       setFacebookCount(facebookCount.data.data);
       const instragramCount = await axios.get(
-        "http://localhost:7000/post/orderbyinstragram"
+        "https://monkeyfruad01.herokuapp.com/post/orderbyinstragram"
       );
       setInstragramCount(instragramCount.data.data);
       const lineCount = await axios.get(
-        "http://localhost:7000/post/orderbyline"
+        "https://monkeyfruad01.herokuapp.com/post/orderbyline"
       );
       setLineCount(lineCount.data.data);
       const twitterCount = await axios.get(
-        "http://localhost:7000/post/orderbytwitter"
+        "https://monkeyfruad01.herokuapp.com/post/orderbytwitter"
       );
       setTwitterCount(twitterCount.data.data);
       const websiteCount = await axios.get(
-        "http://localhost:7000/post/orderbywebsite"
+        "https://monkeyfruad01.herokuapp.com/post/orderbywebsite"
       );
       setWebsiteCount(websiteCount.data.data);
     } catch (err) {
@@ -131,8 +131,8 @@ const Home = () => {
   };
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
-      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      const getallthief = await axios.get(`https://monkeyfruad01.herokuapp.com/thief/thief`);
+      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
       if (search) {
