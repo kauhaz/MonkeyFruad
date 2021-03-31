@@ -640,8 +640,12 @@ const Mypost = () => {
                               controlId="formGridPrice"
                             >
                               <Form.Label className="text-mypost">
-                                จำนวนเงิน (บาท){" "}
-                                <span className="spanmypost">{ok.money}</span>
+                                จำนวนเงิน {" "}
+                                <span className="spanmypost">
+                                  {ok.money.toLocaleString(undefined, {
+                                      maximumFractionDigits: 2,
+                                    })}{" "}
+                                    บาท</span>
                               </Form.Label>
                             </Form.Group>
 
@@ -696,7 +700,10 @@ const Mypost = () => {
                               <Form.Label className="text-mypost">
                                 ยอดเงินรวมทั้งหมดที่โกงไป{" "}
                                 <span className="spanmypost">
-                                  {ok.summoney} บาท
+                                  {/* {ok.summoney} บาท */}
+                                  {ok.summoney.toLocaleString(undefined, {
+                                      maximumFractionDigits: 2,
+                                    })}{" "}บาท
                                 </span>
                               </Form.Label>
                             </Form.Group>
