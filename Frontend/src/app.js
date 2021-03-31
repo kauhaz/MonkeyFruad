@@ -48,63 +48,6 @@ const App = () => {
       } else {
         setUser(null);
       }
-<<<<<<< HEAD
-     
-  });return () =>{
-authUnsubscribe();
-  };
-  },[]);
-console.log(user)
-return (
-  <Router>
-    <usercontext.Provider value={ {user,setUser}}>
-    <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/post/history" exact>
-        <History />
-      </Route>
-      <Route path="/post/create" exact>
-        <Createpost />
-      </Route>
-      <Route path="/post/edit/:uid" exact>
-        <Editpost />
-      </Route>
-      <Route path="/post/:uid" exact>
-        <Post />
-      </Route>
-      <Route path="/ranking" exact>
-        <Rank />
-      </Route>
-      <Route path="/login" exact>
-        <Login />
-      </Route>
-      <Route path="/signup" exact>
-        <Signup />
-      </Route>
-      <Route path="/forgetpass" exact>
-        <Forgetpass />
-      </Route>
-      <Route path="/prevent" exact>
-        <Prevent />
-      </Route>
-      <Route path="/help" exact>
-        <Help />
-      </Route>
-      <Route path="/contractus" exact>
-        <Contractus />
-      </Route>
-      <Route path="/mypost/:uid" exact>
-        <Mypost />
-      </Route>
-      <Route path="/post" exact>
-        <Post />
-      </Route>
-     
-     
-    </Switch>
-=======
       setLoadingAuth(false);
     });
   }, []);
@@ -132,7 +75,6 @@ return (
           <ContractusAdmin />
         </Route>
       </Switch>
->>>>>>> 283444e4f7ed8dba734b25fdb5eeeb4ffdb60b68
     </usercontext.Provider>
   </Router>
   ) : (
