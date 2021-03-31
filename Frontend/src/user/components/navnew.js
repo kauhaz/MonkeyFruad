@@ -298,7 +298,7 @@ console.log(showDropdown)
               <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBDropdown className="">
+              <MDBDropdown>
                 <MDBDropdownToggle nav caret>
                   ช่วยเหลือ
                 </MDBDropdownToggle>
@@ -336,6 +336,26 @@ console.log(showDropdown)
             <button onClick={() => handlesearch()} className="button-nav">
               ค้นหา
             </button>
+
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav>
+                  <div className="navbar-noti">
+                    <img src="/img/notification.png" className="noti-logo"></img>
+                    <span className="badge">10</span>
+                  </div>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                  <MDBDropdownItem href="/prevent">
+                    รู้ไว้ไม่โดนโกง
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="/help">
+                    หน่วยงานที่ให้ความช่วยเหลือ
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>
