@@ -823,7 +823,7 @@ const Mypost = () => {
                           <Form.Group controlId="exampleForm.ControlTextarea1" className="moredetail-mypost">
                             <Form.Label className="text-mypost1">
                               รายละเอียดเพิ่มเติม{" "}
-                              <span className="spanmypostmore">{ok.other}</span>
+                              <div className="spanmypostmore">{ok.other}</div>
                             </Form.Label>
                           </Form.Group>
                           <div className="imgcommentitemmypost1">

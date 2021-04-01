@@ -16,6 +16,8 @@ import "./navnew.css";
 import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
+import * as moment from "moment";
+import "moment/locale/th";
 import { Nav } from "react-bootstrap";
 const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   var { user } = useContext(usercontext);
@@ -28,10 +30,12 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
   const [allpost, Setallpost] = useState();
-
+  const [countNoti, setCountNoti] = useState([]);
+  const [noti, setNoti] = useState([]);
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
-
+  const [hideCountNoti, SetHideCountNoti] = useState(false);
+  const [hideCountNotiAlways, SetHideCountNotiAlways] = useState(false);
   let history = useHistory();
   let i = 0; //forsearch
 
@@ -47,6 +51,18 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const toggleCollapse = () => {
     setIsopen(!isOpen);
+  };
+  const notiChangeClick = async () => {
+    if (countNoti.length != 0) {
+      SetHideCountNoti(true);
+      await axios.post(
+        `http://localhost:7000/post/notichangeclick/${user.uid}`,
+        { countNoti }
+      );
+    }
+  };
+  const notiChangeRead = async (notiId) => {
+    await axios.post(`http://localhost:7000/post/notificationread/${notiId}`);
   };
   const handlesearch = () => {
     try {
@@ -109,20 +125,22 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
   };
 
-  const ok = async () => {
+  const initSearch = async () => {
     try {
-      const getallthief = await axios.get(`https://monkeyfruad01.herokuapp.com/thief/thief`);
-      
+      const getallthief = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/thief/thief`
+      );
       Setsearching(getallthief.data.item);
-      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
+      const getallpost = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/post/post`
+      );
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
-
       if (search) {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
-            console.log(doc)
+            console.log(doc);
             if (
               (
                 doc.name.toLowerCase() +
@@ -141,7 +159,6 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
             }
-
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -162,26 +179,51 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       console.log(err);
     }
   };
-
+  const initnoti = async () => {
+    await axios
+      .post(`http://localhost:7000/post/getnotification/${user.uid}`)
+      .then((result) => {
+        setNoti(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    await axios
+      .post(`http://localhost:7000/post/getnoticlickfalse/${user.uid}`)
+      .then((result) => {
+        if (result.data[0] === undefined) {
+          SetHideCountNotiAlways(true);
+        } else {
+          setCountNoti(result.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const initUser = async () => {
+    await axios
+      .post("https://monkeyfruad01.herokuapp.com/user/session", {
+        user: user,
+      })
+      .then((result) => {
+        if (result.data.data.role === "admin") {
+          setAdmin(true);
+        }
+        setDisplayname(result.data.data.username);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useMemo(async () => {
     if (user) {
-      await axios
-        .post("https://monkeyfruad01.herokuapp.com/user/session", { user: user })
-        .then((result) => {
-          if (result.data.data.role === "admin") {
-            setAdmin(true);
-          }
-          setDisplayname(result.data.data.username);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      initUser();
+      initnoti();
     }
-    await ok();
+    await initSearch();
     setLoading(false);
-  }, [user, search]);
-console.log(showDropdown)
+  }, [user, search, hideCountNoti]);
   return loading ? (
     ""
   ) : admin ? (
@@ -245,10 +287,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/admin/thief/post/${thiefid}`,
-                                search: "?are you ok"
-  
-                              })
-                              ,
+                                search: "?are you ok",
+                              }),
                               window.location.reload(true)
                             )}
                           >
@@ -342,18 +382,44 @@ console.log(showDropdown)
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav>
-                  <div className="navbar-noti">
-                    <img src="/img/notification.png" className="noti-logo"></img>
-                    <span className="badge">10</span>
+                  <div
+                    className="navbar-noti"
+                    onClick={() => notiChangeClick()}
+                  >
+                    <img
+                      src="/img/notification.png"
+                      className="noti-logo"
+                    ></img>
+                    {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                      <span className="badge">{countNoti.length}</span>
+                    )}
                   </div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                  <MDBDropdownItem href="/prevent">
-                    รู้ไว้ไม่โดนโกง
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="/help">
-                    หน่วยงานที่ให้ความช่วยเหลือ
-                  </MDBDropdownItem>
+                  {noti.map((element, index) => {
+                    return (
+                      <div key={index} >
+                        <MDBDropdownItem href={`/mypost/${element.postid}`} onClick={()=> notiChangeRead(element.uid)} >
+                          {element.userCommentData.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${element.userCommentData.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src="/img/profile.png"
+                            />
+                          )}
+                          {element.userCommentData.username}
+                          <p>แสดงความคิดเห็นต่อโพสต์ของคุณ</p>
+                          {moment(new Date(element.date.seconds * 1000))
+                            .startOf()
+                            .fromNow()}{" "}
+                        </MDBDropdownItem>
+                      </div>
+                    );
+                  })}
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
@@ -404,10 +470,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/thief/post/${thiefid}`,
-                                search: "?are you ok"
-      
-                              })
-                              ,
+                                search: "?are you ok",
+                              }),
                               window.location.reload(true)
                             )}
                           >
