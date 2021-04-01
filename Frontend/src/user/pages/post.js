@@ -2017,7 +2017,7 @@ const Post = () => {
 
           if (checksport) {
             Setshow();
-            if (doc.productcategory === "กีฬาและกิจกรรมกลางแจ้ง") {
+            if (doc.productcategory === "กีฬาและก���จกรรมกลางแจ้ง") {
               if (searchstart && searchend) {
                 Setshow();
                 if (doc.money >= searchstart) {
@@ -5738,7 +5738,7 @@ const Post = () => {
       />
       <div className="container-bigpost1">
         <MDBContainer>
-          <MDBBtn color="info" onClick={() => toggle()}>
+          <MDBBtn classcolor="info" onClick={() => toggle()}>
             Right
           </MDBBtn>
           <MDBModal
@@ -5751,14 +5751,14 @@ const Post = () => {
               ค้นหาโพสต์แบบละเอียด
             </MDBModalHeader>
             <MDBModalBody>
-              <div className="biggroup">
-                <div className="container-postright2">
-                  <div className="post-group1">
+              <div className="biggroup-slide">
+                <div className="container-postright2-slide">
+                  <div className="post-group1-slide">
                     เรียงตาม :
                     <select
                       as="select"
-                      name="post-groupsorting1"
-                      className="post-groupsorting1"
+                      name="post-groupsorting1-slide"
+                      className="post-groupsorting1-slide"
                       onChange={(e) => Setsortvalue(e.target.value)}
                     >
                       <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
@@ -5768,10 +5768,10 @@ const Post = () => {
                     </select>
                   </div>
 
-                  <div className="line-postgroup1"></div>
-                  <div className="post-group2">
-                    <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
-                    <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div className="line-postgroup1-slide"></div>
+                  <div className="post-group2-slide">
+                    <div className="post-namegroup1-slide">ช่องทางที่โดนโกง</div>
+                    <div class="custom-control custom-checkbox groupcheckbox1-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput1"
@@ -5786,7 +5786,7 @@ const Post = () => {
                         Facebook
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox1">
+                    <div class="custom-control custom-checkbox groupcheckbox1-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput1"
@@ -5801,7 +5801,7 @@ const Post = () => {
                         Line
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox1">
+                    <div class="custom-control custom-checkbox groupcheckbox1-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput1"
@@ -5816,7 +5816,7 @@ const Post = () => {
                         Instagram
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox1">
+                    <div class="custom-control custom-checkbox groupcheckbox1-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput1"
@@ -5831,7 +5831,7 @@ const Post = () => {
                         Twitter
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox1">
+                    <div class="custom-control custom-checkbox groupcheckbox1-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput1"
@@ -5847,10 +5847,10 @@ const Post = () => {
                       </label>
                     </div>
                   </div>
-                  <div className="line-postgroup2"></div>
-                  <div className="post-group3">
-                    <div className="post-namegroup2">หมวดหมู่</div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                  <div className="line-postgroup2-slide"></div>
+                  <div className="post-group3-slide">
+                    <div className="post-namegroup2-slide">หมวดหมู่</div>
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5865,7 +5865,7 @@ const Post = () => {
                         เสื้อผ้า
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5880,7 +5880,7 @@ const Post = () => {
                         เครื่องประดับ
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5895,7 +5895,7 @@ const Post = () => {
                         รองเท้า
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5910,7 +5910,7 @@ const Post = () => {
                         กระเป๋า
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5925,7 +5925,7 @@ const Post = () => {
                         มือถือและอุปกรณ์เสริม
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5940,7 +5940,7 @@ const Post = () => {
                         อาหารและเครื่องดื่ม
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5955,7 +5955,7 @@ const Post = () => {
                         อาหารเสริมและผลิตภัณฑ์สุขภาพ
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5970,7 +5970,7 @@ const Post = () => {
                         เครื่องสำอางค์และอุปกรณ์เสริมความงาม
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -5985,7 +5985,7 @@ const Post = () => {
                         คอมพิวเตอร์แล็ปท็อป
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6000,7 +6000,7 @@ const Post = () => {
                         กล้องและอุปกรณ์ถ่ายภาพ
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6015,7 +6015,7 @@ const Post = () => {
                         กีฬาและกิจกรรมกลางแจ้ง
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6030,7 +6030,7 @@ const Post = () => {
                         สื่อบันเทิงภายในบ้าน
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6045,7 +6045,7 @@ const Post = () => {
                         เกมส์และฮ๊อบบี้
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6060,7 +6060,7 @@ const Post = () => {
                         ยานยนต์
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6075,7 +6075,7 @@ const Post = () => {
                         ตั๋วและบัตรกำนัน
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6090,7 +6090,7 @@ const Post = () => {
                         เครื่องใช้ไฟฟ้า
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6105,7 +6105,7 @@ const Post = () => {
                         เฟอร์นิเจอร์และของตกแต่งบ้าน
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6120,7 +6120,7 @@ const Post = () => {
                         สัตว์เลี้ยง
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6135,7 +6135,7 @@ const Post = () => {
                         เครื่องเขียน
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6150,7 +6150,7 @@ const Post = () => {
                         หนังสือ
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6165,7 +6165,7 @@ const Post = () => {
                         เครื่องดนตรี
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox groupcheckbox2">
+                    <div class="custom-control custom-checkbox groupcheckbox2-slide">
                       <input
                         type="checkbox"
                         class="custom-control-input groupcheckboxinput2"
@@ -6181,26 +6181,26 @@ const Post = () => {
                       </label>
                     </div>
                   </div>
-                  <div className="line-postgroup3"></div>
-                  <div className="post-group4">
-                    <div className="post-namegroup3">จำนวนเงิน</div>
-                    <div className="row post-numbergroup1">
+                  <div className="line-postgroup3-slide"></div>
+                  <div className="post-group4-slide">
+                    <div className="post-namegroup3-slide">จำนวนเงิน</div>
+                    <div className="row post-numbergroup1-slide">
                       <input
                         type="number"
                         id="nameproduct"
                         pattern="[0-9]{1,}"
-                        className="postnumber1"
+                        className="postnumber1-slide"
                         onChange={(e) =>
                           Setsearchstart(parseInt(e.target.value))
                         }
                         value={searchstart}
                       ></input>
-                      <div className="post-numbergroup2">-</div>
+                      <div className="post-numbergroup2-slide">-</div>
                       <input
                         type="number"
                         id="nameproduct"
                         pattern="[0-9]{1,}"
-                        className="postnumber2"
+                        className="postnumber2-slide"
                         onChange={(e) => Setsearchend(parseInt(e.target.value))}
                         value={searchend}
                       ></input>
@@ -6673,7 +6673,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
-                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6688,7 +6688,7 @@ const Post = () => {
                       Facebook
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6703,7 +6703,7 @@ const Post = () => {
                       Line
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6718,7 +6718,7 @@ const Post = () => {
                       Instagram
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6733,7 +6733,7 @@ const Post = () => {
                       Twitter
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1">
+                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"

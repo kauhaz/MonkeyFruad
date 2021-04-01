@@ -67,7 +67,6 @@ const Commentitem = ({ postid }) => {
           files.push(doc);
         });
       }
-      console.log(files);
 
       let filesnew = [...files, ...fuck, ...event.target.files];
 
@@ -86,8 +85,6 @@ const Commentitem = ({ postid }) => {
       }
     }, 50);
   };
-  console.log(imagecomment);
-  console.log(imagesFile);
 
   const handledeleteimage = async (index) => {
     try {
@@ -121,7 +118,6 @@ const Commentitem = ({ postid }) => {
         });
         Setfiles(myFile);
       }
-      console.log(myFile);
       if (files) {
         console.log("d");
         files.splice(index, 1);
@@ -153,9 +149,16 @@ const Commentitem = ({ postid }) => {
         }
         Setloading(true);
         const sentcomment = await Axios.post(
-          `https://monkeyfruad01.herokuapp.com/comment/${postid}`,
+          `https://monkeyfruad01.herokuapp.com/post/comment/${postid}`,
           formdata
-        );
+        ).then(()=>{
+          console.log("kuyrai")
+           Axios.post(
+            `http://localhost:7000/post/notificationinit/${postid}/${user.uid}`,
+          )
+        }).catch((err)=>{
+          console.log(err)
+        })
         Setclick(sentcomment);
         Settextcomment("");
         Setfuck([]);
@@ -201,7 +204,6 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }
   };
-  console.log(imagesFile);
 
   const gg = async () => {
     try {
