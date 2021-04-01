@@ -151,14 +151,11 @@ const Commentitem = ({ postid }) => {
         const sentcomment = await Axios.post(
           `https://monkeyfruad01.herokuapp.com/post/comment/${postid}`,
           formdata
-        ).then(()=>{
-          console.log("kuyrai")
-           Axios.post(
-            `http://localhost:7000/post/notificationinit/${postid}/${user.uid}`,
-          )
-        }).catch((err)=>{
-          console.log(err)
-        })
+        );
+        const sendnoti = await Axios.post(
+          `http://localhost:7000/post/notificationnonread/${postid}/${user.uid}`
+        );
+
         Setclick(sentcomment);
         Settextcomment("");
         Setfuck([]);
@@ -212,9 +209,12 @@ const Commentitem = ({ postid }) => {
       );
       Setcommentmore(getcommentall.data.item);
       if (user) {
-        const nameuser = await Axios.post("https://monkeyfruad01.herokuapp.com/user/userid", {
-          result: user,
-        });
+        const nameuser = await Axios.post(
+          "https://monkeyfruad01.herokuapp.com/user/userid",
+          {
+            result: user,
+          }
+        );
         Setdata(nameuser.data.item);
 
         var profiledata = await Axios.post(
