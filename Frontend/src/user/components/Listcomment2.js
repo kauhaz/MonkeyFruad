@@ -67,7 +67,6 @@ const Listcomment2 = ({
           files.push(doc);
         });
       }
-      console.log(files);
 
       let filesnew = [...files, ...fuck, ...event.target.files];
 
@@ -90,7 +89,6 @@ const Listcomment2 = ({
   const handledeleteimage = async (index) => {
     try {
       if (imagecomment) {
-        console.log("a");
         imagecomment.splice(index, 1);
         Setimagecomment([...imagecomment]);
       }
@@ -98,7 +96,6 @@ const Listcomment2 = ({
         Setimagecomment();
       }
       if (imagesFile) {
-        console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
@@ -107,7 +104,6 @@ const Listcomment2 = ({
       }
 
       if (fuck) {
-        console.log("c");
         fuck.splice(index, 1);
         Setfuck([...fuck]);
       }
@@ -127,7 +123,6 @@ const Listcomment2 = ({
         });
         Setfiles(myFile);
       }
-      console.log(myFile);
       if (files) {
         console.log("d");
         files.splice(index, 1);

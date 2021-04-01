@@ -62,7 +62,6 @@ const Commentitemformypost = ({ postid }) => {
           files.push(doc);
         });
       }
-      console.log(files);
 
       let filesnew = [...files, ...fuck, ...event.target.files];
 
@@ -114,7 +113,6 @@ const Commentitemformypost = ({ postid }) => {
         });
         Setfiles(myFile);
       }
-      console.log(myFile);
       if (files) {
         console.log("d");
         files.splice(index, 1);

@@ -139,6 +139,7 @@ const Home = () => {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
+          
             if (
               (
                 doc.name.toLowerCase() +
