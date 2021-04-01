@@ -111,7 +111,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`hhttps://monkeyfruad01.herokuapp.com/thief/thief`);
+      const getallthief = await axios.get(`https://monkeyfruad01.herokuapp.com/thief/thief`);
+      
       Setsearching(getallthief.data.item);
       const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
       Setallpost(getallpost.data.item);
@@ -121,6 +122,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
+            console.log(doc)
             if (
               (
                 doc.name.toLowerCase() +
