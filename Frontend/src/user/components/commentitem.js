@@ -148,7 +148,7 @@ const Commentitem = ({ postid }) => {
           return Seterror("กรุณาใส่ข้อความหรือรูปภาพ");
         }
         Setloading(true);
-        const sentcomment = Axios.post(
+        const sentcomment = await Axios.post(
           `https://monkeyfruad01.herokuapp.com/post/comment/${postid}`,
           formdata
         ).then(()=>{

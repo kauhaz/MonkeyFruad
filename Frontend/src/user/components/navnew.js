@@ -135,6 +135,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
+            console.log(doc)
             if (
               (
                 doc.name.toLowerCase() +
