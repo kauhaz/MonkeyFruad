@@ -111,8 +111,8 @@
 
 .listcommentpost2 {
   margin: 0;
-  width: 155px;
-  height: 155px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -120,8 +120,7 @@
 
 .imgcommentitempost {
   display: grid;
-  padding: 0px;
-  grid-gap: 00px;
+  grid-gap: 5px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -138,7 +137,7 @@
   height: 150px;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* .imgpreviewpost2 {

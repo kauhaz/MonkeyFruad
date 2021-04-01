@@ -53,10 +53,8 @@ img.img-circle {
 }
 
 .uploadproveedit1 {
-  /* width: 90%;
-  height: auto; */
-  width: 115px;
-  height: 115px;
+  width: 125px;
+  height: 125px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -73,12 +71,11 @@ img.img-circle {
 .uploadproveedit2 {
   width: 100%;
   padding: 40px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .imgcommentitempost1 {
   display: grid;
-  padding-left: 15px;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -86,11 +83,11 @@ img.img-circle {
 .imgpreviewa1 {
   position: relative;
   margin: 0;
-  width: 115px;
-  height: 115px;
+  width: 125px;
+  height: 125px;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .postdelete {
