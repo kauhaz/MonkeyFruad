@@ -220,16 +220,17 @@ const Listcomment2 = ({
               <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
-                    className="img-circle"
+                    className="img-circle profile-liscomment2"
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle" src="/img/profile.png" />
+                  <img className="img-circle profile-liscomment2" src="/img/profile.png" />
                 )}
               </div>
               <div className="mypost-comment-name1">
                 {commentmore ? "@" : null}
                 {commentmore.username}
+                <div className="none-listcomment2"></div>
                 <span className="mypost-comment-time1">
                   {" "}
                   {moment(new Date(commentmore.datetime.seconds * 1000))
