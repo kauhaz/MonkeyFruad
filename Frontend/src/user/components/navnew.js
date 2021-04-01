@@ -56,13 +56,13 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     if (countNoti.length != 0) {
       SetHideCountNoti(true);
       await axios.post(
-        `http://localhost:7000/post/notichangeclick/${user.uid}`,
+        `https://monkeyfruad01.herokuapp.com/post/notichangeclick/${user.uid}`,
         { countNoti }
       );
     }
   };
   const notiChangeRead = async (notiId) => {
-    await axios.post(`http://localhost:7000/post/notificationread/${notiId}`);
+    await axios.post(`https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`);
   };
   const handlesearch = () => {
     try {
@@ -181,7 +181,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const initnoti = async () => {
     await axios
-      .post(`http://localhost:7000/post/getnotification/${user.uid}`)
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
       .then((result) => {
         setNoti(result.data);
       })
@@ -189,7 +189,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         console.log(err);
       });
     await axios
-      .post(`http://localhost:7000/post/getnoticlickfalse/${user.uid}`)
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
       .then((result) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
@@ -219,7 +219,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   useMemo(async () => {
     if (user) {
       initUser();
-      initnoti();
+     await initnoti();
     }
     await initSearch();
     setLoading(false);

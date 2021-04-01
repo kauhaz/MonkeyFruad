@@ -153,7 +153,7 @@ const Commentitem = ({ postid }) => {
           formdata
         );
         const sendnoti = await Axios.post(
-          `http://localhost:7000/post/notificationnonread/${postid}/${user.uid}`
+          `https://monkeyfruad01.herokuapp.com/post/notificationnonread/${postid}/${user.uid}`
         );
 
         Setclick(sentcomment);
