@@ -53,10 +53,8 @@ img.img-circle {
 }
 
 .uploadproveedit1 {
-  /* width: 90%;
-  height: auto; */
-  width: 115px;
-  height: 115px;
+  width: 90px;
+  height: 90px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -72,25 +70,23 @@ img.img-circle {
 
 .uploadproveedit2 {
   width: 100%;
-  padding: 40px;
-    cursor: pointer;
+  padding: 30px;
+  cursor: pointer;
 }
 
 .imgcommentitempost1 {
   display: grid;
-  padding-left: 15px;
-  grid-gap: 5px;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-gap: 5px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .imgpreviewa1 {
   position: relative;
-  margin: 0;
-  width: 115px;
-  height: 115px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .postdelete {
@@ -170,27 +166,21 @@ img.img-circle {
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreviewa1,.uploadproveedit1 {
-    width: 135px;
-    height: 135px;
+    width: 100px;
+    height: 100px;
   }
 }
 
 @media only screen and (max-width: 1367px){
   .imgpreviewa1,.uploadproveedit1 {
-    width: 150px;
-    height: 150px;
-  }
-  .imgcommentitempost1 {
-    grid-template-columns: 1fr 1fr;
+    width: 75px;
+    height: 75px;
   }
 }
 
 @media only screen and (max-width: 1025px){
   .imgpreviewa1,.uploadproveedit1 {
-    width: 150px;
-    height: 150px;
-  }
-  .imgcommentitempost1 {
-    grid-template-columns: 1fr 1fr;
+    width: 125px;
+    height: 125px;
   }
 }
