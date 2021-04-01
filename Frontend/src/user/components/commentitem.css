@@ -174,8 +174,8 @@ img.img-circle {
 
 @media only screen and (max-width: 1367px){
   .imgpreviewa1,.uploadproveedit1 {
-    width: 150px;
-    height: 150px;
+    width: 165px;
+    height: 165px;
   }
   .imgcommentitempost1 {
     grid-template-columns: 1fr 1fr;

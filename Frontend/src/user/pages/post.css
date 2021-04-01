@@ -41,7 +41,7 @@
 
 .post-linkpost1 {
   width: 100%;
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
@@ -60,7 +60,6 @@
   margin-right: auto;
   padding: 20px;
   font-family: "Kanit", sans-serif;
-  font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -165,7 +164,6 @@
   padding-left: 20px;
   padding-right: 20px;
   font-family: "Kanit", sans-serif;
-  font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -549,11 +547,7 @@
   }
 
   .post-linkpost1 {
-    font-size: 22px;
-  }
-
-  .container-posts2 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .posts-name1 {
@@ -570,10 +564,6 @@
 
   .postothers {
     font-size: 18px;
-  }
-
-  .container-postright1 {
-    font-size: 22px;
   }
 
   .post-linkpost2 {
@@ -631,11 +621,7 @@
 
 @media only screen and (max-width: 1367px) {
   .post-linkpost1 {
-    font-size: 20px;
-  }
-
-  .container-posts2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .posts-name1 {
@@ -652,10 +638,6 @@
 
   .postothers {
     font-size: 16px;
-  }
-
-  .container-postright1 {
-    font-size: 20px;
   }
 
   .post-linkpost2 {
@@ -716,17 +698,27 @@
     width: 90%;
   }
 
+  .column-post-left1 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .container-post1 {
     margin-top: 30px;
   }
 
+  .monkey {
+    margin-left: 150px;
+  }
+
   .post-linkpost1 {
     font-size: 20px;
+    margin-left: -10px;
   }
 
   .container-posts2 {
     margin-top: 30px;
-    font-size: 20px;
   }
 
   .posts-name1 {
@@ -747,7 +739,6 @@
 
   .container-postright1 {
     display: none;
-    font-size: 20px;
   }
 
   .post-linkpost2 {
@@ -825,7 +816,6 @@
 
   .container-posts2 {
     margin-top: 30px;
-    font-size: 20px;
   }
 
   .posts-name1 {
@@ -847,7 +837,6 @@
   .container-postright1 {
     display: none;
     margin-top: 30px;
-    font-size: 20px;
   }
 
   .post-linkpost2 {
@@ -924,7 +913,7 @@
   }
 
   .container-posts2 {
-    font-size: 20px;
+    margin-top: 30px;
   }
 
   .posts-name1 {
@@ -945,7 +934,6 @@
 
   .container-postright1 {
     display: none;
-    font-size: 20px;
   }
 
   .post-linkpost2 {
@@ -1007,7 +995,7 @@
   }
 
   .container-posts2 {
-    font-size: 20px;
+    margin-top: 30px;
   }
 
   .posts-name1 {
@@ -1028,7 +1016,6 @@
 
   .container-postright1 {
     display: none;
-    font-size: 20px;
   }
 
   .post-linkpost2 {
@@ -1091,7 +1078,7 @@
   }
 
   .container-posts2 {
-    font-size: 20px;
+    margin-top: 30px;
   }
 
   .posts-name1 {
@@ -1112,7 +1099,6 @@
 
   .container-postright1 {
     display: none;
-    font-size: 20px;
   }
 
   .post-linkpost2 {

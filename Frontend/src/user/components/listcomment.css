@@ -106,7 +106,7 @@
 
 .commentbox {
   display: grid;
-  grid-template-columns: 40px 60% 40px;
+  grid-template-columns: 40px 77% 40px;
 }
 
 .listcommentpost2 {
@@ -261,6 +261,22 @@
     width: 160px;
     height: 160px;
   }
+
+  .post-comment-name1 {
+    font-size: 20px;
+  }
+
+  .post-comment-time1 {
+    font-size: 16px;
+  }
+
+  .postcomment1 {
+    font-size: 18px;
+  }
+
+  .commentbox {
+    grid-template-columns: 40px 78% 40px;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
@@ -275,6 +291,9 @@
   }
   .uploadproveedits2 {
     padding: 40px;
+  }
+  .commentbox {
+    grid-template-columns: 40px 74% 40px;
   }
 }
 
