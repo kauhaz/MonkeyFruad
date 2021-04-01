@@ -133,8 +133,8 @@
 .imgpreviewpost1 {
   position: relative;
   margin: 0;
-  width: 150px;
-  height: 150px;
+  width: 145px;
+  height: 145px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 10px;
@@ -169,8 +169,8 @@
 }
 
 .uploadproveedits1 {
-  width: 150px;
-  height: 150px;
+  width: 145px;
+  height: 145px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -258,8 +258,8 @@
 
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 155px;
-    height: 155px;
+    width: 160px;
+    height: 160px;
   }
 }
 
