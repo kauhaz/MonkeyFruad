@@ -22,7 +22,7 @@ const Findthief = () => {
 
   let location = useLocation();
   const ok = async () => {
-    const getpost = await Axios.get(`http://localhost:7000/thief/post/${uid}`);
+    const getpost = await Axios.get(`https://monkeyfruad01.herokuapp.com/thief/post/${uid}`);
     SetLoading(false);
     Setshow(getpost.data.item);
   };

@@ -111,9 +111,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`http://localhost:7000/thief/thief`);
+      const getallthief = await axios.get(`hhttps://monkeyfruad01.herokuapp.com/thief/thief`);
       Setsearching(getallthief.data.item);
-      const getallpost = await axios.get(`http://localhost:7000/post/post`);
+      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
 
@@ -164,7 +164,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   useMemo(async () => {
     if (user) {
       await axios
-        .post("http://localhost:7000/user/session", { user: user })
+        .post("https://monkeyfruad01.herokuapp.com/user/session", { user: user })
         .then((result) => {
           if (result.data.data.role === "admin") {
             setAdmin(true);
@@ -298,7 +298,7 @@ console.log(showDropdown)
               <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBDropdown className="">
+              <MDBDropdown>
                 <MDBDropdownToggle nav caret>
                   ช่วยเหลือ
                 </MDBDropdownToggle>
@@ -336,6 +336,26 @@ console.log(showDropdown)
             <button onClick={() => handlesearch()} className="button-nav">
               ค้นหา
             </button>
+
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav>
+                  <div className="navbar-noti">
+                    <img src="/img/notification.png" className="noti-logo"></img>
+                    <span className="badge">10</span>
+                  </div>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                  <MDBDropdownItem href="/prevent">
+                    รู้ไว้ไม่โดนโกง
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="/help">
+                    หน่วยงานที่ให้ความช่วยเหลือ
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>

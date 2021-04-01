@@ -57,7 +57,7 @@ const EditProfile = () => {
       formdata.append("phone", phone);
       formdata.append("province", province);
       await axios.post(
-        `http://localhost:7000/user/edit/profile/${user.uid}`,
+        `https://monkeyfruad01.herokuapp.com/user/edit/profile/${user.uid}`,
         formdata
       );
       console.log("ok");
@@ -75,7 +75,7 @@ const EditProfile = () => {
   };
   useMemo(async () => {
     await axios
-      .post("http://localhost:7000/user/session", { user: user })
+      .post("https://monkeyfruad01.herokuapp.com/user/session", { user: user })
       .then((result) => {
         setUsername(result.data.data.username);
         setFirstname(result.data.data.firstname);

@@ -25,18 +25,18 @@ const Rank = () => {
     SetshowDropdown(false);
   };
   const getInitCount = async () => {
-    const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
+    const getThief = await Axios.get(`https://monkeyfruad01.herokuapp.com/thief/rankcount`);
     setThiefRank(getThief.data.data);
   };
   const GetInitThiefThreeRank = async () => {
     const thiefcount = await Axios.get(
-      "http://localhost:7000/thief/orderbycount"
+      "https://monkeyfruad01.herokuapp.com/thief/orderbycount"
     );
     setTThiefThreeRank(thiefcount.data.data);
     setTitleSort("จำนวนครั้งที่โกงมากที่สุด");
   };
   const GetPost = async () => {
-    const getallpost = await Axios.get("http://localhost:7000/post/post");
+    const getallpost = await Axios.get("https://monkeyfruad01.herokuapp.com/post/post");
     Setallpost(getallpost.data.item);
   };
   const RankSeePost = (accountnumber) => {
@@ -60,29 +60,29 @@ const Rank = () => {
     if (e.target.value === "ยอดเงินที่โกงสูงสุด") {
       setTitleSort(e.target.value);
       const getThief = await Axios.get(
-        `http://localhost:7000/thief/ranksummoney`
+        `https://monkeyfruad01.herokuapp.com/thief/ranksummoney`
       );
       setThiefRank(getThief.data.data);
       const getThreeThief = await Axios.get(
-        `http://localhost:7000/thief/orderbysummoney`
+        `https://monkeyfruad01.herokuapp.com/thief/orderbysummoney`
       );
       setTThiefThreeRank(getThreeThief.data.data);
     } else if (e.target.value === "วันที่โกงล่าสุด") {
       setTitleSort(e.target.value);
       const getThief = await Axios.get(
-        `http://localhost:7000/thief/rankdatetime`
+        `https://monkeyfruad01.herokuapp.com/thief/rankdatetime`
       );
       setThiefRank(getThief.data.data);
       const getThreeThief = await Axios.get(
-        `http://localhost:7000/thief/orderbydatetimes`
+        `https://monkeyfruad01.herokuapp.com/thief/orderbydatetimes`
       );
       setTThiefThreeRank(getThreeThief.data.data);
     } else if (e.target.value === "จำนวนครั้งที่โกงมากที่สุด") {
       setTitleSort(e.target.value);
-      const getThief = await Axios.get(`http://localhost:7000/thief/rankcount`);
+      const getThief = await Axios.get(`https://monkeyfruad01.herokuapp.com/thief/rankcount`);
       setThiefRank(getThief.data.data);
       const getThreeThief = await Axios.get(
-        `http://localhost:7000/thief/orderbycount`
+        `https://monkeyfruad01.herokuapp.com/thief/orderbycount`
       );
       setTThiefThreeRank(getThreeThief.data.data);
     }

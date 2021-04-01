@@ -12,7 +12,7 @@ const Hidereport = () => {
   const initReport = async () => {
     try {
       const Allreport = await Axios.get(
-        "http://localhost:7000/post/report/hide"
+        "https://monkeyfruad01.herokuapp.com/post/report/hide"
       );
       setReport(Allreport.data.report);
       console.log(Allreport.data.report);

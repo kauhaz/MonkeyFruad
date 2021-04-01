@@ -19,7 +19,7 @@ const History = () => {
   };
   const ok = async () => {
     try {
-      const ok = await Axios.post("http://localhost:7000/post/postapi", {
+      const ok = await Axios.post("https://monkeyfruad01.herokuapp.com/post/postapi", {
         result: user,
       });
       Setmypost(ok.data.item);
@@ -63,6 +63,7 @@ const History = () => {
             );
           })
         : null}
+      <div className="containeremty-history"></div>
 
       <Chatbot />
     </div>

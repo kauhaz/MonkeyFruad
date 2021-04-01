@@ -110,6 +110,45 @@
     background-color: #c5c5c5;
 }
 
+.navbar-noti {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    speed: 500ms;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-noti:hover {
+    background-color: #fff;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    padding: 14px;
+}
+
+.navbar-noti .noti-logo{
+    width: 23px;
+    height: 23px;
+}
+
+.navbar-noti .badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.dropdown-top-noti {
+    margin-right: 40px !important;
+
+}
+
 /*reponsive*/
 @media only screen and (max-width: 1921px) {
         /*dropsearch*/
@@ -386,7 +425,7 @@
         margin-top: -30px;
     }
     .dropdown-item{
-        font-size: 11px !important;
+        font-size: 12px !important;
     }
     .dropdown-top1{
         margin-left: 93px !important;
@@ -412,7 +451,7 @@
   }
   @media only screen and (max-width: 321px) {
     .navbarnew {
-        font-size: 11px;
+        font-size: 13px;
     }
     .box-nav{
         width: 180px;
@@ -426,17 +465,14 @@
         height: 25px;
         margin-top: -25px;
     }
-    .dropdown-item{
-        font-size: 10px !important;
-    }
     .dropdown-top1{
-        margin-left: 93px !important;
+        margin-left: 63px !important;
     }
     .dropdown-top2{
-        margin-left: 94px !important;
+        margin-left: 63px !important;
     }
     .dropdown-bottom{
-        margin-left: -250px !important;
+        margin-left: -230px !important;
     }
 
      /*dropsearch*/
