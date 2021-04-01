@@ -28,10 +28,10 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
   const [allpost, Setallpost] = useState();
-
+  const [countNoti, setCountNoti] = useState([]);
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
-
+  const [hideCountNoti, SethideCountNoti] = useState(false);
   let history = useHistory();
   let i = 0; //forsearch
 
@@ -47,6 +47,16 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const toggleCollapse = () => {
     setIsopen(!isOpen);
+  };
+  const notiChangeToNonRead = async () => {
+    if (countNoti.length != 0) {
+      console.log(countNoti.length);
+      await axios.post(
+        `http://localhost:7000/post/notificationnonread/${user.uid}`,
+        { countNoti }
+      );
+      SethideCountNoti(!hideCountNoti);
+    }
   };
   const handlesearch = () => {
     try {
@@ -111,9 +121,13 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
 
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`hhttps://monkeyfruad01.herokuapp.com/thief/thief`);
+      const getallthief = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/thief/thief`
+      );
       Setsearching(getallthief.data.item);
-      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
+      const getallpost = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/post/post`
+      );
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
 
@@ -164,13 +178,22 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   useMemo(async () => {
     if (user) {
       await axios
-        .post("https://monkeyfruad01.herokuapp.com/user/session", { user: user })
+        .post("https://monkeyfruad01.herokuapp.com/user/session", {
+          user: user,
+        })
         .then((result) => {
           if (result.data.data.role === "admin") {
             setAdmin(true);
           }
           setDisplayname(result.data.data.username);
-          setLoading(false);
+        })
+        .then(async () => {
+          await axios
+            .post(`http://localhost:7000/post/notificationinitread/${user.uid}`)
+            .then((result) => {
+              console.log(result.data);
+              setCountNoti(result.data);
+            });
         })
         .catch((err) => {
           console.log(err);
@@ -178,8 +201,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
     await ok();
     setLoading(false);
-  }, [user, search]);
-console.log(showDropdown)
+  }, [user, search, hideCountNoti]);
+  console.log(countNoti);
   return loading ? (
     ""
   ) : admin ? (
@@ -243,10 +266,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/admin/thief/post/${thiefid}`,
-                                search: "?are you ok"
-  
-                              })
-                              ,
+                                search: "?are you ok",
+                              }),
                               window.location.reload(true)
                             )}
                           >
@@ -340,9 +361,15 @@ console.log(showDropdown)
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav>
-                  <div className="navbar-noti">
-                    <img src="/img/notification.png" className="noti-logo"></img>
-                    <span className="badge">10</span>
+                  <div
+                    className="navbar-noti"
+                    onClick={() => notiChangeToNonRead()}
+                  >
+                    <img
+                      src="/img/notification.png"
+                      className="noti-logo"
+                    ></img>
+                    <span className="badge">{countNoti.length}</span>
                   </div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
@@ -402,10 +429,8 @@ console.log(showDropdown)
                             onClick={() => (
                               history.push({
                                 pathname: `/thief/post/${thiefid}`,
-                                search: "?are you ok"
-      
-                              })
-                              ,
+                                search: "?are you ok",
+                              }),
                               window.location.reload(true)
                             )}
                           >

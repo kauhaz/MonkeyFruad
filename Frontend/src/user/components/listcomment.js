@@ -67,7 +67,6 @@ const Listcomment = ({
           files.push(doc);
         });
       }
-      console.log(files);
 
       let filesnew = [...files, ...fuck, ...event.target.files];
 
@@ -86,16 +85,9 @@ const Listcomment = ({
       }
     }, 50);
   };
-  // console.log(fuck);
-  // console.log(imagesFile);
-  // console.log(files);
-  // console.log(imagecomment)
-  console.log(imagesFile);
-
   const handledeleteimage = async (index) => {
     try {
       if (imagecomment) {
-        console.log("a");
         imagecomment.splice(index, 1);
         Setimagecomment([...imagecomment]);
       }
@@ -103,7 +95,6 @@ const Listcomment = ({
         Setimagecomment();
       }
       if (imagesFile) {
-        console.log("b");
         imagesFile.splice(index, 1);
         setImagesFile([...imagesFile]);
       }
@@ -112,7 +103,6 @@ const Listcomment = ({
       }
 
       if (fuck) {
-        console.log("c");
         fuck.splice(index, 1);
         Setfuck([...fuck]);
       }
@@ -133,7 +123,6 @@ const Listcomment = ({
         Setfiles(myFile);
       }
       if (files) {
-        console.log("d");
         files.splice(index, 1);
         Setfiles([...files]);
       }
@@ -141,9 +130,6 @@ const Listcomment = ({
       console.log(err);
     }
   };
-  if (commentmore && commentmore.photocomment) {
-    console.log(commentmore.photocomment);
-  }
   const deleted = async (commentid, commentmore) => {
     console.log(commentmore);
     const postdelete = await Axios.post(
