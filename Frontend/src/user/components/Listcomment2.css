@@ -350,6 +350,10 @@
   .commentboxmypost {
     grid-template-columns: 40px 73% 40px;
   }
+  .imglistcommentmypost {
+    margin-bottom: 10px;
+  }
+
 
 }
 
