@@ -373,7 +373,20 @@
 
 
   /*READ COMMENT*/
-  .name-nav-noti-read,.text-nav-noti-read,.time-nav-noti-read{
+  .name-nav-noti-read{
+    margin-top: -42px;
+    margin-left: 50px;
+    color: rgb(167, 167, 167);
+  }
+  .text-nav-noti-read{
+    margin-top: -3px;
+    margin-left: 50px;
+    color: rgb(167, 167, 167);
+  }
+  .time-nav-noti-read{
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
     color: rgb(167, 167, 167);
   }
   .profile-nav-noti{
@@ -573,7 +586,7 @@
   }
 
    /*NOTIFICATION*/
-   .noti-commp{
+   .noti-comp{
     display: none !important;
    }
    .noti-respon{
