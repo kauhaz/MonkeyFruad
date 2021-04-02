@@ -134,17 +134,14 @@
 
 .navbar-noti .badge {
   position: absolute;
-  top: -2px;
-  right: -2px;
-  padding: 5px 0px;
+  top: -3px;
+  right: -3px;
+  padding: 5px 5px;
   border-radius: 50%;
   background-color: red;
   color: white;
   font-weight: 400;
   font-size: 12px;
-  width: 20px;
-  height: 20px;
-  text-align: center;
 }
 
 
@@ -158,13 +155,6 @@
     width: 285px !important;
     padding: 10px !important;
     margin-top: 4px !important;
-  }
-  .dropdown-top-noti::-webkit-scrollbar {
-    width: 5px; 
-  }
-  
-  .dropdown-top-noti::-webkit-scrollbar-track {
-    background: #5c5c5c
   }
   .img-circle.profile-nav-noti{
     width: 40px;
@@ -188,25 +178,29 @@
 
 
   /*READ COMMENT*/
-  .name-nav-noti-read{
-    margin-top: -42px;
-    margin-left: 50px;
+  .name-nav-noti-read,.text-nav-noti-read,.time-nav-noti-read{
     color: rgb(167, 167, 167);
-  }
-  .text-nav-noti-read{
-    margin-top: -3px;
-    margin-left: 50px;
-    color: rgb(167, 167, 167);
-  }
-  .time-nav-noti-read{
     font-size: 13px;
     margin-left: 50px;
     margin-top: -15px;
-    color: rgb(167, 167, 167);
   }
-  .profile-nav-noti-read{
+  .text-nav-noti-read{
+    color: rgb(167, 167, 167);
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+  .time-nav-noti-read{
+    color: rgb(167, 167, 167);
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+  .img-circle.profile-nav-noti-read{
     opacity: 0.8;
   }
+
+
 
 /*reponsive*/
 @media only screen and (max-width: 1921px) {
@@ -350,9 +344,9 @@
   .dropdown-top-noti{
     /* background-color: yellow !important; */
     margin-left: -240px !important;
-    width: 305px !important;
+    width: 280px !important;
     padding: 10px !important;
-    margin-top: 24px !important;
+    margin-top: 4px !important;
   }
   .name-nav-noti{
     margin-top: -42px;
@@ -368,20 +362,6 @@
     margin-left: 50px;
     margin-top: -15px;
     color: #007bff; 
-  }
-  .navbar-noti .badge {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    padding: 5px 0px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-    font-weight: 400;
-    font-size: 12px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
   }
 
 
@@ -550,9 +530,6 @@
     font-size: 12px;
     margin-left: 50px;
   }
-  .navbar-noti .badge {
-    font-size: 11px;
-  }
 
 }
 
@@ -616,7 +593,7 @@
     height: 18px;
   }
   .navbar-noti {
-    margin-left: 110px;
+    margin-left: 130px;
     margin-right: -50px;
   }
 
@@ -629,34 +606,25 @@
    }
    .dropdown-top-noti{
     /* background-color: yellow !important; */
-    margin-left: -180px !important;
-    margin-top: 57px !important;
+    margin-left: -170px !important;
+    margin-top: 7px !important;
     width: 414px !important;
     border-bottom: none !important;
     border-left: none !important;
     border-right: none !important;
   }
 
-  .name-nav-noti,.name-nav-noti-read{
-    margin-top: -40px;
-    margin-left: 50px;
+  .name-nav-noti{
+    margin-top: -30px;
+    margin-left: 40px;
   }
-  .text-nav-noti,.text-nav-noti-read{
+  .text-nav-noti{
     margin-top: -3px;
-    margin-left: 50px;
+    margin-left: 40px;
   }
-  .time-nav-noti,.time-nav-noti-read{
+  .time-nav-noti{
     font-size: 10px;
-    margin-left: 50px;
-  }
-
-  .navbar-noti .badge {
-    top: 0px;
-    right: -40px;
-    padding: 5px 0px;
-    font-size: 10px;
-    width: 18px;
-    height: 18px;
+    margin-left: 40px;
   }
 }
 
@@ -709,7 +677,7 @@
     height: 18px;
   }
   .navbar-noti {
-    margin-left: 90px;
+    margin-left: 100px;
     margin-right: -40px;
   }
 
@@ -718,15 +686,6 @@
     margin-left: -162px !important;
     margin-top: 6px !important;
     width: 375px !important;
-  }
-
-  .navbar-noti .badge {
-    top: 0px;
-    right: -28px;
-    padding: 3px 3px;
-    font-size: 10px;
-    width: 16px;
-    height: 16px;
   }
 }
 @media only screen and (max-width: 321px) {
@@ -773,14 +732,14 @@
     height: 18px;
   }
   .navbar-noti {
-    margin-left: 40px;
+    margin-left: 50px;
     margin-right: -40px;
   }
 
    /*NOTIFICATION*/
    .dropdown-top-noti{
-    margin-left: -163px !important;
-    margin-top: 57px !important;
+    margin-left: -158px !important;
+    margin-top: 7px !important;
     width: 320px !important;
   }
 }
