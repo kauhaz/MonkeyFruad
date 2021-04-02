@@ -176,7 +176,7 @@
 
 
   /*READ COMMENT*/
-  .name-nav-noti-read{
+  .name-nav-noti-read,.text-nav-noti-read,.time-nav-noti-read{
     color: rgb(167, 167, 167);
     font-size: 13px;
     margin-left: 50px;

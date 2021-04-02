@@ -384,80 +384,85 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             <button onClick={() => handlesearch()} className="button-nav">
               ค้นหา
             </button>
-
-            <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav>
-                  <div
-                    className="navbar-noti"
-                    onClick={() => notiChangeClick()}
-                  >
-                    <img
-                      src="/img/notification.png"
-                      className="noti-logo"
-                    ></img>
-                    {hideCountNotiAlways ? null : hideCountNoti ? null : (
-                      <span className="badge">{countNoti.length}</span>
-                    )}
-                  </div>
-                </MDBDropdownToggle>
-                {noti.length != 0 ? (
-                  <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                    {noti.map((element, index) => {
-                      return (
-                        <div key={index}>
-                          <MDBDropdownItem
-                            href={`/mypost/${element.postid}`}
-                            onClick={() => notiChangeRead(element.uid)}
-                          >
-                            {element.userCommentData.photoURL ? (
-                              <img
-                                className="img-circle  profile-nav-noti"
-                                src={`${element.userCommentData.photoURL.url}`}
-                              />
-                            ) : (
-                              <img
-                                className="img-circle profile-nav-noti"
-                                src="/img/profile.png"
-                              />
-                            )}
-                            {element.read ? (
-                              <div>
-                                <div className="name-nav-noti-read">
-                                  @{element.userCommentData.username}
+            {user ? (
+              <MDBNavItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle nav>
+                    <div
+                      className="navbar-noti"
+                      onClick={() => notiChangeClick()}
+                    >
+                      <img
+                        src="/img/notification.png"
+                        className="noti-logo"
+                      ></img>
+                      {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                        <span className="badge">{countNoti.length}</span>
+                      )}
+                    </div>
+                  </MDBDropdownToggle>
+                  {noti.length != 0 ? (
+                    <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                      {noti.map((element, index) => {
+                        return (
+                          <div key={index}>
+                            <MDBDropdownItem
+                              href={`/mypost/${element.postid}`}
+                              onClick={() => notiChangeRead(element.uid)}
+                            >
+                              {element.userCommentData.photoURL ? (
+                                <img
+                                  className="img-circle  profile-nav-noti"
+                                  src={`${element.userCommentData.photoURL.url}`}
+                                />
+                              ) : (
+                                <img
+                                  className="img-circle profile-nav-noti"
+                                  src="/img/profile.png"
+                                />
+                              )}
+                              {element.read ? (
+                                <div>
+                                  <div className="name-nav-noti-read">
+                                    @{element.userCommentData.username}
+                                  </div>
+                                  <p className="text-nav-noti-read">
+                                    แสดงความคิดเห็นต่อโพสต์ของคุณ
+                                  </p>
+                                  <div className="time-nav-noti-read">
+                                    {moment(
+                                      new Date(element.date.seconds * 1000)
+                                    )
+                                      .startOf()
+                                      .fromNow()}
+                                  </div>
                                 </div>
-                                <p className="text-nav-noti-read">
-                                  แสดงความคิดเห็นต่อโพสต์ของคุณ
-                                </p>
-                                <div className="time-nav-noti-read">
-                                  {moment(new Date(element.date.seconds * 1000))
-                                    .startOf()
-                                    .fromNow()}
+                              ) : (
+                                <div>
+                                  <div className="name-nav-noti">
+                                    @{element.userCommentData.username}
+                                  </div>
+                                  <p className="text-nav-noti">
+                                    แสดงความคิดเห็นต่อโพสต์ของคุณ
+                                  </p>
+                                  <div className="time-nav-noti">
+                                    {moment(
+                                      new Date(element.date.seconds * 1000)
+                                    )
+                                      .startOf()
+                                      .fromNow()}
+                                  </div>
                                 </div>
-                              </div>
-                            ) : (
-                              <div>
-                                <div className="name-nav-noti">
-                                  @{element.userCommentData.username}
-                                </div>
-                                <p className="text-nav-noti">
-                                  แสดงความคิดเห็นต่อโพสต์ของคุณ
-                                </p>
-                                <div className="time-nav-noti">
-                                  {moment(new Date(element.date.seconds * 1000))
-                                    .startOf()
-                                    .fromNow()}
-                                </div>
-                              </div>
-                            )}
-                          </MDBDropdownItem>
-                        </div>
-                      );
-                    })}
-                  </MDBDropdownMenu>
-                ) : null}
-              </MDBDropdown>
-            </MDBNavItem>
+                              )}
+                            </MDBDropdownItem>
+                          </div>
+                        );
+                      })}
+                    </MDBDropdownMenu>
+                  ) : null}
+                </MDBDropdown>
+              </MDBNavItem>
+            ) : null}
 
             <MDBNavItem>
               {user ? (
