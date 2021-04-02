@@ -151,8 +151,8 @@
 .imgpreviewmypost1 {
   position: relative;
   margin: 0;
-  width: 142px;
-  height: 142px;
+  width: 145px;
+  height: 145px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -178,8 +178,8 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 142px;
-  height: 142px;
+  width: 145px;
+  height: 145px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -274,8 +274,8 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 175px;
-    height: 175px;
+    width: 192px;
+    height: 192px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
@@ -299,8 +299,8 @@
 
 @media only screen and (max-width: 1367px) {
   .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 105px;
-    height: 105px;
+    width: 124px;
+    height: 124px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
@@ -324,8 +324,8 @@
 
 @media only screen and (max-width: 1025px){
   .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 127px;
-    height: 127px;
+    width: 147px;
+    height: 147px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
@@ -364,8 +364,8 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 115px;
-    height: 115px;
+    width: 138px;
+    height: 138px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
