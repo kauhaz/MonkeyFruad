@@ -155,6 +155,11 @@
   width: 5px; 
 }
 
+.dropdown-top-noti::-webkit-scrollbar-track {
+  background: #5c5c5c
+}
+
+
 .profile-nav-noti {
   width: 40px !important;
   height: 40px !important;
