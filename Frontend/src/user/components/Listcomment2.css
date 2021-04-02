@@ -119,8 +119,6 @@
 
 .imgcommentitemmypost {
   display: grid;
-  padding: 20px;
-  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -142,18 +140,19 @@
 
 .listcommentmypost2 {
   margin: 0;
-  width:150px;
+  width: 150px;
   height: 150px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 
 .imgpreviewmypost1 {
   position: relative;
   margin: 0;
-  width: 125px;
-  height: 125px;
+  width: 142px;
+  height: 142px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -164,7 +163,6 @@
   border: none;
   margin-top: 8px;
   font-size: 16px;
-  /* background-color: rgb(245, 245, 245); */
   background-color: blue;
   padding: 0 10px;
 }
@@ -180,8 +178,8 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 125px;
-  height: 125px;
+  width: 142px;
+  height: 142px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -335,8 +333,8 @@
   }
   
   .listcommentmypost2{
-    width: 150px;
-    height: 150px;
+    width: 153px;
+    height: 153px;
   }
   .mypost-comment-name1 {
     font-size: 17px;
