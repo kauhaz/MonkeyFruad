@@ -16,6 +16,8 @@ import "./navnew.css";
 import { auth } from "../Frontfirebase";
 import usercontext from "../context/usercontext";
 import axios from "axios";
+import * as moment from "moment";
+import "moment/locale/th";
 import { Nav } from "react-bootstrap";
 const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   var { user } = useContext(usercontext);
@@ -29,9 +31,11 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   const [refresh, Setrefresh] = useState();
   const [allpost, Setallpost] = useState();
   const [countNoti, setCountNoti] = useState([]);
+  const [noti, setNoti] = useState([]);
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
-  const [hideCountNoti, SethideCountNoti] = useState(false);
+  const [hideCountNoti, SetHideCountNoti] = useState(false);
+  const [hideCountNotiAlways, SetHideCountNotiAlways] = useState(false);
   let history = useHistory();
   let i = 0; //forsearch
 
@@ -48,15 +52,17 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   const toggleCollapse = () => {
     setIsopen(!isOpen);
   };
-  const notiChangeToNonRead = async () => {
+  const notiChangeClick = async () => {
     if (countNoti.length != 0) {
-      console.log(countNoti.length);
+      SetHideCountNoti(true);
       await axios.post(
-        `http://localhost:7000/post/notificationnonread/${user.uid}`,
+        `https://monkeyfruad01.herokuapp.com/post/notichangeclick/${user.uid}`,
         { countNoti }
       );
-      SethideCountNoti(!hideCountNoti);
     }
+  };
+  const notiChangeRead = async (notiId) => {
+    await axios.post(`https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`);
   };
   const handlesearch = () => {
     try {
@@ -119,7 +125,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
   };
 
-  const ok = async () => {
+  const initSearch = async () => {
     try {
       const getallthief = await axios.get(
         `https://monkeyfruad01.herokuapp.com/thief/thief`
@@ -130,12 +136,11 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       );
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
-
       if (search) {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
-            console.log(doc)
+            console.log(doc);
             if (
               (
                 doc.name.toLowerCase() +
@@ -154,7 +159,6 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
             }
-
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
               doc.surname.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -175,35 +179,51 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       console.log(err);
     }
   };
-
+  const initnoti = async () => {
+    await axios
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
+      .then((result) => {
+        setNoti(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    await axios
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
+      .then((result) => {
+        if (result.data[0] === undefined) {
+          SetHideCountNotiAlways(true);
+        } else {
+          setCountNoti(result.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const initUser = async () => {
+    await axios
+      .post("https://monkeyfruad01.herokuapp.com/user/session", {
+        user: user,
+      })
+      .then((result) => {
+        if (result.data.data.role === "admin") {
+          setAdmin(true);
+        }
+        setDisplayname(result.data.data.username);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useMemo(async () => {
     if (user) {
-      await axios
-        .post("https://monkeyfruad01.herokuapp.com/user/session", {
-          user: user,
-        })
-        .then((result) => {
-          if (result.data.data.role === "admin") {
-            setAdmin(true);
-          }
-          setDisplayname(result.data.data.username);
-        })
-        .then(async () => {
-          await axios
-            .post(`http://localhost:7000/post/notificationinitread/${user.uid}`)
-            .then((result) => {
-              console.log(result.data);
-              setCountNoti(result.data);
-            });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      initUser();
+     await initnoti();
     }
-    await ok();
+    await initSearch();
     setLoading(false);
   }, [user, search, hideCountNoti]);
-  console.log(countNoti);
   return loading ? (
     ""
   ) : admin ? (
@@ -364,22 +384,42 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                 <MDBDropdownToggle nav>
                   <div
                     className="navbar-noti"
-                    onClick={() => notiChangeToNonRead()}
+                    onClick={() => notiChangeClick()}
                   >
                     <img
                       src="/img/notification.png"
                       className="noti-logo"
                     ></img>
-                    <span className="badge">{countNoti.length}</span>
+                    {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                      <span className="badge">{countNoti.length}</span>
+                    )}
                   </div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                  <MDBDropdownItem href="/prevent">
-                    รู้ไว้ไม่โดนโกง
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="/help">
-                    หน่วยงานที่ให้ความช่วยเหลือ
-                  </MDBDropdownItem>
+                  {noti.map((element, index) => {
+                    return (
+                      <div key={index} >
+                        <MDBDropdownItem href={`/mypost/${element.postid}`} onClick={()=> notiChangeRead(element.uid)} >
+                          {element.userCommentData.photoURL ? (
+                            <img
+                              className="img-circle"
+                              src={`${element.userCommentData.photoURL.url}`}
+                            />
+                          ) : (
+                            <img
+                              className="img-circle"
+                              src="/img/profile.png"
+                            />
+                          )}
+                          {element.userCommentData.username}
+                          <p>แสดงความคิดเห็นต่อโพสต์ของคุณ</p>
+                          {moment(new Date(element.date.seconds * 1000))
+                            .startOf()
+                            .fromNow()}{" "}
+                        </MDBDropdownItem>
+                      </div>
+                    );
+                  })}
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>

@@ -99,8 +99,7 @@ const Entersearch = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   let history = useHistory();
-  let location = useLocation();
-  console.log(show);
+  let location = useLocation();;
   const ok = async () => {
     await Setshowdata(location.state.getdata);
     await Setshow(location.state.getdata);

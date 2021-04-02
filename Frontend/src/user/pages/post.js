@@ -6673,7 +6673,7 @@ const Post = () => {
                 <div className="line-postgroup1"></div>
                 <div className="post-group2">
                   <div className="post-namegroup1">ช่องทางที่โดนโกง</div>
-                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                  <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6688,7 +6688,7 @@ const Post = () => {
                       Facebook
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                  <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6703,7 +6703,7 @@ const Post = () => {
                       Line
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                  <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6718,7 +6718,7 @@ const Post = () => {
                       Instagram
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                  <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
@@ -6733,7 +6733,7 @@ const Post = () => {
                       Twitter
                     </label>
                   </div>
-                  <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                  <div class="custom-control custom-checkbox groupcheckbox1">
                     <input
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput1"
