@@ -182,7 +182,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
   };
   const initnoti = async () => {
-    await axios
+    axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
       )
@@ -192,7 +192,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       .catch((err) => {
         console.log(err);
       });
-    await axios
+   await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
