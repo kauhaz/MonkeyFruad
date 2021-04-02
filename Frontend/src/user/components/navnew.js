@@ -402,20 +402,20 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                         <MDBDropdownItem href={`/mypost/${element.postid}`} onClick={()=> notiChangeRead(element.uid)} >
                           {element.userCommentData.photoURL ? (
                             <img
-                              className="img-circle"
+                              className="img-circle  profile-nav-noti"
                               src={`${element.userCommentData.photoURL.url}`}
                             />
                           ) : (
                             <img
-                              className="img-circle"
+                              className="img-circle profile-nav-noti"
                               src="/img/profile.png"
                             />
                           )}
-                          {element.userCommentData.username}
-                          <p>แสดงความคิดเห็นต่อโพสต์ของคุณ</p>
-                          {moment(new Date(element.date.seconds * 1000))
+                          <div className="name-nav-noti">@{element.userCommentData.username}</div>
+                          <p className="text-nav-noti">แสดงความคิดเห็นต่อโพสต์ของคุณ</p>
+                          <div className="time-nav-noti">{moment(new Date(element.date.seconds * 1000))
                             .startOf()
-                            .fromNow()}{" "}
+                            .fromNow()}{" "}</div>
                         </MDBDropdownItem>
                       </div>
                     );
