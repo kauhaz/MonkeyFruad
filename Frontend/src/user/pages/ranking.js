@@ -180,36 +180,37 @@ const Rank = () => {
           </select>
         </div>
 
+        <table className="rank-table">
+          <tr className="rank-column-row">
+            <th className="rank-column ">อันดับ</th>
+            <th className="rank-column ">ชื่อ</th>
+            <th className="rank-column ">นามสกุล</th>
+            <th className="rank-column ">เลขที่บัญชี</th>
+            <th className="rank-column ">ยอดเงินทั้งหมด</th>
+            <th className="rank-column ">จำนวนครั้งที่โกง</th>
+            <th className="rank-column ">วันที่โกง</th>
+          </tr>
+        </table>
 
-          <div className="rank-column-row row">
-            <div className="rank-column cell col-1">อันดับ</div>
-            <div className="rank-column cell col">ชื่อ</div>
-            <div className="rank-column cell col">นามสกุล</div>
-            <div className="rank-column cell col">เลขที่บัญชี</div>
-            <div className="rank-column cell col">ยอดเงินทั้งหมด</div>
-            <div className="rank-column cell col">จำนวนครั้งที่โกง</div>
-            <div className="rank-column cell col">วันที่โกง</div>
-          </div>
 
         {ThiefRank
           ? ThiefRank.map((element, index) => {
               return (
-
-                  <div className="rank-data-row row">
-                    <div className="rank-column cell col-1">{index + 1}</div>
-                    <div className="rank-column cell col">
-                      <span>{element.name}</span>
-                    </div>
-                    <div className="rank-column cell col">{element.surname}</div>
-                    <div className="rank-column cell col">{element.accountnumber}</div>
-                    <div className="rank-column cell col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></div>
-                    <div className="rank-column cell col">{element.count}</div>
-                    <div className="rank-column cell col">
+                <table className="rank-table">
+                  <tr className="rank-data-row">
+                    <th className="rank-column ">{index + 1}</th>
+                    <th className="rank-column ">{element.name}</th>
+                    <th className="rank-column Fall-crisp">{element.surname}</th>
+                    <th className="rank-column ">{element.accountnumber}</th>
+                    <th className="rank-column ">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></th>
+                    <th className="rank-column ">{element.count}</th>
+                    <th className="rank-column ">
                       {moment(new Date(element.wanteedon.seconds * 1000)).format(
                         'MM/DD/YYYY HH:mm'
                       )}
-                    </div>
-                  </div>
+                    </th>
+                  </tr>
+                </table>
 
               );
             })
