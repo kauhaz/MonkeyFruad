@@ -173,6 +173,9 @@ img.img-circle {
     width: 135px;
     height: 135px;
   }
+  .postother2 {
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 1367px){
