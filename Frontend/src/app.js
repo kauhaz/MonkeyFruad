@@ -49,7 +49,6 @@ const App = () => {
       if (user) {
         if (user.uid === "Bm4bg6z0KAavVlnCijLzIxjXN9y2") {
           setAdmin(true);
-          setLoadingAuth(false);
         }
         setUser(user);
       } else {

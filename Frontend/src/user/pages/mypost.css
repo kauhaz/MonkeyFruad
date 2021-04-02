@@ -448,9 +448,12 @@
   .mypost-name {
     font-size: 18px;
   }
+  .mypostmenusetting{
+    font-size: 13px;
+  }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1025px) {
   .container-post2{
     width: 75%;
   }
@@ -465,6 +468,9 @@
     width: 155px;
     height: 155px;
   }
+  .mypostmenusetting{
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
@@ -478,9 +484,12 @@
     width: 105px;
     height: 105px;
   }
+  .mypostmenusetting{
+    font-size: 12px;
+  }
 
 }
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 415px) {
   .container-post2{
     width: 85%;
     margin-top: 30px;
@@ -547,9 +556,12 @@
     width: 45px !important;
     height: 45px !important;
   }
+  .mypostmenusetting{
+    font-size: 14px;
+  }
 
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 376px) {
   .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
     font-size: 13px;
   }
@@ -566,7 +578,6 @@
   .text-mypost-right{
     margin-left: -5px;
   }
-
   .imgcommentitemmypost1 {
     width: 90%;
   }
@@ -583,16 +594,17 @@
   .mypost-date{
     font-size: 10px;
   }
+  .mypostmenusetting{
+    font-size: 12px;
+  }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 321px) {
   .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
     font-size: 12px;
   }
   .mypost-name {
     font-size: 14px;
-  }
-  .mypost-name {
     margin-top: -40px;
     margin-left: 50px;
   }
@@ -627,5 +639,8 @@
   .profile-mypost{
     width: 40px !important;
     height: 40px !important;
+  }
+  .mypostmenusetting{
+    font-size: 11px;
   }
 }
