@@ -102,7 +102,7 @@ const ManagePost = () => {
   };
   const ok = async () => {
     Setloading(true);
-    const getpost = await Axios.get(`http://localhost:7000/post/post`);
+    const getpost = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
     Setshow(getpost.data.item);
     if (sortvalue === "ใหม่ล่าสุด") {
       var getsort = getpost.data.item.sort((a, b) => {
