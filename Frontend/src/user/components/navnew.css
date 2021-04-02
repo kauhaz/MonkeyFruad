@@ -145,6 +145,9 @@
 
 
   /*NOTIFICATION*/
+  .noti-respon{
+    display: none !important;
+   }
   .dropdown-top-noti{
     /* background-color: yellow !important; */
     margin-left: -272px !important;
@@ -193,6 +196,33 @@
   .dropsearch-nav {
     border-radius: 3px;
   }
+    /*NOTIFICATION*/
+  .dropdown-top-noti{
+    /* background-color: yellow !important; */
+    margin-left: -272px !important;
+    width: 315px !important;
+    padding: 10px !important;
+  }
+  .profile-nav-noti{
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .name-nav-noti{
+    margin-top: -42px;
+    margin-left: 50px;
+    color: #212529;
+  }
+  .text-nav-noti{
+    margin-top: -3px;
+    margin-left: 50px;
+  }
+  .time-nav-noti{
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+    color: #007bff; 
+  }
+
 }
 
 @media only screen and (min-width: 1920px) {
@@ -297,6 +327,9 @@
   }
 
   /*NOTIFICATION*/
+  .noti-respon{
+    display: none !important;
+   }
   .dropdown-top-noti{
     /* background-color: yellow !important; */
     margin-left: -272px !important;
@@ -391,18 +424,22 @@
     width: 165px;
     height: 30px;
     font-size: 11px;
-    margin-top: 2px;
+    margin-top: 8px;
     padding-top: 0px;
   }
   .button-nav {
     width: 55px;
     height: 30px;
     font-size: 11px;
-    margin-top: 2px;
+    margin-top: 8px;
+  }
+  .dropdown-username-nav{
+    margin-top: 5px;
   }
 
   .dropdown-menu-right {
     margin-top: 2px !important;
+    
   }
 
   .dropdown-item {
@@ -424,6 +461,38 @@
   .dropsearch-nav {
     height: 30px;
     padding-top: 7px;
+  }
+  .dropdown-bottom {
+    margin-left: -180px !important;
+    margin-top: 0px !important;
+  }
+
+  .navbar-noti .noti-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+   /*NOTIFICATION*/
+   .dropdown-top-noti{
+    /* background-color: yellow !important; */
+    margin-left: -205px !important;
+    width: 240px !important;
+  }
+  .profile-nav-noti{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .name-nav-noti{
+    margin-top: -30px;
+    margin-left: 40px;
+  }
+  .text-nav-noti{
+    margin-top: -3px;
+    margin-left: 40px;
+  }
+  .time-nav-noti{
+    font-size: 10px;
+    margin-left: 40px;
   }
 }
 
@@ -479,6 +548,42 @@
     border-radius: 3px;
     font-size: 12px;
     width: 230px;
+  }
+
+  
+  .navbar-noti .noti-logo {
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+  }
+
+   /*NOTIFICATION*/
+   .noti-commp{
+    display: none !important;
+   }
+   .noti-respon{
+    display: block !important;
+   }
+   .dropdown-top-noti{
+    /* background-color: yellow !important; */
+    margin-left: -205px !important;
+    width: 240px !important;
+  }
+  .profile-nav-noti{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .name-nav-noti{
+    margin-top: -30px;
+    margin-left: 40px;
+  }
+  .text-nav-noti{
+    margin-top: -3px;
+    margin-left: 40px;
+  }
+  .time-nav-noti{
+    font-size: 10px;
+    margin-left: 40px;
   }
 }
 

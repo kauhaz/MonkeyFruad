@@ -427,7 +427,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>
-                  <MDBDropdownToggle nav caret left>
+                  <MDBDropdownToggle nav caret left className="dropdown-username-nav">
                     {displayname}
                   </MDBDropdownToggle>
                   <MDBDropdownMenu
