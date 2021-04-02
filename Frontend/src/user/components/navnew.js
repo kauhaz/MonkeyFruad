@@ -62,7 +62,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
   };
   const notiChangeRead = async (notiId) => {
-    await axios.post(`https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`);
+    await axios.post(
+      `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
+    );
   };
   const handlesearch = () => {
     try {
@@ -181,7 +183,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const initnoti = async () => {
     await axios
-      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
+      .post(
+        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
+      )
       .then((result) => {
         setNoti(result.data);
       })
@@ -189,7 +193,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         console.log(err);
       });
     await axios
-      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
+      .post(
+        `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
+      )
       .then((result) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
@@ -219,7 +225,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   useMemo(async () => {
     if (user) {
       initUser();
-     await initnoti();
+      await initnoti();
     }
     await initSearch();
     setLoading(false);
@@ -398,8 +404,11 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                 <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
                   {noti.map((element, index) => {
                     return (
-                      <div key={index} >
-                        <MDBDropdownItem href={`/mypost/${element.postid}`} onClick={()=> notiChangeRead(element.uid)} >
+                      <div key={index}>
+                        <MDBDropdownItem
+                          href={`/mypost/${element.postid}`}
+                          onClick={() => notiChangeRead(element.uid)}
+                        >
                           {element.userCommentData.photoURL ? (
                             <img
                               className="img-circle  profile-nav-noti"
@@ -411,11 +420,35 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                               src="/img/profile.png"
                             />
                           )}
-                          <div className="name-nav-noti">@{element.userCommentData.username}</div>
-                          <p className="text-nav-noti">แสดงความคิดเห็นต่อโพสต์ของคุณ</p>
-                          <div className="time-nav-noti">{moment(new Date(element.date.seconds * 1000))
-                            .startOf()
-                            .fromNow()}{" "}</div>
+                          {element.read ? (
+                            <div>
+                              <div className="name-nav-noti-read">
+                                @{element.userCommentData.username}
+                              </div>
+                              <p className="text-nav-noti-read">
+                                แสดงความคิดเห็นต่อโพสต์ของคุณ
+                              </p>
+                              <div className="time-nav-noti-read">
+                                {moment(new Date(element.date.seconds * 1000))
+                                  .startOf()
+                                  .fromNow()}
+                              </div>
+                            </div>
+                          ) : (
+                            <div>
+                              <div className="name-nav-noti">
+                                @{element.userCommentData.username}
+                              </div>
+                              <p className="text-nav-noti">
+                                แสดงความคิดเห็นต่อโพสต์ของคุณ
+                              </p>
+                              <div className="time-nav-noti">
+                                {moment(new Date(element.date.seconds * 1000))
+                                  .startOf()
+                                  .fromNow()}
+                              </div>
+                            </div>
+                          )}
                         </MDBDropdownItem>
                       </div>
                     );
