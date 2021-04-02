@@ -143,8 +143,66 @@
   font-size: 12px;
 }
 
-.dropdown-top-noti {
-  margin-right: 40px !important;
+/*NOTIFICATION*/
+.dropdown-top-noti{
+  /* background-color: yellow !important; */
+  margin-left: -272px !important;
+  width: 315px !important;
+  padding: 10px !important;
+  overflow-y:scroll;
+}
+.dropdown-top-noti::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.dropdown-top-noti::-webkit-scrollbar-track {
+  background: #5c5c5c
+}
+
+
+.profile-nav-noti {
+  width: 40px !important;
+  height: 40px !important;
+}
+.name-nav-noti {
+  margin-top: -42px;
+  margin-left: 50px;
+  color: #212529;
+}
+.text-nav-noti {
+  margin-top: -3px;
+  margin-left: 50px;
+}
+.time-nav-noti {
+  font-size: 13px;
+  margin-left: 50px;
+  margin-top: -15px;
+  color: #007bff;
+}
+
+/*READ COMMENT*/
+.name-nav-noti-read,
+.text-nav-noti-read,
+.time-nav-noti-read {
+  color: rgb(167, 167, 167);
+  font-size: 13px;
+  margin-left: 50px;
+  margin-top: -15px;
+}
+.text-nav-noti-read {
+  color: rgb(167, 167, 167);
+  font-size: 13px;
+  margin-left: 50px;
+  margin-top: -15px;
+}
+.time-nav-noti-read {
+  color: rgb(167, 167, 167);
+  font-size: 13px;
+  margin-left: 50px;
+  margin-top: -15px;
+}
+.profile-nav-noti {
+  opacity: 0.8;
 }
 
 /*reponsive*/
@@ -159,6 +217,7 @@
     border-radius: 3px;
   }
 }
+
 @media only screen and (min-width: 1920px) {
   .navbarnew {
     font-family: "Kanit", sans-serif;
@@ -259,7 +318,45 @@
     color: #5c5c5c;
     background-color: #c5c5c5;
   }
+
+  /*NOTIFICATION*/
+  .dropdown-top-noti {
+    /* background-color: yellow !important; */
+    margin-left: -272px !important;
+    width: 315px !important;
+    padding: 10px !important;
+  }
+  .profile-nav-noti {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .name-nav-noti {
+    margin-top: -42px;
+    margin-left: 50px;
+    color: #212529;
+  }
+  .text-nav-noti {
+    margin-top: -3px;
+    margin-left: 50px;
+  }
+  .time-nav-noti {
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+    color: #007bff;
+  }
+
+  /*READ COMMENT*/
+  .name-nav-noti-read,
+  .text-nav-noti-read,
+  .time-nav-noti-read {
+    color: rgb(167, 167, 167);
+  }
+  .profile-nav-noti {
+    opacity: 0.8;
+  }
 }
+
 @media only screen and (max-width: 1367px) {
   .navbarnew {
     font-size: 17px;

@@ -8,10 +8,6 @@ import "./rule.css";
 import usercontext from "../context/usercontext";
 import axios from "axios";
 const Rule = () => {
-  // const history = useHistory()
-  // const handle = () =>{
-  //     history.push("/post/create")
-  // }
 
   let history = useHistory();
   const [state, setState] = useState(false);

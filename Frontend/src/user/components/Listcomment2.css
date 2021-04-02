@@ -119,8 +119,6 @@
 
 .imgcommentitemmypost {
   display: grid;
-  padding: 20px;
-  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -142,18 +140,19 @@
 
 .listcommentmypost2 {
   margin: 0;
-  width:150px;
+  width: 150px;
   height: 150px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 
 .imgpreviewmypost1 {
   position: relative;
   margin: 0;
-  width: 125px;
-  height: 125px;
+  width: 145px;
+  height: 145px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -164,7 +163,6 @@
   border: none;
   margin-top: 8px;
   font-size: 16px;
-  /* background-color: rgb(245, 245, 245); */
   background-color: blue;
   padding: 0 10px;
 }
@@ -180,8 +178,8 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 125px;
-  height: 125px;
+  width: 145px;
+  height: 145px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -270,28 +268,30 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.none-listcomment2{
+.none-listcomment2 {
   display: none;
 }
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 175px;
-    height: 175px;
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 192px;
+    height: 192px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 60px;
   }
-
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 195px;
     height: 195px;
   }
   .mypost-comment-name1 {
     font-size: 20px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2,.mypostcomment1 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2,
+  .mypostcomment1 {
     font-size: 18px;
   }
   .commentboxmypost {
@@ -300,23 +300,25 @@
 }
 
 @media only screen and (max-width: 1367px) {
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 105px;
-    height: 105px;
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 124px;
+    height: 124px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 40px;
   }
-  
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 130px;
     height: 130px;
   }
   .mypost-comment-name1 {
     font-size: 18px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2,.mypostcomment1 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2,
+  .mypostcomment1 {
     font-size: 16px;
   }
   .commentboxmypost {
@@ -324,19 +326,19 @@
   }
 }
 
-@media only screen and (max-width: 1025px){
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 127px;
-    height: 127px;
+@media only screen and (max-width: 1025px) {
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 147px;
+    height: 147px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 45px;
   }
-  
-  .listcommentmypost2{
-    width: 150px;
-    height: 150px;
+  .listcommentmypost2 {
+    width: 153px;
+    height: 153px;
   }
   .mypost-comment-name1 {
     font-size: 17px;
@@ -344,94 +346,95 @@
   .mypostcommentrow {
     padding: 10px 20px 10px 20px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2,.mypostcomment1 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2,
+  .mypostcomment1 {
     font-size: 15px;
   }
   .commentboxmypost {
     grid-template-columns: 40px 73% 40px;
   }
-
+  .imglistcommentmypost {
+    margin-bottom: 10px;
+  }
 }
 
-@media only screen and (max-width: 769px){
+@media only screen and (max-width: 769px) {
   .mypost-comment-name1 {
     font-size: 15px;
   }
-
   .imgcommentitemmypost {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 115px;
-    height: 115px;
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 138px;
+    height: 138px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 40px;
   }
-  
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 105px;
     height: 105px;
   }
   .mypostcommentrow {
     padding: 5px 20px 5px 20px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2,.mypostcomment1 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2,
+  .mypostcomment1 {
     font-size: 13px;
   }
   .commentboxmypost {
     grid-template-columns: 40px 61% 40px;
   }
-
 }
 
-@media only screen and (max-width: 415px){
+@media only screen and (max-width: 415px) {
   .mypost-comment-name1 {
     font-size: 17px;
     margin-top: 5px;
     margin-left: 0px;
     width: 180px;
   }
-  .none-listcomment2{
+  .none-listcomment2 {
     display: block;
   }
   .mypost-comment-time1 {
     font-size: 12px;
   }
-  .profile-liscomment2{
+  .profile-liscomment2 {
     width: 45px !important;
     height: 45px !important;
   }
-
-  .imgcommentitemmypost{
+  .imgcommentitemmypost {
     grid-template-columns: 1fr 1fr;
-    margin-left: -25px;
-    padding-bottom: 0px;
   }
-  
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
     padding-bottom: 10px;
   }
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 100px;
-    height: 100px;
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 106px;
+    height: 106px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 35px;
   }
-  
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 110px;
     height: 110px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2 {
     font-size: 15px;
     margin-left: -40px !important;
   }
-  .mypostcomment1{
+  .mypostcomment1 {
     font-size: 15px;
   }
   .commentboxmypost {
@@ -440,7 +443,7 @@
   .inputcommentmypost2 {
     margin-left: -5px !important;
   }
-  .buttoncommentmypostsave2{
+  .buttoncommentmypostsave2 {
     margin-top: 80px;
     margin-left: -201px !important;
   }
@@ -451,7 +454,7 @@
   }
 }
 
-@media only screen and (max-width: 376px){
+@media only screen and (max-width: 376px) {
   .mypost-comment-name1 {
     font-size: 15px;
     width: 160px;
@@ -463,36 +466,36 @@
     width: 25px;
     margin-left: 5px;
   }
-
-  .imgcommentitemmypost{
-    grid-gap: 5px;
-  }
   .imglistcommentmypost {
     margin-left: -6px;
   }
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
-    width: 85px;
-    height: 85px;
+  .imgcommentitemmypost {
+    margin: 20px 0 0 0;
+  }
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
+    width: 90px;
+    height: 90px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 30px;
   }
-  
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 100px;
     height: 100px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2 {
     font-size: 13px;
   }
-  .mypostcomment1{
+  .mypostcomment1 {
     font-size: 13px;
     margin-left: -5px;
   }
 }
 
-@media only screen and (max-width: 321px){
+@media only screen and (max-width: 321px) {
   .mypost-comment-name1 {
     font-size: 14px;
     margin-left: -15px;
@@ -501,7 +504,7 @@
   .mypost-comment-time1 {
     font-size: 10px;
   }
-  .profile-liscomment2{
+  .profile-liscomment2 {
     width: 40px !important;
     height: 40px !important;
     margin-left: -10px !important;
@@ -510,16 +513,14 @@
     width: 20px;
     margin-left: 5px;
   }
-
-  .imgcommentitemmypost{
-    padding: 15px;
-    grid-gap: 0px;
-    margin-left: -23px;
+  .imgcommentitemmypost {
+    margin: 20px 0 0 -5px;
   }
   .imglistcommentmypost {
     margin-left: -10px;
   }
-  .imgpreviewmypost1 , .uploadproveeditmyposts1 {
+  .imgpreviewmypost1,
+  .uploadproveeditmyposts1 {
     width: 70px;
     height: 70px;
   }
@@ -527,21 +528,19 @@
     width: 100%;
     padding: 25px;
   }
-  
-  .listcommentmypost2{
+  .listcommentmypost2 {
     width: 80px;
     height: 80px;
   }
   .mypostcommentrow {
     padding: 0px 20px 5px 20px;
   }
-  .inputcommentmypost2,.buttoncommentmypostsave2 {
+  .inputcommentmypost2,
+  .buttoncommentmypostsave2 {
     font-size: 12px;
   }
-  .mypostcomment1{
+  .mypostcomment1 {
     font-size: 12px;
     margin-left: -10px;
   }
 }
-
-

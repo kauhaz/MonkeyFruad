@@ -111,8 +111,8 @@
 
 .listcommentpost2 {
   margin: 0;
-  width: 160px;
-  height: 160px;
+  width: 115px;
+  height: 115px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -120,7 +120,7 @@
 
 .imgcommentitempost {
   display: grid;
-  /* grid-gap: 5px; */
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -281,8 +281,8 @@
 
 @media only screen and (max-width: 1367px) {
   .listcommentpost2 {
-    width: 135px;
-    height: 135px;
+    width: 130px;
+    height: 130px;
   }
   
   .imgpreviewpost1,
