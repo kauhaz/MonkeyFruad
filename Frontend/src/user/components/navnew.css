@@ -173,8 +173,23 @@
 
 
   /*READ COMMENT*/
-  .name-nav-noti-read,.text-nav-noti-read,.time-nav-noti-read{
+  .name-nav-noti-read{
     color: rgb(167, 167, 167);
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+  .text-nav-noti-read{
+    color: rgb(167, 167, 167);
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+  .time-nav-noti-read{
+    color: rgb(167, 167, 167);
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
   }
   .profile-nav-noti{
     opacity: 0.8;
