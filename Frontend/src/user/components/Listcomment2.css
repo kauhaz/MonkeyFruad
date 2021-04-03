@@ -114,7 +114,8 @@
 
 .commentboxmypost {
   display: grid;
-  grid-template-columns: 40px 72% 40px;
+  grid-template-columns: 40px 72% 100px;
+  /* margin-left: 30px; */
 }
 
 .imgcommentitemmypost {
@@ -161,8 +162,8 @@
   width: 100%;
   border: none;
   margin-top: 8px;
-  font-size: 16px;
-  background-color: blue;
+  /* font-size: 16px;
+  background-color: pink; */
   padding: 0 10px;
 }
 
@@ -203,10 +204,10 @@
 }
 
 .buttoncommentmypostsave2 {
-  width: 160%;
-  height: 40px;
+  width: 65%;
+  height: 30px;
   margin-top: 8px;
-  margin-left: 30px;
+  margin-left: 15px;
   font-size: 16px !important;
   background-color: #5c83cc;
   border: none;
@@ -294,7 +295,7 @@
     font-size: 18px;
   }
   .commentboxmypost {
-    grid-template-columns: 40px 78% 40px;
+    grid-template-columns: 40px 78% 100px;
   }
 }
 
