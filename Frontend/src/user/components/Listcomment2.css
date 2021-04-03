@@ -428,28 +428,26 @@
     width: 110px;
     height: 110px;
   }
-  .inputcommentmypost2,
-  .buttoncommentmypostsave2 {
+  .inputcommentmypost2 {
     font-size: 15px !important;
-    margin-left: -40px;
   }
   .mypostcomment1 {
     font-size: 15px;
   }
   .commentboxmypost {
-    grid-template-columns: 40px 85% 122px;
+    grid-template-columns: 40px 85% 144px;
   }
   .inputcommentmypost2 {
     margin-left: -5px !important;
   }
   .buttoncommentmypostsave2 {
-    margin-top: 80px;
-    margin-left: -201px !important;
+    margin: 85px 0 0 -236px !important;
+    font-size: 15px !important;
+    height: 30px;
   }
   .uploadprovemypost1 {
-    width: 100%;
+    width: 80%;
     cursor: pointer;
-    margin-left: -10px;
   }
   .deleteimgmyposts2 {
     width: 20px;
@@ -487,13 +485,25 @@
     width: 100px;
     height: 100px;
   }
-  .inputcommentmypost2,
+  .inputcommentmypost2 {
+    font-size: 13px !important;
+  }
   .buttoncommentmypostsave2 {
     font-size: 13px !important;
+    margin: 75px 0 0 -208.5px !important;
+    height: 30px;
   }
   .mypostcomment1 {
     font-size: 13px;
     margin-left: -5px;
+  }
+  .commentboxmypost {
+    grid-template-columns: 40px 85% 127px;
+  }
+  .uploadprovemypost1 {
+    width: 80%;
+    cursor: pointer;
+    margin-left: 0px;
   }
 }
 
