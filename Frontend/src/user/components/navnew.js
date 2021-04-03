@@ -345,6 +345,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   </MDBDropdownToggle>
                   {noti.length != 0 ? (
                     <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                      <div className="box-nav-noti">
                       {noti.map((element, index) => {
                         return (
                           <div key={index}>
@@ -400,6 +401,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                           </div>
                         );
                       })}
+                      </div>
                     </MDBDropdownMenu>
                   ) : null}
                 </MDBDropdown>
@@ -482,6 +484,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   </MDBDropdownToggle>
                   {noti.length != 0 ? (
                     <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                      <div className="box-nav-noti">
                       {noti.map((element, index) => {
                         return (
                           <div key={index}>
@@ -537,6 +540,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                           </div>
                         );
                       })}
+                      </div>
                     </MDBDropdownMenu>
                   ) : null}
                 </MDBDropdown>
