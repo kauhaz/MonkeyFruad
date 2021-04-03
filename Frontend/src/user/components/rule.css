@@ -60,25 +60,20 @@
 }
 
 /*Responsive*/ 
-@media only screen and (max-width: 1921px) {
-    
-}
-
 @media only screen and (min-width: 1920px) {
     .p-linkrule {
         font-size: 18px;
     }
-    .h3-linkrule,.form-check-label,.buttonrule1 {
+    .h3-linkrule,.form-check-label,.buttonrule1,.buttonrule {
         font-size: 19px  !important;
     }
-    
 }
 
 @media only screen and (max-width: 1367px) {
     .p-linkrule {
         font-size: 16px;
     }
-    .h3-linkrule,.form-check-label,.buttonrule1 {
+    .h3-linkrule,.form-check-label,.buttonrule1,.buttonrule {
         font-size: 17px !important;
     }
 }
@@ -90,19 +85,18 @@
     .p-linkrule {
         font-size: 15px;
     }
-    .h3-linkrule,.form-check-label,.buttonrule1 {
+    .h3-linkrule,.form-check-label,.buttonrule1,.buttonrule {
         font-size: 16px !important;
     }
 }
 
 @media only screen and (max-width: 769px) {
     .p-linkrule {
-        font-size: 16px;
+        font-size: 13px;
     }
-    .h3-linkrule,.form-check-label,.buttonrule1 {
-        font-size: 17px !important;
+    .h3-linkrule,.form-check-label,.buttonrule1,.buttonrule {
+        font-size: 14px !important;
     }
-
 }
 
 @media only screen and (max-width: 415px) {
@@ -110,25 +104,25 @@
         width: 85%;  
     }
     .container-linkrule2{
-        padding: 10px 30px 30px 30px;
+        padding: 5px 30px 15px 30px;
     }
-    .form-check-label{
-        font-size: 15px !important;
+    .p-linkrule,.form-check-label {
+        font-size: 15px;
+    }
+    .h3-linkrule,.buttonrule1,.buttonrule {
+        font-size: 16px !important;
     }
 }
 
 @media only screen and (max-width: 376px) {
     .p-linkrule {
-        font-size: 15px;
+        font-size: 13px;
     }
-    .h3-linkrule,.buttonrule1 {
-        font-size: 16px !important;
+    .h3-linkrule,.buttonrule1,.buttonrule,.form-check-label {
+        font-size: 14px !important;
     }
     .container-linkrule2{
-        padding: 10px 20px 30px 20px;
-    }
-    .form-check-label{
-        font-size: 14px !important;
+        padding: 5px 20px 15px 20px;
     }
 }
 
@@ -140,7 +134,7 @@
         font-size: 14px !important;
     }
     .container-linkrule2{
-        padding: 10px 15px 30px 15px;
+        padding: 5px 13px 15px 13px;
     }
     .form-check-label{
         font-size: 12px !important;

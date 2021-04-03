@@ -243,11 +243,11 @@
     width: 195px;
     height: 195px;
   }
-  .text-formedit,.h1-formeditfileerror,.spanformedit ,.buttonformedit { 
-    font-size: 15px;
+  .text-formedit { 
+    font-size: 16px !important;
   }
-  .form-control{
-    font-size: 13px !important;
+  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+    font-size: 15px !important;
   }
 
 }
@@ -261,11 +261,11 @@
   .uploadproveeditedit2{
     padding: 40px;
   }
-  .text-formedit,.h1-formeditfileerror,.spanformedit ,.buttonformedit { 
-    font-size: 16px;
-  }
-  .form-control{
+  .text-formedit { 
     font-size: 14px !important;
+  }
+  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+    font-size: 13px !important;
   }
 
 }
@@ -273,7 +273,7 @@
   .container-formedit{
     width: 85%;
     margin-bottom: 80px;
-    padding-top: 30px;
+    padding-top: 25px;
   }
   .profile-badformedit-img img.img-circle {
     width: 130px;
@@ -287,8 +287,11 @@
     width: 110px;
     height: 110px;
   }
-  .h1-formeditfileerror,.spanformedit  { 
-    font-size: 15px;
+  .text-formedit { 
+    font-size: 16px !important;
+  }
+  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+    font-size: 15px !important;
   }
 
 }
@@ -299,21 +302,18 @@
     padding-right: 30px;
     padding-top: 35px;
   }
-  .text-formedit,.h1-formeditfileerror,.buttonformedit { 
-    font-size: 15px;
-  }
-  .spanformedit {
-    font-size: 15px;
-  }
-  .form-control{
-    font-size: 13px !important;
-  }
   .imgpreview-edit , .uploadproveeditedit1{
     width: 105px;
     height: 105px;
   }
   .uploadproveeditedit2{
     padding: 35px;
+  }
+  .text-formedit { 
+    font-size: 14px !important;
+  }
+  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+    font-size: 13px !important;
   }
 }
 
@@ -322,9 +322,6 @@
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 25px;
-  }
-  .spanformedit {
-    font-size: 12px;
   }
   .imgpreview-edit , .uploadproveeditedit1{
     width: 88px;
@@ -335,5 +332,8 @@
   }
   .uploadproveeditedit2{
     padding: 30px;
+  }
+  .h1-formeditfileerror,.spanformedit{
+    font-size: 12px !important;
   }
 }
