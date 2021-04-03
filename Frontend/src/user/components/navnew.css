@@ -158,14 +158,16 @@
     width: 285px !important;
     padding: 10px !important;
     margin-top: 4px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-  .dropdown-top-noti::-webkit-scrollbar {
+  .dropdown-top-noti::-webkit-scrollbar{
+    /* background-color: yellow !important; */
     width: 5px; 
+    background: #5c5c5c;
+   height: 10px;
   }
-  
-  .dropdown-top-noti::-webkit-scrollbar-track {
-    background: #5c5c5c
-  }
+
   .img-circle.profile-nav-noti{
     width: 40px;
     height: 40px;
