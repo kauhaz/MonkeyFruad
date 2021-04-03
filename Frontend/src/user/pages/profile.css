@@ -143,12 +143,12 @@
         font-size: 18px;
     }
     .label-form-title-profile{
-        width: 40%;
+        width: 35%;
         float: left;
         text-align: right;
     }
     .form-inside-profile {
-        width: 60%;
+        width: 65%;
         padding-left: 7%;
     }
 }
