@@ -1161,6 +1161,9 @@
 }
 
 @media only screen and (max-width: 1025px) {
+    .h1-index{
+        font-size: 20px;
+    }
     .container1-index , .container2-index , .container3-index{
         width: 75%;
     }
@@ -1241,7 +1244,7 @@
         height: 170px;
     }
     .h1-index{
-        font-size: 22px;
+        font-size: 19px;
     }
     .column3-index{
         width: 31%;
