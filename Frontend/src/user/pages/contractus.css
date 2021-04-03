@@ -405,6 +405,9 @@
 }
 
 @media only screen and (max-width: 1025px) {
+    .h1-contractus{
+        font-size: 20px;
+    }
     .column2-contract-l{
         width: 100%;
         height: 500px;
@@ -428,9 +431,12 @@
         height: 450px;
         margin-left: 0px;
     }
+    .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
+        font-size: 15px;
+    }
     .address-contract , .pagefb-contract , .name-contract{
         margin-left:0px;
-        font-size: 18px;
+        font-size: 15px;
     }
     .address-contract{
         text-align: center;
@@ -461,6 +467,9 @@
 }
 
 @media only screen and (max-width: 769px) {
+    .h1-contractus{
+        font-size: 19px;
+    }
     .container2-contract{
         width: 65%;
         height: 900px;
@@ -468,17 +477,17 @@
     }
     .address-contract , .pagefb-contract {
         margin-left:0px;
-        font-size: 16px;
+        font-size: 13px;
     }
     .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
-        font-size: 16px;
+        font-size: 13px;
     }
     .image-contract{
         width: 150px;
     }
 
     .name-contract{
-        font-size: 16px;
+        font-size: 13px;
         background-color: rgba(255, 255, 255, 0.349);
         box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.103);
         width: 160px;
@@ -496,6 +505,10 @@
 
 
 @media only screen and (max-width: 415px) {
+    .h1-contractus{
+        font-size: 22px;
+        margin-top: 30px;
+    }
     .container1-contract{
         width: 85%;
     }
@@ -506,7 +519,7 @@
         margin-bottom: 70px;
     }
     .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
-        font-size: 16px;
+        font-size: 15px;
     }
     .address-contract{
         margin-left:0px;
@@ -559,6 +572,9 @@
         margin-left: 100px;
         margin-bottom: 80px;
     }
+    .emty2-contract{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 376px) {
@@ -567,7 +583,7 @@
     }
     .address-contract{
         margin-left:0px;
-        font-size: 14px;
+        font-size: 13px;
         margin-top: -15px;
         padding: 20px 20px 20px 20px;
     }
@@ -583,17 +599,19 @@
         width: 95%;
         margin-left: 10px;
     }
-
+    .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
+        font-size: 13px;
+    }
     .address-contract , .pagefb-contract , .name-contract{
         margin-left:0px;
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .image-contract{
         width: 110px;
     }
     .name-contract{
-        font-size: 14px;
+        font-size: 13px;
         width: 150px;
         padding: 5px 5px 5px 5px;
         margin-left: auto;
@@ -615,7 +633,7 @@
         height: 880px;
     }
     .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
-        font-size: 15px;
+        font-size: 13px;
     }
     .style-map-contract{
         width: 95%;
@@ -623,7 +641,7 @@
     }
     .address-contract , .pagefb-contract , .name-contract{
         margin-left:0px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .image-contract{
@@ -633,6 +651,7 @@
         width: 130px;
         margin-left: auto;
         margin-right: auto;
+        font-size: 12px;
     }
     .chack-contract{
         margin-top: -256px;

@@ -19,14 +19,22 @@
 }
 
 @media only screen and (max-width: 1025px){
-
+    .h1-editpost{
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 769px) {
-
+    .h1-editpost{
+        font-size: 19px;
+    }
 }
 @media only screen and (max-width: 415px) {
-
+    .h1-editpost{
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: -20px;
+    }
 }
 @media only screen and (max-width: 376px) {
     .h1-editpost{

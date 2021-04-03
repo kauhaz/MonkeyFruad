@@ -342,7 +342,7 @@
 @media only screen and (max-width: 1025px) {
     .h1-helpnew{ 
         margin-top: 70px;
-        font-size: 22px;
+        font-size: 20px;
     }
     .container-helpnew{
         width: 80%;
@@ -373,7 +373,7 @@
     .h1-helpnew2{ 
         margin-top: 60px;
         margin-bottom: 60px;
-        font-size: 22px;
+        font-size: 20px;
     }
     .container-helpnew2{
         width: 80%;
@@ -401,7 +401,7 @@
 @media only screen and (max-width: 769px) {
     .h1-helpnew{ 
         margin-top: 50px;
-        font-size: 22px;
+        font-size: 19px;
     }
     .container-helpnew{
         width: 60%;
@@ -410,11 +410,14 @@
     .column-helpnew,.column-helpnew2{
         width: 50%;
     }
+    .titlered-helpnew,.title-helpnew{
+        font-size: 14px;
+    }
 
     .h1-helpnew2{ 
         margin-top: 50px;
         margin-bottom: 40px;
-        font-size: 22px;
+        font-size: 19px;
     }
     .container-helpnew2{
         width: 75%;
@@ -446,9 +449,9 @@
     }
 
     .h1-helpnew{ 
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 22px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .card-helpnew{
             width: 185px;
@@ -464,9 +467,9 @@
     }
 
     .h1-helpnew2{ 
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 22px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         width: 250px;
         margin-left: auto;
         margin-right: auto;
@@ -505,40 +508,40 @@
         width: 100%;
     }
     .h1-helpnew{ 
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .card-helpnew{
-        width: 245px;
+        width: 220px;
         height: 320px;
     }
     .title-helpnew{
-        font-size: 16px;
-        width: 200px;
+        font-size: 14px;
+        width: 180px;
         margin-left: 0px;
     }
     .titlered-helpnew{
-        font-size: 16px;
+        font-size: 14px;
     }
     .cardtext-helpnew{
-        font-size: 13px;
-        width: 200px;
+        font-size: 12px;
+        width: 180px;
         margin-left: 0px;
         margin-top: 2px;
     }
 
     .h1-helpnew2{ 
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .container-helpnew2{
         width: 70%;
         height: 1600px;
     }
     .card-helpnew2 {
-        width: 265px;
+        width: 250px;
         height: 150px;
         margin-bottom: 40px;
     }
@@ -548,9 +551,9 @@
         margin-top: 15px;
     }
     .text-helpnew{
-        font-size: 14px;
+        font-size: 13px;
         width: 240px;
-        margin-left: -8px;
+        margin-left: -15px;
     }
     .emty-help{
         height: 50px;
@@ -562,29 +565,11 @@
         width: 80%;
         height: 1400px;
     }
-    .card-helpnew{
-        width: 225px;
-        height: 320px;
-    }
-    .title-helpnew{
-        font-size: 16px;
-        width: 185px;
-        margin-left: 0px;
-    }
-    .titlered-helpnew{
-        font-size: 16px;
-    }
-    .cardtext-helpnew{
-        font-size: 13px;
-        width: 185px;
-        margin-left: 0px;
-        margin-top: 2px;
-    }
 
     .h1-helpnew2{ 
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .container-helpnew2{
         width: 60%;

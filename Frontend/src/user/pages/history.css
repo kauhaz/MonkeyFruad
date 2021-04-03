@@ -180,6 +180,13 @@
     .container-history1,.container-history5{
         width: 65%;
     }
+    .h1-history { 
+        font-size: 20px;
+    }
+    
+    .h2-history { 
+        font-size: 18px;
+    }
     .historyother,.left-history,.spanhistory{
         font-size: 15px ;
     }
@@ -189,11 +196,18 @@
 }
 
 @media only screen and (max-width: 769px) {
+    .h1-history { 
+        font-size: 19px;
+    }
+    
+    .h2-history { 
+        font-size: 17px;
+    }
     .historyother,.left-history,.spanhistory{
-        font-size: 16px ;
+        font-size: 13px ;
     }
     .a-historymenusetting,.a-historymenusetting1{
-        font-size: 14px;
+        font-size: 11px;
     }
 
 }
@@ -203,6 +217,15 @@
     }
     .container-history2{
         padding: 45px 20px 20px 20px;
+    }
+    .h1-history { 
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: -20px;
+    }
+    
+    .h2-history { 
+        font-size: 20px;
     }
     .historyother,.left-history,.spanhistory{
         font-size: 15px ;
@@ -228,7 +251,7 @@
     }
 
     .historyother,.left-history,.spanhistory{
-        font-size: 14px;
+        font-size: 13px;
     }
     .a-historymenusetting,.a-historymenusetting1{
         font-size: 12px;
@@ -244,7 +267,7 @@
         font-size: 13px;
     }
     .a-historymenusetting,.a-historymenusetting1{
-        font-size: 13px;
+        font-size: 12px;
     }
     .container-history2{
         padding: 45px 10px 20px 20px;
