@@ -1,9 +1,9 @@
 .container-profile {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 10px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
+    width: 430px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
@@ -42,7 +42,7 @@
 }
 
 .label-form-title-profile, .form-inside-profile {
-    font-size: inherit;
+    font-size: 16px;
     display: inline-block;
     color: inherit;
 }
@@ -94,6 +94,7 @@
 
 /*Responsive*/ 
 
+/* notebook */
 @media only screen and (max-width: 1921px) {
     .container-profile {
         margin: 2% auto 0 auto;
@@ -127,27 +128,32 @@
 
 }
 
+/* computer */
 @media only screen and (min-width: 1920px) {
     .container-profile {
         margin: 6% auto 0 auto;
     }
-    .label-form-title-profile, .form-inside-profile p{
-        font-size: 18px;
-    }
     .ProfileForm .h1 {
         font-size: 25px
     }
-    .EditProfile p, .ChangePassword p {
-        color: white;
+    .label-form-title-profile, .form-inside-profile p{
         font-size: 18px;
-        display: inline-block;
     }
     .EditProfile p, .ChangePassword p {
         font-size: 18px;
     }
-
+    .label-form-title-profile{
+        width: 40%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-profile {
+        width: 60%;
+        padding-left: 7%;
+    }
 }
 
+/* Huak */
 @media only screen and (max-width: 1367px) {
     .container-profile {
         margin: .5% auto 0 auto;
@@ -180,22 +186,27 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+/* iPad Pro */
+@media only screen and (max-width: 1025px) {
 
 }
 
-@media only screen and (max-width: 768px) {
+/* iPad */
+@media only screen and (max-width: 769px) {
 
 }
 
-@media only screen and (max-width: 414px) {
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
 
 }
 
-@media only screen and (max-width: 375px) {
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
 
 }
 
+/* iPhone 5 */
 @media only screen and (max-width: 320px) {
 
 }
