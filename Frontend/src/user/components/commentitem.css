@@ -15,11 +15,6 @@
   border-radius: 50%;
 }
 
-/* .post-comment-img1 img.img-circle1 {
-  width: 50px;
-  border-radius: 50%;
-} */
-
 .post-comment-comments1 {
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -127,6 +122,17 @@
   padding: 0 10px;
 }
 
+.postbuttonsendss {
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  padding: 0;
+  transition: box-shadow 0.4s ease;
+}
+
 .postbuttonsends1 {
   margin-left: auto;
   width: 32px;
@@ -139,17 +145,6 @@
 
 .postbuttonsends1:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.4s ease;
-}
-
-.postbuttonsendss {
-  margin: 0;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: grid;
-  align-items: center;
-  padding: 0px 0px;
   transition: box-shadow 0.4s ease;
 }
 
