@@ -110,7 +110,7 @@
     .label-form-title-profile, .form-inside-profile p{
         font-size: 16px;
     }
-    .EditProfile p, .ChangePassword p {
+    .EditProfile div+p, .ChangePassword p {
         font-size: 16px;
     }
     .label-form-title-profile{
@@ -127,7 +127,7 @@
 /* computer */
 @media only screen and (min-width: 1920px) {
     .container-profile {
-        margin: 6% auto 0 auto;
+        margin: 5% auto 0 auto;
     }
     .ProfileForm .h1 {
         font-size: 25px
@@ -139,7 +139,7 @@
     .label-form-title-profile, .form-inside-profile p{
         font-size: 18px;
     }
-    .EditProfile p, .ChangePassword p {
+    .EditProfile div+p, .ChangePassword p {
         font-size: 18px;
     }
     .label-form-title-profile{
@@ -159,57 +159,166 @@
         margin: 4% auto 0 auto;
     }
     .ProfileForm .h1 {
-        font-size: 25px
+        font-size: 22px
     }
     .profile-badformpost-img img.img-circle {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
     }
     .label-form-title-profile, .form-inside-profile p{
         font-size: 16px;
     }
-    .EditProfile p, .ChangePassword p {
+    .EditProfile div+p, .ChangePassword p {
         font-size: 16px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
     }
 }
 
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-profile {
-        margin: 4% auto 0 auto;
+        margin: 30% auto 0 auto;
+        width: 410px;
     }
     .ProfileForm .h1 {
-        font-size: 25px
+        font-size: 22px
     }
     .profile-badformpost-img img.img-circle {
         width: 130px;
         height: 130px;
     }
     .label-form-title-profile, .form-inside-profile p{
-        font-size: 16px;
+        font-size: 15px;
     }
-    .EditProfile p, .ChangePassword p {
-        font-size: 16px;
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 15px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 1px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
     }
 }
 
 /* iPad */
 @media only screen and (max-width: 769px) {
-
+    .container-profile {
+        margin: 25% auto 0 auto;
+        padding: 10px 20px;
+        width: 400px;
+    }
+    .ProfileForm .h1 {
+        font-size: 19px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 13px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 13px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
 /* iPhone 6/7/8 + */
 @media only screen and (max-width: 415px) {
-
+    .container-profile {
+        margin: 12% auto 0 auto;
+        padding: 10px 15px;
+        width: 85%;
+    }
+    .ProfileForm .h1 {
+        font-size: 20px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 15px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 15px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 2px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
 /* iPhone 6/7/8 */
 @media only screen and (max-width: 376px) {
-
+    .container-profile {
+        margin: 5% auto 0 auto;
+        padding: 5px 5px;
+    }
+    .ProfileForm .h1 {
+        font-size: 20px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 13px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 13px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
 /* iPhone 5 */
 @media only screen and (max-width: 320px) {
-
+    .container-profile {
+        margin: 2% auto 0 auto;
+        padding: 5px 0px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
 }
 

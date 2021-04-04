@@ -1,9 +1,9 @@
 .container-changepass {
     margin: 25px auto;
-    padding: 15px 20px;
+    padding: 15px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
+    width: 430px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
@@ -26,7 +26,35 @@
 
 .changePassForm .h1{
     color:  #5c5c5c;
-    font-size: 25px
+    font-size: 25px;
+}
+
+.alert-changepass-fail {
+    margin: 1rem auto;
+    color: #be2020;
+    border: 1px solid #be2020;
+    background-color: #f8a9a977;
+    padding: .3rem;
+    border-radius: .4rem;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.alert-changepass-success {
+    margin: 1rem auto;
+    color: #098656;
+    border: 1px solid #0c9963;
+    background-color: #DEF0D8;
+    padding: .3rem;
+    border-radius: .4rem;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.alert-changepass-fail span,  .alert-changepass-success span{
+    font-size: 16px;
 }
 
 .form-group {
@@ -55,33 +83,9 @@
     display: inline-block;
 }
 
-.EditProfile div, .SaveChange div {  
+.SaveChange div {  
     display: inline-block;
     margin: 0 -10px 0 0;
-}
-
-.alert-changepass-fail {
-    margin-top: 1rem;
-    color: #be2020;
-    border: 1px solid #be2020;
-    background-color: #f8a9a977;
-    padding: .3rem;
-    border-radius: .4rem;
-    margin-bottom: 1rem;
-}
-
-.alert-changepass-success {
-    margin-top: 1rem;
-    color: #098656;
-    border: 1px solid #0c9963;
-    background-color: #DEF0D8;
-    padding: .3rem;
-    border-radius: .4rem;
-    margin-bottom: 1rem;
-}
-
-.alert-changepass-fail span,  .alert-changepass-success span{
-    font-size: 16px;
 }
 
 
@@ -89,7 +93,55 @@
 /* =================================================================
 
 /*Responsive*/ 
+
+/* notebook */
 @media only screen and (max-width: 1921px) {
+    .container-changepass {
+        margin: 7% auto 0 auto;
+    }
+    .ChangePassForm img {
+        width: 130px;
+        height: 130px;
+    }
+    .ChangePassForm .h1 {
+        color:  #5c5c5c;
+        font-size: 22px;
+    }
+    .SaveChange div+p, .form-group {
+        font-size: 16px;
+    }
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .3rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 14px;
+    }
+}
+
+/* computer */
+@media only screen and (min-width: 1920px) {
+    .container-changepass {
+        margin: 10% auto 0 auto;
+    }
+    .ChangePassForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .ChangePassForm .h1 {
+        color:  #5c5c5c;
+        font-size: 25px;
+    }
+    .SaveChange div+p, .form-group {
+        font-size: 18px;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 16px;
+    }
+}
+
+/* Huak */
+@media only screen and (max-width: 1367px) {
     .container-changepass {
         margin: 8% auto 0 auto;
     }
@@ -97,92 +149,127 @@
         width: 130px;
         height: 130px;
     }
-    .text2-forget{
+    .ChangePassForm .h1 {
+        color:  #5c5c5c;
+        font-size: 22px;
+    }
+    .SaveChange div+p, .form-group {
         font-size: 16px;
+    }
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .3rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 14px;
+    }
+}
+
+/* ipad pro */
+@media only screen and (max-width: 1025px) {
+    .container-changepass {
+        margin: 35% auto 0 auto;
+        width: 410;
+    }
+    .ChangePassForm img {
+        width: 120px;
+        height: 120px;
     }
     .ChangePassForm .h1 {
         color:  #5c5c5c;
-        font-size: 22px
+        font-size: 20px;
     }
-    .SaveChange p, .form-group {
-        font-size: 16px;
+    .SaveChange div+p, .form-group {
+        font-size: 15px;
+    }
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .2rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 14px;
     }
 }
 
-@media only screen and (min-width: 1920px) {
+/* iPad */
+@media only screen and (max-width: 769px) {
     .container-changepass {
-        margin: 10% auto 0 auto;
+        margin: 32% auto 0 auto;
+        width: 400px;
+        padding: 15px 20px;
+    }
+    .ChangePassForm img {
+        width: 110px;
+        height: 110px;
     }
     .ChangePassForm .h1 {
         color:  #5c5c5c;
-        font-size: 25px
+        font-size: 19px;
     }
-    .SaveChange p, .form-group {
-        font-size: 18px;
-    }
-}
-
-@media only screen and (max-width: 1367px) {
-    .container-changepass {
-        margin: 5% auto 0 auto;
-    }
-    .ChangePassForm .h1 {
-        color:  #5c5c5c;
-        font-size: 22px
-    }
-    .SaveChange p, .form-group {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .container-changepass {
-        margin-top: 220px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .container-changepass {
-        margin-top: 100px;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .container-changepass {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
-    }
-}
-
-@media only screen and (max-width: 414px) {
-    .container-changepass {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    .container-changepass {
-        padding-top: 100px;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .text1-forget{
-        font-size: 30px !important;
-    }
-    .text2-forget{
+    .SaveChange div+p, .form-group {
         font-size: 13px;
     }
-    .container-changepass {
-        padding-left: 20px;
-        padding-right: 20px;
+    .SaveChange div {
+        padding-top: 1px;
     }
-    .Logo-forget{
-        width: 125px;
-        height: 125px;
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .2rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 13px;
+    }
+}
+
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
+    .container-changepass {
+        margin: 30% auto 0 auto;
+        width: 85%;
+        padding: 15px 15px;
+    }
+    .ChangePassForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .ChangePassForm .h1 {
+        color:  #5c5c5c;
+        font-size: 20px;
+    }
+    .SaveChange div+p, .form-group {
+        font-size: 15px;
+    }
+    .SaveChange div {
+        padding-top: 0px;
+    }
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .2rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 14px;
+    }
+}
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
+    .SaveChange div+p, .form-group {
+        font-size: 13px;
+    }
+    .alert-changepass-fail, .alert-changepass-success {
+        margin: 1rem auto;
+        padding: .2rem;
+    }
+    .alert-changepass-fail span, .alert-changepass-success span{
+        font-size: 12px;
+    }
+}
+
+/* iPhone 5 */
+@media only screen and (max-width: 321px) {
+    .container-changepass {
+        margin: 20% auto 0 auto;
+        padding: 15px 10px;
     }
 }
 

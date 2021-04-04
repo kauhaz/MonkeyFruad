@@ -242,7 +242,7 @@ const EditProfile = () => {
                         type="radio"
                         id="male"
                         value="ชาย"
-                        className="mr-1"
+                        className="mr-1 gender"
                       />
                       <label htmlFor="male">ชาย</label>
                     </div>
@@ -254,7 +254,7 @@ const EditProfile = () => {
                         type="radio"
                         id="female"
                         value="หญิง"
-                        className="mr-1"
+                        className="mr-1 gender"
                         checked="checked"
                       />
                       <label htmlFor="female">หญิง</label>
