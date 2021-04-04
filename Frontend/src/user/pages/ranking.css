@@ -127,7 +127,7 @@
     text-align: right;
     font-size: inherit;
     display: block;
-    color: inherit;
+    color: #5c5c5c;
     width: auto;
     margin-bottom: 10px;
 }
@@ -147,40 +147,46 @@
     border: none;
 }
 
+.rank-table {
+    width: 100%;
+    border-collapse:collapse;
+}
+
 .rank-column-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     background-color: white;
     margin: 1rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
-    font-size: 1rem;
-    font-weight: 600;
     color: #5c5c5c;
+    
 }
 
 .rank-data-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     background-color: white;
     margin: .7rem auto;
-    border-radius: 1rem;
+    border-radius: 16px;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     color: #5c5c5c;
 }
 
 .rank-column {
-    text-align: center;
     width: auto;
-    height: auto;
+    text-align: center;
     padding: 1rem;
-    vertical-align: middle;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    color: inherit;
+    font-size: 16px;
+}
+
+.rank-column-row .rank-column {
+    font-weight: 600;
+}
+
+.Fall-crisp {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
@@ -204,6 +210,9 @@
     .text4-rank1{
         font-size: 14px;
         width: 180px;
+    }
+    .rank-column {
+        font-size: 15px;
     }
 }
 
@@ -292,6 +301,9 @@
         font-family: 'Kanit', sans-serif;
         font-size: 16px;
     }
+    .rank-column {
+        font-size: 18px;
+    }
 }
 
 /* จอฮวก */
@@ -324,6 +336,12 @@
         font-size: 14px;
         margin-top: -5px;
     }
+    .rank-column-row .rank-column {
+        font-size: 15px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 16px;
+    }
 }
 
 /* iPad Pro */
@@ -348,6 +366,15 @@
         height: 130px;
         margin-top: -65px;
         margin-left: 55px;
+    }
+    .container-ranking {
+        width: 75%;
+    }
+    .rank-column-row .rank-column {
+        font-size: 15px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 15px;
     }
 }
 
@@ -388,6 +415,15 @@
         font-size: 11px;
         margin-top: -5px;
     }
+    .container-ranking {
+        width: 80%;
+    }
+    .rank-column-row .rank-column {
+        font-size: 13px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 13px;
+    }
 }
 
 /* iPhone 6+ */
@@ -419,6 +455,36 @@
     }
     .readmore-rank {
         font-size: 11px;
+    }
+    .rank-column-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        margin: 1rem auto;
+        border-radius: 1rem;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        color: #5c5c5c;
+    }
+    .rank-data-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        margin: .7rem auto;
+        border-radius: 16px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        color: #5c5c5c;
+    }
+    .container-ranking {
+        width: 85%;
+        margin-top: 22rem;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 13px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 13px;
     }
 }
 

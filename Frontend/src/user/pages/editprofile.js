@@ -157,8 +157,8 @@ const EditProfile = () => {
         
           <div className="col-md-12">
             <div className="form-group my-0">
-              <label className="label-form-title-profile pt-2">Username</label>
-              <div className="form-inside-profile">
+              <label className="label-form-title-editprofile pt-2">Username</label>
+              <div className="form-inside-editprofile">
                 <MDBInputGroup
                   material
                   value={username}
@@ -172,8 +172,8 @@ const EditProfile = () => {
             </div>
 
             <div className="form-group my-0">
-              <label className="label-form-title-profile pt-2">ชื่อจริง</label>
-              <div className="form-inside-profile">
+              <label className="label-form-title-editprofile pt-2">ชื่อจริง</label>
+              <div className="form-inside-editprofile">
                 <MDBInputGroup
                   material
                   containerClassName="mt-0"
@@ -187,8 +187,8 @@ const EditProfile = () => {
             </div>
 
             <div className="form-group my-0">
-              <label className="label-form-title-profile pt-2">นามสกุล</label>
-              <div className="form-inside-profile">
+              <label className="label-form-title-editprofile pt-2">นามสกุล</label>
+              <div className="form-inside-editprofile">
                 <MDBInputGroup
                   material
                   containerClassName="mt-0"
@@ -202,8 +202,8 @@ const EditProfile = () => {
             </div>
 
             <div className="form-group mb-2">
-              <label className="label-form-title-profile">เพศ</label>
-              <div className="form-inside-profile">
+              <label className="label-form-title-editprofile">เพศ</label>
+              <div className="form-inside-editprofile">
                 {male ? (
                   <div>
                     <div className="profile-data d-inline mr-2">
@@ -242,7 +242,7 @@ const EditProfile = () => {
                         type="radio"
                         id="male"
                         value="ชาย"
-                        className="mr-1"
+                        className="mr-1 gender"
                       />
                       <label htmlFor="male">ชาย</label>
                     </div>
@@ -254,7 +254,7 @@ const EditProfile = () => {
                         type="radio"
                         id="female"
                         value="หญิง"
-                        className="mr-1"
+                        className="mr-1 gender"
                         checked="checked"
                       />
                       <label htmlFor="female">หญิง</label>
@@ -265,10 +265,10 @@ const EditProfile = () => {
             </div>
 
             <div className="form-group my-0">
-              <label className="label-form-title-profile pt-2">
+              <label className="label-form-title-editprofile pt-2">
                 เบอร์โทรศัพท์
               </label>
-              <div className="form-inside-profile">
+              <div className="form-inside-editprofile">
                 <MDBInputGroup
                   material
                   containerClassName="mt-0"
@@ -283,8 +283,8 @@ const EditProfile = () => {
             </div>
 
             <div className="form-group mt-0 mb-4">
-              <label className="label-form-title-profile pt-1">จังหวัด</label>
-              <div className="form-inside-profile">
+              <label className="label-form-title-editprofile pt-1">จังหวัด</label>
+              <div className="form-inside-editprofile">
                 <select
                   as="select"
                   name="province"

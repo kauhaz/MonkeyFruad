@@ -1,9 +1,9 @@
 .container-profile {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 10px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
+    width: 430px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
@@ -42,7 +42,7 @@
 }
 
 .label-form-title-profile, .form-inside-profile {
-    font-size: inherit;
+    font-size: 16px;
     display: inline-block;
     color: inherit;
 }
@@ -64,6 +64,7 @@
 
 .ChangePassword {
     background-color: #5c83cc;
+    border: 1px solid #5c83cc;
     border: none;
     border-radius: 10px;
     padding: 4px;
@@ -94,109 +95,230 @@
 
 /*Responsive*/ 
 
+/* notebook */
 @media only screen and (max-width: 1921px) {
     .container-profile {
-        margin: 2% auto 0 auto;
-    }
-    .label-form-title-profile, .form-inside-profile p{
-        font-size: 16px;
+        margin: 1.5% auto 0 auto;
     }
     .ProfileForm .h1 {
         font-size: 22px
     }
+    .profile-badformpost-img img.img-circle {
+        width: 140px;
+        height: 140px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 16px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 16px;
+    }
     .label-form-title-profile{
-        width: 40%;
+        width: 45%;
         float: left;
         text-align: right;
     }
-    .BirthDate {
-        margin-bottom: -1rem;
-        margin-top: 1rem;
-    }
-    .phone {
-        margin-bottom: -3rem;
-    }
-    .Email {
-        margin-top: -1rem;
-    }
-
     .form-inside-profile {
-        width: 60%;
+        width: 55%;
         padding-left: 7%;
     }
-
 }
 
+/* computer */
 @media only screen and (min-width: 1920px) {
     .container-profile {
-        margin: 6% auto 0 auto;
-    }
-    .label-form-title-profile, .form-inside-profile p{
-        font-size: 18px;
+        margin: 5% auto 0 auto;
     }
     .ProfileForm .h1 {
         font-size: 25px
     }
-    .EditProfile p, .ChangePassword p {
-        color: white;
-        font-size: 18px;
-        display: inline-block;
+    .profile-badformpost-img img.img-circle {
+        width: 150px;
+        height: 150px;
     }
-    .EditProfile p, .ChangePassword p {
+    .label-form-title-profile, .form-inside-profile p{
         font-size: 18px;
     }
-
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 18px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
+/* Huak */
 @media only screen and (max-width: 1367px) {
     .container-profile {
-        margin: .5% auto 0 auto;
+        margin: 4% auto 0 auto;
+    }
+    .ProfileForm .h1 {
+        font-size: 22px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 140px;
+        height: 140px;
     }
     .label-form-title-profile, .form-inside-profile p{
         font-size: 16px;
     }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 16px;
+    }
     .label-form-title-profile{
-        width: 40%;
+        width: 45%;
         float: left;
         text-align: right;
     }
-    .BirthDate {
-        margin-bottom: -1rem;
-        margin-top: 1rem;
-    }
-    .phone {
-        margin-bottom: -3rem;
-    }
-    .Email {
-        margin-top: -1rem;
-    }
-
     .form-inside-profile {
-        width: 60%;
+        width: 55%;
         padding-left: 7%;
     }
-    .EditProfile p, .ChangePassword p {
-        font-size: 16px;
+}
+
+/* iPad Pro */
+@media only screen and (max-width: 1025px) {
+    .container-profile {
+        margin: 30% auto 0 auto;
+        width: 410px;
+    }
+    .ProfileForm .h1 {
+        font-size: 22px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 130px;
+        height: 130px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 15px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 15px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 1px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
     }
 }
 
-@media only screen and (max-width: 1024px) {
-
+/* iPad */
+@media only screen and (max-width: 769px) {
+    .container-profile {
+        margin: 25% auto 0 auto;
+        padding: 10px 20px;
+        width: 400px;
+    }
+    .ProfileForm .h1 {
+        font-size: 19px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 13px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 13px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
-@media only screen and (max-width: 768px) {
-
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
+    .container-profile {
+        margin: 12% auto 0 auto;
+        padding: 10px 15px;
+        width: 85%;
+    }
+    .ProfileForm .h1 {
+        font-size: 20px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 15px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 15px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 2px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
-@media only screen and (max-width: 414px) {
-
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
+    .container-profile {
+        margin: 5% auto 0 auto;
+        padding: 5px 5px;
+    }
+    .ProfileForm .h1 {
+        font-size: 20px
+    }
+    .profile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .label-form-title-profile, .form-inside-profile p{
+        font-size: 13px;
+    }
+    .EditProfile div+p, .ChangePassword p {
+        font-size: 13px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
+    .form-inside-profile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
-@media only screen and (max-width: 375px) {
-
-}
-
+/* iPhone 5 */
 @media only screen and (max-width: 320px) {
-
+    .container-profile {
+        margin: 2% auto 0 auto;
+        padding: 5px 0px;
+    }
+    .label-form-title-profile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
 }
 
