@@ -272,9 +272,9 @@ const Commentitemformypost = ({ postid }) => {
       <div className="mypost-comment-comments1">
         <div className="mypost-profilecomment-img1">
           {photourl ? (
-            <img className="img-circle" src={`${photourl}`} />
+            <img className="img-circle profile-comment2" src={`${photourl}`} />
           ) : (
-            <img className="img-circle" src="/img/profile.png" />
+            <img className="img-circle profile-comment2" src="/img/profile.png" />
           )}
         </div>
         <div className="mypost-section-commment">

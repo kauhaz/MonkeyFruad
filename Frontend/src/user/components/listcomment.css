@@ -206,6 +206,13 @@
   background-color: #3c6fce;
 }
 
+.profile-listcomment1 {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
 .post-comment-name1 {
   margin-left: 10px;
   font-size: 18px;
@@ -284,7 +291,7 @@
     width: 130px;
     height: 130px;
   }
-  
+
   .imgpreviewpost1,
   .uploadproveedits1 {
     width: 125px;

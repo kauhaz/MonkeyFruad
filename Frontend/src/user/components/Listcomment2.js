@@ -220,11 +220,11 @@ const Listcomment2 = ({
               <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
-                    className="img-circle profile-liscomment2"
+                    className="img-circle profile-listcomment2"
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle profile-liscomment2" src="/img/profile.png" />
+                  <img className="img-circle profile-listcomment2" src="/img/profile.png" />
                 )}
               </div>
               <div className="mypost-comment-name1">
