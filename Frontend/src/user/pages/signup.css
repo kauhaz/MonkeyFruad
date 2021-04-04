@@ -155,6 +155,9 @@
         width: 130px;
         height: 130px;
     }
+    .SignupForm .h1 {
+        font-size: 22px;
+    }
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
@@ -172,11 +175,21 @@
 
 /* คอม */
 @media only screen and (min-width: 1920px) {
+    .SignupForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .SignupForm .h1 {
+        font-size: 25px;
+    }
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 18px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 18px;
+    }
+    .alert-signup span{
+        font-size: 16px;
     }
 }
 
@@ -185,6 +198,9 @@
     .SignupForm img {
         width: 130px;
         height: 130px;
+    }
+    .SignupForm .h1 {
+        font-size: 22px;
     }
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
@@ -204,6 +220,7 @@
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-signup {
+        margin: 15% auto 0 auto;
         padding: 10px 15px;
         width: 410px;
     }
@@ -212,9 +229,9 @@
         height: 120px;
     }
     .SignupForm .h1 {
-        font-size: 25px;
+        font-size: 20px;
     }
-    
+
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 15px;
     }
@@ -233,50 +250,23 @@
 /* iPad */
 @media only screen and (max-width: 769px) {
     .container-signup {
+        margin: 8% auto 0 auto;
         padding: 10px 15px;
         width: 400px;
     }
     .SignupForm img {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
     }
     .SignupForm .h1 {
-        font-size: 25px;
+        font-size: 19px;
     }
     
     .form-group, .label-form-title, .form-inside, .province-select option {
-        font-size: 14px;
+        font-size: 13px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
-        font-size: 14px;
-    }
-    .alert-signup {
-        padding: .2rem;
-        margin: 1rem auto;
-    }
-    .alert-signup span{
-        font-size: 14px;
-    }
-}
-
-/* iPhone 6/7/8 + */
-@media only screen and (max-width: 415px) {
-    .container-signup {
-        padding: 10px 15px;
-        width: 85%;
-    }
-    .SignupForm img {
-        width: 105px;
-        height: 105px;
-    }
-    .SignupForm .h1 {
-        font-size: 23px;
-    }
-    .form-group, .label-form-title, .form-inside, .province-select option {
-        font-size: 14px;
-    }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
-        font-size: 14px;
+        font-size: 13px;
     }
     .alert-signup {
         padding: .2rem;
@@ -287,11 +277,47 @@
     }
 }
 
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
+    .container-signup {
+        margin: 4% auto 0 auto;
+        padding: 10px 15px;
+        width: 85%;
+    }
+    .SignupForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .SignupForm .h1 {
+        font-size: 20px;
+    }
+    .form-group, .label-form-title, .form-inside, .province-select option {
+        font-size: 15px;
+    }
+    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+        font-size: 15px;
+    }
+    .alert-signup {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-signup span{
+        font-size: 14px;
+    }
+}
+
 /* iPhone 6/7/8 */ 
 @media only screen and (max-width: 376px) {
     .container-signup {
         padding: 5px 5px;
         width: 85%;
+    }
+    .SignupForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .SignupForm .h1 {
+        font-size: 20px;
     }
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
@@ -313,6 +339,13 @@
     .container-signup {
         padding: 5px 0;
         width: 85%;
+    }
+    .SignupForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .SignupForm .h1 {
+        font-size: 20px;
     }
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;

@@ -26,7 +26,7 @@
 
 .LoginForm .h1{
     color:  #5c5c5c;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: -.5rem;
 }
 
@@ -144,6 +144,13 @@
         margin: 1.5% auto 0 auto;
         padding: 10px 15px;
     }
+    .LoginForm img {
+        width: 130px;
+        height: 130px;
+    }
+    .LoginForm .h1{
+        font-size: 22px;
+    }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 14px;
     }
@@ -168,6 +175,13 @@
         margin: 6.5% auto 0 auto;
         padding: 10px 15px;
     }
+    .LoginForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .LoginForm .h1{
+        font-size: 25px;
+    }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 16px;
     }
@@ -176,6 +190,9 @@
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
         font-size: 18px;
+    }
+    .alert-login span{
+        font-size: 16px;
     }
 }
 
@@ -188,6 +205,9 @@
     .LoginForm img {
         width: 130px;
         height: 130px;
+    }
+    .LoginForm .h1{
+        font-size: 22px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 14px;
@@ -219,7 +239,7 @@
         height: 120px;
     }
     .LoginForm .h1{
-        font-size: 25px;
+        font-size: 20px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 13px;
@@ -246,15 +266,15 @@
 @media only screen and (max-width: 769px) {
     .container-login {
         margin: 20% auto 0 auto;
-        padding: 10px 15px;
+        padding: 10px 20px;
         width: 400px;
     }
     .LoginForm img {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
     }
     .LoginForm .h1{
-        font-size: 25px;
+        font-size: 19px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 12px;
@@ -263,17 +283,17 @@
         margin-top: 4px;
     }
     .btn-block p, .login-signup a{
-        font-size: 14px;
+        font-size: 13px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
-        font-size: 14px;
+        font-size: 13px;
     }
     .alert-login {
         padding: .2rem;
         margin: 1rem auto;
     }
     .alert-login span{
-        font-size: 14px;
+        font-size: 13px;
     }
     
 }
@@ -287,30 +307,30 @@
         padding: 10px 15px;
     }
     .LoginForm img {
-        width: 105px;
-        height: 105px;
+        width: 100px;
+        height: 100px;
     }
     .LoginForm .h1{
-        font-size: 23px;
+        font-size: 20px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
-        font-size: 12px;
+        font-size: 13px;
     }
     .RememberCheckbox-login {
         margin-top: 4.5px;
     }
     .btn-block p, .login-signup a{
-        font-size: 14px;
+        font-size: 15px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
-        font-size: 14px;
+        font-size: 15px;
     }
     .alert-login {
         padding: .2rem;
         margin: 1rem auto;
     }
     .alert-login span{
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -323,11 +343,11 @@
         padding: 10px 15px;
     }
     .LoginForm img {
-        width: 105px;
-        height: 105px;
+        width: 100px;
+        height: 100px;
     }
     .LoginForm .h1{
-        font-size: 23px;
+        font-size: 20px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 11px;
@@ -353,14 +373,14 @@
         width: 85%;
         border-radius: 20px;
         margin: 9% auto 0 auto;
-        padding: 10px 15px;
+        padding: 10px 10px;
     }
     .LoginForm img {
-        width: 105px;
-        height: 105px;
+        width: 100px;
+        height: 100px;
     }
     .LoginForm .h1{
-        font-size: 23px;
+        font-size: 20px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
         font-size: 11px;
