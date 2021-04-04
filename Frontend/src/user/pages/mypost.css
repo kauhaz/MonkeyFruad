@@ -111,7 +111,7 @@
   color: #1fd307;
 }
 
-.spanmypostmore{
+.spanmypostmore {
   color: #ff392e;
   font-size: 16px;
 }
@@ -190,7 +190,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 0px;
   border: none;
   vertical-align: middle;
   transition: box-shadow 0.4s ease;
@@ -275,14 +274,11 @@
   border-radius: 50%;
 }
 
-
-
-.spanmypost,.spanmypostname {
+.spanmypost,
+.spanmypostname {
   color: #ff392e;
   font-size: 16px;
 }
-
-
 
 .img-bad {
   margin: 5px 5px 5px 5px;
@@ -411,7 +407,7 @@
   padding-bottom: 10px;
   font-family: "Kanit", sans-serif;
 }
-.none-mypost{
+.none-mypost {
   display: none;
 }
 
@@ -425,7 +421,11 @@
   .modalreport2 {
     margin-top: 390px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 18px;
   }
   .mypost-name {
@@ -442,22 +442,31 @@
   .modalreport2 {
     margin-top: 320px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 16px;
   }
   .mypost-name {
     font-size: 18px;
   }
-  .mypostmenusetting{
+  .mypostmenusetting {
     font-size: 13px;
+    width: 100px;
   }
 }
 
 @media only screen and (max-width: 1025px) {
-  .container-post2{
+  .container-post2 {
     width: 75%;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 15px;
   }
   .mypost-name {
@@ -468,13 +477,18 @@
     width: 155px;
     height: 155px;
   }
-  .mypostmenusetting{
-    font-size: 14px;
+  .mypostmenusetting {
+    font-size: 13px;
+    width: 100px;
   }
 }
 
 @media only screen and (max-width: 769px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 13px;
   }
   .mypost-name {
@@ -484,13 +498,13 @@
     width: 105px;
     height: 105px;
   }
-  .mypostmenusetting{
-    font-size: 12px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
   }
-
 }
 @media only screen and (max-width: 415px) {
-  .container-post2{
+  .container-post2 {
     width: 85%;
     margin-top: 30px;
   }
@@ -502,17 +516,21 @@
     margin-right: auto;
     padding: 0 0px;
   }
-  .text-mypost-left{
+  .text-mypost-left {
     margin-left: -10px;
   }
-  .text-mypost-right{
+  .text-mypost-right {
     margin-left: -10px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 15px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
+    font-size: 13px;
   }
   .mypost-name {
-    font-size: 17px;
+    font-size: 15px;
     margin-top: -45px;
   }
   .imgcommentitemmypost1 {
@@ -533,18 +551,19 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  .none-mypost{
+  .none-mypost {
     display: block;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 17px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 89%;
     margin-left: auto;
     margin-right: auto;
   }
-  .mypostimg-setting, .mypostbuttonsetting{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
     width: 25px;
     height: 25px;
   }
@@ -552,17 +571,21 @@
     font-size: 12px;
     margin-top: -30px;
   }
-  .profile-mypost{
+  .profile-mypost {
     width: 45px !important;
     height: 45px !important;
   }
-  .mypostmenusetting{
-    font-size: 14px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
   }
-
 }
 @media only screen and (max-width: 376px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 13px;
   }
   .mypost-name {
@@ -572,10 +595,10 @@
     width: 115px;
     height: 115px;
   }
-  .text-mypost-left{
+  .text-mypost-left {
     margin-left: -15px;
   }
-  .text-mypost-right{
+  .text-mypost-right {
     margin-left: -5px;
   }
   .imgcommentitemmypost1 {
@@ -585,22 +608,32 @@
     width: 110px;
     height: 110px;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 10px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 93%;
   }
-  .mypost-date{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
+    width: 25px;
+    height: 25px;
+  }
+  .mypost-date {
     font-size: 10px;
   }
-  .mypostmenusetting{
-    font-size: 12px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
   }
 }
 
 @media only screen and (max-width: 321px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore {
     font-size: 12px;
   }
   .mypost-name {
@@ -612,13 +645,12 @@
     width: 100px;
     height: 100px;
   }
-  .text-mypost-left{
+  .text-mypost-left {
     margin-left: -10px;
   }
-  .text-mypost-right{
+  .text-mypost-right {
     margin-left: -3px;
   }
-
   .imgcommentitemmypost1 {
     width: 95%;
   }
@@ -626,21 +658,27 @@
     width: 100px;
     height: 100px;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 10px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 96%;
   }
-  .mypost-date{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
+    width: 25px;
+    height: 25px;
+  }
+  .mypost-date {
     font-size: 10px;
     margin-left: 50px;
   }
-  .profile-mypost{
+  .profile-mypost {
     width: 40px !important;
     height: 40px !important;
   }
-  .mypostmenusetting{
-    font-size: 11px;
+  .mypostmenusetting {
+    font-size: 10px;
+    width: 85px;
   }
 }
