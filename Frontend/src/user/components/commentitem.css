@@ -8,13 +8,11 @@
   background-color: white;
 }
 
-img.img-circle {
-  width: 50px;
-  height: 50px;
+.profile-comment1 {
+  width: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  margin: 0;
 }
 
 /* .post-comment-img1 img.img-circle1 {

@@ -70,8 +70,7 @@ const Forgetpass = () => {
             Reset password
           </p>
           <p className="text-left my-0 mb-4 text2-forget">
-            Enter the email associated with your account and we'll send you an
-            email with instructions to reset your password.
+            กรอกอีเมลที่เชื่อมกับบัญชีของคุณ จากนั้นเราจะส่งอีเมลพร้อมคำแนะนำในการรีเซ็ทรหัสผ่านของคุณ
           </p>
           {sendEmail ? (
             <div className="alert-forgetpass">
@@ -123,7 +122,7 @@ const Forgetpass = () => {
           </div>
 
           <button onClick={ForgetEmailSubmit} className="btn-block ForgetPassButton">
-            <p className="mx-auto my-1">Send Instructions</p>
+            <p className="mx-auto my-1">ส่งไปที่อีเมล</p>
           </button>
         </form>
       </div>

@@ -1,9 +1,9 @@
 .container-editprofile {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 10px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
+    width: 430px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
@@ -41,14 +41,15 @@
     color: #6C757D;
 }
 
-.label-form-title-profile, .form-inside-profile {
-    font-size: inherit;
+.label-form-title-editprofile, .form-inside-editprofile {
+    font-size: 16px;
     display: inline-block;
     color: inherit;
 }
 
 .province-select, .gender{
     cursor: pointer;
+    color:  #5c5c5c;
 }
 
 .Date {
@@ -82,134 +83,198 @@
     margin: 0 -10px 0 0;
 }
 
-
+.fileinput {
+    cursor: pointer;
+}
 
 
 /* =================================================================
 
 /*Responsive*/ 
+
+/* notebook */
 @media only screen and (max-width: 1921px) {
     .container-editprofile {
-        margin: 1% auto 0 auto;
+        margin: 1.5% auto 0 auto;
     }
-    .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
-        font-size: 16px;
+    .editprofile-badformpost-img img.img-circle {
+        width: 140px;
+        height: 140px;
     }
     .EditProfileForm .h1 {
         font-size: 22px
     }
-    .label-form-title-profile{
-        width: 40%;
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 16px;
+    }
+    .label-form-title-editprofile{
+        width: 45%;
         float: left;
         text-align: right;
     }
-    .BirthDate {
-        margin-bottom: -1rem;
-        margin-top: 1rem;
-    }
-    .phone {
-        margin-bottom: -3rem;
-    }
-    .Email {
-        margin-top: -1rem;
-    }
-
-    .form-inside-profile {
-        width: 60%;
+    .form-inside-editprofile {
+        width: 55%;
         padding-left: 7%;
     }
-
 }
 
+/* computer */
 @media only screen and (min-width: 1920px) {
     .container-editprofile {
-        margin: 6% auto 0 auto;
-    }
-    .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
-        font-size: 18px;
+        margin: 5% auto 0 auto;
     }
     .EditProfileForm .h1 {
         font-size: 25px
     }
-    .EditProfile p, .ChangePassword p {
-        color: white;
+    .editprofile-badformpost-img img.img-circle {
+        width: 150px;
+        height: 150px;
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
         font-size: 18px;
-        display: inline-block;
     }
-
-}
-
-@media only screen and (max-width: 1367px) {
-    .container-editprofile {
-        margin: .25% auto 0 auto;
-    }
-    .label-form-title-profile, .form-inside-profile p, .SaveEdit p {
-        font-size: 16px;
-    }
-    .label-form-title-profile{
+    .label-form-title-editprofile{
         width: 40%;
         float: left;
         text-align: right;
     }
-    .BirthDate {
-        margin-bottom: -1rem;
-        margin-top: 1rem;
-    }
-    .phone {
-        margin-bottom: -3rem;
-    }
-    .Email {
-        margin-top: -1rem;
-    }
-
-    .form-inside-profile {
+    .form-inside-editprofile {
         width: 60%;
         padding-left: 7%;
     }
 }
 
-
-@media only screen and (max-width: 1024px) {
-
-}
-
-@media (min-width: 768px){
-    .province-select {
-        color: inherit;
-        width: 100%;
-        padding: .175rem .55rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+/* Huak */ 
+@media only screen and (max-width: 1367px) {
+    .container-editprofile {
+        margin: 3.5% auto 0 auto;
     }
-
-}
-
-@media (max-width: 767.98px) {
-    .province-select {
-        display: block;
-        color: inherit;
-        width: 100%;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    .editprofile-badformpost-img img.img-circle {
+        width: 140px;
+        height: 140px;
+    }
+    .EditProfileForm .h1 {
+        font-size: 22px
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 16px;
+    }
+    .label-form-title-editprofile{
+        width: 45%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-editprofile {
+        width: 55%;
+        padding-left: 7%;
     }
 }
 
-@media only screen and (max-width: 414px) {
-
+/* iPad pro */
+@media only screen and (max-width: 1025px) {
+    .container-editprofile {
+        margin: 25% auto 0 auto;
+        width: 410px;
+    }
+    .editprofile-badformpost-img img.img-circle {
+        width: 130px;
+        height: 130px;
+    }
+    .EditProfileForm .h1 {
+        font-size: 22px
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 15px;
+    }
+    .label-form-title-editprofile{
+        width: 45%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-editprofile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
-@media only screen and (max-width: 375px) {
-
+/* iPad */
+@media (max-width: 769px){
+    .container-editprofile {
+        margin: 25% auto 0 auto;
+        width: 400px;
+    }
+    .editprofile-badformpost-img img.img-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .EditProfileForm .h1 {
+        font-size: 19px
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 13px;
+    }
+    .label-form-title-editprofile{
+        width: 45%;
+        float: left;
+        text-align: right;
+        margin-top: 3.5px;
+    }
+    .form-inside-editprofile {
+        width: 55%;
+        padding-left: 7%;
+    }
 }
 
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
+    .container-editprofile {
+        margin: 10% auto 0 auto;
+        width: 85%;
+    }
+    .editprofile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .EditProfileForm .h1 {
+        font-size: 20px
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 15px;
+    }
+    .label-form-title-editprofile{
+        width: 40%;
+        float: left;
+        text-align: right;
+    }
+    .form-inside-editprofile {
+        width: 60%;
+        padding-left: 7%;
+    }
+}
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
+    .container-editprofile {
+        margin: 10% auto 0 auto;
+        padding: 5px 5px;
+    }
+    .editprofile-badformpost-img img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .EditProfileForm .h1 {
+        font-size: 20px
+    }
+    .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
+        font-size: 13px;
+    }
+}
+
+/* iPhone 5 */
 @media only screen and (max-width: 320px) {
-
+    .container-editprofile {
+        margin: 2% auto 0 auto;
+        padding: 5px 0px;
+    }
 }
 

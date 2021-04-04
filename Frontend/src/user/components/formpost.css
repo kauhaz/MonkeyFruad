@@ -229,17 +229,21 @@
     width: 195px;
     height: 195px;
   }
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
-    font-size: 15px;
+  .text-formpost { 
+    font-size: 16px !important;
   }
-  .form-control{
-    font-size: 13px !important;
+  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost{
+    font-size: 15px !important;
   }
 
 }
 
 @media only screen and (max-width: 769px) {
   /*พั้น*/
+  .container-formpost{
+    margin-bottom: 80px;
+    padding-top: 10px;
+  }
   .imgpreview , .uploadproveeditpost1{
     width: 130px;
     height: 130px;
@@ -247,11 +251,11 @@
   .uploadproveeditpost2{
     padding: 40px;
   }
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
-    font-size: 16px;
-  }
-  .form-control{
+  .text-formpost { 
     font-size: 14px !important;
+  }
+  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost{
+    font-size: 13px !important;
   }
 
 }
@@ -259,7 +263,7 @@
   .container-formpost{
     width: 85%;
     margin-bottom: 80px;
-    padding-top: 30px;
+    padding-top: 10px;
   }
   .profile-badformpost-img img.img-circle {
     width: 130px !important;
@@ -273,8 +277,11 @@
     width: 110px;
     height: 110px;
   }
-  .h1-formpostfileerror,.spanformpost { 
-    font-size: 15px;
+  .text-formpost{
+    font-size: 16px !important;
+  }
+  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
+    font-size: 15px !important;
   }
 
 }
@@ -285,13 +292,10 @@
     padding-right: 30px;
     padding-top: 20px;
   }
-  .text-formpost,.h1-formpostfileerror,.buttonformpost { 
-    font-size: 15px;
+  .text-formpost{
+    font-size: 14px !important;
   }
-  .spanformpost{
-    font-size: 15px;
-  }
-  .form-control{
+  .h1-formpostfileerror,.buttonformpost,.spanformpost,.form-control { 
     font-size: 13px !important;
   }
   .imgpreview , .uploadproveeditpost1{
@@ -309,8 +313,8 @@
     padding-right: 25px;
     padding-top: 10px;
   }
-  .spanformpost{
-    font-size: 12px;
+  .spanformpost,.h1-formpostfileerror{
+    font-size: 12px !important;
   }
   .imgpreview , .uploadproveeditpost1{
     width: 88px;

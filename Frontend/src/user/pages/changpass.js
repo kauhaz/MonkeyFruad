@@ -205,7 +205,7 @@ const Changepass = () => {
               )}
             </Formik>
 
-            <button type="submit" className="btn-block SaveChange mt-4">
+            <button type="submit" className="btn-block SaveChange mt-3">
               <div>
                 <i class="fas fa-save pr-1"></i>
               </div>
