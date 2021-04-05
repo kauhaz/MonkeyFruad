@@ -147,7 +147,8 @@
 /* Huak */ 
 @media only screen and (max-width: 1367px) {
     .container-editprofile {
-        margin: 3.5% auto 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
     .editprofile-badformpost-img img.img-circle {
         width: 140px;

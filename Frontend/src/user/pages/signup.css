@@ -195,6 +195,17 @@
 
 /* จอฮวก */
 @media only screen and (max-width: 1367px) {
+    .container-signup {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 10px 15px;
+        font-family: 'Kanit', sans-serif;
+        background-color: white;
+        width: 430px;
+        height: auto;
+        box-shadow: 10px 20px 50px rgba(0,0,0,.2);
+        border-radius: 20px;
+    }
     .SignupForm img {
         width: 130px;
         height: 130px;
@@ -280,7 +291,7 @@
 /* iPhone 6/7/8 + */
 @media only screen and (max-width: 415px) {
     .container-signup {
-        margin: 4% auto 0 auto;
+        margin: 2% auto 0 auto;
         padding: 10px 15px;
         width: 85%;
     }
@@ -339,6 +350,7 @@
     .container-signup {
         padding: 5px 0;
         width: 85%;
+        margin: 2% auto 0 auto;
     }
     .SignupForm img {
         width: 100px;
