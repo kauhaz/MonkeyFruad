@@ -221,7 +221,10 @@
         font-size: 14px;
         width: 180px;
     }
-    .rank-column {
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 16px;
+    }
+    .rank-data-row .rank-column {
         font-size: 15px;
     }
 }
@@ -311,7 +314,10 @@
         font-family: 'Kanit', sans-serif;
         font-size: 16px;
     }
-    .rank-column {
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 18px;
+    }
+    .rank-data-row .rank-column {
         font-size: 18px;
     }
 }
@@ -350,7 +356,7 @@
         font-size: 15px;
     }
     .rank-data-row .rank-column {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
@@ -488,7 +494,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 20rem;
+        margin-top: 23rem;
     }
     .rank-column-row, .rank-data-row {
         padding-left: 10px;
@@ -541,7 +547,13 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 15rem;
+        margin-top: 17rem;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 11px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 10px;
     }
 }
 
@@ -571,5 +583,9 @@
     }
     .readmore-rank {
         margin-bottom: -10px;
+    }
+    .container-ranking {
+        width: 95%;
+        margin-top: 17rem;
     }
 }
