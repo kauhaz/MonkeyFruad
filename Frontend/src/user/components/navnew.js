@@ -183,9 +183,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const initnoti = async () => {
     axios
-      .post(
-        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
-      )
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
       .then((result) => {
         setNoti(result.data);
       })
@@ -229,7 +227,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
     await initSearch();
     setLoading(false);
-  }, [user, search, hideCountNoti]);
+  }, [user, search, hideCountNoti,]);
+  console.log("eiei")
   return loading ? (
     ""
   ) : admin ? (

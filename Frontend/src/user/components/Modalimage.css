@@ -10,6 +10,8 @@
 
 .box-modal{
     width: 75%;
+    max-width: 800px;
+    max-height: 500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -27,38 +29,54 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-modal{
-        width: 85%;
+        width: 75%;
     }
 }
   
 @media only screen and (max-width: 1367px) {
     .box-modal{
-        width: 75%;
+        width: 60%;
+        max-width: 700px;
+        max-height: 450px;
     }
 }
 
 @media only screen and (max-width: 1025px){
     .box-modal{
-        width: 90%;
+        width: 55%;
+        max-width: 700px;
+        max-height: 750px;
     }
 }
   
 @media only screen and (max-width: 769px){
     .box-modal{
-        width: 70%;
+        width: 85%;
+        max-width: 400px;
+        max-height: 650px;
     }
 }
   
 @media only screen and (max-width: 415px){
     .box-modal{
         width: 90%;
+        max-width: 290px;
+        max-height: 525px;
     }
 }
   
 @media only screen and (max-width: 376px){
-  
+    .box-modal{
+        width: 90%;
+        max-width: 250px;
+        max-height: 450px;
+    }
 }
   
 @media only screen and (max-width: 321px){
-  
+    .box-modal{
+        width: 90%;
+        max-width: 200px;
+        max-height: 350px;
+    }
 }
