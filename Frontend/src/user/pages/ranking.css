@@ -154,6 +154,8 @@
 
 .rank-column-row {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     margin: 1rem auto;
     border-radius: 1rem;
@@ -164,6 +166,8 @@
 
 .rank-data-row {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     margin: .7rem auto;
     border-radius: 16px;
