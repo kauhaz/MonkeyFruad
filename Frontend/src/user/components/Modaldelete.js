@@ -50,7 +50,6 @@ const Modaldelete = ({
   };
 
   const deletedcomment = async (commentid, commentmore) => {
-    console.log(commentmore);
     const postdelete = await Axios.post(
       `http://localhost:7000/post/delete/comment/${commentid}`,
       commentmore
