@@ -57,7 +57,7 @@
 /*dropsearch*/
 .gg {
   position: absolute;
-  left: 1565px;
+  left: 1467px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -214,7 +214,7 @@
 @media only screen and (max-width: 1921px) {
   /*dropsearch*/
   .gg {
-    left: 1128px;
+    left: 1082px;
     top: 70px;
   }
   .search-nav,
@@ -309,7 +309,7 @@
   /*dropsearch*/
   .gg {
     position: absolute;
-    left: 1565px;
+    left: 1467px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -441,7 +441,7 @@
   }
   /*dropsearch*/
   .gg {
-    left: 930px;
+    left: 915px;
     top: 65px;
   }
   .ggadmin {
@@ -462,7 +462,7 @@
 @media only screen and (max-width: 1025px) {
   /*dropsearch*/
   .gg {
-    left: 634px;
+    left: 590px;
     top: 65px;
     width: 263px;
   }
@@ -520,7 +520,7 @@
 
   /*dropsearch*/
   .gg {
-    left: 442px;
+    left: 400px;
     top: 58px;
     width: 228px;
   }
@@ -621,7 +621,7 @@
   /*dropsearch*/
   .gg {
     left: 62px;
-    top: 260px;
+    top: 265px;
     width: 230px;
   }
   .search-nav,
@@ -717,7 +717,7 @@
   /*dropsearch*/
   .gg {
     left: 59px;
-    top: 242px;
+    top: 247px;
     width: 200px;
   }
   .search-nav,
@@ -785,7 +785,7 @@
   /*dropsearch*/
   .gg {
     left: 40px;
-    top: 222px;
+    top: 242px;
     width: 180px;
   }
   .search-nav,

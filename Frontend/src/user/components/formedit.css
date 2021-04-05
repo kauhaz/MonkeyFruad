@@ -36,7 +36,7 @@
   width: 20px;
 }
 
-.uploadproveformpost {
+.uploadproveformpost-edit {
   width: 100px;
   padding: 10px;
   cursor: pointer;
@@ -64,7 +64,7 @@
   background-color: white;
 }
 
-.text-formedit { 
+.text-formedit {
   font-size: 16px;
 }
 
@@ -79,8 +79,8 @@
 
 .imgpreview-edit {
   margin-top: 15px;
-  width: 195px;
-  height: 195px;
+  width: 153px;
+  height: 153px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -133,22 +133,23 @@
     margin-top: 10px;
     margin-bottom: 10px;
 } */
-.uploadprove {
+
+/* .uploadprove-edit {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
   cursor: pointer;
-}
+} */
 
-.uploadproveeditedit {
+.uploadproveeditpost-edit {
   justify-items: center;
   align-items: center;
 }
 
-.uploadproveeditedit1 {
+.uploadproveeditpost1-edit {
   margin-top: 15px;
-  width: 195px;
-  height: 195px;
+  width: 153px;
+  height: 153px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -157,22 +158,22 @@
   cursor: pointer;
 }
 
-.uploadproveeditedit1:hover {
+.uploadproveeditpost1-edit:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.uploadproveeditedit2 {
+.uploadproveeditpost2-edit {
   width: 100%;
   padding: 60px;
 }
 
 .imgcommentitemformpost1-edit {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-gap: 10px; */
+  /* margin-right: 20px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-
 
 .buttonformedit {
   width: 100%;
@@ -198,79 +199,93 @@
   margin-bottom: 20px;
 }
 
-.form-control{
+.form-control {
   font-size: 14px !important;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 255px;
     height: 255px;
   }
 
   /*พั้น*/
-  .text-formedit,.h1-formeditfileerror,.spanformedit ,.buttonformedit { 
+  .text-formedit,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 18px;
   }
-  .form-control{
+  .form-control {
     font-size: 16px !important;
   }
 }
 
 @media only screen and (max-width: 1367px) {
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 165px;
     height: 165px;
   }
 
-    /*พั้น*/
-  .text-formedit,..h1-formeditfileerror,.spanformedit ,.buttonformedit { 
+  /*พั้น*/
+  .text-formedit,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 16px;
   }
-  .form-control{
+  .form-control {
     font-size: 14px !important;
   }
 }
 
-@media only screen and (max-width: 1025px){
-  .container-formedit{
+@media only screen and (max-width: 1025px) {
+  .container-formedit {
     width: 75%;
   }
 
   /*พั้น*/
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 195px;
     height: 195px;
   }
-  .text-formedit { 
+  .text-formedit {
     font-size: 16px !important;
   }
-  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+  .form-control,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 15px !important;
   }
-
 }
 
 @media only screen and (max-width: 769px) {
   /*พั้น*/
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 130px;
     height: 130px;
   }
-  .uploadproveeditedit2{
+  .uploadproveeditedit2 {
     padding: 40px;
   }
-  .text-formedit { 
+  .text-formedit {
     font-size: 14px !important;
   }
-  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+  .form-control,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 13px !important;
   }
-
 }
 @media only screen and (max-width: 415px) {
-  .container-formedit{
+  .container-formedit {
     width: 85%;
     margin-bottom: 80px;
     padding-top: 25px;
@@ -280,60 +295,68 @@
     height: 130px;
   }
   .imgcommentitemformpost1-edit {
-    grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
   }
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 110px;
     height: 110px;
   }
-  .text-formedit { 
+  .text-formedit {
     font-size: 16px !important;
   }
-  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+  .form-control,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 15px !important;
   }
-
 }
 @media only screen and (max-width: 376px) {
   /*พั้น*/
-  .container-formedit{
+  .container-formedit {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 35px;
   }
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 105px;
     height: 105px;
   }
-  .uploadproveeditedit2{
+  .uploadproveeditedit2 {
     padding: 35px;
   }
-  .text-formedit { 
+  .text-formedit {
     font-size: 14px !important;
   }
-  .form-control,.h1-formeditfileerror,.spanformedit ,.buttonformedit{
+  .form-control,
+  .h1-formeditfileerror,
+  .spanformedit,
+  .buttonformedit {
     font-size: 13px !important;
   }
 }
 
 @media only screen and (max-width: 321px) {
-  .container-formedit{
+  .container-formedit {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 25px;
   }
-  .imgpreview-edit , .uploadproveeditedit1{
+  .imgpreview-edit,
+  .uploadproveeditedit1 {
     width: 88px;
     height: 88px;
   }
-  .imgcommentitemformpost1-edit {
+  /* .imgcommentitemformpost1-edit {
     grid-gap: 5px;
-  }
-  .uploadproveeditedit2{
+  } */
+  .uploadproveeditedit2 {
     padding: 30px;
   }
-  .h1-formeditfileerror,.spanformedit{
+  .h1-formeditfileerror,
+  .spanformedit {
     font-size: 12px !important;
   }
 }
