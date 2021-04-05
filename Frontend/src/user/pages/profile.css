@@ -156,7 +156,8 @@
 /* Huak */
 @media only screen and (max-width: 1367px) {
     .container-profile {
-        margin: 4% auto 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
     .ProfileForm .h1 {
         font-size: 22px
