@@ -154,8 +154,8 @@
 
 .rank-column-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     background-color: white;
     margin: 1rem auto;
     border-radius: 1rem;
@@ -166,8 +166,8 @@
 
 .rank-data-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     background-color: white;
     margin: .7rem auto;
     border-radius: 16px;
@@ -177,10 +177,16 @@
 
 .rank-column {
     width: auto;
+    height: auto;
     text-align: center;
     padding: 1rem;
     color: inherit;
     font-size: 16px;
+    vertical-align: middle;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .rank-column-row .rank-column {
