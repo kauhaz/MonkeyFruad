@@ -183,9 +183,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const initnoti = async () => {
     axios
-      .post(
-        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
-      )
+      .post(`http://localhost:7000/post/getnotification/${user.uid}`)
       .then((result) => {
         setNoti(result.data);
       })
@@ -506,7 +504,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                                     <div className="time-nav-noti-read">
                                       {moment(
                                         new Date(element.date.seconds * 1000)
-                                      ).format("MM/DD/YYYY HH:mm")}
+                                      )
+                                        .startOf()
+                                        .fromNow()}
                                     </div>
                                   </div>
                                 ) : (
