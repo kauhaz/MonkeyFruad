@@ -522,13 +522,14 @@
   .formreport {
     font-size: 13px !important;
   }
-  .mypost-name {
+  .mypost-name,
+  .namereport {
     font-size: 15px !important;
   }
-  .spanreport{
+  .spanreport {
     margin-left: 0 !important;
     font-size: 13px !important;
-}
+  }
   .img-bad {
     width: 107px;
     height: 107px;
@@ -561,12 +562,21 @@
   .spanmypostname,
   .text-mypost,
   .text-mypost1,
-  .spanmypostmore {
-    font-size: 13px;
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport {
+    font-size: 13px !important;
+  }
+  .namereport {
+    font-size: 15px !important;
   }
   .mypost-name {
     font-size: 15px;
     margin-top: -45px;
+  }
+  .spanreport {
+    margin-left: 0 !important;
+    font-size: 13px !important;
   }
   .imgcommentitemmypost1 {
     margin-right: 50px;
