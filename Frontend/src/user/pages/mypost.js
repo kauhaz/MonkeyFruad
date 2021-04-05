@@ -14,7 +14,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import usercontext from "../context/usercontext";
 import Modalimage from "../components/Modalimage";
-
+import Modaldelete from "../components/Modaldelete";
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
   const [selecttwo, setSelecttwo] = useState("");
@@ -74,8 +74,13 @@ const Mypost = () => {
 
   const handleShow = () => setShow(true);
   const deleted = async (uid, ok) => {
-    await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`, ok);
-    history.push("/post/history");
+    <Modaldelete
+      modalcommentid={uid}
+      modalcommentmore={ok}
+      setIsActive={setIsActive}
+    />;
+    // await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`, ok);
+    // history.push("/post/history");
   };
 
   const ok = async () => {

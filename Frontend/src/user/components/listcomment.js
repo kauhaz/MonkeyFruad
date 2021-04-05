@@ -8,7 +8,7 @@ import _ from "lodash";
 import ClipLoaderComent from "./clipLoaderComent";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
-
+import Modaldelete from "./Modaldelete";
 const Listcomment = ({
   commentmore,
   handledeletetorerender,
@@ -131,16 +131,24 @@ const Listcomment = ({
     }
   };
   const deleted = async (commentid, commentmore) => {
-    console.log(commentmore);
-    const postdelete = await Axios.post(
-      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
-      commentmore
-    );
-    setIsActive(false);
-    Setfuck([]);
-    setImagesFile();
-    Setfiles();
-    handledeletetorerender();
+    <Modaldelete
+      modalcommentid={commentid}
+      modalcommentmore={commentmore}
+      setIsActive={setIsActive}
+      Setfuck={Setfuck}
+      setImagesFile={setImagesFile}
+      Setfiles={Setfiles}
+      handledeletetorerender={handledeletetorerender}
+    />;
+    // const postdelete = await Axios.post(
+    //   `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
+    //   commentmore
+    // );
+    // setIsActive(false);
+    // Setfuck([]);
+    // setImagesFile();
+    // Setfiles();
+    // handledeletetorerender();
   };
 
   const edit = async () => {
@@ -222,7 +230,10 @@ const Listcomment = ({
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle profile-listcomment1" src="/img/profile.png" />
+                  <img
+                    className="img-circle profile-listcomment1"
+                    src="/img/profile.png"
+                  />
                 )}
               </div>
               <div className="post-comment-name1">
