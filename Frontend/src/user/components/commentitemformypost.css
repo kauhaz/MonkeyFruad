@@ -10,15 +10,14 @@
 
 .mypost-comment-comments1 {
   display: grid;
-  grid-template-columns: 50px 1fr;
-  font-size: 18px;
+  grid-template-columns: 7.6% 93%;
   padding: 10px 0;
 }
 
 .mypost-section-commment {
   background-color: rgb(245, 245, 245);
-  margin: 0 10px;
-  padding: 15px;
+  margin: 0 0 0 10px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -41,6 +40,17 @@
   padding: 0 10px;
 }
 
+.mypostbuttonsendss {
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  padding: 0;
+  transition: box-shadow 0.4s ease;
+}
+
 .mypostbuttonsends1 {
   margin-left: auto;
   width: 32px;
@@ -56,40 +66,24 @@
   transition: box-shadow 0.4s ease;
 }
 
-.mypostbuttonsendss {
-  margin: 0;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: grid;
-  align-items: center;
-  padding: 0px 0px;
-  transition: box-shadow 0.4s ease;
-}
-
-.mypost-profilecomment-img1 img.img-circle {
-  width: 50px;
-  height: 50px;
+.profile-comment2 {
+  width: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 30px;
 }
 
 .imgcommentitemmypost2 {
   display: grid;
-  padding-left: 15px;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 20px 0 -27px 0;
 }
 
 .imgpreviewb1 {
   position: relative;
   margin: 0;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -101,8 +95,8 @@
 }
 
 .uploadproveeditmypost1 {
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -117,7 +111,7 @@
 
 .uploadproveeditmypost2 {
   width: 100%;
-  padding: 60px;
+  padding: 40px;
 }
 
 .postdeletemypost {
@@ -169,39 +163,6 @@
   width: 10%;
 }
 
-.mypostbuttonsends {
-  background-color: rgb(245, 245, 245);
-  color: grey;
-  border: none;
-  border-radius: 50px;
-}
-
-.mypostbuttonsend {
-  width: 30px;
-  margin-left: 400px;
-  margin-top: -90px;
-  border: none;
-  background: rgb(245, 245, 245);
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 0px;
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-}
-
-.mypostbuttonsend:hover {
-  margin-left: 400px;
-  margin-top: -90px;
-  border-radius: 50px;
-  border: none;
-  background-color: rgb(245, 245, 245);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
 .h1-mypostfileerror {
   color: #ff392e;
   text-align: center;
@@ -211,23 +172,176 @@
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-  .imgpreviewb1 , .uploadproveeditmypost1 {
-    width: 220px;
-    height: 220px;
+  .mypost-comment-comments1 {
+    grid-template-columns: 5.7% 94%;
   }
-
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 18px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 177px;
+    height: 177px;
+  }
   .uploadproveeditmypost2 {
-    padding: 70px;
+    padding: 60px;
   }
 }
 
 @media only screen and (max-width: 1367px) {
-  .imgpreviewb1 , .uploadproveeditmypost1 {
-    width: 130px;
-    height: 130px;
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 16px;
   }
-
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 110px;
+    height: 110px;
+  }
   .uploadproveeditmypost2 {
     padding: 40px;
+  }
+  .imgcommentitemmypost2 {
+    margin: 20px 0 -33px 0;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 15px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 133px;
+    height: 133px;
+  }
+  .uploadproveeditmypost2 {
+    padding: 45px;
+  }
+  .mypost-section-commment {
+    padding: 10px 20px;
+  }
+  .imgcommentitemmypost2 {
+    margin: 20px 0 -25px 0;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 13px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 88px;
+    height: 88px;
+  }
+  .uploadproveeditmypost2 {
+    padding: 30px;
+  }
+  .mypost-section-commment {
+    padding: 10px 20px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .mypost-comment-comments1 {
+    grid-template-columns: 15% 85%;
+  }
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 13px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 92px;
+    height: 92px;
+  }
+  .uploadproveeditmypost2 {
+    padding: 30px;
+  }
+  .imgcommentitemmypost2 {
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 0 -20px 0;
+  }
+  .mypost-section-commment {
+    padding: 10px 15px;
+  }
+  .mypost-comment-commentsall {
+    grid-template-columns: 30px 1fr 30px;
+  }
+  .mypostbuttonsends1 {
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .mypost-comment-comments1 {
+    grid-template-columns: 17% 83%;
+  }
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 13px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 77px;
+    height: 77px;
+  }
+  .uploadproveeditmypost2 {
+    padding: 25px;
+  }
+  .imgcommentitemmypost2 {
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 0 -20px 0;
+  }
+  .mypost-section-commment {
+    padding: 10px 15px;
+  }
+  .mypost-comment-commentsall {
+    grid-template-columns: 30px 1fr 30px;
+  }
+  .mypostbuttonsends1 {
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .mypost-comment-comments1 {
+    grid-template-columns: 17% 83%;
+  }
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
+    font-size: 12px;
+  }
+  .imgpreviewb1,
+  .uploadproveeditmypost1 {
+    width: 62px;
+    height: 62px;
+  }
+  .uploadproveeditmypost2 {
+    padding: 40px;
+  }
+  .mypost-section-commment {
+    padding: 6px 10px;
+  }
+  .imgcommentitemmypost2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .mypost-comment-commentsall {
+    grid-template-columns: 25px 1fr 30px;
+  }
+  .mypostbuttonsends1 {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
   }
 }
