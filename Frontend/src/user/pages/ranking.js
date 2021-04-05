@@ -180,7 +180,7 @@ const Rank = () => {
           </select>
         </div>
 
-        {/* <table className="rank-table d-none d-sm-none d-md-inline">
+        <table className="rank-table d-none d-sm-none d-md-inline">
           <tr className="rank-column-row">
             <th className="rank-column cell col-1 ">อันดับ</th>
             <th className="rank-column cell col ">ชื่อ</th>
@@ -190,7 +190,7 @@ const Rank = () => {
             <th className="rank-column cell col ">จำนวนครั้งที่โกง</th>
             <th className="rank-column cell col ">วันที่โกง</th>
           </tr>
-        </table> */}
+        </table>
 
         <table className="rank-table-count d-sm-none">
           <tr className="rank-column-row">

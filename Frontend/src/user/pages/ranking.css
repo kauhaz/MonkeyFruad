@@ -346,7 +346,7 @@
         font-size: 14px;
         margin-top: -5px;
     }
-    .rank-column-row .rank-column {
+    .rank-column-row .rank-column, .rank-sort-select {
         font-size: 15px;
     }
     .rank-data-row .rank-column {
@@ -380,7 +380,7 @@
     .container-ranking {
         width: 75%;
     }
-    .rank-column-row .rank-column {
+    .rank-column-row .rank-column, .rank-sort-select {
         font-size: 15px;
     }
     .rank-data-row .rank-column {
@@ -428,7 +428,7 @@
     .container-ranking {
         width: 80%;
     }
-    .rank-column-row .rank-column {
+    .rank-column-row .rank-column, .rank-sort-select {
         font-size: 13px;
     }
     .rank-data-row .rank-column {
