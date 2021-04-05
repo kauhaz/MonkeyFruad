@@ -175,7 +175,8 @@
   .mypost-comment-comments1 {
     grid-template-columns: 5.7% 94%;
   }
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 18px;
   }
   .imgpreviewb1,
@@ -189,7 +190,8 @@
 }
 
 @media only screen and (max-width: 1367px) {
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 16px;
   }
   .imgpreviewb1,
@@ -206,7 +208,8 @@
 }
 
 @media only screen and (max-width: 1025px) {
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 15px;
   }
   .imgpreviewb1,
@@ -226,7 +229,8 @@
 }
 
 @media only screen and (max-width: 769px) {
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 13px;
   }
   .imgpreviewb1,
@@ -244,9 +248,10 @@
 
 @media only screen and (max-width: 415px) {
   .mypost-comment-comments1 {
-    grid-template-columns: 15% 90%;
+    grid-template-columns: 15% 85%;
   }
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 13px;
   }
   .imgpreviewb1,
@@ -277,9 +282,10 @@
 
 @media only screen and (max-width: 376px) {
   .mypost-comment-comments1 {
-    grid-template-columns: 17% 90%;
+    grid-template-columns: 17% 83%;
   }
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 13px;
   }
   .imgpreviewb1,
@@ -310,9 +316,10 @@
 
 @media only screen and (max-width: 321px) {
   .mypost-comment-comments1 {
-    grid-template-columns: 17% 91%;
+    grid-template-columns: 17% 83%;
   }
-  .inputcommentmypost2 {
+  .inputcommentmypost2,
+  .h1-mypostfileerror {
     font-size: 12px;
   }
   .imgpreviewb1,
@@ -330,7 +337,7 @@
     grid-template-columns: 1fr 1fr;
   }
   .mypost-comment-commentsall {
-    grid-template-columns: 25px 1fr 40px;
+    grid-template-columns: 25px 1fr 30px;
   }
   .mypostbuttonsends1 {
     width: 22px;

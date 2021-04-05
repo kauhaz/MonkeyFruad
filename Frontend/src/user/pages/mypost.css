@@ -281,9 +281,8 @@
 }
 
 .img-bad {
-  margin: 5px 5px 5px 5px;
-  width: 150px;
-  height: 150px;
+  width: 153px;
+  height: 153px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -292,7 +291,7 @@
 
 .imgcommentitemmypost1 {
   display: grid;
-  grid-gap: 0px;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -330,7 +329,7 @@
 .line-comments1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .formsize-mypost {
@@ -414,9 +413,8 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
-    margin: 10px 10px 10px 10px;
-    width: 190px;
-    height: 190px;
+    width: 200px;
+    height: 200px;
   }
   .modalreport2 {
     margin-top: 390px;
@@ -431,11 +429,13 @@
   .mypost-name {
     font-size: 20px;
   }
+  .line-comments1 {
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
   .img-bad {
-    margin: 5px 5px 5px 5px;
     width: 132px;
     height: 132px;
   }
@@ -461,6 +461,7 @@
 @media only screen and (max-width: 1025px) {
   .container-post2 {
     width: 75%;
+    padding: 20px 20px 0px 20px;
   }
   .spanmypost,
   .spanmypostname,
@@ -484,6 +485,10 @@
 }
 
 @media only screen and (max-width: 769px) {
+  .container-post2 {
+    width: 75%;
+    padding: 20px 20px 0px 20px;
+  }
   .spanmypost,
   .spanmypostname,
   .text-mypost,
@@ -495,8 +500,8 @@
     font-size: 15px;
   }
   .img-bad {
-    width: 105px;
-    height: 105px;
+    width: 107px;
+    height: 107px;
   }
   .mypostmenusetting {
     font-size: 11px;
@@ -506,12 +511,12 @@
 @media only screen and (max-width: 415px) {
   .container-post2 {
     width: 85%;
-    margin-top: 30px;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
   }
 
   .container-myposts3 {
     width: 100%;
-    /* margin-top: 30px; */
     margin-left: auto;
     margin-right: auto;
     padding: 0 0px;
@@ -534,16 +539,12 @@
     margin-top: -45px;
   }
   .imgcommentitemmypost1 {
+    margin-right: 50px;
     grid-template-columns: 1fr 1fr;
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
   }
   .img-bad {
-    width: 133px;
-    height: 130px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 150px;
+    height: 150px;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 120px;
@@ -579,8 +580,16 @@
     font-size: 11px;
     width: 90px;
   }
+  .line-comments1 {
+    margin-top: 20px;
+  }
 }
 @media only screen and (max-width: 376px) {
+  .container-post2 {
+    width: 85%;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
+  }
   .spanmypost,
   .spanmypostname,
   .text-mypost,
@@ -591,18 +600,19 @@
   .mypost-name {
     font-size: 15px;
   }
+  .imgcommentitemmypost1 {
+    margin-right: 40px;
+    grid-template-columns: 1fr 1fr;
+  }
   .img-bad {
-    width: 115px;
-    height: 115px;
+    width: 135px;
+    height: 135px;
   }
   .text-mypost-left {
     margin-left: -15px;
   }
   .text-mypost-right {
     margin-left: -5px;
-  }
-  .imgcommentitemmypost1 {
-    width: 90%;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 110px;
@@ -626,9 +636,17 @@
     font-size: 11px;
     width: 90px;
   }
+  .line-comments1 {
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (max-width: 321px) {
+  .container-post2 {
+    width: 85%;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
+  }
   .spanmypost,
   .spanmypostname,
   .text-mypost,
@@ -641,18 +659,19 @@
     margin-top: -40px;
     margin-left: 50px;
   }
+  .imgcommentitemmypost1 {
+    margin-right: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
   .img-bad {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
   }
   .text-mypost-left {
     margin-left: -10px;
   }
   .text-mypost-right {
     margin-left: -3px;
-  }
-  .imgcommentitemmypost1 {
-    width: 95%;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 100px;

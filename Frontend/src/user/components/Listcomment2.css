@@ -474,7 +474,7 @@
   }
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
   .imgpreviewmypost1,
   .uploadproveeditmyposts1 {
@@ -540,6 +540,10 @@
     width: 100%;
     padding: 30px;
   }
+  .imglistcommentmypost {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
+  }
   .listcommentmypost2 {
     width: 100px;
     height: 100px;
@@ -587,6 +591,10 @@
   .uploadproveeditmyposts2 {
     width: 100%;
     padding: 25px;
+  }
+  .imglistcommentmypost {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
   }
   .listcommentmypost2 {
     width: 75px;

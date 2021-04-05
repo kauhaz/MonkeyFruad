@@ -291,7 +291,7 @@
 /* iPhone 6/7/8 + */
 @media only screen and (max-width: 415px) {
     .container-signup {
-        margin: 4% auto 0 auto;
+        margin: 2% auto 0 auto;
         padding: 10px 15px;
         width: 85%;
     }
@@ -350,6 +350,7 @@
     .container-signup {
         padding: 5px 0;
         width: 85%;
+        margin: 2% auto 0 auto;
     }
     .SignupForm img {
         width: 100px;

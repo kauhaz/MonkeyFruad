@@ -206,7 +206,7 @@
         width: 45%;
         float: left;
         text-align: right;
-        margin-top: 1px;
+        margin-top: 0px;
     }
     .form-inside-profile {
         width: 55%;
@@ -238,7 +238,7 @@
         width: 45%;
         float: left;
         text-align: right;
-        margin-top: 3.5px;
+        margin-top: 0px;
     }
     .form-inside-profile {
         width: 55%;
@@ -270,7 +270,7 @@
         width: 45%;
         float: left;
         text-align: right;
-        margin-top: 2px;
+        margin-top: 0px;
     }
     .form-inside-profile {
         width: 55%;
@@ -301,7 +301,7 @@
         width: 45%;
         float: left;
         text-align: right;
-        margin-top: 3.5px;
+        margin-top: 0px;
     }
     .form-inside-profile {
         width: 55%;
@@ -319,7 +319,7 @@
         width: 45%;
         float: left;
         text-align: right;
-        margin-top: 3.5px;
+        margin-top: 0px;
     }
 }
 

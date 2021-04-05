@@ -8,12 +8,42 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-comment-mypost{
-        margin-left: 330px;
+        margin-left: 325px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-comment-mypost{
-        margin-left: 175px;
-    }
+        margin-left: 189px;
+    }    
+}
+
+@media only screen and (max-width: 1025px) {
+    .box-load-comment-mypost{
+        margin-left: 235px;
+    }    
+}
+
+@media only screen and (max-width: 769px) {
+    .box-load-comment-mypost{
+        margin-left: 150px;
+    }    
+}
+
+@media only screen and (max-width: 415px) {
+    .box-load-comment-mypost{
+        margin-left: 40px;
+    }    
+}
+
+@media only screen and (max-width: 376px) {
+    .box-load-comment-mypost{
+        margin-left: 22px;
+    }    
+}
+
+@media only screen and (max-width: 321px) {
+    .box-load-comment-mypost{
+        margin-left: 8px;
+    }    
 }
