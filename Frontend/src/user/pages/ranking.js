@@ -180,35 +180,66 @@ const Rank = () => {
           </select>
         </div>
 
-        <table className="rank-table">
+        {/* <table className="rank-table d-none d-sm-none d-md-inline">
+          <tr className="rank-column-row">
+            <th className="rank-column cell col-1 ">อันดับ</th>
+            <th className="rank-column cell col ">ชื่อ</th>
+            <th className="rank-column cell col ">นามสกุล</th>
+            <th className="rank-column cell col ">เลขที่บัญชี</th>
+            <th className="rank-column cell col ">ยอดเงินทั้งหมด</th>
+            <th className="rank-column cell col ">จำนวนครั้งที่โกง</th>
+            <th className="rank-column cell col ">วันที่โกง</th>
+          </tr>
+        </table> */}
+
+        <table className="rank-table-count d-sm-none">
+          <tr className="rank-column-row">
+            <th className="rank-column cell col-1">อันดับ</th>
+            <th className="rank-column cell col">ชื่อ</th>
+            <th className="rank-column cell col">นามสกุล</th>
+            <th className="rank-column cell col">เลขที่บัญชี</th>
+            <th className="rank-column cell col">จำนวนครั้งที่โกง</th>
+          </tr>
+        </table>
+
+        {/* <table className="rank-table-balance d-none d-sm-inline d-md-none">
           <tr className="rank-column-row">
             <th className="rank-column cell col-1">อันดับ</th>
             <th className="rank-column cell col">ชื่อ</th>
             <th className="rank-column cell col">นามสกุล</th>
             <th className="rank-column cell col">เลขที่บัญชี</th>
             <th className="rank-column cell col">ยอดเงินทั้งหมด</th>
-            <th className="rank-column cell col">จำนวนครั้งที่โกง</th>
-            <th className="rank-column cell col">วันที่โกง</th>
           </tr>
         </table>
+
+        <table className="rank-table-date d-none d-sm-inline d-md-none">
+          <tr className="rank-column-row">
+            <th className="rank-column cell col-1">อันดับ</th>
+            <th className="rank-column cell col">ชื่อ</th>
+            <th className="rank-column cell col">นามสกุล</th>
+            <th className="rank-column cell col">เลขที่บัญชี</th>
+            <th className="rank-column cell col">วันที่โกง</th>
+          </tr>
+        </table> */}
+
 
 
         {ThiefRank
           ? ThiefRank.map((element, index) => {
               return (
-                <table className="rank-table">
+                <table className="rank-table d-sm-none ">
                   <tr className="rank-data-row">
                     <th className="rank-column cell col-1">{index + 1}</th>
                     <th className="rank-column cell col">{element.name}</th>
                     <th className="rank-column cell col Fall-crisp">{element.surname}</th>
                     <th className="rank-column cell col">{element.accountnumber}</th>
-                    <th className="rank-column cell col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></th>
+                    {/* <th className="rank-column cell col">{element.summoney.toLocaleString(undefined, {maximumFractionDigits:2})}<span>&nbsp;บาท</span></th> */}
                     <th className="rank-column cell col">{element.count}</th>
-                    <th className="rank-column cell col">
+                    {/* <th className="rank-column cell col">
                       {moment(new Date(element.wanteedon.seconds * 1000)).format(
                         'MM/DD/YYYY HH:mm'
                       )}
-                    </th>
+                    </th> */}
                   </tr>
                 </table>
 

@@ -147,7 +147,7 @@
     border: none;
 }
 
-.rank-table {
+.rank-table, .rank-table-count, .rank-table-balance, .rank-table-date{
     width: 100%;
     border-collapse:collapse;
 }
@@ -487,14 +487,17 @@
         color: #5c5c5c;
     }
     .container-ranking {
-        width: 85%;
-        margin-top: 22rem;
+        width: 95%;
+        margin-top: 20rem;
+    }
+    .rank-column-row, .rank-data-row {
+        padding-left: 10px;
     }
     .rank-column-row .rank-column, .rank-sort-select {
-        font-size: 13px;
+        font-size: 11px;
     }
     .rank-data-row .rank-column {
-        font-size: 13px;
+        font-size: 10px;
     }
 }
 
@@ -535,6 +538,10 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: -10px;
+    }
+    .container-ranking {
+        width: 95%;
+        margin-top: 15rem;
     }
 }
 
