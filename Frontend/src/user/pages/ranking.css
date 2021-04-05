@@ -207,6 +207,12 @@
 
 /* จอ Notebook */
 @media only screen and (max-width: 1921px) {
+    .h1-ranking {
+        font-size: 22px
+    }
+    .rank-sort-head{
+        font-size: 16px;
+    }
     .coin1-rank , .coin2-rank , .coin3-rank {
         width: 140px;
         height: 140px;
@@ -231,6 +237,12 @@
 
 /* จอ Computer */
 @media only screen and (min-width: 1920px) {
+    .h1-ranking {
+        font-size: 25px
+    }
+    .rank-sort-head{
+        font-size: 18px;
+    }
     .container2-rank{
         width: 60%;
         height: 380px;
@@ -324,6 +336,12 @@
 
 /* จอฮวก */
 @media only screen and (max-width: 1367px) {
+    .h1-ranking {
+        font-size: 22px
+    }
+    .rank-sort-head{
+        font-size: 16px;
+    }
     .coin1-rank , .coin2-rank , .coin3-rank {
         width: 140px;
         height: 140px;
@@ -362,6 +380,12 @@
 
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
+    .h1-ranking {
+        font-size: 20px
+    }
+    .rank-sort-head{
+        font-size: 15px;
+    }
     .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
     }
@@ -396,6 +420,12 @@
 
 /* iPad */
 @media only screen and (max-width: 769px) {
+    .h1-ranking {
+        font-size: 19px
+    }
+    .rank-sort-head{
+        font-size: 13px;
+    }
     .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
     }
@@ -444,6 +474,12 @@
 
 /* iPhone 6+ */
 @media only screen and (max-width: 415px) {
+    .h1-ranking {
+        font-size: 22px
+    }
+    .rank-sort-head{
+        font-size: 15px;
+    }
     .container2-rank{
         width: 85%;
     }
@@ -509,6 +545,12 @@
 
 /* iPhone 6 */
 @media only screen and (max-width: 376px) {
+    .h1-ranking {
+        font-size: 20px
+    }
+    .rank-sort-head{
+        font-size: 13px;
+    }
     .column3-rank{
         margin-top: 60px;
     }
@@ -586,6 +628,6 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 17rem;
+        margin-top: 16rem;
     }
 }
