@@ -372,7 +372,7 @@ const Mypost = () => {
                                 <div className="form-groupreport">
                                   <label htmlFor="exampleFormControlTextarea1"></label>
                                     <textarea
-                                      className="form-control"
+                                      className="formreport form-control"
                                       id="exampleFormControlTextarea1"
                                       rows="4"
                                       placeholder="อธิบายรายละเอียดเพิ่มเติม"
@@ -384,7 +384,6 @@ const Mypost = () => {
                                 <span className="spanreport">
                                   *กรุณาแนบหลักฐานประกอบเพื่อเพิ่มความน่าเชื่อถือสำหรับการรายงาน
                                 </span>
-
                                 <div className="imgcommentitemreport1">
                                   {!imagesFile ? (
                                     <div>
