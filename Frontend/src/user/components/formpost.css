@@ -64,7 +64,7 @@
   background-color: white;
 }
 
-.text-formpost { 
+.text-formpost {
   font-size: 16px;
 }
 
@@ -78,9 +78,9 @@
 }
 
 .imgpreview {
-  margin-top: 15px;
-  width: 153px;
-  height: 153px;
+  margin: 15px 0 5px 0;
+  width: 155px;
+  height: 155px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -131,8 +131,8 @@
 
 .uploadproveeditpost1 {
   margin-top: 15px;
-  width: 153px;
-  height: 153px;
+  width: 155px;
+  height: 155px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -148,7 +148,7 @@
 
 .uploadproveeditpost2 {
   width: 100%;
-  padding: 60px;
+  padding: 55px;
 }
 
 .imgcommentitemformpost1 {
@@ -173,7 +173,6 @@
   text-align: center;
   color: white;
   padding: 0.5rem;
-  margin-top: 10px;
 }
 
 .buttonformpost:hover {
@@ -186,82 +185,102 @@
   text-align: center;
   margin-bottom: 20px;
 }
-.form-control{
+.form-control {
   font-size: 14px !important;
 }
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-  .imgpreview , .uploadproveeditpost1{
-    width: 255px;
-    height: 255px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 202px;
+    height: 202px;
+  }
+  .uploadproveeditpost2 {
+    padding: 60px;
   }
 
   /*พั้น*/
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
+  .text-formpost,
+  .h1-formpostfileerror,
+  .spanformpost,
+  .buttonformpost {
     font-size: 18px;
   }
-  .form-control{
+  .form-control {
     font-size: 16px !important;
   }
 }
 
 @media only screen and (max-width: 1367px) {
-  .imgpreview , .uploadproveeditpost1{
-    width: 165px;
-    height: 165px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 134px;
+    height: 134px;
   }
 
-    /*พั้น*/
-  .text-formpost,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
+  /*พั้น*/
+  .text-formpost,
+  .h1-formpostfileerror,
+  .spanformpost,
+  .buttonformpost {
     font-size: 16px;
   }
-  .form-control{
+  .form-control {
     font-size: 14px !important;
   }
 }
 
-@media only screen and (max-width: 1025px){
-  .container-formpost{
+@media only screen and (max-width: 1025px) {
+  .container-formpost {
     width: 75%;
+  }
+  .uploadproveeditpost2 {
+    padding: 65px;
   }
 
   /*พั้น*/
-  .imgpreview , .uploadproveeditpost1{
-    width: 195px;
-    height: 195px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 157px;
+    height: 157px;
   }
-  .text-formpost { 
+  .text-formpost {
     font-size: 16px !important;
   }
-  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost{
+  .form-control,
+  .h1-formpostfileerror,
+  .spanformpost,
+  .buttonformpost {
     font-size: 15px !important;
   }
-
 }
 
 @media only screen and (max-width: 769px) {
   /*พั้น*/
-  .container-formpost{
+  .container-formpost {
     margin-bottom: 80px;
     padding-top: 10px;
   }
-  .imgpreview , .uploadproveeditpost1{
-    width: 130px;
-    height: 130px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 109px;
+    height: 109px;
   }
-  .uploadproveeditpost2{
-    padding: 40px;
+  .uploadproveeditpost2 {
+    padding: 45px;
   }
-  .text-formpost { 
+  .text-formpost {
     font-size: 14px !important;
   }
-  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost{
+  .form-control,
+  .h1-formpostfileerror,
+  .spanformpost,
+  .buttonformpost {
     font-size: 13px !important;
   }
-
 }
 @media only screen and (max-width: 415px) {
-  .container-formpost{
+  .container-formpost {
     width: 85%;
     margin-bottom: 80px;
     padding-top: 10px;
@@ -273,57 +292,71 @@
   .imgcommentitemformpost1 {
     grid-template-columns: 1fr 1fr;
   }
-  .imgpreview , .uploadproveeditpost1{
-    width: 110px;
-    height: 110px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 127px;
+    height: 127px;
   }
-  .text-formpost{
+  .uploadproveeditpost2 {
+    padding: 45px;
+  }
+  .deleteimgformposts2 {
+    width: 20px !important;
+    margin-left: 5px !important;
+  }
+  .text-formpost {
     font-size: 16px !important;
   }
-  .form-control,.h1-formpostfileerror,.spanformpost,.buttonformpost { 
+  .form-control,
+  .h1-formpostfileerror,
+  .spanformpost,
+  .buttonformpost {
     font-size: 15px !important;
   }
-
 }
+
 @media only screen and (max-width: 376px) {
   /*พั้น*/
-  .container-formpost{
+  .container-formpost {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 20px;
   }
-  .text-formpost{
+  .text-formpost {
     font-size: 14px !important;
   }
-  .h1-formpostfileerror,.buttonformpost,.spanformpost,.form-control { 
+  .h1-formpostfileerror,
+  .buttonformpost,
+  .spanformpost,
+  .form-control {
     font-size: 13px !important;
   }
-  .imgpreview , .uploadproveeditpost1{
-    width: 105px;
-    height: 105px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 119px;
+    height: 119px;
   }
-  .uploadproveeditpost2{
-    padding: 35px;
+  .uploadproveeditpost2 {
+    padding: 45px;
   }
 }
 
 @media only screen and (max-width: 321px) {
-  .container-formpost{
+  .container-formpost {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
   }
-  .spanformpost,.h1-formpostfileerror{
+  .spanformpost,
+  .h1-formpostfileerror {
     font-size: 12px !important;
   }
-  .imgpreview , .uploadproveeditpost1{
-    width: 88px;
-    height: 88px;
+  .imgpreview,
+  .uploadproveeditpost1 {
+    width: 101px;
+    height: 101px;
   }
-  /* .imgcommentitemformpost1 {
-    grid-gap: 5px;
-  } */
-  .uploadproveeditpost2{
-    padding: 30px;
+  .uploadproveeditpost2 {
+    padding: 35px;
   }
 }
