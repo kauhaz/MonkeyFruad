@@ -199,7 +199,8 @@
 /* จอฮวก */
 @media only screen and (max-width: 1367px) {
     .container-login {
-        margin: 4.5% auto 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
         padding: 10px 15px;
     }
     .LoginForm img {
