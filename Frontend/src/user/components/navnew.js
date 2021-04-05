@@ -227,8 +227,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     }
     await initSearch();
     setLoading(false);
-  }, [user, search, hideCountNoti]);
-  console.log(noti);
+  }, [user, search, hideCountNoti,]);
+  console.log("eiei")
   return loading ? (
     ""
   ) : admin ? (
