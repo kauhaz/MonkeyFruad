@@ -230,6 +230,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     await initSearch();
     setLoading(false);
   }, [user, search, hideCountNoti]);
+  console.log(noti);
   return loading ? (
     ""
   ) : admin ? (
@@ -505,9 +506,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                                     <div className="time-nav-noti-read">
                                       {moment(
                                         new Date(element.date.seconds * 1000)
-                                      )
-                                        .startOf()
-                                        .fromNow()}
+                                      ).format("MM/DD/YYYY HH:mm")}
                                     </div>
                                   </div>
                                 ) : (
