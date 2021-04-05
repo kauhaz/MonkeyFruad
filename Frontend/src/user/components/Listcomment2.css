@@ -128,7 +128,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.imgpreview1 {
+/* .imgpreview1 {
   width: 140px;
   height: 200px;
   object-fit: cover;
@@ -136,7 +136,7 @@
   margin-top: 20px;
   margin-bottom: 10px;
   margin-right: 10px;
-}
+} */
 
 .imglistcommentmypost {
   display: grid;
@@ -474,7 +474,7 @@
   }
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
   .imgpreviewmypost1,
   .uploadproveeditmyposts1 {
@@ -593,7 +593,7 @@
     height: 75px;
   }
   .mypostcommentrow {
-    padding: 0px 20px 5px 20px;
+    padding: 0px 10px 5px 10px;
   }
   .inputlistcommentmypost2,
   .buttoncommentmypostsave2 {
