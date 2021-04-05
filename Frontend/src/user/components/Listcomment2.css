@@ -128,16 +128,6 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-/* .imgpreview1 {
-  width: 140px;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-} */
-
 .imglistcommentmypost {
   display: grid;
   grid-gap: 10px;
