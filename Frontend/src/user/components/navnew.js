@@ -183,7 +183,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
   const initnoti = async () => {
     axios
-      .post(`http://localhost:7000/post/getnotification/${user.uid}`)
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
       .then((result) => {
         setNoti(result.data);
       })
