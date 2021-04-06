@@ -532,6 +532,9 @@
     .search-index , .dropsearch-index{
         width: 309px;
     }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
+    }
     .text4-index{
         font-size: 14px;
         width: 180px;
@@ -1122,6 +1125,9 @@
         width: 257px;
         font-size: 15px;
     }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
+    }
 
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
@@ -1196,6 +1202,9 @@
         border-radius: 3px;
         width: 224px;
         font-size: 15px;
+    }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
     }
 
     /*social media*/ 
@@ -1297,6 +1306,9 @@
     .dropsearch-index{
         height: 30px;
         padding-top: 7px;
+    }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
     }
 
     /*social media*/ 
@@ -1426,12 +1438,15 @@
     .gg-index{
         left: 15px;
         top: 53px;
-        width: 152px;
+        width: 153px;
     }
     .search-index , .dropsearch-index{
         border-radius: 3px;
         font-size: 10px;
-        width: 152px;
+        width: 153px;
+    }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
     }
 
 
@@ -1498,7 +1513,7 @@
     .box1-index{
         width: 100%;
         padding-left: 11px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .button1-index{
         width: 100%;
@@ -1553,15 +1568,17 @@
 
      /*dropsearch*/
     .gg-index{
-        left: 10px;
-        top: 43px;
-        width: 150px;
+        left: 15px;
+        top: 52px;
+        width: 136px;
     }
     .search-index , .dropsearch-index{
-        width: 150px;
+        width: 136px;
         height: 30px;
     }
-
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
+    }
 
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
@@ -1649,14 +1666,19 @@
 
     /*dropsearch*/
     .gg-index{
-        left: 0px;
-        top: 41px;
-        width: 139px;
+        left: 9px;
+        top: 53px;
+        width: 121px;
     }
     .search-index , .dropsearch-index{
-        width: 139px;
+        width: 121px;
     }
-
+    .search-index{
+        padding-left: 5px;
+    }
+    .dropsearch-index{
+        border-radius: 0px 0px 5px 5px;
+    }
     /*social media*/ 
     .headfacebook-index , .headinstargram-index , .headline-index , .headother-index , .headtwitter-index{
         font-size: 13px;
