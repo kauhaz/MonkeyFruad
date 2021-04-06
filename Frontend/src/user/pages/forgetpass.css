@@ -1,9 +1,9 @@
 .container-forget {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 10px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
+    width: 430px;
     height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
@@ -20,7 +20,7 @@
     width: 100%;
     height: auto;
     max-width: 376px;
-    padding: 10px;
+    padding: 10px 5px;
     margin: 0 auto;
 }
 
@@ -54,13 +54,15 @@
 }
 
 .alert-forgetpass {
-    margin-top: 1rem;
+    margin: 1rem auto;
     color: #098656;
     border: 1px solid #0c9963;
     background-color: #DEF0D8;
     padding: .3rem;
     border-radius: .4rem;
-    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+    width: auto;
 }
 
 .alert-forgetpass  span {
@@ -71,6 +73,8 @@
 /*----------------------------------------------------------------
 
 /*Responsive*/ 
+
+/* จอ notebook */
 @media only screen and (max-width: 1921px) {
     .container-forget {
         margin: 7% auto 0 auto;
@@ -79,76 +83,165 @@
         width: 130px;
         height: 130px;
     }
-    .text2-forget{
-        font-size: 16px;
-    }
     .ForgetPassForm .h1 {
         font-size: 22px
     }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 16px;
+    }
+    .alert-forgetpass {
+        margin: 1rem auto;
+        padding: .3rem;
+    }
+    .alert-forgetpass  span {
+        font-size: 14px;
+    }
 }
 
+/* จอคอม */
 @media only screen and (min-width: 1920px) {
     .container-forget {
-        margin: 10% auto 0 auto;
+        margin: 9.5% auto 0 auto;
+    }
+    .ForgetPassForm img {
+        width: 140px;
+        height: 140px;
     }
     .ForgetPassForm .h1 {
         font-size: 25px
     }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 18px;
+    }
+    .alert-forgetpass  span {
+        font-size: 16px;
+    }
 }
 
+/* จอฮวก */
 @media only screen and (max-width: 1367px) {
+    .container-forget {
+        margin: 9% auto 0 auto;
+    }
+    .ForgetPassForm img {
+        width: 130px;
+        height: 130px;
+    }
     .ForgetPassForm .h1 {
         font-size: 22px
     }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 16px;
+    }
+    .alert-forgetpass {
+        padding: .3rem;
+        margin: 1rem auto;
+    }
+    .alert-forgetpass  span {
+        font-size: 14px;
+    }
 }
 
-@media only screen and (max-width: 1024px) {
+/* iPad Pro */
+@media only screen and (max-width: 1025px) {
     .container-forget {
-        margin-top: 220px;
+        margin: 35% auto 0 auto;
+        width: 450px;
+        padding: 10px 5px;
+    }
+    .ForgetPassForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .ForgetPassForm .h1 {
+        font-size: 25px
+    }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 18px;
+    }
+    .alert-forgetpass {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-forgetpass  span {
+        font-size: 16px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+/* iPad */
+@media only screen and (max-width: 769px) {
     .container-forget {
-        margin-top: 100px;
+        margin: 32% auto 0 auto;
+        width: 380px;
+        padding: 10px 20px;
     }
-}
-
-@media only screen and (max-width: 450px) {
-    .container-forget {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
+    .ForgetPassForm img {
+        width: 110px;
+        height: 110px;
     }
-}
-
-@media only screen and (max-width: 414px) {
-    .container-forget {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
+    .ForgetPassForm .h1 {
+        font-size: 19px
     }
-}
-
-@media only screen and (max-width: 375px) {
-    .container-forget {
-        padding-top: 100px;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .text1-forget{
-        font-size: 30px !important;
-    }
-    .text2-forget{
+    .text2-forget, .ForgetPassButton p, .form-group{
         font-size: 13px;
     }
-    .container-forget {
-        padding-left: 20px;
-        padding-right: 20px;
+    .alert-forgetpass {
+        padding: .2rem;
+        margin: 1rem auto;
     }
-    .Logo-forget{
-        width: 125px;
-        height: 125px;
+    .alert-forgetpass  span {
+        font-size: 13px;
+    }
+}
+
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
+    .container-forget {
+        margin: 30% auto 0 auto;
+        width: 85%;
+        padding: 10px 15px;
+    }
+    .ForgetPassForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .ForgetPassForm .h1 {
+        font-size: 20px
+    }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 15px;
+    }
+    .alert-forgetpass {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-forgetpass  span {
+        font-size: 14px;
+    }
+}
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
+    .container-forget {
+        margin: 25% auto 0 auto;
+        padding: 10px 15px;
+    }
+    .text2-forget, .ForgetPassButton p, .form-group{
+        font-size: 13px;
+    }
+    .alert-forgetpass {
+        padding: .1rem;
+        margin: 1rem auto;
+    }
+    .alert-forgetpass  span {
+        font-size: 12px;
+    }
+}
+
+/* iPhone 5 */
+@media only screen and (max-width: 321px) {
+    .container-forget {
+        margin: 20% auto 0 auto;
+        padding: 10px 10px;
     }
 }

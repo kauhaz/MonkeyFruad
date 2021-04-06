@@ -127,7 +127,7 @@
     text-align: right;
     font-size: inherit;
     display: block;
-    color: inherit;
+    color: #5c5c5c;
     width: auto;
     margin-bottom: 10px;
 }
@@ -147,6 +147,11 @@
     border: none;
 }
 
+.rank-table, .rank-table-count, .rank-table-balance, .rank-table-date{
+    width: 100%;
+    border-collapse:collapse;
+}
+
 .rank-column-row {
     display: flex;
     flex-wrap: wrap;
@@ -155,9 +160,8 @@
     margin: 1rem auto;
     border-radius: 1rem;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
-    font-size: 1rem;
-    font-weight: 600;
     color: #5c5c5c;
+    
 }
 
 .rank-data-row {
@@ -166,21 +170,33 @@
     justify-content: center;
     background-color: white;
     margin: .7rem auto;
-    border-radius: 1rem;
+    border-radius: 16px;
     box-shadow: 10px 0px 30px rgba(0,0,0,.2);
     color: #5c5c5c;
 }
 
 .rank-column {
-    text-align: center;
     width: auto;
     height: auto;
+    text-align: center;
     padding: 1rem;
+    color: inherit;
+    font-size: 16px;
     vertical-align: middle;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+.rank-column-row .rank-column {
+    font-weight: 600;
+}
+
+.Fall-crisp {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
@@ -191,6 +207,12 @@
 
 /* จอ Notebook */
 @media only screen and (max-width: 1921px) {
+    .h1-ranking {
+        font-size: 22px
+    }
+    .rank-sort-head{
+        font-size: 16px;
+    }
     .coin1-rank , .coin2-rank , .coin3-rank {
         width: 140px;
         height: 140px;
@@ -205,10 +227,22 @@
         font-size: 14px;
         width: 180px;
     }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 16px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 15px;
+    }
 }
 
 /* จอ Computer */
 @media only screen and (min-width: 1920px) {
+    .h1-ranking {
+        font-size: 25px
+    }
+    .rank-sort-head{
+        font-size: 18px;
+    }
     .container2-rank{
         width: 60%;
         height: 380px;
@@ -292,10 +326,22 @@
         font-family: 'Kanit', sans-serif;
         font-size: 16px;
     }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 18px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 18px;
+    }
 }
 
 /* จอฮวก */
 @media only screen and (max-width: 1367px) {
+    .h1-ranking {
+        font-size: 22px
+    }
+    .rank-sort-head{
+        font-size: 16px;
+    }
     .coin1-rank , .coin2-rank , .coin3-rank {
         width: 140px;
         height: 140px;
@@ -324,10 +370,22 @@
         font-size: 14px;
         margin-top: -5px;
     }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 15px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 15px;
+    }
 }
 
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
+    .h1-ranking {
+        font-size: 20px
+    }
+    .rank-sort-head{
+        font-size: 15px;
+    }
     .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
     }
@@ -349,10 +407,25 @@
         margin-top: -65px;
         margin-left: 55px;
     }
+    .container-ranking {
+        width: 75%;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 15px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 15px;
+    }
 }
 
 /* iPad */
 @media only screen and (max-width: 769px) {
+    .h1-ranking {
+        font-size: 19px
+    }
+    .rank-sort-head{
+        font-size: 13px;
+    }
     .container1-rank , .container2-rank , .container3-rank{
         width: 75%;
     }
@@ -388,10 +461,26 @@
         font-size: 11px;
         margin-top: -5px;
     }
+    .container-ranking {
+        width: 80%;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 13px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 13px;
+    }
 }
 
 /* iPhone 6+ */
 @media only screen and (max-width: 415px) {
+    .h1-ranking {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+    .rank-sort-head{
+        font-size: 15px;
+    }
     .container2-rank{
         width: 85%;
     }
@@ -420,10 +509,51 @@
     .readmore-rank {
         font-size: 11px;
     }
+    .rank-column-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        margin: 1rem auto;
+        border-radius: 1rem;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        color: #5c5c5c;
+    }
+    .rank-data-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        margin: .7rem auto;
+        border-radius: 16px;
+        box-shadow: 10px 0px 30px rgba(0,0,0,.2);
+        color: #5c5c5c;
+    }
+    .container-ranking {
+        width: 95%;
+        margin-top: 22rem;
+        margin-bottom: 70px;
+    }
+    .rank-column-row, .rank-data-row {
+        padding-left: 10px;
+        margin: .3rem auto;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 11px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 10px;
+    }
 }
 
 /* iPhone 6 */
 @media only screen and (max-width: 376px) {
+    .h1-ranking {
+        font-size: 20px
+    }
+    .rank-sort-head{
+        font-size: 13px;
+    }
     .column3-rank{
         margin-top: 60px;
     }
@@ -460,6 +590,16 @@
         margin-right: auto;
         margin-top: -10px;
     }
+    .container-ranking {
+        width: 95%;
+        margin-top: 16rem;
+    }
+    .rank-column-row .rank-column, .rank-sort-select {
+        font-size: 11px;
+    }
+    .rank-data-row .rank-column {
+        font-size: 10px;
+    }
 }
 
 /* iPhone 5s */ 
@@ -488,5 +628,10 @@
     }
     .readmore-rank {
         margin-bottom: -10px;
+    }
+    .container-ranking {
+        width: 95%;
+        margin-top: 15rem;
+        margin-bottom: 65px;
     }
 }

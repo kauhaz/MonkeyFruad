@@ -616,7 +616,7 @@ const Formedit = ({ check, Setcheck }) => {
                               <div>
                                 <label>
                                   <img
-                                    className="uploadproveformpost"
+                                    className="uploadproveformpost-edit"
                                     src="/img/addimage.png"
                                   />
                                   <input
@@ -658,7 +658,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   return (
                                     <div className="postdelete">
                                       <img
-                                        className="imgpreview"
+                                        className="imgpreview-edit"
                                         src={`${res.url}`}
                                         onClick={() => (
                                           Setimagemodal(res.url),
@@ -685,10 +685,10 @@ const Formedit = ({ check, Setcheck }) => {
                                 })
                               : null}
                             {imagepost || imagesFile ? (
-                              <div className="uploadproveeditpost">
-                                <label className="uploadproveeditpost1">
+                              <div className="uploadproveeditpost-edit">
+                                <label className="uploadproveeditpost1-edit">
                                   <img
-                                    className="uploadproveeditpost2"
+                                    className="uploadproveeditpost2-edit"
                                     src="/img/last1.png"
                                   />
                                   <input

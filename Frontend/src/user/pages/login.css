@@ -1,10 +1,9 @@
 .container-login {
     margin: 25px auto;
-    padding: 5px 20px;
+    padding: 10px 15px;
     font-family: 'Kanit', sans-serif;
     background-color: white;
-    width: 450px;
-    height: auto;
+    width: 430px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
 }
@@ -26,11 +25,24 @@
 
 .LoginForm .h1{
     color:  #5c5c5c;
-    font-size: 30px
+    font-size: 25px;
+    margin-top: -.5rem;
 }
 
-.LoginForm p {
-    margin-top: -.5rem;
+.alert-login {
+    color: #be2020;
+    border: 1px solid #be2020;
+    background-color: #f8a9a977;
+    padding: .3rem;
+    border-radius: .4rem;
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.alert-login span{
+    font-size: 16px;
 }
 
 .LoginInputForm {
@@ -49,6 +61,7 @@
 .RememberCheckbox-login, .ForgotPassword-login a {
     color: #5c5c5c;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .LoginButton-login {
@@ -118,106 +131,268 @@
     margin: 0 .5rem 4px 0;
 }
 
-.alert-login {
-    margin-top: 1rem;
-    color: #be2020;
-    border: 1px solid #be2020;
-    background-color: #f8a9a977;
-    padding: .3rem;
-    border-radius: .4rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
 
-.alert-login span{
-    font-size: 1rem;
-}
 
 /*----------------------------------------------------------------
 
 /*Responsive*/ 
+
+/* จอ notebook */
 @media only screen and (max-width: 1921px) {
     .container-login {
         margin: 2% auto 0 auto;
+        padding: 10px 15px;
     }
     .LoginForm img {
         width: 130px;
         height: 130px;
     }
-    .btn-block, .login-signup a{
+    .LoginForm .h1{
+        font-size: 22px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 14px;
+    }
+    .btn-block p, .login-signup a{
         font-size: 16px;
     }
-
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 16px;
+    }
+    .alert-login {
+        padding: .3rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 14px;
+    }
 }
+
+/* จอคอม */
 @media only screen and (min-width: 1920px) {
     .container-login {
-        margin: 7% auto 0 auto;
+        margin: 6.5% auto 0 auto;
+        padding: 10px 15px;
     }
-    .btn-block, .login-signup a{
+    .LoginForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .LoginForm .h1{
+        font-size: 25px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 16px;
+    }
+    .btn-block p, .login-signup a{
         font-size: 18px;
     }
-
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 18px;
+    }
+    .alert-login span{
+        font-size: 16px;
+    }
 }
 
+/* จอฮวก */
 @media only screen and (max-width: 1367px) {
     .container-login {
-        margin: .5% auto 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 10px 15px;
     }
     .LoginForm img {
         width: 130px;
         height: 130px;
     }
-    .btn-block, .login-signup a{
+    .LoginForm .h1{
+        font-size: 22px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 14px;
+    }
+    .btn-block p, .login-signup a{
+        font-size: 16px;
+    }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 16px;
+    }
+    .alert-login {
+        padding: .3rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 14px;
+    }
+}
+
+/* iPad Pro */ 
+@media only screen and (max-width: 1025px) {
+    .container-login {
+        margin: 30% auto 0 auto;
+        padding: 10px 15px;
+        width: 450px;
+    }
+    .LoginForm img {
+        width: 140px;
+        height: 140px;
+    }
+    .LoginForm .h1{
+        font-size: 25px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 16px;
+    }
+    .login-signup a{
+        font-size: 18px;
+    }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 18px;
+    }
+    .alert-login {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
         font-size: 16px;
     }
 }
 
-@media only screen and (max-width: 1024px) {
+/* iPad */
+@media only screen and (max-width: 769px) {
     .container-login {
-        margin-top: 220px;
+        margin: 21% auto 0 auto;
+        padding: 10px 20px;
+        width: 400px;
     }
-}
-
-@media only screen and (max-width: 768px) {
-    .container-login {
-        margin-top: 100px;
+    .LoginForm img {
+        width: 110px;
+        height: 110px;
+    }
+    .LoginForm .h1{
+        font-size: 19px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 12px;
+    }
+    .RememberCheckbox-login {
+        margin-top: 4px;
+    }
+    .btn-block p, .login-signup a{
+        font-size: 13px;
+    }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 13px;
+    }
+    .alert-login {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 13px;
     }
     
 }
 
-@media only screen and (max-width: 450px) {
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
     .container-login {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
+        width: 85%;
+        border-radius: 20px;
+        margin: 12% auto 14% auto;
+        padding: 10px 15px;
     }
-}
-@media only screen and (max-width: 414px) {
-    .container-login {
-        width: 100%;
-        box-shadow: 0px 0px 0px rgba(0,0,0,.2);
-        border-radius: 0px;
+    .LoginForm img {
+        width: 100px;
+        height: 100px;
     }
-}
-
-@media only screen and (max-width: 375px) {
-
-}
-
-@media only screen and (max-width: 320px) {
-    .LoginFacebook-login p, .LoginGoogle-login{
+    .LoginForm .h1{
+        font-size: 20px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 13px;
+    }
+    .RememberCheckbox-login {
+        margin-top: 4.5px;
+    }
+    .btn-block p, .login-signup a{
         font-size: 15px;
     }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 15px;
+    }
+    .alert-login {
+        padding: .2rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 14px;
+    }
+}
+
+/* iPhone 6/7/8  */ 
+@media only screen and (max-width: 376px) {
     .container-login {
-        padding-left: 20px;
-        padding-right: 20px;
+        width: 85%;
+        border-radius: 20px;
+        margin: 9% auto 19% auto;
+        padding: 10px 15px;
     }
-    .Logo-login{
-        width: 125px;
-        height: 125px;
+    .LoginForm img {
+        width: 100px;
+        height: 100px;
     }
-    .text1-login{
-        font-size: 30px !important;
+    .LoginForm .h1{
+        font-size: 20px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 11px;
+    }
+    .btn-block p, .login-signup a{
+        font-size: 13px;
+    }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 13px;
+    }
+    .alert-login {
+        padding: .1rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 12px;
+    }
+}
+
+/* iPhone 5 */
+@media only screen and (max-width: 321px) {
+    .container-login {
+        width: 85%;
+        border-radius: 20px;
+        margin: 10% auto 25% auto;
+        padding: 10px 10px;
+    }
+    .LoginForm img {
+        width: 100px;
+        height: 100px;
+    }
+    .LoginForm .h1{
+        font-size: 20px;
+    }
+    .RememberCheckbox-login, .ForgotPassword-login a{
+        font-size: 11px;
+    }
+    .btn-block p, .login-signup a{
+        font-size: 13px;
+    }
+    .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
+        font-size: 13px;
+    }
+    .alert-login {
+        padding: .1rem;
+        margin: 1rem auto;
+    }
+    .alert-login span{
+        font-size: 12px;
     }
 }

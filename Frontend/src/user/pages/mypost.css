@@ -72,6 +72,8 @@
   color: grey;
 }
 
+/*report*/
+
 .mypostbuttonreported {
   float: right;
   border: none;
@@ -93,12 +95,13 @@
   margin-right: auto;
 }
 
-.reportcheckbox {
-  font-size: 16px;
+.namereport {
+  font-size: 18px !important;
 }
 
-.form-groupreport {
-  margin-bottom: 15px;
+.reportcheckbox,
+.formreport {
+  font-size: 16px !important;
 }
 
 .spanreport {
@@ -106,12 +109,16 @@
   color: #ff392e;
 }
 
+.form-groupreport {
+  margin-bottom: 15px;
+}
+
 .spanreport2 {
   font-size: 16px;
   color: #1fd307;
 }
 
-.spanmypostmore{
+.spanmypostmore {
   color: #ff392e;
   font-size: 16px;
 }
@@ -131,16 +138,25 @@
 
 .imgcommentitempostreport1 {
   margin-top: 10px;
+  margin-right: -20px;
   display: grid;
-  padding-left: 15px;
-  grid-gap: 5px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.imgpreviewreport {
+  margin: 15px 0 5px 0px;
+  width: 135px;
+  height: 135px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
 }
 
 .uploadprovereport {
   width: 100px;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
+  margin: 5px 0 0 0;
 }
 
 .uploadproveeditreport {
@@ -150,8 +166,8 @@
 
 .uploadproveeditreport1 {
   margin-top: 15px;
-  width: 195px;
-  height: 195px;
+  width: 135px;
+  height: 135px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -166,9 +182,61 @@
 
 .uploadproveeditreport2 {
   width: 100%;
-  padding: 60px;
+  padding: 50px;
   cursor: pointer;
 }
+
+.imgcommentitemreport1 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.postdeletereport {
+  display: flex;
+  width: 100%;
+}
+
+.deleteimgreports1 {
+  position: relative;
+  right: 15px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.deleteimgreports2 {
+  width: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.deleteimgreports2:hover {
+  transition: box-shadow 0.4s ease;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modalreport2 {
+  margin-top: 290px;
+}
+
+.showsuccessreport {
+  width: 500px;
+  color: #238516;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Kanit", sans-serif;
+}
+
+/*end-repoet*/
 
 .mypostimg-setting {
   width: 30px;
@@ -190,7 +258,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 0px;
   border: none;
   vertical-align: middle;
   transition: box-shadow 0.4s ease;
@@ -275,19 +342,15 @@
   border-radius: 50%;
 }
 
-
-
-.spanmypost,.spanmypostname {
+.spanmypost,
+.spanmypostname {
   color: #ff392e;
   font-size: 16px;
 }
 
-
-
 .img-bad {
-  margin: 5px 5px 5px 5px;
-  width: 150px;
-  height: 150px;
+  width: 153px;
+  height: 153px;
   position: relative;
   object-fit: cover;
   object-position: center;
@@ -296,7 +359,7 @@
 
 .imgcommentitemmypost1 {
   display: grid;
-  grid-gap: 0px;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -334,7 +397,7 @@
 .line-comments1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .formsize-mypost {
@@ -354,178 +417,241 @@
   display: none;
 }
 
-.imgcommentitemreport1 {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
-}
-
-.postdeletereport {
-  display: flex;
-  width: 100%;
-}
-
-.imgpreviewreport {
-  margin-top: 15px;
-  width: 195px;
-  height: 195px;
-  position: relative;
-  object-fit: cover;
-  object-position: center;
-}
-
-.deleteimgreports1 {
-  position: relative;
-  right: 15px;
-  top: 5px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  font-size: 13px;
-  font-family: sans-serif;
-}
-
-.deleteimgreports2 {
-  width: 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  border: none;
-  background-color: white;
-}
-
-.deleteimgreports2:hover {
-  transition: box-shadow 0.4s ease;
-  background-color: rgb(230, 230, 230);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.modalreport2 {
-  margin-top: 290px;
-}
-.showsuccessreport {
-  width: 500px;
-  color: #238516;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: "Kanit", sans-serif;
-}
-.none-mypost{
+.none-mypost {
   display: none;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .img-bad {
-    margin: 10px 10px 10px 10px;
-    width: 190px;
-    height: 190px;
+    width: 200px;
+    height: 200px;
   }
   .modalreport2 {
     margin-top: 390px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 18px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport,
+  .spanreport {
+    font-size: 18px !important;
   }
-  .mypost-name {
-    font-size: 20px;
+  .mypost-name,
+  .namereport,
+  .btn {
+    font-size: 20px !important;
+  }
+  .line-comments1 {
+    margin-top: 20px;
   }
 }
 
 @media only screen and (max-width: 1367px) {
   .img-bad {
-    margin: 5px 5px 5px 5px;
     width: 132px;
     height: 132px;
   }
   .modalreport2 {
     margin-top: 320px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 16px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport,
+  .spanreport {
+    font-size: 16px !important;
   }
-  .mypost-name {
-    font-size: 18px;
+  .mypost-name,
+  .namereport,
+  .btn {
+    font-size: 18px !important;
   }
-  .mypostmenusetting{
+  .mypostmenusetting {
     font-size: 13px;
+    width: 100px;
   }
 }
 
 @media only screen and (max-width: 1025px) {
-  .container-post2{
+  .container-post2 {
     width: 75%;
+    padding: 20px 20px 0px 20px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 15px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport,
+  .spanreport {
+    font-size: 15px !important;
+  }
+  .namereport,
+  .btn {
+    font-size: 17px !important;
   }
   .mypost-name {
     font-size: 17px;
     margin-top: -50px;
   }
+  .imgcommentitempostreport1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .imgpreviewreport,
+  .uploadproveeditreport1 {
+    width: 90px;
+    height: 90px;
+  }
+  .deleteimgreports2 {
+    width: 20px;
+    margin-left: 5px;
+  }
+  .uploadproveeditreport2 {
+    width: 100%;
+    padding: 30px;
+  }
+  .uploadprovereport {
+    padding: 15px;
+  }
   .img-bad {
     width: 155px;
     height: 155px;
   }
-  .mypostmenusetting{
-    font-size: 14px;
+  .mypostmenusetting {
+    font-size: 13px;
+    width: 100px;
   }
 }
 
 @media only screen and (max-width: 769px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 13px;
+  .container-post2 {
+    width: 75%;
+    padding: 20px 20px 0px 20px;
   }
-  .mypost-name {
-    font-size: 15px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport {
+    font-size: 13px !important;
+  }
+  .mypost-name,
+  .namereport,
+  .btn {
+    font-size: 15px !important;
+  }
+  .spanreport {
+    margin-left: 0 !important;
+    font-size: 13px !important;
+  }
+  .imgcommentitempostreport1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .imgpreviewreport,
+  .uploadproveeditreport1 {
+    width: 75px;
+    height: 75px;
+  }
+  .deleteimgreports2 {
+    width: 15px;
+    margin-left: 8px;
+  }
+  .uploadproveeditreport2 {
+    width: 100%;
+    padding: 25px;
+  }
+  .uploadprovereport {
+    padding: 20px;
+    margin: -5px -10px;
   }
   .img-bad {
-    width: 105px;
-    height: 105px;
+    width: 107px;
+    height: 107px;
   }
-  .mypostmenusetting{
-    font-size: 12px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
   }
-
 }
 @media only screen and (max-width: 415px) {
-  .container-post2{
+  .container-post2 {
     width: 85%;
-    margin-top: 30px;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
   }
-
   .container-myposts3 {
     width: 100%;
-    /* margin-top: 30px; */
     margin-left: auto;
     margin-right: auto;
     padding: 0 0px;
   }
-  .text-mypost-left{
+  .text-mypost-left {
     margin-left: -10px;
   }
-  .text-mypost-right{
+  .text-mypost-right {
     margin-left: -10px;
   }
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 15px;
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport {
+    font-size: 13px !important;
+  }
+  .namereport,
+  .btn {
+    font-size: 15px !important;
   }
   .mypost-name {
-    font-size: 17px;
+    font-size: 15px;
     margin-top: -45px;
   }
+  .spanreport {
+    margin-left: 0 !important;
+    font-size: 13px !important;
+  }
+  .imgcommentitempostreport1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .imgpreviewreport,
+  .uploadproveeditreport1 {
+    width: 75px;
+    height: 75px;
+  }
+  .deleteimgreports2 {
+    width: 15px;
+    margin-left: 8px;
+  }
+  .uploadproveeditreport2 {
+    width: 100%;
+    padding: 25px;
+  }
+  .mypostbuttonreported {
+    font-size: 15px;
+  }
   .imgcommentitemmypost1 {
+    margin-right: 50px;
     grid-template-columns: 1fr 1fr;
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
+  }
+  .uploadprovereport {
+    padding: 20px;
+    margin: -5px -10px;
   }
   .img-bad {
-    width: 133px;
-    height: 130px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 150px;
+    height: 150px;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 120px;
@@ -533,18 +659,19 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  .none-mypost{
+  .none-mypost {
     display: block;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 17px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 89%;
     margin-left: auto;
     margin-right: auto;
   }
-  .mypostimg-setting, .mypostbuttonsetting{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
     width: 25px;
     height: 25px;
   }
@@ -552,95 +679,196 @@
     font-size: 12px;
     margin-top: -30px;
   }
-  .profile-mypost{
+  .profile-mypost {
     width: 45px !important;
     height: 45px !important;
   }
-  .mypostmenusetting{
-    font-size: 14px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
   }
-
+  .line-comments1 {
+    margin-top: 20px;
+  }
 }
 @media only screen and (max-width: 376px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 13px;
+  .container-post2 {
+    width: 85%;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
   }
-  .mypost-name {
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport {
+    font-size: 13px !important;
+  }
+  .mypost-name,
+  .namereport,
+  .btn {
     font-size: 15px;
   }
-  .img-bad {
-    width: 115px;
-    height: 115px;
+  .spanreport {
+    margin-left: 0 !important;
+    font-size: 13px !important;
   }
-  .text-mypost-left{
-    margin-left: -15px;
+  .imgcommentitempostreport1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .text-mypost-right{
-    margin-left: -5px;
+  .imgpreviewreport,
+  .uploadproveeditreport1 {
+    width: 65px;
+    height: 65px;
+  }
+  .deleteimgreports2 {
+    width: 15px;
+    margin-left: 8px;
+  }
+  .uploadproveeditreport2 {
+    width: 100%;
+    padding: 25px;
+  }
+  .mypostbuttonreported {
+    font-size: 15px;
   }
   .imgcommentitemmypost1 {
-    width: 90%;
+    margin-right: 40px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .uploadprovereport {
+    padding: 25px;
+    margin: -10px -15px;
+  }
+  .img-bad {
+    width: 135px;
+    height: 135px;
+  }
+  .text-mypost-left {
+    margin-left: -15px;
+  }
+  .text-mypost-right {
+    margin-left: -5px;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 110px;
     height: 110px;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 10px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 93%;
   }
-  .mypost-date{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
+    width: 25px;
+    height: 25px;
+  }
+  .mypost-date {
     font-size: 10px;
   }
-  .mypostmenusetting{
-    font-size: 12px;
+  .mypostmenusetting {
+    font-size: 11px;
+    width: 90px;
+  }
+  .line-comments1 {
+    margin-top: 20px;
   }
 }
 
 @media only screen and (max-width: 321px) {
-  .spanmypost,.spanmypostname,.text-mypost,.text-mypost1,.spanmypostmore {
-    font-size: 12px;
+  .container-post2 {
+    width: 85%;
+    padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
+  }
+  .spanmypost,
+  .spanmypostname,
+  .text-mypost,
+  .text-mypost1,
+  .spanmypostmore,
+  .reportcheckbox,
+  .formreport {
+    font-size: 12px !important;
   }
   .mypost-name {
     font-size: 14px;
     margin-top: -40px;
     margin-left: 50px;
   }
-  .img-bad {
-    width: 100px;
-    height: 100px;
+  .namereport,
+  .btn {
+    font-size: 14px !important;
   }
-  .text-mypost-left{
+  .spanreport {
+    margin-left: 0 !important;
+    font-size: 12px !important;
+  }
+  .imgcommentitempostreport1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .imgpreviewreport,
+  .uploadproveeditreport1 {
+    width: 45px;
+    height: 45px;
+  }
+  .deleteimgreports2 {
+    width: 15px;
+    margin-left: 8px;
+  }
+  .uploadproveeditreport2 {
+    width: 100%;
+    padding: 25px;
+  }
+  .mypostbuttonreported {
+    font-size: 15px;
+  }
+  .imgcommentitemmypost1 {
+    margin-right: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .uploadprovereport {
+    padding: 27px;
+    margin: -15px -15px;
+  }
+  .img-bad {
+    width: 110px;
+    height: 110px;
+  }
+  .text-mypost-left {
     margin-left: -10px;
   }
-  .text-mypost-right{
+  .text-mypost-right {
     margin-left: -3px;
-  }
-
-  .imgcommentitemmypost1 {
-    width: 95%;
   }
   .mypostprofile-bad-img img.img-circle {
     width: 100px;
     height: 100px;
   }
-  .number-mypost{
+  .number-mypost {
     margin-left: 10px;
   }
-  .moredetail-mypost{
+  .moredetail-mypost {
     width: 96%;
   }
-  .mypost-date{
+  .mypostimg-setting,
+  .mypostbuttonsetting {
+    width: 25px;
+    height: 25px;
+  }
+  .mypost-date {
     font-size: 10px;
     margin-left: 50px;
   }
-  .profile-mypost{
+  .profile-mypost {
     width: 40px !important;
     height: 40px !important;
   }
-  .mypostmenusetting{
-    font-size: 11px;
+  .mypostmenusetting {
+    font-size: 10px;
+    width: 85px;
   }
 }
