@@ -475,7 +475,8 @@
 /* iPhone 6+ */
 @media only screen and (max-width: 415px) {
     .h1-ranking {
-        font-size: 22px
+        font-size: 22px;
+        margin-top: 30px;
     }
     .rank-sort-head{
         font-size: 15px;
@@ -530,10 +531,12 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 23rem;
+        margin-top: 22rem;
+        margin-bottom: 70px;
     }
     .rank-column-row, .rank-data-row {
         padding-left: 10px;
+        margin: .3rem auto;
     }
     .rank-column-row .rank-column, .rank-sort-select {
         font-size: 11px;
@@ -589,7 +592,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 17rem;
+        margin-top: 16rem;
     }
     .rank-column-row .rank-column, .rank-sort-select {
         font-size: 11px;
@@ -628,6 +631,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 16rem;
+        margin-top: 15rem;
+        margin-bottom: 65px;
     }
 }

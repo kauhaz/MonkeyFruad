@@ -533,7 +533,7 @@ const Formpost = ({ check, Setcheck }) => {
                           />
                           <div className="deleteimgformposts1">
                             <img
-                              className="deleteimgposts2"
+                              className="deleteimgformposts2"
                               src="/img/delete2.png"
                               onClick={() => handledeleteimage(index)}
                             />

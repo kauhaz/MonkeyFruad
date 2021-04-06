@@ -8,7 +8,7 @@ import _ from "lodash";
 import ClipLoaderEdit from "./clipLoaderEdit";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
-
+import Modaldelete from "./Modaldelete";
 const Listcomment2 = ({
   commentmore,
   handledeletetorerender,
@@ -134,15 +134,24 @@ const Listcomment2 = ({
   };
 
   const deleted = async (commentid, commentmore) => {
-    const postdelete = await Axios.post(
-      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
-      commentmore
-    );
-    setIsActive(false);
-    Setfuck([]);
-    setImagesFile();
-    Setfiles();
-    handledeletetorerender();
+    <Modaldelete
+      modalcommentid={commentid}
+      modalcommentmore={commentmore}
+      setIsActive={setIsActive}
+      Setfuck={Setfuck}
+      setImagesFile={setImagesFile}
+      Setfiles={Setfiles}
+      handledeletetorerender={handledeletetorerender}
+    />;
+    // const postdelete = await Axios.post(
+    //   `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
+    //   commentmore
+    // );
+    // setIsActive(false);
+    // Setfuck([]);
+    // setImagesFile();
+    // Setfiles();
+    // handledeletetorerender();
   };
 
   const edit = async () => {
