@@ -512,12 +512,12 @@
     margin-top: -30px;
   }
   .imgcommentitempostreport1 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewreport,
   .uploadproveeditreport1 {
-    width: 90px;
-    height: 90px;
+    width: 125px;
+    height: 125px;
   }
   .deleteimgreports2 {
     width: 20px;
@@ -525,7 +525,7 @@
   }
   .uploadproveeditreport2 {
     width: 100%;
-    padding: 30px;
+    padding: 40px;
   }
   .uploadprovereport {
     padding: 15px;
@@ -537,6 +537,9 @@
   .mypostmenusetting {
     font-size: 13px;
     width: 100px;
+  }
+  .modal-content {
+    height: auto !important;
   }
 }
 
@@ -569,12 +572,12 @@
     margin-top: -30px;
   }
   .imgcommentitempostreport1 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewreport,
   .uploadproveeditreport1 {
-    width: 75px;
-    height: 75px;
+    width: 108px;
+    height: 108px;
   }
   .deleteimgreports2 {
     width: 15px;
@@ -582,7 +585,7 @@
   }
   .uploadproveeditreport2 {
     width: 100%;
-    padding: 25px;
+    padding: 35px;
   }
   .uploadprovereport {
     padding: 20px;
@@ -595,6 +598,11 @@
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
+  }
+  .modal-content {
+    width: 85% !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 415px) {
@@ -637,12 +645,12 @@
     font-size: 13px !important;
   }
   .imgcommentitempostreport1 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewreport,
   .uploadproveeditreport1 {
-    width: 75px;
-    height: 75px;
+    width: 78px;
+    height: 78px;
   }
   .deleteimgreports2 {
     width: 15px;
@@ -650,7 +658,7 @@
   }
   .uploadproveeditreport2 {
     width: 100%;
-    padding: 25px;
+    padding: 30px;
   }
   .mypostbuttonreported {
     font-size: 15px;
@@ -730,12 +738,12 @@
     font-size: 13px !important;
   }
   .imgcommentitempostreport1 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewreport,
   .uploadproveeditreport1 {
-    width: 65px;
-    height: 65px;
+    width: 71px;
+    height: 71px;
   }
   .deleteimgreports2 {
     width: 15px;
@@ -826,12 +834,12 @@
     font-size: 12px !important;
   }
   .imgcommentitempostreport1 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .imgpreviewreport,
   .uploadproveeditreport1 {
-    width: 45px;
-    height: 45px;
+    width: 57px;
+    height: 57px;
   }
   .deleteimgreports2 {
     width: 15px;
@@ -839,7 +847,7 @@
   }
   .uploadproveeditreport2 {
     width: 100%;
-    padding: 25px;
+    padding: 20px;
   }
   .mypostbuttonreported {
     font-size: 15px;
