@@ -142,7 +142,6 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
-            console.log(doc);
             if (
               (
                 doc.name.toLowerCase() +
@@ -228,7 +227,6 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
     await initSearch();
     setLoading(false);
   }, [user, search, hideCountNoti,]);
-  console.log("eiei")
   return loading ? (
     ""
   ) : admin ? (
@@ -278,7 +276,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       <div className="ggadmin">
         {lastsearch
           ? lastsearch.map((doc) => {
-              let thiefid = doc.accountnumber;
+            let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+              console.log(thiefNameAndSurname)
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -291,7 +290,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                             className="search-nav"
                             onClick={() => (
                               history.push({
-                                pathname: `/admin/thief/post/${thiefid}`,
+                                pathname: `/admin/thief/post/${thiefNameAndSurname}`,
                                 search: "?are you ok",
                               }),
                               window.location.reload(true)
@@ -574,7 +573,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       <div className="gg">
         {lastsearch
           ? lastsearch.map((doc) => {
-              let thiefid = doc.accountnumber;
+            let thiefNameAndSurname = `${doc.name} ${doc.surname}` ;
+            console.log(thiefNameAndSurname)
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -587,7 +587,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                             className="search-nav"
                             onClick={() => (
                               history.push({
-                                pathname: `/thief/post/${thiefid}`,
+                                pathname: `/thief/post/${thiefNameAndSurname}`,
                                 search: "?are you ok",
                               }),
                               window.location.reload(true)
