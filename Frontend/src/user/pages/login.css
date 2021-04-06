@@ -4,7 +4,6 @@
     font-family: 'Kanit', sans-serif;
     background-color: white;
     width: 430px;
-    height: auto;
     box-shadow: 10px 20px 50px rgba(0,0,0,.2);
     border-radius: 20px;
 }
@@ -141,7 +140,7 @@
 /* จอ notebook */
 @media only screen and (max-width: 1921px) {
     .container-login {
-        margin: 1.5% auto 0 auto;
+        margin: 2% auto 0 auto;
         padding: 10px 15px;
     }
     .LoginForm img {
@@ -233,40 +232,37 @@
     .container-login {
         margin: 30% auto 0 auto;
         padding: 10px 15px;
-        width: 410px;
+        width: 450px;
     }
     .LoginForm img {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
     }
     .LoginForm .h1{
-        font-size: 20px;
+        font-size: 25px;
     }
     .RememberCheckbox-login, .ForgotPassword-login a{
-        font-size: 13px;
+        font-size: 16px;
     }
-    .RememberCheckbox-login {
-        margin-top: 3px;
-    }
-    .btn-block p, .login-signup a{
-        font-size: 15px;
+    .login-signup a{
+        font-size: 18px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
-        font-size: 15px;
+        font-size: 18px;
     }
     .alert-login {
         padding: .2rem;
         margin: 1rem auto;
     }
     .alert-login span{
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
 /* iPad */
 @media only screen and (max-width: 769px) {
     .container-login {
-        margin: 20% auto 0 auto;
+        margin: 21% auto 0 auto;
         padding: 10px 20px;
         width: 400px;
     }
@@ -304,7 +300,7 @@
     .container-login {
         width: 85%;
         border-radius: 20px;
-        margin: 14% auto 0 auto;
+        margin: 12% auto 14% auto;
         padding: 10px 15px;
     }
     .LoginForm img {
@@ -340,7 +336,7 @@
     .container-login {
         width: 85%;
         border-radius: 20px;
-        margin: 9% auto 0 auto;
+        margin: 9% auto 19% auto;
         padding: 10px 15px;
     }
     .LoginForm img {
@@ -373,7 +369,7 @@
     .container-login {
         width: 85%;
         border-radius: 20px;
-        margin: 2% auto 0 auto;
+        margin: 10% auto 25% auto;
         padding: 10px 10px;
     }
     .LoginForm img {
