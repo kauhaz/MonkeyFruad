@@ -161,7 +161,7 @@
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 16px;
     }
     .alert-signup {
@@ -185,7 +185,7 @@
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 18px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 18px;
     }
     .alert-signup span{
@@ -216,7 +216,7 @@
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 16px;
     }
     .alert-signup {
@@ -231,7 +231,7 @@
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-signup {
-        margin: 15% auto 0 auto;
+        margin: 17% auto 0 auto;
         padding: 10px 15px;
         width: 410px;
     }
@@ -246,7 +246,8 @@
     .form-group, .label-form-title, .form-inside, .province-select option {
         font-size: 15px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    
+    .SignupButton, .signup-login a, .LoginFacebook-signup p, .LoginGoogle-signup p{
         font-size: 15px;
     }
     .alert-signup {
@@ -261,7 +262,7 @@
 /* iPad */
 @media only screen and (max-width: 769px) {
     .container-signup {
-        margin: 8% auto 0 auto;
+        margin: 9% auto 0 auto;
         padding: 10px 15px;
         width: 400px;
     }
@@ -291,7 +292,7 @@
 /* iPhone 6/7/8 + */
 @media only screen and (max-width: 415px) {
     .container-signup {
-        margin: 2% auto 0 auto;
+        margin: 10% auto 20% auto;
         padding: 10px 15px;
         width: 85%;
     }
@@ -348,9 +349,9 @@
 /* iPhone 5 */
 @media only screen and (max-width: 321px) {
     .container-signup {
+        margin: 10% auto 25% auto;
         padding: 5px 0;
         width: 85%;
-        margin: 2% auto 0 auto;
     }
     .SignupForm img {
         width: 100px;
