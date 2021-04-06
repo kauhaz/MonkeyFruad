@@ -321,28 +321,26 @@
 
 @media only screen and (max-width: 1025px) {
   .listcommentpost2 {
-    width: 149px;
-    height: 149px;
+    width: 166px;
+    height: 166px;
   }
-
   .imgpreviewpost1,
   .uploadproveedits1 {
     width: 115px;
     height: 115px;
   }
-
   .uploadproveedits2 {
     padding: 35px;
   }
-
   .post-comment-name1 {
     font-size: 17px;
   }
-
   .post-comment-time1 {
     font-size: 13px;
   }
-
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
+  }
   .postcomment1 {
     font-size: 15px;
   }
@@ -352,10 +350,9 @@
   .imgcommentitempost {
     padding: 0px;
   }
-
   .listcommentpost2 {
-    width: 100px;
-    height: 100px;
+    width: 109px;
+    height: 109px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -368,9 +365,11 @@
   .post-comment-name1 {
     font-size: 15px !important;
   }
-
   .post-comment-time1 {
     font-size: 11px !important;
+  }
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
   }
   .postcomment1 {
     font-size: 13px !important;
@@ -382,8 +381,8 @@
     padding: 0px;
   }
   .listcommentpost2 {
-    width: 99px;
-    height: 99px;
+    width: 115px;
+    height: 115px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -415,8 +414,8 @@
     padding: 0px;
   }
   .listcommentpost2 {
-    width: 83px;
-    height: 83px;
+    width: 99px;
+    height: 99px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -445,8 +444,8 @@
     padding: 0px;
   }
   .listcommentpost2 {
-    width: 61.5px;
-    height: 61.5px;
+    width: 75px;
+    height: 75px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
