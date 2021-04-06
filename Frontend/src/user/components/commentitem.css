@@ -165,6 +165,9 @@
   .postother2 {
     font-size: 15px;
   }
+  .inputcomment1 {
+    font-size: 18px !important;
+  }
 }
 
 @media only screen and (max-width: 1367px){
@@ -178,5 +181,48 @@
   .imgpreviewa1,.uploadproveedit1 {
     width: 125px;
     height: 125px;
+  }
+  .inputcomment1 {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 769px){
+  .imgpreviewa1,.uploadproveedit1 {
+    width: 125px;
+    height: 125px;
+  }
+  .inputcomment1 {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 415px){
+  .imgpreviewa1,.uploadproveedit1 {
+    width: 125px;
+    height: 125px;
+  }
+  .inputcomment1 {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 376px){
+  .imgpreviewa1,.uploadproveedit1 {
+    width: 125px;
+    height: 125px;
+  }
+  .inputcomment1 {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 321px){
+  .imgpreviewa1,.uploadproveedit1 {
+    width: 125px;
+    height: 125px;
+  }
+  .inputcomment1 {
+    font-size: 12px !important;
   }
 }

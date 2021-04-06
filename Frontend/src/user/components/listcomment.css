@@ -365,4 +365,95 @@
   .uploadproveedits2 {
     padding: 35px;
   }
+  .post-comment-name1 {
+    font-size: 15px !important;
+  }
+
+  .post-comment-time1 {
+    font-size: 11px !important;
+  }
+  .postcomment1 {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  /* .imgcommentitempost {
+    padding: 0px;
+  }
+  .listcommentpost2 {
+    width: 95px;
+    height: 95px;
+  }
+  .imgpreviewpost1,
+  .uploadproveedits1 {
+    width: 90px;
+    height: 90px;
+  }
+  .uploadproveedits2 {
+    padding: 35px;
+  } */
+  .post-comment-name1 {
+    font-size: 15px !important;
+  }
+  .post-comment-time1 {
+    font-size: 11px !important;
+  }
+  .postcomment1 {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  /* .imgcommentitempost {
+    padding: 0px;
+  }
+  .listcommentpost2 {
+    width: 95px;
+    height: 95px;
+  }
+  .imgpreviewpost1,
+  .uploadproveedits1 {
+    width: 90px;
+    height: 90px;
+  }
+  .uploadproveedits2 {
+    padding: 35px;
+  } */
+  .post-comment-name1 {
+    font-size: 14px !important;
+  }
+  .post-comment-time1 {
+    font-size: 10px !important;
+  }
+  .postcomment1 {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  /* .imgcommentitempost {
+    padding: 0px;
+  }
+  .listcommentpost2 {
+    width: 95px;
+    height: 95px;
+  }
+  .imgpreviewpost1,
+  .uploadproveedits1 {
+    width: 90px;
+    height: 90px;
+  }
+  .uploadproveedits2 {
+    padding: 35px;
+  } */
+  .post-comment-name1 {
+    font-size: 15px;
+  }
+  .post-comment-time1 {
+    font-size: 11px;
+  }
+  .postcomment1 {
+    font-size: 13px;
+  }
 }
