@@ -5745,7 +5745,7 @@ const Post = () => {
             color="default-color"
             onClick={() => toggle()}
           >
-            {/* Right */}
+            <i class="fa fa-filter"></i>
           </MDBBtn>
           <MDBModal
             isOpen={isOpen}
@@ -6230,7 +6230,11 @@ const Post = () => {
               </div>
             </MDBModalBody>
             <MDBModalFooter>
-              <MDBBtn className="btncloseslide" color="info" onClick={() => toggle()}>
+              <MDBBtn
+                className="btncloseslide"
+                color="info"
+                onClick={() => toggle()}
+              >
                 ปิด
               </MDBBtn>
             </MDBModalFooter>
