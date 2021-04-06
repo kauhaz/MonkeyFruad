@@ -393,6 +393,9 @@
   .uploadproveedits2 {
     padding: 35px;
   }
+  .postcommentrows {
+    padding: 10px 15px !important;
+  }
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
   }
@@ -412,8 +415,8 @@
     padding: 0px;
   }
   .listcommentpost2 {
-    width: 94px;
-    height: 94px;
+    width: 83px;
+    height: 83px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -442,8 +445,8 @@
     padding: 0px;
   }
   .listcommentpost2 {
-    width: 80px;
-    height: 80px;
+    width: 61.5px;
+    height: 61.5px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -455,6 +458,7 @@
   }
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
+    margin-bottom: -5px;
   }
   .post-comment-name1 {
     font-size: 15px;
