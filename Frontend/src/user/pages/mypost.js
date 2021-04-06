@@ -559,11 +559,11 @@ const Mypost = () => {
                       <div className="mypostprofile-bad-img">
                         {ok.resultfile ? (
                           <img
-                            className="img-circle profile-mypost"
+                            className="img-circle profile-mypost2"
                             src={`${ok.resultfile.url}`}
                           />
                         ) : (
-                          <img className="img-circle profile-mypost" src="/img/profile.png" />
+                          <img className="img-circle profile-mypost2" src="/img/profile.png" />
                         )}
                       </div>
                       <div className="container-myposts3">

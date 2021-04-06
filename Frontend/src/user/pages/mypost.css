@@ -705,6 +705,11 @@
     width: 45px !important;
     height: 45px !important;
   }
+  .profile-mypost2{
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: 25px !important;
+  }
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
