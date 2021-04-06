@@ -207,8 +207,12 @@ const Commentitemformypost = ({ postid }) => {
             user: user,
           }
         );
+        console.log(profiledata)
+       if(profiledata.data.data.photoURL){
         Setphotourl(profiledata.data.data.photoURL.url);
+        console.log("ggg")
         Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+       }
       }
     } catch (err) {
       console.log(err);
