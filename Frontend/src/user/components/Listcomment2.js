@@ -29,6 +29,10 @@ const Listcomment2 = ({
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
 
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
+
   let { user, setUser } = useContext(usercontext);
 
   const handleopenmodal = async () => {
@@ -37,6 +41,14 @@ const Listcomment2 = ({
   const handleclosemodal = async () => {
     Setisopen(false);
   };
+
+  const handlemodalopen = async () => {
+    SetisOpenModalDelete(true);
+  };
+  const handlemodalclose = async () => {
+    SetisOpenModalDelete(false);
+  };
+
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -131,27 +143,6 @@ const Listcomment2 = ({
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const deleted = async (commentid, commentmore) => {
-    <Modaldelete
-      modalcommentid={commentid}
-      modalcommentmore={commentmore}
-      setIsActive={setIsActive}
-      Setfuck={Setfuck}
-      setImagesFile={setImagesFile}
-      Setfiles={Setfiles}
-      handledeletetorerender={handledeletetorerender}
-    />;
-    // const postdelete = await Axios.post(
-    //   `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
-    //   commentmore
-    // );
-    // setIsActive(false);
-    // Setfuck([]);
-    // setImagesFile();
-    // Setfiles();
-    // handledeletetorerender();
   };
 
   const edit = async () => {
@@ -278,8 +269,7 @@ const Listcomment2 = ({
                         <li className="li-mypostcommentmenusetting">
                           <a
                             className="a-mypostcommentmenusetting"
-                            onClick={() =>
-                              deleted(commentmore.commentid, commentmore)
+                            onClick={() => (Setmodalcommentid(commentmore.commentid),Setmodalcommentmore(commentmore),setIsActive(false),handlemodalopen())
                             }
                           >
                             {" "}
@@ -289,6 +279,18 @@ const Listcomment2 = ({
                       </ul>
                     </div>
                   </div>
+                  <Modaldelete
+    text="deletecomment"
+    openmodal={isOpenModalDelete}
+    handlemodalclose={handlemodalclose}
+    modalcommentid={modalcommentid}
+    modalcommentmore={modalcommentmore}
+      setIsActive={setIsActive}
+      Setfuck={Setfuck}
+      setImagesFile={setImagesFile}
+      Setfiles={Setfiles}
+      handledeletetorerender={handledeletetorerender}
+    />;
                 </div>
               ) : null}
             </div>

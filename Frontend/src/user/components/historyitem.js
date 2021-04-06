@@ -26,19 +26,6 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
   const handlemodalclose = async () => {
     Setopenmodal(false) 
    };
-  const deleted = async (uid, ok) => {
-    try {
-      console.log(ok);
-      const postdelete = await Axios.post(
-        `https://monkeyfruad01.herokuapp.com/post/delete/${uid}`,
-        ok
-      );
-      setIsActive(false);
-      handledeletetorerender();
-    } catch (err) {
-      console.log(err);
-    }
-  };
   return (
     <div>
       <div className="container-history1">
@@ -88,7 +75,6 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
             <Modaldelete
                     text={"deletepost"}
                     openmodal={openmodal}
-                    handlemodalopen={handlemodalopen}
                     handlemodalclose={handlemodalclose}
                     modalcommentid={modalcommentid}
                     modalcommentmore={modalcommentmore}
