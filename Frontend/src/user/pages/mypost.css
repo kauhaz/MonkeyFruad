@@ -445,6 +445,10 @@
   .btn {
     font-size: 20px !important;
   }
+  .mypost-date {
+    font-size: 16px;
+    margin-top: -30px;
+  }
   .line-comments1 {
     margin-top: 20px;
   }
@@ -483,6 +487,7 @@
   .container-post2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
   }
   .spanmypost,
   .spanmypostname,
@@ -499,8 +504,12 @@
     font-size: 17px !important;
   }
   .mypost-name {
-    font-size: 17px;
+    font-size: 17px !important;
     margin-top: -50px;
+  }
+  .mypost-date {
+    font-size: 13px;
+    margin-top: -30px;
   }
   .imgcommentitempostreport1 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -535,6 +544,7 @@
   .container-post2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
+    margin: 30px auto 60px auto;
   }
   .spanmypost,
   .spanmypostname,
@@ -553,6 +563,10 @@
   .spanreport {
     margin-left: 0 !important;
     font-size: 13px !important;
+  }
+  .mypost-date {
+    font-size: 11px;
+    margin-top: -30px;
   }
   .imgcommentitempostreport1 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -676,7 +690,7 @@
     height: 25px;
   }
   .mypost-date {
-    font-size: 12px;
+    font-size: 11px;
     margin-top: -30px;
   }
   .profile-mypost {
@@ -768,7 +782,11 @@
     height: 25px;
   }
   .mypost-date {
-    font-size: 10px;
+    font-size: 11px;
+  }
+  .profile-mypost {
+    width: 45px !important;
+    height: 45px !important;
   }
   .mypostmenusetting {
     font-size: 11px;
@@ -795,7 +813,7 @@
     font-size: 12px !important;
   }
   .mypost-name {
-    font-size: 14px;
+    font-size: 14px !important;
     margin-top: -40px;
     margin-left: 50px;
   }
