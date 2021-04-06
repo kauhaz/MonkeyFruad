@@ -341,8 +341,8 @@
   }
   .mypost-section-commment {
     padding: 6px 10px;
-    width: 185px;
-    margin-left: -5px;
+    width: 190px;
+    margin-left: -8px;
   }
   .imgcommentitemmypost2 {
     grid-template-columns: 1fr 1fr;
@@ -357,6 +357,8 @@
   }
   .profile-comment2{
     margin-left: -25px;
+    width: 40px;
+    height: 40px;
   }
   .mypost-comment-commentsall{
     margin-left: -1px;

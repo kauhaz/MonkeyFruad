@@ -582,6 +582,7 @@
   }
   .mypost-comment-name1 {
     font-size: 14px;
+    margin-left: 0px;
   }
   .mypostcommentmenusetting {
     font-size: 10px;
@@ -632,5 +633,9 @@
   .mypostcommentbuttonsetting {
     margin-top: -20px;
     margin-left: 0px;
+  }
+  .profile-listcomment2 {
+    width: 40px;
+    height: 40px;
   }
 }
