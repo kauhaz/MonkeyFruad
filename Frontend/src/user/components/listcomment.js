@@ -29,6 +29,12 @@ const Listcomment = ({
   const [imagemodal, Setimagemodal] = useState();
   const [loading, Setloading] = useState();
   const [isActive, setIsActive] = useState(false);
+
+
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
+
   let { user, setUser } = useContext(usercontext);
 
   const handleopenmodal = async () => {
@@ -36,6 +42,13 @@ const Listcomment = ({
   };
   const handleclosemodal = async () => {
     Setisopen(false);
+  };
+
+  const handlemodalopen = async () => {
+    SetisOpenModalDelete(true);
+  };
+  const handlemodalclose = async () => {
+    SetisOpenModalDelete(false);
   };
 
   const FileUpload = (event) => {
@@ -129,26 +142,6 @@ const Listcomment = ({
     } catch (err) {
       console.log(err);
     }
-  };
-  const deleted = async (commentid, commentmore) => {
-    <Modaldelete
-      modalcommentid={commentid}
-      modalcommentmore={commentmore}
-      setIsActive={setIsActive}
-      Setfuck={Setfuck}
-      setImagesFile={setImagesFile}
-      Setfiles={Setfiles}
-      handledeletetorerender={handledeletetorerender}
-    />;
-    // const postdelete = await Axios.post(
-    //   `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
-    //   commentmore
-    // );
-    // setIsActive(false);
-    // Setfuck([]);
-    // setImagesFile();
-    // Setfiles();
-    // handledeletetorerender();
   };
 
   const edit = async () => {
@@ -277,8 +270,7 @@ const Listcomment = ({
                         <li className="li-postcommentmenusetting">
                           <a
                             className="a-postcommentmenusetting"
-                            onClick={() =>
-                              deleted(commentmore.commentid, commentmore)
+                            onClick={() =>(Setmodalcommentid(commentmore.commentid),Setmodalcommentmore(commentmore),setIsActive(false),handlemodalopen())
                             }
                           >
                             {" "}
@@ -288,7 +280,20 @@ const Listcomment = ({
                       </ul>
                     </div>
                   </div>
+                  <Modaldelete
+    text="deletecomment"
+    openmodal={isOpenModalDelete}
+    handlemodalclose={handlemodalclose}
+    modalcommentid={modalcommentid}
+    modalcommentmore={modalcommentmore}
+      setIsActive={setIsActive}
+      Setfuck={Setfuck}
+      setImagesFile={setImagesFile}
+      Setfiles={Setfiles}
+      handledeletetorerender={handledeletetorerender}
+    />;
                 </div>
+                
               ) : null}
             </div>
 

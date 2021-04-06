@@ -35,23 +35,22 @@ const Modaldelete = ({
     },
   };
 
+  let history = useHistory()
+
   const deletedpost = async (commentid, commentmore) => {
     console.log(commentmore);
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/${commentid}`,
+      `https://monkeyfruad01.herokuapp.com/post/delete/${commentid}`,
       commentmore
     );
     setIsActive(false);
-    // Setfuck([]);
-    // setImagesFile();
-    // Setfiles();
     handlemodalclose();
     handledeletetorerender();
   };
 
   const deletedcomment = async (commentid, commentmore) => {
     const postdelete = await Axios.post(
-      `http://localhost:7000/post/delete/comment/${commentid}`,
+      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
       commentmore
     );
     setIsActive(false);
@@ -60,6 +59,17 @@ const Modaldelete = ({
     Setfiles();
     handlemodalclose();
     handledeletetorerender();
+  };
+
+  const deletedmypost = async (commentid, commentmore) => {
+    const postdelete = await Axios.post(
+      `https://monkeyfruad01.herokuapp.com/post/delete/${commentid}`,
+      commentmore
+    );
+    setIsActive(false);
+    handlemodalclose();
+    handledeletetorerender();
+    history.push("/post/history")
   };
 
   return (
@@ -100,7 +110,24 @@ const Modaldelete = ({
             </div>
           </Modal>
         </div>
-      ) : null}
+      ) : text && text === "deletemypost" ? 
+      <div> 
+      <Modal
+      isOpen={openmodal}
+      onRequestClose={handlemodalclose}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <div className="box-modal">
+        <button
+          onClick={() => deletedmypost(modalcommentid, modalcommentmore)}
+        >
+          Delete ?{" "}
+        </button>
+        <button onClick={() => handlemodalclose()}>Cancel ? </button>
+      </div>
+    </Modal>
+    </div> : null}
     </div>
   );
 };

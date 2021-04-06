@@ -7,6 +7,7 @@ import ClipLoaderReport from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
+
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
 import "./mypost.css";
@@ -15,6 +16,7 @@ import "moment/locale/th";
 import usercontext from "../context/usercontext";
 import Modalimage from "../components/Modalimage";
 import Modaldelete from "../components/Modaldelete";
+
 const Mypost = () => {
   const [selectone, setSelectone] = useState("");
   const [selecttwo, setSelecttwo] = useState("");
@@ -43,6 +45,16 @@ const Mypost = () => {
   const [error, Seterror] = useState();
 
   const [fuck, Setfuck] = useState([]);
+  const { v4: uuidv4 } = require("uuid");
+  let uuid = uuidv4();
+
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
+  const [click, Setclick] = useState();
+
+
+  
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
@@ -72,16 +84,20 @@ const Mypost = () => {
     Setisopen(false);
   };
 
-  const handleShow = () => setShow(true);
-  const deleted = async (uid, ok) => {
-    <Modaldelete
-      modalcommentid={uid}
-      modalcommentmore={ok}
-      setIsActive={setIsActive}
-    />;
-    // await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`, ok);
-    // history.push("/post/history");
+  const handlemodalopen = async () => {
+    SetisOpenModalDelete(true);
   };
+  const handlemodalclose = async () => {
+    SetisOpenModalDelete(false);
+  };
+  const handledeletetorerender = async () => {
+    Setclick(uuid);
+  };
+
+  const handleShow = () => setShow(true);
+
+
+
 
   const ok = async () => {
     try {
@@ -544,7 +560,7 @@ const Mypost = () => {
                                 <li className="li-mypostmenusetting">
                                   <a
                                     className="a-mypostmenusetting"
-                                    onClick={() => deleted(ok.uid, ok)}
+                                    onClick={() => (Setmodalcommentid(ok.uid),Setmodalcommentmore(ok),setIsActive(false),handlemodalopen())}
                                   >
                                     {" "}
                                     ลบโพสต์{" "}
@@ -552,6 +568,18 @@ const Mypost = () => {
                                 </li>
                               </ul>
                             </div>
+                            <Modaldelete
+      text="deletemypost"
+      openmodal={isOpenModalDelete}
+      handlemodalclose={handlemodalclose}
+      modalcommentid={modalcommentid}
+      modalcommentmore={modalcommentmore}
+      setIsActive={setIsActive}
+      Setfuck={Setfuck}
+      setImagesFile={setImagesFile}
+      Setfiles={Setfiles}
+      handledeletetorerender={handledeletetorerender}
+    />;
                           </div>
                         </div>
                       ) : null}
