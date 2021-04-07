@@ -724,6 +724,9 @@
   .container-mypost4 {
     padding: 0;
   }
+  .modalreport{
+    margin-left: -30px;
+  }
 }
 @media only screen and (max-width: 376px) {
   .container-post2 {
@@ -817,6 +820,9 @@
   }
   .container-mypost4 {
     padding: 0;
+  }
+  .modalreport{
+    margin-left: -23px;
   }
 }
 
@@ -917,5 +923,8 @@
   }
   .container-mypost4 {
     padding: 0;
+  }
+  .modalreport{
+    margin-left: -22px;
   }
 }
