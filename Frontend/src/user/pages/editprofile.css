@@ -29,7 +29,7 @@
     margin-top: 1rem;
 } 
 
-.editprofile-badformpost-img img.img-circle {
+.editprofile-badformpost-img img.img-circle-profile {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -97,7 +97,7 @@
     .container-editprofile {
         margin: 1.5% auto 0 auto;
     }
-    .editprofile-badformpost-img img.img-circle {
+    .editprofile-badformpost-img img.img-circle-profile {
         width: 140px;
         height: 140px;
     }
@@ -126,7 +126,7 @@
     .EditProfileForm .h1 {
         font-size: 25px
     }
-    .editprofile-badformpost-img img.img-circle {
+    .editprofile-badformpost-img img.img-circle-profile {
         width: 150px;
         height: 150px;
     }
@@ -150,7 +150,7 @@
         margin-top: 50px;
         margin-bottom: 50px;
     }
-    .editprofile-badformpost-img img.img-circle {
+    .editprofile-badformpost-img img.img-circle-profile {
         width: 140px;
         height: 140px;
     }
@@ -177,15 +177,15 @@
         margin: 25% auto 0 auto;
         width: 410px;
     }
-    .editprofile-badformpost-img img.img-circle {
-        width: 130px;
-        height: 130px;
+    .editprofile-badformpost-img img.img-circle-profile {
+        width: 140px;
+        height: 140px;
     }
     .EditProfileForm .h1 {
-        font-size: 22px
+        font-size: 25px
     }
     .label-form-title-editprofile, .form-inside-editprofile p, .SaveEdit div+p, .profile-data .gender, .province-select {
-        font-size: 15px;
+        font-size: 18px;
     }
     .label-form-title-editprofile{
         width: 45%;
@@ -204,7 +204,7 @@
         margin: 25% auto 0 auto;
         width: 400px;
     }
-    .editprofile-badformpost-img img.img-circle {
+    .editprofile-badformpost-img img.img-circle-profile {
         width: 120px;
         height: 120px;
     }
@@ -229,12 +229,12 @@
 /* iPhone 6/7/8 + */
 @media only screen and (max-width: 415px) {
     .container-editprofile {
-        margin: 10% auto 0 auto;
+        margin: 12% auto 20% auto;
         width: 85%;
     }
-    .editprofile-badformpost-img img.img-circle {
-        width: 100px;
-        height: 100px;
+    .editprofile-badformpost-img img.img-circle-profile {
+        width: 110px;
+        height: 110px;
     }
     .EditProfileForm .h1 {
         font-size: 20px
@@ -256,12 +256,12 @@
 /* iPhone 6/7/8 */
 @media only screen and (max-width: 376px) {
     .container-editprofile {
-        margin: 10% auto 0 auto;
+        margin: 10% auto 20% auto;
         padding: 5px 5px;
     }
-    .editprofile-badformpost-img img.img-circle {
-        width: 100px;
-        height: 100px;
+    .editprofile-badformpost-img img.img-circle-profile {
+        width: 90px;
+        height: 90px;
     }
     .EditProfileForm .h1 {
         font-size: 20px
@@ -274,7 +274,7 @@
 /* iPhone 5 */
 @media only screen and (max-width: 320px) {
     .container-editprofile {
-        margin: 2% auto 0 auto;
+        margin: 10% auto 25% auto;
         padding: 5px 0px;
     }
 }

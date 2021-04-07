@@ -250,7 +250,7 @@
 }
 
 .mypostbuttonsetting {
-  margin-top: -60px;
+  margin-top: -38px;
   width: 30px;
   background: #ffffff;
   border-radius: 50px;
@@ -697,6 +697,9 @@
     width: 25px;
     height: 25px;
   }
+  .mypostbuttonsetting{
+    margin-top: -55px;
+  }
   .mypost-date {
     font-size: 11px;
     margin-top: -30px;
@@ -705,9 +708,15 @@
     width: 45px !important;
     height: 45px !important;
   }
+  .profile-mypost2{
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: 25px !important;
+  }
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
+    margin-top: -10px;
   }
   .line-comments1 {
     margin-top: 20px;

@@ -49,7 +49,6 @@ const Listcomment2 = ({
     SetisOpenModalDelete(false);
   };
 
-
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
 
@@ -224,7 +223,10 @@ const Listcomment2 = ({
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle profile-listcomment2" src="/img/profile.png" />
+                  <img
+                    className="img-circle profile-listcomment2"
+                    src="/img/profile.png"
+                  />
                 )}
               </div>
               <div className="mypost-comment-name1">
@@ -269,8 +271,12 @@ const Listcomment2 = ({
                         <li className="li-mypostcommentmenusetting">
                           <a
                             className="a-mypostcommentmenusetting"
-                            onClick={() => (Setmodalcommentid(commentmore.commentid),Setmodalcommentmore(commentmore),setIsActive(false),handlemodalopen())
-                            }
+                            onClick={() => (
+                              Setmodalcommentid(commentmore.commentid),
+                              Setmodalcommentmore(commentmore),
+                              setIsActive(false),
+                              handlemodalopen()
+                            )}
                           >
                             {" "}
                             ลบคอมเมนต์{" "}
@@ -280,17 +286,17 @@ const Listcomment2 = ({
                     </div>
                   </div>
                   <Modaldelete
-    text="deletecomment"
-    openmodal={isOpenModalDelete}
-    handlemodalclose={handlemodalclose}
-    modalcommentid={modalcommentid}
-    modalcommentmore={modalcommentmore}
-      setIsActive={setIsActive}
-      Setfuck={Setfuck}
-      setImagesFile={setImagesFile}
-      Setfiles={Setfiles}
-      handledeletetorerender={handledeletetorerender}
-    />;
+                    text="deletecomment"
+                    openmodal={isOpenModalDelete}
+                    handlemodalclose={handlemodalclose}
+                    modalcommentid={modalcommentid}
+                    modalcommentmore={modalcommentmore}
+                    setIsActive={setIsActive}
+                    Setfuck={Setfuck}
+                    setImagesFile={setImagesFile}
+                    Setfiles={Setfiles}
+                    handledeletetorerender={handledeletetorerender}
+                  />
                 </div>
               ) : null}
             </div>
