@@ -30,7 +30,6 @@ const Listcomment = ({
   const [loading, Setloading] = useState();
   const [isActive, setIsActive] = useState(false);
 
-
   const [modalcommentid, Setmodalcommentid] = useState();
   const [modalcommentmore, Setmodalcommentmore] = useState();
   const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
@@ -270,8 +269,12 @@ const Listcomment = ({
                         <li className="li-postcommentmenusetting">
                           <a
                             className="a-postcommentmenusetting"
-                            onClick={() =>(Setmodalcommentid(commentmore.commentid),Setmodalcommentmore(commentmore),setIsActive(false),handlemodalopen())
-                            }
+                            onClick={() => (
+                              Setmodalcommentid(commentmore.commentid),
+                              Setmodalcommentmore(commentmore),
+                              setIsActive(false),
+                              handlemodalopen()
+                            )}
                           >
                             {" "}
                             ลบคอมเมนต์{" "}
@@ -281,19 +284,18 @@ const Listcomment = ({
                     </div>
                   </div>
                   <Modaldelete
-    text="deletecomment"
-    openmodal={isOpenModalDelete}
-    handlemodalclose={handlemodalclose}
-    modalcommentid={modalcommentid}
-    modalcommentmore={modalcommentmore}
-      setIsActive={setIsActive}
-      Setfuck={Setfuck}
-      setImagesFile={setImagesFile}
-      Setfiles={Setfiles}
-      handledeletetorerender={handledeletetorerender}
-    />;
+                    text="deletecomment"
+                    openmodal={isOpenModalDelete}
+                    handlemodalclose={handlemodalclose}
+                    modalcommentid={modalcommentid}
+                    modalcommentmore={modalcommentmore}
+                    setIsActive={setIsActive}
+                    Setfuck={Setfuck}
+                    setImagesFile={setImagesFile}
+                    Setfiles={Setfiles}
+                    handledeletetorerender={handledeletetorerender}
+                  />
                 </div>
-                
               ) : null}
             </div>
 

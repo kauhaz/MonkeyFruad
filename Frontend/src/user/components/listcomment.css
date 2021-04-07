@@ -340,6 +340,7 @@
   }
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
+    margin-bottom: -10px;
   }
   .postcomment1 {
     font-size: 15px;
