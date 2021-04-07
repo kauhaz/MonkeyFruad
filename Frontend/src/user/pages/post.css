@@ -379,12 +379,11 @@
   font-family: "Kanit", sans-serif;
 }
 
-/* .btnslide {
-  width: 30px;
-  height: 180px;
-  background-color: #f4bebc !important;
-  margin: 30px 0 0 946px !important;
-} */
+.btnslide {
+  box-shadow: none !important;
+  background-color: none !important;
+  margin: 0px -10px 0 30px !important;
+}
 
 .container-postright2-slide {
   width: 100%;
@@ -832,12 +831,6 @@
     color: #5c5c5c;
   }
 
-  .btnslide {
-    box-shadow: none !important;
-    background-color: none !important;
-    margin: -89px 0 0 255px !important;
-  }
-
   .modal-content {
     /* width: 65% !important;
     height: 1180px !important; */
@@ -960,12 +953,6 @@
     color: #5c5c5c;
   }
 
-  .btnslide {
-    box-shadow: none !important;
-    background-color: none !important;
-    margin: -89px 0 0 225px !important;
-  }
-
   .modal-content {
     /* width: 65% !important;
     height: 1180px !important; */
@@ -1086,12 +1073,6 @@
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
-  }
-
-  .btnslide {
-    box-shadow: none !important;
-    background-color: none !important;
-    margin: -89px 0 0 170px !important;
   }
 
   .modal-content {
