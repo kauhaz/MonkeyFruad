@@ -80,7 +80,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -111,7 +111,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -144,7 +144,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -165,7 +165,7 @@ const Non_listverifypost = ({ reportelement }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
