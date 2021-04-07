@@ -322,7 +322,9 @@ const NavbarPage = (props) => {
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
-        {props.SetisOpen && props.SetisOpen ? (
+        {/* {props.SetisOpen && props.SetisOpen ? (
+          
+          
           <MDBBtn
             className="btnslide"
             color="default-color"
@@ -330,7 +332,9 @@ const NavbarPage = (props) => {
           >
             <i class="fa fa-filter"></i>
           </MDBBtn>
-        ) : null}
+
+
+        ) : null} */}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
