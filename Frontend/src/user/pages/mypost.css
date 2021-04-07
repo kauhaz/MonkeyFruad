@@ -608,7 +608,7 @@
 @media only screen and (max-width: 415px) {
   .container-post2 {
     width: 85%;
-    padding: 20px 20px 0px 20px;
+    padding: 20px;
     margin: 30px auto 60px auto;
   }
   .container-myposts3 {
@@ -697,6 +697,9 @@
     width: 25px;
     height: 25px;
   }
+  .mypostbuttonsetting{
+    margin-top: -55px;
+  }
   .mypost-date {
     font-size: 11px;
     margin-top: -30px;
@@ -713,15 +716,19 @@
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
+    margin-top: -10px;
   }
   .line-comments1 {
-    margin-top: 20px;
+    margin: 20px 0;
+  }
+  .container-mypost4 {
+    padding: 0;
   }
 }
 @media only screen and (max-width: 376px) {
   .container-post2 {
     width: 85%;
-    padding: 20px 20px 0px 20px;
+    padding: 20px;
     margin: 30px auto 60px auto;
   }
   .spanmypost,
@@ -806,14 +813,17 @@
     width: 90px;
   }
   .line-comments1 {
-    margin-top: 20px;
+    margin: 20px 0;
+  }
+  .container-mypost4 {
+    padding: 0;
   }
 }
 
 @media only screen and (max-width: 321px) {
   .container-post2 {
     width: 85%;
-    padding: 20px 20px 0px 20px;
+    padding: 20px;
     margin: 30px auto 60px auto;
   }
   .spanmypost,
@@ -901,5 +911,11 @@
   .mypostmenusetting {
     font-size: 10px;
     width: 85px;
+  }
+  .line-comments1 {
+    margin: 20px 0;
+  }
+  .container-mypost4 {
+    padding: 0;
   }
 }

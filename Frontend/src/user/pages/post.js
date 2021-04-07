@@ -5737,16 +5737,11 @@ const Post = () => {
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
+        SetisOpen={SetisOpen}
+        isOpen={isOpen}
       />
       <div className="container-bigpost1">
         <MDBContainer className="bigslide">
-          <MDBBtn
-            className="btnslide"
-            color="default-color"
-            onClick={() => toggle()}
-          >
-            <i class="fa fa-filter"></i>
-          </MDBBtn>
           <MDBModal
             isOpen={isOpen}
             toggle={() => toggle()}
