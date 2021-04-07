@@ -31,18 +31,18 @@
 
 @media only screen and (max-width: 415px) {
     .box-load-edit{
-        margin-left: 79px;
+        margin-left: 98px;
     }
 }
 
 @media only screen and (max-width: 376px) {
     .box-load-edit{
-        margin-left: 62px;
+        margin-left: 82px;
     }
 }
 
 @media only screen and (max-width: 321px) {
     .box-load-edit{
-        margin-left: 39px;
+        margin-left: 59px;
     }
 }
