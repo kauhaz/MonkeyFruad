@@ -110,8 +110,8 @@
 
 .commentbox {
   display: grid;
-  grid-template-columns: 10% 70% 15%;
-  margin: 5px 45px 20px 45px;
+  grid-template-columns: 10% 1fr 15%;
+  margin: 0 45px 20px 45px;
 }
 
 .listcommentpost2 {
@@ -125,6 +125,7 @@
 
 .imgcommentitempost {
   display: grid;
+  grid-gap: 10px 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -193,7 +194,7 @@
 }
 
 .buttoncommentpostsave2 {
-  width: 160%;
+  width: 100%;
   height: 40px;
   margin-left: 10px;
   font-size: 16px !important;
@@ -281,8 +282,10 @@
     font-size: 16px;
   }
 
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 
   .commentbox {
@@ -314,8 +317,10 @@
     font-size: 14px;
   }
 
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 
   .commentbox {
@@ -328,17 +333,21 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0;
   }
+  .imgcommentitempost {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px 0;
+    margin-bottom: -7px !important;
+  }
   .listcommentpost2 {
     width: 115px;
     height: 115px;
-    padding: 10px 5px 0px 5px;
+    padding: 5px;
   }
-  .imgcommentitempost {
-    display: grid;
-    grid-gap: 5px  0 0 0 ;
-    grid-template-columns: 1fr 1fr 1fr;
+  .imgpreviewpost1 {
+    margin: 0;
+    width: 102px;
+    height: 102px;
   }
-  .imgpreviewpost1,
   .uploadproveedits1 {
     width: 102px;
     height: 102px;
@@ -355,15 +364,16 @@
   .post-comment-time1 {
     font-size: 13px;
   }
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 15px;
+    font-size: 15px !important;
   }
   .header-post-comment {
     grid-template-columns: 15% 1fr 8%;
   }
   .commentbox {
     grid-template-columns: 10% 70% 10%;
-    /* margin: 0 0 10px 0; */
   }
   .postcommentmenusetting {
     font-size: 13px;
@@ -380,17 +390,24 @@
 }
 
 @media only screen and (max-width: 769px) {
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 !important;
+  }
   .imgcommentitempost {
-    padding: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 0;
+    margin-bottom: -7px !important;
   }
   .listcommentpost2 {
-    width: 109px;
-    height: 109px;
+    width: 114px;
+    height: 112px;
+    padding: 5px !important;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 90px;
-    height: 90px;
+    width: 104px;
+    height: 104px;
   }
   .uploadproveedits2 {
     padding: 35px;
@@ -401,21 +418,33 @@
   .post-comment-time1 {
     font-size: 11px !important;
   }
-  .imglistcomment {
-    grid-template-columns: 1fr 1fr;
-  }
+  .inputlistcomment1,
   .postcomment1 {
     font-size: 13px !important;
+  }
+  .buttoncommentpostsave2 {
+    font-size: 13px !important;
+    width: 100%;
+    height: 25px;
+  }
+  .commentbox {
+    grid-template-columns: 12% 60% 30%;
+    margin: 5px 0 0 0;
   }
 }
 
 @media only screen and (max-width: 415px) {
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0;
+  }
   .imgcommentitempost {
     padding: 0px;
   }
   .listcommentpost2 {
     width: 115px;
     height: 115px;
+    padding: 5px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -428,27 +457,31 @@
   .postcommentrows {
     padding: 10px 15px !important;
   }
-  .imglistcomment {
-    grid-template-columns: 1fr 1fr;
-  }
   .post-comment-name1 {
     font-size: 15px !important;
   }
   .post-comment-time1 {
     font-size: 11px !important;
   }
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
     font-size: 13px !important;
   }
 }
 
 @media only screen and (max-width: 376px) {
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0;
+  }
   .imgcommentitempost {
     padding: 0px;
   }
   .listcommentpost2 {
     width: 99px;
     height: 99px;
+    padding: 5px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -457,9 +490,6 @@
   }
   .uploadproveedits2 {
     padding: 35px;
-  }
-  .imglistcomment {
-    grid-template-columns: 1fr 1fr;
   }
   .post-comment-name1 {
     font-size: 14px !important;
@@ -467,18 +497,25 @@
   .post-comment-time1 {
     font-size: 10px !important;
   }
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
     font-size: 12px !important;
   }
 }
 
 @media only screen and (max-width: 321px) {
+  .imglistcomment {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0;
+  }
   .imgcommentitempost {
     padding: 0px;
   }
   .listcommentpost2 {
     width: 75px;
     height: 75px;
+    padding: 5px;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
@@ -488,17 +525,15 @@
   .uploadproveedits2 {
     padding: 35px;
   }
-  .imglistcomment {
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: -5px;
-  }
   .post-comment-name1 {
     font-size: 15px;
   }
   .post-comment-time1 {
     font-size: 11px;
   }
+  .inputlistcomment1,
+  .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
 }
