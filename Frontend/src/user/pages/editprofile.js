@@ -126,11 +126,11 @@ const EditProfile = () => {
           </p>
           <div className="editprofile-badformpost-img">
             {imagesProfile ? (
-              <img className="img-circle" src={imagesProfile} />
+              <img className="img-circle-profile" src={imagesProfile} />
             ) : photo ? (
-              <img className="img-circle" src={`${photo.url}`} />
+              <img className="img-circle-profile" src={`${photo.url}`} />
             ) : (
-              <img className="img-circle" src={"/img/profile.png"} />
+              <img className="img-circle-profile" src={"/img/profile.png"} />
             )}
             <div className="rank-label-container">
               <span className="label label-default rank-label">
