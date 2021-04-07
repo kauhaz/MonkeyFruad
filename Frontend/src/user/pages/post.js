@@ -100,7 +100,6 @@ const Post = () => {
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
   const [isOpen, SetisOpen] = useState(false);
-
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
@@ -5731,8 +5730,9 @@ const Post = () => {
   return (
     <div
       onClick={() => {
-        Hiddendropdown();
-      }}
+        Hiddendropdown()
+      }
+    }
     >
       <NavbarPage
         SetshowDropdown={SetshowDropdown}
@@ -6436,7 +6436,7 @@ const Post = () => {
 
                           <div className="line-posts1"></div>
                           <div className="container-posts4">
-                            <Commentitem postid={res.uid} />
+                            <Commentitem postid={res.uid}/>
                           </div>
                         </div>
                       </div>
@@ -6642,7 +6642,7 @@ const Post = () => {
 
                                   <div className="line-posts1"></div>
                                   <div className="container-posts4">
-                                    <Commentitem postid={res.uid} />
+                                    <Commentitem postid={res.uid}/>
                                   </div>
                                 </div>
                               </div>

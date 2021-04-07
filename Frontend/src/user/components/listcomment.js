@@ -49,7 +49,6 @@ const Listcomment = ({
   const handlemodalclose = async () => {
     SetisOpenModalDelete(false);
   };
-
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
 
@@ -207,9 +206,14 @@ const Listcomment = ({
     gg();
   }, [commentmore]);
 
-  // console.log(imagesFile)
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       {commentmore ? (
         <div className="postcommentrows">
           <div class="vl"></div>
