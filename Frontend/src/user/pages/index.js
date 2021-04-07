@@ -218,7 +218,7 @@ const Home = () => {
               <div className="gg-index">
                 {lastsearch
                   ? lastsearch.map((doc) => {
-                      let thiefid = doc.accountnumber;
+                    let thiefNameAndSurname = `${doc.name} ${doc.surname}`
                       i++;
                       return (
                         <div>
@@ -230,7 +230,7 @@ const Home = () => {
                                   <button
                                     className="search-index"
                                     onClick={() => (
-                                      history.push(`/thief/post/${thiefid}`),
+                                      history.push(`/thief/post/${thiefNameAndSurname}`),
                                       window.location.reload(true)
                                     )}
                                   >

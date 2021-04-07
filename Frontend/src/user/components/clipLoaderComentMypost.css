@@ -32,18 +32,18 @@
 
 @media only screen and (max-width: 415px) {
     .box-load-comment-mypost{
-        margin-left: 40px;
+        margin-left: 56px;
     }    
 }
 
 @media only screen and (max-width: 376px) {
-    .box-load-comment-mypost{
-        margin-left: 22px;
+    .box-load-comment-mypoAst{
+        margin-left: 15px;
     }    
 }
 
 @media only screen and (max-width: 321px) {
     .box-load-comment-mypost{
-        margin-left: 8px;
+        margin-left: 25px !important;
     }    
 }

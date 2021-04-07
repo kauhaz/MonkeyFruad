@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -10,6 +10,7 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import "./navnew.css";
@@ -19,7 +20,7 @@ import axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Nav } from "react-bootstrap";
-const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
+const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
   const [admin, setAdmin] = useState(false);
@@ -180,16 +181,29 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       console.log(err);
     }
   };
-  const initnoti = async () => {
+
+  const initUser = async () => {
+   await axios
+      .post("https://monkeyfruad01.herokuapp.com/user/session", {
+        user: user,
+      })
+      .then((result) => {
+        if (result.data.data.role === "admin") {
+          setAdmin(true);
+        }
+        setDisplayname(result.data.data.username);
+      });
     axios
-      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
+      .post(
+        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
+      )
       .then((result) => {
         setNoti(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-    await axios
+   await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -204,29 +218,13 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         console.log(err);
       });
   };
-  const initUser = async () => {
-    await axios
-      .post("https://monkeyfruad01.herokuapp.com/user/session", {
-        user: user,
-      })
-      .then((result) => {
-        if (result.data.data.role === "admin") {
-          setAdmin(true);
-        }
-        setDisplayname(result.data.data.username);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  useMemo(async () => {
+  useEffect(async () => {
     if (user) {
-      initUser();
-      await initnoti();
+  await initUser();
     }
-    await initSearch();
+    initSearch();
     setLoading(false);
-  }, [user, search, hideCountNoti,]);
+  }, [user, search, hideCountNoti]);
   return loading ? (
     ""
   ) : admin ? (
@@ -256,7 +254,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   value={search}
                   onChange={(e) => {
                     Setsearch(e.target.value);
-                    SetshowDropdown(true);
+                    props.SetshowDropdown(true);
                   }}
                 />
               </div>
@@ -276,8 +274,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       <div className="ggadmin">
         {lastsearch
           ? lastsearch.map((doc) => {
-            let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              console.log(thiefNameAndSurname)
+              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+              console.log(thiefNameAndSurname);
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -285,7 +283,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                     <div>
                       {" "}
                       {haha ? (
-                        showDropdown ? (
+                        props.showDropdown ? (
                           <button
                             className="search-nav"
                             onClick={() => (
@@ -310,7 +308,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             })
           : null}
         {lastsearch ? (
-          showDropdown ? (
+          props.showDropdown ? (
             <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
               ค้นหา {search}
             </div>
@@ -324,6 +322,15 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
+        {props.SetisOpen && props.SetisOpen ? (
+          <MDBBtn
+            className="btnslide"
+            color="default-color"
+            onClick={() => props.SetisOpen(!props.isOpen)}
+          >
+            <i class="fa fa-filter"></i>
+          </MDBBtn>
+        ) : null}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
@@ -394,6 +401,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             ) : null}
           </MDBDropdown>
         ) : null}
+
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
@@ -443,7 +451,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   value={search}
                   onChange={(e) => {
                     Setsearch(e.target.value);
-                    SetshowDropdown(true);
+                    props.SetshowDropdown(true);
                   }}
                 />
               </div>
@@ -573,8 +581,8 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       <div className="gg">
         {lastsearch
           ? lastsearch.map((doc) => {
-            let thiefNameAndSurname = `${doc.name} ${doc.surname}` ;
-            console.log(thiefNameAndSurname)
+              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+              console.log(thiefNameAndSurname);
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -582,7 +590,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                     <div>
                       {" "}
                       {haha ? (
-                        showDropdown ? (
+                        props.showDropdown ? (
                           <button
                             className="search-nav"
                             onClick={() => (
@@ -607,7 +615,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             })
           : null}
         {lastsearch ? (
-          showDropdown ? (
+          props.showDropdown ? (
             <div className="dropsearch-nav" onClick={() => handlesearch()}>
               ค้นหา {search}
             </div>
