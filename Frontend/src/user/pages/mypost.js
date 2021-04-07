@@ -303,7 +303,6 @@ const Mypost = () => {
                           {moment(new Date(ok.date.seconds * 1000)).format(
                             "MM/DD/YYYY HH:mm"
                           )}{" "}
-                          {/* <span className="mypost-time">23:38 </span> */}
                         </div>
                       </div>
                       {user && user.uid != ok.useruid ? (

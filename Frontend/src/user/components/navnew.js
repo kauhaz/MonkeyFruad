@@ -183,7 +183,7 @@ const NavbarPage = (props) => {
   };
 
   const initUser = async () => {
-   await axios
+  await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       })
@@ -193,7 +193,7 @@ const NavbarPage = (props) => {
         }
         setDisplayname(result.data.data.username);
       });
-    axios
+  await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
       )
@@ -203,7 +203,7 @@ const NavbarPage = (props) => {
       .catch((err) => {
         console.log(err);
       });
-   await axios
+  await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -219,11 +219,11 @@ const NavbarPage = (props) => {
       });
   };
   useEffect(async () => {
-    if (user) {
-  await initUser();
+    if (user){
+ await initUser()
+  setLoading(false);
     }
     initSearch();
-    setLoading(false);
   }, [user, search, hideCountNoti]);
   return loading ? (
     ""
