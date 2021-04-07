@@ -10,6 +10,7 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import "./navnew.css";
@@ -19,7 +20,7 @@ import axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Nav } from "react-bootstrap";
-const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
+const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
   const [admin, setAdmin] = useState(false);
@@ -251,7 +252,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   value={search}
                   onChange={(e) => {
                     Setsearch(e.target.value);
-                    SetshowDropdown(true);
+                    props.SetshowDropdown(true);
                   }}
                 />
               </div>
@@ -280,7 +281,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                     <div>
                       {" "}
                       {haha ? (
-                        showDropdown ? (
+                        props.showDropdown ? (
                           <button
                             className="search-nav"
                             onClick={() => (
@@ -305,7 +306,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             })
           : null}
         {lastsearch ? (
-          showDropdown ? (
+          props.showDropdown ? (
             <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
               ค้นหา {search}
             </div>
@@ -389,6 +390,14 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             ) : null}
           </MDBDropdown>
         ) : null}
+        {props.SetisOpen && props.SetisOpen ? <MDBBtn
+            className="btnslide"
+            color="default-color"
+            onClick={() => props.SetisOpen(!props.isOpen)}
+          >
+            <i class="fa fa-filter"></i>
+          </MDBBtn> : null}
+
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
@@ -438,7 +447,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                   value={search}
                   onChange={(e) => {
                     Setsearch(e.target.value);
-                    SetshowDropdown(true);
+                    props.SetshowDropdown(true);
                   }}
                 />
               </div>
@@ -577,7 +586,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
                     <div>
                       {" "}
                       {haha ? (
-                        showDropdown ? (
+                        props.showDropdown ? (
                           <button
                             className="search-nav"
                             onClick={() => (
@@ -602,7 +611,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
             })
           : null}
         {lastsearch ? (
-          showDropdown ? (
+          props.showDropdown ? (
             <div className="dropsearch-nav" onClick={() => handlesearch()}>
               ค้นหา {search}
             </div>
