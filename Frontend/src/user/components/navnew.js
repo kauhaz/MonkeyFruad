@@ -320,6 +320,13 @@ const NavbarPage = (props) => {
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
+        {props.SetisOpen && props.SetisOpen ? <MDBBtn
+            className="btnslide"
+            color="default-color"
+            onClick={() => props.SetisOpen(!props.isOpen)}
+          >
+            <i class="fa fa-filter"></i>
+          </MDBBtn> : null}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
@@ -390,14 +397,7 @@ const NavbarPage = (props) => {
             ) : null}
           </MDBDropdown>
         ) : null}
-        {props.SetisOpen && props.SetisOpen ? <MDBBtn
-            className="btnslide"
-            color="default-color"
-            onClick={() => props.SetisOpen(!props.isOpen)}
-          >
-            <i class="fa fa-filter"></i>
-          </MDBBtn> : null}
-
+       
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
