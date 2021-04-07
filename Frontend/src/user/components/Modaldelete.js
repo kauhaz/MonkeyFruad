@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Form, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Modalimage.css";
+import "./Modaldelete.css";
 import Axios from "axios";
 import _ from "lodash";
 import { auth } from "../Frontfirebase";
@@ -82,13 +82,17 @@ const Modaldelete = ({
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <div className="box-modal">
-              <button
+            <div className="box-modal-delete">
+            <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของท่านหรือไม่ ?</div>
+            <div className="box-button-delete">
+              <button className="button-delete-ok"
                 onClick={() => deletedpost(modalcommentid, modalcommentmore)}
               >
-                Delete ?{" "}
+                คกลง{" "}
               </button>
-              <button onClick={() => handlemodalclose()}>Cancel ? </button>
+              <div className="empty-delete"></div>
+              <button className="button-delete-cancle" onClick={() => handlemodalclose()}>ยกเลิก</button>
+              </div>
             </div>
           </Modal>
         </div>
@@ -100,13 +104,17 @@ const Modaldelete = ({
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <div className="box-modal">
-              <button
+            <div className="box-modal-delete">
+              <div className="text-delete">ท่านต้องการที่จะลบคอมเมนต์ของท่านหรือไม่ ?</div>
+              <div className="box-button-delete">
+              <button className="button-delete-ok"
                 onClick={() => deletedcomment(modalcommentid, modalcommentmore)}
               >
-                Delete ?{" "}
+                ตกลง{" "}
               </button>
-              <button onClick={() => handlemodalclose()}>Cancel ? </button>
+              <div className="empty-delete"></div>
+              <button className="button-delete-cancle" onClick={() => handlemodalclose()}>ยกเลิก</button>
+              </div>
             </div>
           </Modal>
         </div>
@@ -118,13 +126,17 @@ const Modaldelete = ({
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <div className="box-modal">
-        <button
+      <div className="box-modal-delete">
+        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของท่านหรือไม่ ?</div>
+        <div className="box-button-delete">
+        <button className="button-delete-ok"
           onClick={() => deletedmypost(modalcommentid, modalcommentmore)}
         >
-          Delete ?{" "}
+          ตกลง{" "}
         </button>
-        <button onClick={() => handlemodalclose()}>Cancel ? </button>
+        <div className="empty-delete"></div>
+        <button className="button-delete-cancle" onClick={() => handlemodalclose()}>ยกเลิก </button>
+        </div>
       </div>
     </Modal>
     </div> : null}
