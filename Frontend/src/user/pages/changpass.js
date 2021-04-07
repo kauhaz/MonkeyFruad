@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { auth, authcredentail } from "../Frontfirebase";
 import NavbarPage from "../components/navnew";
-
+import { useHistory } from "react-router-dom";
 const Changepass = () => {
   // ที่เก็บ state
   const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ const Changepass = () => {
   const [existpass, setExistpass] = useState(false);
   const [successpass, setSuccesspass] = useState(false);
   const [showDropdown, SetshowDropdown] = useState(true);
-
+  let history = useHistory();
   // เอาข้อมูล user ที่ login อยู่
   var user = auth.currentUser;
 
@@ -33,11 +33,14 @@ const Changepass = () => {
     e.preventDefault();
     try {
       // reauthenticating
-      await reauthenticate(oldPassword);
+      await reauthenticate(oldPassword)
       // updating password
       await user.updatePassword(newPassword);
       setSuccesspass(true);
       setInvalidpass(false);
+    history.push({
+      pathname: `/profile/${user.uid}`,
+    });
     } catch (err) {
       console.log(err);
       setInvalidpass(true);

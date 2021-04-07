@@ -6,35 +6,39 @@ import * as moment from "moment";
 import "moment/locale/th";
 import Modaldelete from "./Modaldelete";
 
-
-const Historyitem = ({ ok, user, handledeletetorerender}) => {
+const Historyitem = ({ ok, user, handledeletetorerender }) => {
   const [isActive, setIsActive] = useState(false);
   const [openmodal, Setopenmodal] = useState(false);
   const [modalcommentid, Setmodalcommentid] = useState();
   const [modalcommentmore, Setmodalcommentmore] = useState();
   const [fuck, Setfuck] = useState([]);
-  const [imagesFile, setImagesFile] = useState()
+  const [imagesFile, setImagesFile] = useState();
   const [files, Setfiles] = useState();
-
 
   const newdate = new Date(ok.date.seconds * 1000);
   let date = moment(newdate).format("lll");
 
   const handlemodalopen = async () => {
-    Setopenmodal(true)
+    Setopenmodal(true);
   };
   const handlemodalclose = async () => {
-    Setopenmodal(false) 
-   };
+    Setopenmodal(false);
+  };
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       <div className="container-history1">
         <div className="container-history2">
           <div className="container-historysetiing">
             <div className="menu-containerhistorysetting">
               <div
                 onClick={() => {
-                  setIsActive(!isActive)
+                  setIsActive(!isActive);
                 }}
                 className="historybuttonsetting"
               >
@@ -63,7 +67,12 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   <li className="li-historymenusetting">
                     <a
                       className="a-historymenusetting"
-                      onClick={() =>  (Setmodalcommentid(ok.uid),Setmodalcommentmore(ok),setIsActive(false),handlemodalopen())}
+                      onClick={() => (
+                        Setmodalcommentid(ok.uid),
+                        Setmodalcommentmore(ok),
+                        setIsActive(false),
+                        handlemodalopen()
+                      )}
                     >
                       {" "}
                       ลบโพสต์{" "}
@@ -73,17 +82,17 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
               </div>
             </div>
             <Modaldelete
-                    text={"deletepost"}
-                    openmodal={openmodal}
-                    handlemodalclose={handlemodalclose}
-                    modalcommentid={modalcommentid}
-                    modalcommentmore={modalcommentmore}
-                    setIsActive={setIsActive}
-                    Setfuck={Setfuck}
-                    setImagesFile={setImagesFile}
-                    Setfiles={Setfiles}
-                    handledeletetorerender={handledeletetorerender}
-                  />
+              text={"deletepost"}
+              openmodal={openmodal}
+              handlemodalclose={handlemodalclose}
+              modalcommentid={modalcommentid}
+              modalcommentmore={modalcommentmore}
+              setIsActive={setIsActive}
+              Setfuck={Setfuck}
+              setImagesFile={setImagesFile}
+              Setfiles={Setfiles}
+              handledeletetorerender={handledeletetorerender}
+            />
           </div>
           <div className="container-history">
             <Form className="formsize-history">
@@ -93,7 +102,9 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   className="้history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridName"
                 >
-                  <Form.Label className="left-history">ชื่อ - นามสกุลผู้โกง</Form.Label>
+                  <Form.Label className="left-history">
+                    ชื่อ - นามสกุลผู้โกง
+                  </Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -109,7 +120,9 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   className="history-left col-lg-6 col-md-6 col-5"
                   controlId="formGridId"
                 >
-                  <Form.Label className="left-history">เลขที่บัญชี (ผู้โกง)</Form.Label>
+                  <Form.Label className="left-history">
+                    เลขที่บัญชี (ผู้โกง)
+                  </Form.Label>
                 </Form.Group>
 
                 <Form.Group>
@@ -144,7 +157,8 @@ const Historyitem = ({ ok, user, handledeletetorerender}) => {
                   <span className="spanhistory">
                     {ok.money.toLocaleString(undefined, {
                       maximumFractionDigits: 2,
-                    })}{" "}บาท
+                    })}{" "}
+                    บาท
                   </span>
                 </Form.Group>
               </Form.Row>

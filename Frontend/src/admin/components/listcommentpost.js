@@ -217,7 +217,7 @@ const Listcommentpost = ({
 
   // console.log(imagesFile)
   return (
-    <div>
+    <div >
       {commentmore ? (
         <div className="postcommentrows">
           {/* <div class="vl"></div> */}
