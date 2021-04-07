@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -183,7 +183,7 @@ const NavbarPage = (props) => {
   };
 
   const initUser = async () => {
-    axios
+   await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       })
@@ -203,7 +203,7 @@ const NavbarPage = (props) => {
       .catch((err) => {
         console.log(err);
       });
-    axios
+   await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -218,9 +218,9 @@ const NavbarPage = (props) => {
         console.log(err);
       });
   };
-  useMemo(async () => {
+  useEffect(async () => {
     if (user) {
-      initUser();
+  await initUser();
     }
     initSearch();
     setLoading(false);
