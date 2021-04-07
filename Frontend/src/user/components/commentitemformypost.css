@@ -282,6 +282,10 @@
     width: 45px;
     height: 45px;
   }
+  .deleteimgmyposts1 {
+    margin-top: 10px;
+  }
+
 }
 
 @media only screen and (max-width: 376px) {
@@ -294,11 +298,12 @@
   }
   .imgpreviewb1,
   .uploadproveeditmypost1 {
-    width: 70px;
-    height: 70px;
+    width: 86px;
+    height: 86px;
+    margin-top: 10px;
   }
   .uploadproveeditmypost2 {
-    padding: 25px;
+    padding: 30px;
   }
   .imgcommentitemmypost2 {
     grid-template-columns: 1fr 1fr;
@@ -333,11 +338,11 @@
   }
   .imgpreviewb1,
   .uploadproveeditmypost1 {
-    width: 55px;
-    height: 55px;
+    width: 76px;
+    height: 76px;
   }
   .uploadproveeditmypost2 {
-    padding: 40px;
+    padding: 25px;
   }
   .mypost-section-commment {
     padding: 6px 10px;

@@ -698,7 +698,7 @@
     height: 25px;
   }
   .mypostbuttonsetting{
-    margin-top: -40px;
+    margin-top: -55px;
   }
   .mypost-date {
     font-size: 11px;
@@ -716,6 +716,7 @@
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
+    margin-top: -10px;
   }
   .line-comments1 {
     margin-top: 20px;
