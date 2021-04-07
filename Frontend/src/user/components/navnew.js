@@ -180,7 +180,18 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       console.log(err);
     }
   };
-  const initnoti = async () => {
+
+  const initUser = async () => {
+    axios
+      .post("https://monkeyfruad01.herokuapp.com/user/session", {
+        user: user,
+      })
+      .then((result) => {
+        if (result.data.data.role === "admin") {
+          setAdmin(true);
+        }
+        setDisplayname(result.data.data.username);
+      })
     axios
       .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
       .then((result) => {
@@ -189,7 +200,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       .catch((err) => {
         console.log(err);
       });
-    await axios
+    axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -204,27 +215,11 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         console.log(err);
       });
   };
-  const initUser = async () => {
-    await axios
-      .post("https://monkeyfruad01.herokuapp.com/user/session", {
-        user: user,
-      })
-      .then((result) => {
-        if (result.data.data.role === "admin") {
-          setAdmin(true);
-        }
-        setDisplayname(result.data.data.username);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   useMemo(async () => {
     if (user) {
-      initUser();
-      await initnoti();
+   initUser();
     }
-    await initSearch();
+     initSearch();
     setLoading(false);
   }, [user, search, hideCountNoti,]);
   return loading ? (
