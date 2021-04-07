@@ -192,9 +192,11 @@ const NavbarPage = (props) => {
           setAdmin(true);
         }
         setDisplayname(result.data.data.username);
-      })
+      });
     axios
-      .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
+      .post(
+        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
+      )
       .then((result) => {
         setNoti(result.data);
       })
@@ -218,11 +220,11 @@ const NavbarPage = (props) => {
   };
   useMemo(async () => {
     if (user) {
-   initUser();
+      initUser();
     }
-     initSearch();
+    initSearch();
     setLoading(false);
-  }, [user, search, hideCountNoti,]);
+  }, [user, search, hideCountNoti]);
   return loading ? (
     ""
   ) : admin ? (
@@ -272,8 +274,8 @@ const NavbarPage = (props) => {
       <div className="ggadmin">
         {lastsearch
           ? lastsearch.map((doc) => {
-            let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              console.log(thiefNameAndSurname)
+              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+              console.log(thiefNameAndSurname);
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -320,13 +322,15 @@ const NavbarPage = (props) => {
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
-        {props.SetisOpen && props.SetisOpen ? <MDBBtn
+        {props.SetisOpen && props.SetisOpen ? (
+          <MDBBtn
             className="btnslide"
             color="default-color"
             onClick={() => props.SetisOpen(!props.isOpen)}
           >
             <i class="fa fa-filter"></i>
-          </MDBBtn> : null}
+          </MDBBtn>
+        ) : null}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
@@ -397,7 +401,7 @@ const NavbarPage = (props) => {
             ) : null}
           </MDBDropdown>
         ) : null}
-       
+
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
@@ -577,8 +581,8 @@ const NavbarPage = (props) => {
       <div className="gg">
         {lastsearch
           ? lastsearch.map((doc) => {
-            let thiefNameAndSurname = `${doc.name} ${doc.surname}` ;
-            console.log(thiefNameAndSurname)
+              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+              console.log(thiefNameAndSurname);
               i++;
               return (
                 <div className="boxsearch-nav">
