@@ -378,6 +378,9 @@
   .commentboxmypost {
     grid-template-columns: 6% 1fr 11%;
   }
+  .mypostcommentimg-setting {
+    width: 30px;
+  }
 }
 
 @media only screen and (max-width: 769px) {

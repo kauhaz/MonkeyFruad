@@ -697,6 +697,9 @@
     width: 25px;
     height: 25px;
   }
+  .mypostbuttonsetting{
+    margin-top: -40px;
+  }
   .mypost-date {
     font-size: 11px;
     margin-top: -30px;
