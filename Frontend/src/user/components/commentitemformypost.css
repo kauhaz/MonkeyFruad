@@ -166,7 +166,7 @@
 .h1-mypostfileerror {
   color: #ff392e;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   margin: 15px 0;
 }
 
@@ -292,7 +292,7 @@
 
 @media only screen and (max-width: 376px) {
   .mypost-comment-comments1 {
-    /* padding: 20px 0 0 0; */
+    padding: 0;
     grid-template-columns: 21% 79% !important;
   }
   .profile-comment2{
@@ -332,7 +332,7 @@
 
 @media only screen and (max-width: 321px) {
   .mypost-comment-comments1 {
-    /* padding: 20px 0 0 0; */
+    padding: 0;
     grid-template-columns: 22% 68% !important;
   }
   .profile-comment2{
@@ -353,7 +353,6 @@
   }
   .mypost-section-commment {
     padding: 6px 10px;
-    width: 118%;
   }
   .imgcommentitemmypost2 {
     grid-template-columns: 1fr 1fr;

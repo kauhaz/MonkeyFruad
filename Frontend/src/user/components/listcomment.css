@@ -110,7 +110,7 @@
 
 .commentbox {
   display: grid;
-  grid-template-columns: 10% 1fr 17%;
+  grid-template-columns: 10% 1fr 16%;
   margin: 5px 45px 20px 45px;
 }
 
@@ -157,7 +157,7 @@
 .inputlistcomment1 {
   width: 100%;
   border: none;
-  margin-top: 8px;
+  margin: 5px 0 0 0;
   font-size: 16px;
   background-color: rgb(245, 245, 245);
   padding: 0 10px;
@@ -319,7 +319,7 @@
     font-size: 16px !important;
   }
   .commentbox {
-    grid-template-columns: 12% 1fr 20%;
+    grid-template-columns: 12% 1fr 19%;
   }
 }
 
@@ -327,6 +327,10 @@
   .imglistcomment {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0;
+  }
+  .profile-listcomment1 {
+    width: 50px !important;
+    height: 50px !important;
   }
   .imgcommentitempost {
     grid-template-columns: 1fr 1fr 1fr;
@@ -368,7 +372,8 @@
     grid-template-columns: 15% 1fr 8%;
   }
   .commentbox {
-    grid-template-columns: 10% 1fr 10%;
+    grid-template-columns: 10% 1fr 18%;
+    margin: 5px 0 20px 0; 
   }
   .postcommentmenusetting {
     font-size: 13px;
@@ -388,6 +393,10 @@
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
     grid-gap: 0 !important;
+  }
+  .profile-listcomment1 {
+    width: 50px !important;
+    height: 50px !important;
   }
   .imgcommentitempost {
     grid-template-columns: 1fr 1fr;
@@ -423,34 +432,44 @@
     height: 25px;
   }
   .commentbox {
-    grid-template-columns: 12% 1fr 30%;
-    margin: 5px 0 0 0;
+    grid-template-columns: 13% 1fr 24%;
+    margin: 5px 0 20px 0; 
+  }
+  .deleteimgposts2 {
+    width: 20px;
+    margin-left: 7px;
   }
 }
 
 @media only screen and (max-width: 415px) {
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0;
+    grid-gap: 0 !important;
+  }
+  .profile-listcomment1 {
+    width: 45px !important;
+    height: 45px !important;
   }
   .imgcommentitempost {
-    padding: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 0;
+    margin-bottom: -7px !important;
   }
   .listcommentpost2 {
-    width: 115px;
-    height: 115px;
-    padding: 5px;
+    width: 140px;
+    height: 140px;
+    padding: 5px !important;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 50px;
-    height: 50px;
+    width: 130px;
+    height: 130px;
   }
   .uploadproveedits2 {
-    padding: 35px;
+    padding: 40px;
   }
   .postcommentrows {
-    padding: 10px 15px !important;
+    padding: 15px !important;
   }
   .post-comment-name1 {
     font-size: 15px !important;
@@ -458,10 +477,21 @@
   .post-comment-time1 {
     font-size: 11px !important;
   }
-  .inputlistcomment1,
+  .inputlistcomment1 {
+    margin: 7px 0 0 0;
+    font-size: 13px !important;
+  }
   .buttoncommentpostsave2,
   .postcomment1 {
     font-size: 13px !important;
+  }
+  .commentbox {
+    grid-template-columns: 12% 1fr 20%;
+    margin: 5px 0 20px 0; 
+  }
+  .deleteimgposts2 {
+    width: 20px !important;
+    margin-left: 7px;
   }
 }
 
@@ -470,21 +500,27 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 0;
   }
+  .profile-listcomment1 {
+    width: 45px !important;
+    height: 45px !important;
+  }
   .imgcommentitempost {
-    padding: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 0;
+    margin-bottom: -7px !important;
   }
   .listcommentpost2 {
-    width: 99px;
-    height: 99px;
-    padding: 5px;
+    width: 125px;
+    height: 125px;
+    padding: 5px !important;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 40px;
-    height: 40px;
+    width: 114px;
+    height: 114px;
   }
   .uploadproveedits2 {
-    padding: 35px;
+    padding: 40px;
   }
   .post-comment-name1 {
     font-size: 14px !important;
@@ -492,30 +528,50 @@
   .post-comment-time1 {
     font-size: 10px !important;
   }
-  .inputlistcomment1,
+  .inputlistcomment1 {
+    margin: 6px 0 0 0;
+    font-size: 13px !important;
+  }
   .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 12px !important;
+    font-size: 13px !important;
+  }
+  .commentbox {
+    grid-template-columns: 13% 1fr 22%;
+    margin: 5px 0 20px 0; 
+  }
+  .deleteimgposts2 {
+    width: 20px !important;
+    margin-left: 7px;
   }
 }
 
 @media only screen and (max-width: 321px) {
+  .header-post-comment {
+    grid-template-columns: 22% 66% 14% !important;
+  }
   .imglistcomment {
     grid-template-columns: 1fr 1fr;
     grid-gap: 0;
   }
+  .profile-listcomment1 {
+    width: 40px !important;
+    height: 40px !important;
+  }
   .imgcommentitempost {
-    padding: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 0;
+    margin-bottom: -7px !important;
   }
   .listcommentpost2 {
-    width: 75px;
-    height: 75px;
-    padding: 5px;
+    width: 100px;
+    height: 100px;
+    padding: 5px !important;
   }
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
   }
   .uploadproveedits2 {
     padding: 35px;
@@ -526,9 +582,23 @@
   .post-comment-time1 {
     font-size: 11px;
   }
-  .inputlistcomment1,
+  .postcommentrows {
+    padding: 15px !important;
+  }
+  .inputlistcomment1 {
+    margin: 5px 0 0 0;
+    font-size: 12px !important;
+  }
   .buttoncommentpostsave2,
   .postcomment1 {
-    font-size: 13px !important;
+    font-size: 12px !important;
+  }
+  .commentbox {
+    grid-template-columns: 15% 1fr 26%;
+    margin: 5px 0 20px 0; 
+  }
+  .deleteimgposts2 {
+    width: 20px !important;
+    margin-left: 5px;
   }
 }

@@ -60,9 +60,7 @@
   width: 90%;
   border-radius: 10px;
   background-color: white;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 40px auto 0 auto;
   padding: 20px;
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
@@ -717,43 +715,35 @@
   .container-bigpost1 {
     width: 100%;
   }
-
   .bigslide {
     display: inline;
   }
-
   .column-post-left1 {
     width: 88%;
     margin-left: auto;
     margin-right: auto;
   }
-
   .post-linkpost1 {
     font-size: 17px;
     margin-left: -5px;
   }
-
   .modal-title {
     font-size: 17px;
   }
-
   .container-post1 {
     width: 96.5%;
     height: 120px;
     margin-top: 0px;
   }
-
   .container-posts2 {
     width: 96.5%;
     margin-top: 30px;
   }
-
   .posts-name1 {
     font-size: 15px;
     margin-top: -45px;
     margin-left: 70px;
   }
-
   .post-linkpost2,
   .post-group1-slide,
   .post-namegroup1-slide,
@@ -761,12 +751,10 @@
   .post-namegroup3-slide {
     font-size: 15px;
   }
-
   .post-date {
     font-size: 11px;
     margin-left: 50px;
   }
-
   .form-label,
   .spanpost,
   .postothers,
@@ -774,74 +762,63 @@
   .groupcheckbox2-slide {
     font-size: 13px;
   }
-
   .postnumber1-slide,
   .postnumber2-slide {
     font-size: 13px;
     height: 25px;
   }
-
   .post-groupsorting1-slide {
     font-size: 13px;
     height: 25px;
     margin: 0 10px;
   }
-
   .container-postright1 {
     display: none;
   }
-
   .container-postright2 {
     display: none;
   }
-
   .h1-posts {
     font-size: 21px;
   }
-
   .monkey {
     margin-left: 30px;
   }
-
   .container-bottoms {
     padding-bottom: 60px;
   }
-
   .container-postright2-slide {
     padding: 0 10px;
   }
-
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-
   .line-postgroup2-slide,
   .line-postgroup3-slide {
     margin: 10px 0;
   }
-
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
   }
-
   .modal-content {
-    /* width: 65% !important;
-    height: 1180px !important; */
     margin: 0 60px !important;
   }
-
   .container-posts3 {
-    padding: 30px 0px 20px 0px !important;
+    padding: 30px 0 0 0 !important;
   }
-
   .post-lefts {
     width: 300px;
   }
-
-  .profile-mypost {
+  .line-posts1 {
+    margin: 20px 0 !important;
+  }
+  .profile-post {
     width: 45px !important;
     height: 45px !important;
+  }
+  .container-posts4 {
+    padding: 0;
   }
 }
 
@@ -850,32 +827,26 @@
     font-size: 17px !important;
     margin-left: -5px;
   }
-
   .bigslide {
     display: inline;
   }
-
   .modal-title {
     font-size: 17px !important;
   }
-
   .container-post1 {
     width: 96.5%;
     height: 110px;
     margin-top: 0px;
   }
-
   .container-posts2 {
     width: 96.5%;
     margin-top: 30px;
   }
-
   .posts-name1 {
     font-size: 15px;
     margin-top: -45px;
     margin-left: 65px;
   }
-
   .post-linkpost2,
   .post-group1-slide,
   .post-namegroup1-slide,
@@ -883,12 +854,10 @@
   .post-namegroup3-slide {
     font-size: 15px;
   }
-
   .post-date {
     font-size: 11px;
     margin-left: 45px;
   }
-
   .form-label,
   .spanpost,
   .postothers,
@@ -896,74 +865,63 @@
   .groupcheckbox2-slide {
     font-size: 13px;
   }
-
   .postnumber1-slide,
   .postnumber2-slide {
     font-size: 13px;
     height: 25px;
   }
-
   .post-groupsorting1-slide {
     font-size: 13px;
     height: 25px;
     margin: 0 10px;
   }
-
   .container-postright1 {
     display: none;
   }
-
   .container-postright2 {
     display: none;
   }
-
   .h1-posts {
     font-size: 21px;
   }
-
   .monkey {
     margin-left: 30px;
   }
-
   .container-bottoms {
     padding-bottom: 60px;
   }
-
   .container-postright2-slide {
     padding: 0 10px;
   }
-
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-
   .line-postgroup2-slide,
   .line-postgroup3-slide {
     margin: 10px 0;
   }
-
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
   }
-
   .modal-content {
-    /* width: 65% !important;
-    height: 1180px !important; */
     margin: 0 50px !important;
   }
-
   .container-posts3 {
-    padding: 45px 0px 20px 0px !important;
+    padding: 45px 0 0 0 !important;
   }
-
   .post-lefts {
     width: 270px;
   }
-
+  .line-posts1 {
+    margin: 20px 0 !important;
+  }
   .profile-post {
     width: 45px !important;
     height: 45px !important;
+  }
+  .container-posts4 {
+    padding: 0;
   }
 }
 
@@ -972,32 +930,26 @@
     font-size: 16px !important;
     margin-left: -10px;
   }
-
   .bigslide {
     display: inline;
   }
-
   .modal-title {
     font-size: 16px !important;
   }
-
   .container-post1 {
     width: 96.5%;
     height: 100px;
     margin-top: 0px;
   }
-
   .container-posts2 {
     width: 96.5%;
     margin-top: 30px;
   }
-
   .posts-name1 {
     font-size: 14px;
     margin-top: -40px;
     margin-left: 60px;
   }
-
   .post-linkpost2,
   .post-group1-slide,
   .post-namegroup1-slide,
@@ -1005,12 +957,10 @@
   .post-namegroup3-slide {
     font-size: 14px;
   }
-
   .post-date {
     font-size: 10px;
     margin-left: 40px;
   }
-
   .form-label,
   .spanpost,
   .postothers,
@@ -1018,74 +968,63 @@
   .groupcheckbox2-slide {
     font-size: 12px;
   }
-
   .postnumber1-slide,
   .postnumber2-slide {
     font-size: 12px;
     height: 25px;
   }
-
   .post-groupsorting1-slide {
     font-size: 12px;
     height: 25px;
     margin: 0 10px;
   }
-
   .container-postright1 {
     display: none;
   }
-
   .container-postright2 {
     display: none;
   }
-
   .h1-posts {
     font-size: 21px;
   }
-
   .monkey {
     margin-left: 10px;
   }
-
   .container-bottoms {
     padding-bottom: 60px;
   }
-
   .container-postright2-slide {
     padding: 0 10px;
   }
-
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-
   .line-postgroup2-slide,
   .line-postgroup3-slide {
     margin: 10px 0;
   }
-
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
   }
-
   .modal-content {
-    /* width: 65% !important;
-    height: 1180px !important; */
     margin: 0 45px !important;
   }
-
   .container-posts3 {
-    padding: 30px 0px 20px 0px !important;
+    padding: 30px 0 0 0 !important;
   }
-
   .post-lefts {
     margin: 0 0 0 -5px;
     width: 240px;
   }
-
+  .line-posts1 {
+    margin: 20px 0 !important;
+  }
   .profile-post {
     width: 40px !important;
     height: 40px !important;
+  }
+  .container-posts4 {
+    padding: 0;
   }
 }
