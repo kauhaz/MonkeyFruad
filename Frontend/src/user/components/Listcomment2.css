@@ -427,7 +427,7 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 35px;
+    padding: 35px !important;
   }
   .listcommentmypost2 {
     width: 105px;
@@ -568,7 +568,7 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 40px;
+    padding: 40px !important;
   }
   .imgcommentitemmypost {
     grid-template-columns: 1fr 1fr;
@@ -637,7 +637,7 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 35px !important;
+    padding: 30px !important;
   }
   .imgcommentitemmypost {
     grid-template-columns: 1fr 1fr;
