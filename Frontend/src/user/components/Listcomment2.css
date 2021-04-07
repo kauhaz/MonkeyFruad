@@ -372,7 +372,7 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 45px;
+    padding: 50px !important;
   }
   .listcommentmypost2 {
     width: 153px;
@@ -408,7 +408,7 @@
     font-size: 11px;
   }
   .imgcommentitemmypost {
-    margin-bottom: -7px;
+    margin-bottom: -7px !important;
   }
   .mypostcommentmenusetting {
     font-size: 11px;
@@ -469,7 +469,7 @@
     display: block;
   }
   .mypostcommentrow {
-    padding: 15px;
+    padding: 15px !important;
   }
   .mypostcommentmenusetting {
     font-size: 11px;
@@ -484,9 +484,8 @@
     margin-top: -15px;
   }
   .imgcommentitemmypost {
-    grid-gap: 15px 0 !important;
     grid-template-columns: 1fr 1fr;
-    margin: 0 0 -7px 0 !important;
+    grid-gap: 40px 0;
   }
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
@@ -499,12 +498,12 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 40px !important;
+    padding: 45px !important;
   }
   .listcommentmypost2 {
     width: 140px;
     height: 140px;
-    padding: 10px 5px 0px 5px;
+    padding: 5px;
   }
   .inputlistcommentmypost2 {
     font-size: 13px !important;
@@ -572,18 +571,17 @@
     padding: 40px;
   }
   .imgcommentitemmypost {
-    /* grid-gap: 15px 0; */
     grid-template-columns: 1fr 1fr;
-    margin: 0 0 -5px 0 !important;
+    grid-gap: 40px 0;
   }
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 0;
   }
   .listcommentmypost2 {
     width: 125px;
     height: 125px;
-    padding: 5px 5px 0px 5px;
-    /* padding: 0 !important; */
+    padding: 5px;
   }
   .inputlistcommentmypost2 {
     font-size: 13px !important;
@@ -643,15 +641,15 @@
   }
   .imgcommentitemmypost {
     grid-template-columns: 1fr 1fr;
-    margin: 0 0 -4px 0 !important;
   }
   .imglistcommentmypost {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 0;
   }
   .listcommentmypost2 {
     width: 100px;
     height: 100px;
-    padding: 5px 5px 0px 5px;
+    padding: 5px !important;
   }
   .inputlistcommentmypost2 {
     font-size: 12px !important;
