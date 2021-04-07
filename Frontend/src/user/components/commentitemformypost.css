@@ -248,6 +248,7 @@
 
 @media only screen and (max-width: 415px) {
   .mypost-comment-comments1 {
+    padding: 0;
     grid-template-columns: 14% 86%;
   }
   .inputcommentmypost2,
@@ -291,6 +292,7 @@
 
 @media only screen and (max-width: 376px) {
   .mypost-comment-comments1 {
+    /* padding: 20px 0 0 0; */
     grid-template-columns: 21% 79% !important;
   }
   .profile-comment2{
@@ -330,6 +332,7 @@
 
 @media only screen and (max-width: 321px) {
   .mypost-comment-comments1 {
+    /* padding: 20px 0 0 0; */
     grid-template-columns: 22% 68% !important;
   }
   .profile-comment2{

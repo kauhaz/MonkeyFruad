@@ -719,7 +719,7 @@
     margin-top: -10px;
   }
   .line-comments1 {
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .container-mypost4 {
     padding: 0;
@@ -813,7 +813,7 @@
     width: 90px;
   }
   .line-comments1 {
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .container-mypost4 {
     padding: 0;
@@ -911,6 +911,9 @@
   .mypostmenusetting {
     font-size: 10px;
     width: 85px;
+  }
+  .line-comments1 {
+    margin: 20px 0;
   }
   .container-mypost4 {
     padding: 0;
