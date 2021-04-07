@@ -110,8 +110,8 @@
 
 .commentbox {
   display: grid;
-  grid-template-columns: 10% 1fr 15%;
-  margin: 0 45px 20px 45px;
+  grid-template-columns: 10% 1fr 17%;
+  margin: 5px 45px 20px 45px;
 }
 
 .listcommentpost2 {
@@ -193,10 +193,13 @@
   padding: 30px;
 }
 
+.buttoncommentpostsave1 {
+  padding: 0 0 0 10px;
+}
+
 .buttoncommentpostsave2 {
   width: 100%;
-  height: 40px;
-  margin-left: 10px;
+  height: 30px;
   font-size: 16px !important;
   background-color: #5c83cc;
   border: none;
@@ -267,29 +270,27 @@
     width: 124px;
     height: 124px;
   }
-
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 160px;
-    height: 160px;
+    width: 117px;
+    height: 117px;
   }
-
+  .uploadproveedits2 {
+    padding: 40px;
+  }
   .post-comment-name1 {
     font-size: 20px;
   }
-
   .post-comment-time1 {
     font-size: 16px;
   }
-
   .inputlistcomment1,
   .buttoncommentpostsave2,
   .postcomment1 {
     font-size: 18px !important;
   }
-
   .commentbox {
-    grid-template-columns: 40px 78% 40px;
+    grid-template-columns: 10% 1fr 16%;
   }
 }
 
@@ -298,33 +299,27 @@
     width: 95px;
     height: 95px;
   }
-
   .imgpreviewpost1,
   .uploadproveedits1 {
-    width: 125px;
-    height: 125px;
+    width: 89px;
+    height: 89px;
   }
-
   .uploadproveedits2 {
-    padding: 40px;
+    padding: 30px;
   }
-
   .post-comment-name1 {
     font-size: 18px;
   }
-
   .post-comment-time1 {
     font-size: 14px;
   }
-
   .inputlistcomment1,
   .buttoncommentpostsave2,
   .postcomment1 {
     font-size: 16px !important;
   }
-
   .commentbox {
-    grid-template-columns: 40px 74% 40px;
+    grid-template-columns: 12% 1fr 20%;
   }
 }
 
@@ -373,7 +368,7 @@
     grid-template-columns: 15% 1fr 8%;
   }
   .commentbox {
-    grid-template-columns: 10% 70% 10%;
+    grid-template-columns: 10% 1fr 10%;
   }
   .postcommentmenusetting {
     font-size: 13px;
@@ -428,7 +423,7 @@
     height: 25px;
   }
   .commentbox {
-    grid-template-columns: 12% 60% 30%;
+    grid-template-columns: 12% 1fr 30%;
     margin: 5px 0 0 0;
   }
 }
