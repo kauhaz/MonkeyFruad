@@ -335,7 +335,7 @@ const Listcomment = ({
                     <textarea
                       rows="3"
                       cols="15"
-                      className="inputcomment1"
+                      className="inputlistcomment1"
                       placeholder="เขียนความคิดเห็น..."
                       value={edittextcomment}
                       onChange={(e) => {

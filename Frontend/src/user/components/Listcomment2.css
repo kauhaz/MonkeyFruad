@@ -117,6 +117,10 @@
   color: #5c5c5c;
 }
 
+.commentmypost {
+  margin-top: -20px;
+}
+
 .commentboxmypost {
   display: grid;
   grid-template-columns: 7% 1fr 12%;
@@ -135,7 +139,7 @@
 }
 
 .listcommentmypost2 {
-  margin: 0 0 3px 0;
+  margin: 0;
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -268,9 +272,6 @@
   display: none;
 }
 
-.commentmypost {
-  margin-top: -20px;
-}
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .header-mypost-comment {
@@ -346,14 +347,21 @@
   .header-mypost-comment {
     grid-template-columns: 8% 1fr 5%;
   }
-  .imgpreviewmypost1,
+  .imgcommentitemmypost {
+    grid-gap: 15px 0;
+  }
+  .imgpreviewmypost1{
+    margin: 0;
+    width: 147px;
+    height: 147px;
+  }
   .uploadproveeditmyposts1 {
     width: 147px;
     height: 147px;
   }
-  .imgcommentitemmypost {
+  /* .imgcommentitemmypost {
     margin-bottom: -17px;
-  }
+  } */
   .mypostcommentmenusetting {
     font-size: 13px;
     width: 120px;
@@ -400,7 +408,7 @@
     font-size: 11px;
   }
   .imgcommentitemmypost {
-    margin-bottom: -17px;
+    margin-bottom: -7px;
   }
   .mypostcommentmenusetting {
     font-size: 11px;
@@ -408,7 +416,11 @@
     left: -80px;
     top: 25px;
   }
-  .imgpreviewmypost1,
+  .imgpreviewmypost1{
+    margin: 0;
+    width: 99px;
+    height: 99px;
+  }
   .uploadproveeditmyposts1 {
     width: 99px;
     height: 99px;
@@ -422,7 +434,6 @@
     height: 105px;
   }
   .inputlistcommentmypost2,
-  .buttoncommentmypostsave2,
   .mypostcomment1 {
     font-size: 13px !important;
   }
@@ -502,7 +513,7 @@
     font-size: 15px;
   }
   .commentboxmypost {
-    grid-template-columns: 12% 65% 23%;
+    grid-template-columns: 11% 69% 20%;
     margin: 0 0 10px 0;
   }
   .buttoncommentmypostsave2 {
@@ -584,7 +595,7 @@
     font-size: 13px !important;
   }
   .commentboxmypost {
-    grid-template-columns: 13% 65% 22%;
+    grid-template-columns: 12% 66% 22%;
     margin: 0 0 10px 0;
   }
 }
@@ -642,19 +653,19 @@
     height: 100px;
     padding: 5px 5px 0px 5px;
   }
-  .inputlistcommentmypost2,
-  .buttoncommentmypostsave2 {
+  .inputlistcommentmypost2 {
     font-size: 12px !important;
   }
   .buttoncommentmypostsave2{
     width: 80%;
     margin-left: 0px;
+    font-size: 12px !important;
   }
   .mypostcomment1 {
     font-size: 12px !important;
   }
   .commentboxmypost {
-    grid-template-columns: 14% 59% 30%;
+    grid-template-columns: 14% 60% 31%;
     margin: 0 0 10px 0;
   }
 }
