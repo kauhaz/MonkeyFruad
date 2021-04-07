@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -182,7 +182,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
   };
 
   const initUser = async () => {
-    axios
+   await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       })
@@ -192,7 +192,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         }
         setDisplayname(result.data.data.username);
       })
-    axios
+   await axios
       .post(`https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`)
       .then((result) => {
         setNoti(result.data);
@@ -200,7 +200,7 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
       .catch((err) => {
         console.log(err);
       });
-    axios
+   await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -215,9 +215,9 @@ const NavbarPage = ({ SetshowDropdown, showDropdown }) => {
         console.log(err);
       });
   };
-  useMemo(async () => {
+  useEffect(async () => {
     if (user) {
-   initUser();
+  await initUser();
     }
      initSearch();
     setLoading(false);
