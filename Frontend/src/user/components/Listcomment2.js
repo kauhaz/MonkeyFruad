@@ -210,7 +210,13 @@ const Listcomment2 = ({
   }, [commentmore]);
 
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (isActive == true) {
+          setIsActive(false);
+        }
+      }}
+    >
       {commentmore ? (
         <div className="mypostcommentrow">
           <div class="vl"></div>
