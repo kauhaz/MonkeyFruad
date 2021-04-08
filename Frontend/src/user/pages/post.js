@@ -5769,7 +5769,9 @@ const Post = () => {
               onOpen={() => setOpen(true)}
               trigger={
                 <Button className="btnslide">
-                  <i class="fa fa-filter">ตัวกรอง</i>
+                  <i class="fa fa-filter">
+                    <span className="spanslide">&nbsp;ตัวกรอง</span>
+                  </i>
                 </Button>
               }
             >
