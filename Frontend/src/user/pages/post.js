@@ -5692,6 +5692,7 @@ const Post = () => {
     });
     Setresult(item);
   };
+  console.log(checkfacebook)
 
   useEffect(() => {
     ok();
@@ -5760,6 +5761,7 @@ const Post = () => {
                     name="post-groupsorting1-slide"
                     className="post-groupsorting1-slide"
                     onChange={(e) => Setsortvalue(e.target.value)}
+                    value={sortvalue}
                   >
                     <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
                     <option value="จำนวนเงินมากที่สุด">
@@ -5778,6 +5780,7 @@ const Post = () => {
                           type="checkbox"
                           class="custom-control-input groupcheckboxinput1"
                           id="defaultInline1"
+                          checked={checkfacebook}
                           onChange={(e) => Setfacebook(e.target.value)}
                           onClick={() => Setcheckfacebook(!checkfacebook)}
                         ></input>
@@ -5795,6 +5798,7 @@ const Post = () => {
                           type="checkbox"
                           class="custom-control-input groupcheckboxinput1"
                           id="defaultInline2"
+                          checked={checkline}
                           onChange={(e) => Setline(e.target.value)}
                           onClick={() => Setcheckline(!checkline)}
                         />
@@ -5815,6 +5819,7 @@ const Post = () => {
                           type="checkbox"
                           class="custom-control-input groupcheckboxinput1"
                           id="defaultInline3"
+                          checked={checkinstagram}
                           onChange={(e) => Setinstagram(e.target.value)}
                           onClick={() => Setcheckinstagram(!checkinstagram)}
                         ></input>
@@ -5832,6 +5837,7 @@ const Post = () => {
                           type="checkbox"
                           class="custom-control-input groupcheckboxinput1"
                           id="defaultInline4"
+                          checked={checktwitter}
                           onChange={(e) => Settwitter(e.target.value)}
                           onClick={() => Setchecktwitter(!checktwitter)}
                         ></input>
@@ -5852,6 +5858,7 @@ const Post = () => {
                           type="checkbox"
                           class="custom-control-input groupcheckboxinput1"
                           id="defaultInline5"
+                          checked={checkother}
                           onChange={(e) => Setother(e.target.value)}
                           onClick={() => Setcheckother(!checkother)}
                         ></input>
@@ -5873,6 +5880,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline1-2"
+                      checked={checkcloth}
                       onChange={(e) => Setcloth(e.target.value)}
                       onClick={() => Setcheckcloth(!checkcloth)}
                     ></input>
@@ -5888,6 +5896,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline2-2"
+                      checked={checkassesory}
                       onChange={(e) => Setassesory(e.target.value)}
                       onClick={() => Setcheckassesory(!checkassesory)}
                     ></input>
@@ -5903,6 +5912,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline3-2"
+                      checked={checkshoe}
                       onChange={(e) => Setshoe(e.target.value)}
                       onClick={() => Setcheckshoe(!checkshoe)}
                     ></input>
@@ -5918,6 +5928,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline4-2"
+                      checked={checkbag}
                       onChange={(e) => Setbag(e.target.value)}
                       onClick={() => Setcheckbag(!checkbag)}
                     ></input>
@@ -5933,6 +5944,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline5-2"
+                      checked={checkphone}
                       onChange={(e) => Setphone(e.target.value)}
                       onClick={() => Setcheckphone(!checkphone)}
                     ></input>
@@ -5948,6 +5960,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline6"
+                      checked={checkfood}
                       onChange={(e) => Setfood(e.target.value)}
                       onClick={() => Setcheckfood(!checkfood)}
                     ></input>
@@ -5963,6 +5976,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline7"
+                      checked={checkfoodwealth}
                       onChange={(e) => Setfoodwealth(e.target.value)}
                       onClick={() => Setcheckfoodwealth(!checkfoodwealth)}
                     ></input>
@@ -5978,6 +5992,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline8"
+                      checked={checkbeauty}
                       onChange={(e) => Setbeauty(e.target.value)}
                       onClick={() => Setcheckbeauty(!checkbeauty)}
                     ></input>
@@ -5993,6 +6008,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline9"
+                      checked={checkcomputer}
                       onChange={(e) => Setcomputer(e.target.value)}
                       onClick={() => Setcheckcomputer(!checkcomputer)}
                     ></input>
@@ -6008,6 +6024,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline10"
+                      checked={checkcamera}
                       onChange={(e) => Setcamera(e.target.value)}
                       onClick={() => Setcheckcamera(!checkcamera)}
                     ></input>
@@ -6023,6 +6040,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline11"
+                      checked={checksport}
                       onChange={(e) => Setsport(e.target.value)}
                       onClick={() => Setchecksport(!checksport)}
                     ></input>
@@ -6038,6 +6056,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline12"
+                      checked={checkmedia}
                       onChange={(e) => Setmedia(e.target.value)}
                       onClick={() => Setcheckmedia(!checkmedia)}
                     ></input>
@@ -6053,6 +6072,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline13"
+                      checked={checkgame}
                       onChange={(e) => Setgame(e.target.value)}
                       onClick={() => Setcheckgame(!checkgame)}
                     ></input>
@@ -6068,6 +6088,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline14"
+                      checked={checkcar}
                       onChange={(e) => Setcar(e.target.value)}
                       onClick={() => Setcheckcar(!checkcar)}
                     ></input>
@@ -6083,6 +6104,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline15"
+                      checked={checkticket}
                       onChange={(e) => Setticket(e.target.value)}
                       onClick={() => Setcheckticket(!checkticket)}
                     ></input>
@@ -6098,6 +6120,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline16"
+                      checked={checkelectronic}
                       onChange={(e) => Setelectronic(e.target.value)}
                       onClick={() => Setcheckelectronic(!checkelectronic)}
                     ></input>
@@ -6113,6 +6136,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline17"
+                      checked={checkfurniture}
                       onChange={(e) => Setfurniture(e.target.value)}
                       onClick={() => Setcheckfurniture(!checkfurniture)}
                     ></input>
@@ -6128,6 +6152,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline18"
+                      checked={checkpet}
                       onChange={(e) => Setpet(e.target.value)}
                       onClick={() => Setcheckpet(!checkpet)}
                     ></input>
@@ -6143,6 +6168,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline19"
+                      checked={checkkian}
                       onChange={(e) => Setkian(e.target.value)}
                       onClick={() => Setcheckkian(!checkkian)}
                     ></input>
@@ -6158,6 +6184,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline20"
+                      checked={checkbook}
                       onChange={(e) => Setbook(e.target.value)}
                       onClick={() => Setcheckbook(!checkbook)}
                     ></input>
@@ -6173,6 +6200,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline21"
+                      checked={checkmusic}
                       onChange={(e) => Setmusic(e.target.value)}
                       onClick={() => Setcheckmusic(!checkmusic)}
                     ></input>
@@ -6188,6 +6216,7 @@ const Post = () => {
                       type="checkbox"
                       class="custom-control-input groupcheckboxinput2"
                       id="defaultInline22"
+                      checked={checkothercatalog}
                       onChange={(e) => Setothercatalog(e.target.value)}
                       onClick={() => Setcheckothercatalog(!checkothercatalog)}
                     ></input>

@@ -675,6 +675,7 @@
     margin-right: -50px;
   }
 
+
   /*NOTIFICATION*/
   .noti-comp {
     display: none !important;
@@ -815,13 +816,6 @@
     background-color: none !important;
     margin-right: -160px !important;
     margin-left: 80px !important;
-  }
-
-  .btnslide:hover{
-    border-redius: 50%;
-    background-color: rgb(230, 230, 230) !important;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
-    display: block !important;
   }
   /* end-slide */
 }
