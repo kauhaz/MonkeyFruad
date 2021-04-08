@@ -6433,6 +6433,7 @@ const Post = () => {
                                   <span className="spanpostname">
                                     {res.name} {res.surname}
                                   </span>{" "}
+                                  <div className="none-post"></div>
                                   ถูกแจ้งทั้งหมด{" "}
                                   <span className="spanpost1">
                                     {res.count} ครั้ง
@@ -6636,6 +6637,7 @@ const Post = () => {
                                           <span className="spanpostname">
                                             {res.name} {res.surname}
                                           </span>{" "}
+                                          <div className="none-post"></div>
                                           ถูกแจ้งทั้งหมด{" "}
                                           <span className="spanpost1">
                                             {res.count} ครั้ง
