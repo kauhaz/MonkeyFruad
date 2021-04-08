@@ -360,20 +360,24 @@
         width: 95%;
     }
     .h1-report { 
-        font-size: 19px;
+        font-size: 22px;
+        margin-top: 30px;
     }
-    .status-report span, .status-report span i {
-        font-size: 13px;
+    .status-report {
+        padding: 6px;
+    }
+    .status-report span, .status-report span i, .form-label {
+        font-size: 14px;
     }
     .h2-report {
         font-size: 17px;
-        width: 70%;
+        width: 85%;
     } 
     .container-report2{
-        font-size: 13px;
+        font-size: 14px;
     }
     .reportother {
-        font-size: 12px;
+        font-size: 13px;
     }
     .container-report2{
         margin: 0 auto;
@@ -384,8 +388,13 @@
     }
     .container-report5 {
         text-align: center;
-        margin: 2rem auto 1rem auto;
+        margin: 2rem auto -1rem auto;
+        width: 95%;
     }
+    .report-right, report-left {
+        display: block;
+    }
+
 }
 
 /* iPhone 6/7/8 */
@@ -393,11 +402,47 @@
     .h1-report { 
         font-size: 20px;
     }
+    .status-report {
+        margin-right: .5rem;
+    }
+    .status-report span, .status-report span i, .form-label {
+        font-size: 14px;
+    }
+    .h2-report {
+        font-size: 17px;
+        width: 85%;
+    } 
+    .container-report2{
+        font-size: 14px;
+    }
+    .reportother {
+        font-size: 13px;
+    }
+    .container-report5 {
+        text-align: center;
+        margin: 2rem auto -1rem auto;
+        width: 95%;
+    }
 }
 
 /* i[hone 5 */
 @media only screen and (max-width: 321px) {
     .h1-report { 
         font-size: 20px;
+    }
+    .status-report {
+        margin-right: .5rem;
+        padding: 3px;
+    }
+    .status-report span, .status-report span i, .form-label, .form-check-label  {
+        font-size: 13px;
+    }
+    .reportother {
+        font-size: 12px;
+    }
+    .container-report5 {
+        text-align: center;
+        margin: 2rem auto -1rem auto;
+        width: 95%;
     }
 }
