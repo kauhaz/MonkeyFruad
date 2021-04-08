@@ -727,6 +727,11 @@
   .modalreport{
     margin-left: -30px;
   }
+  .modal-content {
+    width: 85% !important;
+    margin-left: auto;
+    margin-right: 0 !important;
+  }
 }
 @media only screen and (max-width: 376px) {
   .container-post2 {
@@ -824,6 +829,11 @@
   .modalreport{
     margin-left: -23px;
   }
+  /* .modal-content {
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  } */
 }
 
 @media only screen and (max-width: 321px) {
