@@ -159,7 +159,7 @@
 .inputlistcommentmypost2 {
   width: 100%;
   border: none;
-  margin: 3px 0 0 0;
+  margin: 5px 0 0 0;
   font-size: 16px;
   background-color: rgb(245, 245, 245);
   padding: 0 10px;
@@ -215,6 +215,7 @@
   font-size: 20px;
   text-align: center;
   color: white;
+  cursor: pointer;
 }
 
 .buttoncommentmypostsave2:hover {
@@ -506,6 +507,7 @@
     padding: 5px;
   }
   .inputlistcommentmypost2 {
+    margin: 7px 0 0 0;
     font-size: 13px !important;
   }
   .mypostcomment1 {
@@ -584,6 +586,7 @@
     padding: 5px;
   }
   .inputlistcommentmypost2 {
+    margin: 7px 0 0 0;
     font-size: 13px !important;
   }
   .buttoncommentmypostsave2 {
@@ -611,7 +614,7 @@
     margin-left: 0px;
   }
   .mypostcommentrow {
-    padding: 10px;
+    padding: 15px;
   }
   .mypostcommentbuttonsetting {
     margin-top: -15px;
@@ -652,18 +655,17 @@
     padding: 5px !important;
   }
   .inputlistcommentmypost2 {
+    margin: 9px 0 0 0;
     font-size: 12px !important;
   }
   .buttoncommentmypostsave2{
-    width: 80%;
-    margin-left: 0px;
     font-size: 12px !important;
   }
   .mypostcomment1 {
     font-size: 12px !important;
   }
   .commentboxmypost {
-    grid-template-columns: 14% 60% 31%;
+    grid-template-columns: 14% 60% 26%;
     margin: 0 0 10px 0;
   }
 }

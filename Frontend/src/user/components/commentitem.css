@@ -17,8 +17,7 @@
 
 .post-comment-comments1 {
   display: grid;
-  grid-template-columns: 50px 1fr;
-  font-size: 18px;
+  grid-template-columns: 10% 1fr;
   padding: 10px 0;
 }
 
@@ -29,8 +28,8 @@
 
 .post-section-commment {
   background-color: rgb(245, 245, 245);
-  margin: 0 10px;
-  padding: 15px;
+  margin: 0 0 0 10px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -151,78 +150,130 @@
 .h1-postfileerror {
   color: #ff392e;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   margin: 15px 0;
 }
 
-
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-  .imgpreviewa1,.uploadproveedit1 {
+  .imgpreviewa1,
+  .uploadproveedit1 {
     width: 100px;
     height: 100px;
   }
   .postother2 {
     font-size: 15px;
   }
-  .inputcomment1 {
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 18px !important;
   }
 }
 
-@media only screen and (max-width: 1367px){
-  .imgpreviewa1,.uploadproveedit1 {
+@media only screen and (max-width: 1367px) {
+  .imgpreviewa1,
+  .uploadproveedit1 {
     width: 75px;
     height: 75px;
   }
 }
 
-@media only screen and (max-width: 1025px){
-  .imgpreviewa1,.uploadproveedit1 {
-    width: 125px;
-    height: 125px;
+@media only screen and (max-width: 1025px) {
+  .imgcommentitempost1 {
+    grid-template-columns: 1fr 1fr;
   }
-  .inputcomment1 {
+  .imgpreviewa1,
+  .uploadproveedit1 {
+    width: 130px;
+    height: 130px;
+  }
+  .profile-comment1 {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 15px !important;
   }
 }
 
-@media only screen and (max-width: 769px){
-  .imgpreviewa1,.uploadproveedit1 {
+@media only screen and (max-width: 769px) {
+  .imgpreviewa1,
+  .uploadproveedit1 {
     width: 125px;
     height: 125px;
   }
-  .inputcomment1 {
+  .profile-comment1 {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 13px !important;
   }
 }
 
-@media only screen and (max-width: 415px){
-  .imgpreviewa1,.uploadproveedit1 {
+@media only screen and (max-width: 415px) {
+  .imgpreviewa1,
+  .uploadproveedit1 {
     width: 125px;
     height: 125px;
   }
-  .inputcomment1 {
+  .profile-comment1 {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 13px !important;
+  }
+  .post-comment-comments1 {
+    padding: 0;
   }
 }
 
-@media only screen and (max-width: 376px){
-  .imgpreviewa1,.uploadproveedit1 {
+@media only screen and (max-width: 376px) {
+  .post-comment-comments1 {
+    padding: 0;
+    grid-template-columns: 15% 1fr !important;
+  }
+  .imgpreviewa1,
+  .uploadproveedit1 {
     width: 125px;
     height: 125px;
   }
-  .inputcomment1 {
+  .profile-comment1 {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 13px !important;
+  }
+  .post-comment-comments1 {
+    padding: 0;
   }
 }
 
-@media only screen and (max-width: 321px){
-  .imgpreviewa1,.uploadproveedit1 {
-    width: 125px;
-    height: 125px;
+@media only screen and (max-width: 321px) {
+  .post-comment-comments1 {
+    padding: 0;
+    grid-template-columns: 18% 1fr !important;
   }
-  .inputcomment1 {
+  .imgpreviewa1,
+  .uploadproveedit1 {
+    width: 40px;
+    height: 40px;
+  }
+  .profile-comment1 {
+    width: 40px;
+    height: 40px;
+  }
+  .inputcomment1,
+  .h1-postfileerror {
     font-size: 12px !important;
+  }
+  .post-section-commment {
+    padding: 10px 15px;
   }
 }
