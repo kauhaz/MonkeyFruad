@@ -322,7 +322,7 @@ const NavbarPage = (props) => {
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
-        {/* {props.SetisOpen && props.SetisOpen ? (
+        {props.SetisOpen && props.SetisOpen ? (
           
           
           <MDBBtn
@@ -334,7 +334,7 @@ const NavbarPage = (props) => {
           </MDBBtn>
 
 
-        ) : null} */}
+        ) : null}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
