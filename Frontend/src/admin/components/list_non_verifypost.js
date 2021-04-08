@@ -66,7 +66,7 @@ const Non_listverifypost = ({ reportelement }) => {
     e.preventDefault();
     console.log("KUYSUS");
     await Axios.post(
-      `http://localhost:7000/post/report/changeread/${reportelement.uid}`
+      `https://monkeyfruad01.herokuapp.com/post/report/changeread/${reportelement.uid}`
     );
   };
   useEffect(() => {
