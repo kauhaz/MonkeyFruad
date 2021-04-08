@@ -244,6 +244,9 @@
     .container-report1, .container-report5{
         width: 45%;
     }
+    .container-report5 {
+        margin: 3rem auto 4rem auto;
+    }
 }
 
 /* computer */
@@ -251,8 +254,8 @@
     .h1-report { 
         font-size: 25px;
     }
-    .status-report span, .status-report span i {
-        font-size: 18px;
+    .status-report span, .status-report span i, .form-check-label {
+        font-size: 18px !important;
     }
     .h2-report {
         font-size: 20px;
@@ -266,6 +269,9 @@
     }
     .container-report1, .container-report5{
         width: 40%;
+    }
+    .container-report5 {
+        margin: 4rem auto 5rem auto;
     }
 }
 
@@ -350,7 +356,7 @@
     }
     .container-report5 {
         text-align: center;
-        margin: 2rem auto 1rem auto;
+        margin: 3rem auto 3rem auto;
     }
 }
 
@@ -388,13 +394,12 @@
     }
     .container-report5 {
         text-align: center;
-        margin: 2rem auto -1rem auto;
+        margin: 2rem auto 2rem auto;
         width: 95%;
     }
     .report-right, report-left {
         display: block;
     }
-
 }
 
 /* iPhone 6/7/8 */
@@ -420,7 +425,7 @@
     }
     .container-report5 {
         text-align: center;
-        margin: 2rem auto -1rem auto;
+        margin: 2rem auto 2rem auto;
         width: 95%;
     }
 }
@@ -442,7 +447,7 @@
     }
     .container-report5 {
         text-align: center;
-        margin: 2rem auto -1rem auto;
+        margin: 2rem auto 2rem auto;
         width: 95%;
     }
 }
