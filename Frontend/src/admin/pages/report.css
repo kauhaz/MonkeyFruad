@@ -149,8 +149,8 @@
     transition: box-shadow 0.4s ease;
     margin-left: auto; /* Strictly for positioning */
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: -10px;
 }
   
 .reportbuttonsetting:hover {
@@ -162,8 +162,8 @@
     background: #ffffff;
     border-radius: 7px;
     position: absolute;
-    top: 25px;
-    right: 0;
+    top: 20px;
+    right: -5px;
     font-size: 15px;
     width: auto;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -324,6 +324,23 @@
     .container-report1{
         width: 65%;
     }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+    }
+    .reportbuttonsetting {
+        margin-top: -10px;
+        width: 30px;
+        position: absolute;
+        top: -5px;
+        right: -20px;
+    }
+    .reportmenusetting {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+     }
 }
 
 /* iPad */
@@ -357,6 +374,11 @@
     .container-report5 {
         text-align: center;
         margin: 3rem auto 3rem auto;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -7px;
     }
 }
 
@@ -400,6 +422,25 @@
     .report-right, report-left {
         display: block;
     }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -10px;
+    }
+    .reportbuttonsetting {
+        margin-top: -10px;
+        width: 30px;
+        position: absolute;
+        top: -5px;
+        right: -20px;
+    }
+    .reportmenusetting {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        font-size: 12px;
+        z-index: 1;
+     }
 }
 
 /* iPhone 6/7/8 */
@@ -427,6 +468,12 @@
         text-align: center;
         margin: 2rem auto 2rem auto;
         width: 95%;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -15px;
+        font-size: 14px;
     }
 }
 
