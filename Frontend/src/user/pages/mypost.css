@@ -234,6 +234,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: "Kanit", sans-serif;
+  font-size: 22px !important;
 }
 
 /*end-repoet*/
@@ -452,6 +453,9 @@
   .line-comments1 {
     margin-top: 20px;
   }
+  .showsuccessreport {
+    font-size: 25px !important;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
@@ -480,6 +484,9 @@
   .mypostmenusetting {
     font-size: 13px;
     width: 100px;
+  }
+  .showsuccessreport {
+    font-size: 22px !important;
   }
 }
 
@@ -540,6 +547,12 @@
   }
   .modal-content {
     height: auto !important;
+  }
+  .showsuccessreport {
+    font-size: 20px !important;
+  }
+  .modalreport2{
+    margin-top: 610px;
   }
 }
 
@@ -603,6 +616,12 @@
     width: 85% !important;
     margin-left: auto;
     margin-right: auto;
+  }
+  .showsuccessreport {
+    font-size: 19px !important;
+  }
+  .modalreport2{
+    margin-top: 445px;
   }
 }
 @media only screen and (max-width: 415px) {
@@ -724,8 +743,11 @@
   .container-mypost4 {
     padding: 0;
   }
-  .modalreport{
-    margin-left: -30px;
+  .showsuccessreport {
+    font-size: 22px !important;
+  }
+  .modalreport2{
+    margin-top: 320px;
   }
 }
 @media only screen and (max-width: 376px) {
@@ -821,8 +843,11 @@
   .container-mypost4 {
     padding: 0;
   }
-  .modalreport{
-    margin-left: -23px;
+  .showsuccessreport {
+    font-size: 20px !important;
+  }
+  .modalreport2{
+    margin-top: 290px;
   }
 }
 
@@ -924,7 +949,10 @@
   .container-mypost4 {
     padding: 0;
   }
-  .modalreport{
-    margin-left: -22px;
+  .showsuccessreport {
+    font-size: 20px !important;
+  }
+  .modalreport2{
+    margin-top: 240px;
   }
 }
