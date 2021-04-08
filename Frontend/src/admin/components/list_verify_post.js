@@ -64,7 +64,7 @@ const Listverifypost = ({ reportelement, hideClick }) => {
   };
   const ChangeRead = async () => {
     await Axios.post(
-      `http://localhost:7000/post/report/changereadhide/${reportelement.uid}`
+      `https://monkeyfruad01.herokuapp.com/post/report/changereadhide/${reportelement.uid}`
     );
     hideClick();
   };

@@ -221,9 +221,10 @@ const NavbarPage = (props) => {
   useEffect(async () => {
     if (user){
  await initUser()
-  setLoading(false);
+ setLoading(false);
     }
     initSearch();
+    setLoading(false);
   }, [user, search, hideCountNoti]);
   return loading ? (
     ""
