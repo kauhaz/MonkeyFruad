@@ -80,7 +80,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
     InitReport();
   }, []);
   return (
-    <div
+    <div 
       onClick={() => {
         if (isActive == true) {
           setIsActive(false);
@@ -89,7 +89,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
     >
       <div className="container-report1">
         <div className="container-report2">
-          <Form className="formsize-report">
+          <Form className="formsize-report d-none d-sm-none d-md-inline">
             <div className="container-reportsetiing">
               <div className="menu-containerreportsetting">
                 <div
@@ -133,7 +133,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -165,7 +165,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -198,7 +198,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -220,7 +220,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
             <Form.Row>
               <Form.Group
                 as={Col}
-                className="้report-left col-lg-6 col-12"
+                className="้report-left col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
@@ -296,6 +296,223 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
               </Form.Group>
             </Form.Row>
           </Form>
+
+          <div className="container-reportsetiing d-sm-none">
+              <div className="menu-containerreportsetting">
+                <div
+                  onClick={() => setIsActive(!isActive)}
+                  className="reportbuttonsetting"
+                >
+                  <img
+                    className="reportimg-setting"
+                    src="/img/setting.png"
+                    alt="avatar"
+                  ></img>
+                </div>
+                <div
+                  className={`reportmenusetting ${
+                    isActive ? "active" : "inactive"
+                  }`}
+                >
+                  <ul className="ul-reportmenusetting">
+                    <li className="li-reportmenusetting">
+                      <a className="a-reportmenusetting" onClick={() => cancleHide()}>
+                        <div
+                          className="a-reportmenusetting1"
+                        >
+                          ยกเลิกการซ่อน
+                        </div>
+                      </a>
+                    </li>
+                    <li className="li-reportmenusetting">
+                      <div
+                        className="a-reportmenusetting"
+                        onClick={() => deleteReport()}
+                      >
+                        {" "}
+                        ลบประวัติการรายงาน{" "}
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          <div className="report-left d-sm-none">
+              <Form.Group
+                as={Col}
+                className="้col-md-6 col-12"
+                controlId="formGridName"
+              >
+                <Form.Label>
+                  ผู้แจ้งการรายงาน :{" "}
+                  {UsernameReport && UsernameReport[0].username}{" "}
+                </Form.Label>
+              </Form.Group>             
+            </div>
+
+            <div className="report-left d-sm-none">
+              <Form.Group
+                as={Col}
+                className="้col-md-6 col-12"
+                controlId="formGridName"
+              >
+                <Form.Label>
+                  วันเวลาที่แจ้ง :{" "}
+                  {moment(new Date(reportelement.date.seconds * 1000)).format(
+                    "MM/DD/YYYY HH:mm"
+                  )}{" "}
+                </Form.Label>
+              </Form.Group>           
+            </div>            
+
+            <div className="report-left d-sm-none">
+              <Form.Group
+                as={Col}
+                className="้col-md-6 col-12"
+                controlId="formGridName"
+              >
+                <Form.Label>
+                  เจ้าของโพสต์ : {UsernamePost && UsernamePost[0].username}{" "}
+                </Form.Label>
+              </Form.Group>        
+            </div>
+
+            <div className="report-left d-sm-none">
+              <Form.Group
+                as={Col}
+                className="้col-md-6 col-12"
+                controlId="formGridName"
+              >
+                <Form.Label>
+                  รูปหลักฐาน :
+                  <div
+                    variant="primary"
+                    onClick={(e) => handleShow(e)}
+                    className="proof-button-reported"
+                  >
+                    คลิกเพื่อดู
+                  </div>
+                </Form.Label>
+                <Form.Row>
+                  <Modal
+                    show={Show}
+                    onHide={handleClose}
+                    className="modalreport"
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title className="namereport">
+                        รูปหลักฐาน
+                      </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className="bigreport1">
+                      <Form.Row>
+                        {reportelement.fileUploads
+                          ? reportelement.fileUploads.map((element, index) => {
+                              return (
+                                <div className="img-holder-badslip">
+                                  <img
+                                    className="img-badreport"
+                                    alt=""
+                                    src={`${element.url}`}
+                                    style={{ overflow: "hidden" }}
+                                    onClick={() => (
+                                      Setimagemodal(element.url),
+                                      handleopenmodal()
+                                    )}
+                                  />
+                                </div>
+                              );
+                            })
+                          : null}
+                      </Form.Row>
+                    </Modal.Body>
+                  </Modal>
+                  <Modalimage
+                    isopen={isopen}
+                    handleopenmodal={handleopenmodal}
+                    handleclosemodal={handleclosemodal}
+                    imagemodal={imagemodal}
+                  />
+                </Form.Row>
+                <Form.Label>
+                  <div className="count-report">
+                    จำนวนครั้งที่มีการรายงานโพสต์นี้ {reportelement.count} ครั้ง
+                  </div>
+                </Form.Label>
+              </Form.Group>      
+            </div>             
+                          
+            <div className="report-right d-sm-none">
+              {checkselectOne ? (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    label="ข้อมูลไม่เหมาะสม"
+                    checked
+                    disabled
+                  />
+                </Form.Group>
+              ) : (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    label="ข้อมูลไม่เหมาะสม"
+                    disabled
+                  />
+                </Form.Group>
+              )}               
+            </div>
+            
+            <div className="report-right d-sm-none">
+              {checkselectTwo ? (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    label="ข้อมูลไม่ถูกต้อง"
+                    checked
+                    disabled
+                  />
+                </Form.Group>
+              ) : (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    label="ข้อมูลไม่ถูกต้อง"
+                    disabled
+                  />
+                </Form.Group>
+              )}
+            </div>
+
+            <div className="report-right d-sm-none">
+              {checkselectThree ? (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="อื่นๆ" checked disabled />
+                </Form.Group>
+              ) : (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="อื่นๆ" disabled />
+                </Form.Group>
+              )}
+            </div>
+
+            <div className="report-right d-sm-none">
+              <Form.Row>
+                <Form.Group controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
+                  <div className="textarea-report">
+                    <Form.Control
+                      as="textarea"
+                      rows={4}
+                      readOnly={true}
+                      value={reportelement.description}
+                    />
+                  </div>
+                </Form.Group>
+              </Form.Row>
+            </div>    
+
         </div>
       </div>
     </div>
