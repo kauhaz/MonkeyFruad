@@ -151,7 +151,9 @@
     width: 100%;
     border-collapse:collapse;
 }
-
+.rank-data-row:hover{
+    background-color: rgb(236, 234, 234) !important;
+}
 .rank-column-row {
     display: flex;
     flex-wrap: wrap;

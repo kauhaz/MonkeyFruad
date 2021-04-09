@@ -234,15 +234,16 @@ const Rank = () => {
           ? ThiefRank.map((element, index) => {
               return (
                 <table className="rank-table d-none d-sm-none d-md-inline">
-                  <tr className="rank-data-row">
+                  <tr
+                    onClick={() => RankSeePost(element.accountnumber)}
+                    className="rank-data-row"
+                  >
                     <th className="rank-column col-1">{index + 1}</th>
                     <th className="rank-column col">{element.name}</th>
                     <th className="rank-column col Fall-crisp">
                       {element.surname}
                     </th>
-                    <th className="rank-column col">
-                      {element.accountnumber}
-                    </th>
+                    <th className="rank-column col">{element.accountnumber}</th>
                     <th className="rank-column col">
                       {element.summoney.toLocaleString(undefined, {
                         maximumFractionDigits: 2,
@@ -266,7 +267,10 @@ const Rank = () => {
             ? ThiefRank.map((element, index) => {
                 return (
                   <table className="rank-table d-sm-none">
-                    <tr className="rank-data-row">
+                    <tr
+                      onClick={() => RankSeePost(element.accountnumber)}
+                      className="rank-data-row"
+                    >
                       <th className="rank-column col-1">{index + 1}</th>
                       <th className="rank-column col">{element.name}</th>
                       <th className="rank-column col Fall-crisp">
@@ -288,7 +292,10 @@ const Rank = () => {
             ? ThiefRank.map((element, index) => {
                 return (
                   <table className="rank-table d-sm-none">
-                    <tr className="rank-data-row">
+                    <tr
+                      onClick={() => RankSeePost(element.accountnumber)}
+                      className="rank-data-row"
+                    >
                       <th className="rank-column col-1">{index + 1}</th>
                       <th className="rank-column col">{element.name}</th>
                       <th className="rank-column col Fall-crisp">
@@ -315,7 +322,10 @@ const Rank = () => {
             ? ThiefRank.map((element, index) => {
                 return (
                   <table className="rank-table d-sm-none">
-                    <tr className="rank-data-row">
+                    <tr
+                      onClick={() => RankSeePost(element.accountnumber)}
+                      className="rank-data-row"
+                    >
                       <th className="rank-column col-1">{index + 1}</th>
                       <th className="rank-column col">{element.name}</th>
                       <th className="rank-column col Fall-crisp">
