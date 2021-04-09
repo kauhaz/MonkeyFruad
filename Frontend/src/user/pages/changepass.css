@@ -57,7 +57,7 @@
     font-size: 16px;
 }
 
-.form-group {
+.form-group-changepass {
     color: #6C757D;
     font-size: 16px;
 }
@@ -107,7 +107,7 @@
         color:  #5c5c5c;
         font-size: 22px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 16px;
     }
     .alert-changepass-fail, .alert-changepass-success {
@@ -132,7 +132,7 @@
         color:  #5c5c5c;
         font-size: 25px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 18px;
     }
     .alert-changepass-fail span, .alert-changepass-success span{
@@ -153,7 +153,7 @@
         color:  #5c5c5c;
         font-size: 22px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 16px;
     }
     .alert-changepass-fail, .alert-changepass-success {
@@ -179,7 +179,7 @@
         color:  #5c5c5c;
         font-size: 20px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 15px;
     }
     .alert-changepass-fail, .alert-changepass-success {
@@ -206,7 +206,7 @@
         color:  #5c5c5c;
         font-size: 19px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 13px;
     }
     .SaveChange div {
@@ -236,7 +236,7 @@
         color:  #5c5c5c;
         font-size: 20px;
     }
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 15px;
     }
     .SaveChange div {
@@ -253,7 +253,7 @@
 
 /* iPhone 6/7/8 */
 @media only screen and (max-width: 376px) {
-    .SaveChange div+p, .form-group {
+    .SaveChange div+p, .form-group-changepass {
         font-size: 13px;
     }
     .alert-changepass-fail, .alert-changepass-success {

@@ -182,6 +182,9 @@
         width: 55%;
         padding-left: 7%;
     }
+    .container-profilebottom{
+        padding-bottom: 40px;
+    }
 }
 
 /* iPad Pro */

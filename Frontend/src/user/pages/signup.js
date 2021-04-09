@@ -213,7 +213,7 @@ const Signup = () => {
             >
               {({ errors, touched }) => (
                 <Form>
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="username"
                       type="text"
@@ -237,7 +237,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="email"
                       type="email"
@@ -261,7 +261,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="password"
                       type="password"
@@ -285,7 +285,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="confirmPassword"
                       type="password"
@@ -306,7 +306,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="name"
                       type="text"
@@ -330,7 +330,7 @@ const Signup = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="lastname"
                       type="text"
@@ -355,7 +355,7 @@ const Signup = () => {
                   </div>
 
                   <div
-                    className="form-group mb-2 gender"
+                    className="form-group-signup mb-2 gender"
                     style={{ color: "#6C757D" }}
                   >
                     <label className="label-form-title">เพศ</label>
@@ -387,7 +387,7 @@ const Signup = () => {
                     </div>
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-signup mb-3">
                     <Field
                       name="phone"
                       type="tel"
