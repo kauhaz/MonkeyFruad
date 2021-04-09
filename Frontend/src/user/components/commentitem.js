@@ -297,6 +297,7 @@ const Commentitem = ({ postid }) => {
           )}
         </div>
         <div className="post-section-commment">
+        <ClipLoaderMycoment />
           {loading ? (
             <div className="col-lg-10 col-4">
               <ClipLoaderMycoment />
