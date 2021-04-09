@@ -2,48 +2,48 @@
     position: static;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 117px;
+    margin-right: 195px;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-report{
-        margin-right: 110px;
+        margin-right: 200px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-report{
-        margin-right: 115px;
+        margin-right: 200px;
     }    
 }
 
 @media only screen and (max-width: 1025px) {
     .box-load-report{
-        margin-right: 115px;
+        margin-right: 197px;
     }   
 }
 
 @media only screen and (max-width: 769px) {
     .box-load-report{
-        margin-right: 80px;
+        margin-right: 160px;
     }  
 }
 
 @media only screen and (max-width: 415px) {
     .box-load-report{
-        margin-right: 40px;
+        margin-right: 120px;
     }   
 }
 
 @media only screen and (max-width: 376px) {
     .box-load-report{
-        margin-right: 22px;
+        margin-right: 100px;
     }  
 }
 
 @media only screen and (max-width: 321px) {
     .box-load-report{
-        margin-right: 0px;
+        margin-right: 69px;
     }   
 }
