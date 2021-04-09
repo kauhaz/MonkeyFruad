@@ -6521,7 +6521,7 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="้post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridName"
                                         >
                                           <Form.Label>
@@ -6529,7 +6529,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.name} {res.surname}
                                           </span>
@@ -6539,7 +6539,7 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="post-left col-lg-6 col-6"
                                           controlId="formGridId"
                                         >
                                           <Form.Label>
@@ -6547,7 +6547,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.accountnumber}
                                           </span>
@@ -6557,13 +6557,13 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="post-left col-lg-6 col-6"
                                           controlId="formGridNameproduct"
                                         >
                                           <Form.Label>ชื่อสินค้า</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.nameproduct}{" "}
                                           </span>
@@ -6573,13 +6573,13 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="post-left col-lg-6 col-6"
                                           controlId="formGridPrice"
                                         >
                                           <Form.Label>จำนวนเงิน</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.money.toLocaleString(
                                               undefined,
@@ -6593,13 +6593,13 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="post-left col-lg-6 col-6"
                                           controlId="formGridDate"
                                         >
                                           <Form.Label>วันที่โดนโกง</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {moment(
                                               new Date(
@@ -6612,7 +6612,7 @@ const Post = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="post-left col-lg-6 col-6"
                                           controlId="formGridDate"
                                         >
                                           <Form.Label>
@@ -6620,7 +6620,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.social}{" "}
                                           </span>
@@ -6629,7 +6629,7 @@ const Post = () => {
                                       <br />
                                       <Form.Group
                                         as={Col}
-                                        className="post-left col-lg-6 col-12"
+                                        className="post-left col-lg-6 col-6"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label className="post-lefts">
@@ -6646,7 +6646,7 @@ const Post = () => {
                                       </Form.Group>
                                       <Form.Group
                                         as={Col}
-                                        className="post-left col-lg-6 col-12"
+                                        className="post-left col-lg-6 col-6"
                                         controlId="formGridPrice"
                                       >
                                         <Form.Label className="post-lefts">
