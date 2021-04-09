@@ -322,5 +322,8 @@
         text-align: right;
         margin-top: 0px;
     }
+    .container-profilebottom{
+        padding-bottom: 10px;
+    }
 }
 

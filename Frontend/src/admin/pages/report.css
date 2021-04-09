@@ -219,6 +219,10 @@
     color: white;
 }
 
+.container-reportbottom{
+    padding-bottom: 20px;
+}
+
 /*----------------------------------------------------------------
 
 /*Responsive*/ 
@@ -441,6 +445,10 @@
         font-size: 12px;
         z-index: 1;
      }
+
+     .container-reportbottom{
+        padding-bottom: 1px;
+    }
 }
 
 /* iPhone 6/7/8 */
