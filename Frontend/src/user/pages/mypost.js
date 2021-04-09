@@ -623,9 +623,9 @@ const Mypost = () => {
                               controlId="formGridName"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.name}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
@@ -646,9 +646,9 @@ const Mypost = () => {
                               controlId="formGridLastname"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.surname}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
@@ -671,9 +671,9 @@ const Mypost = () => {
                               controlId="formGridId"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.id}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
@@ -694,9 +694,9 @@ const Mypost = () => {
                               controlId="formGridAccountnumber"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.accountnumber}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
@@ -719,9 +719,9 @@ const Mypost = () => {
                               controlId="formGridNameproduct"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.nameproduct}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
@@ -742,9 +742,9 @@ const Mypost = () => {
                               controlId="formGridCategory"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.productcategory}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
@@ -767,12 +767,12 @@ const Mypost = () => {
                               controlId="formGridPrice"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.money.toLocaleString(undefined, {
                                     maximumFractionDigits: 2,
                                   })}{" "}
                                   บาท
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
@@ -793,9 +793,9 @@ const Mypost = () => {
                               controlId="formGridCategory"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.bank}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
@@ -818,11 +818,11 @@ const Mypost = () => {
                               controlId="formGridDate"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {moment(
                                     new Date(ok.datetimes.seconds * 1000)
                                   ).format("MM/DD/YYYY HH:mm")}{" "}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
@@ -843,9 +843,9 @@ const Mypost = () => {
                               controlId="formGridSocial"
                             >
                               <Form.Label className="text-mypost">
-                                <span className="spanmypost text-mypost-right">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.social}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>

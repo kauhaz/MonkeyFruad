@@ -182,7 +182,10 @@ const Formpost = ({ check, Setcheck }) => {
 
       Setloading(true);
       Setcheck(true);
-      const a = await Axios.post("https://monkeyfruad01.herokuapp.com/post/create", formdata);
+      const a = await Axios.post(
+        "https://monkeyfruad01.herokuapp.com/post/create",
+        formdata
+      );
       Setfuck([]);
       setImagesFile();
       Setfiles();
@@ -196,9 +199,12 @@ const Formpost = ({ check, Setcheck }) => {
   };
   useMemo(async () => {
     try {
-      var profiledata = await Axios.post("https://monkeyfruad01.herokuapp.com/user/session", {
-        user: user,
-      });
+      var profiledata = await Axios.post(
+        "https://monkeyfruad01.herokuapp.com/user/session",
+        {
+          user: user,
+        }
+      );
       setUsername(profiledata.data.data.username);
       Setphotoprofileurl(profiledata.data.data.photoURL.url);
       Setphotoprofilepublic_id(profiledata.data.data.photoURL.public_id);
@@ -254,7 +260,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="name"
-                    pattern="[a-z,A-Z,ก-๛]{1,}"
+                    pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     onChange={(event) => {
@@ -271,7 +277,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="lastname"
-                    pattern="[a-z,A-Z,ก-๛]{1,}"
+                    pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     required
@@ -564,9 +570,7 @@ const Formpost = ({ check, Setcheck }) => {
 
               <h1 className="h1-formpostfileerror">{error}</h1>
 
-              <button 
-              className="buttonformpost" 
-              type="submit">
+              <button className="buttonformpost" type="submit">
                 โพสต์
               </button>
             </Form>

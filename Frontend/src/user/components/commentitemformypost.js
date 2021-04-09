@@ -196,9 +196,12 @@ const Commentitemformypost = ({ postid }) => {
       );
       Setcommentmore(getcommentall.data.item);
       if (user) {
-        const nameuser = await Axios.post("https://monkeyfruad01.herokuapp.com/user/userid", {
-          result: user,
-        });
+        const nameuser = await Axios.post(
+          "https://monkeyfruad01.herokuapp.com/user/userid",
+          {
+            result: user,
+          }
+        );
         Setdata(nameuser.data.item);
 
         var profiledata = await Axios.post(
@@ -207,12 +210,12 @@ const Commentitemformypost = ({ postid }) => {
             user: user,
           }
         );
-        console.log(profiledata)
-       if(profiledata.data.data.photoURL){
-        Setphotourl(profiledata.data.data.photoURL.url);
-        console.log("ggg")
-        Setphotopublic_id(profiledata.data.data.photoURL.public_id);
-       }
+        console.log(profiledata);
+        if (profiledata.data.data.photoURL) {
+          Setphotourl(profiledata.data.data.photoURL.url);
+          console.log("ggg");
+          Setphotopublic_id(profiledata.data.data.photoURL.public_id);
+        }
       }
     } catch (err) {
       console.log(err);
@@ -278,7 +281,10 @@ const Commentitemformypost = ({ postid }) => {
           {photourl ? (
             <img className="img-circle profile-comment2" src={`${photourl}`} />
           ) : (
-            <img className="img-circle profile-comment2" src="/img/profile.png" />
+            <img
+              className="img-circle profile-comment2"
+              src="/img/profile.png"
+            />
           )}
         </div>
         <div className="mypost-section-commment">
@@ -347,7 +353,7 @@ const Commentitemformypost = ({ postid }) => {
                               alt="previewImg"
                               src={imagePreviewUrl}
                             />
-                              <span className="deleteimgmyposts1">
+                            <span className="deleteimgmyposts1">
                               <img
                                 className="deleteimgmyposts2"
                                 src="/img/delete2.png"

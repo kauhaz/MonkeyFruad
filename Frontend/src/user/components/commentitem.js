@@ -10,7 +10,7 @@ import ClipLoaderMycoment from "./clipLoaderMycoment";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 
-const Commentitem = ({ postid}) => {
+const Commentitem = ({ postid }) => {
   let { user, setUser } = useContext(usercontext);
   const [imagecomment, Setimagecomment] = useState();
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
@@ -246,7 +246,6 @@ const Commentitem = ({ postid}) => {
                     commentmore={commentmore}
                     handledeletetorerender={handledeletetorerender}
                     handleedittorerender={handleedittorerender}
-                   
                   />
                 );
               })
@@ -260,19 +259,16 @@ const Commentitem = ({ postid}) => {
                 commentmore={commentmore[0]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-               
               />{" "}
               <Listcomment
                 commentmore={commentmore[1]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-               
               />{" "}
               <Listcomment
                 commentmore={commentmore[2]}
                 handledeletetorerender={handledeletetorerender}
                 handleedittorerender={handleedittorerender}
-               
               />{" "}
             </div>
           ) : null}
@@ -302,7 +298,9 @@ const Commentitem = ({ postid}) => {
         </div>
         <div className="post-section-commment">
           {loading ? (
-            <ClipLoaderMycoment />
+            <div className="col-lg-10 col-4">
+              <ClipLoaderMycoment />
+            </div>
           ) : (
             <div>
               <div className="post-comment-commentsall">
