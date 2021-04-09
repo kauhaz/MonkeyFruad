@@ -44,9 +44,6 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-.container-bottoms {
-  padding-bottom: 50px;
-}
 .container-posts2 {
   width: 90%;
   border-radius: 10px;
@@ -668,9 +665,6 @@
   .h1-posts {
     font-size: 21px;
   }
-  /* .container-bottoms {
-    padding-bottom: 20px;
-  } */
   .container-posts4 {
     padding: 0 !important;
   }
@@ -834,9 +828,6 @@
   .monkey {
     margin-left: 30px;
   }
-  /* .container-bottoms {
-    padding-bottom: 60px;
-  } */
   .container-posts3 {
     padding: 30px 0 0 0 !important;
   }
@@ -998,9 +989,6 @@
   .monkey {
     margin-left: 30px;
   }
-  /* .container-bottoms {
-    padding-bottom: 60px;
-  } */
   .container-posts3 {
     padding: 45px 0 0 0 !important;
   }
@@ -1164,9 +1152,6 @@
   .monkey {
     margin-left: 10px;
   }
-  /* .container-bottoms {
-    padding-bottom: 60px;
-  } */
   .container-posts3 {
     padding: 30px 0 0 0 !important;
   }

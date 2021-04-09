@@ -38,7 +38,7 @@
   width: 50%;
   border-radius: 10px;
   background-color: white;
-  margin: 60px auto 0px auto !important;
+  margin: 50px auto 0px auto !important;
   padding: 20px;
   font-family: "Kanit", sans-serif;
   font-size: 20px;
@@ -73,7 +73,7 @@
 }
 
 .container-mypostbottoms {
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 }
 
 /*report*/
