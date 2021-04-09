@@ -498,7 +498,7 @@
 }
 
 .container-indexbottoms{
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 
@@ -1503,6 +1503,10 @@
     .seemore-index{
         font-size: 13px;
         margin-top: 15px;
+    }
+
+    .container-indexbottoms{
+        padding-bottom: 30px;
     }
 }
 
