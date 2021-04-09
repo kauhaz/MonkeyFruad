@@ -5754,12 +5754,12 @@ const Post = () => {
                           <div className="post-profile-img">
                             {res.photoURL ? (
                               <img
-                                className="img-circle"
+                                className="img-circle profile-post"
                                 src={`${res.photoURL.url}`}
                               />
                             ) : (
                               <img
-                                className="img-circle"
+                                className="img-circle profile-post"
                                 src={"/img/profile.png"}
                               />
                             )}
@@ -5782,13 +5782,13 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="้post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridName"
                                 >
                                   <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.name} {res.surname}
                                   </span>
@@ -5798,13 +5798,13 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridId"
                                 >
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.accountnumber}
                                   </span>
@@ -5814,13 +5814,13 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridNameproduct"
                                 >
                                   <Form.Label>ชื่อสินค้า</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.nameproduct}{" "}
                                   </span>
@@ -5830,13 +5830,13 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridPrice"
                                 >
                                   <Form.Label>จำนวนเงิน</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.money.toLocaleString(undefined, {
                                       maximumFractionDigits: 2,
@@ -5849,13 +5849,13 @@ const Post = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
@@ -5872,18 +5872,14 @@ const Post = () => {
                                   <Form.Label>ช่องทางการโดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.social}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
                               <br />
-                              <Form.Group
-                                as={Col}
-                                className="้post-left col-lg-6 col-6"
-                                controlId="formGridDate"
-                              >
+                              <Form.Group as={Col} controlId="formGridDate">
                                 <Form.Label className="post-lefts">
                                   จำนวนครั้งที่{" "}
                                   <span className="spanpostname">
@@ -5898,7 +5894,6 @@ const Post = () => {
                               </Form.Group>
                               <Form.Group
                                 as={Col}
-                                className="้post-left col-lg-6 col-6"
                                 controlId="formGridPrice"
                               >
                                 <Form.Label className="post-lefts">
@@ -5949,12 +5944,12 @@ const Post = () => {
                                   <div className="post-profile-img">
                                     {res.photoURL ? (
                                       <img
-                                        className="img-circle"
+                                        className="img-circle profile-post"
                                         src={`${res.photoURL.url}`}
                                       />
                                     ) : (
                                       <img
-                                        className="img-circle"
+                                        className="img-circle profile-post"
                                         src={"/img/profile.png"}
                                       />
                                     )}
@@ -5985,7 +5980,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.name} {res.surname}
                                           </span>
@@ -6003,7 +5998,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.accountnumber}
                                           </span>
@@ -6019,7 +6014,7 @@ const Post = () => {
                                           <Form.Label>ชื่อสินค้า</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.nameproduct}{" "}
                                           </span>
@@ -6035,7 +6030,7 @@ const Post = () => {
                                           <Form.Label>จำนวนเงิน</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.money.toLocaleString(
                                               undefined,
@@ -6055,7 +6050,7 @@ const Post = () => {
                                           <Form.Label>วันที่โดนโกง</Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {moment(
                                               new Date(
@@ -6076,7 +6071,7 @@ const Post = () => {
                                           </Form.Label>
                                         </Form.Group>
 
-                                        <Form.Group>
+                                        <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
                                             {res.social}{" "}
                                           </span>
@@ -6085,7 +6080,6 @@ const Post = () => {
                                       <br />
                                       <Form.Group
                                         as={Col}
-                                        className="้post-left col-lg-6 col-6"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label className="post-lefts">
@@ -6102,7 +6096,6 @@ const Post = () => {
                                       </Form.Group>
                                       <Form.Group
                                         as={Col}
-                                        className="้post-left col-lg-6 col-6"
                                         controlId="formGridPrice"
                                       >
                                         <Form.Label className="post-lefts">
