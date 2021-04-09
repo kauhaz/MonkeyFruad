@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Button, Modal } from "semantic-ui-react";
 import NavbarPage from "../components/navnew";
 import Axios from "axios";
 import "./post.css";
@@ -12,6 +13,8 @@ import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
 
 const Post = () => {
+  const [open, setOpen] = React.useState(false);
+  
   const [show, Setshow] = useState();
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -5742,6 +5745,532 @@ const Post = () => {
                 </div>
               </div>
             </Link>
+            <Modal
+              className="bigslide"
+              centered={false}
+              open={open}
+              onClose={() => setOpen(false)}
+              onOpen={() => setOpen(true)}
+              trigger={
+                <Button className="btnslide">
+                  <i class="fa fa-filter">
+                    <span className="spanslide">&nbsp;ตัวกรอง</span>
+                  </i>
+                </Button>
+              }
+            >
+              <Modal.Header className="nameslide">
+                ค้นหาโพสต์แบบละเอียด
+              </Modal.Header>
+              <button className="btncloseslide" onClick={() => setOpen(false)}>
+                <i class="fa fa-times"></i>
+              </button>
+              <Modal.Content className="slidecontent">
+                <Modal.Description>
+                  <div className="container-postright2-slide">
+                    <div className="post-group1-slide">
+                      เรียงตาม :
+                      <select
+                        as="select"
+                        name="post-groupsorting1-slide"
+                        className="post-groupsorting1-slide"
+                        onChange={(e) => Setsortvalue(e.target.value)}
+                        value={sortvalue}
+                      >
+                        <option value="ใหม่ล่าสุด"> ใหม่ล่าสุด</option>
+                        <option value="จำนวนเงินมากที่สุด">
+                          จำนวนเงินมากที่สุด
+                        </option>
+                      </select>
+                    </div>
+
+                    <div className="line-postgroup1-slide"></div>
+                    <div className="post-group2-slide">
+                      <div className="post-namegroup1-slide">
+                        ช่องทางที่โดนโกง
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput1"
+                          id="defaultInline1"
+                          checked={checkfacebook}
+                          onChange={(e) => Setfacebook(e.target.value)}
+                          onClick={() => Setcheckfacebook(!checkfacebook)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline1"
+                        >
+                          Facebook
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput1"
+                          id="defaultInline2"
+                          checked={checkline}
+                          onChange={(e) => Setline(e.target.value)}
+                          onClick={() => Setcheckline(!checkline)}
+                        />
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline2"
+                        >
+                          Line
+                        </label>
+                      </div>
+
+                      <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput1"
+                          id="defaultInline3"
+                          checked={checkinstagram}
+                          onChange={(e) => Setinstagram(e.target.value)}
+                          onClick={() => Setcheckinstagram(!checkinstagram)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline3"
+                        >
+                          Instagram
+                        </label>
+                      </div>
+
+                      <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput1"
+                          id="defaultInline4"
+                          checked={checktwitter}
+                          onChange={(e) => Settwitter(e.target.value)}
+                          onClick={() => Setchecktwitter(!checktwitter)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline4"
+                        >
+                          Twitter
+                        </label>
+                      </div>
+
+                      <div class="custom-control custom-checkbox groupcheckbox1-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput1"
+                          id="defaultInline5"
+                          checked={checkother}
+                          onChange={(e) => Setother(e.target.value)}
+                          onClick={() => Setcheckother(!checkother)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline5"
+                        >
+                          อื่นๆ
+                        </label>
+                      </div>
+                    </div>
+                    <div className="line-postgroup2-slide"></div>
+                    <div className="post-group3-slide">
+                      <div className="post-namegroup2-slide">หมวดหมู่</div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline1-2"
+                          checked={checkcloth}
+                          onChange={(e) => Setcloth(e.target.value)}
+                          onClick={() => Setcheckcloth(!checkcloth)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline1-2"
+                        >
+                          เสื้อผ้า
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline2-2"
+                          checked={checkassesory}
+                          onChange={(e) => Setassesory(e.target.value)}
+                          onClick={() => Setcheckassesory(!checkassesory)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline2-2"
+                        >
+                          เครื่องประดับ
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline3-2"
+                          checked={checkshoe}
+                          onChange={(e) => Setshoe(e.target.value)}
+                          onClick={() => Setcheckshoe(!checkshoe)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline3-2"
+                        >
+                          รองเท้า
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline4-2"
+                          checked={checkbag}
+                          onChange={(e) => Setbag(e.target.value)}
+                          onClick={() => Setcheckbag(!checkbag)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline4-2"
+                        >
+                          กระเป๋า
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline5-2"
+                          checked={checkphone}
+                          onChange={(e) => Setphone(e.target.value)}
+                          onClick={() => Setcheckphone(!checkphone)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel1"
+                          for="defaultInline5-2"
+                        >
+                          มือถือและอุปกรณ์เสริม
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline6"
+                          checked={checkfood}
+                          onChange={(e) => Setfood(e.target.value)}
+                          onClick={() => Setcheckfood(!checkfood)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline6"
+                        >
+                          อาหารและเครื่องดื่ม
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline7"
+                          checked={checkfoodwealth}
+                          onChange={(e) => Setfoodwealth(e.target.value)}
+                          onClick={() => Setcheckfoodwealth(!checkfoodwealth)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline7"
+                        >
+                          อาหารเสริมและผลิตภัณฑ์สุขภาพ
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline8"
+                          checked={checkbeauty}
+                          onChange={(e) => Setbeauty(e.target.value)}
+                          onClick={() => Setcheckbeauty(!checkbeauty)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline8"
+                        >
+                          เครื่องสำอางค์และอุปกรณ์เสริมความงาม
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline9"
+                          checked={checkcomputer}
+                          onChange={(e) => Setcomputer(e.target.value)}
+                          onClick={() => Setcheckcomputer(!checkcomputer)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline9"
+                        >
+                          คอมพิวเตอร์แล็ปท็อป
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline10"
+                          checked={checkcamera}
+                          onChange={(e) => Setcamera(e.target.value)}
+                          onClick={() => Setcheckcamera(!checkcamera)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline10"
+                        >
+                          กล้องและอุปกรณ์ถ่ายภาพ
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline11"
+                          checked={checksport}
+                          onChange={(e) => Setsport(e.target.value)}
+                          onClick={() => Setchecksport(!checksport)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline11"
+                        >
+                          กีฬาและกิจกรรมกลางแจ้ง
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline12"
+                          checked={checkmedia}
+                          onChange={(e) => Setmedia(e.target.value)}
+                          onClick={() => Setcheckmedia(!checkmedia)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline12"
+                        >
+                          สื่อบันเทิงภายในบ้าน
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline13"
+                          checked={checkgame}
+                          onChange={(e) => Setgame(e.target.value)}
+                          onClick={() => Setcheckgame(!checkgame)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline13"
+                        >
+                          เกมส์และฮ๊อบบี้
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline14"
+                          checked={checkcar}
+                          onChange={(e) => Setcar(e.target.value)}
+                          onClick={() => Setcheckcar(!checkcar)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline14"
+                        >
+                          ยานยนต์
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline15"
+                          checked={checkticket}
+                          onChange={(e) => Setticket(e.target.value)}
+                          onClick={() => Setcheckticket(!checkticket)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline15"
+                        >
+                          ตั๋วและบัตรกำนัน
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline16"
+                          checked={checkelectronic}
+                          onChange={(e) => Setelectronic(e.target.value)}
+                          onClick={() => Setcheckelectronic(!checkelectronic)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline16"
+                        >
+                          เครื่องใช้ไฟฟ้า
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline17"
+                          checked={checkfurniture}
+                          onChange={(e) => Setfurniture(e.target.value)}
+                          onClick={() => Setcheckfurniture(!checkfurniture)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline17"
+                        >
+                          เฟอร์นิเจอร์และของตกแต่งบ้าน
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline18"
+                          checked={checkpet}
+                          onChange={(e) => Setpet(e.target.value)}
+                          onClick={() => Setcheckpet(!checkpet)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline18"
+                        >
+                          สัตว์เลี้ยง
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline19"
+                          checked={checkkian}
+                          onChange={(e) => Setkian(e.target.value)}
+                          onClick={() => Setcheckkian(!checkkian)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline19"
+                        >
+                          เครื่องเขียน
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline20"
+                          checked={checkbook}
+                          onChange={(e) => Setbook(e.target.value)}
+                          onClick={() => Setcheckbook(!checkbook)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline20"
+                        >
+                          หนังสือ
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline21"
+                          checked={checkmusic}
+                          onChange={(e) => Setmusic(e.target.value)}
+                          onClick={() => Setcheckmusic(!checkmusic)}
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline21"
+                        >
+                          เครื่องดนตรี
+                        </label>
+                      </div>
+                      <div class="custom-control custom-checkbox groupcheckbox2-slide">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input groupcheckboxinput2"
+                          id="defaultInline22"
+                          checked={checkothercatalog}
+                          onChange={(e) => Setothercatalog(e.target.value)}
+                          onClick={() =>
+                            Setcheckothercatalog(!checkothercatalog)
+                          }
+                        ></input>
+                        <label
+                          class="custom-control-label groupcheckboxlabel2"
+                          for="defaultInline22"
+                        >
+                          อื่นๆ
+                        </label>
+                      </div>
+                    </div>
+                    <div className="line-postgroup3-slide"></div>
+                    <div className="post-group4-slide">
+                      <div className="post-namegroup3-slide">จำนวนเงิน</div>
+                      <div className="row post-numbergroup1-slide">
+                        <input
+                          type="number"
+                          id="nameproduct"
+                          pattern="[0-9]{1,}"
+                          className="postnumber1-slide"
+                          onChange={(e) =>
+                            Setsearchstart(parseInt(e.target.value))
+                          }
+                          value={searchstart}
+                        ></input>
+                        <div className="post-numbergroup2-slide">-</div>
+                        <input
+                          type="number"
+                          id="nameproduct"
+                          pattern="[0-9]{1,}"
+                          className="postnumber2-slide"
+                          onChange={(e) =>
+                            Setsearchend(parseInt(e.target.value))
+                          }
+                          value={searchend}
+                        ></input>
+                      </div>
+                    </div>
+                  </div>
+                </Modal.Description>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  className="btncloseslide2"
+                  onClick={() => setOpen(false)}
+                >
+                  ปิด
+                </Button>
+              </Modal.Actions>
+            </Modal>
+
             {loading ? (
               <ClipLoader />
             ) : (
