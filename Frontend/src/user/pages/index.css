@@ -229,10 +229,11 @@
 
 .container3-index {
     width: 60%;
-    height: 3060px;
+    /* height: 3060px; */
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
     font-size: 16px ;
     font-family: 'Kanit', sans-serif;
 }
@@ -496,6 +497,10 @@
     color:#414040;
 }
 
+.container-indexbottoms{
+    padding-bottom: 60px;
+}
+
 
 
 /*Responsive*/ 
@@ -522,7 +527,8 @@
         font-size: 16px;
     }
     .container3-index {
-        height: 2850px;
+        /* height: 2850px; */
+        height: auto;
     }
     .gg-index{
         left: 68px;
@@ -774,10 +780,10 @@
     
     .container3-index {
         width: 60%;
-        height: 3060px;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 100px;
+        margin-bottom: 0px;
         font-size: 16px ;
         font-family: 'Kanit', sans-serif;
     }
@@ -1040,6 +1046,10 @@
     .readmore5-index:hover{
         color:#414040;
     }
+
+    .container-indexbottoms{
+        padding-bottom: 60px;
+    }
 }
 
 
@@ -1111,7 +1121,8 @@
     }
     .container3-index {
         width: 65%;
-        height: 2470px;
+        /* height: 2470px; */
+        height: auto;
     }
 
     /*dropsearch*/
@@ -1289,7 +1300,8 @@
         margin-top: -5px;
     }
     .container3-index{
-        height: 2000px;
+        /* height: 2030px; */
+        height: auto;
     }
 
      /*dropsearch*/
@@ -1366,9 +1378,10 @@
     }
     .container3-index{
         width: 90%;
-        height: 3680px;
+        /* height: 3570px; */
         margin-top: 360px;
-        margin-bottom: 60px;
+        margin-bottom: 0px;
+        height: auto;
     }
     .column1-index{
         margin-top: 10px;
@@ -1491,6 +1504,10 @@
         font-size: 13px;
         margin-top: 15px;
     }
+
+    .container-indexbottoms{
+        padding-bottom: 30px;
+    }
 }
 
 @media only screen and (max-width: 376px) {
@@ -1501,8 +1518,9 @@
         height: 160px;
     }
     .container3-index{
-        height: 3600px;
+        /* height: 3600px; */
         margin-top: 265px;
+        height: auto;
     }
     .column1-index{
         margin-top: 17px;
@@ -1610,7 +1628,8 @@
         padding: 25px 4px 25px 0px;
     }
     .container3-index{
-        height: 3600px;
+        /* height: 3600px; */
+        height: auto;
         margin-top: 255px;
     }
     .containermini1-index{

@@ -80,6 +80,7 @@ const Prevent = () => {
             <div className="text-content-prevent">
               ขายสินค้าถูกกว่าท้องตลาดเกินไป
             </div>
+            <div className="container-preventbottom"></div>
           </div>
         </div>
       </div>

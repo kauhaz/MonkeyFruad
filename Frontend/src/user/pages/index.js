@@ -770,6 +770,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div className="container-indexbottoms"></div>
       </div>
       <Chatbot />
     </div>
