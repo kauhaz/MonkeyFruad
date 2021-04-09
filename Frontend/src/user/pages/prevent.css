@@ -122,7 +122,8 @@
         padding-right: 40px;
         font-family: 'Kanit', sans-serif;
         font-size: 20px;
-        height: 1100px;
+        /* height: 1100px; */
+        height: auto;
     }
     .text-content-prevent{
         font-size: 18px;
@@ -159,6 +160,9 @@
         display: block;
         width: 100px;
     }    
+    .container-emty-prevent{
+        padding-bottom: 60px;
+    }
 }
 
  @media only screen and (max-width: 1367px) {
@@ -265,6 +269,9 @@
     .column-prevent3-1{
         margin-top: -281px;
         margin-left: 165px;
+    }
+    .container-emty-prevent{
+        padding-bottom: 45px;
     }
 }
 

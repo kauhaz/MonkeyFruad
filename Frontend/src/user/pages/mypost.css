@@ -38,7 +38,7 @@
   width: 50%;
   border-radius: 10px;
   background-color: white;
-  margin: 60px auto 0px auto !important;
+  margin: 50px auto 0px auto !important;
   padding: 20px;
   font-family: "Kanit", sans-serif;
   font-size: 20px;
@@ -73,9 +73,8 @@
 }
 
 .container-mypostbottoms {
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 }
-
 
 /*report*/
 
@@ -278,10 +277,10 @@
   background: #ffffff;
   border-radius: 7px;
   position: absolute;
-  top: 0px;
-  right: 0;
-  font-size: 15px;
-  width: 110px;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  width: 105px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
@@ -451,6 +450,10 @@
   .btn {
     font-size: 20px !important;
   }
+  .mypostmenusetting {
+    font-size: 16px;
+    width: 11px;
+  }
   .mypost-date {
     font-size: 16px;
     margin-top: -30px;
@@ -487,8 +490,8 @@
     font-size: 18px !important;
   }
   .mypostmenusetting {
-    font-size: 13px;
-    width: 100px;
+    font-size: 14px;
+    width: 105px;
   }
   .showsuccessreport {
     font-size: 22px !important;
@@ -499,7 +502,7 @@
   .container-mypost2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 0 auto !important;
   }
   .spanmypost,
   .spanmypostname,
@@ -565,7 +568,7 @@
   .container-mypost2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 0 auto !important;
   }
   .spanmypost,
   .spanmypostname,
@@ -633,7 +636,7 @@
   .container-mypost2 {
     width: 85%;
     padding: 20px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 0 auto !important;
   }
   .container-myposts3 {
     width: 100%;
@@ -740,7 +743,8 @@
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
-    margin-top: -10px;
+    top: 0;
+    right: 0;
   }
   .line-comments1 {
     margin: 20px 0;
@@ -759,7 +763,7 @@
   .container-mypost2 {
     width: 85%;
     padding: 20px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 0 auto !important;
   }
   .spanmypost,
   .spanmypostname,
@@ -844,6 +848,8 @@
   .mypostmenusetting {
     font-size: 11px;
     width: 90px;
+    top: 0;
+    right: 0;
   }
   .line-comments1 {
     margin: 20px 0;
@@ -863,7 +869,7 @@
   .container-mypost2 {
     width: 85%;
     padding: 20px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 0 auto !important;
   }
   .spanmypost,
   .spanmypostname,
@@ -953,6 +959,8 @@
   .mypostmenusetting {
     font-size: 10px;
     width: 85px;
+    top: 0;
+    right: 0;
   }
   .line-comments1 {
     margin: 20px 0;
