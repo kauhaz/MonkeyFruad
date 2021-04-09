@@ -200,7 +200,6 @@
 }
 
 
-
 /* =================================================================
 
 /* Responsive */
@@ -232,6 +231,9 @@
     }
     .rank-data-row .rank-column {
         font-size: 15px;
+    }
+    .container2-rank{
+        margin-bottom: 80px;
     }
 }
 
@@ -531,7 +533,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 22rem;
+        margin-top: 23rem;
         margin-bottom: 70px;
     }
     .rank-column-row, .rank-data-row {
@@ -544,6 +546,9 @@
     .rank-data-row .rank-column {
         font-size: 10px;
     }
+    /* .container2-rank{
+        margin-bottom: 100px;
+    } */
 }
 
 /* iPhone 6 */
@@ -592,7 +597,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 16rem;
+        margin-top: 17rem;
     }
     .rank-column-row .rank-column, .rank-sort-select {
         font-size: 11px;
