@@ -88,7 +88,7 @@
 /* หน้า entersearch, findthief */
 .container-postss3 {
   width: 94%;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px 40px 20px 40px;
@@ -278,7 +278,7 @@
 .h1-posts {
   margin-top: 50px;
   text-align: center;
-  font-size: 21px;
+  font-size: 22px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
@@ -455,7 +455,7 @@
     font-size: 22px;
   }
   .h1-posts {
-    font-size: 23px;
+    font-size: 21px;
   }
 
   /* slide */
@@ -467,7 +467,7 @@
 
 @media only screen and (max-width: 1367px) {
   .post-linkpost1 {
-    font-size: 22px;
+    font-size: 19px;
   }
   .posts-name1,
   .post-linkpost2,
@@ -501,7 +501,7 @@
     font-size: 20px;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 20px;
   }
   .none-post {
     display: block;
@@ -524,7 +524,7 @@
     margin-left: 60px;
   }
   .post-linkpost1 {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: -10px;
   }
   .container-posts2 {
@@ -574,7 +574,7 @@
     display: block;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 17px;
   }
   .container-posts4 {
     width: 100% !important;
@@ -598,7 +598,7 @@
     margin-left: 20px;
   }
   .post-linkpost1 {
-    font-size: 20px;
+    font-size: 16px;
     margin-left: -10px;
   }
   .container-posts2 {
@@ -653,7 +653,8 @@
   .container-postright2 {
     margin-top: 30px;
   }
-  .container-posts3 {
+  .container-posts3, 
+  .container-postss3 {
     padding: 30px 0px 20px 0px !important;
   }
   .line-posts1 {
@@ -663,7 +664,7 @@
     display: block;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 17px;
   }
   .container-posts4 {
     padding: 0 !important;
@@ -823,12 +824,13 @@
     display: none;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 18px;
   }
   .monkey {
     margin-left: 30px;
   }
-  .container-posts3 {
+  .container-posts3,
+  .container-postss3 {
     padding: 30px 0 0 0 !important;
   }
   .line-posts1 {
@@ -984,12 +986,13 @@
     display: none;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 18px;
   }
   .monkey {
     margin-left: 30px;
   }
-  .container-posts3 {
+  .container-posts3,
+  .container-postss3 {
     padding: 45px 0 0 0 !important;
   }
   .line-posts1 {
@@ -1147,12 +1150,13 @@
     display: none;
   }
   .h1-posts {
-    font-size: 21px;
+    font-size: 17px;
   }
   .monkey {
     margin-left: 10px;
   }
-  .container-posts3 {
+  .container-posts3,
+  .container-postss3 {
     padding: 30px 0 0 0 !important;
   }
   .line-posts1 {

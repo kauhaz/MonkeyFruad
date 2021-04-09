@@ -151,7 +151,9 @@
     width: 100%;
     border-collapse:collapse;
 }
-
+.rank-data-row:hover{
+    background-color: rgb(236, 234, 234) !important;
+}
 .rank-column-row {
     display: flex;
     flex-wrap: wrap;
@@ -184,22 +186,17 @@
     font-size: 16px;
     vertical-align: middle;
     margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .rank-column-row .rank-column {
     font-weight: 600;
 }
 
-.Fall-crisp {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+.container-rankbottoms {
+    padding-bottom: 40px;
 }
-
-
 
 /* =================================================================
 
@@ -232,6 +229,9 @@
     }
     .rank-data-row .rank-column {
         font-size: 15px;
+    }
+    .container2-rank{
+        margin-bottom: 80px;
     }
 }
 
@@ -331,6 +331,9 @@
     }
     .rank-data-row .rank-column {
         font-size: 18px;
+    }
+    .container-rankbottoms {
+        padding-bottom: 60px;
     }
 }
 
@@ -531,7 +534,7 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 22rem;
+        margin-top: 23rem;
         margin-bottom: 70px;
     }
     .rank-column-row, .rank-data-row {
@@ -544,6 +547,9 @@
     .rank-data-row .rank-column {
         font-size: 10px;
     }
+    /* .container2-rank{
+        margin-bottom: 100px;
+    } */
 }
 
 /* iPhone 6 */
@@ -592,13 +598,14 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 16rem;
+        margin-top: 17rem;
     }
     .rank-column-row .rank-column, .rank-sort-select {
         font-size: 11px;
     }
-    .rank-data-row .rank-column {
-        font-size: 10px;
+    .rank-column-row{
+        padding-left: 5px;
+        margin: .3rem auto;
     }
 }
 
@@ -631,7 +638,14 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 15rem;
+        margin-top: 17rem;
         margin-bottom: 65px;
+    }
+    .rank-column-row, .rank-data-row {
+        padding-left: 0px;
+        margin: .3rem auto;
+    }
+    .rank-column {
+        font-size: 10px;
     }
 }
