@@ -168,7 +168,9 @@ const Formedit = ({ check, Setcheck }) => {
   let history = useHistory();
 
   const ok = async () => {
-    const hello = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/edit/${uid}`);
+    const hello = await Axios.get(
+      `https://monkeyfruad01.herokuapp.com/post/edit/${uid}`
+    );
 
     let gethistory = hello.data.item;
     let getDatetime = hello.data.datetime;
@@ -308,7 +310,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="name"
-                                  pattern="[a-z,A-Z,ก-๛]{1,}"
+                                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={name}
@@ -330,7 +332,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="lastname"
-                                  pattern="[a-z,A-Z,ก-๛]{1,}"
+                                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={surname}
@@ -487,7 +489,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   pattern="[0-9]{1,}"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
-                                  min='1'
+                                  min="1"
                                   value={money}
                                   onChange={(event) => {
                                     setMoney(event.target.value);
@@ -544,7 +546,9 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
-                                  max={`${moment(new Date()).format('YYYY-MM-DDTHH:mm')}`} 
+                                  max={`${moment(new Date()).format(
+                                    "YYYY-MM-DDTHH:mm"
+                                  )}`}
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);
