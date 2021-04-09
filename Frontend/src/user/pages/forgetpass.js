@@ -93,7 +93,7 @@ const Forgetpass = () => {
             >
               {({ errors, touched }) => (
                 <Form>
-                  <div className="form-group mb-4">
+                  <div className="form-group-forgetpass mb-4">
                     <Field
                       name="email"
                       type="email"

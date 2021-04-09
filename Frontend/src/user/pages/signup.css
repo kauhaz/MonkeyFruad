@@ -50,7 +50,7 @@
     font-size: 16px;
 }
 
-.form-group, .label-form-title, .form-inside, .province-select option {
+.form-group-signup, .label-form-title, .form-inside, .province-select option {
     font-size: 16px;
 }
 
@@ -158,7 +158,7 @@
     .SignupForm .h1 {
         font-size: 22px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
     .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -182,7 +182,7 @@
     .SignupForm .h1 {
         font-size: 25px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 18px;
     }
     .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -213,7 +213,7 @@
     .SignupForm .h1 {
         font-size: 22px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
     .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -225,6 +225,9 @@
     }
     .alert-signup span{
         font-size: 14px;
+    }
+    .container-signupbottom{
+        padding-bottom: 40px;
     }
 }
 
@@ -243,7 +246,7 @@
         font-size: 20px;
 }
 
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 15px;
     }
     
@@ -274,7 +277,7 @@
         font-size: 19px;
     }
     
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -303,7 +306,7 @@
     .SignupForm .h1 {
         font-size: 20px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 15px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -335,7 +338,7 @@
     .SignupForm .h1 {
         font-size: 20px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
@@ -364,7 +367,7 @@
     .SignupForm .h1 {
         font-size: 20px;
     }
-    .form-group, .label-form-title, .form-inside, .province-select option {
+    .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
     .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{

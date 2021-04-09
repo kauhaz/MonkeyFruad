@@ -225,6 +225,9 @@
     .alert-login span{
         font-size: 14px;
     }
+    .container-loginbottom{
+        padding-bottom: 40px;
+    }
 }
 
 /* iPad Pro */ 

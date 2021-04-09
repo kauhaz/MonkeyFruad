@@ -160,7 +160,7 @@ const Changepass = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-3">
+                  <div className="form-group-changepass mb-3">
                     <Field
                       name="password"
                       type="password"
@@ -184,7 +184,7 @@ const Changepass = () => {
                     />
                   </div>
 
-                  <div className="form-group mb-1">
+                  <div className="form-group-changepass mb-1">
                     <Field
                       name="confirmPassword"
                       type="password"
