@@ -170,7 +170,7 @@ const Modaldelete = ({
       contentLabel="Example Modal"
     >
       <div className="box-modal-delete">
-        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของท่านหรือไม่ ?</div>
+        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของผู้ใช้งานคนนี้หรือไม่ ?</div>
         <div className="box-button-delete">
         <button className="button-delete-ok"
           onClick={() => deletedpost(modalcommentid, modalcommentmore)}
@@ -191,7 +191,7 @@ const Modaldelete = ({
       contentLabel="Example Modal"
     >
       <div className="box-modal-delete">
-        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของท่านหรือไม่ ?</div>
+        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของผู้ใช้งานคนนี้หรือไม่ ?</div>
         <div className="box-button-delete">
         <button className="button-delete-ok"
           onClick={() => deletedAdminMyPost(modalcommentid, modalcommentmore)}
@@ -212,7 +212,7 @@ const Modaldelete = ({
       contentLabel="Example Modal"
     >
       <div className="box-modal-delete">
-        <div className="text-delete">ท่านต้องการที่จะลบโพสต์ของท่านหรือไม่ ?</div>
+        <div className="text-delete">ท่านต้องการที่จะลบประวัติการรายงานหรือไม่ ?</div>
         <div className="box-button-delete">
         <button className="button-delete-ok"
           onClick={() => deletedAdminHideReport(modalcommentid, modalcommentmore)}
