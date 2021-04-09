@@ -205,7 +205,7 @@ const NavbarPage = (props) => {
         console.log(err);
       });
     await axios
-      .post(`http://localhost:7000/post/getnoticlickfalse/${user.uid}`)
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
       .then((result) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
