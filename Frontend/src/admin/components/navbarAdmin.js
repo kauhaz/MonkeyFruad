@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 import React, { useContext, useState, useEffect } from "react";
 import {
   MDBNavbar,
@@ -22,17 +13,17 @@ import {
   MDBBtn,
 } from "mdbreact";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
-import "./navnew.css";
-import { auth } from "../Frontfirebase";
-import usercontext from "../context/usercontext";
+import "../../user/components/navnew.css";
+import { auth } from "../../user/Frontfirebase";
+import usercontext from "../../user/context/usercontext";
 import axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Nav } from "react-bootstrap";
-import Cliploading from "./clipLoader";
+import Cliploading from "../../user/components/clipLoader";
+
 const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
-  const [displayname, setDisplayname] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsopen] = useState(false);
@@ -41,12 +32,8 @@ const NavbarPage = (props) => {
   const [lastsearch, Setlastsearch] = useState();
   const [refresh, Setrefresh] = useState();
   const [allpost, Setallpost] = useState();
-  const [countNoti, setCountNoti] = useState([]);
-  const [noti, setNoti] = useState([]);
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
-  const [hideCountNoti, SetHideCountNoti] = useState(false);
-  const [hideCountNotiAlways, SetHideCountNotiAlways] = useState(false);
   let history = useHistory();
   let i = 0; //forsearch
 
@@ -62,20 +49,6 @@ const NavbarPage = (props) => {
   };
   const toggleCollapse = () => {
     setIsopen(!isOpen);
-  };
-  const notiChangeClick = async () => {
-    if (countNoti.length != 0) {
-      SetHideCountNoti(true);
-      await axios.post(
-        `https://monkeyfruad01.herokuapp.com/post/notichangeclick/${user.uid}`,
-        { countNoti }
-      );
-    }
-  };
-  const notiChangeRead = async (notiId) => {
-    await axios.post(
-      `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
-    );
   };
   const handlesearch = () => {
     try {
@@ -201,29 +174,6 @@ const NavbarPage = (props) => {
         if (result.data.data.role === "admin") {
           setAdmin(true);
         }
-        setDisplayname(result.data.data.username);
-      });
-    await axios
-      .post(
-        `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
-      )
-      .then((result) => {
-        setNoti(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    await axios
-      .post(`http://localhost:7000/post/getnoticlickfalse/${user.uid}`)
-      .then((result) => {
-        if (result.data[0] === undefined) {
-          SetHideCountNotiAlways(true);
-        } else {
-          setCountNoti(result.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
   useEffect(async () => {
@@ -233,7 +183,7 @@ const NavbarPage = (props) => {
     }
     initSearch();
     setLoading(false);
-  }, [user, search, hideCountNoti]);
+  }, [user, search]);
   return admin ? (
     <Router>
       <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
@@ -325,130 +275,18 @@ const NavbarPage = (props) => {
     </Router>
   ) : (
     <Router>
-      <MDBNavbar light expand="md" className="navbarnew">
-        <Nav.Link href="/">
+      <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
+        <MDBNavbarBrand href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
-        </Nav.Link>
-        {/* {props.SetisOpen && props.SetisOpen ? (
-          
-          
-          <MDBBtn
-            className="btnslide"
-            color="default-color"
-            onClick={() => props.SetisOpen(!props.isOpen)}
-          >
-            <i class="fa fa-filter"></i>
-          </MDBBtn>
-
-
-        ) : null} */}
-        {user ? (
-          <MDBDropdown>
-            <MDBDropdownToggle nav className="noti-mobile">
-              <div className="navbar-noti" onClick={() => notiChangeClick()}>
-                <img src="/img/notification.png" className="noti-logo"></img>
-                {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
-                  <span className="badge">{countNoti.length}</span>
-                )}
-              </div>
-            </MDBDropdownToggle>
-            {noti.length != 0 ? (
-              <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                <div className="box-nav-noti">
-                  {noti.map((element, index) => {
-                    return (
-                      <div key={index}>
-                        <MDBDropdownItem
-                          className="hover-noti-nav"
-                          href={`/mypost/${element.postid}`}
-                          onClick={() => notiChangeRead(element.uid)}
-                        >
-                          {element.userCommentData.photoURL ? (
-                            <img
-                              className="img-circle  profile-nav-noti"
-                              src={`${element.userCommentData.photoURL.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle profile-nav-noti"
-                              src="/img/profile.png"
-                            />
-                          )}
-                          {element.read ? (
-                            <div>
-                              <div className="name-nav-noti-read">
-                                @{element.userCommentData.username}
-                              </div>
-                              <p className="text-nav-noti-read">
-                                แสดงความคิดเห็นต่อโพสต์ของคุณ
-                              </p>
-                              <div className="time-nav-noti-read">
-                                {moment(new Date(element.date.seconds * 1000))
-                                  .startOf()
-                                  .fromNow()}
-                              </div>
-                            </div>
-                          ) : (
-                            <div>
-                              <div className="name-nav-noti">
-                                @{element.userCommentData.username}
-                              </div>
-                              <p className="text-nav-noti">
-                                แสดงความคิดเห็นต่อโพสต์ของคุณ
-                              </p>
-                              <div className="time-nav-noti">
-                                {moment(new Date(element.date.seconds * 1000))
-                                  .startOf()
-                                  .fromNow()}
-                              </div>
-                            </div>
-                          )}
-                        </MDBDropdownItem>
-                      </div>
-                    );
-                  })}
-                </div>
-              </MDBDropdownMenu>
-            ) : null}
-          </MDBDropdown>
-        ) : null}
-
+        </MDBNavbarBrand>
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
             <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  โพสต์
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default dropdown-top1">
-                  <MDBDropdownItem href="/post">โพสต์ทั้งหมด</MDBDropdownItem>
-                  <MDBDropdownItem href="/linkruleshow">
-                    สร้างโพสต์
-                  </MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <Nav.Link href="/"> จัดการโพสต์ </Nav.Link>
             </MDBNavItem>
             <MDBNavItem>
-              <Nav.Link href="/ranking">จัดอันดับคนโกง</Nav.Link>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  ช่วยเหลือ
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default dropdown-top2">
-                  <MDBDropdownItem href="/prevent">
-                    รู้ไว้ไม่โดนโกง
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="/help">
-                    หน่วยงานที่ให้ความช่วยเหลือ
-                  </MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-            <MDBNavItem>
-              <Nav.Link href="/contractus">ติดต่อ</Nav.Link>
+              <Nav.Link href="/report">ดูรายงาน</Nav.Link>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
@@ -468,124 +306,9 @@ const NavbarPage = (props) => {
               </div>
             </MDBNavItem>
 
-            <button onClick={() => handlesearch()} className="button-nav">
+            <button onClick={() => adminhandlesearch()} className="button-nav">
               ค้นหา
             </button>
-            {user ? (
-              <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav className="noti-comp">
-                    <div
-                      className="navbar-noti"
-                      onClick={() => notiChangeClick()}
-                    >
-                      <img
-                        src="/img/notification.png"
-                        className="noti-logo"
-                      ></img>
-                      {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
-                        <span className="badge">{countNoti.length}</span>
-                      )}
-                    </div>
-                  </MDBDropdownToggle>
-
-                  {noti.length != 0 ? (
-                    <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                      <div className="box-nav-noti">
-                        {noti.map((element, index) => {
-                          return (
-                            <div key={index}>
-                              <MDBDropdownItem
-                                className="hover-noti-nav"
-                                href={`/mypost/${element.postid}`}
-                                onClick={() => notiChangeRead(element.uid)}
-                              >
-                                {element.userCommentData.photoURL ? (
-                                  <img
-                                    className="img-circle  profile-nav-noti"
-                                    src={`${element.userCommentData.photoURL.url}`}
-                                  />
-                                ) : (
-                                  <img
-                                    className="img-circle profile-nav-noti"
-                                    src="/img/profile.png"
-                                  />
-                                )}
-                                {element.read ? (
-                                  <div>
-                                    <div className="name-nav-noti-read">
-                                      @{element.userCommentData.username}
-                                    </div>
-                                    <p className="text-nav-noti-read">
-                                      แสดงความคิดเห็นต่อโพสต์ของคุณ
-                                    </p>
-                                    <div className="time-nav-noti-read">
-                                      {moment(
-                                        new Date(element.date.seconds * 1000)
-                                      )
-                                        .startOf()
-                                        .fromNow()}
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <div className="name-nav-noti">
-                                      @{element.userCommentData.username}
-                                    </div>
-                                    <p className="text-nav-noti">
-                                      แสดงความคิดเห็นต่อโพสต์ของคุณ
-                                    </p>
-                                    <div className="time-nav-noti">
-                                      {moment(
-                                        new Date(element.date.seconds * 1000)
-                                      )
-                                        .startOf()
-                                        .fromNow()}
-                                    </div>
-                                  </div>
-                                )}
-                              </MDBDropdownItem>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </MDBDropdownMenu>
-                  ) : null}
-                </MDBDropdown>
-              </MDBNavItem>
-            ) : null}
-
-            <MDBNavItem>
-              {user ? (
-                <MDBDropdown>
-                  <MDBDropdownToggle
-                    nav
-                    caret
-                    left
-                    className="dropdown-username-nav"
-                  >
-                    {displayname}
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu
-                    className="dropdown-default dropdown-bottom"
-                    right
-                  >
-                    <MDBDropdownItem href={`/profile/${user.uid}`}>
-                      จัดการโปรไฟล์
-                    </MDBDropdownItem>
-                    <MDBDropdownItem href="/post/history">
-                      ประวัติการโพสต์
-                    </MDBDropdownItem>
-                    <div className="line-nav"></div>
-                    <MDBDropdownItem href="/login" onClick={logout}>
-                      ออกจากระบบ
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-              ) : (
-                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
-              )}
-            </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
@@ -638,54 +361,3 @@ const NavbarPage = (props) => {
 };
 
 export default NavbarPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

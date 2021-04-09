@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import Notfound from "../components/Notfound";
 import ClipLoader from "../../user/components/clipLoader";
 import { Link, useHistory, useLocation } from "react-router-dom";

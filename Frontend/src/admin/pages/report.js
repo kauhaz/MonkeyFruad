@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import "./report.css";
 import ListNonverifypost from "../components/list_non_verifypost";
 import Listverifypost from "../components/list_verify_post";
