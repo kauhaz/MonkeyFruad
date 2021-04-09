@@ -197,8 +197,12 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    width: auto;
 }
 
+.container-mypostbottoms {
+    padding-bottom: 40px;
+}
 
 /* =================================================================
 

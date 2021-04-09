@@ -336,7 +336,7 @@ const Rank = () => {
             : null
           : null}
       </div>
-      <div className="container-mypostbottoms"></div>
+                          <div className="container-mypostbottoms"></div>
       <Chatbot />
     </div>
   );
