@@ -88,10 +88,8 @@
 /* หน้า entersearch, findthief */
 .container-postss3 {
   width: 94%;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 40px 40px 20px 40px;
+  margin: 30px auto 0 auto;
+  padding: 20px 20px 0 20px;
 }
 .spanpost {
   font-size: 16px;
@@ -161,14 +159,8 @@
   width: 100%;
   background-color: white;
   border-radius: 10px;
-  margin-top: 40px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 40px auto 0 auto;
+  padding: 20px;
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
@@ -176,16 +168,9 @@
   width: 100%;
   background-color: white;
   border-radius: 10px;
-  margin-top: 120px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 120px auto 0 auto;
+  padding: 20px;
   font-family: "Kanit", sans-serif;
-  font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
 .post-group1 {
@@ -278,7 +263,7 @@
 .h1-posts {
   margin-top: 50px;
   text-align: center;
-  font-size: 22px;
+  font-size: 21px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
@@ -421,7 +406,7 @@
     width: 60%;
   }
   .post-linkpost1 {
-    font-size: 24px;
+    font-size: 25px;
   }
   .posts-name1,
   .post-linkpost2,
@@ -442,20 +427,17 @@
   .spanpostname,
   .spanpost1,
   .groupcheckbox1,
-  .groupcheckbox2
+  .groupcheckbox2,
   .postnumber1,
-  .postnumber2  {
+  .postnumber2 {
     font-size: 18px;
   }
   .post-lefts {
     font-size: 16px;
     width: 500px;
   }
-  .container-postrights2 {
-    font-size: 22px;
-  }
   .h1-posts {
-    font-size: 21px;
+    font-size: 24px;
   }
 
   /* slide */
@@ -467,7 +449,7 @@
 
 @media only screen and (max-width: 1367px) {
   .post-linkpost1 {
-    font-size: 19px;
+    font-size: 22px;
   }
   .posts-name1,
   .post-linkpost2,
@@ -488,20 +470,16 @@
   .spanpostname,
   .spanpost1,
   .groupcheckbox1,
-  .groupcheckbox2
-  .postnumber1,
-  .postnumber2  {
+  .groupcheckbox2 .postnumber1,
+  .postnumber2 {
     font-size: 16px;
   }
   .post-lefts {
     font-size: 16px;
     width: 415px;
   }
-  .container-postrights2 {
-    font-size: 20px;
-  }
   .h1-posts {
-    font-size: 20px;
+    font-size: 21px;
   }
   .none-post {
     display: block;
@@ -517,7 +495,12 @@
   .container-bigpost1 {
     width: 80%;
   }
-  .container-post1 {
+  .container-post1,
+  .container-postright1 {
+    margin-top: 30px;
+    height: 140px;
+  }
+  .container-postright2 {
     margin-top: 30px;
   }
   .monkey {
@@ -536,7 +519,12 @@
   .post-date {
     font-size: 13px;
   }
-  .post-linkpost2,
+  .post-linkpost2 {
+    font-size: 15px;
+  }
+  .facebook {
+    width: 19%;
+  }
   .post-group1,
   .post-namegroup1,
   .post-namegroup2,
@@ -563,9 +551,8 @@
     height: 25px;
     font-size: 15px;
   }
-  .container-postright1,
-  .container-postright2 {
-    margin-top: 30px;
+  .container-postrights2 {
+    margin: 80px auto 0 auto;
   }
   .line-posts1 {
     margin: 20px 0 !important;
@@ -575,6 +562,7 @@
   }
   .h1-posts {
     font-size: 17px;
+    margin: 30px 0;
   }
   .container-posts4 {
     width: 100% !important;
@@ -591,14 +579,20 @@
   .container-bigpost1 {
     width: 80%;
   }
-  .container-post1 {
+  .container-post1,
+  .container-postright1 {
+    margin-top: 30px;
+    padding: 17px;
+    height: 140px;
+  }
+  .container-postright2 {
     margin-top: 30px;
   }
   .monkey {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   .post-linkpost1 {
-    font-size: 16px;
+    font-size: 19px;
     margin-left: -10px;
   }
   .container-posts2 {
@@ -611,7 +605,12 @@
   .post-date {
     font-size: 11px;
   }
-  .post-linkpost2,
+  .post-linkpost2 {
+    font-size: 14px;
+  }
+  .facebook {
+
+  }
   .post-group1,
   .post-namegroup1,
   .post-namegroup2,
@@ -649,11 +648,10 @@
     height: 25px;
     font-size: 13px;
   }
-  .container-postright1,
-  .container-postright2 {
-    margin-top: 30px;
+  .container-postrights2 {
+    margin: 80px auto 0 auto;
   }
-  .container-posts3, 
+  .container-posts3,
   .container-postss3 {
     padding: 30px 0px 20px 0px !important;
   }
@@ -665,6 +663,7 @@
   }
   .h1-posts {
     font-size: 17px;
+    margin: 30px 0;
   }
   .container-posts4 {
     padding: 0 !important;
@@ -820,11 +819,13 @@
   .container-postright1 {
     display: none;
   }
-  .container-postright2 {
+  .container-postright2,
+  .container-postrights2 {
     display: none;
   }
   .h1-posts {
     font-size: 18px;
+    margin: 30px 0;
   }
   .monkey {
     margin-left: 30px;
@@ -982,11 +983,13 @@
   .container-postright1 {
     display: none;
   }
-  .container-postright2 {
+  .container-postright2,
+  .container-postrights2 {
     display: none;
   }
   .h1-posts {
     font-size: 18px;
+    margin: 30px 0;
   }
   .monkey {
     margin-left: 30px;
@@ -1146,11 +1149,13 @@
   .container-postright1 {
     display: none;
   }
-  .container-postright2 {
+  .container-postright2,
+  .container-postrights2 {
     display: none;
   }
   .h1-posts {
     font-size: 17px;
+    margin: 30px 0;
   }
   .monkey {
     margin-left: 10px;
