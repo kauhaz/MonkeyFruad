@@ -20,6 +20,7 @@ import axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Nav } from "react-bootstrap";
+import Cliploading from "./clipLoader";
 const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
@@ -183,7 +184,7 @@ const NavbarPage = (props) => {
   };
 
   const initUser = async () => {
-  await axios
+    await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       })
@@ -193,7 +194,7 @@ const NavbarPage = (props) => {
         }
         setDisplayname(result.data.data.username);
       });
-  await axios
+    await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
       )
@@ -203,10 +204,8 @@ const NavbarPage = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  await axios
-      .post(
-        `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
-      )
+    await axios
+      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
       .then((result) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
@@ -219,15 +218,14 @@ const NavbarPage = (props) => {
       });
   };
   useEffect(async () => {
-    if (user){
- await initUser()
-  setLoading(false);
+    if (user) {
+      await initUser();
+      setLoading(false);
     }
     initSearch();
+    setLoading(false);
   }, [user, search, hideCountNoti]);
-  return loading ? (
-    ""
-  ) : admin ? (
+  return admin ?  (
     <Router>
       <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
         <MDBNavbarBrand href="/">
@@ -340,7 +338,7 @@ const NavbarPage = (props) => {
             <MDBDropdownToggle nav className="noti-mobile">
               <div className="navbar-noti" onClick={() => notiChangeClick()}>
                 <img src="/img/notification.png" className="noti-logo"></img>
-                {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
                   <span className="badge">{countNoti.length}</span>
                 )}
               </div>
@@ -476,7 +474,7 @@ const NavbarPage = (props) => {
                         src="/img/notification.png"
                         className="noti-logo"
                       ></img>
-                      {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                      {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
                         <span className="badge">{countNoti.length}</span>
                       )}
                     </div>

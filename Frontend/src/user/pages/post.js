@@ -5769,7 +5769,9 @@ const Post = () => {
               onOpen={() => setOpen(true)}
               trigger={
                 <Button className="btnslide">
-                  <i class="fa fa-filter">ตัวกรอง</i>
+                  <i class="fa fa-filter">
+                    <span className="spanslide">&nbsp;ตัวกรอง</span>
+                  </i>
                 </Button>
               }
             >
@@ -6431,6 +6433,7 @@ const Post = () => {
                                   <span className="spanpostname">
                                     {res.name} {res.surname}
                                   </span>{" "}
+                                  <div className="none-post"></div>
                                   ถูกแจ้งทั้งหมด{" "}
                                   <span className="spanpost1">
                                     {res.count} ครั้ง
@@ -6634,6 +6637,7 @@ const Post = () => {
                                           <span className="spanpostname">
                                             {res.name} {res.surname}
                                           </span>{" "}
+                                          <div className="none-post"></div>
                                           ถูกแจ้งทั้งหมด{" "}
                                           <span className="spanpost1">
                                             {res.count} ครั้ง
