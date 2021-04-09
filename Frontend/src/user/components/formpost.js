@@ -453,9 +453,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="datetime-local"
                     placeholder=""
-                    max={`${moment(new Date()).format(
-                      "YYYY-MM-DDTHH:mm"
-                    )}`}
+                    max={`${moment(new Date()).format("YYYY-MM-DDTHH:mm")}`}
                     required
                     onChange={(event) => {
                       setDatetime(event.target.value);
