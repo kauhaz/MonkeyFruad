@@ -208,6 +208,9 @@
 }
 
 @media only screen and (max-width: 1025px) {
+  .mypost-comment-comments1 {
+    grid-template-columns: 8% 92%;
+  }
   .inputcommentmypost2,
   .h1-mypostfileerror {
     font-size: 15px;
@@ -226,9 +229,17 @@
   .imgcommentitemmypost2 {
     margin: 20px 0 -25px 0;
   }
+  .profile-comment2{
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
+  .mypost-comment-comments1 {
+    padding: 0;
+    grid-template-columns: 10% 90%;
+  }
   .inputcommentmypost2,
   .h1-mypostfileerror {
     font-size: 13px;
@@ -243,6 +254,10 @@
   }
   .mypost-section-commment {
     padding: 10px 20px;
+  }
+  .profile-comment2{
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -333,7 +348,7 @@
 @media only screen and (max-width: 321px) {
   .mypost-comment-comments1 {
     padding: 0;
-    grid-template-columns: 22% 68% !important;
+    grid-template-columns: 22% 78% !important;
   }
   .profile-comment2{
     width: 40px;

@@ -228,8 +228,7 @@
 }
 
 .mypost-comment-time1 {
-  margin-left: 5px;
-  margin-top: -55px;
+  margin: -55px 0 0 5px;
   font-size: 14px;
   color: grey;
 }
@@ -340,13 +339,17 @@
     font-size: 16px;
   }
   .commentboxmypost {
-    grid-template-columns: 6% 1fr 14%;
+    grid-template-columns: 8% 1fr 14%;
   }
 }
 
 @media only screen and (max-width: 1025px) {
   .header-mypost-comment {
     grid-template-columns: 8% 1fr 5%;
+  }
+  .profile-listcomment2 {
+    width: 50px;
+    height: 50px;
   }
   .imgcommentitemmypost {
     grid-gap: 15px 0;
@@ -401,6 +404,10 @@
 @media only screen and (max-width: 769px) {
   .header-mypost-comment {
     grid-template-columns: 11% 1fr 6%;
+  }
+  .profile-listcomment2 {
+    width: 50px;
+    height: 50px;
   }
   .mypost-comment-name1 {
     font-size: 15px;
@@ -544,6 +551,9 @@
     font-size: 15px;
     width: 160px;
   }
+  .none-listcomment2 {
+    display: block;
+  }
   .mypostcommentrow {
     padding: 15px !important;
   }
@@ -613,8 +623,11 @@
     font-size: 14px;
     margin-left: 0px;
   }
+  .none-listcomment2 {
+    display: block;
+  }
   .mypostcommentrow {
-    padding: 15px;
+    padding: 10px !important;
   }
   .mypostcommentbuttonsetting {
     margin-top: -15px;

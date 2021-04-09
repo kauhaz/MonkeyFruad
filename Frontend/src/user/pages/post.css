@@ -4,22 +4,18 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .column-post-left1 {
   width: 63%;
   height: 2000px;
 }
-
 .column-post-right1 {
   width: 34%;
   height: 50px;
 }
-
 .postbigrow {
   width: 100%;
   margin: 0 !important;
 }
-
 .container-post1 {
   width: 90%;
   height: 180px;
@@ -33,17 +29,14 @@
   grid-template-columns: 30% 70%;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .container-post1:hover {
   background-color: rgb(245, 245, 245);
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .monkey {
   width: 80%;
   margin-left: 80px;
 }
-
 .post-linkpost1 {
   width: 100%;
   font-size: 22px;
@@ -51,11 +44,9 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-
 .container-bottoms {
   padding-bottom: 60px;
 }
-
 .container-posts2 {
   width: 90%;
   border-radius: 10px;
@@ -65,7 +56,6 @@
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .post-profile-img img.img-circle {
   width: 50px;
   height: 50px;
@@ -73,26 +63,22 @@
   object-position: center;
   border-radius: 50%;
 }
-
 .posts-name1 {
   margin-left: 80px;
   margin-top: -55px;
   color: #212529;
   font-size: 18px;
 }
-
 .post-date {
   margin-left: 60px;
   margin-top: -25px;
   color: #5c5c5c;
   font-size: 14px;
 }
-
 .post-time {
   margin-left: 20px;
   color: grey;
 }
-
 .container-posts3 {
   width: 94%;
   margin-top: 30px;
@@ -109,50 +95,40 @@
   margin-right: auto;
   padding: 40px 40px 20px 40px;
 }
-
 .spanpost {
   color: #ff392e;
 }
-
 .spanpostname {
   color: #ff392e;
 }
-
 .spanpost1 {
   color: #ff392e;
 }
-
 .post-lefts {
   width: 500px;
   margin-left: -15px;
 }
-
 .formsize-post {
   margin-top: -30px;
 }
-
 .form-label,
 .spanpost {
   font-size: 16px;
 }
-
 .postothers {
   color: blue;
   font-size: 16px;
   text-align: right;
 }
-
 .line-posts1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
   margin-top: 10px;
 }
-
 .container-posts4 {
   width: 100%;
   padding: 20px;
 }
-
 .container-postright1 {
   width: 100%;
   height: 180px;
@@ -163,12 +139,10 @@
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .container-postright1:hover {
   background-color: rgb(245, 245, 245);
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .post-linkpost2 {
   text-align: center;
   margin-top: 5px;
@@ -176,15 +150,12 @@
   margin-bottom: 5px;
   color: #5c5c5c;
 }
-
 .post-img1 {
   text-align: center;
 }
-
 .facebook {
   width: 20%;
 }
-
 .container-postright2 {
   width: 100%;
   background-color: white;
@@ -200,7 +171,6 @@
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .container-postrights2 {
   width: 100%;
   background-color: white;
@@ -217,12 +187,10 @@
   font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .post-group1 {
   font-size: 18px;
   color: #5c5c5c;
 }
-
 .post-groupsorting1 {
   margin-left: 30px;
   width: 50%;
@@ -233,7 +201,6 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-
 .line-postgroup1 {
   text-align: center;
   margin-top: 35px;
@@ -241,20 +208,17 @@
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup1 {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .groupcheckbox1 {
   color: #5c5c5c;
   font-size: 16px;
   margin-bottom: 5px;
   z-index: 0;
 }
-
 .line-postgroup2 {
   text-align: center;
   margin-top: 35px;
@@ -262,20 +226,17 @@
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup2 {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .groupcheckbox2 {
   color: #5c5c5c;
   font-size: 16px;
   margin-bottom: 5px;
   z-index: 0;
 }
-
 .line-postgroup3 {
   text-align: center;
   margin-top: 35px;
@@ -283,13 +244,11 @@
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup3 {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .postnumber1 {
   width: 30%;
   height: 35px;
@@ -300,7 +259,6 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-
 .postnumber2 {
   width: 30%;
   height: 35px;
@@ -310,7 +268,6 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-
 .post-numbergroup2 {
   margin-left: 10px;
   margin-right: 10px;
@@ -324,13 +281,11 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-
 .spansearch {
   color: #ff392e;
 }
 
 /* หน้า managepost */
-
 .adminbuttonreported {
   float: right;
   border: none;
@@ -338,24 +293,20 @@
   color: gray;
   border-radius: 50px;
 }
-
 .adminbuttonreported:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .column-post-lefts1 {
   width: 63%;
   margin-left: 15px;
   height: 2000px;
   margin-top: 30px;
 }
-
 .column-post-rights1 {
   width: 34%;
   height: 50px;
   margin-top: 30px;
 }
-
 .post-left1 {
   width: 63%;
   margin-left: auto;
@@ -365,24 +316,23 @@
 .fa-check-circle {
   color: gray;
 }
+.none-post {
+  display: none;
+}
 
 /*slide*/
-
 .btnslide {
   display: none !important;
 }
-
 .container-postright2-slide {
   width: 100%;
   padding: 0 20px;
   font-family: "Kanit", sans-serif;
 }
-
 .post-group1-slide {
   font-size: 18px;
   color: #5c5c5c;
 }
-
 .post-groupsorting1-slide {
   margin-left: 30px;
   width: 50%;
@@ -393,60 +343,51 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-
 .line-postgroup1-slide {
   text-align: center;
   margin: 20px 0;
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup1-slide {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .groupcheckbox1-slide {
   color: #5c5c5c;
   font-size: 16px;
   /* margin: 0 50px -10px 5px; */
   z-index: 0;
 }
-
 .line-postgroup2-slide {
   text-align: center;
   margin: 20px 0;
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup2-slide {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .groupcheckbox2-slide {
   color: #5c5c5c;
   font-size: 16px;
   margin-bottom: 5px;
   z-index: 0;
 }
-
 .line-postgroup3-slide {
   text-align: center;
   margin: 20px 0;
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
 }
-
 .post-namegroup3-slide {
   color: #5c5c5c;
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .postnumber1-slide {
   width: 30%;
   height: 35px;
@@ -457,12 +398,10 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-
 .post-numbergroup2-slide {
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .postnumber2-slide {
   width: 30%;
   height: 35px;
@@ -705,14 +644,27 @@
   .ui.modal > .content {
     padding: 0 1rem 1rem 1rem !important;
   }
+  .ui.modal > .header:not(.ui) {
+    font-weight: 100;
+  }
   .btnslide {
+    width: 35%;
+    height: 30px;
+    margin: 20px 0 20px 230px !important;
+    padding: 5px !important;
+    border-radius: 45px !important;
     display: block !important;
-    background: none !important;
-    color: none !important;
+    color: #5c5c5c !important;
+    background: #d9e9f2 !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
   }
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
+  }
+  .spanslide {
+    font-size: 15px !important;
+    font-family: "Kanit", sans-serif !important;
   }
   .nameslide {
     font-size: 17px !important;
@@ -734,7 +686,7 @@
     padding: 0.75rem 0.5rem 0.75rem !important;
   }
   .btncloseslide2 {
-    font-size: 17px !important;
+    font-size: 15px !important;
     color: #fff !important;
     border-radius: 0.5rem;
     padding: 10px 15px !important;
@@ -756,11 +708,11 @@
   .container-post1 {
     width: 96.5%;
     height: 120px;
-    margin-top: 0px;
+    margin-top: 30px;
   }
   .container-posts2 {
     width: 96.5%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .posts-name1 {
     font-size: 15px;
@@ -840,6 +792,9 @@
   .container-posts4 {
     padding: 0;
   }
+  .none-post {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 376px) {
@@ -859,14 +814,27 @@
   .ui.modal > .content {
     padding: 0 1rem 1rem 1rem !important;
   }
+  .ui.modal > .header:not(.ui) {
+    font-weight: 100;
+  }
   .btnslide {
+    width: 35%;
+    height: 30px;
+    margin: 20px 0 20px 210px !important;
+    padding: 5px !important;
+    border-radius: 45px !important;
     display: block !important;
-    background: none !important;
-    color: none !important;
+    color: #5c5c5c !important;
+    background: #d9e9f2 !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
   }
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
+  }
+  .spanslide {
+    font-size: 15px !important;
+    font-family: "Kanit", sans-serif !important;
   }
   .nameslide {
     font-size: 17px !important;
@@ -877,25 +845,35 @@
     background: none !important;
     border: none !important;
     padding: 0 !important;
-    margin: -60px 0 0 255px !important;
+    margin: -60px 0 0 230px !important;
     vertical-align: middle;
   }
   .fa-times {
     font-size: 20px !important;
     color: #5c5c5c;
   }
-  .slidecontent {
-    padding: 0 !important;
+  .ui.modal > .actions {
+    padding: 0.75rem 0.5rem 0.75rem !important;
+    margin: 0 20px 0 0 !important;
+  }
+  .btncloseslide2 {
+    font-size: 15px !important;
+    color: #fff !important;
+    border-radius: 0.5rem;
+    padding: 10px 15px !important;
+    margin: 0 !important;
+    background-color: #5c83cc !important;
+    font-family: "Kanit", sans-serif !important;
   }
   /* end-slide */
   .container-post1 {
     width: 96.5%;
     height: 110px;
-    margin-top: 0px;
+    margin-top: 30px;
   }
   .container-posts2 {
     width: 96.5%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .posts-name1 {
     font-size: 15px;
@@ -927,6 +905,7 @@
   }
   .post-groupsorting1-slide {
     font-size: 13px;
+    width: 140px;
     height: 25px;
     margin: 0 10px;
   }
@@ -971,6 +950,9 @@
   .container-posts4 {
     padding: 0;
   }
+  .none-post {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 321px) {
@@ -980,8 +962,8 @@
   }
   /* slide */
   .bigslide {
-    width: 70% !important;
-    margin: 0 0 0 30% !important;
+    width: 90% !important;
+    margin: 0 0 0 15% !important;
     height: auto !important;
   }
   .ui.modal .content > .description {
@@ -990,14 +972,27 @@
   .ui.modal > .content {
     padding: 0 1rem 1rem 1rem !important;
   }
+  .ui.modal > .header:not(.ui) {
+    font-weight: 100;
+  }
   .btnslide {
+    width: 35%;
+    height: 30px;
+    margin: 20px 0 20px 180px !important;
+    padding: 5px !important;
+    border-radius: 45px !important;
     display: block !important;
-    background: none !important;
-    color: none !important;
+    color: #5c5c5c !important;
+    background: #d9e9f2 !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
   }
   .fa-filter {
     font-size: 14px !important;
     color: #5c5c5c;
+  }
+  .spanslide {
+    font-size: 15px !important;
+    font-family: "Kanit", sans-serif !important;
   }
   .nameslide {
     font-size: 16px !important;
@@ -1008,26 +1003,35 @@
     background: none !important;
     border: none !important;
     padding: 0 !important;
-    margin: -60px 0 0 255px !important;
+    margin: -60px 0 0 235px !important;
     vertical-align: middle;
   }
   .fa-times {
     font-size: 20px !important;
     color: #5c5c5c;
   }
-  .slidecontent {
-    padding: 0 !important;
+  .ui.modal > .actions {
+    padding: 0.75rem 0.5rem 0.75rem !important;
+  }
+  .btncloseslide2 {
+    font-size: 14px !important;
+    color: #fff !important;
+    border-radius: 0.5rem;
+    padding: 10px 15px !important;
+    margin: 0 !important;
+    background-color: #5c83cc !important;
+    font-family: "Kanit", sans-serif !important;
   }
   /* end-slide */
 
   .container-post1 {
     width: 96.5%;
     height: 100px;
-    margin-top: 0px;
+    margin-top: 30px;
   }
   .container-posts2 {
     width: 96.5%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .posts-name1 {
     font-size: 14px;
@@ -1057,11 +1061,12 @@
     font-size: 12px;
     height: 25px;
   }
-  /* .post-groupsorting1-slide {
+  .post-groupsorting1-slide {
     font-size: 12px;
+    width: 135px;
     height: 25px;
     margin: 0 10px;
-  } */
+  }
   .container-postright1 {
     display: none;
   }
@@ -1104,5 +1109,8 @@
   }
   .container-posts4 {
     padding: 0;
+  }
+  .none-post {
+    display: block;
   }
 }
