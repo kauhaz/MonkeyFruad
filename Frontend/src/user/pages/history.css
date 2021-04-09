@@ -5,14 +5,12 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-
 .h2-history {
   margin-top: 50px;
   font-size: 20px;
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-
 .container-history1 {
   padding-top: 0px;
   padding-bottom: 10px;
@@ -20,7 +18,6 @@
   margin-right: auto;
   width: 40%;
 }
-
 .container-history2 {
   background-color: white;
   border-radius: 10px;
@@ -30,18 +27,15 @@
   font-size: 16px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .historyimg-setting {
   width: 30px;
 }
-
 .menu-containerhistorysetting {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .historybuttonsetting {
   margin-top: -33px;
   width: 30px;
@@ -58,18 +52,16 @@
   transition: box-shadow 0.4s ease;
   margin-left: auto; /* Strictly for positioning */
 }
-
 .historybuttonsetting:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .historymenusetting {
   background: #ffffff;
   border-radius: 7px;
   position: absolute;
-  top: 0px;
-  right: 0;
-  font-size: 15px;
+  top: 5px;
+  right: 2px;
+  font-size: 14px !important;
   width: 110px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -77,37 +69,31 @@
   transform: translateY(-20px);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
-
 .historymenusetting.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-
 .historymenusetting .ul-historymenusetting {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .historymenusetting .li-historymenusetting {
   border-bottom: 1px solid #dddddd;
 }
-
 .historymenusetting .li-historymenusetting .a-historymenusetting {
   text-decoration: none;
   color: #333333;
   padding: 15px 20px;
   display: block;
 }
-
 .historymenusetting
   .li-historymenusetting
   .a-historymenusetting
   .a-historymenusetting1 {
   color: #333333;
 }
-
 .historymenusetting
   .li-historymenusetting
   .a-historymenusetting
@@ -116,19 +102,17 @@
 }
 .a-historymenusetting,
 .a-historymenusetting1 {
-  font-size: 16px;
+  font-size: 14px;
 }
 .spanhistory {
   color: #ff392e;
   font-size: 16px;
 }
-
 .historyother {
   color: blue;
   font-size: 16px;
   text-align: right;
 }
-
 .container-history5 {
   width: 40%;
   margin-left: auto;
@@ -136,11 +120,9 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-
 .left-history {
   font-size: 16px;
 }
-
 .containeremty-history {
   margin-bottom: 100px;
 }
@@ -150,11 +132,9 @@
   .h1-history {
     font-size: 25px;
   }
-
   .h2-history {
     font-size: 23px;
   }
-
   .historyother,
   .left-history,
   .spanhistory {
@@ -164,17 +144,18 @@
   .a-historymenusetting1 {
     font-size: 16px;
   }
+  .historymenusetting {
+    width: 110px;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
   .h1-history {
     font-size: 22px;
   }
-
   .h2-history {
     font-size: 20px;
   }
-
   .historyother,
   .left-history,
   .spanhistory {
@@ -183,6 +164,9 @@
   .a-historymenusetting,
   .a-historymenusetting1 {
     font-size: 14px;
+  }
+  .historymenusetting {
+    width: 105px;
   }
 }
 
@@ -194,7 +178,6 @@
   .h1-history {
     font-size: 20px;
   }
-
   .h2-history {
     font-size: 18px;
   }
@@ -207,13 +190,15 @@
   .a-historymenusetting1 {
     font-size: 13px;
   }
+  .historymenusetting {
+    width: 100px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
   .h1-history {
     font-size: 19px;
   }
-
   .h2-history {
     font-size: 17px;
   }
@@ -225,6 +210,9 @@
   .a-historymenusetting,
   .a-historymenusetting1 {
     font-size: 11px;
+  }
+  .historymenusetting {
+    width: 90px;
   }
 }
 @media only screen and (max-width: 415px) {
@@ -240,7 +228,6 @@
     margin-top: 30px;
     margin-bottom: 20px;
   }
-
   .h2-history {
     font-size: 20px;
   }
@@ -251,7 +238,7 @@
   }
   .a-historymenusetting,
   .a-historymenusetting1 {
-    font-size: 13px;
+    font-size: 11px;
   }
   .historyimg-setting,
   .historybuttonsetting {
@@ -261,8 +248,7 @@
     margin-bottom: 50px;
   }
   .historymenusetting {
-    width: 100px;
-    top: 10px;
+    width: 90px;
   }
 }
 @media only screen and (max-width: 376px) {
@@ -279,14 +265,17 @@
   }
   .a-historymenusetting,
   .a-historymenusetting1 {
-    font-size: 12px;
+    font-size: 11px;
+  }
+  .historyimg-setting,
+  .historybuttonsetting {
+    width: 25px;
   }
   .container-history2 {
     padding: 45px 15px 20px 20px;
   }
   .historymenusetting {
-    width: 95px;
-    top: 10px;
+    width: 90px;
   }
 }
 
@@ -298,13 +287,16 @@
   }
   .a-historymenusetting,
   .a-historymenusetting1 {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  .historyimg-setting,
+  .historybuttonsetting {
+    width: 25px;
   }
   .container-history2 {
     padding: 45px 10px 20px 20px;
   }
   .historymenusetting {
-    width: 95px;
-    top: 10px;
+    width: 85px;
   }
 }
