@@ -1,7 +1,49 @@
 .box-load-report{
     position: static;
-    margin-left: -50px;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 117px;
 }
 
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+    .box-load-report{
+        margin-right: 110px;
+    }
+}
+
+@media only screen and (max-width: 1367px) {
+    .box-load-report{
+        margin-right: 115px;
+    }    
+}
+
+@media only screen and (max-width: 1025px) {
+    .box-load-report{
+        margin-right: 115px;
+    }   
+}
+
+@media only screen and (max-width: 769px) {
+    .box-load-report{
+        margin-right: 80px;
+    }  
+}
+
+@media only screen and (max-width: 415px) {
+    .box-load-report{
+        margin-right: 40px;
+    }   
+}
+
+@media only screen and (max-width: 376px) {
+    .box-load-report{
+        margin-right: 22px;
+    }  
+}
+
+@media only screen and (max-width: 321px) {
+    .box-load-report{
+        margin-right: 0px;
+    }   
+}

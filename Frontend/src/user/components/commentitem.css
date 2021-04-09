@@ -18,7 +18,7 @@
 
 .post-comment-comments1 {
   display: grid;
-  grid-template-columns: 9.5% 1fr !important;
+  grid-template-columns: 9.5% 90.5% !important;
   padding: 10px 0;
 }
 
@@ -71,14 +71,14 @@
 .imgcommentitempost1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 20px 0 -30px 0;
+  margin: 20px 0 -42px 0;
 }
 
 .imgpreviewa1 {
   position: relative;
   margin: 0;
-  width: 90px;
-  height: 90px;
+  width: 91px;
+  height: 91px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -155,18 +155,18 @@
   font-family: "Kanit", sans-serif;
   text-align: center;
   font-size: 18px;
-  margin: 15px 0;
+  margin: 5px 0 !important;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .post-comment-comments1 {
-    grid-template-columns: 9% 1fr !important;
+    grid-template-columns: 9% 91% !important;
   }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 100px;
-    height: 100px;
+    width: 101.5px;
+    height: 101.5px;
   }
   .postother2 {
     font-size: 18px;
@@ -179,21 +179,24 @@
 
 @media only screen and (max-width: 1367px) {
   .post-comment-comments1 {
-    grid-template-columns: 11% 1fr !important;
+    grid-template-columns: 11% 89% !important;
   }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 75px;
-    height: 75px;
+    width: 74px;
+    height: 74px;
   }
   .postother2 {
     font-size: 16px;
+  }
+  .uploadproveedit2 {
+    padding: 25px;
   }
 }
 
 @media only screen and (max-width: 1025px) {
   .post-comment-comments1 {
-    grid-template-columns: 12% 1fr !important;
+    grid-template-columns: 12% 88% !important;
   }
   .post-section-commment {
     padding: 15px;
@@ -204,11 +207,15 @@
   }
   .imgcommentitempost1 {
     grid-template-columns: 1fr 1fr;
+    margin: 20px 0 -30px 0;
+  }
+  .uploadproveedit2 {
+    padding: 55px !important;
   }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 150px;
-    height: 130px;
+    width: 156px;
+    height: 156px;
   }
   .postother2 {
     font-size: 15px;
@@ -221,19 +228,22 @@
 
 @media only screen and (max-width: 769px) {
   .post-comment-comments1 {
-    grid-template-columns: 16% 1fr !important;
+    grid-template-columns: 16% 84% !important;
   }
-  /* .post-section-commment {
+  .post-section-commment {
     padding: 15px;
-  } */
+  }
   .post-comment-commentsall {
     display: grid;
     grid-template-columns: 34px 1fr 36px !important;
   }
+  .uploadproveedit2 {
+    padding: 35px !important;
+  }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 125px;
-    height: 125px;
+    width: 99px;
+    height: 99px;
   }
   .postother2 {
     font-size: 13px;
@@ -251,19 +261,22 @@
 @media only screen and (max-width: 415px) {
   .post-comment-comments1 {
     padding: 0 !important;
-    grid-template-columns: 14% 1fr !important;
+    grid-template-columns: 14% 86% !important;
   }
-  /* .post-section-commment {
+  .post-section-commment {
     padding: 10px;
-  } */
+  }
   .post-comment-commentsall {
     display: grid;
     grid-template-columns: 30px 1fr 36px !important;
   }
+  .uploadproveedit2 {
+    padding: 40px !important;
+  }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 125px;
-    height: 125px;
+    width: 109px;
+    height: 109px;
   }
   .postother2 {
     font-size: 13px;
@@ -285,19 +298,22 @@
 @media only screen and (max-width: 376px) {
   .post-comment-comments1 {
     padding: 0 !important;
-    grid-template-columns: 16% 1fr !important;
+    grid-template-columns: 16% 84% !important;
   }
-  /* .post-section-commment {
+  .post-section-commment {
     padding: 10px;
-  } */
+  }
   .post-comment-commentsall {
     display: grid;
     grid-template-columns: 30px 1fr 36px !important;
   }
+  .uploadproveedit2 {
+    padding: 35px !important;
+  }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 125px;
-    height: 125px;
+    width: 91.5px;
+    height: 91.5px;
   }
   .postother2 {
     font-size: 13px;
@@ -319,26 +335,29 @@
 @media only screen and (max-width: 321px) {
   .post-comment-comments1 {
     padding: 0 !important;
-    grid-template-columns: 19% 1fr !important;
+    grid-template-columns: 17% 83% !important;
   }
-  /* .post-section-commment {
+  .post-section-commment {
     padding: 10px;
-  } */
+  }
   .post-comment-commentsall {
     display: grid;
     grid-template-columns: 29px 1fr 36px !important;
   }
+  .uploadproveedit2 {
+    padding: 25px !important;
+  }
   .imgpreviewa1,
   .uploadproveedit1 {
-    width: 60px;
-    height: 40px;
+    width: 71px;
+    height: 71px;
   }
   .postother2 {
     font-size: 12px;
   }
   .profile-comment1 {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
   }
   .uploadprove1 {
     width: 30px;

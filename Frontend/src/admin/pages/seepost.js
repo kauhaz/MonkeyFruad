@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { Form, Col, Button } from "react-bootstrap";
 import _ from "lodash";
 import Axios from "axios";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import Commentmypost from "../components/commentmypost";
 import Modalimage from "../../user/components/Modalimage";
 import "../../user/pages/mypost.css";

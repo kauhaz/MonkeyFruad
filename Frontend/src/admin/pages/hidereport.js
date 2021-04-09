@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import Listhidereport from "../components/listhidereport";
 import "./hidereport.css";
 import Axios from "axios";
