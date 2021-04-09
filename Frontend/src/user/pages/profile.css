@@ -39,12 +39,14 @@
 
 .form-group {
     color: #6C757D;
+    display: flex;
+    justify-content: space-between;
 }
 
 .label-form-title-profile, .form-inside-profile {
     font-size: 16px;
-    display: inline-block;
     color: inherit;
+    display: inline-block;
 }
 
 .EditProfile {
@@ -113,12 +115,11 @@
     .EditProfile div+p, .ChangePassword p {
         font-size: 16px;
     }
-    .label-form-title-profile{
+    .label-form-title-profile {
         width: 45%;
-        float: left;
         text-align: right;
     }
-    .form-inside-profile {
+    .form-inside-profile  {
         width: 55%;
         padding-left: 7%;
     }
