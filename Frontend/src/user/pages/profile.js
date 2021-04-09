@@ -24,9 +24,12 @@ const Profile = () => {
   };
   useMemo(async () => {
     try {
-      var profiledata = await axios.post("https://monkeyfruad01.herokuapp.com/user/session", {
-        user: user,
-      });
+      var profiledata = await axios.post(
+        "https://monkeyfruad01.herokuapp.com/user/session",
+        {
+          user: user,
+        }
+      );
       setUsername(profiledata.data.data.username);
       setFirstname(profiledata.data.data.firstname);
       setSurname(profiledata.data.data.surname);
@@ -49,54 +52,52 @@ const Profile = () => {
       />
       <div className="container-profile">
         <form className="ProfileForm">
-          <p className="h1 text-center mb-2 font-weight-bold">
-            ข้อมูลส่วนตัว
-          </p>
+          <p className="h1 text-center mb-2 font-weight-bold">ข้อมูลส่วนตัว</p>
 
           <div className="profile-badformpost-img">
-           { photo ? (
+            {photo ? (
               <img className="img-circle-profile" src={`${photo.url}`} />
             ) : (
               <img className="img-circle-profile" src={"/img/profile.png"} />
             )}
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">Username</label>
             <div className="form-inside-profile">
               <p>{username}</p>
             </div>
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">ชื่อจริง</label>
             <div className="form-inside-profile">
               <p>{firstname}</p>
             </div>
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">นามสกุล</label>
             <div className="form-inside-profile">
               <p>{surname}</p>
             </div>
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">เพศ</label>
             <div className="form-inside-profile">
               <p>{sex}</p>
             </div>
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">เบอร์โทรศัพท์</label>
             <div className="form-inside-profile">
               <p>{phone}</p>
             </div>
           </div>
 
-          <div className="form-group my-0">
+          <div className="form-group-profile my-0">
             <label className="label-form-title-profile">จังหวัด</label>
             <div className="form-inside-profile">
               <p>{province}</p>
