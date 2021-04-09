@@ -1,6 +1,6 @@
 .box-load-mycoment{
     position: static;
-    margin-left: 180px;
+    margin-left: 170px;
     margin-top: 15px;
 }
 
@@ -8,14 +8,14 @@
 @media only screen and (min-width: 1920px) {
     .box-load-mycoment{
         margin-top: 15px;
-        margin-left: 200px;
+        margin-left: 190px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-mycoment{
         margin-top: 20px;
-        margin-left: 140px;
+        margin-left: 135px;
     }
 }
 
@@ -29,7 +29,7 @@
 @media only screen and (max-width: 769px) {
     .box-load-mycoment{
         margin-top: 20px;
-        margin-left: 65px;
+        margin-left: 70px;
     }
 }
 
@@ -50,6 +50,6 @@
 @media only screen and (max-width: 321px) {
     .box-load-mycoment{
         margin-top: 20px;
-        margin-left: 40px;
+        margin-left: 45px;
     }
 }

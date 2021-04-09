@@ -158,11 +158,6 @@
   margin: 5px 0 !important;
 }
 
-
-
-.imgpreviewa1,.inputcomment1,.postbuttonsends1,.uploadprove1{
-  display: none;
-}
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .post-comment-comments1 {

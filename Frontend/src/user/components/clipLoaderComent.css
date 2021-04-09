@@ -1,20 +1,55 @@
 .box-load-comment{
     position: static;
-    margin-left: 210px;
+    margin-left: 205px;
     margin-bottom: 40px;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-comment{
-        margin-left: 250px;
+        margin-left: 225px;
         margin-bottom: 60px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-comment{
-        margin-left: 170px;
+        margin-left: 168px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .box-load-comment{
+        margin-left: 157px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .box-load-comment{
+        margin-left: 100px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .box-load-comment{
+        margin-left: 105px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .box-load-comment{
+        margin-left: 85px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .box-load-comment{
+        margin-left: 68px;
         margin-bottom: 50px;
     }
 }
