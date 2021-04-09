@@ -309,7 +309,7 @@
   width: 63%;
   margin-left: auto;
   margin-right: auto;
-  height: 2000px;
+  height: auto;
 }
 .fa-check-circle {
   color: gray;

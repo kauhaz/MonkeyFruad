@@ -6729,7 +6729,7 @@ const ManagePost = () => {
                 )}
               </div>
             )}
-            <div className="container-bottoms"></div>
+            <div className="container-postbottoms"></div>
           </div>
 
           <div className="column-post-rights1">
