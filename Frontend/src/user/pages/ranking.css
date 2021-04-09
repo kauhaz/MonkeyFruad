@@ -186,8 +186,6 @@
     margin: 0 auto;
     white-space: nowrap;
     text-overflow: ellipsis;
-    min-width: 0;
-    flex: 1;
 }
 
 .rank-column-row .rank-column {
@@ -603,8 +601,9 @@
     .rank-column-row .rank-column, .rank-sort-select {
         font-size: 11px;
     }
-    .rank-data-row .rank-column {
-        font-size: 10px;
+    .rank-column-row{
+        padding-left: 5px;
+        margin: .3rem auto;
     }
 }
 
@@ -637,7 +636,14 @@
     }
     .container-ranking {
         width: 95%;
-        margin-top: 15rem;
+        margin-top: 17rem;
         margin-bottom: 65px;
+    }
+    .rank-column-row, .rank-data-row {
+        padding-left: 0px;
+        margin: .3rem auto;
+    }
+    .rank-column {
+        font-size: 10px;
     }
 }
