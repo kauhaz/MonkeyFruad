@@ -291,7 +291,7 @@ const Listcomment = ({
                   <Modaldelete
                     text="deletecomment"
                     openmodal={isOpenModalDelete}
-                    handlemodalclose={handlemodalclose}
+                    handlemodalclose={handlemodalclose} 
                     modalcommentid={modalcommentid}
                     modalcommentmore={modalcommentmore}
                     setIsActive={setIsActive}

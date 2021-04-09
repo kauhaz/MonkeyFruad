@@ -123,6 +123,7 @@ const Profile = () => {
           </div>
         </form>
       </div>
+      <div className="container-profilebottom"></div>
       <Chatbot />
     </div>
   );
