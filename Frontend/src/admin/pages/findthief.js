@@ -117,13 +117,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridPrice"
                                 >
                                   <Form.Label>จำนวนเงิน</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.money.toLocaleString(undefined, {
                                       maximumFractionDigits: 2,
@@ -186,7 +186,7 @@ const Findthief = () => {
                 )}
               </div>
             )}
-            <div className="container-bottoms"></div>
+            <div className="container-postbottoms"></div>
           </div>
         </div>
       </div>
