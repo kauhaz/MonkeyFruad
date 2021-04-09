@@ -17,12 +17,14 @@
 .h3-linkrule {
     font-size: 17px;
     color: #5c5c5c;
+    font-family: "Kanit", sans-serif;
 }
 
 .p-linkrule {
     margin-top:  20px;
     color: gray;
     font-size: 16px;
+    font-family: "Kanit", sans-serif;
 }
 
 .linkrule1 {

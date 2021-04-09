@@ -235,6 +235,7 @@ const Listcomment = ({
               <div className="post-comment-name1">
                 {commentmore ? "@" : null}
                 {commentmore.username}
+                <div className="none-postlistcomment2"></div>
                 <span className="post-comment-time1">
                   {" "}
                   {moment(new Date(commentmore.datetime.seconds * 1000))

@@ -20,6 +20,7 @@ import axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Nav } from "react-bootstrap";
+import Cliploading from "./clipLoader";
 const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
@@ -37,9 +38,9 @@ const NavbarPage = (props) => {
   const [error, Seterror] = useState();
   const [hideCountNoti, SetHideCountNoti] = useState(false);
   const [hideCountNotiAlways, SetHideCountNotiAlways] = useState(false);
+  const [reFreshNoti, setReFreshNoti] = useState(false);
   let history = useHistory();
   let i = 0; //forsearch
-
   const logout = () => {
     auth
       .signOut()
@@ -85,36 +86,6 @@ const NavbarPage = (props) => {
           console.log(getdata);
           history.push({
             pathname: "/entersearch",
-            search: "?are you ok",
-            state: {
-              getdata,
-              search,
-            },
-          });
-        }
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  const adminhandlesearch = () => {
-    try {
-      if (search) {
-        const getdata = allpost.filter((doc) => {
-          return (
-            doc.name.toLowerCase().includes(search.toLowerCase()) ||
-            doc.surname.toLowerCase().includes(search.toLowerCase()) ||
-            doc.accountnumber.includes(search) ||
-            (doc.name.toLowerCase() + " " + doc.surname.toLowerCase()).includes(
-              search.toLowerCase()
-            )
-          );
-        });
-        Setsearch("");
-        if (getdata) {
-          console.log(getdata);
-          history.push({
-            pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
               getdata,
@@ -183,17 +154,14 @@ const NavbarPage = (props) => {
   };
 
   const initUser = async () => {
-  await axios
+    await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
         user: user,
       })
       .then((result) => {
-        if (result.data.data.role === "admin") {
-          setAdmin(true);
-        }
         setDisplayname(result.data.data.username);
       });
-  await axios
+    await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnotification/${user.uid}`
       )
@@ -203,7 +171,7 @@ const NavbarPage = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  await axios
+    await axios
       .post(
         `https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`
       )
@@ -211,6 +179,8 @@ const NavbarPage = (props) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
         } else {
+          SetHideCountNoti(false);
+          SetHideCountNotiAlways(false)
           setCountNoti(result.data);
         }
       })
@@ -219,110 +189,24 @@ const NavbarPage = (props) => {
       });
   };
   useEffect(async () => {
-    if (user){
- await initUser()
-  setLoading(false);
+    if (user) {
+      await initUser();
+      setLoading(false);
     }
     initSearch();
-  }, [user, search, hideCountNoti]);
-  return loading ? (
-    ""
-  ) : admin ? (
-    <Router>
-      <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
-        <MDBNavbarBrand href="/">
-          <img src="/img/logo-mf.png" className="logo-nav" />
-        </MDBNavbarBrand>
-        <MDBNavbarToggler onClick={toggleCollapse} />
-        <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
-          <MDBNavbarNav left className="center-nav">
-            <MDBNavItem>
-              <Nav.Link href="/"> จัดการโพสต์ </Nav.Link>
-            </MDBNavItem>
-            <MDBNavItem>
-              <Nav.Link href="/report">ดูรายงาน</Nav.Link>
-            </MDBNavItem>
-          </MDBNavbarNav>
-          <MDBNavbarNav right>
-            <MDBNavItem>
-              <div className=" my-0">
-                <input
-                  className="box-nav mr-sm-2"
-                  type="text"
-                  placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
-                  aria-label="Search"
-                  value={search}
-                  onChange={(e) => {
-                    Setsearch(e.target.value);
-                    props.SetshowDropdown(true);
-                  }}
-                />
-              </div>
-            </MDBNavItem>
-
-            <button onClick={() => adminhandlesearch()} className="button-nav">
-              ค้นหา
-            </button>
-            <MDBNavItem>
-              <Nav.Link onClick={logout} href="/login">
-                ออกจากระบบ
-              </Nav.Link>
-            </MDBNavItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBNavbar>
-      <div className="ggadmin">
-        {lastsearch
-          ? lastsearch.map((doc) => {
-              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              console.log(thiefNameAndSurname);
-              i++;
-              return (
-                <div className="boxsearch-nav">
-                  {i <= 10 ? (
-                    <div>
-                      {" "}
-                      {haha ? (
-                        props.showDropdown ? (
-                          <button
-                            className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/admin/thief/post/${thiefNameAndSurname}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
-                          >
-                            <div>
-                              {" "}
-                              {doc.name} {doc.surname} {doc.accountnumber}
-                            </div>
-                          </button>
-                        ) : null
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })
-          : null}
-        {lastsearch ? (
-          props.showDropdown ? (
-            <div className="dropsearch-nav" onClick={() => adminhandlesearch()}>
-              ค้นหา {search}
-            </div>
-          ) : null
-        ) : null}
-      </div>
-    </Router>
-  ) : (
+    setLoading(false);
+    // setTimeout(() => {
+    //   setReFreshNoti(!reFreshNoti);
+    // }, 2000);
+  }, [user, search, hideCountNoti, reFreshNoti]);
+  console.log(reFreshNoti);
+  return (
     <Router>
       <MDBNavbar light expand="md" className="navbarnew">
         <Nav.Link href="/">
           <img src="/img/logo-mf.png" className="logo-nav" />
         </Nav.Link>
-        {props.SetisOpen && props.SetisOpen ? (
+        {/* {props.SetisOpen && props.SetisOpen ? (
           
           
           <MDBBtn
@@ -334,13 +218,13 @@ const NavbarPage = (props) => {
           </MDBBtn>
 
 
-        ) : null}
+        ) : null} */}
         {user ? (
           <MDBDropdown>
             <MDBDropdownToggle nav className="noti-mobile">
               <div className="navbar-noti" onClick={() => notiChangeClick()}>
                 <img src="/img/notification.png" className="noti-logo"></img>
-                {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
                   <span className="badge">{countNoti.length}</span>
                 )}
               </div>
@@ -476,7 +360,7 @@ const NavbarPage = (props) => {
                         src="/img/notification.png"
                         className="noti-logo"
                       ></img>
-                      {hideCountNotiAlways ? null : hideCountNoti ? null : (
+                      {loading ? null : hideCountNotiAlways ? null : hideCountNoti ? null : (
                         <span className="badge">{countNoti.length}</span>
                       )}
                     </div>

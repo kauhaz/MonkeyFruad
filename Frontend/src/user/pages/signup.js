@@ -145,7 +145,7 @@ const Signup = () => {
       }),
     username: Yup.string()
       .min(2, "สั้นเกินไป")
-      .max(50, "ยาวเกินไป")
+      .max(15, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้"),
     phone: Yup.number()
       .max(10000000000, "ยาวเกินไป")

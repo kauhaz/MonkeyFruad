@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as moment from "moment";
 import "moment/locale/th";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import Axios from "axios";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { Form, Col } from "react-bootstrap";

@@ -208,12 +208,6 @@
   height: 700px;
 }
 
-/* slide */
-.btnslide {
-  display: none !important;
-}
-/* end-slide */
-
 /*reponsive*/
 @media only screen and (max-width: 1921px) {
   /*dropsearch*/
@@ -253,12 +247,6 @@
     margin-left: 50px;
     margin-top: -15px;
   }
-
-  /* slide */
-  .btnslide {
-    display: none !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (min-width: 1920px) {
@@ -431,12 +419,6 @@
   .box-nav-noti {
     height: 700px;
   }
-
-  /* slide */
-  .btnslide {
-    display: none !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (max-width: 1367px) {
@@ -474,12 +456,6 @@
   .dropdown-top-noti {
     margin-left: -290px !important;
   }
-
-  /* slide */
-  .btnslide {
-    display: none !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (max-width: 1025px) {
@@ -505,12 +481,6 @@
   .box-nav-noti {
     height: 940px;
   }
-
-  /* slide */
-  .btnslide {
-    display: none !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (max-width: 769px) {
@@ -604,12 +574,6 @@
   .box-nav-noti {
     height: 710px;
   }
-
-  /* slide */
-  .btnslide {
-    display: none !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (max-width: 415px) {
@@ -675,6 +639,7 @@
     margin-right: -50px;
   }
 
+
   /*NOTIFICATION*/
   .noti-comp {
     display: none !important;
@@ -719,22 +684,6 @@
   .box-nav-noti {
     height: 655px;
   }
-
-  /* slide */
-  .btnslide {
-    display: block !important;
-    box-shadow: none !important;
-    background-color: none !important;
-    margin-right: -160px !important;
-    margin-left: 80px !important;
-  }
-  .btnslide:hover{
-    border-redius: 50%;
-    background-color: rgb(230, 230, 230) !important;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
-    display: block !important;
-  }
-  /* end-slide */
 }
 
 @media only screen and (max-width: 376px) {
@@ -807,16 +756,6 @@
   .box-nav-noti {
     height: 585px;
   }
-
-  /* slide */
-  .btnslide {
-    display: block !important;
-    box-shadow: none !important;
-    background-color: none !important;
-    margin-right: -160px !important;
-    margin-left: 80px !important;
-  }
-  /* end-slide */
 }
 @media only screen and (max-width: 321px) {
   .navbarnew {
@@ -875,13 +814,4 @@
   .box-nav-noti {
     height: 485px;
   }
-
-  /* slide */
-  .btnslide {
-    display: block !important;
-    box-shadow: none !important;
-    background-color: none !important;
-    margin: 0 !important;
-  }
-  /* end-slide */
 }
