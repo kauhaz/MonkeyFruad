@@ -6332,7 +6332,7 @@ const Post = () => {
                                   <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.name} {res.surname}
                                   </span>
@@ -6348,7 +6348,7 @@ const Post = () => {
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.accountnumber}
                                   </span>
@@ -6364,7 +6364,7 @@ const Post = () => {
                                   <Form.Label>ชื่อสินค้า</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.nameproduct}{" "}
                                   </span>
@@ -6380,7 +6380,7 @@ const Post = () => {
                                   <Form.Label>จำนวนเงิน</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.money.toLocaleString(undefined, {
                                       maximumFractionDigits: 2,
@@ -6399,7 +6399,7 @@ const Post = () => {
                                   <Form.Label>วันที่โดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
@@ -6416,7 +6416,7 @@ const Post = () => {
                                   <Form.Label>ช่องทางการโดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.social}{" "}
                                   </span>
