@@ -114,6 +114,7 @@ const NavbarPage = (props) => {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
+  
             if (
               (
                 doc.name.toLowerCase() +
@@ -152,7 +153,7 @@ const NavbarPage = (props) => {
       console.log(err);
     }
   };
-
+  console.log(lastsearch)
   const initUser = async () => {
     await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {

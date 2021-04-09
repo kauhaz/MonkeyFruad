@@ -13,7 +13,7 @@ const Findthief = () => {
   const history = useHistory();
 
   let { uid } = useParams();
-  // console.log(uid)
+  console.log(uid)  
 
   const [show, Setshow] = useState();
   const [loading, Setloading] = useState();
@@ -63,8 +63,8 @@ const Findthief = () => {
 
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา <span className="spansearch">"{show && show[0].name} {show && show[0].surname}{" "}
-              {show && show[0].accountnumber}"</span> มีทั้งหมด{" "}
+              ผลการค้นหา <span className="spansearch">"{show && show.length > 0 && show[0].name} {show && show.length > 0 && show[0].surname}{" "}
+              {show && show.length > 0 && show[0].accountnumber}"</span> มีทั้งหมด{" "}
               {show ? show.length : null} โพสต์
             </h1>
 
