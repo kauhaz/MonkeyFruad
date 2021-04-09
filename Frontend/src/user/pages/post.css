@@ -571,6 +571,10 @@
     width: 100% !important;
     padding: 0 !important;
   }
+  .container-posts3,
+  .container-postss3 {
+    padding: 35px 10px 10px 10px !important;
+  }
   /* slide */
   .btnslide {
     display: none !important;
@@ -656,7 +660,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 30px 0px 20px 0px !important;
+    padding: 30px 10px 10px 10px !important;
   }
   .line-posts1 {
     margin: 20px 0 !important;
