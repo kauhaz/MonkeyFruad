@@ -197,10 +197,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: auto;
+    min-width: 0;
+    flex: 1;
 }
 
-.container-mypostbottoms {
+.container-rankbottoms {
     padding-bottom: 40px;
 }
 
@@ -337,6 +338,9 @@
     }
     .rank-data-row .rank-column {
         font-size: 18px;
+    }
+    .container-rankbottoms {
+        padding-bottom: 60px;
     }
 }
 
