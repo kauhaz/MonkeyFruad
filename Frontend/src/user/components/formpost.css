@@ -300,6 +300,9 @@
   .uploadproveeditpost2 {
     padding: 45px;
   }
+  .uploadproveformpost {
+    width: 70px;
+  }
   .deleteimgformposts2 {
     width: 20px !important;
     margin-left: 5px !important;
@@ -339,6 +342,9 @@
   .uploadproveeditpost2 {
     padding: 45px;
   }
+  .uploadproveformpost {
+    width: 65px;
+  }
 }
 
 @media only screen and (max-width: 321px) {
@@ -358,5 +364,8 @@
   }
   .uploadproveeditpost2 {
     padding: 35px;
+  }
+  .uploadproveformpost {
+    width: 65px;
   }
 }

@@ -310,6 +310,9 @@
   .uploadproveeditpost2-edit {
     padding: 45px;
   }
+  .uploadproveformpost-edit {
+    width: 70px;
+  }
   .deleteimgformposts2 {
     width: 20px;
     margin-left: 5px;
@@ -339,6 +342,9 @@
   .uploadproveeditpost2-edit {
     padding: 45px;
   }
+  .uploadproveformpost-edit {
+    width: 65px;
+  }
   .text-formedit {
     font-size: 14px !important;
   }
@@ -363,6 +369,9 @@
   }
   .uploadproveeditpost2-edit {
     padding: 35px;
+  }
+  .uploadproveformpost-edit {
+    width: 65px;
   }
   .h1-formeditfileerror,
   .spanformedit {

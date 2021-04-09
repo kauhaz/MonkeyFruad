@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 import React, { useContext, useState, useEffect } from "react";
 import {
   MDBNavbar,
@@ -205,7 +214,7 @@ const NavbarPage = (props) => {
         console.log(err);
       });
     await axios
-      .post(`https://monkeyfruad01.herokuapp.com/post/getnoticlickfalse/${user.uid}`)
+      .post(`http://localhost:7000/post/getnoticlickfalse/${user.uid}`)
       .then((result) => {
         if (result.data[0] === undefined) {
           SetHideCountNotiAlways(true);
@@ -225,7 +234,7 @@ const NavbarPage = (props) => {
     initSearch();
     setLoading(false);
   }, [user, search, hideCountNoti]);
-  return admin ?  (
+  return admin ? (
     <Router>
       <MDBNavbar light expand="lg" className="navbarnew navbar-expand-lg">
         <MDBNavbarBrand href="/">
@@ -629,3 +638,54 @@ const NavbarPage = (props) => {
 };
 
 export default NavbarPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
