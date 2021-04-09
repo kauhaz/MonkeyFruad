@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavbarPage from "../../user/components/navnew";
+import NavbarPage from "../components/navbarAdmin";
 import "../../user/components/Notfound.css";
 
 const Notfound = ({ search, SetshowDropdown, showDropdown }) => {
