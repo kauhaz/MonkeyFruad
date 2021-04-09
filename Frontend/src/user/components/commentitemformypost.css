@@ -42,21 +42,20 @@
 }
 
 .mypostbuttonsendss {
-  margin: 0;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: grid;
   align-items: center;
-  padding: 0;
   transition: box-shadow 0.4s ease;
 }
 
 .mypostbuttonsends1 {
-  margin-left: auto;
+  margin: 0 auto;
   width: 32px;
   height: 32px;
   padding: 0;
+  font-size: 20px;
   border-radius: 50%;
   border: none;
   color: grey;
@@ -228,6 +227,12 @@
   .imgcommentitemmypost2 {
     margin: 20px 0 -25px 0;
   }
+  .postbuttonsends1 {
+    margin: 2px auto;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
@@ -245,6 +250,12 @@
   }
   .uploadproveeditmypost2 {
     padding: 30px;
+  }
+  .postbuttonsends1 {
+    margin: 2px auto;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
   }
 }
 
@@ -276,12 +287,6 @@
   .mypost-comment-commentsall {
     grid-template-columns: 30px 1fr 30px;
   }
-  .mypostbuttonsends1 {
-    margin-top: 3px;
-    width: 25px;
-    height: 25px;
-    font-size: 13px;
-  }
   .profile-comment2{
     width: 45px;
     height: 45px;
@@ -292,6 +297,12 @@
   }
   .deleteimgmyposts1 {
     margin-top: 10px;
+  }
+  .mypostbuttonsends1 {
+    margin: 5px auto;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
   }
 }
 
@@ -331,10 +342,10 @@
     grid-template-columns: 30px 1fr 30px;
   }
   .mypostbuttonsends1 {
-    margin-top: 3px;
-    width: 25px;
-    height: 25px;
-    font-size: 13px;
+    margin: 5px auto;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
   }
 }
 
@@ -348,8 +359,8 @@
     height: 40px;
   }
   .uploadprove2 {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
   .inputcommentmypost2,
   .h1-mypostfileerror {
@@ -371,11 +382,12 @@
     margin: 8px 0 -20px 0;
   }
   .mypost-comment-commentsall {
-    grid-template-columns: 28px 1fr 24px !important;
+    grid-template-columns: 25px 1fr 26px !important;
   }
   .mypostbuttonsends1 {
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
+    margin: 5px auto;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
   }
 }
