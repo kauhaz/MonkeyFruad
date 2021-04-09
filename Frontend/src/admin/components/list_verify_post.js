@@ -15,6 +15,28 @@ const Listverifypost = ({ reportelement, hideClick }) => {
   const [checkselectThree, setCheckSelectThree] = useState(false);
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState();
+  const [files, Setfiles] = useState();
+  const [change, SetChange] = useState();
+  const { v4: uuidv4 } = require("uuid");
+  let uuid = uuidv4();
+
+  const handlemodalopen = async () => {
+    Setopenmodal(true);
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false);
+  };
+
+  const handledeletetorerender = async () => {
+    SetChange(uuid);
+  };
+  
   const handleShow = (e) => {
     e.preventDefault();
     setShow(true);

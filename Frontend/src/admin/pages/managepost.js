@@ -8,6 +8,7 @@ import ClipLoader from "../../user/components/clipLoader";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
+import Modaldelete from "../../user/components/Modaldelete";
 
 const ManagePost = () => {
   const [show, Setshow] = useState();
@@ -87,14 +88,39 @@ const ManagePost = () => {
   const [error, Seterror] = useState();
   const [loading, Setloading] = useState();
   const [click, Setclick] = useState(false);
-  const [isActive, setIsActive] = useState(false);
   const [delectClick, setDelectClick] = useState(false);
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
+
+  const [isActive, setIsActive] = useState(false);
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState();
+  const [files, Setfiles] = useState();
+  const [change, SetChange] = useState();
+  const { v4: uuidv4 } = require("uuid");
+  let uuid = uuidv4();
+
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+
+  const handlemodalopen = async () => {
+    Setopenmodal(true);
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false);
+  };
+
+  const handledeletetorerender = async () => {
+    SetChange(uuid);
+  };
+  console.log(change)
+  
+
 
   const deleteClick = async (uid) => {
     await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`);
@@ -5714,6 +5740,7 @@ const ManagePost = () => {
     searchend,
     sortvalue,
     delectClick,
+    change
   ]);
   return (
     <div
@@ -5741,12 +5768,29 @@ const ManagePost = () => {
                       <div>
                         <div className="container-posts2">
                           <button
-                            onClick={() => deleteClick(res.uid)}
+                            onClick={() => (
+                        Setmodalcommentid(res.uid),
+                        Setmodalcommentmore(res),
+                        setIsActive(false),
+                        handlemodalopen()
+                      )}
                             variant="primary"
                             className="adminbuttonreported"
                           >
                             <i class="far fa-trash-alt"></i>
                           </button>
+                          <Modaldelete
+              text={"deletepostAdminPostAll"}
+              openmodal={openmodal}
+              handlemodalclose={handlemodalclose}
+              modalcommentid={modalcommentid}
+              modalcommentmore={modalcommentmore}
+              setIsActive={setIsActive}
+              Setfuck={Setfuck}
+              setImagesFile={setImagesFile}
+              Setfiles={Setfiles}
+              handledeletetorerender={handledeletetorerender}
+            />
                           <div className="post-profile-img">
                             {res.photoURL ? (
                               <img
@@ -5947,12 +5991,29 @@ const ManagePost = () => {
                               <div>
                                 <div className="container-posts2">
                                   <button
-                                    onClick={() => deleteClick(res.uid)}
+                                    onClick={() => (
+                                      Setmodalcommentid(res.uid),
+                                      Setmodalcommentmore(res),
+                                      setIsActive(false),
+                                      handlemodalopen()
+                                    )}
                                     variant="primary"
                                     className="adminbuttonreported"
                                   >
                                     <i class="far fa-trash-alt"></i>
                                   </button>
+                                  <Modaldelete
+              text={"deletepostAdminPostAll"}
+              openmodal={openmodal}
+              handlemodalclose={handlemodalclose}
+              modalcommentid={modalcommentid}
+              modalcommentmore={modalcommentmore}
+              setIsActive={setIsActive}
+              Setfuck={Setfuck}
+              setImagesFile={setImagesFile}
+              Setfiles={Setfiles}
+              handledeletetorerender={handledeletetorerender}
+            />
                                   <div className="post-profile-img">
                                     {res.photoURL ? (
                                       <img
