@@ -56,7 +56,7 @@
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    height: 500px;
+    height: auto;
     margin-top: 70px;
 }
 
@@ -121,7 +121,7 @@
 
 .container3-contract{
     width: 60%;
-    height: 580px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -172,6 +172,9 @@
     display: block;
 }
 
+.container-contractusbottom{
+    padding-bottom: 120px;
+}
 
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
@@ -179,7 +182,7 @@
         font-size: 22px;
     }
     .container2-contract{
-        height: 580px;
+        height: auto;
     }
     .style-map-contract{
         width: 600px;
@@ -267,7 +270,7 @@
         width: 60%;
         margin-left: auto;
         margin-right: auto;
-        height: 500px;
+        height: auto;
         margin-top: 70px;
     }
     
@@ -332,7 +335,7 @@
     
     .container3-contract{
         width: 60%;
-        height: 580px;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 50px;
@@ -424,7 +427,7 @@
     }
     .container2-contract{
         width: 65%;
-        height: 580px;
+        height: auto;
     }
     .style-map-contract{
         width: 100%;
@@ -472,7 +475,7 @@
     }
     .container2-contract{
         width: 65%;
-        height: 900px;
+        height: auto;
         margin-bottom: 100px;
     }
     .address-contract , .pagefb-contract {
@@ -501,6 +504,10 @@
     .imgfb-contract{
         width: 80px;
     }
+
+    .container-contractusbottom{
+        padding-bottom: 20px;
+    }
 }
 
 
@@ -514,7 +521,7 @@
     }
     .container2-contract{
         width: 85%;
-        height: 890px;
+        height: auto;
         margin-top: -25px;
         margin-bottom: 70px;
     }
@@ -588,7 +595,7 @@
         padding: 20px 20px 20px 20px;
     }
     .container2-contract{
-        height: 910px;
+        height: auto;
     }
     .column2-contract-r{
         width: 95%;
@@ -630,7 +637,7 @@
 
 @media only screen and (max-width: 320px) {
     .container2-contract{
-        height: 880px;
+        height: auto;
     }
     .developer-contract , .developerhover-contract , .contract-contract , .contracthover-contract {
         font-size: 13px;

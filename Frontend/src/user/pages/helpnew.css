@@ -113,6 +113,7 @@
     position: absolute;
 }
 
+
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
     .h1-helpnew,.h1-helpnew2{ 
@@ -496,6 +497,10 @@
     }
     .emty-help{
         height: 60px;
+    }
+
+    .container-helpbottom{
+        padding-bottom: 1px;
     }
 }
 

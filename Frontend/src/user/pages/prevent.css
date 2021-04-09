@@ -68,7 +68,9 @@
     display: block;
     width: 100px;
 }
-
+.container-preventbottom{
+    padding-bottom: 40px;
+}
 
 /*Responsive*/ 
 @media only screen and (max-width: 1921px) {
@@ -162,6 +164,10 @@
     }    
     .container-emty-prevent{
         padding-bottom: 60px;
+    }
+
+    .container-preventbottom{
+        padding-bottom: 40px;
     }
 }
 
@@ -271,7 +277,7 @@
         margin-left: 165px;
     }
     .container-preventbottom{
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 }
 

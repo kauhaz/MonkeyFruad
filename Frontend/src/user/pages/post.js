@@ -6694,7 +6694,7 @@ const Post = () => {
                 )}
               </div>
             )}
-            <div className="container-mypostbottoms"></div>
+            <div className="container-postbottoms"></div>
           </div>
 
           <div className="column-post-right1">

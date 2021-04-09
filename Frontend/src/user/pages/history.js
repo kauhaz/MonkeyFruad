@@ -64,7 +64,7 @@ const History = () => {
           })
         : null}
       <div className="containeremty-history"></div>
-
+      <div className="container-historebottom"></div>
       <Chatbot />
     </div>
   );

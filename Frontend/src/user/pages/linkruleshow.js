@@ -16,6 +16,7 @@ const Linkruleshow = () => {
       />
       <h1 className="h1-linkruleshow">ข้อกำหนดและเงื่อนไขการใช้งาน</h1>
       <Rule />
+      <div className="container-rulebottom"></div>
       <Chatbot />
     </div>
   );

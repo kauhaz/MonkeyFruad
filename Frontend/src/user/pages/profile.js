@@ -103,7 +103,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="col-md-12 mt-0">
+          <div className="col-md-12 mt-1">
             <a
               href={`/profile/edit/${user.uid}`}
               className="btn-block EditProfile"

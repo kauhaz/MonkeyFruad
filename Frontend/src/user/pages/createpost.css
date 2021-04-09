@@ -6,6 +6,10 @@
     color: #5c5c5c;
 }
 
+.container-createpostbottom{
+    padding-bottom: 20px;
+}
+
 /*Responsive*/ 
 @media only screen and (min-width: 1920px){
     .h1-createpost{
@@ -35,6 +39,10 @@
         font-size: 22px;
         margin-top: 30px;
         margin-bottom: -20px;
+    }
+
+    .container-createpostbottom{
+        padding-bottom: 10px;
     }
 }
 @media only screen and (max-width: 376px) {

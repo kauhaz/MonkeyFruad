@@ -73,7 +73,7 @@
 }
 
 .container-mypostbottoms {
-  padding-bottom: 100px;
+  padding-bottom: 120px;
 }
 
 /*report*/
@@ -757,6 +757,10 @@
   }
   .modalreport2{
     margin-top: 320px;
+  }
+
+  .container-mypostbottoms {
+    padding-bottom: 85px;
   }
 }
 @media only screen and (max-width: 376px) {

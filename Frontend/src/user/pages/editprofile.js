@@ -387,6 +387,7 @@ const EditProfile = () => {
           </div>
         </form>
       </div>
+      <div className="container-editprofilebottom"></div>
       <Chatbot />
     </div>
   );
