@@ -184,21 +184,14 @@
     font-size: 16px;
     vertical-align: middle;
     margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex: 1;
 }
 
 .rank-column-row .rank-column {
     font-weight: 600;
-}
-
-.Fall-crisp {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    min-width: 0;
-    flex: 1;
 }
 
 .container-rankbottoms {
