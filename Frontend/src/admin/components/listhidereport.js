@@ -5,8 +5,9 @@ import Axios from "axios";
 import * as moment from "moment";
 import "moment/locale/th";
 import Modalimage from "../../user/components/Modalimage";
+import Modaldelete from "../../user/components/Modaldelete";
 
-const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
+const Listhidereport = ({ reportelement, CancleClick, DeleteClick , }) => {
   const [UsernamePost, SetUsernamePost] = useState("");
   const [Show, setShow] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -16,6 +17,23 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
   const [checkselectThree, setCheckSelectThree] = useState(false);
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+
+  const [openmodal, Setopenmodal] = useState(false);
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState();
+  const [files, Setfiles] = useState();
+  const [change, SetChange] = useState();
+
+  const handlemodalopen = async () => {
+    Setopenmodal(true);
+  };
+  const handlemodalclose = async () => {
+    Setopenmodal(false);
+  };
+
+  
   const handleShow = (e) => {
     e.preventDefault();
     setShow(true);
@@ -120,13 +138,30 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                     <li className="li-reportmenusetting">
                       <div
                         className="a-reportmenusetting"
-                        onClick={() => deleteReport()}
+                        onClick={() => (
+                          Setmodalcommentid(reportelement.uid),
+                          Setmodalcommentmore(reportelement),
+                          setIsActive(false),
+                          handlemodalopen()
+                        )}
                       >
                         {" "}
                         ลบประวัติการรายงาน{" "}
                       </div>
                     </li>
                   </ul>
+                   <Modaldelete
+              text={"deletepostAdminHideReport"}
+              openmodal={openmodal}
+              handlemodalclose={handlemodalclose}
+              modalcommentid={modalcommentid}
+              modalcommentmore={modalcommentmore}
+              setIsActive={setIsActive}
+              Setfuck={Setfuck}
+              setImagesFile={setImagesFile}
+              Setfiles={Setfiles}
+              handledeletetorerender={DeleteClick}
+            />
                 </div>
               </div>
             </div>
@@ -327,13 +362,30 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick }) => {
                     <li className="li-reportmenusetting">
                       <div
                         className="a-reportmenusetting"
-                        onClick={() => deleteReport()}
+                        onClick={() => (
+                          Setmodalcommentid(reportelement.uid),
+                          Setmodalcommentmore(reportelement),
+                          setIsActive(false),
+                          handlemodalopen()
+                        )}
                       >
                         {" "}
                         ลบประวัติการรายงาน{" "}
                       </div>
                     </li>
                   </ul>
+                  <Modaldelete
+              text={"deletepostAdminHideReport"}
+              openmodal={openmodal}
+              handlemodalclose={handlemodalclose}
+              modalcommentid={modalcommentid}
+              modalcommentmore={modalcommentmore}
+              setIsActive={setIsActive}
+              Setfuck={Setfuck}
+              setImagesFile={setImagesFile}
+              Setfiles={Setfiles}
+              handledeletetorerender={DeleteClick}
+            />
                 </div>
               </div>
             </div>

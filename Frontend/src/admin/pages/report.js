@@ -18,6 +18,8 @@ const Report = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
+ 
+
   const initReport = async () => {
     try {
       const Allreport = await Axios.get(
@@ -171,6 +173,7 @@ const Report = () => {
                   reportelement={reportelement}
                   CancleClick={CancleClick}
                   DeleteClick={DeleteClick}
+               
                 />
               );
             })

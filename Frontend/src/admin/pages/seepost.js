@@ -10,18 +10,32 @@ import Modalimage from "../../user/components/Modalimage";
 import "../../user/pages/mypost.css";
 import * as moment from "moment";
 import "moment/locale/th";
+import Modaldelete from "../../user/components/Modaldelete";
+
 const Seepost = () => {
+  const { v4: uuidv4 } = require("uuid");
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   const [mypost, Setmypost] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const [imagesFile, setImagesFile] = useState([]); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
-  const [files, Setfiles] = useState("");
+ ; //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
+ 
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+
+  const [modalcommentid, Setmodalcommentid] = useState();
+  const [modalcommentmore, Setmodalcommentmore] = useState();
+  const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
+  const [click, Setclick] = useState();
+  const [fuck, Setfuck] = useState([]);
+  const [imagesFile, setImagesFile] = useState()
+  const [files, Setfiles] = useState("")
+
+
   const inputTextArea = useRef(null);
   let { uid } = useParams();
   const history = useHistory();
+  let uuid = uuidv4();
   const ok = async () => {
     try {
       const ok = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/mypost/${uid}`);
@@ -42,6 +56,16 @@ const Seepost = () => {
     Setisopen(false);
   };
 
+  const handlemodalopen = async () => {
+    SetisOpenModalDelete(true);
+  };
+  const handlemodalclose = async () => {
+    SetisOpenModalDelete(false);
+  };
+  const handledeletetorerender = async () => {
+    Setclick(uuid);
+  };
+
   useEffect(() => {
     ok();
   }, []);
@@ -57,12 +81,29 @@ const Seepost = () => {
                   <div>
                     <div className="container-post2">
                       <button
-                        onClick={(e) => deleteClick(e)}
+                        onClick={() =>  (
+                          Setmodalcommentid(ok.uid),
+                          Setmodalcommentmore(ok),
+                          setIsActive(false),
+                          handlemodalopen()
+                        )}
                         variant="primary"
                         className="mypostbuttonreported"
                       >
                         <i class="far fa-trash-alt"></i>
                       </button>
+                      <Modaldelete
+                              text="deletemypostAdminMyPost"
+                              openmodal={isOpenModalDelete}
+                              handlemodalclose={handlemodalclose}
+                              modalcommentid={modalcommentid}
+                              modalcommentmore={modalcommentmore}
+                              setIsActive={setIsActive}
+                              Setfuck={Setfuck}
+                              setImagesFile={setImagesFile}
+                              Setfiles={Setfiles}
+                              handledeletetorerender={handledeletetorerender}
+                            />
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
