@@ -395,4 +395,8 @@
     .alert-login span{
         font-size: 12px;
     }
+
+    .container-loginbottom{
+        padding-bottom: 10px;
+    }
 }

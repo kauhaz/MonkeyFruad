@@ -84,6 +84,7 @@ const Prevent = () => {
           </div>
         </div>
       </div>
+      <div className="container-preventbottom"></div>
       <Chatbot />
     </div>
   );

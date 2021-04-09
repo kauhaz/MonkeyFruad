@@ -114,7 +114,6 @@
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
     padding: 0 auto;
     font-family: 'Kanit', sans-serif;
     background-color: transparent;
@@ -194,9 +193,10 @@
     font-weight: 600;
 }
 
-.container-rankbottoms {
-    padding-bottom: 40px;
+.container-rankbottoms{
+    padding-bottom: 110px;
 }
+
 
 /* =================================================================
 
@@ -331,9 +331,6 @@
     }
     .rank-data-row .rank-column {
         font-size: 18px;
-    }
-    .container-rankbottoms {
-        padding-bottom: 60px;
     }
 }
 
@@ -535,7 +532,6 @@
     .container-ranking {
         width: 95%;
         margin-top: 23rem;
-        margin-bottom: 70px;
     }
     .rank-column-row, .rank-data-row {
         padding-left: 10px;
@@ -550,6 +546,10 @@
     /* .container2-rank{
         margin-bottom: 100px;
     } */
+
+    .container-rankbottoms{
+        padding-bottom: 90px;
+    }
 }
 
 /* iPhone 6 */
@@ -639,7 +639,6 @@
     .container-ranking {
         width: 95%;
         margin-top: 17rem;
-        margin-bottom: 65px;
     }
     .rank-column-row, .rank-data-row {
         padding-left: 0px;

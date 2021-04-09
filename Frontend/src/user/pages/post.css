@@ -412,6 +412,9 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
+.container-postbottoms{
+  padding-bottom: 120px;
+}
 
 /*end-slide*/
 
@@ -845,6 +848,10 @@
   }
   .none-post {
     display: block;
+  }
+
+  .container-postbottoms{
+    padding-bottom: 90px;
   }
 }
 

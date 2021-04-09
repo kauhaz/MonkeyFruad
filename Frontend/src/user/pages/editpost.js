@@ -18,6 +18,7 @@ const Editpost = () => {
       )}
       {check ? null : <h1 className="h1-editpost">แก้ไขโพสต์</h1>}
       <Formedit check={check} Setcheck={Setcheck} />
+      <div className="container-editpostbottom"></div>
     </div>
   );
 };

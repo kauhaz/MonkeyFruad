@@ -186,6 +186,7 @@ const Helpnew = () => {
           </div>
         </div>
       </div>
+      <div className="container-helpbottom"></div>
       <Chatbot />
     </div>
   );

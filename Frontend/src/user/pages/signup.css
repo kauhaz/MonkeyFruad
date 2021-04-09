@@ -316,6 +316,10 @@
     .alert-signup span{
         font-size: 14px;
     }
+
+    .container-signupbottom{
+        padding-bottom: 10px;
+    }
 }
 
 /* iPhone 6/7/8 */ 
