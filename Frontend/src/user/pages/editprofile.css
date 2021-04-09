@@ -277,5 +277,9 @@
         margin: 10% auto 25% auto;
         padding: 5px 0px;
     }
+
+    .container-editprofilebottom{
+        padding-bottom: 10px;
+    }
 }
 

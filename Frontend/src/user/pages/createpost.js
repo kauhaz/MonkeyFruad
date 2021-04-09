@@ -19,6 +19,7 @@ const Createpost = () => {
       )}
       {check ? null : <h1 className="h1-createpost">สร้างโพสต์</h1>}
       <Formpost check={check} Setcheck={Setcheck} />
+      <div className="container-createpostbottom"></div>
     </div>
   );
 };

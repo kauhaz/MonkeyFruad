@@ -6,6 +6,10 @@
     color: #5c5c5c;
 }
 
+.container-rulebottom{
+    padding-bottom: 60px;
+}
+
 /*Responsive*/ 
 @media only screen and (min-width: 1920px){
     .h1-linkruleshow{
@@ -35,6 +39,9 @@
         margin-top: 30px;
         margin-bottom: -20px;
         font-size: 22px;
+    }
+    .container-rulebottom{
+        padding-bottom: 30px;
     }
 }
 @media only screen and (max-width: 376px) {
