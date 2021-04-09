@@ -253,7 +253,7 @@ const Rank = () => {
                     <th className="rank-column col">
                       {moment(
                         new Date(element.wanteedon.seconds * 1000)
-                      ).format("MM/DD/YYYY HH:mm")}
+                      ).format("MM/DD/YYYY")}
                     </th>
                   </tr>
                 </table>
@@ -327,7 +327,7 @@ const Rank = () => {
                       <th className="rank-column col">
                         {moment(
                           new Date(element.wanteedon.seconds * 1000)
-                        ).format("MM/DD/YYYY HH:mm")}
+                        ).format("MM/DD/YYYY")}
                       </th>
                     </tr>
                   </table>
