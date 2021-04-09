@@ -7,14 +7,49 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-mycoment{
-        margin-left: 250px;
         margin-top: 15px;
+        margin-left: 200px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-mycoment{
-        margin-top: 25px;
-        margin-left: 135px;
+        margin-top: 20px;
+        margin-left: 140px;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .box-load-mycoment{
+        margin-top: 20px;
+        margin-left: 125px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .box-load-mycoment{
+        margin-top: 20px;
+        margin-left: 65px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .box-load-mycoment{
+        margin-top: 20px;
+        margin-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .box-load-mycoment{
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .box-load-mycoment{
+        margin-top: 20px;
+        margin-left: 40px;
     }
 }
