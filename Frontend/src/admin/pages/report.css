@@ -73,9 +73,8 @@
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    color:#ffffff;
     font-family: 'Kanit', sans-serif;
-    font-size: 14px;
+    color: white;
 }
 
 .verify-report {
@@ -125,7 +124,6 @@
     margin-left: auto;
     color: #0056b3;
     text-decoration: none;
-    font-weight: 600;
 }
 
 .count-report {
@@ -151,8 +149,8 @@
     transition: box-shadow 0.4s ease;
     margin-left: auto; /* Strictly for positioning */
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: -10px;
 }
   
 .reportbuttonsetting:hover {
@@ -164,8 +162,8 @@
     background: #ffffff;
     border-radius: 7px;
     position: absolute;
-    top: 25px;
-    right: 0;
+    top: 20px;
+    right: -5px;
     font-size: 15px;
     width: auto;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -217,85 +215,286 @@
     margin-right: .5rem;
 }
 
+.fa-check-circle {
+    color: white;
+}
+
 /*----------------------------------------------------------------
 
 /*Responsive*/ 
+
+/* notebook */
 @media only screen and (max-width: 1921px) {
     .h1-report { 
         font-size: 22px;
     }
+    .status-report span, .status-report span i {
+        font-size: 16px;
+    }
+    .h2-report {
+        font-size: 18px;
+        width: 45%;
+    } 
     .container-report2{
         font-size: 16px;
     }
-    .container-report1{
+    .reportother {
+        font-size: 14px;
+    }
+    .container-report1, .container-report5{
         width: 45%;
+    }
+    .container-report5 {
+        margin: 3rem auto 4rem auto;
     }
 }
 
+/* computer */
 @media only screen and (min-width: 1920px) {
     .h1-report { 
         font-size: 25px;
     }
+    .status-report span, .status-report span i, .form-check-label {
+        font-size: 18px !important;
+    }
+    .h2-report {
+        font-size: 20px;
+        width: 40%;
+    } 
     .container-report2{
         font-size: 18px;
     }
-    .container-report1{
+    .reportother {
+        font-size: 16px;
+    }
+    .container-report1, .container-report5{
         width: 40%;
+    }
+    .container-report5 {
+        margin: 4rem auto 5rem auto;
     }
 }
 
+/* Huak */
 @media only screen and (max-width: 1367px) {
     .h1-report { 
         font-size: 22px;
     }
+    .status-report span, .status-report span i {
+        font-size: 16px;
+    }
+    .h2-report {
+        font-size: 18px;
+        width: 50%;
+    } 
     .container-report2{
         font-size: 16px;
     }
-    .container-report1{
+    .reportother {
+        font-size: 14px;
+    }
+    .container-report1, .container-report5{
         width: 50%;
     }
 }
 
-@media only screen and (max-width: 1024px) {
-
+/* iPad Pro */ 
+@media only screen and (max-width: 1025px) {
+    .h1-report { 
+        font-size: 25px;
+    }
+    .container-report5 {
+        text-align: center;
+        width: 65%;
+        margin: 3rem auto 3rem auto;
+    }
+    .status-report span, .status-report span i {
+        font-size: 18px;
+    }
+    .h2-report {
+        font-size: 20px;
+        width: 65%;
+    } 
+    .container-report2{
+        font-size: 18px;
+    }
+    .reportother {
+        font-size: 16px;
+    }
+    .container-report1{
+        width: 65%;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+    }
+    .reportbuttonsetting {
+        margin-top: -10px;
+        width: 30px;
+        position: absolute;
+        top: -5px;
+        right: -20px;
+    }
+    .reportmenusetting {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+     }
 }
 
-
-@media only screen and (max-width: 768px) {
+/* iPad */
+@media only screen and (max-width: 769px) {
     .container-report1{
         width: 80%;
     }
+    .h1-report { 
+        font-size: 19px;
+    }
+    .status-report span, .status-report span i {
+        font-size: 13px;
+    }
+    .h2-report {
+        font-size: 17px;
+        width: 70%;
+    } 
     .container-report2{
-        width: 100%;
+        font-size: 13px;
+    }
+    .reportother {
+        font-size: 12px;
+    }
+    .container-report2{
+        margin: 0 auto;
+        width: 95%;
     }
     .spanreport{
         margin-left: -270px;
     }
-    .h2-report2{
-        margin-left: 0px;
+    .container-report5 {
+        text-align: center;
+        margin: 3rem auto 3rem auto;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -7px;
     }
 }
 
-@media only screen and (max-width: 414px) {
-    .h1-report{
-        font-size: 25px;
-    }
-    .h2-report2{
-        font-size: 20px;
-    }
+/* iPhone 6/7/8 + */
+@media only screen and (max-width: 415px) {
     .container-report1{
         width: 95%;
     }
+    .h1-report { 
+        font-size: 22px;
+        margin-top: 30px;
+    }
+    .status-report {
+        padding: 6px;
+    }
+    .status-report span, .status-report span i, .form-label {
+        font-size: 14px;
+    }
+    .h2-report {
+        font-size: 17px;
+        width: 85%;
+    } 
+    .container-report2{
+        font-size: 14px;
+    }
+    .reportother {
+        font-size: 13px;
+    }
+    .container-report2{
+        margin: 0 auto;
+        width: 90%;
+    }
+    .spanreport{
+        margin-left: -270px;
+    }
+    .container-report5 {
+        text-align: center;
+        margin: 2rem auto 2rem auto;
+        width: 95%;
+    }
+    .report-right, report-left {
+        display: block;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -10px;
+    }
+    .reportbuttonsetting {
+        margin-top: -10px;
+        width: 30px;
+        position: absolute;
+        top: -5px;
+        right: -20px;
+    }
+    .reportmenusetting {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        font-size: 12px;
+        z-index: 1;
+     }
 }
-@media only screen and (min-width: 414px) {
-    /* .h1-history{
-        font-size: 25px;
-    } */
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 376px) {
+    .h1-report { 
+        font-size: 20px;
+    }
+    .status-report {
+        margin-right: .5rem;
+    }
+    .status-report span, .status-report span i, .form-label {
+        font-size: 14px;
+    }
+    .h2-report {
+        font-size: 17px;
+        width: 85%;
+    } 
+    .container-report2{
+        font-size: 14px;
+    }
+    .reportother {
+        font-size: 13px;
+    }
+    .container-report5 {
+        text-align: center;
+        margin: 2rem auto 2rem auto;
+        width: 95%;
+    }
+    .hide-report-button i {
+        position: absolute;
+        top: -7px;
+        right: -15px;
+        font-size: 14px;
+    }
 }
-@media only screen and (max-width: 375px) {
 
-}
-
-@media only screen and (max-width: 320px) {
-
+/* i[hone 5 */
+@media only screen and (max-width: 321px) {
+    .h1-report { 
+        font-size: 20px;
+    }
+    .status-report {
+        margin-right: .5rem;
+        padding: 3px;
+    }
+    .status-report span, .status-report span i, .form-label, .form-check-label  {
+        font-size: 13px;
+    }
+    .reportother {
+        font-size: 12px;
+    }
+    .container-report5 {
+        text-align: center;
+        margin: 2rem auto 2rem auto;
+        width: 95%;
+    }
 }

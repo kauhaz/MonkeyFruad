@@ -270,7 +270,7 @@ const Mypost = () => {
             ? mypost.map((ok) => {
                 return (
                   <div>
-                    <div className="container-post2">
+                    <div className="container-mypost2">
                       {user && user.uid != ok.useruid ? (
                         <div className="mypostbuttonreport">
                           <button
@@ -930,6 +930,7 @@ const Mypost = () => {
                       </div>
                       {/* <button onClick={()=>handle()}></button> */}
                     </div>
+                    <div className="container-mypostbottoms"></div>
                   </div>
                 );
               })

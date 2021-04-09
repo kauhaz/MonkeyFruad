@@ -34,11 +34,11 @@
   margin-bottom: 30px;
 }
 
-.container-post2 {
+.container-mypost2 {
   width: 50%;
   border-radius: 10px;
   background-color: white;
-  margin: 60px auto;
+  margin: 60px auto 0px auto !important;
   padding: 20px;
   font-family: "Kanit", sans-serif;
   font-size: 20px;
@@ -71,6 +71,11 @@
   margin-left: 5px;
   color: grey;
 }
+
+.container-mypostbottoms {
+  padding-bottom: 60px;
+}
+
 
 /*report*/
 
@@ -237,7 +242,7 @@
   font-size: 22px !important;
 }
 
-/*end-repoet*/
+/*end-report*/
 
 .mypostimg-setting {
   width: 30px;
@@ -491,7 +496,7 @@
 }
 
 @media only screen and (max-width: 1025px) {
-  .container-post2 {
+  .container-mypost2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
     margin: 30px auto 60px auto;
@@ -557,7 +562,7 @@
 }
 
 @media only screen and (max-width: 769px) {
-  .container-post2 {
+  .container-mypost2 {
     width: 75%;
     padding: 20px 20px 0px 20px;
     margin: 30px auto 60px auto;
@@ -625,7 +630,7 @@
   }
 }
 @media only screen and (max-width: 415px) {
-  .container-post2 {
+  .container-mypost2 {
     width: 85%;
     padding: 20px;
     margin: 30px auto 60px auto;
@@ -751,7 +756,7 @@
   }
 }
 @media only screen and (max-width: 376px) {
-  .container-post2 {
+  .container-mypost2 {
     width: 85%;
     padding: 20px;
     margin: 30px auto 60px auto;
@@ -815,6 +820,9 @@
     width: 110px;
     height: 110px;
   }
+  .none-mypost {
+    display: block;
+  }
   .number-mypost {
     margin-left: 10px;
   }
@@ -852,7 +860,7 @@
 }
 
 @media only screen and (max-width: 321px) {
-  .container-post2 {
+  .container-mypost2 {
     width: 85%;
     padding: 20px;
     margin: 30px auto 60px auto;
@@ -919,6 +927,9 @@
   .mypostprofile-bad-img img.img-circle {
     width: 100px;
     height: 100px;
+  }
+  .none-mypost {
+    display: block;
   }
   .number-mypost {
     margin-left: 10px;
