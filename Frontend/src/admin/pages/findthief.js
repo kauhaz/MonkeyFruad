@@ -47,8 +47,8 @@ const Findthief = () => {
               {" "}
               ผลการค้นหา{" "}
               <span className="spansearch">
-                "{show && show[0].name} {show && show[0].surname}{" "}
-                {show && show[0].accountnumber}"
+                "{show && show.length > 0 && show[0].name} {show && show.length > 0 && show[0].surname}{" "}
+                {show && show.length > 0 && show[0].accountnumber}"
               </span>{" "}
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
