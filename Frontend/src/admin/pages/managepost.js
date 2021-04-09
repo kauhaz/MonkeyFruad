@@ -92,7 +92,6 @@ const ManagePost = () => {
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
 
-
   const [isActive, setIsActive] = useState(false);
   const [openmodal, Setopenmodal] = useState(false);
   const [modalcommentid, Setmodalcommentid] = useState();
@@ -118,9 +117,7 @@ const ManagePost = () => {
   const handledeletetorerender = async () => {
     SetChange(uuid);
   };
-  console.log(change)
-  
-
+  console.log(change);
 
   const deleteClick = async (uid) => {
     await Axios.post(`https://monkeyfruad01.herokuapp.com/post/delete/${uid}`);
@@ -128,7 +125,9 @@ const ManagePost = () => {
   };
   const ok = async () => {
     Setloading(true);
-    const getpost = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
+    const getpost = await Axios.get(
+      `https://monkeyfruad01.herokuapp.com/post/post`
+    );
     Setshow(getpost.data.item);
     if (sortvalue === "ใหม่ล่าสุด") {
       var getsort = getpost.data.item.sort((a, b) => {
@@ -5740,7 +5739,7 @@ const ManagePost = () => {
     searchend,
     sortvalue,
     delectClick,
-    change
+    change,
   ]);
   return (
     <div
@@ -5769,37 +5768,37 @@ const ManagePost = () => {
                         <div className="container-posts2">
                           <button
                             onClick={() => (
-                        Setmodalcommentid(res.uid),
-                        Setmodalcommentmore(res),
-                        setIsActive(false),
-                        handlemodalopen()
-                      )}
+                              Setmodalcommentid(res.uid),
+                              Setmodalcommentmore(res),
+                              setIsActive(false),
+                              handlemodalopen()
+                            )}
                             variant="primary"
                             className="adminbuttonreported"
                           >
                             <i class="far fa-trash-alt"></i>
                           </button>
                           <Modaldelete
-              text={"deletepostAdminPostAll"}
-              openmodal={openmodal}
-              handlemodalclose={handlemodalclose}
-              modalcommentid={modalcommentid}
-              modalcommentmore={modalcommentmore}
-              setIsActive={setIsActive}
-              Setfuck={Setfuck}
-              setImagesFile={setImagesFile}
-              Setfiles={Setfiles}
-              handledeletetorerender={handledeletetorerender}
-            />
+                            text={"deletepostAdminPostAll"}
+                            openmodal={openmodal}
+                            handlemodalclose={handlemodalclose}
+                            modalcommentid={modalcommentid}
+                            modalcommentmore={modalcommentmore}
+                            setIsActive={setIsActive}
+                            Setfuck={Setfuck}
+                            setImagesFile={setImagesFile}
+                            Setfiles={Setfiles}
+                            handledeletetorerender={handledeletetorerender}
+                          />
                           <div className="post-profile-img">
                             {res.photoURL ? (
                               <img
-                                className="img-circle"
+                                className="img-circle profile-post"
                                 src={`${res.photoURL.url}`}
                               />
                             ) : (
                               <img
-                                className="img-circle"
+                                className="img-circle profile-post"
                                 src={"/img/profile.png"}
                               />
                             )}
@@ -5822,7 +5821,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="้post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridName"
                                 >
                                   <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
@@ -5838,7 +5837,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridId"
                                 >
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
@@ -5854,7 +5853,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridNameproduct"
                                 >
                                   <Form.Label>ชื่อสินค้า</Form.Label>
@@ -5870,7 +5869,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridPrice"
                                 >
                                   <Form.Label>จำนวนเงิน</Form.Label>
@@ -5889,7 +5888,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
@@ -5907,7 +5906,7 @@ const ManagePost = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>ช่องทางการโดนโกง</Form.Label>
@@ -5920,11 +5919,7 @@ const ManagePost = () => {
                                 </Form.Group>
                               </Form.Row>
                               <br />
-                              <Form.Group
-                                as={Col}
-                                className="post-left col-lg-6 col-12"
-                                controlId="formGridDate"
-                              >
+                              <Form.Group as={Col} controlId="formGridDate">
                                 <Form.Label className="post-lefts">
                                   จำนวนครั้งที่{" "}
                                   <span className="spanpostname">
@@ -5936,11 +5931,7 @@ const ManagePost = () => {
                                   </span>
                                 </Form.Label>
                               </Form.Group>
-                              <Form.Group
-                                as={Col}
-                                className="post-left col-lg-6 col-12"
-                                controlId="formGridPrice"
-                              >
+                              <Form.Group as={Col} controlId="formGridPrice">
                                 <Form.Label className="post-lefts">
                                   {" "}
                                   ยอดเงินรวมทั้งหมดที่โกงไป{" "}
@@ -6003,26 +5994,28 @@ const ManagePost = () => {
                                     <i class="far fa-trash-alt"></i>
                                   </button>
                                   <Modaldelete
-              text={"deletepostAdminPostAll"}
-              openmodal={openmodal}
-              handlemodalclose={handlemodalclose}
-              modalcommentid={modalcommentid}
-              modalcommentmore={modalcommentmore}
-              setIsActive={setIsActive}
-              Setfuck={Setfuck}
-              setImagesFile={setImagesFile}
-              Setfiles={Setfiles}
-              handledeletetorerender={handledeletetorerender}
-            />
+                                    text={"deletepostAdminPostAll"}
+                                    openmodal={openmodal}
+                                    handlemodalclose={handlemodalclose}
+                                    modalcommentid={modalcommentid}
+                                    modalcommentmore={modalcommentmore}
+                                    setIsActive={setIsActive}
+                                    Setfuck={Setfuck}
+                                    setImagesFile={setImagesFile}
+                                    Setfiles={Setfiles}
+                                    handledeletetorerender={
+                                      handledeletetorerender
+                                    }
+                                  />
                                   <div className="post-profile-img">
                                     {res.photoURL ? (
                                       <img
-                                        className="img-circle"
+                                        className="img-circle profile-post"
                                         src={`${res.photoURL.url}`}
                                       />
                                     ) : (
                                       <img
-                                        className="img-circle"
+                                        className="img-circle profile-post"
                                         src={"/img/profile.png"}
                                       />
                                     )}
@@ -6045,7 +6038,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="้post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridName"
                                         >
                                           <Form.Label>
@@ -6063,7 +6056,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridId"
                                         >
                                           <Form.Label>
@@ -6081,7 +6074,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridNameproduct"
                                         >
                                           <Form.Label>ชื่อสินค้า</Form.Label>
@@ -6097,7 +6090,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridPrice"
                                         >
                                           <Form.Label>จำนวนเงิน</Form.Label>
@@ -6117,7 +6110,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridDate"
                                         >
                                           <Form.Label>วันที่โดนโกง</Form.Label>
@@ -6137,7 +6130,7 @@ const ManagePost = () => {
                                       <Form.Row>
                                         <Form.Group
                                           as={Col}
-                                          className="post-left col-lg-6 col-12"
+                                          className="้post-left col-lg-6 col-6"
                                           controlId="formGridDate"
                                         >
                                           <Form.Label>
@@ -6154,7 +6147,6 @@ const ManagePost = () => {
                                       <br />
                                       <Form.Group
                                         as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridDate"
                                       >
                                         <Form.Label className="post-lefts">
@@ -6170,7 +6162,6 @@ const ManagePost = () => {
                                       </Form.Group>
                                       <Form.Group
                                         as={Col}
-                                        className="post-left col-lg-6 col-12"
                                         controlId="formGridPrice"
                                       >
                                         <Form.Label className="post-lefts">

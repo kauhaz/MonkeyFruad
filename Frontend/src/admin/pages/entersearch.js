@@ -5024,7 +5024,7 @@ const Entersearch = () => {
           <div className="container-bigpost1">
             <div className="row postbigrow">
               <div className="column-post-left1">
-                <h1 className="h1-posts">
+                <h1 className="h1-posts-admin">
                   {" "}
                   ผลการค้นหา <span className="spansearch">"{search}"</span>{" "}
                   มีทั้งหมด{" "}
@@ -5045,7 +5045,7 @@ const Entersearch = () => {
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
-                                      className="้post-left col-lg-6 col-12"
+                                      className="้post-left col-lg-6 col-6"
                                       controlId="formGridName"
                                     >
                                       <Form.Label>
@@ -5053,7 +5053,7 @@ const Entersearch = () => {
                                       </Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {res.name} {res.surname}
                                       </span>
@@ -5063,7 +5063,7 @@ const Entersearch = () => {
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
-                                      className="post-left col-lg-6 col-12"
+                                      className="้post-left col-lg-6 col-6"
                                       controlId="formGridId"
                                     >
                                       <Form.Label>
@@ -5071,7 +5071,7 @@ const Entersearch = () => {
                                       </Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {res.accountnumber}
                                       </span>
@@ -5081,13 +5081,13 @@ const Entersearch = () => {
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
-                                      className="post-left col-lg-6 col-12"
+                                      className="้post-left col-lg-6 col-6"
                                       controlId="formGridNameproduct"
                                     >
                                       <Form.Label>ชื่อสินค้า</Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {res.nameproduct}{" "}
                                       </span>
@@ -5102,7 +5102,7 @@ const Entersearch = () => {
                                       <Form.Label>จำนวนเงิน</Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {res.money.toLocaleString(undefined, {
                                           maximumFractionDigits: 2,
@@ -5114,13 +5114,13 @@ const Entersearch = () => {
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
-                                      className="post-left col-lg-6 col-12"
+                                      className="้post-left col-lg-6 col-6"
                                       controlId="formGridDate"
                                     >
                                       <Form.Label>วันที่โดนโกง</Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {moment(
                                           new Date(res.datetimes.seconds * 1000)
@@ -5131,13 +5131,13 @@ const Entersearch = () => {
                                   <Form.Row>
                                     <Form.Group
                                       as={Col}
-                                      className="post-left col-lg-6 col-12"
+                                      className="้post-left col-lg-6 col-6"
                                       controlId="formGridDate"
                                     >
                                       <Form.Label>ช่องทางการโดนโกง</Form.Label>
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
                                         {res.social}{" "}
                                       </span>
@@ -5177,7 +5177,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="้post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridName"
                                             >
                                               <Form.Label>
@@ -5185,7 +5185,7 @@ const Entersearch = () => {
                                               </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group>
+                                            <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
                                                 {res.name} {res.surname}
                                               </span>
@@ -5195,7 +5195,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridId"
                                             >
                                               <Form.Label>
@@ -5203,7 +5203,7 @@ const Entersearch = () => {
                                               </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group>
+                                            <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
                                                 {res.accountnumber}
                                               </span>
@@ -5213,7 +5213,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridNameproduct"
                                             >
                                               <Form.Label>
@@ -5221,7 +5221,7 @@ const Entersearch = () => {
                                               </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group>
+                                            <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
                                                 {res.nameproduct}{" "}
                                               </span>
@@ -5230,7 +5230,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridPrice"
                                             >
                                               <Form.Label>จำนวนเงิน</Form.Label>
@@ -5252,7 +5252,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridDate"
                                             >
                                               <Form.Label>
@@ -5260,7 +5260,7 @@ const Entersearch = () => {
                                               </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group>
+                                            <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
                                                 {moment(
                                                   new Date(
@@ -5275,7 +5275,7 @@ const Entersearch = () => {
                                           <Form.Row>
                                             <Form.Group
                                               as={Col}
-                                              className="post-left col-lg-6 col-12"
+                                              className="้post-left col-lg-6 col-6"
                                               controlId="formGridDate"
                                             >
                                               <Form.Label>
@@ -5283,7 +5283,7 @@ const Entersearch = () => {
                                               </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group>
+                                            <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
                                                 {res.social}{" "}
                                               </span>
@@ -5315,12 +5315,12 @@ const Entersearch = () => {
                     )}
                   </div>
                 )}
-                <div className="container-bottoms"></div>
+                <div className="container-postbottoms"></div>
               </div>
 
               <div className="column-post-right1">
                 <div className="biggroup">
-                  <div className="container-postrights2">
+                  <div className="container-postrights2-admin">
                     <div className="post-group1">
                       เรียงตาม :
                       <select
