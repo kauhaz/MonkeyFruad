@@ -13,7 +13,7 @@ const Findthief = () => {
   const history = useHistory();
 
   let { uid } = useParams();
-  console.log(uid)  
+  console.log(uid);
 
   const [show, Setshow] = useState();
   const [loading, Setloading] = useState();
@@ -23,7 +23,9 @@ const Findthief = () => {
 
   let location = useLocation();
   const ok = async () => {
-    const getpost = await Axios.get(`https://monkeyfruad01.herokuapp.com/thief/post/${uid}`);
+    const getpost = await Axios.get(
+      `https://monkeyfruad01.herokuapp.com/thief/post/${uid}`
+    );
     Setshow(getpost.data.item);
     SetLoading(false);
   };
@@ -63,9 +65,13 @@ const Findthief = () => {
 
             <h1 className="h1-posts">
               {" "}
-              ผลการค้นหา <span className="spansearch">"{show && show.length > 0 && show[0].name} {show && show.length > 0 && show[0].surname}{" "}
-              {show && show.length > 0 && show[0].accountnumber}"</span> มีทั้งหมด{" "}
-              {show ? show.length : null} โพสต์
+              ผลการค้นหา{" "}
+              <span className="spansearch">
+                "{show && show.length > 0 && show[0].name}{" "}
+                {show && show.length > 0 && show[0].surname}{" "}
+                {show && show.length > 0 && show[0].accountnumber}"
+              </span>{" "}
+              มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 
             {loading ? (
@@ -82,13 +88,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="้post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridName"
                                 >
                                   <Form.Label>ชื่อ - นามสกุลผู้โกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.name} {res.surname}
                                   </span>
@@ -98,13 +104,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridId"
                                 >
                                   <Form.Label>เลขที่บัญชี (ผู้โกง)</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.accountnumber}
                                   </span>
@@ -114,13 +120,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridNameproduct"
                                 >
                                   <Form.Label>ชื่อสินค้า</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.nameproduct}{" "}
                                   </span>
@@ -129,13 +135,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridPrice"
                                 >
                                   <Form.Label>จำนวนเงิน</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.money.toLocaleString(undefined, {
                                       maximumFractionDigits: 2,
@@ -147,13 +153,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>วันที่โดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
@@ -164,13 +170,13 @@ const Findthief = () => {
                               <Form.Row>
                                 <Form.Group
                                   as={Col}
-                                  className="post-left col-lg-6 col-12"
+                                  className="้post-left col-lg-6 col-6"
                                   controlId="formGridDate"
                                 >
                                   <Form.Label>ช่องทางการโดนโกง</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group>
+                                <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
                                     {res.social}{" "}
                                   </span>
