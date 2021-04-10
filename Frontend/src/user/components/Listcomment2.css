@@ -142,8 +142,8 @@
 .listcommentmypost2 {
   margin: 0;
   padding: 5px;
-  width: 160px;
-  height: 160px;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -152,8 +152,8 @@
 .imgpreviewmypost1 {
   position: relative;
   margin: 0 0 20px 0;
-  width: 145px;
-  height: 145px;
+  width: 163px;
+  height: 163px;
   object-fit: cover;
   object-position: center;
 }
@@ -179,8 +179,8 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 145px;
-  height: 145px;
+  width: 160px;
+  height: 160px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -196,7 +196,7 @@
 
 .uploadproveeditmyposts2 {
   width: 100%;
-  padding: 40px;
+  padding: 55px;
 }
 
 .commenttextarea {
