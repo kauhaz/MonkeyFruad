@@ -434,6 +434,10 @@
   .showsuccessreport {
     font-size: 22px !important;
   }
+
+  .container-mypost2 {
+    width: 58%;
+  }
 }
 
 @media only screen and (max-width: 1025px) {
