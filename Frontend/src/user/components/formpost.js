@@ -9,6 +9,7 @@ import { auth } from "../Frontfirebase";
 import Chatbot from "../components/chatbot";
 import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
+import * as moment from "moment";
 import Modal from "react-modal";
 import Modalimage from "./Modalimage";
 
@@ -452,6 +453,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="datetime-local"
                     placeholder=""
+                    max={`${moment(new Date()).format("YYYY-MM-DDTHH:mm")}`}
                     required
                     onChange={(event) => {
                       setDatetime(event.target.value);

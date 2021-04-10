@@ -46,18 +46,21 @@ const Listcommentmypost = ({ commentmore }) => {
   return (
     <div>
       {commentmore ? (
-        <div className="row mypostcommentrow">
+        <div className="mypostcommentrow">
           <div class="vl"></div>
           <div className="mypost-comment-img1">
             <div className="header-mypost-comment">
               <div className="mypost-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
-                    className="img-circle"
+                    className="img-circle profile-listcomment2"
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle" src="/img/profile.png" />
+                  <img
+                    className="img-circle profile-listcomment2"
+                    src="/img/profile.png"
+                  />
                 )}
               </div>
               <div className="mypost-comment-name1">

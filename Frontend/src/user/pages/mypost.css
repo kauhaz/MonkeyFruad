@@ -4,7 +4,6 @@
   border: none;
   border-radius: 50px;
 }
-
 .mypost_deleteimgpost2 {
   width: 8%;
   height: auto;
@@ -17,7 +16,6 @@
   border: none;
   transition: box-shadow 0.4s ease;
 }
-
 .mypost_deleteimgpost2:hover {
   margin-top: -300px;
   margin-left: 135px;
@@ -26,16 +24,14 @@
   background-color: white;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .commentother {
   color: blue;
   font-size: 15px;
   margin-top: -25px;
   margin-bottom: 30px;
 }
-
 .container-mypost2 {
-  width: 50%;
+  width: 55%;
   border-radius: 10px;
   background-color: white;
   margin: 50px auto 0px auto !important;
@@ -44,7 +40,6 @@
   font-size: 20px;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-
 .mypost-profile-img img.img-circle {
   width: 50px;
   height: 50px;
@@ -52,32 +47,26 @@
   object-position: center;
   border-radius: 50%;
 }
-
 .mypost-name {
-  margin-left: 65px;
-  margin-top: -55px;
+  margin: -55px 0 0 65px;
   color: #212529;
   font-size: 18px;
 }
-
 .mypost-date {
   margin-left: 65px;
   margin-top: -25px;
   color: grey;
   font-size: 14px;
 }
-
 .mypost-time {
   margin-left: 5px;
   color: grey;
 }
-
 .container-mypostbottoms {
   padding-bottom: 120px;
 }
 
 /*report*/
-
 .mypostbuttonreported {
   float: right;
   border: none;
@@ -85,68 +74,55 @@
   color: grey;
   border-radius: 50px;
 }
-
 .mypostbuttonreported:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .modalreport {
   font-family: "Kanit", sans-serif;
 }
-
 .bigreport1 {
   margin-left: auto;
   margin-right: auto;
 }
-
 .namereport {
   font-size: 18px !important;
 }
-
 .reportcheckbox,
 .formreport {
   font-size: 16px !important;
 }
-
 .spanreport {
   font-size: 16px;
   color: #ff392e;
 }
-
 .form-groupreport {
   margin-bottom: 15px;
 }
-
 .spanreport2 {
   font-size: 16px;
   color: #1fd307;
 }
-
 .spanmypostmore {
   color: #ff392e;
   font-size: 16px;
 }
-
 .container-img-holder-imgpreviewreport .imgpreview {
   width: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
 }
-
 .btn {
   font-size: 16px !important;
   border-radius: 0.5rem !important;
   padding: 5px 15px 5px 15px !important;
 }
-
 .imgcommentitempostreport1 {
   margin-top: 10px;
   margin-right: -20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
 .imgpreviewreport {
   margin: 15px 0 5px 0px;
   width: 135px;
@@ -155,19 +131,16 @@
   object-fit: cover;
   object-position: center;
 }
-
 .uploadprovereport {
   width: 100px;
   padding: 15px;
   cursor: pointer;
   margin: 5px 0 0 0;
 }
-
 .uploadproveeditreport {
   justify-items: center;
   align-items: center;
 }
-
 .uploadproveeditreport1 {
   margin-top: 15px;
   width: 135px;
@@ -178,29 +151,24 @@
   align-items: center;
   display: block;
 }
-
 .uploadproveeditreport1:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .uploadproveeditreport2 {
   width: 100%;
   padding: 50px;
   cursor: pointer;
 }
-
 .imgcommentitemreport1 {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
 }
-
 .postdeletereport {
   display: flex;
   width: 100%;
 }
-
 .deleteimgreports1 {
   position: relative;
   right: 15px;
@@ -212,7 +180,6 @@
   font-size: 13px;
   font-family: sans-serif;
 }
-
 .deleteimgreports2 {
   width: 30px;
   border-radius: 50px;
@@ -220,17 +187,14 @@
   border: none;
   background-color: white;
 }
-
 .deleteimgreports2:hover {
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .modalreport2 {
   margin-top: 290px;
 }
-
 .showsuccessreport {
   width: 500px;
   color: #238516;
@@ -242,18 +206,15 @@
 }
 
 /*end-report*/
-
 .mypostimg-setting {
   width: 30px;
 }
-
 .menu-containermypostsetting {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .mypostbuttonsetting {
   margin-top: -38px;
   width: 30px;
@@ -268,11 +229,9 @@
   transition: box-shadow 0.4s ease;
   margin-left: auto;
 }
-
 .mypostbuttonsetting:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
 .mypostmenusetting {
   background: #ffffff;
   border-radius: 7px;
@@ -287,44 +246,37 @@
   transform: translateY(-20px);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
-
 .mypostmenusetting.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-
 .mypostmenusetting .ul-mypostmenusetting {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .mypostmenusetting .li-mypostmenusetting {
   border-bottom: 1px solid #dddddd;
 }
-
 .mypostmenusetting .li-mypostmenusetting .a-mypostmenusetting {
   text-decoration: none;
   color: black;
   padding: 15px 20px;
   display: block;
 }
-
 .mypostmenusetting
   .li-mypostmenusetting
   .a-mypostmenusetting
   .a-mypostmenusetting1 {
   color: black;
 }
-
 .mypostmenusetting
   .li-mypostmenusetting
   .a-mypostmenusetting
   .a-mypostmenusetting1:hover {
   color: black;
 }
-
 .container-myposts3 {
   width: 100%;
   /* margin-top: 30px; */
@@ -332,13 +284,11 @@
   margin-right: auto;
   padding: 0 35px;
 }
-
 .mypostprofile-bad-img {
   text-align: center;
   margin-top: 0px;
   padding-bottom: 0px;
 }
-
 .mypostprofile-bad-img img.img-circle {
   width: 130px;
   height: 130px;
@@ -346,50 +296,42 @@
   object-position: center;
   border-radius: 50%;
 }
-
 .spanmypost,
 .spanmypostname {
   color: #ff392e;
   font-size: 16px;
 }
-
 .img-bad {
-  width: 153px;
-  height: 153px;
+  width: 170px;
+  height: 170px;
   position: relative;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
 }
-
 .imgcommentitemmypost1 {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-
 .container-mypost4 {
   width: 100%;
   padding: 20px;
 }
-
 .mypost-comment-img2 img.img-circle2 {
   width: 50px;
   border-radius: 50%;
 }
-
 .mypost-comment-name2 {
   margin-left: 60px;
   margin-top: -55px;
 }
-
 .mypost-comment-name2 .mypost-comment-time2 {
   margin-left: 5px;
   margin-top: -55px;
   font-size: 14px;
   color: grey;
 }
-
 .mypost-profilecomment-img img.img-circle {
   width: 50px;
   height: 50px;
@@ -398,13 +340,11 @@
   border-radius: 50%;
   margin-top: -10px;
 }
-
 .line-comments1 {
   border-bottom: 2px solid rgba(146, 146, 146, 0.3);
   align: center;
   margin-top: 30px;
 }
-
 .formsize-mypost {
   margin-top: 15px;
   width: 100%;
@@ -414,20 +354,21 @@
   font-family: "Kanit", sans-serif;
   font-size: 16px;
 }
-
 .vl {
   width: 100%;
   height: 50px;
   border-top: 3px solid rgba(146, 146, 146, 0.479);
   display: none;
 }
-
 .none-mypost {
   display: none;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
+  .container-mypost2 {
+    width: 50%;
+  }
   .img-bad {
     width: 200px;
     height: 200px;
@@ -452,7 +393,7 @@
   }
   .mypostmenusetting {
     font-size: 16px !important;
-    width: 11px !important;
+    width: 110px !important;
   }
   .mypost-date {
     font-size: 16px;
@@ -467,9 +408,13 @@
 }
 
 @media only screen and (max-width: 1367px) {
+  .container-mypost2 {
+    width: 50%;
+  }
+  .
   .img-bad {
-    width: 132px;
-    height: 132px;
+    width: 160px;
+    height: 160px;
   }
   .modalreport2 {
     margin-top: 320px;
@@ -495,6 +440,10 @@
   }
   .showsuccessreport {
     font-size: 22px !important;
+  }
+
+  .container-mypost2 {
+    width: 58%;
   }
 }
 
@@ -559,7 +508,7 @@
   .showsuccessreport {
     font-size: 20px !important;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 610px;
   }
 }
@@ -631,7 +580,7 @@
   .showsuccessreport {
     font-size: 19px !important;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 445px;
   }
 }
@@ -727,7 +676,7 @@
     width: 25px;
     height: 25px;
   }
-  .mypostbuttonsetting{
+  .mypostbuttonsetting {
     margin-top: -55px;
   }
   .mypost-date {
@@ -738,7 +687,7 @@
     width: 45px !important;
     height: 45px !important;
   }
-  .profile-mypost2{
+  .profile-mypost2 {
     width: 100px !important;
     height: 100px !important;
     margin-top: 25px !important;
@@ -758,7 +707,7 @@
   .showsuccessreport {
     font-size: 22px !important;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 320px;
   }
 
@@ -867,7 +816,7 @@
   .showsuccessreport {
     font-size: 20px !important;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 290px;
   }
 }
@@ -978,7 +927,7 @@
   .showsuccessreport {
     font-size: 20px !important;
   }
-  .modalreport2{
+  .modalreport2 {
     margin-top: 240px;
   }
 }

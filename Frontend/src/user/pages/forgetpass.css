@@ -86,7 +86,7 @@
     .ForgetPassForm .h1 {
         font-size: 22px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 16px;
     }
     .alert-forgetpass {
@@ -110,7 +110,7 @@
     .ForgetPassForm .h1 {
         font-size: 25px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 18px;
     }
     .alert-forgetpass  span {
@@ -130,7 +130,7 @@
     .ForgetPassForm .h1 {
         font-size: 22px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 16px;
     }
     .alert-forgetpass {
@@ -156,7 +156,7 @@
     .ForgetPassForm .h1 {
         font-size: 25px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 18px;
     }
     .alert-forgetpass {
@@ -182,7 +182,7 @@
     .ForgetPassForm .h1 {
         font-size: 19px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 13px;
     }
     .alert-forgetpass {
@@ -208,7 +208,7 @@
     .ForgetPassForm .h1 {
         font-size: 20px
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 15px;
     }
     .alert-forgetpass {
@@ -226,7 +226,7 @@
         margin: 25% auto 0 auto;
         padding: 10px 15px;
     }
-    .text2-forget, .ForgetPassButton p, .form-group{
+    .text2-forget, .ForgetPassButton p, .form-group-forgetpass{
         font-size: 13px;
     }
     .alert-forgetpass {

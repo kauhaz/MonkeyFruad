@@ -512,9 +512,7 @@ const Mypost = () => {
                                   ""
                                 )}
                                 {loading ? (
-                                  <div className="col-lg-6 col-3">
                                     <ClipLoaderReport loading={loading} />
-                                  </div>
                                 ) : (
                                   <Button
                                     clsssName="buttonreportsave"

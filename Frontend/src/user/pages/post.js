@@ -6286,6 +6286,7 @@ const Post = () => {
                 </Button>
               </Modal.Actions>
             </Modal>
+
             {loading ? (
               <ClipLoader />
             ) : (
@@ -6684,7 +6685,7 @@ const Post = () => {
                 )}
               </div>
             )}
-            <div className="container-mypostbottoms"></div>
+            <div className="container-postbottoms"></div>
           </div>
 
           <div className="column-post-right1">

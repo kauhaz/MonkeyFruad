@@ -83,8 +83,8 @@
 .imgpreviewb1 {
   position: relative;
   margin: 0;
-  width: 130px;
-  height: 130px;
+  width: 147px;
+  height: 147px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
@@ -96,8 +96,8 @@
 }
 
 .uploadproveeditmypost1 {
-  width: 130px;
-  height: 130px;
+  width: 147px;
+  height: 147px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -112,7 +112,7 @@
 
 .uploadproveeditmypost2 {
   width: 100%;
-  padding: 40px;
+  padding: 50px;
 }
 
 .postdeletemypost {
@@ -168,6 +168,10 @@
   font-family: 'Kanit', sans-serif;
 }
 
+/* .uploadprove2 , .inputcommentmypost2 ,.mypostbuttonsends1{
+  display: none;
+} */
+
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .mypost-comment-comments1 {
@@ -197,11 +201,11 @@
   }
   .imgpreviewb1,
   .uploadproveeditmypost1 {
-    width: 108.5px;
-    height: 108.5px;
+    width: 133px;
+    height: 133px;
   }
   .uploadproveeditmypost2 {
-    padding: 40px;
+    padding: 45px;
   }
   .imgcommentitemmypost2 {
     margin: 20px 0 -33px 0;

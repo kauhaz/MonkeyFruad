@@ -51,17 +51,19 @@
 }
 
 .message-login{
-    display:flex;
-    justify-content:space-between;
+    /* display:flex; */
+    /* justify-content:space-between; */
     margin-top: -1.5rem;
     margin-bottom: 1.5rem;
     padding-left: 32px;
 }
 
-.RememberCheckbox-login, .ForgotPassword-login a {
+.ForgotPassword-login a {
     color: #5c5c5c;
     font-size: 14px;
     cursor: pointer;
+    float: right;
+    margin-bottom: 20px;
 }
 
 .LoginButton-login {
@@ -150,7 +152,7 @@
     .LoginForm .h1{
         font-size: 22px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 14px;
     }
     .btn-block p, .login-signup a{
@@ -181,7 +183,7 @@
     .LoginForm .h1{
         font-size: 25px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 16px;
     }
     .btn-block p, .login-signup a{
@@ -209,7 +211,7 @@
     .LoginForm .h1{
         font-size: 22px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 14px;
     }
     .btn-block p, .login-signup a{
@@ -224,6 +226,9 @@
     }
     .alert-login span{
         font-size: 14px;
+    }
+    .container-loginbottom{
+        padding-bottom: 40px;
     }
 }
 
@@ -241,7 +246,7 @@
     .LoginForm .h1{
         font-size: 25px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 16px;
     }
     .login-signup a{
@@ -273,11 +278,8 @@
     .LoginForm .h1{
         font-size: 19px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 12px;
-    }
-    .RememberCheckbox-login {
-        margin-top: 4px;
     }
     .btn-block p, .login-signup a{
         font-size: 13px;
@@ -310,11 +312,8 @@
     .LoginForm .h1{
         font-size: 20px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 13px;
-    }
-    .RememberCheckbox-login {
-        margin-top: 4.5px;
     }
     .btn-block p, .login-signup a{
         font-size: 15px;
@@ -346,7 +345,7 @@
     .LoginForm .h1{
         font-size: 20px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 11px;
     }
     .btn-block p, .login-signup a{
@@ -379,7 +378,7 @@
     .LoginForm .h1{
         font-size: 20px;
     }
-    .RememberCheckbox-login, .ForgotPassword-login a{
+    .ForgotPassword-login a{
         font-size: 11px;
     }
     .btn-block p, .login-signup a{

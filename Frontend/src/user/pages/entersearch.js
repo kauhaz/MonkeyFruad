@@ -5869,7 +5869,7 @@ const Entersearch = () => {
                     )}
                   </div>
                 )}
-                <div className="container-bottoms"></div>
+            <div className="container-postbottoms"></div>
               </div>
 
               <div className="column-post-right1">

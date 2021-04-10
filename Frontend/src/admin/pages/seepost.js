@@ -17,9 +17,7 @@ const Seepost = () => {
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
   const [mypost, Setmypost] = useState();
-  const [showDropdown, SetshowDropdown] = useState(true);
- ; //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
- 
+  const [showDropdown, SetshowDropdown] = useState(true); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
 
@@ -28,9 +26,8 @@ const Seepost = () => {
   const [isOpenModalDelete, SetisOpenModalDelete] = useState(false);
   const [click, Setclick] = useState();
   const [fuck, Setfuck] = useState([]);
-  const [imagesFile, setImagesFile] = useState()
-  const [files, Setfiles] = useState("")
-
+  const [imagesFile, setImagesFile] = useState();
+  const [files, Setfiles] = useState("");
 
   const inputTextArea = useRef(null);
   let { uid } = useParams();
@@ -38,7 +35,9 @@ const Seepost = () => {
   let uuid = uuidv4();
   const ok = async () => {
     try {
-      const ok = await Axios.get(`https://monkeyfruad01.herokuapp.com/post/mypost/${uid}`);
+      const ok = await Axios.get(
+        `https://monkeyfruad01.herokuapp.com/post/mypost/${uid}`
+      );
       Setmypost(ok.data.item);
     } catch (err) {
       console.log(err);
@@ -79,9 +78,9 @@ const Seepost = () => {
             ? mypost.map((ok) => {
                 return (
                   <div>
-                    <div className="container-post2">
+                    <div className="container-mypost2">
                       <button
-                        onClick={() =>  (
+                        onClick={() => (
                           Setmodalcommentid(ok.uid),
                           Setmodalcommentmore(ok),
                           setIsActive(false),
@@ -93,25 +92,28 @@ const Seepost = () => {
                         <i class="far fa-trash-alt"></i>
                       </button>
                       <Modaldelete
-                              text="deletemypostAdminMyPost"
-                              openmodal={isOpenModalDelete}
-                              handlemodalclose={handlemodalclose}
-                              modalcommentid={modalcommentid}
-                              modalcommentmore={modalcommentmore}
-                              setIsActive={setIsActive}
-                              Setfuck={Setfuck}
-                              setImagesFile={setImagesFile}
-                              Setfiles={Setfiles}
-                              handledeletetorerender={handledeletetorerender}
-                            />
+                        text="deletemypostAdminMyPost"
+                        openmodal={isOpenModalDelete}
+                        handlemodalclose={handlemodalclose}
+                        modalcommentid={modalcommentid}
+                        modalcommentmore={modalcommentmore}
+                        setIsActive={setIsActive}
+                        Setfuck={Setfuck}
+                        setImagesFile={setImagesFile}
+                        Setfiles={Setfiles}
+                        handledeletetorerender={handledeletetorerender}
+                      />
                       <div className="mypost-profile-img">
                         {ok.photoURL ? (
                           <img
-                            className="img-circle"
+                            className="img-circle profile-mypost"
                             src={`${ok.photoURL.url}`}
                           />
                         ) : (
-                          <img className="img-circle" src="/img/profile.png" />
+                          <img
+                            className="img-circle profile-mypost"
+                            src="/img/profile.png"
+                          />
                         )}
                         <div className="mypost-name">
                           {ok.username ? "@" : null}
@@ -122,146 +124,282 @@ const Seepost = () => {
                           {moment(new Date(ok.date.seconds * 1000)).format(
                             "MM/DD/YYYY HH:mm"
                           )}{" "}
-                          {/* <span className="mypost-time">23:38 </span> */}
                         </div>
                       </div>
 
-                      <div className="container-mypost2">
-                        <div className="mypostprofile-bad-img">
-                          {ok.resultfile ? (
-                            <img
-                              className="img-circle"
-                              src={`${ok.resultfile.url}`}
-                            />
-                          ) : (
-                            <img
-                              className="img-circle"
-                              src="/img/profile.png"
-                            />
-                          )}
-                        </div>
-                        <div className="container-myposts3">
+                      <div className="mypostprofile-bad-img">
+                        {ok.resultfile ? (
+                          <img
+                            className="img-circle profile-mypost2"
+                            src={`${ok.resultfile.url}`}
+                          />
+                        ) : (
+                          <img
+                            className="img-circle profile-mypost2"
+                            src="/img/profile.png"
+                          />
+                        )}
+                      </div>
+
+                      <div className="container-myposts3">
                         <Form className="formsize-mypost">
                           <Form.Row>
+                            <div className="col-1 none-mypost"></div>
                             <Form.Group
                               as={Col}
-                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridName"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
+                                ชื่อ (ผู้โกง){" "}
+                              </Form.Label>
+                            </Form.Group>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
                               controlId="formGridName"
                             >
                               <Form.Label className="text-mypost">
-                                ชื่อ (ผู้โกง){" "}
-                                <span className="spanmypost">{ok.name}</span>
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.name}
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridLastname">
-                              <Form.Label className="text-mypost">
+                            <div className="col-1 none-mypost"></div>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridLastname"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
                                 นามสกุล (ผู้โกง){" "}
-                                <span className="spanmypost">{ok.surname}</span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
+                              controlId="formGridLastname"
+                            >
+                              <Form.Label className="text-mypost">
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.surname}
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
 
                           <Form.Row>
+                            <div className="col-1 none-mypost"></div>
                             <Form.Group
                               as={Col}
-                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridId"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
+                                เลขบัตรประชาชน (ผู้โกง){" "}
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
                               controlId="formGridId"
                             >
                               <Form.Label className="text-mypost">
-                                เลขบัตรประชาชน (ผู้โกง){" "}
-                                <span className="spanmypost">{ok.id}</span>
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.id}
+                                </div>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <div className="col-1 none-mypost"></div>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridAccountnumber"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
+                                เลขที่บัญชี (ผู้โกง){" "}
                               </Form.Label>
                             </Form.Group>
 
                             <Form.Group
                               as={Col}
+                              className="col-lg-3 col-sm-3 col-1"
                               controlId="formGridAccountnumber"
                             >
                               <Form.Label className="text-mypost">
-                                เลขที่บัญชี (ผู้โกง){" "}
-                                <span className="spanmypost">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.accountnumber}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
 
                           <Form.Row>
+                            <div className="col-1 none-mypost"></div>
                             <Form.Group
                               as={Col}
-                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridNameproduct"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
+                                ชื่อสินค้า{" "}
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
                               controlId="formGridNameproduct"
                             >
                               <Form.Label className="text-mypost">
-                                ชื่อสินค้า{" "}
-                                <span className="spanmypost">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.nameproduct}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridCategory">
-                              <Form.Label className="text-mypost">
+                            <div className="col-1 none-mypost"></div>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridCategory"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
                                 หมวดหมู่สินค้า{" "}
-                                <span className="spanmypost">
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
+                              controlId="formGridCategory"
+                            >
+                              <Form.Label className="text-mypost">
+                                <div className="spanmypost text-mypost-right">
                                   {ok.productcategory}
-                                </span>
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
 
                           <Form.Row>
+                            <div className="col-1 none-mypost"></div>
                             <Form.Group
                               as={Col}
-                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridPrice"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
+                                จำนวนเงิน{" "}
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
                               controlId="formGridPrice"
                             >
                               <Form.Label className="text-mypost">
-                                จำนวนเงิน (บาท){" "}
-                                <span className="spanmypost">{ok.money}</span>
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.money.toLocaleString(undefined, {
+                                    maximumFractionDigits: 2,
+                                  })}{" "}
+                                  บาท
+                                </div>
                               </Form.Label>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridCategory">
-                              <Form.Label className="text-mypost">
+                            <div className="col-1 none-mypost"></div>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridCategory"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
                                 ธนาคาร{" "}
-                                <span className="spanmypost">{ok.bank}</span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
+                              controlId="formGridCategory"
+                            >
+                              <Form.Label className="text-mypost">
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.bank}
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
 
                           <Form.Row>
+                            <div className="col-1 none-mypost"></div>
                             <Form.Group
                               as={Col}
-                              className="mypost-left col-lg-6 col-sm-6 col-12"
+                              className="col-lg-3 col-sm-3 col-6"
                               controlId="formGridDate"
                             >
-                              <Form.Label className="text-mypost">
+                              <Form.Label className="text-mypost text-mypost-left">
                                 วันที่โดนโกง{" "}
-                                <span className="spanmypost">
-                                  {moment(
-                                    new Date(ok.datetimes.seconds * 1000)
-                                  ).format("MM/DD/YYYY HH:mm")}{" "}
-                                </span>
                               </Form.Label>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
+                              controlId="formGridDate"
+                            >
                               <Form.Label className="text-mypost">
+                                <div className="spanmypost text-mypost-right">
+                                  {moment(
+                                    new Date(ok.datetimes.seconds * 1000)
+                                  ).format("MM/DD/YYYY HH:mm")}{" "}
+                                </div>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <div className="col-1 none-mypost"></div>
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-6"
+                              controlId="formGridSocial"
+                            >
+                              <Form.Label className="text-mypost text-mypost-left">
                                 ช่องทางที่โดนโกง{" "}
-                                <span className="spanmypost">{ok.social}</span>
+                              </Form.Label>
+                            </Form.Group>
+
+                            <Form.Group
+                              as={Col}
+                              className="col-lg-3 col-sm-3 col-5"
+                              controlId="formGridSocial"
+                            >
+                              <Form.Label className="text-mypost">
+                                <div className="spanmypost text-mypost-right">
+                                  {ok.social}
+                                </div>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
                           <br />
+
                           <Form.Row>
-                            <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Group
+                              as={Col}
+                              controlId="formGridSocial"
+                              className="number-mypost"
+                            >
                               <Form.Label className="text-mypost">
                                 จำนวนครั้งที่{" "}
                                 <span className="spanmypostname">
                                   {ok.name} {ok.surname}
                                 </span>{" "}
+                                <div className="none-mypost"></div>
                                 ถูกแจ้ง{" "}
                                 <span className="spanmypost">
                                   {ok.count} ครั้ง
@@ -270,20 +408,31 @@ const Seepost = () => {
                             </Form.Group>
                           </Form.Row>
                           <Form.Row>
-                            <Form.Group as={Col} controlId="formGridSocial">
+                            <Form.Group
+                              as={Col}
+                              controlId="formGridSocial"
+                              className="number-mypost"
+                            >
                               <Form.Label className="text-mypost">
                                 ยอดเงินรวมทั้งหมดที่โกงไป{" "}
                                 <span className="spanmypost">
-                                  {ok.summoney} บาท
+                                  {/* {ok.summoney} บาท */}
+                                  {ok.summoney.toLocaleString(undefined, {
+                                    maximumFractionDigits: 2,
+                                  })}{" "}
+                                  บาท
                                 </span>
                               </Form.Label>
                             </Form.Group>
                           </Form.Row>
 
-                          <Form.Group controlId="exampleForm.ControlTextarea1">
+                          <Form.Group
+                            controlId="exampleForm.ControlTextarea1"
+                            className="moredetail-mypost"
+                          >
                             <Form.Label className="text-mypost1">
                               รายละเอียดเพิ่มเติม{" "}
-                              <span className="spanmypostmore">{ok.other}</span>
+                              <div className="spanmypostmore">{ok.other}</div>
                             </Form.Label>
                           </Form.Group>
                           <div className="imgcommentitemmypost1">
@@ -315,7 +464,6 @@ const Seepost = () => {
                       <div className="line-comments1"></div>
                       <div className="container-mypost4">
                         <Commentmypost postid={ok.uid} />
-                      </div>
                       </div>
                     </div>
                   </div>
