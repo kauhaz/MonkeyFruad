@@ -67,7 +67,7 @@ const NavbarPage = (props) => {
         if (getdata) {
           console.log(getdata);
           history.push({
-            pathname: "/entersearch",
+            pathname: "/adminentersearch",
             search: "?are you ok",
             state: {
               getdata,
