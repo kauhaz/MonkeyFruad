@@ -1,6 +1,6 @@
 .box-load-comment-mypost{
     position: static;
-    margin-left: 250px;
+    margin-left: 260px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -8,42 +8,42 @@
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
     .box-load-comment-mypost{
-        margin-left: 325px;
+        margin-left: 315px;
     }
 }
 
 @media only screen and (max-width: 1367px) {
     .box-load-comment-mypost{
-        margin-left: 250px;
+        margin-left: 240px;
     }    
 }
 
 @media only screen and (max-width: 1025px) {
     .box-load-comment-mypost{
-        margin-left: 235px;
+        margin-left: 225px;
     }    
 }
 
 @media only screen and (max-width: 769px) {
     .box-load-comment-mypost{
-        margin-left: 150px;
+        margin-left: 140px;
     }    
 }
 
 @media only screen and (max-width: 415px) {
     .box-load-comment-mypost{
-        margin-left: 75px;
+        margin-left: 60px;
     }    
 }
 
 @media only screen and (max-width: 376px) {
     .box-load-comment-mypost{
-        margin-left: 60px;
+        margin-left: 50px;
     }    
 }
 
 @media only screen and (max-width: 321px) {
     .box-load-comment-mypost{
-        margin-left: 40px;
+        margin-left: 25px;
     }    
 }
