@@ -5,15 +5,14 @@ import * as moment from "moment";
 import "moment/locale/th";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
-import Modalimage from "../../user/components/Modalimage"
-
+import Modalimage from "../../user/components/Modalimage";
 
 const Listcommentpost = ({
   commentmore,
   handledeletetorerender,
   handleedittorerender,
   setIsActive,
-  isActive
+  isActive,
 }) => {
   const [imagesFile, setImagesFile] = useState(); //สร้าง State เพื่อเก็บไฟล์ที่อัพโหลด
   const [imagecomment, Setimagecomment] = useState();
@@ -30,12 +29,12 @@ const Listcommentpost = ({
   const [imagemodal, Setimagemodal] = useState();
   const [loading, Setloading] = useState();
 
-  const handleopenmodal = async() =>{
-    Setisopen(true)
-  }
-  const handleclosemodal = async() =>{
-    Setisopen(false)
-  }
+  const handleopenmodal = async () => {
+    Setisopen(true);
+  };
+  const handleclosemodal = async () => {
+    Setisopen(false);
+  };
 
   const FileUpload = (event) => {
     event.preventDefault(); // ใส่ไว้ไม่ให้ refresh หน้าเว็บ
@@ -137,13 +136,15 @@ const Listcommentpost = ({
       console.log(err);
     }
   };
-  if(commentmore && commentmore.photocomment){
-    console.log(commentmore.photocomment)
+  if (commentmore && commentmore.photocomment) {
+    console.log(commentmore.photocomment);
   }
-  const deleted = async (commentid,commentmore) => {
-      console.log(commentmore)
+  const deleted = async (commentid, commentmore) => {
+    console.log(commentmore);
     const postdelete = await Axios.post(
-      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,commentmore);
+      `https://monkeyfruad01.herokuapp.com/post/delete/comment/${commentid}`,
+      commentmore
+    );
     setIsActive(false);
     Setfuck([]);
     setImagesFile();
@@ -217,7 +218,7 @@ const Listcommentpost = ({
 
   // console.log(imagesFile)
   return (
-    <div >
+    <div>
       {commentmore ? (
         <div className="postcommentrows">
           {/* <div class="vl"></div> */}
@@ -226,11 +227,14 @@ const Listcommentpost = ({
               <div className="post-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
-                    className="img-circle"
+                    className="img-circle profile-comment1"
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
-                  <img className="img-circle" src="/img/profile.png" />
+                  <img
+                    className="img-circle profile-comment1"
+                    src="/img/profile.png"
+                  />
                 )}
               </div>
               <div className="post-comment-name1">
@@ -246,28 +250,35 @@ const Listcommentpost = ({
             </div>
 
             <br />
-              <div className="post-comment-comments2">
-                <div className="postcomment1">{commentmore.textcomment}</div>
-                <div className="imglistcomment">
-                  {/* {loading ? <ClipLoader /> : <div></div>} */}
-                  {imagecomment
-                    ? imagecomment
-                      ? imagecomment.map((doc) => {
-                          return (
-                            <div className="imglistcommentpost1">
-                              <img
-                                className="listcommentpost2"
-                                src={`${doc.url}`}
-                                onClick = {() => (Setimagemodal(doc.url),handleopenmodal())}
-                              />
-                            </div>
-                          );
-                        })
-                      : null
-                    : null}
-                  <Modalimage isopen={isopen} handleopenmodal={handleopenmodal} handleclosemodal={handleclosemodal} imagemodal={imagemodal}/>
-                </div>
+            <div className="post-comment-comments2">
+              <div className="postcomment1">{commentmore.textcomment}</div>
+              <div className="imglistcomment">
+                {/* {loading ? <ClipLoader /> : <div></div>} */}
+                {imagecomment
+                  ? imagecomment
+                    ? imagecomment.map((doc) => {
+                        return (
+                          <div className="imglistcommentpost1">
+                            <img
+                              className="listcommentpost2"
+                              src={`${doc.url}`}
+                              onClick={() => (
+                                Setimagemodal(doc.url), handleopenmodal()
+                              )}
+                            />
+                          </div>
+                        );
+                      })
+                    : null
+                  : null}
+                <Modalimage
+                  isopen={isopen}
+                  handleopenmodal={handleopenmodal}
+                  handleclosemodal={handleclosemodal}
+                  imagemodal={imagemodal}
+                />
               </div>
+            </div>
           </div>
         </div>
       ) : null}
