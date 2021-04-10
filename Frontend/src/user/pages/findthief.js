@@ -21,13 +21,20 @@ const Findthief = () => {
 
   const [showDropdown, SetshowDropdown] = useState(true);
 
+  const [numberAccount, setNumberAccount] = useState(false);
+  const [nameSurname, setNameSurname] = useState(true);
+
   let location = useLocation();
   const ok = async () => {
     const getpost = await Axios.get(
-      `https://monkeyfruad01.herokuapp.com/thief/post/${uid}`
+      `http://localhost:7000/thief/post/${uid}`
     );
     Setshow(getpost.data.item);
     SetLoading(false);
+    if(uid.match(/[0-9]/g)){
+      setNumberAccount(true)
+      setNameSurname(false)
+    }
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -35,6 +42,7 @@ const Findthief = () => {
   useEffect(() => {
     ok();
   }, []);
+
 
   console.log(show);
   return Loading ? (
@@ -67,9 +75,9 @@ const Findthief = () => {
               {" "}
               ผลการค้นหา{" "}
               <span className="spansearch">
-                "{show && show.length > 0 && show[0].name}{" "}
-                {show && show.length > 0 && show[0].surname}{" "}
-                {show && show.length > 0 && show[0].accountnumber}"
+                "{show && show.length > 0 && nameSurname && show[0].name}{nameSurname ? " " : null}
+                {show && show.length > 0 && nameSurname && show[0].surname}
+              {show && show.length > 0 && numberAccount && show[0].accountnumber}"
               </span>{" "}
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>

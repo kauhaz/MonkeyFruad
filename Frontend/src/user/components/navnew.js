@@ -34,11 +34,13 @@ const NavbarPage = (props) => {
   const [allpost, Setallpost] = useState();
   const [countNoti, setCountNoti] = useState([]);
   const [noti, setNoti] = useState([]);
-  const [haha, Sethaha] = useState();
+  const [haha, Sethaha] = useState(false);
   const [error, Seterror] = useState();
   const [hideCountNoti, SetHideCountNoti] = useState(false);
   const [hideCountNotiAlways, SetHideCountNotiAlways] = useState(false);
   const [reFreshNoti, setReFreshNoti] = useState(false);
+  const [accountNumber, setAccountNumber] = useState(false);
+
   let history = useHistory();
   let i = 0; //forsearch
   const logout = () => {
@@ -98,7 +100,8 @@ const NavbarPage = (props) => {
       console.log(err);
     }
   };
-
+  console.log(haha)
+  console.log(accountNumber)
   const initSearch = async () => {
     try {
       const getallthief = await axios.get(
@@ -125,7 +128,7 @@ const NavbarPage = (props) => {
               Sethaha(true);
             }
             if (doc.accountnumber.startsWith(search)) {
-              Sethaha(true);
+              setAccountNumber(true);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
@@ -471,7 +474,8 @@ const NavbarPage = (props) => {
         {lastsearch
           ? lastsearch.map((doc) => {
               let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              console.log(thiefNameAndSurname);
+              let thiefAccountNumber = `${doc.accountnumber}`
+              console.log(thiefAccountNumber)
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -492,7 +496,25 @@ const NavbarPage = (props) => {
                           >
                             <div>
                               {" "}
-                              {doc.name} {doc.surname} {doc.accountnumber}
+                              {doc.name} {doc.surname}
+                            </div>
+                          </button>
+                        ) : null
+                      ) : accountNumber ? (
+                        props.showDropdown ? (
+                          <button
+                            className="search-nav"
+                            onClick={() => (
+                              history.push({
+                                pathname: `/thief/post/${thiefAccountNumber}`,
+                                search: "?are you ok",
+                              }),
+                              window.location.reload(true)
+                            )}
+                          >
+                            <div>
+                              {" "}
+                              {doc.accountnumber}
                             </div>
                           </button>
                         ) : null
