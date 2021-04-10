@@ -142,8 +142,8 @@
 .listcommentmypost2 {
   margin: 0;
   padding: 5px;
-  width: 160px;
-  height: 160px;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -152,8 +152,8 @@
 .imgpreviewmypost1 {
   position: relative;
   margin: 0 0 20px 0;
-  width: 145px;
-  height: 145px;
+  width: 163px;
+  height: 163px;
   object-fit: cover;
   object-position: center;
 }
@@ -179,8 +179,8 @@
 }
 
 .uploadproveeditmyposts1 {
-  width: 145px;
-  height: 145px;
+  width: 160px;
+  height: 160px;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5rem;
   justify-content: center;
@@ -196,7 +196,7 @@
 
 .uploadproveeditmyposts2 {
   width: 100%;
-  padding: 40px;
+  padding: 55px;
 }
 
 .commenttextarea {
@@ -321,8 +321,8 @@
   }
   .imgpreviewmypost1,
   .uploadproveeditmyposts1 {
-    width: 124px;
-    height: 124px;
+    width: 150px;
+    height: 150px;
   }
   .mypostcommentmenusetting {
     font-size: 14px !important;
@@ -331,11 +331,11 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 40px;
+    padding: 50px;
   }
   .listcommentmypost2 {
-    width: 139px;
-    height: 139px;
+    width: 165px;
+    height: 165px;
   }
   .mypost-comment-name1 {
     margin-left: 15px;
@@ -359,7 +359,7 @@
     grid-gap: 15px 0;
   } */
   .imgpreviewmypost1 {
-    margin: 0;
+    margin-bottom: 20px;
     width: 147px;
     height: 147px;
   }
@@ -420,7 +420,7 @@
     top: 25px !important;
   }
   .imgpreviewmypost1 {
-    margin: 0;
+    margin-bottom: 20px;
     width: 99px;
     height: 99px;
   }
@@ -433,8 +433,8 @@
     padding: 35px !important;
   }
   .listcommentmypost2 {
-    width: 115px;
-    height: 115px;
+    width: 110px;
+    height: 110px;
   }
   .inputlistcommentmypost2,
   .mypostcomment1 {
@@ -494,13 +494,14 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px 0;
   } */
-  .imglistcommentmypost {
+  .imglistcommentmypost , .imgcommentitemmypost{
     grid-template-columns: 1fr 1fr;
   }
   .imgpreviewmypost1,
   .uploadproveeditmyposts1 {
     width: 130px;
     height: 130px;
+    margin-bottom: 40px;
   }
   .uploadproveeditmyposts2 {
     width: 100%;
