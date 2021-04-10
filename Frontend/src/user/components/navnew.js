@@ -100,8 +100,7 @@ const NavbarPage = (props) => {
       console.log(err);
     }
   };
-  console.log(haha)
-  console.log(accountNumber)
+
   const initSearch = async () => {
     try {
       const getallthief = await axios.get(
@@ -203,7 +202,6 @@ const NavbarPage = (props) => {
     //   setReFreshNoti(!reFreshNoti);
     // }, 2000);
   }, [user, search, hideCountNoti, reFreshNoti]);
-  console.log(reFreshNoti);
   return (
     <Router>
       <MDBNavbar light expand="md" className="navbarnew">
