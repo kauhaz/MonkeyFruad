@@ -44,11 +44,21 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-.container-posts2 {
+.container-posts2,
+.container-posts2-admin {
   width: 90%;
   border-radius: 10px;
   background-color: white;
   margin: 40px auto 0 auto;
+  padding: 20px;
+  font-family: "Kanit", sans-serif;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+}
+.container-posts2-admin {
+  width: 90%;
+  border-radius: 10px;
+  background-color: white;
+  margin: 70px auto 0 auto;
   padding: 20px;
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
@@ -164,7 +174,8 @@
   font-family: "Kanit", sans-serif;
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
 }
-.container-postrights2 {
+.container-postrights2,
+.container-postrights2-admin {
   width: 100%;
   background-color: white;
   border-radius: 10px;
@@ -260,8 +271,9 @@
 }
 
 /* หน้า entersearch, findthief */
-.h1-posts {
-  margin-top: 50px;
+.h1-posts,
+.h1-posts-admin {
+  margin-top: 50px !important;
   text-align: center;
   font-size: 21px;
   font-family: "Kanit", sans-serif;
@@ -297,7 +309,7 @@
   width: 63%;
   margin-left: auto;
   margin-right: auto;
-  height: 2000px;
+  height: auto;
 }
 .fa-check-circle {
   color: gray;
@@ -439,10 +451,10 @@
     font-size: 16px;
     width: 500px;
   }
-  .h1-posts {
+  .h1-posts,
+  .h1-posts-admin {
     font-size: 24px;
   }
-
   /* slide */
   .btnslide {
     display: none !important;
@@ -481,7 +493,8 @@
     font-size: 16px;
     width: 415px;
   }
-  .h1-posts {
+  .h1-posts,
+  .h1-posts-admin {
     font-size: 21px;
   }
   .none-post {
@@ -557,6 +570,9 @@
   .container-postrights2 {
     margin: 80px auto 0 auto;
   }
+  .container-postrights2-admin {
+    margin: 100px auto 0 auto;
+  }
   .line-posts1 {
     margin: 20px 0 !important;
   }
@@ -566,6 +582,10 @@
   .h1-posts {
     font-size: 17px;
     margin: 30px 0;
+  }
+  .h1-posts-admin {
+    font-size: 17px;
+    margin: 50px 0 30px 0;
   }
   .container-posts4 {
     width: 100% !important;
@@ -658,6 +678,9 @@
   .container-postrights2 {
     margin: 80px auto 0 auto;
   }
+  .container-postrights2-admin {
+    margin: 100px auto 0 auto;
+  }
   .container-posts3,
   .container-postss3 {
     padding: 30px 10px 10px 10px !important;
@@ -671,6 +694,10 @@
   .h1-posts {
     font-size: 17px;
     margin: 30px 0;
+  }
+  .h1-posts-admin {
+    font-size: 17px;
+    margin: 50px 0 30px 0;
   }
   .container-posts4 {
     padding: 0 !important;
@@ -827,12 +854,17 @@
     display: none;
   }
   .container-postright2,
-  .container-postrights2 {
+  .container-postrights2,
+  .container-postrights2-admin {
     display: none;
   }
   .h1-posts {
     font-size: 18px;
     margin: 30px 0;
+  }
+  .h1-posts-admin {
+    font-size: 18px;
+    margin: 50px 0 30px 0;
   }
   .monkey {
     margin-left: 30px;
@@ -854,9 +886,11 @@
   .none-post {
     display: block;
   }
-
   .container-postbottoms{
     padding-bottom: 90px;
+  }
+  .container-posts2-admin {
+    margin: 20px auto 0 auto;
   }
 }
 
@@ -995,12 +1029,17 @@
     display: none;
   }
   .container-postright2,
-  .container-postrights2 {
+  .container-postrights2,
+  .container-postrights2-admin {
     display: none;
   }
   .h1-posts {
     font-size: 18px;
     margin: 30px 0;
+  }
+  .h1-posts-admin {
+    font-size: 18px;
+    margin: 50px 0 30px 0;
   }
   .monkey {
     margin-left: 30px;
@@ -1021,6 +1060,9 @@
   }
   .none-post {
     display: block;
+  }
+  .container-posts2-admin {
+    margin: 20px auto 0 auto;
   }
 }
 
@@ -1161,12 +1203,17 @@
     display: none;
   }
   .container-postright2,
-  .container-postrights2 {
+  .container-postrights2,
+  .container-postrights2-admin {
     display: none;
   }
   .h1-posts {
     font-size: 17px;
     margin: 30px 0;
+  }
+  .h1-posts-admin {
+    font-size: 17px;
+    margin: 50px 0 30px 0;
   }
   .monkey {
     margin-left: 10px;
@@ -1187,5 +1234,8 @@
   }
   .none-post {
     display: block;
+  }
+  .container-posts2-admin {
+    margin: 20px auto 0 auto;
   }
 }
