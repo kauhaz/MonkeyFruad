@@ -70,10 +70,10 @@ const Login = () => {
 
   // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
   const Islogin = () => {
-    if (location.state !== undefined) {
+    if (location.state !== undefined && location.state.param !== 'forgetpass') {
       setIsnotlogin(true);
       setEmailis_inVaild(false);
-    } else {
+    } else if(location.state == undefined){
       setIsnotlogin(false);
     }
   };
@@ -140,9 +140,6 @@ const Login = () => {
           </div>
 
           <div className="message-login">
-            <div className="RememberCheckbox-login">
-              <input type="checkbox" /> จดจำฉันไว้ในระบบ
-            </div>
             <div className="ForgotPassword-login">
               <a href="./forgetpass">ลืมรหัสผ่าน?</a>
             </div>

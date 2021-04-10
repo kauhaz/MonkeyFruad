@@ -11,6 +11,7 @@ import axios from "axios";
 import NavbarPage from "../components/navnew";
 
 const Forgetpass = () => {
+  let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
   const [email, setEmail] = useState("");
   const [sendEmail, setSendemail] = useState(false);
@@ -18,8 +19,16 @@ const Forgetpass = () => {
     e.preventDefault();
     auth
       .sendPasswordResetEmail(email)
-      .then(function (result) {
-        setSendemail(true);
+      .then(function  () {
+       setSendemail(true);
+       setTimeout(()=>{
+        history.push({
+          pathname: `/login`,
+          state : {
+            param : 'forgetpass'
+          }
+        },5000);
+       }) 
       })
       .catch(function (error) {
         console.log(error);
