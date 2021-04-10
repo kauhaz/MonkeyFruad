@@ -546,9 +546,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
-                                  max={`${moment(new Date()).format(
-                                    "YYYY-MM-DDTHH:mm"
-                                  )}`}
+                                  max={`${moment(new Date()).format("YYYY-MM-DDTHH:mm")}`}
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);

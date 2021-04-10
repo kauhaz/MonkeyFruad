@@ -289,6 +289,7 @@
   border: none;
   background-color: white;
   color: gray;
+  font-size: 20px;
   border-radius: 50px;
 }
 .adminbuttonreported:hover {
@@ -702,6 +703,10 @@
   .container-posts4 {
     padding: 0 !important;
   }
+  .adminbuttonreported {
+    font-size: 17px;
+  }
+
   /* slide */
   .btnslide {
     display: none !important;
@@ -811,6 +816,9 @@
   }
   /* end-slide */
 
+  .adminbuttonreported {
+    font-size: 18px;
+  }
   .column-post-left1 {
     width: 88%;
     margin-left: auto;
@@ -995,6 +1003,9 @@
   }
   /* end-slide */
 
+  .adminbuttonreported {
+    font-size: 17px;
+  }
   .container-post1 {
     width: 96.5%;
     height: 110px;
@@ -1166,6 +1177,9 @@
   }
   /* end-slide */
 
+  .adminbuttonreported {
+    font-size: 17px;
+  }
   .container-post1 {
     width: 96.5%;
     height: 100px;
