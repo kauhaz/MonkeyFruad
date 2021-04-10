@@ -168,6 +168,10 @@
   font-family: 'Kanit', sans-serif;
 }
 
+/* .uploadprove2 , .inputcommentmypost2 ,.mypostbuttonsends1{
+  display: none;
+} */
+
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
   .mypost-comment-comments1 {
