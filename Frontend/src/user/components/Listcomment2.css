@@ -321,8 +321,8 @@
   }
   .imgpreviewmypost1,
   .uploadproveeditmyposts1 {
-    width: 124px;
-    height: 124px;
+    width: 150px;
+    height: 150px;
   }
   .mypostcommentmenusetting {
     font-size: 14px !important;
@@ -331,11 +331,11 @@
   }
   .uploadproveeditmyposts2 {
     width: 100%;
-    padding: 40px;
+    padding: 50px;
   }
   .listcommentmypost2 {
-    width: 139px;
-    height: 139px;
+    width: 165px;
+    height: 165px;
   }
   .mypost-comment-name1 {
     margin-left: 15px;
