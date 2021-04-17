@@ -195,7 +195,7 @@ const NavbarPage = (props) => {
       setLoading(false);
     }
     initSearch();
-    setLoading(false);
+    setLoading(false);  
     // setTimeout(() => {
     //   setReFreshNoti(!reFreshNoti);
     // }, 2000);
