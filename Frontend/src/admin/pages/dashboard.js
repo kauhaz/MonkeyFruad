@@ -84,8 +84,8 @@ const Dashboard = () => {
             <CCol sm="7" className="d-none d-md-block">
               <CButtonGroup className="float-right mr-3">
                 {CategoriesChart.map((value) => (
-                  <CButton
-                    color="outline-secondary"
+                  <CButton 
+                    color="secondary"
                     key={value}
                     className="admin-CategoriesChart"
                     active={value === "Month"}
@@ -98,7 +98,9 @@ const Dashboard = () => {
                   className="admin-select-chart"
                   onchange={(event) => ChangeCalender(event.target.value)}
                 >
-                  <option selected value="Day">วัน</option>
+                  <option selected value="Day">
+                    วัน
+                  </option>
                   <option value="Month">เดือน</option>
                   <option value="Year">ปี</option>
                 </CSelect>
