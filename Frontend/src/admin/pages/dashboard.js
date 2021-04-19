@@ -84,7 +84,7 @@ const Dashboard = () => {
             <CCol sm="7" className="d-none d-md-block">
               <CButtonGroup className="float-right mr-3">
                 {CategoriesChart.map((value) => (
-                  <CButton 
+                  <CButton
                     color="secondary"
                     key={value}
                     className="admin-CategoriesChart"
@@ -169,4 +169,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard
+export default Dashboard;
