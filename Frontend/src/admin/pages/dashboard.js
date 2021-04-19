@@ -73,14 +73,17 @@ const Dashboard = () => {
     moment().subtract(1, "d").format("MMM DD"),
     moment().format("MMM DD"),
   ];
-  const ChangeCalender = (type) => {
+  const ChangeCalender = async (type) => {
     console.log(type);
     if (type === "Day") {
-      settypeChart(type);
       countUserDayOfWeek();
-    } else if (type === "Month") {
       settypeChart(type);
+    } else if (type === "Month") {
       countUserDayOfMonth();
+      settypeChart(type);
+    } else if (type === "Year") {
+      countUserDayOfMonth();
+      settypeChart(type);
     }
   };
 
@@ -98,7 +101,9 @@ const Dashboard = () => {
     let countUser = [];
     let count = 0;
     //sent type get data from api
-    await Axios.get("http://localhost:7000/user/listuserofday").then((res) => {
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/user/listuserofday"
+    ).then((res) => {
       countUserApi.push(res.data.data);
       dayOfWeek.forEach((dayofweek) => {
         countUserApi[0].forEach((element) => {
@@ -128,24 +133,24 @@ const Dashboard = () => {
     let countUser = [];
     let count = 0;
     //sent type get data from api
-    await Axios.get("http://localhost:7000/user/listuserofmonth").then(
-      (res) => {
-        countUserApi.push(res.data.data);
-        dayOfMonth.forEach((dayofweek) => {
-          countUserApi[0].forEach((element) => {
-            if (
-              moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-              dayofweek
-            ) {
-              console.log(count);
-              count++;
-            }
-          });
-          countUser.push(count);
-          count = 0;
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/user/listuserofmonth"
+    ).then((res) => {
+      countUserApi.push(res.data.data);
+      dayOfMonth.forEach((dayofweek) => {
+        countUserApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofweek
+          ) {
+            console.log(count);
+            count++;
+          }
         });
-      }
-    );
+        countUser.push(count);
+        count = 0;
+      });
+    });
     // console.log(countUser);
     setdataChart([
       {
@@ -235,23 +240,6 @@ const Dashboard = () => {
             />
           ) : null}
         </CCardBody>
-
-        <CCardFooter>
-          <CRow className="text-center">
-            <CCol md sm="12" className="mb-sm-2 mb-0 d-md-down-none">
-              <div className="text-muted">จำนวนโพสต์</div>
-              <strong>24.093 โพสต์ </strong>
-            </CCol>
-            <CCol md sm="12" className="mb-sm-2 mb-0">
-              <div className="text-muted">จำนวนผู้ใช้งานใหม่</div>
-              <strong>78.706 คน </strong>
-            </CCol>
-            <CCol md sm="12" className="mb-sm-2 mb-0">
-              <div className="text-muted">จำนวนค้นหา</div>
-              <strong>22.123 ครั้ง </strong>
-            </CCol>
-          </CRow>
-        </CCardFooter>
       </CCard>
     </div>
   );
