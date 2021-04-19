@@ -22,7 +22,6 @@ import CIcon from "@coreui/icons-react";
 import { CChartLine } from "@coreui/react-chartjs";
 
 import { Link, useHistory, useLocation } from "react-router-dom";
-
 import { Form, Col } from "react-bootstrap";
 import "./dashboard.css";
 
@@ -31,39 +30,134 @@ const Dashboard = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [typeChart, settypeChart] = useState("Day");
   const [CategoryChart, setCategoryChart] = useState("จำนวนโพสต์");
-
   const [dataChart, setdataChart] = useState([]);
-
   const CategoriesChart = ["จำนวนโพสต์", "จำนวนผู้ใช้งานใหม่", "จำนวนค้นหา"];
-
+  var dayOfWeek = [
+    moment().subtract(6, "d").format("MMM DD"),
+    moment().subtract(5, "d").format("MMM DD"),
+    moment().subtract(4, "d").format("MMM DD"),
+    moment().subtract(3, "d").format("MMM DD"),
+    moment().subtract(2, "d").format("MMM DD"),
+    moment().subtract(1, "d").format("MMM DD"),
+    moment().format("MMM DD"),
+  ];
+  var dayOfMonth = [
+    moment().subtract(29, "d").format("MMM DD"),
+    moment().subtract(28, "d").format("MMM DD"),
+    moment().subtract(27, "d").format("MMM DD"),
+    moment().subtract(26, "d").format("MMM DD"),
+    moment().subtract(25, "d").format("MMM DD"),
+    moment().subtract(24, "d").format("MMM DD"),
+    moment().subtract(23, "d").format("MMM DD"),
+    moment().subtract(22, "d").format("MMM DD"),
+    moment().subtract(21, "d").format("MMM DD"),
+    moment().subtract(20, "d").format("MMM DD"),
+    moment().subtract(19, "d").format("MMM DD"),
+    moment().subtract(18, "d").format("MMM DD"),
+    moment().subtract(17, "d").format("MMM DD"),
+    moment().subtract(16, "d").format("MMM DD"),
+    moment().subtract(15, "d").format("MMM DD"),
+    moment().subtract(14, "d").format("MMM DD"),
+    moment().subtract(13, "d").format("MMM DD"),
+    moment().subtract(12, "d").format("MMM DD"),
+    moment().subtract(11, "d").format("MMM DD"),
+    moment().subtract(10, "d").format("MMM DD"),
+    moment().subtract(9, "d").format("MMM DD"),
+    moment().subtract(8, "d").format("MMM DD"),
+    moment().subtract(7, "d").format("MMM DD"),
+    moment().subtract(6, "d").format("MMM DD"),
+    moment().subtract(5, "d").format("MMM DD"),
+    moment().subtract(4, "d").format("MMM DD"),
+    moment().subtract(3, "d").format("MMM DD"),
+    moment().subtract(2, "d").format("MMM DD"),
+    moment().subtract(1, "d").format("MMM DD"),
+    moment().format("MMM DD"),
+  ];
   const ChangeCalender = (type) => {
-    setCategoryChart(type);
-    getData(type);
+    console.log(type);
+    if (type === "Day") {
+      settypeChart(type);
+      countUserDayOfWeek();
+    } else if (type === "Month") {
+      settypeChart(type);
+      countUserDayOfMonth();
+    }
   };
 
   const onChangeTypeChart = (type) => {
     settypeChart(type);
-    getData(type);
   };
-
-  const getData = (type, Calender) => {
-    //sent type get data from api
+  const countPost = () => {
     Axios.get("http://api").then((res) => {
       setdataChart(res.data);
     });
-
+  };
+  const countSearch = () => {};
+  const countUserDayOfWeek = async (type, Calender) => {
+    let countUserApi = [];
+    let countUser = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get("http://localhost:7000/user/listuserofday").then((res) => {
+      countUserApi.push(res.data.data);
+      dayOfWeek.forEach((dayofweek) => {
+        countUserApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofweek
+          ) {
+            console.log(count);
+            count++;
+          }
+        });
+        countUser.push(count);
+        count = 0;
+      });
+    });
+    // console.log(countUser);
     setdataChart([
       {
-        label: "Data One",
+        label: "จำนวนผู้ใช้งานในระบบ",
         backgroundColor: "#33b5e5",
-        data: [30, 39, 10, 50, 30, 70, 35],
+        data: countUser,
       },
     ]);
   };
-
+  const countUserDayOfMonth = async (type, Calender) => {
+    let countUserApi = [];
+    let countUser = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get("http://localhost:7000/user/listuserofmonth").then(
+      (res) => {
+        countUserApi.push(res.data.data);
+        dayOfMonth.forEach((dayofweek) => {
+          countUserApi[0].forEach((element) => {
+            if (
+              moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+              dayofweek
+            ) {
+              console.log(count);
+              count++;
+            }
+          });
+          countUser.push(count);
+          count = 0;
+        });
+      }
+    );
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนผู้ใช้งานในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countUser,
+      },
+    ]);
+  };
   useEffect(() => {
     //default get day
-    getData(typeChart, CategoryChart);
+    countUserDayOfWeek();
   }, []);
 
   return (
@@ -83,26 +177,26 @@ const Dashboard = () => {
             </CCol>
             <CCol sm="7" className="d-none d-md-block">
               <CButtonGroup className="float-right mr-3">
+                {/* 3 ปุ่ม */}
                 {CategoriesChart.map((value) => (
                   <CButton
                     color="secondary"
-                    key={value}
                     className="admin-CategoriesChart"
-                    active={value === "Month"}
-                    onClick={(e) => onChangeTypeChart(value)}
+                    onClick={() => onChangeTypeChart(value)}
                   >
                     {value}
                   </CButton>
                 ))}
+                {/* เลือก วันเดือนปี */}
                 <CSelect
                   className="admin-select-chart"
-                  onchange={(event) => ChangeCalender(event.target.value)}
+                  onChange={(e) => ChangeCalender(e.target.value)}
                 >
                   <option selected value="Day">
-                    วัน
+                    7 วันที่แล้ว
                   </option>
-                  <option value="Month">เดือน</option>
-                  <option value="Year">ปี</option>
+                  <option value="Month">30 วันที่แล้ว</option>
+                  <option value="Year">ปีปัจจุบัน</option>
                 </CSelect>
               </CButtonGroup>
             </CCol>
@@ -115,10 +209,21 @@ const Dashboard = () => {
                   enabled: true,
                 },
               }}
-              labels="months"
+              labels={dayOfWeek}
             />
           ) : null}
           {typeChart === "Month" ? (
+            <CChartLine
+              datasets={dataChart}
+              options={{
+                tooltips: {
+                  enabled: true,
+                },
+              }}
+              labels={dayOfMonth}
+            />
+          ) : null}
+          {typeChart === "Year" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -130,37 +235,20 @@ const Dashboard = () => {
             />
           ) : null}
         </CCardBody>
+
         <CCardFooter>
           <CRow className="text-center">
             <CCol md sm="12" className="mb-sm-2 mb-0 d-md-down-none">
               <div className="text-muted">จำนวนโพสต์</div>
-              <strong>24.093 โพสต์ (20%)</strong>
-              <CProgress
-                className="progress-xs mt-2"
-                precision={1}
-                color="info"
-                value={40}
-              />
+              <strong>24.093 โพสต์ </strong>
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0">
               <div className="text-muted">จำนวนผู้ใช้งานใหม่</div>
-              <strong>78.706 คน (60%)</strong>
-              <CProgress
-                className="progress-xs mt-2"
-                precision={1}
-                color="warning"
-                value={40}
-              />
+              <strong>78.706 คน </strong>
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0">
               <div className="text-muted">จำนวนค้นหา</div>
-              <strong>22.123 ครั้ง (80%)</strong>
-              <CProgress
-                className="progress-xs mt-2"
-                precision={1}
-                color="danger"
-                value={40}
-              />
+              <strong>22.123 ครั้ง </strong>
             </CCol>
           </CRow>
         </CCardFooter>
