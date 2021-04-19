@@ -199,6 +199,9 @@ const NavbarPage = (props) => {
             <MDBNavItem>
               <Nav.Link href="/report">ดูรายงาน</Nav.Link>
             </MDBNavItem>
+            <MDBNavItem>
+              <Nav.Link href="/dashboard">สรุปข้อมูล</Nav.Link>
+            </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
@@ -287,6 +290,9 @@ const NavbarPage = (props) => {
             </MDBNavItem>
             <MDBNavItem>
               <Nav.Link href="/report">ดูรายงาน</Nav.Link>
+            </MDBNavItem>
+            <MDBNavItem>
+              <Nav.Link href="/dashboard">สรุปข้อมูล</Nav.Link>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
