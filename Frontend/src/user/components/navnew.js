@@ -434,33 +434,66 @@ const NavbarPage = (props) => {
               </MDBNavItem>
             ) : null}
 
-            <MDBNavItem>
-              {user ? (
+
+{/* test */}
+<MDBNavItem>
+{user ? (
                 <MDBDropdown>
-                  <MDBDropdownToggle
-                    nav
-                    caret
-                    left
-                    className="dropdown-username-nav"
-                  >
-                    {displayname}
+                  <MDBDropdownToggle nav className="noti-comp">
+                    <div className="navbar-noti" onClick={() => notiChangeClick()}>
+                      <i className="fas fa-sort-down"></i>
+                    </div>
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu
-                    className="dropdown-default dropdown-bottom"
-                    right
-                  >
-                    <MDBDropdownItem href={`/profile/${user.uid}`}>
-                      จัดการโปรไฟล์
-                    </MDBDropdownItem>
-                    <MDBDropdownItem href="/post/history">
-                      ประวัติการโพสต์
-                    </MDBDropdownItem>
-                    <div className="line-nav"></div>
-                    <MDBDropdownItem href="/login" onClick={logout}>
-                      ออกจากระบบ
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
+                    <MDBDropdownMenu className="dropdown-default dropdown-top-profile">
+                      <div className="box-nav-profile">
+
+
+                        <div className="line-profile-nav"></div>
+                        <MDBDropdownItem href={`/profile/${user.uid}`}>
+                          จัดการโปรไฟล์
+                        </MDBDropdownItem>
+                        <MDBDropdownItem href="/post/history">
+                          ประวัติการโพสต์
+                        </MDBDropdownItem>
+                        <div className="line-nav"></div>
+                        <MDBDropdownItem href="/login" onClick={logout}>
+                          ออกจากระบบ
+                        </MDBDropdownItem>
+                      </div>
+                    </MDBDropdownMenu>
                 </MDBDropdown>
+              // </MDBNavItem>
+
+
+
+
+            // <MDBNavItem>
+            //   {user ? (
+            //     <MDBDropdown>
+            //       <MDBDropdownToggle
+            //         nav
+            //         caret
+            //         left
+            //         className="dropdown-username-nav"
+            //       >
+            //         {displayname}
+            //       </MDBDropdownToggle>
+            //       <MDBDropdownMenu
+            //         className="dropdown-default dropdown-bottom"
+            //         right
+            //       >
+            //         <MDBDropdownItem href={`/profile/${user.uid}`}>
+            //           จัดการโปรไฟล์
+            //         </MDBDropdownItem>
+            //         <MDBDropdownItem href="/post/history">
+            //           ประวัติการโพสต์
+            //         </MDBDropdownItem>
+            //         <div className="line-nav"></div>
+            //         <MDBDropdownItem href="/login" onClick={logout}>
+            //           ออกจากระบบ
+            //         </MDBDropdownItem>
+            //       </MDBDropdownMenu>
+            //     </MDBDropdown>
               ) : (
                 <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
               )}
