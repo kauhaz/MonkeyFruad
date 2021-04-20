@@ -28,8 +28,9 @@ import "./dashboard.css";
 const Dashboard = () => {
   const [show, Setshow] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
-  const [typeChart, settypeChart] = useState("Day");
-  const [CategoryChart, setCategoryChart] = useState("จำนวนโพสต์");
+  const [typeChart, settypeChart] = useState("userOfDay");
+  const [CategoryChart, setCategoryChart] = useState("จำนวนผู้ใช้งานใหม่");
+  const [selectDateChart, setSelectDateChart] = useState("Day");
   const [dataChart, setdataChart] = useState([]);
   const CategoriesChart = ["จำนวนโพสต์", "จำนวนผู้ใช้งานใหม่", "จำนวนค้นหา"];
   var dayOfWeek = [
@@ -74,21 +75,49 @@ const Dashboard = () => {
     moment().format("MMM DD"),
   ];
   const ChangeCalender = async (type) => {
-    console.log(type);
-    if (type === "Day") {
+    setSelectDateChart(type)
+    if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       countUserDayOfWeek();
-      settypeChart(type);
-    } else if (type === "Month") {
+      settypeChart("userOfDay");
+    } else if (type === "Month" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       countUserDayOfMonth();
-      settypeChart(type);
-    } else if (type === "Year") {
+      settypeChart("userOfMonth");
+    } else if (type === "Year" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       countUserDayOfMonth();
-      settypeChart(type);
+      settypeChart("userOfYear");
+    } else if (type === "Day" && CategoryChart === "จำนวนโพสต์") {
+      countPostDayOfWeek();
+      settypeChart("postOfDay");
+    } else if (type === "Month" && CategoryChart === "จำนวนโพสต์") {
+      countPostDayOfMonth();
+      settypeChart("postOfMonth");
+    } else if (type === "Year" && CategoryChart === "จำนวนโพสต์") {
+      // countUserDayOfMonth();
+      // settypeChart("userOfYear");
     }
   };
 
-  const onChangeTypeChart = (type) => {
-    settypeChart(type);
+  const onChangeCategoryChart = (type) => {
+    setCategoryChart(type);
+    if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Day") {
+      countUserDayOfWeek();
+      settypeChart("userOfDay");
+    } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Month") {
+      countUserDayOfMonth();
+      settypeChart("userOfMonth");
+    } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Year") {
+      countUserDayOfMonth();
+      settypeChart("userOfYear");
+    } else if (type === "จำนวนโพสต์" && selectDateChart === "Day") {
+      countPostDayOfWeek();
+      settypeChart("postOfDay");
+    } else if (type === "จำนวนโพสต์" && selectDateChart === "Month") {
+      countPostDayOfMonth();
+      settypeChart("postOfMonth");
+    } else if (type === "จำนวนโพสต์" && selectDateChart === "Year") {
+      // countUserDayOfMonth();
+      // settypeChart("userOfYear");
+    }
   };
   const countPost = () => {
     Axios.get("http://api").then((res) => {
@@ -160,6 +189,70 @@ const Dashboard = () => {
       },
     ]);
   };
+  const countPostDayOfWeek = async (type, Calender) => {
+    let countPostApi = [];
+    let countPost = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get("http://localhost:7000/post/listpostofday").then((res) => {
+      countPostApi.push(res.data.data);
+      dayOfWeek.forEach((dayofweek) => {
+        countPostApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofweek
+          ) {
+            console.log(count);
+            count++;
+          }
+        });
+        countPost.push(count);
+        count = 0;
+      });
+    });
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนโพสต์ในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countPost,
+      },
+    ]);
+  };
+  const countPostDayOfMonth = async (type, Calender) => {
+    let countPostApi = [];
+    let countPost = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get("http://localhost:7000/post/listpostofmonth").then(
+      (res) => {
+        countPostApi.push(res.data.data);
+
+        dayOfMonth.forEach((dayofMonth) => {
+          countPostApi[0].forEach((element) => {
+            if (
+              moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+              dayofMonth
+            ) {
+              console.log(count);
+              count++;
+            }
+          });
+          countPost.push(count);
+          count = 0;
+        });
+        console.log(countPost);
+      }
+    );
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนโพสต์ในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countPost,
+      },
+    ]);
+  };
   useEffect(() => {
     //default get day
     countUserDayOfWeek();
@@ -187,7 +280,7 @@ const Dashboard = () => {
                   <CButton
                     color="secondary"
                     className="admin-CategoriesChart"
-                    onClick={() => onChangeTypeChart(value)}
+                    onClick={() => onChangeCategoryChart(value)}
                   >
                     {value}
                   </CButton>
@@ -206,7 +299,7 @@ const Dashboard = () => {
               </CButtonGroup>
             </CCol>
           </CRow>
-          {typeChart === "Day" ? (
+          {typeChart === "userOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -217,7 +310,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-          {typeChart === "Month" ? (
+          {typeChart === "userOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -228,7 +321,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-          {typeChart === "Year" ? (
+          {typeChart === "userOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -237,6 +330,28 @@ const Dashboard = () => {
                 },
               }}
               labels="months"
+            />
+          ) : null}
+          {typeChart === "postOfDay" ? (
+            <CChartLine
+              datasets={dataChart}
+              options={{
+                tooltips: {
+                  enabled: true,
+                },
+              }}
+              labels={dayOfWeek}
+            />
+          ) : null}
+          {typeChart === "postOfMonth" ? (
+            <CChartLine
+              datasets={dataChart}
+              options={{
+                tooltips: {
+                  enabled: true,
+                },
+              }}
+              labels={dayOfMonth}
             />
           ) : null}
         </CCardBody>
