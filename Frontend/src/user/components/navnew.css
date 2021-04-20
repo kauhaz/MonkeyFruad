@@ -167,6 +167,7 @@
 .img-circle.profile-nav-noti {
   width: 40px;
   height: 40px;
+  border-radius: 100%;
 }
 .name-nav-noti {
   margin-top: -42px;
@@ -688,7 +689,7 @@
   .dropdown-top-noti {
     /* background-color: yellow !important; */
     margin-left: -225px !important;
-    width: 270px !important;
+    width: 275px !important;
   }
   .img-circle.profile-nav-noti {
     width: 40px;
