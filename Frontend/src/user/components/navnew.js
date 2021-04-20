@@ -71,7 +71,7 @@ const NavbarPage = (props) => {
       `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
     );
   };
-  const handlesearch = () => {
+  const handlesearch = async () => {
     try {
       if (search) {
         const getdata = allpost.filter((doc) => {
@@ -96,6 +96,9 @@ const NavbarPage = (props) => {
             },
           });
         }
+        await axios.post(
+          `http://localhost:7000/post/search`, {search}
+        );
       }
     } catch (err) {
       console.log(err);
