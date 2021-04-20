@@ -5,6 +5,8 @@ import Chatbot from "../components/chatbot";
 import axios from "axios";
 import NavbarPage from "../components/navnew";
 import { MDBInputGroup } from "mdbreact";
+import { Form, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import usercontext from "../context/usercontext";
 const EditProfile = () => {
   var { user} = useContext(usercontext);
@@ -156,52 +158,60 @@ const EditProfile = () => {
           </div>
         
           <div className="col-md-12">
-            <div className="form-group my-0">
+            <div className="form-group-editptofile my-0">
               <label className="label-form-title-editprofile pt-2">Username</label>
               <div className="form-inside-editprofile">
-                <MDBInputGroup
-                  material
+                <Form.Control
+                  type="text"
+                  id="name"
+                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
+                  title="กรอกตัวหนังสือเท่านั้น"
+                  placeholder=""
                   value={username}
-                  containerClassName="mt-0"
-                  size="sm"
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
+                  maxlength="10"
                 />
               </div>
             </div>
 
-            <div className="form-group my-0">
+            <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">ชื่อจริง</label>
               <div className="form-inside-editprofile">
-                <MDBInputGroup
-                  material
-                  containerClassName="mt-0"
-                  size="sm"
+                <Form.Control
+                  type="text"
+                  id="name"
+                  pattern="[a-z,A-Z,ก-๛]{1,}"
+                  title="กรอกตัวหนังสือเท่านั้น"
+                  placeholder=""
                   value={firstname}
                   onChange={(e) => {
                     setFirstname(e.target.value);
                   }}
-                />
+
+                />                
               </div>
             </div>
 
-            <div className="form-group my-0">
+            <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">นามสกุล</label>
               <div className="form-inside-editprofile">
-                <MDBInputGroup
-                  material
-                  containerClassName="mt-0"
-                  size="sm"
+                <Form.Control
+                  type="text"
+                  id="surname"
+                  pattern="[a-z,A-Z,ก-๛]{1,}"
+                  title="กรอกตัวหนังสือเท่านั้น"
+                  placeholder=""
                   value={surname}
                   onChange={(e) => {
                     setSurname(e.target.value);
                   }}
-                />
+                />                        
               </div>
             </div>
 
-            <div className="form-group mb-2">
+            <div className="form-group-editptofile mb-2 mt-2">
               <label className="label-form-title-editprofile">เพศ</label>
               <div className="form-inside-editprofile">
                 {male ? (
@@ -264,28 +274,30 @@ const EditProfile = () => {
               </div>
             </div>
 
-            <div className="form-group my-0">
+            <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">
                 เบอร์โทรศัพท์
               </label>
               <div className="form-inside-editprofile">
-                <MDBInputGroup
-                  material
-                  containerClassName="mt-0"
-                  size="sm"
+                <Form.Control
+                  type="text"
+                  id="phone"
+                  pattern="[0-9]{1,}"
+                  maxlength="13"
+                  title="กรอกตัวเลขเท่านั้น"
+                  placeholder=""
                   value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
-                  validate
-                />
+                />                   
               </div>
             </div>
 
-            <div className="form-group mt-0 mb-4">
+            <div className="form-group-editptofile mt-2 mb-4">
               <label className="label-form-title-editprofile pt-1">จังหวัด</label>
               <div className="form-inside-editprofile">
-                <select
+                <Form.Control
                   as="select"
                   name="province"
                   className="province-select"
@@ -372,7 +384,7 @@ const EditProfile = () => {
                   <option value="อุทัยธานี">อุทัยธานี </option>
                   <option value="อุบลราชธานี">อุบลราชธานี</option>
                   <option value="อ่างทอง">อ่างทอง </option>
-                </select>
+                </Form.Control>
               </div>
             </div>
 
