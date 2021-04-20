@@ -478,7 +478,7 @@ const NavbarPage = (props) => {
                 </MDBDropdown>
 
               ) : (
-                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+                <Nav.Link href="/login" className="noti-comp">เข้าสู่ระบบ</Nav.Link>
               )}
             </MDBNavItem>
             <MDBNavItem className="noti-mobile">
