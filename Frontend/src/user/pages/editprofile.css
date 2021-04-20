@@ -37,8 +37,10 @@
     border-radius: 50%;
 }
 
-.form-group {
+.form-group-editptofile {
     color: #6C757D;
+    display: flex;
+    justify-content: space-between;
 }
 
 .label-form-title-editprofile, .form-inside-editprofile {
