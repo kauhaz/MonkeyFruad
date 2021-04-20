@@ -57,7 +57,7 @@
 /*dropsearch*/
 .gg {
   position: absolute;
-  left: 1549px;
+  left: 1530px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -67,6 +67,19 @@
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
   /* border: 1px solid #cfcdcd; */
 }
+.gg-nologin{
+  position: absolute;
+  left: 1555px;
+  top: 70px;
+  z-index: 1;
+  background-color: white;
+  margin-top: -8px;
+  width: 260px;
+  border-radius: 5px;
+  box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid #cfcdcd; */
+}
+
 .ggadmin {
   position: absolute;
   left: 1510px;
@@ -256,7 +269,11 @@
 @media only screen and (max-width: 1921px) {
   /*dropsearch*/
   .gg {
-    left: 1162px;
+    left: 1145px;
+    top: 70px;
+  }
+  .gg-nologin{
+    left: 1170px;
     top: 70px;
   }
   .ggadmin {
@@ -373,7 +390,7 @@
   /*dropsearch*/
   .gg {
     position: absolute;
-    left: 1549px;
+    left: 1530px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -383,7 +400,18 @@
     box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
     /* border: 1px solid #cfcdcd; */
   }
-
+  .gg-nologin{
+    position: absolute;
+    left: 1555px;
+    top: 70px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 260px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid #cfcdcd; */
+  }
   .ggadmin {
     position: absolute;
     left: 1510px;
@@ -559,7 +587,11 @@
   }
   /*dropsearch*/
   .gg {
-    left: 995px;
+    left: 975px;
+    top: 65px;
+  }
+  .gg-nologin {
+    left: 1000px;
     top: 65px;
   }
   .ggadmin {
@@ -589,6 +621,11 @@
   /*dropsearch*/
   .gg {
     left: 650px;
+    top: 65px;
+    width: 263px;
+  }
+  .gg-nologin {
+    left: 655px;
     top: 65px;
     width: 263px;
   }
@@ -657,6 +694,11 @@
   /*dropsearch*/
   .gg {
     left: 432px;
+    top: 60px;
+    width: 228px;
+  }
+  .gg-nologin {
+    left: 457px;
     top: 60px;
     width: 228px;
   }
@@ -796,7 +838,7 @@
   }
 
   /*dropsearch*/
-  .gg {
+  .gg,.gg-nologin {
     left: 60px;
     top: 255px;
     width: 230px;
@@ -919,7 +961,7 @@
   }
 
   /*dropsearch*/
-  .gg {
+  .gg,.gg-nologin {
     left: 57px;
     top: 237px;
     width: 200px;
@@ -1006,7 +1048,7 @@
   }
 
   /*dropsearch*/
-  .gg {
+  .gg,.gg-nologin {
     left: 37px;
     top: 232px;
     width: 180px;

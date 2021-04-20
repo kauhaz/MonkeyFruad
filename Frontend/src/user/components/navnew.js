@@ -515,7 +515,7 @@ const NavbarPage = (props) => {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg">
+      <div className="gg-nologin">
         {lastsearch
           ? lastsearch.map((doc) => {
               let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
