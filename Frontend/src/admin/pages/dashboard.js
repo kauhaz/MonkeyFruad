@@ -75,7 +75,7 @@ const Dashboard = () => {
     moment().format("MMM DD"),
   ];
   const ChangeCalender = async (type) => {
-    setSelectDateChart(type)
+    setSelectDateChart(type);
     if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       countUserDayOfWeek();
       settypeChart("userOfDay");
@@ -194,7 +194,9 @@ const Dashboard = () => {
     let countPost = [];
     let count = 0;
     //sent type get data from api
-    await Axios.get("http://localhost:7000/post/listpostofday").then((res) => {
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/post/listpostofday"
+    ).then((res) => {
       countPostApi.push(res.data.data);
       dayOfWeek.forEach((dayofweek) => {
         countPostApi[0].forEach((element) => {
@@ -224,26 +226,26 @@ const Dashboard = () => {
     let countPost = [];
     let count = 0;
     //sent type get data from api
-    await Axios.get("http://localhost:7000/post/listpostofmonth").then(
-      (res) => {
-        countPostApi.push(res.data.data);
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/post/listpostofmonth"
+    ).then((res) => {
+      countPostApi.push(res.data.data);
 
-        dayOfMonth.forEach((dayofMonth) => {
-          countPostApi[0].forEach((element) => {
-            if (
-              moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-              dayofMonth
-            ) {
-              console.log(count);
-              count++;
-            }
-          });
-          countPost.push(count);
-          count = 0;
+      dayOfMonth.forEach((dayofMonth) => {
+        countPostApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofMonth
+          ) {
+            console.log(count);
+            count++;
+          }
         });
-        console.log(countPost);
-      }
-    );
+        countPost.push(count);
+        count = 0;
+      });
+      console.log(countPost);
+    });
     // console.log(countUser);
     setdataChart([
       {
