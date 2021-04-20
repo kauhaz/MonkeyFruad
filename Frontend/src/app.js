@@ -32,6 +32,7 @@ import Findthief from "./user/pages/findthief";
 import Entersearch from "./user/pages/entersearch";
 import AdminFindthief from "./admin/pages/findthief";
 import AdminEntersearch from "./admin/pages/entersearch";
+import AdminDashboard from "./admin/pages/dashboard";
 import PostFacebook from "./user/pages/postfacebook";
 import PostLine from "./user/pages/postline";
 import PostTwitter from "./user/pages/posttwitter";
@@ -76,6 +77,9 @@ const App = () => {
           </Route>
           <Route path="/adminentersearch" exact>
             <AdminEntersearch />
+          </Route>
+          <Route path="/dashboard" exact>
+            <AdminDashboard />
           </Route>
         </Switch>
       </usercontext.Provider>
