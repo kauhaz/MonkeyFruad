@@ -272,7 +272,7 @@ const EditProfile = () => {
               </div>
             </div>
 
-            <div className="form-group-editptofile my-0 mt-3">
+            <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">
                 เบอร์โทรศัพท์
               </label>
@@ -292,10 +292,10 @@ const EditProfile = () => {
               </div>
             </div>
 
-            <div className="form-group-editptofile mt-3 mb-4">
+            <div className="form-group-editptofile mt-2 mb-4">
               <label className="label-form-title-editprofile pt-1">จังหวัด</label>
               <div className="form-inside-editprofile">
-                <select
+                <Form.Control
                   as="select"
                   name="province"
                   className="province-select"
@@ -382,7 +382,7 @@ const EditProfile = () => {
                   <option value="อุทัยธานี">อุทัยธานี </option>
                   <option value="อุบลราชธานี">อุบลราชธานี</option>
                   <option value="อ่างทอง">อ่างทอง </option>
-                </select>
+                </Form.Control>
               </div>
             </div>
 
