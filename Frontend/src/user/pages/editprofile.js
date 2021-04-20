@@ -171,6 +171,7 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
+                  maxlength="10"
                 />
               </div>
             </div>
@@ -181,13 +182,14 @@ const EditProfile = () => {
                 <Form.Control
                   type="text"
                   id="name"
-                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
+                  pattern="[a-z,A-Z,ก-๛]{1,}"
                   title="กรอกตัวหนังสือเท่านั้น"
                   placeholder=""
                   value={firstname}
                   onChange={(e) => {
                     setFirstname(e.target.value);
                   }}
+
                 />                
               </div>
             </div>
@@ -198,7 +200,7 @@ const EditProfile = () => {
                 <Form.Control
                   type="text"
                   id="surname"
-                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]+${1,}"
+                  pattern="[a-z,A-Z,ก-๛]{1,}"
                   title="กรอกตัวหนังสือเท่านั้น"
                   placeholder=""
                   value={surname}
@@ -278,16 +280,16 @@ const EditProfile = () => {
               </label>
               <div className="form-inside-editprofile">
                 <Form.Control
-                  type="number"
+                  type="text"
                   id="phone"
-                  pattern="[0-9]+${1,}"
+                  pattern="[0-9]{1,}"
+                  maxlength="13"
                   title="กรอกตัวเลขเท่านั้น"
                   placeholder=""
                   value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
-                  validate
                 />                   
               </div>
             </div>
