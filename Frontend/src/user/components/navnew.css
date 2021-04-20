@@ -57,7 +57,7 @@
 /*dropsearch*/
 .gg {
   position: absolute;
-  left: 1467px;
+  left: 1549px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -69,7 +69,7 @@
 }
 .ggadmin {
   position: absolute;
-  left: 1532px;
+  left: 1510px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -208,39 +208,71 @@
   height: 700px;
 }
 
-/*profile*/
-.fa-sort-down{
-  color: #5c5c5c !important;
-  font-size: 25px !important;
-  margin-top: -10px !important;
-  margin-left: 13px !important;
-}
-.line-profile-nav{
-  border-bottom: 2px solid rgba(146, 146, 146, 0.3);
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.box-nav-profile{
-  height: auto;
-}
-.dropdown-top-profile {
-  margin-left: -210px !important;
-  width: 250px !important;
-  padding: 10px !important;
-  margin-top: 4px !important;
-}
+  /*profile*/
+  .fa-sort-down{
+    color: #5c5c5c !important;
+    font-size: 25px !important;
+    margin-top: -10px !important;
+    margin-left: 13px !important;
+  }
+  .line-profile-nav{
+    border-bottom: 2px solid rgba(146, 146, 146, 0.3);
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .box-nav-profile{
+    height: auto;
+  }
+  .dropdown-top-profile {
+    margin-left: -210px !important;
+    width: 250px !important;
+    padding: 10px !important;
+    margin-top: 4px !important;
+  }
+  .img-circle-profile-nav{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+  }
+  .username-nav{
+    font-size: 15px;
+    margin-left: 55px;
+    margin-top: -45px;
+    color: #212529;
+
+  }
+  .username-nav-settingprofile{
+    margin-left: 55px;
+    margin-top: -15px;
+    margin-bottom: 5px !important;
+  }
+
 
 /*reponsive*/
 @media only screen and (max-width: 1921px) {
   /*dropsearch*/
   .gg {
-    left: 1082px;
+    left: 1162px;
     top: 70px;
+  }
+  .ggadmin {
+    position: absolute;
+    left: 1127px;
+    top: 70px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 260px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid #cfcdcd; */
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
   }
   /*NOTIFICATION*/
   .dropdown-top-noti {
@@ -269,6 +301,14 @@
     font-size: 13px;
     margin-left: 50px;
     margin-top: -15px;
+  }
+
+  /*profile*/
+  .dropdown-top-profile {
+    margin-left: -245px !important;
+    width: 240px !important;
+    padding: 10px !important;
+    margin-top: 4px !important;
   }
 }
 
@@ -332,7 +372,7 @@
   /*dropsearch*/
   .gg {
     position: absolute;
-    left: 1467px;
+    left: 1549px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -343,6 +383,18 @@
     /* border: 1px solid #cfcdcd; */
   }
 
+  .ggadmin {
+    position: absolute;
+    left: 1510px;
+    top: 70px;
+    z-index: 1;
+    background-color: white;
+    margin-top: -8px;
+    width: 260px;
+    border-radius: 5px;
+    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid #cfcdcd; */
+  }
   .search-nav {
     font-family: "Kanit", sans-serif;
     border: none;
@@ -455,6 +507,8 @@
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   .box-nav-profile{
     height: auto;
@@ -465,6 +519,24 @@
     padding: 10px !important;
     margin-top: 4px !important;
   }
+  .img-circle-profile-nav{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+  }
+  .username-nav{
+    font-size: 15px;
+    margin-left: 55px;
+    margin-top: -45px;
+    color: #212529;
+
+  }
+  .username-nav-settingprofile{
+    margin-left: 55px;
+    margin-top: -15px;
+    margin-bottom: 5px !important;
+  }
+
 }
 
 @media only screen and (max-width: 1367px) {
@@ -486,16 +558,16 @@
   }
   /*dropsearch*/
   .gg {
-    left: 915px;
+    left: 995px;
     top: 65px;
   }
   .ggadmin {
-    left: 950px;
+    left: 957px;
     top: 65px;
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
   }
 
   /*NOTIFICATION*/
@@ -505,8 +577,8 @@
 
   /*profile*/
   .dropdown-top-profile {
-    margin-left: -250px !important;
-    width: 250px !important;
+    margin-left: -245px !important;
+    width: 240px !important;
     padding: 10px !important;
     margin-top: 4px !important;
   }
@@ -515,13 +587,17 @@
 @media only screen and (max-width: 1025px) {
   /*dropsearch*/
   .gg {
-    left: 590px;
+    left: 650px;
     top: 65px;
     width: 263px;
   }
+  .ggadmin {
+    left: 631px;
+    top: 65px;
+  }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
     width: 263px;
   }
 
@@ -534,6 +610,14 @@
   }
   .box-nav-noti {
     height: 940px;
+  }
+
+  /*profile*/
+  .dropdown-top-profile {
+    margin-left: -200px !important;
+    width: 240px !important;
+    padding: 10px !important;
+    margin-top: 4px !important;
   }
 }
 
@@ -571,13 +655,18 @@
 
   /*dropsearch*/
   .gg {
-    left: 400px;
-    top: 58px;
+    left: 432px;
+    top: 60px;
+    width: 228px;
+  }
+  .ggadmin {
+    left: 240px;
+    top: 190px;
     width: 228px;
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
     font-size: 11px;
     width: 228px;
   }
@@ -628,6 +717,40 @@
   .box-nav-noti {
     height: 710px;
   }
+
+  /*profile*/
+  .dropdown-top-profile {
+    margin-left: -170px !important;
+    width: 210px !important;
+    padding: 10px !important;
+    margin-top: 4px !important;
+  }
+  .username-nav{
+    font-size: 13px;
+    margin-top: -35px;
+    margin-left: 45px;
+  }
+  .username-nav-settingprofile{
+    margin-left: 45px;
+  }
+  .img-circle-profile-nav{
+    width: 35px;
+    height: 35px;
+  }
+
+  /*admin*/
+  .jud{
+    text-align: center;
+  }
+  .button-nav-admin{
+    margin-top: -30px;
+    margin-left: 460px;
+  }
+  .search-admin{
+      width: 228px !important;
+      box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+      margin-left: 225px;
+  }
 }
 
 @media only screen and (max-width: 415px) {
@@ -667,19 +790,24 @@
     margin-left: 100px !important;
   }
   .dropdown-bottom {
-    margin-left: -270px !important;
+    margin-left: -265px !important;
     margin-top: 0px !important;
   }
 
   /*dropsearch*/
   .gg {
-    left: 62px;
-    top: 265px;
+    left: 60px;
+    top: 255px;
     width: 230px;
+  }
+  .ggadmin {
+    left: 60px;
+    top: 215px;
+    width: 228px;
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
     font-size: 12px;
     width: 230px;
   }
@@ -738,6 +866,25 @@
   .box-nav-noti {
     height: 660px;
   }
+
+  /*admin*/
+  .button-nav-admin{
+    width: 55px;
+    height: 35px;
+    font-size: 14px;
+    display: inline;
+    margin-top: -35px;
+    margin-left: 283px;
+  }
+  .search-admin{
+    width: 230px !important;
+    height: 35px;
+    font-size: 13px;
+    display: inline;
+    margin-left: 45px;
+    box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+    padding-top: 0px;
+  }
 }
 
 @media only screen and (max-width: 376px) {
@@ -767,18 +914,23 @@
     margin-left: 94px !important;
   }
   .dropdown-bottom {
-    margin-left: -250px !important;
+    margin-left: -245px !important;
   }
 
   /*dropsearch*/
   .gg {
-    left: 59px;
-    top: 247px;
+    left: 57px;
+    top: 237px;
+    width: 200px;
+  }
+  .ggadmin {
+    left: 57px;
+    top: 200px;
     width: 200px;
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
     font-size: 11px;
     width: 200px;
   }
@@ -810,6 +962,21 @@
   .box-nav-noti {
     height: 594px;
   }
+
+    /*admin*/
+    .button-nav-admin{
+      margin-left: 248px;
+      font-size: 12px;
+      height: 30px;
+      margin-top: -30px;
+    }
+    .search-admin{
+      width: 200px !important;
+      margin-left: 42px;
+      font-size: 12px;
+      height: 30px;
+      padding-top: 0px;
+    }
 }
 @media only screen and (max-width: 321px) {
   .navbarnew {
@@ -834,18 +1001,23 @@
     margin-left: 63px !important;
   }
   .dropdown-bottom {
-    margin-left: -230px !important;
+    margin-left: -217px !important;
   }
 
   /*dropsearch*/
   .gg {
-    left: 40px;
-    top: 242px;
+    left: 37px;
+    top: 232px;
+    width: 180px;
+  }
+  .ggadmin {
+    left: 37px;
+    top: 195px;
     width: 180px;
   }
   .search-nav,
   .dropsearch-nav {
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
     font-size: 10px;
     width: 180px;
   }
@@ -868,4 +1040,18 @@
   .box-nav-noti {
     height: 492px;
   }
+
+      /*admin*/
+      .button-nav-admin{
+        margin-left: 210px;
+        font-size: 10px;
+        height: 25px;
+        margin-top: -25px;
+      }
+      .search-admin{
+        width: 180px !important;
+        margin-left: 22px;
+        font-size: 11px;
+        height: 25px;
+      }
 }
