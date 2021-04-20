@@ -189,6 +189,38 @@ const Dashboard = () => {
       },
     ]);
   };
+  const countUserDayOfYear = async (type, Calender) => {
+    let countUserApi = [];
+    let countUser = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/user/listuserofmonth"
+    ).then((res) => {
+      countUserApi.push(res.data.data);
+      dayOfMonth.forEach((dayofweek) => {
+        countUserApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofweek
+          ) {
+            console.log(count);
+            count++;
+          }
+        });
+        countUser.push(count);
+        count = 0;
+      });
+    });
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนผู้ใช้งานในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countUser,
+      },
+    ]);
+  };
   const countPostDayOfWeek = async (type, Calender) => {
     let countPostApi = [];
     let countPost = [];
@@ -222,6 +254,74 @@ const Dashboard = () => {
     ]);
   };
   const countPostDayOfMonth = async (type, Calender) => {
+    let countPostApi = [];
+    let countPost = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/post/listpostofmonth"
+    ).then((res) => {
+      countPostApi.push(res.data.data);
+
+      dayOfMonth.forEach((dayofMonth) => {
+        countPostApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofMonth
+          ) {
+            console.log(count);
+            count++;
+          }
+        });
+        countPost.push(count);
+        count = 0;
+      });
+      console.log(countPost);
+    });
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนโพสต์ในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countPost,
+      },
+    ]);
+  };
+  const countPostDayOfYear = async (type, Calender) => {
+    let countPostApi = [];
+    let countPost = [];
+    let count = 0;
+    //sent type get data from api
+    await Axios.get(
+      "https://monkeyfruad01.herokuapp.com/post/listpostofmonth"
+    ).then((res) => {
+      countPostApi.push(res.data.data);
+
+      dayOfMonth.forEach((dayofMonth) => {
+        countPostApi[0].forEach((element) => {
+          if (
+            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
+            dayofMonth
+          ) {
+            console.log(count);
+            count++;
+          }
+        });
+        countPost.push(count);
+        count = 0;
+      });
+      console.log(countPost);
+    });
+    // console.log(countUser);
+    setdataChart([
+      {
+        label: "จำนวนโพสต์ในระบบ",
+        backgroundColor: "#33b5e5",
+        data: countPost,
+      },
+    ]);
+  };
+  const countSearchDayOfWeek = async (type, Calender) => {
     let countPostApi = [];
     let countPost = [];
     let count = 0;
@@ -354,6 +454,17 @@ const Dashboard = () => {
                 },
               }}
               labels={dayOfMonth}
+            />
+          ) : null}
+           {typeChart === "postOfYear" ? (
+            <CChartLine
+              datasets={dataChart}
+              options={{
+                tooltips: {
+                  enabled: true,
+                },
+              }}
+              labels="months"
             />
           ) : null}
         </CCardBody>
