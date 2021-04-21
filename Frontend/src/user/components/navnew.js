@@ -71,7 +71,7 @@ const NavbarPage = (props) => {
       `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
     );
   };
-  const handlesearch = () => {
+  const handlesearch = async () => {
     try {
       if (search) {
         const getdata = allpost.filter((doc) => {
@@ -96,12 +96,29 @@ const NavbarPage = (props) => {
             },
           });
         }
+        await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+          search,
+        });
       }
     } catch (err) {
       console.log(err);
     }
   };
-
+  const handleSearchDropdown = async (search) => {
+    try {
+      console.log(search);
+      await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+        search,
+      });
+      history.push({
+        pathname: `/thief/post/${search}`,
+        search: "?are you ok",
+      });
+      window.location.reload(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const initSearch = async () => {
     try {
       const getallthief = await axios.get(
@@ -449,22 +466,23 @@ const NavbarPage = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default dropdown-top-profile">
                     <div className="box-nav-profile">
+                    <MDBDropdownItem href={`/profile/${user.uid}`}>
                       {photoProfile ? (
                         <img
-                          className="img-circle-profile"
+                          className="img-circle-profile-nav"
                           src={`${photoProfile.url}`}
                         />
                       ) : (
                         <img
-                          className="img-circle-profile"
+                          className="img-circle-profile-nav"
                           src={"/img/profile.png"}
                         />
                       )}
-                      <p>{displayname}</p>
-                      <div className="line-profile-nav"></div>
-                      <MDBDropdownItem href={`/profile/${user.uid}`}>
-                        จัดการโปรไฟล์
+                      <p className="username-nav">@{displayname}</p>
+                      <p className="username-nav-settingprofile">จัดการโปรไฟล์</p>
                       </MDBDropdownItem>
+
+                      <div className="line-profile-nav"></div>
                       <MDBDropdownItem href="/post/history">
                         ประวัติการโพสต์
                       </MDBDropdownItem>
@@ -475,43 +493,46 @@ const NavbarPage = (props) => {
                     </div>
                   </MDBDropdownMenu>
                 </MDBDropdown>
-              ) : (
-                // </MDBNavItem>
 
-                // <MDBNavItem>
-                //   {user ? (
-                //     <MDBDropdown>
-                //       <MDBDropdownToggle
-                //         nav
-                //         caret
-                //         left
-                //         className="dropdown-username-nav"
-                //       >
-                //         {displayname}
-                //       </MDBDropdownToggle>
-                //       <MDBDropdownMenu
-                //         className="dropdown-default dropdown-bottom"
-                //         right
-                //       >
-                //         <MDBDropdownItem href={`/profile/${user.uid}`}>
-                //           จัดการโปรไฟล์
-                //         </MDBDropdownItem>
-                //         <MDBDropdownItem href="/post/history">
-                //           ประวัติการโพสต์
-                //         </MDBDropdownItem>
-                //         <div className="line-nav"></div>
-                //         <MDBDropdownItem href="/login" onClick={logout}>
-                //           ออกจากระบบ
-                //         </MDBDropdownItem>
-                //       </MDBDropdownMenu>
-                //     </MDBDropdown>
-                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+              ) : (
+                <Nav.Link href="/login" className="noti-comp">เข้าสู่ระบบ</Nav.Link>
               )}
             </MDBNavItem>
+            <MDBNavItem className="noti-mobile">
+                   {user ? (
+                    <MDBDropdown>
+                      <MDBDropdownToggle
+                        nav
+                        caret
+                        left
+                        className="dropdown-username-nav"
+                      >
+                        {displayname}
+                      </MDBDropdownToggle>
+                      <MDBDropdownMenu
+                        className="dropdown-default dropdown-bottom"
+                        right
+                      >
+                        <MDBDropdownItem href={`/profile/${user.uid}`}>
+                          จัดการโปรไฟล์
+                        </MDBDropdownItem>
+                        <MDBDropdownItem href="/post/history">
+                          ประวัติการโพสต์
+                        </MDBDropdownItem>
+                        <div className="line-nav"></div>
+                        <MDBDropdownItem href="/login" onClick={logout}>
+                          ออกจากระบบ
+                        </MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                    ) : (
+                      <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+                    )}
+                  </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg">
+      <div className="gg-nologin">
         {lastsearch
           ? lastsearch.map((doc) => {
               let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
@@ -527,13 +548,9 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefNameAndSurname}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefNameAndSurname)
+                            }
                           >
                             <div>
                               {" "}
@@ -545,13 +562,9 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefAccountNumber}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefAccountNumber)
+                            }
                           >
                             <div> {doc.accountnumber}</div>
                           </button>

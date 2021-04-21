@@ -193,13 +193,13 @@ const NavbarPage = (props) => {
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left className="center-nav">
-            <MDBNavItem>
+            <MDBNavItem className="jud">
               <Nav.Link href="/"> จัดการโพสต์ </Nav.Link>
             </MDBNavItem>
-            <MDBNavItem>
+            <MDBNavItem className="jud">
               <Nav.Link href="/report">ดูรายงาน</Nav.Link>
             </MDBNavItem>
-            <MDBNavItem>
+            <MDBNavItem className="jud">
               <Nav.Link href="/dashboard">สรุปข้อมูล</Nav.Link>
             </MDBNavItem>
           </MDBNavbarNav>
@@ -207,7 +207,7 @@ const NavbarPage = (props) => {
             <MDBNavItem>
               <div className=" my-0">
                 <input
-                  className="box-nav mr-sm-2"
+                  className="box-nav mr-sm-2 search-admin"
                   type="text"
                   placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
                   aria-label="Search"
@@ -220,10 +220,10 @@ const NavbarPage = (props) => {
               </div>
             </MDBNavItem>
 
-            <button onClick={() => adminhandlesearch()} className="button-nav">
+            <button onClick={() => adminhandlesearch()} className="button-nav button-nav-admin">
               ค้นหา
             </button>
-            <MDBNavItem>
+            <MDBNavItem className="jud">
               <Nav.Link onClick={logout} href="/login">
                 ออกจากระบบ
               </Nav.Link>
