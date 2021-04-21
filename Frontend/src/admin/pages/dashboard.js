@@ -105,10 +105,10 @@ const Dashboard = () => {
       // settypeChart("searchOfDay");
     } else if (type === "Day" && CategoryChart === "จำนวนการรายงาน") {
       countReportDayOfWeek();
-      settypeChart("searchOfDay");
+      settypeChart("reportOfDay");
     } else if (type === "Month" && CategoryChart === "จำนวนการรายงาน") {
       countReportDayOfMonth();
-      settypeChart("searchOfDay");
+      settypeChart("reportOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนการรายงาน") {
       // countPostDayOfWeek();
       // settypeChart("searchOfDay");
@@ -146,10 +146,10 @@ const Dashboard = () => {
       // settypeChart("searchOfDay");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Day") {
       countReportDayOfWeek();
-      settypeChart("searchOfDay");
+      settypeChart("reportOfDay");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Month") {
       countReportDayOfMonth();
-      settypeChart("searchOfMonth");
+      settypeChart("reportOfMonth");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Year") {
       // countPostDayOfWeek();
       // settypeChart("searchOfDay");
@@ -164,11 +164,11 @@ const Dashboard = () => {
       "https://monkeyfruad01.herokuapp.com/user/listuserofday"
     ).then((res) => {
       countUserApi.push(res.data.data);
-      dayOfWeek.forEach((dayofweek) => {
+      dayOfWeek.forEach((dayofWeek) => {
         countUserApi[0].forEach((element) => {
           if (
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofweek
+            dayofWeek
           ) {
             console.log(count);
             count++;
@@ -196,11 +196,11 @@ const Dashboard = () => {
       "https://monkeyfruad01.herokuapp.com/user/listuserofmonth"
     ).then((res) => {
       countUserApi.push(res.data.data);
-      dayOfMonth.forEach((dayofweek) => {
+      dayOfMonth.forEach((dayofMonth) => {
         countUserApi[0].forEach((element) => {
           if (
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofweek
+            dayofMonth
           ) {
             console.log(count);
             count++;
@@ -260,11 +260,11 @@ const Dashboard = () => {
       "https://monkeyfruad01.herokuapp.com/post/listpostofday"
     ).then((res) => {
       countPostApi.push(res.data.data);
-      dayOfWeek.forEach((dayofweek) => {
+      dayOfWeek.forEach((dayofWeek) => {
         countPostApi[0].forEach((element) => {
           if (
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofweek
+            dayofWeek
           ) {
             console.log(count);
             count++;
@@ -694,7 +694,7 @@ const Dashboard = () => {
               labels="months"
             />
           ) : null}
-           {typeChart === "reportOfDay" ? (
+          {typeChart === "reportOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -705,7 +705,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-           {typeChart === "reportOfMonth" ? (
+          {typeChart === "reportOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -716,7 +716,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-           {typeChart === "reportOfYear" ? (
+          {typeChart === "reportOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
