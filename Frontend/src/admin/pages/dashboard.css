@@ -1,3 +1,48 @@
+.card {
+    margin: 60px 0;
+}
+
 .admin-CategoriesChart {
-    background-color: #fff;
+  float: left;
+  margin: 20px 0 0 -600px;
+  height: 50px;
+}
+
+.admin-CategoriesChart-button {
+  font-family: "Kanit", sans-serif;
+  font-size: 16px !important;
+  margin: 0 10px 0 0 !important;
+}
+
+.admin-header-chart {
+    font-size: 16px;
+}
+
+.admin-select-chart {
+  font-family: "Kanit", sans-serif;
+  width: 20% !important;
+  float: right;
+  font-size: 16px;
+  margin: 25px 25px 0 0;
+}
+
+@media only screen and (min-width: 1920px) {
+}
+
+@media only screen and (max-width: 1367px) {
+}
+
+@media only screen and (max-width: 1025px) {
+}
+
+@media only screen and (max-width: 769px) {
+}
+
+@media only screen and (max-width: 415px) {
+}
+
+@media only screen and (max-width: 376px) {
+}
+
+@media only screen and (max-width: 321px) {
 }
