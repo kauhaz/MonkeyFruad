@@ -185,7 +185,7 @@ const Dashboard = () => {
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
         fill : false,
-        data: countUser,
+        data: countUser
       },
     ]);
   };
@@ -216,8 +216,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countUser,
+        backgroundColor: "#3399ff",
+        borderColor: "#33b5e5",
+        fill : false,
+        data: countUser
       },
     ]);
   };
@@ -248,8 +250,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countUser,
+        backgroundColor: "#3399ff",
+        borderColor: "#33b5e5",
+        fill : false,
+        data: countUser
       },
     ]);
   };
@@ -280,8 +284,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -314,8 +320,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -348,8 +356,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -381,8 +391,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countSearch,
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -414,8 +426,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countSearch,
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -447,8 +461,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countSearch,
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -480,7 +496,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -513,7 +531,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -546,7 +566,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -731,6 +753,7 @@ const Dashboard = () => {
           ) : null}
         </CCardBody>
       </CCard>
+      <div className="container-postbottoms"></div>
     </div>
   );
 };
