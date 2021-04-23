@@ -5,21 +5,16 @@ import "moment/locale/th";
 import Axios from "axios";
 import NavbarPage from "../components/navbarAdmin";
 import {
-  CBadge,
   CButton,
   CButtonGroup,
   CCard,
   CCardBody,
   CCol,
-  CProgress,
   CRow,
-  CCallout,
   CSelect,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
 import { CChartLine } from "@coreui/react-chartjs";
 import "./dashboard.css";
-import { nominalTypeHack } from "prop-types";
 
 const Dashboard = () => {
   const [show, Setshow] = useState();
@@ -174,7 +169,6 @@ const Dashboard = () => {
     let countUserApi = [];
     let countUser = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/user/listuserofday"
     ).then((res) => {
@@ -185,7 +179,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofWeek
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -193,7 +186,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
@@ -208,7 +200,6 @@ const Dashboard = () => {
     let countUserApi = [];
     let countUser = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/user/listuserofmonth"
     ).then((res) => {
@@ -219,7 +210,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofMonth
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -242,7 +232,6 @@ const Dashboard = () => {
     let countUserApi = [];
     let countUser = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/user/listuserofyear"
     ).then((res) => {
@@ -253,7 +242,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
             dayofYear
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -261,7 +249,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
@@ -276,7 +263,6 @@ const Dashboard = () => {
     let countPostApi = [];
     let countPost = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listpostofday"
     ).then((res) => {
@@ -287,7 +273,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofWeek
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -310,7 +295,6 @@ const Dashboard = () => {
     let countPostApi = [];
     let countPost = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listpostofmonth"
     ).then((res) => {
@@ -322,16 +306,13 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofMonth
           ) {
-            console.log(count);
             count++;
           }
         });
         countPost.push(count);
         count = 0;
       });
-      console.log(countPost);
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
@@ -346,12 +327,10 @@ const Dashboard = () => {
     let countPostApi = [];
     let countPost = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listpostofyear"
     ).then((res) => {
       countPostApi.push(res.data.data);
-
       dayOfYear.forEach((dayofYear) => {
         countPostApi[0].forEach((element) => {
           if (
@@ -364,9 +343,7 @@ const Dashboard = () => {
         countPost.push(count);
         count = 0;
       });
-      console.log(countPost);
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
@@ -381,7 +358,6 @@ const Dashboard = () => {
     let countSearchApi = [];
     let countSearch = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listsearchofday"
     ).then((res) => {
@@ -393,7 +369,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofWeek
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -401,7 +376,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
@@ -416,7 +390,6 @@ const Dashboard = () => {
     let countSearchApi = [];
     let countSearch = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listsearchofmonth"
     ).then((res) => {
@@ -428,7 +401,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofMonth
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -436,7 +408,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
@@ -451,7 +422,6 @@ const Dashboard = () => {
     let countSearchApi = [];
     let countSearch = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listsearchofyear"
     ).then((res) => {
@@ -463,7 +433,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
             dayofYear
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -471,7 +440,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
@@ -486,7 +454,6 @@ const Dashboard = () => {
     let countReportApi = [];
     let countReport = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listreportofday"
     ).then((res) => {
@@ -498,7 +465,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofWeek
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -506,7 +472,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
@@ -521,7 +486,6 @@ const Dashboard = () => {
     let countReportApi = [];
     let countReport = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listreportofmonth"
     ).then((res) => {
@@ -533,7 +497,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
             dayofMonth
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -541,7 +504,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
@@ -556,7 +518,6 @@ const Dashboard = () => {
     let countReportApi = [];
     let countReport = [];
     let count = 0;
-    //sent type get data from api
     await Axios.get(
       "https://monkeyfruad01.herokuapp.com/post/listreportofyear"
     ).then((res) => {
@@ -568,7 +529,6 @@ const Dashboard = () => {
             moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
             dayofYear
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -576,7 +536,6 @@ const Dashboard = () => {
         count = 0;
       });
     });
-    // console.log(countUser);
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
@@ -588,7 +547,6 @@ const Dashboard = () => {
     ]);
   };
   useEffect(() => {
-    //default get day
     countUserDayOfWeek();
   }, []);
 
@@ -601,12 +559,7 @@ const Dashboard = () => {
       <CCard>
         <CCardBody className="admin-cardbody">
           <CRow>
-            <CCol sm="5">
-              {/* <h4 id="traffic" className="card-title mb-0">
-                จำนวน
-              </h4>
-              <div className="small text-muted">November 2017</div> */}
-            </CCol>
+            <CCol sm="5"></CCol>
             <CCol sm="7" className="d-md-block">
               <CButtonGroup className="admin-CategoriesChart">
                 {/* 3 ปุ่ม */}
