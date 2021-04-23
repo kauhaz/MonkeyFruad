@@ -183,8 +183,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countUser,
+        backgroundColor: "#3399ff",
+        borderColor: "#33b5e5",
+        fill : false,
+        data: countUser
       },
     ]);
   };
@@ -215,8 +217,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countUser,
+        backgroundColor: "#3399ff",
+        borderColor: "#33b5e5",
+        fill : false,
+        data: countUser
       },
     ]);
   };
@@ -247,8 +251,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนผู้ใช้งานในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countUser,
+        backgroundColor: "#3399ff",
+        borderColor: "#33b5e5",
+        fill : false,
+        data: countUser
       },
     ]);
   };
@@ -279,8 +285,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -313,8 +321,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -347,8 +357,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนโพสต์ในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countPost,
+        backgroundColor: "#f9b115",
+        borderColor: "#f9b115",
+        fill : false,
+        data: countPost
       },
     ]);
   };
@@ -380,11 +392,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-
-        data: countSearch,
-        backgroundColor: "#33b5e5",
-        fill: false,
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -416,8 +427,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countSearch,
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -449,8 +462,10 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
-        data: countSearch,
+        backgroundColor: "#e55353",
+        borderColor: "#e55353",
+        fill : false,
+        data: countSearch
       },
     ]);
   };
@@ -482,7 +497,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -515,7 +532,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -548,7 +567,9 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการรายงานของผู้ใช้งาน",
-        backgroundColor: "#33b5e5",
+        backgroundColor: "#2eb85c",
+        borderColor: "#2eb85c",
+        fill : false,
         data: countReport,
       },
     ]);
@@ -573,30 +594,30 @@ const Dashboard = () => {
               </h4>
               <div className="small text-muted">November 2017</div> */}
             </CCol>
-            <CCol sm="7" className="d-none d-md-block">
-              <CButtonGroup className="float-right mr-3">
+            <CCol sm="7" className="d-md-block">
+              <CButtonGroup className="admin-CategoriesChart">
                 {/* 3 ปุ่ม */}
                 {CategoriesChart.map((value) => (
                   <CButton
                     color="secondary"
-                    className="admin-CategoriesChart"
+                    className="admin-CategoriesChart-button"
                     onClick={() => onChangeCategoryChart(value)}
                   >
                     {value}
                   </CButton>
                 ))}
-                {/* เลือก วันเดือนปี */}
-                <CSelect
-                  className="admin-select-chart"
-                  onChange={(e) => ChangeCalender(e.target.value)}
-                >
-                  <option selected value="Day">
-                    7 วันที่แล้ว
-                  </option>
-                  <option value="Month">30 วันที่แล้ว</option>
-                  <option value="Year">ปีปัจจุบัน</option>
-                </CSelect>
               </CButtonGroup>
+              {/* เลือก วันเดือนปี */}
+              <CSelect
+                className="admin-select-chart"
+                onChange={(e) => ChangeCalender(e.target.value)}
+              >
+                <option selected value="Day">
+                  7 วันที่แล้ว
+                </option>
+                <option value="Month">30 วันที่แล้ว</option>
+                <option value="Year">ปีปัจจุบัน</option>
+              </CSelect>
             </CCol>
           </CRow>
           {typeChart === "userOfDay" ? (
@@ -733,6 +754,7 @@ const Dashboard = () => {
           ) : null}
         </CCardBody>
       </CCard>
+      <div className="container-postbottoms"></div>
     </div>
   );
 };
