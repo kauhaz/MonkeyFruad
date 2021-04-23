@@ -19,6 +19,7 @@ import {
 import CIcon from "@coreui/icons-react";
 import { CChartLine } from "@coreui/react-chartjs";
 import "./dashboard.css";
+import { nominalTypeHack } from "prop-types";
 
 const Dashboard = () => {
   const [show, Setshow] = useState();
@@ -379,8 +380,11 @@ const Dashboard = () => {
     setdataChart([
       {
         label: "จำนวนการค้นหาในระบบ",
-        backgroundColor: "#33b5e5",
+
         data: countSearch,
+        backgroundColor: "#33b5e5",
+        fill: false,
+        borderColor: 'rgba(255,99,132,1)',
       },
     ]);
   };
