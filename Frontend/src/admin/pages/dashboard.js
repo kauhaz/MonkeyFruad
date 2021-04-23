@@ -584,7 +584,7 @@ const Dashboard = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <CCard>
+      <CCard className="admin-card">
         <CCardBody className="admin-cardbody">
           <CRow>
             <CCol sm="5">
