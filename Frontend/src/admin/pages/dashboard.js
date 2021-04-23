@@ -75,6 +75,20 @@ const Dashboard = () => {
     moment().subtract(1, "d").format("MMM DD"),
     moment().format("MMM DD"),
   ];
+  var dayOfYear = [
+    moment().startOf("year").format("MMM YYYY"),
+    moment().startOf("year").add(1, "month").format("MMM YYYY"),
+    moment().startOf("year").add(2, "month").format("MMM YYYY"),
+    moment().startOf("year").add(3, "month").format("MMM YYYY"),
+    moment().startOf("year").add(4, "month").format("MMM YYYY"),
+    moment().startOf("year").add(5, "month").format("MMM YYYY"),
+    moment().startOf("year").add(6, "month").format("MMM YYYY"),
+    moment().startOf("year").add(7, "month").format("MMM YYYY"),
+    moment().startOf("year").add(8, "month").format("MMM YYYY"),
+    moment().startOf("year").add(9, "month").format("MMM YYYY"),
+    moment().startOf("year").add(10, "month").format("MMM YYYY"),
+    moment().startOf("year").add(11, "month").format("MMM YYYY"),
+  ];
   const ChangeCalender = async (type) => {
     setSelectDateChart(type);
     if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
@@ -84,7 +98,7 @@ const Dashboard = () => {
       countUserDayOfMonth();
       settypeChart("userOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      countUserDayOfMonth();
+      countUserDayOfYear();
       settypeChart("userOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนโพสต์") {
       countPostDayOfWeek();
@@ -93,8 +107,8 @@ const Dashboard = () => {
       countPostDayOfMonth();
       settypeChart("postOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนโพสต์") {
-      // countUserDayOfMonth();
-      // settypeChart("userOfYear");
+      countUserDayOfMonth();
+      settypeChart("postOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนค้นหา") {
       countSearchDayOfWeek();
       settypeChart("searchOfDay");
@@ -102,8 +116,8 @@ const Dashboard = () => {
       countSearchDayOfMonth();
       settypeChart("searchOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนค้นหา") {
-      // countPostDayOfWeek();
-      // settypeChart("searchOfDay");
+      countSearchDayOfYear();
+      settypeChart("searchOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนการรายงาน") {
       countReportDayOfWeek();
       settypeChart("reportOfDay");
@@ -111,8 +125,8 @@ const Dashboard = () => {
       countReportDayOfMonth();
       settypeChart("reportOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนการรายงาน") {
-      // countPostDayOfWeek();
-      // settypeChart("searchOfDay");
+      countReportDayOfYear();
+      settypeChart("reportOfYear");
     }
   };
 
@@ -125,7 +139,7 @@ const Dashboard = () => {
       countUserDayOfMonth();
       settypeChart("userOfMonth");
     } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Year") {
-      countUserDayOfMonth();
+      countUserDayOfYear();
       settypeChart("userOfYear");
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Day") {
       countPostDayOfWeek();
@@ -134,8 +148,8 @@ const Dashboard = () => {
       countPostDayOfMonth();
       settypeChart("postOfMonth");
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Year") {
-      // countUserDayOfMonth();
-      // settypeChart("userOfYear");
+      countPostDayOfYear();
+      settypeChart("postOfYear");
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Day") {
       countSearchDayOfWeek();
       settypeChart("searchOfDay");
@@ -143,8 +157,8 @@ const Dashboard = () => {
       countSearchDayOfMonth();
       settypeChart("searchOfMonth");
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Year") {
-      // countPostDayOfWeek();
-      // settypeChart("searchOfDay");
+      countSearchDayOfYear();
+      settypeChart("searchOfYear");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Day") {
       countReportDayOfWeek();
       settypeChart("reportOfDay");
@@ -152,8 +166,8 @@ const Dashboard = () => {
       countReportDayOfMonth();
       settypeChart("reportOfMonth");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Year") {
-      // countPostDayOfWeek();
-      // settypeChart("searchOfDay");
+      countReportDayOfYear();
+      settypeChart("reportOfYear");
     }
   };
   const countUserDayOfWeek = async () => {
@@ -185,8 +199,8 @@ const Dashboard = () => {
         label: "จำนวนผู้ใช้งานในระบบ",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
-        fill : false,
-        data: countUser
+        fill: false,
+        data: countUser,
       },
     ]);
   };
@@ -219,8 +233,8 @@ const Dashboard = () => {
         label: "จำนวนผู้ใช้งานในระบบ",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
-        fill : false,
-        data: countUser
+        fill: false,
+        data: countUser,
       },
     ]);
   };
@@ -230,14 +244,14 @@ const Dashboard = () => {
     let count = 0;
     //sent type get data from api
     await Axios.get(
-      "https://monkeyfruad01.herokuapp.com/user/listuserofmonth"
+      "https://monkeyfruad01.herokuapp.com/user/listuserofyear"
     ).then((res) => {
       countUserApi.push(res.data.data);
-      dayOfMonth.forEach((dayofweek) => {
+      dayOfYear.forEach((dayofYear) => {
         countUserApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofweek
+            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            dayofYear
           ) {
             console.log(count);
             count++;
@@ -253,8 +267,8 @@ const Dashboard = () => {
         label: "จำนวนผู้ใช้งานในระบบ",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
-        fill : false,
-        data: countUser
+        fill: false,
+        data: countUser,
       },
     ]);
   };
@@ -287,8 +301,8 @@ const Dashboard = () => {
         label: "จำนวนโพสต์ในระบบ",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
-        fill : false,
-        data: countPost
+        fill: false,
+        data: countPost,
       },
     ]);
   };
@@ -323,8 +337,8 @@ const Dashboard = () => {
         label: "จำนวนโพสต์ในระบบ",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
-        fill : false,
-        data: countPost
+        fill: false,
+        data: countPost,
       },
     ]);
   };
@@ -334,17 +348,16 @@ const Dashboard = () => {
     let count = 0;
     //sent type get data from api
     await Axios.get(
-      "https://monkeyfruad01.herokuapp.com/post/listpostofmonth"
+      "https://monkeyfruad01.herokuapp.com/post/listpostofyear"
     ).then((res) => {
       countPostApi.push(res.data.data);
 
-      dayOfMonth.forEach((dayofMonth) => {
+      dayOfYear.forEach((dayofYear) => {
         countPostApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofMonth
+            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            dayofYear
           ) {
-            console.log(count);
             count++;
           }
         });
@@ -359,8 +372,8 @@ const Dashboard = () => {
         label: "จำนวนโพสต์ในระบบ",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
-        fill : false,
-        data: countPost
+        fill: false,
+        data: countPost,
       },
     ]);
   };
@@ -394,8 +407,8 @@ const Dashboard = () => {
         label: "จำนวนการค้นหาในระบบ",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
-        fill : false,
-        data: countSearch
+        fill: false,
+        data: countSearch,
       },
     ]);
   };
@@ -429,8 +442,8 @@ const Dashboard = () => {
         label: "จำนวนการค้นหาในระบบ",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
-        fill : false,
-        data: countSearch
+        fill: false,
+        data: countSearch,
       },
     ]);
   };
@@ -440,15 +453,15 @@ const Dashboard = () => {
     let count = 0;
     //sent type get data from api
     await Axios.get(
-      "https://monkeyfruad01.herokuapp.com/post/listsearchofmonth"
+      "https://monkeyfruad01.herokuapp.com/post/listsearchofyear"
     ).then((res) => {
       countSearchApi.push(res.data.data);
 
-      dayOfMonth.forEach((dayofMonth) => {
+      dayOfYear.forEach((dayofYear) => {
         countSearchApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofMonth
+            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            dayofYear
           ) {
             console.log(count);
             count++;
@@ -464,8 +477,8 @@ const Dashboard = () => {
         label: "จำนวนการค้นหาในระบบ",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
-        fill : false,
-        data: countSearch
+        fill: false,
+        data: countSearch,
       },
     ]);
   };
@@ -499,7 +512,7 @@ const Dashboard = () => {
         label: "จำนวนการรายงานของผู้ใช้งาน",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
-        fill : false,
+        fill: false,
         data: countReport,
       },
     ]);
@@ -534,7 +547,7 @@ const Dashboard = () => {
         label: "จำนวนการรายงานของผู้ใช้งาน",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
-        fill : false,
+        fill: false,
         data: countReport,
       },
     ]);
@@ -545,15 +558,15 @@ const Dashboard = () => {
     let count = 0;
     //sent type get data from api
     await Axios.get(
-      "https://monkeyfruad01.herokuapp.com/post/listsearchofyear"
+      "https://monkeyfruad01.herokuapp.com/post/listreportofyear"
     ).then((res) => {
       countReportApi.push(res.data.data);
 
-      dayOfMonth.forEach((dayofMonth) => {
+      dayOfYear.forEach((dayofYear) => {
         countReportApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM DD") ==
-            dayofMonth
+            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            dayofYear
           ) {
             console.log(count);
             count++;
@@ -569,7 +582,7 @@ const Dashboard = () => {
         label: "จำนวนการรายงานของผู้ใช้งาน",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
-        fill : false,
+        fill: false,
         data: countReport,
       },
     ]);
