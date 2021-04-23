@@ -71,18 +71,18 @@ const Dashboard = () => {
     moment().format("MMM DD"),
   ];
   var dayOfYear = [
-    moment().startOf("year").format("MMM YYYY"),
-    moment().startOf("year").add(1, "month").format("MMM YYYY"),
-    moment().startOf("year").add(2, "month").format("MMM YYYY"),
-    moment().startOf("year").add(3, "month").format("MMM YYYY"),
-    moment().startOf("year").add(4, "month").format("MMM YYYY"),
-    moment().startOf("year").add(5, "month").format("MMM YYYY"),
-    moment().startOf("year").add(6, "month").format("MMM YYYY"),
-    moment().startOf("year").add(7, "month").format("MMM YYYY"),
-    moment().startOf("year").add(8, "month").format("MMM YYYY"),
-    moment().startOf("year").add(9, "month").format("MMM YYYY"),
-    moment().startOf("year").add(10, "month").format("MMM YYYY"),
-    moment().startOf("year").add(11, "month").format("MMM YYYY"),
+    moment().startOf("year").format("MMMM"),
+    moment().startOf("year").add(1, "month").format("MMMM"),
+    moment().startOf("year").add(2, "month").format("MMMM"),
+    moment().startOf("year").add(3, "month").format("MMMM"),
+    moment().startOf("year").add(4, "month").format("MMMM"),
+    moment().startOf("year").add(5, "month").format("MMMM"),
+    moment().startOf("year").add(6, "month").format("MMMM"),
+    moment().startOf("year").add(7, "month").format("MMMM"),
+    moment().startOf("year").add(8, "month").format("MMMM"),
+    moment().startOf("year").add(9, "month").format("MMMM"),
+    moment().startOf("year").add(10, "month").format("MMMM"),
+    moment().startOf("year").add(11, "month").format("MMMM"),
   ];
   const ChangeCalender = async (type) => {
     setSelectDateChart(type);
@@ -239,7 +239,7 @@ const Dashboard = () => {
       dayOfYear.forEach((dayofYear) => {
         countUserApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            moment(new Date(element.date.seconds * 1000)).format("MMMM") ==
             dayofYear
           ) {
             count++;
@@ -334,7 +334,7 @@ const Dashboard = () => {
       dayOfYear.forEach((dayofYear) => {
         countPostApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            moment(new Date(element.date.seconds * 1000)).format("MMMM") ==
             dayofYear
           ) {
             count++;
@@ -430,7 +430,7 @@ const Dashboard = () => {
       dayOfYear.forEach((dayofYear) => {
         countSearchApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            moment(new Date(element.date.seconds * 1000)).format("MMMM") ==
             dayofYear
           ) {
             count++;
@@ -526,7 +526,7 @@ const Dashboard = () => {
       dayOfYear.forEach((dayofYear) => {
         countReportApi[0].forEach((element) => {
           if (
-            moment(new Date(element.date.seconds * 1000)).format("MMM YYYY") ==
+            moment(new Date(element.date.seconds * 1000)).format("MMMM") ==
             dayofYear
           ) {
             count++;
@@ -616,7 +616,7 @@ const Dashboard = () => {
                   enabled: true,
                 },
               }}
-              labels="months"
+              labels={dayOfYear}
             />
           ) : null}
           {typeChart === "postOfDay" ? (
@@ -649,7 +649,7 @@ const Dashboard = () => {
                   enabled: true,
                 },
               }}
-              labels="months"
+              labels={dayOfYear}
             />
           ) : null}
           {typeChart === "searchOfDay" ? (
@@ -682,7 +682,7 @@ const Dashboard = () => {
                   enabled: true,
                 },
               }}
-              labels="months"
+              labels={dayOfYear}
             />
           ) : null}
           {typeChart === "reportOfDay" ? (
@@ -715,7 +715,7 @@ const Dashboard = () => {
                   enabled: true,
                 },
               }}
-              labels="months"
+              labels={dayOfYear}
             />
           ) : null}
         </CCardBody>
