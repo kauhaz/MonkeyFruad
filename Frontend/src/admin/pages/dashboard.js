@@ -188,7 +188,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนผู้ใช้งานในระบบ",
+        label: "จำนวนผู้ใช้งานในเว็บ (คน)",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
         fill: false,
@@ -220,7 +220,7 @@ const Dashboard = () => {
     // console.log(countUser);
     setdataChart([
       {
-        label: "จำนวนผู้ใช้งานในระบบ",
+        label: "จำนวนผู้ใช้งานในเว็บ (คน)",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
         fill: false,
@@ -251,7 +251,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนผู้ใช้งานในระบบ",
+        label: "จำนวนผู้ใช้งานในเว็บ (คน)",
         backgroundColor: "#3399ff",
         borderColor: "#33b5e5",
         fill: false,
@@ -283,7 +283,7 @@ const Dashboard = () => {
     // console.log(countUser);
     setdataChart([
       {
-        label: "จำนวนโพสต์ในระบบ",
+        label: "จำนวนโพสต์บนเว็บ (โพสต์)",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
         fill: false,
@@ -315,7 +315,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนโพสต์ในระบบ",
+        label: "จำนวนโพสต์บนเว็บ (โพสต์)",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
         fill: false,
@@ -346,7 +346,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนโพสต์ในระบบ",
+        label: "จำนวนโพสต์บนเว็บ (โพสต์)",
         backgroundColor: "#f9b115",
         borderColor: "#f9b115",
         fill: false,
@@ -378,7 +378,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการค้นหาในระบบ",
+        label: "จำนวนการค้นหาบนเว็บ (ครั้ง)",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
         fill: false,
@@ -410,7 +410,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการค้นหาในระบบ",
+        label: "จำนวนการค้นหาบนเว็บ (ครั้ง)",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
         fill: false,
@@ -442,7 +442,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการค้นหาในระบบ",
+        label: "จำนวนการค้นหาบนเว็บ (ครั้ง)",
         backgroundColor: "#e55353",
         borderColor: "#e55353",
         fill: false,
@@ -474,7 +474,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการรายงานของผู้ใช้งาน",
+        label: "จำนวนการรายงานของผู้ใช้งาน (ครั้ง)",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
         fill: false,
@@ -506,7 +506,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการรายงานของผู้ใช้งาน",
+        label: "จำนวนการรายงานของผู้ใช้งาน (ครั้ง)",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
         fill: false,
@@ -538,7 +538,7 @@ const Dashboard = () => {
     });
     setdataChart([
       {
-        label: "จำนวนการรายงานของผู้ใช้งาน",
+        label: "จำนวนการรายงานของผู้ใช้งาน (ครั้ง)",
         backgroundColor: "#2eb85c",
         borderColor: "#2eb85c",
         fill: false,
