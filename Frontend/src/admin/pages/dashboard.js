@@ -102,7 +102,7 @@ const Dashboard = () => {
       countPostDayOfMonth();
       settypeChart("postOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนโพสต์") {
-      countUserDayOfMonth();
+      countPostDayOfYear();
       settypeChart("postOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนค้นหา") {
       countSearchDayOfWeek();
