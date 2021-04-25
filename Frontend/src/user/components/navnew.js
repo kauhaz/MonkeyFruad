@@ -24,6 +24,7 @@ import Cliploading from "./clipLoader";
 const NavbarPage = (props) => {
   var { user } = useContext(usercontext);
   const [displayname, setDisplayname] = useState();
+  const [photoProfile, setPhotoProfile] = useState();
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsopen] = useState(false);
@@ -70,7 +71,7 @@ const NavbarPage = (props) => {
       `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
     );
   };
-  const handlesearch = () => {
+  const handlesearch = async () => {
     try {
       if (search) {
         const getdata = allpost.filter((doc) => {
@@ -95,12 +96,29 @@ const NavbarPage = (props) => {
             },
           });
         }
+        await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+          search,
+        });
       }
     } catch (err) {
       console.log(err);
     }
   };
-
+  const handleSearchDropdown = async (search) => {
+    try {
+      console.log(search);
+      await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+        search,
+      });
+      history.push({
+        pathname: `/thief/post/${search}`,
+        search: "?are you ok",
+      });
+      window.location.reload(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const initSearch = async () => {
     try {
       const getallthief = await axios.get(
@@ -116,7 +134,6 @@ const NavbarPage = (props) => {
         Seterror();
         Setlastsearch(
           getthief.filter((doc) => {
-  
             if (
               (
                 doc.name.toLowerCase() +
@@ -155,7 +172,7 @@ const NavbarPage = (props) => {
       console.log(err);
     }
   };
-  console.log(lastsearch)
+  console.log(lastsearch);
   const initUser = async () => {
     await axios
       .post("https://monkeyfruad01.herokuapp.com/user/session", {
@@ -163,6 +180,7 @@ const NavbarPage = (props) => {
       })
       .then((result) => {
         setDisplayname(result.data.data.username);
+        setPhotoProfile(result.data.data.photoURL);
       });
     await axios
       .post(
@@ -183,7 +201,7 @@ const NavbarPage = (props) => {
           SetHideCountNotiAlways(true);
         } else {
           SetHideCountNoti(false);
-          SetHideCountNotiAlways(false)
+          SetHideCountNotiAlways(false);
           setCountNoti(result.data);
         }
       })
@@ -197,7 +215,7 @@ const NavbarPage = (props) => {
       setLoading(false);
     }
     initSearch();
-    setLoading(false);  
+    setLoading(false);
     // setTimeout(() => {
     //   setReFreshNoti(!reFreshNoti);
     // }, 2000);
@@ -434,46 +452,92 @@ const NavbarPage = (props) => {
               </MDBNavItem>
             ) : null}
 
+            {/* test */}
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>
-                  <MDBDropdownToggle
-                    nav
-                    caret
-                    left
-                    className="dropdown-username-nav"
-                  >
-                    {displayname}
+                  <MDBDropdownToggle nav className="noti-comp">
+                    <div
+                      className="navbar-noti"
+                      onClick={() => notiChangeClick()}
+                    >
+                      <i className="fas fa-sort-down"></i>
+                    </div>
                   </MDBDropdownToggle>
-                  <MDBDropdownMenu
-                    className="dropdown-default dropdown-bottom"
-                    right
-                  >
+                  <MDBDropdownMenu className="dropdown-default dropdown-top-profile">
+                    <div className="box-nav-profile">
                     <MDBDropdownItem href={`/profile/${user.uid}`}>
-                      จัดการโปรไฟล์
-                    </MDBDropdownItem>
-                    <MDBDropdownItem href="/post/history">
-                      ประวัติการโพสต์
-                    </MDBDropdownItem>
-                    <div className="line-nav"></div>
-                    <MDBDropdownItem href="/login" onClick={logout}>
-                      ออกจากระบบ
-                    </MDBDropdownItem>
+                      {photoProfile ? (
+                        <img
+                          className="img-circle-profile-nav"
+                          src={`${photoProfile.url}`}
+                        />
+                      ) : (
+                        <img
+                          className="img-circle-profile-nav"
+                          src={"/img/profile.png"}
+                        />
+                      )}
+                      <p className="username-nav">@{displayname}</p>
+                      <p className="username-nav-settingprofile">จัดการโปรไฟล์</p>
+                      </MDBDropdownItem>
+
+                      <div className="line-profile-nav"></div>
+                      <MDBDropdownItem href="/post/history">
+                        ประวัติการโพสต์
+                      </MDBDropdownItem>
+                      <div className="line-nav"></div>
+                      <MDBDropdownItem href="/login" onClick={logout}>
+                        ออกจากระบบ
+                      </MDBDropdownItem>
+                    </div>
                   </MDBDropdownMenu>
                 </MDBDropdown>
+
               ) : (
-                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+                <Nav.Link href="/login" className="noti-comp">เข้าสู่ระบบ</Nav.Link>
               )}
             </MDBNavItem>
+            <MDBNavItem className="noti-mobile">
+                   {user ? (
+                    <MDBDropdown>
+                      <MDBDropdownToggle
+                        nav
+                        caret
+                        left
+                        className="dropdown-username-nav"
+                      >
+                        {displayname}
+                      </MDBDropdownToggle>
+                      <MDBDropdownMenu
+                        className="dropdown-default dropdown-bottom"
+                        right
+                      >
+                        <MDBDropdownItem href={`/profile/${user.uid}`}>
+                          จัดการโปรไฟล์
+                        </MDBDropdownItem>
+                        <MDBDropdownItem href="/post/history">
+                          ประวัติการโพสต์
+                        </MDBDropdownItem>
+                        <div className="line-nav"></div>
+                        <MDBDropdownItem href="/login" onClick={logout}>
+                          ออกจากระบบ
+                        </MDBDropdownItem>
+                      </MDBDropdownMenu>
+                    </MDBDropdown>
+                    ) : (
+                      <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+                    )}
+                  </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg">
+      <div className="gg-nologin">
         {lastsearch
           ? lastsearch.map((doc) => {
               let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              let thiefAccountNumber = `${doc.accountnumber}`
-              console.log(thiefAccountNumber)
+              let thiefAccountNumber = `${doc.accountnumber}`;
+              console.log(thiefAccountNumber);
               i++;
               return (
                 <div className="boxsearch-nav">
@@ -484,13 +548,9 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefNameAndSurname}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefNameAndSurname)
+                            }
                           >
                             <div>
                               {" "}
@@ -502,18 +562,11 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefAccountNumber}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefAccountNumber)
+                            }
                           >
-                            <div>
-                              {" "}
-                              {doc.accountnumber}
-                            </div>
+                            <div> {doc.accountnumber}</div>
                           </button>
                         ) : null
                       ) : null}
