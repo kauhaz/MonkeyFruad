@@ -1,27 +1,18 @@
 .admin-card {
-  width: 65%;
+  width: 67%;
   margin: 35px auto;
 }
 
-/* #safe_id_g0wqtvsvc1g {
-  width: 1320px !important;
-  height: 450px !important;
-} */
-
 .admin-CategoriesChart {
   float: left;
-  margin: 5px 0 20px -400px;
-  height: 50px;
+  margin: 5px 0 20px -390px;
+  height: 35px;
 }
 
 .admin-CategoriesChart-button {
   font-family: "Kanit", sans-serif;
   font-size: 16px !important;
-  margin: 0 10px 0 0 !important;
-}
-
-.admin-header-chart {
-  font-size: 16px;
+  margin: 0 8px 0 0 !important;
 }
 
 .admin-select-chart {
@@ -29,26 +20,111 @@
   width: 25% !important;
   float: right;
   font-size: 16px;
-  margin: 15px 25px 0 0;
+  margin: 5px 25px 0 0;
 }
 
 @media only screen and (min-width: 1920px) {
+  .admin-card {
+    width: 75%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px 0 20px -560px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 18px !important;
+  }
+  .admin-select-chart {
+    font-size: 18px !important;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
+  .admin-CategoriesChart {
+    margin: 5px 0 20px -340px;
+  }
 }
 
 @media only screen and (max-width: 1025px) {
+  .admin-card {
+    width: 85%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px 0 20px -330px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 15px !important;
+  }
+  .admin-select-chart {
+    font-size: 15px !important;
+  }
 }
 
 @media only screen and (max-width: 769px) {
+  .admin-card {
+    width: 90%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px 0 20px -280px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 13px !important;
+  }
+  .admin-select-chart {
+    width: 30% !important;
+    font-size: 13px !important;
+  }
 }
 
 @media only screen and (max-width: 415px) {
+  .admin-card {
+    width: 100%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px -8px 10px 0;
+    height: 40px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 10px !important;
+    margin: 0 5px 0 0 !important;
+  }
+  .admin-select-chart {
+    font-size: 10px !important;
+    margin: 5px 0 10px 0;
+  }
 }
 
 @media only screen and (max-width: 376px) {
+  .admin-card {
+    width: 100%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px -5px 10px 0;
+    height: 40px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 10px !important;
+    margin: 0 5px 0 0 !important;
+  }
+  .admin-select-chart {
+    font-size: 10px !important;
+    margin: 5px 0 10px 0;
+  }
 }
 
 @media only screen and (max-width: 321px) {
+  .admin-card {
+    width: 100%;
+  }
+  .admin-CategoriesChart {
+    margin: 5px -5px 10px 0;
+    height: 40px;
+  }
+  .admin-CategoriesChart-button {
+    font-size: 10px !important;
+    margin: 0 5px 0 0 !important;
+  }
+  .admin-select-chart {
+    font-size: 10px !important;
+    margin: 5px 0 10px 0;
+  }
 }
