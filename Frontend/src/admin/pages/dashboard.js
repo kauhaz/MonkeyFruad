@@ -23,6 +23,7 @@ const Dashboard = () => {
   const [CategoryChart, setCategoryChart] = useState("จำนวนผู้ใช้งานใหม่");
   const [selectDateChart, setSelectDateChart] = useState("Day");
   const [dataChart, setdataChart] = useState([]);
+  const [loading, setLoading] = useState(true);
   const CategoriesChart = [
     "จำนวนโพสต์",
     "จำนวนผู้ใช้งานใหม่",
@@ -87,81 +88,105 @@ const Dashboard = () => {
   const ChangeCalender = async (type) => {
     setSelectDateChart(type);
     if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      countUserDayOfWeek();
+      await countUserDayOfWeek();
       settypeChart("userOfDay");
+     
     } else if (type === "Month" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      countUserDayOfMonth();
+      await countUserDayOfMonth();
       settypeChart("userOfMonth");
+     
     } else if (type === "Year" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      countUserDayOfYear();
+      await countUserDayOfYear();
       settypeChart("userOfYear");
+     
     } else if (type === "Day" && CategoryChart === "จำนวนโพสต์") {
-      countPostDayOfWeek();
+      await countPostDayOfWeek();
+      setLoading(false);
       settypeChart("postOfDay");
     } else if (type === "Month" && CategoryChart === "จำนวนโพสต์") {
-      countPostDayOfMonth();
+      await countPostDayOfMonth();
+      setLoading(false);
       settypeChart("postOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนโพสต์") {
-      countPostDayOfYear();
+      await countPostDayOfYear();
+      setLoading(false);
       settypeChart("postOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนค้นหา") {
-      countSearchDayOfWeek();
+      await countSearchDayOfWeek();
+      setLoading(false);
       settypeChart("searchOfDay");
     } else if (type === "Month" && CategoryChart === "จำนวนค้นหา") {
-      countSearchDayOfMonth();
+      await countSearchDayOfMonth();
+      setLoading(false);
       settypeChart("searchOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนค้นหา") {
-      countSearchDayOfYear();
+      await countSearchDayOfYear();
+      setLoading(false);
       settypeChart("searchOfYear");
     } else if (type === "Day" && CategoryChart === "จำนวนการรายงาน") {
-      countReportDayOfWeek();
+      await countReportDayOfWeek();
+      setLoading(false);
       settypeChart("reportOfDay");
     } else if (type === "Month" && CategoryChart === "จำนวนการรายงาน") {
-      countReportDayOfMonth();
+      await countReportDayOfMonth();
+      setLoading(false);
       settypeChart("reportOfMonth");
     } else if (type === "Year" && CategoryChart === "จำนวนการรายงาน") {
-      countReportDayOfYear();
+      await countReportDayOfYear();
+      setLoading(false);
       settypeChart("reportOfYear");
     }
   };
 
-  const onChangeCategoryChart = (type) => {
+  const onChangeCategoryChart = async (type) => {
     setCategoryChart(type);
     if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Day") {
-      countUserDayOfWeek();
+      await countUserDayOfWeek();
+      setLoading(false);
       settypeChart("userOfDay");
     } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Month") {
-      countUserDayOfMonth();
+      await countUserDayOfMonth();
+      setLoading(false);
       settypeChart("userOfMonth");
     } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Year") {
-      countUserDayOfYear();
+      await countUserDayOfYear();
+      setLoading(false);
       settypeChart("userOfYear");
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Day") {
-      countPostDayOfWeek();
+      await countPostDayOfWeek();
+      setLoading(false);
       settypeChart("postOfDay");
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Month") {
-      countPostDayOfMonth();
+      await countPostDayOfMonth();
+      setLoading(false);
       settypeChart("postOfMonth");
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Year") {
-      countPostDayOfYear();
+      await countPostDayOfYear();
+      setLoading(false);
       settypeChart("postOfYear");
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Day") {
-      countSearchDayOfWeek();
+      await countSearchDayOfWeek();
+      setLoading(false);
       settypeChart("searchOfDay");
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Month") {
-      countSearchDayOfMonth();
+      await countSearchDayOfMonth();
+      setLoading(false);
       settypeChart("searchOfMonth");
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Year") {
-      countSearchDayOfYear();
+      await countSearchDayOfYear();
+      setLoading(false);
       settypeChart("searchOfYear");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Day") {
-      countReportDayOfWeek();
+      await countReportDayOfWeek();
+      setLoading(false);
       settypeChart("reportOfDay");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Month") {
-      countReportDayOfMonth();
+      await countReportDayOfMonth();
+      setLoading(false);
       settypeChart("reportOfMonth");
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Year") {
-      countReportDayOfYear();
+      await countReportDayOfYear();
+      setLoading(false);
       settypeChart("reportOfYear");
     }
   };
@@ -586,7 +611,7 @@ const Dashboard = () => {
               </CSelect>
             </CCol>
           </CRow>
-          {typeChart === "userOfDay" ? (
+          {loading ? <p>sss</p> : typeChart === "userOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -597,7 +622,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-          {typeChart === "userOfMonth" ? (
+          {loading ?  <p>sss</p> : typeChart === "userOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -608,7 +633,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-          {typeChart === "userOfYear" ? (
+          {loading ?  <p>sss</p> : typeChart === "userOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -619,7 +644,7 @@ const Dashboard = () => {
               labels={dayOfYear}
             />
           ) : null}
-          {typeChart === "postOfDay" ? (
+          {loading ?  <p>sss</p>: typeChart === "postOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -630,7 +655,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-          {typeChart === "postOfMonth" ? (
+          {loading ?  <p>sss</p>: typeChart === "postOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -641,7 +666,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-          {typeChart === "postOfYear" ? (
+          {loading ?  <p>sss</p>: typeChart === "postOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -652,7 +677,7 @@ const Dashboard = () => {
               labels={dayOfYear}
             />
           ) : null}
-          {typeChart === "searchOfDay" ? (
+          {loading ? null : typeChart === "searchOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -663,7 +688,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-          {typeChart === "searchOfMonth" ? (
+          {loading ? null : typeChart === "searchOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -674,7 +699,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-          {typeChart === "searchOfYear" ? (
+          {loading ? null : typeChart === "searchOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -685,7 +710,7 @@ const Dashboard = () => {
               labels={dayOfYear}
             />
           ) : null}
-          {typeChart === "reportOfDay" ? (
+          {loading ? null : typeChart === "reportOfDay" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -696,7 +721,7 @@ const Dashboard = () => {
               labels={dayOfWeek}
             />
           ) : null}
-          {typeChart === "reportOfMonth" ? (
+          {loading ? null : typeChart === "reportOfMonth" ? (
             <CChartLine
               datasets={dataChart}
               options={{
@@ -707,7 +732,7 @@ const Dashboard = () => {
               labels={dayOfMonth}
             />
           ) : null}
-          {typeChart === "reportOfYear" ? (
+          {loading ? null : typeChart === "reportOfYear" ? (
             <CChartLine
               datasets={dataChart}
               options={{
