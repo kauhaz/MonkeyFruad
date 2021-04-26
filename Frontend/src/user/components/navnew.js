@@ -71,7 +71,7 @@ const NavbarPage = (props) => {
       `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
     );
   };
-  const handlesearch = () => {
+  const handlesearch = async () => {
     try {
       if (search) {
         const getdata = allpost.filter((doc) => {
@@ -96,12 +96,29 @@ const NavbarPage = (props) => {
             },
           });
         }
+        await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+          search,
+        });
       }
     } catch (err) {
       console.log(err);
     }
   };
-
+  const handleSearchDropdown = async (search) => {
+    try {
+      console.log(search);
+      await axios.post(`https://monkeyfruad01.herokuapp.com/post/search`, {
+        search,
+      });
+      history.push({
+        pathname: `/thief/post/${search}`,
+        search: "?are you ok",
+      });
+      window.location.reload(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const initSearch = async () => {
     try {
       const getallthief = await axios.get(
@@ -531,13 +548,9 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefNameAndSurname}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefNameAndSurname)
+                            }
                           >
                             <div>
                               {" "}
@@ -549,13 +562,9 @@ const NavbarPage = (props) => {
                         props.showDropdown ? (
                           <button
                             className="search-nav"
-                            onClick={() => (
-                              history.push({
-                                pathname: `/thief/post/${thiefAccountNumber}`,
-                                search: "?are you ok",
-                              }),
-                              window.location.reload(true)
-                            )}
+                            onClick={() =>
+                              handleSearchDropdown(thiefAccountNumber)
+                            }
                           >
                             <div> {doc.accountnumber}</div>
                           </button>
