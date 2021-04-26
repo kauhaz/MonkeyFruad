@@ -89,7 +89,7 @@ const Dashboard = () => {
     setSelectDateChart(type);
     if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       await countUserDayOfWeek();
-      settypeChart("userOfDay");
+       settypeChart("userOfDay");
      
     } else if (type === "Month" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
       await countUserDayOfMonth();
