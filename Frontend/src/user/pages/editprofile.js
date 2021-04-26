@@ -189,7 +189,7 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setFirstname(e.target.value);
                   }}
-
+                  maxlength="30"
                 />                
               </div>
             </div>
@@ -207,6 +207,7 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setSurname(e.target.value);
                   }}
+                  maxlength="30"
                 />                        
               </div>
             </div>
