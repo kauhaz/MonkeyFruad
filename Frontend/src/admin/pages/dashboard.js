@@ -15,7 +15,7 @@ import {
 } from "@coreui/react";
 import { CChartLine } from "@coreui/react-chartjs";
 import "./dashboard.css";
-
+import ClipLoadingDashboard from "../components/cilpLoaderDashboard";
 const Dashboard = () => {
   const [show, Setshow] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [CategoryChart, setCategoryChart] = useState("จำนวนผู้ใช้งานใหม่");
   const [selectDateChart, setSelectDateChart] = useState("Day");
   const [dataChart, setdataChart] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState();
   const CategoriesChart = [
     "จำนวนโพสต์",
     "จำนวนผู้ใช้งานใหม่",
@@ -88,62 +88,62 @@ const Dashboard = () => {
   const ChangeCalender = async (type) => {
     setSelectDateChart(type);
     if (type === "Day" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfWeek();
       await settypeChart("userOfDay");
       setLoading(false);
     } else if (type === "Month" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfMonth();
       await settypeChart("userOfMonth");
       setLoading(false);
     } else if (type === "Year" && CategoryChart === "จำนวนผู้ใช้งานใหม่") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfYear();
       await settypeChart("userOfYear");
       setLoading(false);
     } else if (type === "Day" && CategoryChart === "จำนวนโพสต์") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfWeek();
       await settypeChart("postOfDay");
       setLoading(false);
     } else if (type === "Month" && CategoryChart === "จำนวนโพสต์") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfMonth();
       await settypeChart("postOfMonth");
       setLoading(false);
     } else if (type === "Year" && CategoryChart === "จำนวนโพสต์") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfYear();
       await settypeChart("postOfYear");
       setLoading(false);
     } else if (type === "Day" && CategoryChart === "จำนวนค้นหา") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfWeek();
       await settypeChart("searchOfDay");
       setLoading(false);
     } else if (type === "Month" && CategoryChart === "จำนวนค้นหา") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfMonth();
       await settypeChart("searchOfMonth");
       setLoading(false);
     } else if (type === "Year" && CategoryChart === "จำนวนค้นหา") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfYear();
       await settypeChart("searchOfYear");
       setLoading(false);
     } else if (type === "Day" && CategoryChart === "จำนวนการรายงาน") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfWeek();
       await settypeChart("reportOfDay");
       setLoading(false);
     } else if (type === "Month" && CategoryChart === "จำนวนการรายงาน") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfMonth();
       await settypeChart("reportOfMonth");
       setLoading(false);
     } else if (type === "Year" && CategoryChart === "จำนวนการรายงาน") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfYear();
       await settypeChart("reportOfYear");
       setLoading(false);
@@ -153,62 +153,62 @@ const Dashboard = () => {
   const onChangeCategoryChart = async (type) => {
     setCategoryChart(type);
     if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Day") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfWeek();
       await settypeChart("userOfDay");
       setLoading(false);
     } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Month") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfMonth();
       await settypeChart("userOfMonth");
       setLoading(false);
     } else if (type === "จำนวนผู้ใช้งานใหม่" && selectDateChart === "Year") {
-      setLoading(true)
+      setLoading(true);
       await countUserDayOfYear();
       await settypeChart("userOfYear");
       setLoading(false);
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Day") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfWeek();
       await settypeChart("postOfDay");
       setLoading(false);
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Month") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfMonth();
       await settypeChart("postOfMonth");
       setLoading(false);
     } else if (type === "จำนวนโพสต์" && selectDateChart === "Year") {
-      setLoading(true)
+      setLoading(true);
       await countPostDayOfYear();
       await settypeChart("postOfYear");
       setLoading(false);
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Day") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfWeek();
       await settypeChart("searchOfDay");
       setLoading(false);
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Month") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfMonth();
       await settypeChart("searchOfMonth");
       setLoading(false);
     } else if (type === "จำนวนค้นหา" && selectDateChart === "Year") {
-      setLoading(true)
+      setLoading(true);
       await countSearchDayOfYear();
       await settypeChart("searchOfYear");
       setLoading(false);
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Day") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfWeek();
       await settypeChart("reportOfDay");
       setLoading(false);
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Month") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfMonth();
       await settypeChart("reportOfMonth");
       setLoading(false);
     } else if (type === "จำนวนการรายงาน" && selectDateChart === "Year") {
-      setLoading(true)
+      setLoading(true);
       await countReportDayOfYear();
       await settypeChart("reportOfYear");
       setLoading(false);
@@ -595,7 +595,7 @@ const Dashboard = () => {
       },
     ]);
   };
-  console.log(loading)
+  console.log(loading);
   useEffect(() => {
     countUserDayOfWeek();
   }, []);
@@ -636,161 +636,317 @@ const Dashboard = () => {
               </CSelect>
             </CCol>
           </CRow>
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "userOfDay" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfWeek}
-            />
+          {typeChart === "userOfDay" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfWeek}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfWeek}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "userOfMonth" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfMonth}
-            />
+          {typeChart === "userOfMonth" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfMonth}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfMonth}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "userOfYear" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfYear}
-            />
+          {typeChart === "userOfYear" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfYear}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfYear}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "postOfDay" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfWeek}
-            />
+          {typeChart === "postOfDay" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfWeek}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfWeek}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "postOfMonth" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfMonth}
-            />
+          {typeChart === "postOfMonth" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfMonth}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfMonth}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "postOfYear" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfYear}
-            />
+          {typeChart === "postOfYear" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfYear}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfYear}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "searchOfDay" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfWeek}
-            />
+          {typeChart === "searchOfDay" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfWeek}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfWeek}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "searchOfMonth" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfMonth}
-            />
-          ) :null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "searchOfYear" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfYear}
-            />
-          ) :null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "reportOfDay" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfWeek}
-            />
+          {typeChart === "searchOfMonth" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfMonth}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfMonth}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "reportOfMonth" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfMonth}
-            />
+          {typeChart === "searchOfYear" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfYear}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfYear}
+              />
+            )
           ) : null}
-          {loading ? (
-            <p>sss</p>
-          ) : typeChart === "reportOfYear" ? (
-            <CChartLine
-              datasets={dataChart}
-              options={{
-                tooltips: {
-                  enabled: true,
-                },
-              }}
-              labels={dayOfYear}
-            />
+          {typeChart === "reportOfDay" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfWeek}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfWeek}
+              />
+            )
+          ) : null}
+          {typeChart === "reportOfMonth" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfMonth}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfMonth}
+              />
+            )
+          ) : null}
+          {typeChart === "reportOfYear" ? (
+            loading ? (
+              <div>
+                <ClipLoadingDashboard loading={loading} />
+                <CChartLine
+                  datasets={dataChart}
+                  options={{
+                    tooltips: {
+                      enabled: true,
+                    },
+                  }}
+                  labels={dayOfYear}
+                />
+              </div>
+            ) : (
+              <CChartLine
+                datasets={dataChart}
+                options={{
+                  tooltips: {
+                    enabled: true,
+                  },
+                }}
+                labels={dayOfYear}
+              />
+            )
           ) : null}
         </CCardBody>
       </CCard>
