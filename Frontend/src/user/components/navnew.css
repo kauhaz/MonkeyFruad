@@ -39,6 +39,7 @@
 }
 .button-nav:hover {
   background-color: #3c6fce;
+  cursor: pointer;
 }
 
 .dropdown-menu-right {
@@ -52,6 +53,7 @@
 }
 .dropdown-item:hover {
   background-color: rgb(236, 234, 234) !important;
+  cursor: pointer;
 }
 
 /*dropsearch*/
@@ -107,6 +109,7 @@
 .search-nav:hover {
   background-color: rgb(233, 230, 230);
   border-radius: 0px;
+  cursor: pointer;
 }
 .dropsearch-nav {
   cursor: pointer;
@@ -138,6 +141,7 @@
   background-color: #fff;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   padding: 14px;
+  cursor: pointer;
 }
 
 .navbar-noti .noti-logo {
@@ -175,6 +179,7 @@
 .dropdown-top-noti::-webkit-scrollbar {
   width: 10px;
   background: #ffffff;
+  
 }
 
 .img-circle.profile-nav-noti {
