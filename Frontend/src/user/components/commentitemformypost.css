@@ -64,6 +64,7 @@
 .mypostbuttonsends1:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
 .profile-comment2 {
@@ -108,6 +109,7 @@
 .uploadproveedit1mypost:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .uploadproveeditmypost2 {
@@ -144,6 +146,7 @@
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .inputmypostcomment2 {

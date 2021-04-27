@@ -336,7 +336,7 @@ const NavbarPage = (props) => {
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default dropdown-top2">
                   <MDBDropdownItem href="/prevent">
-                    กลโกงที่พบบ่อย
+                    รู้ไว้ไม่โดนโกง
                   </MDBDropdownItem>
                   <MDBDropdownItem href="/help">
                     หน่วยงานที่ให้ความช่วยเหลือ

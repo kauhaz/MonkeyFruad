@@ -152,6 +152,7 @@
 }
 .rank-data-row:hover{
     background-color: rgb(236, 234, 234) !important;
+    cursor: pointer;
 }
 .rank-column-row {
     display: flex;
