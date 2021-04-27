@@ -172,7 +172,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick , }) => {
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผุ้แจ้งการรายงาน :{" "}
+                  ผู้รายงาน :{" "}
                   {UsernameReport && UsernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>
@@ -390,20 +390,20 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick , }) => {
               </div>
             </div>
 
-          <div className="report-left d-sm-none">
+          <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผู้แจ้งการรายงาน :{" "}
+                  ผู้รายงาน :{" "}
                   {UsernameReport && UsernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>             
             </div>
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
@@ -418,7 +418,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick , }) => {
               </Form.Group>           
             </div>            
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
@@ -430,7 +430,7 @@ const Listhidereport = ({ reportelement, CancleClick, DeleteClick , }) => {
               </Form.Group>        
             </div>
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
