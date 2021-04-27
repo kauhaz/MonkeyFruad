@@ -950,7 +950,6 @@ const Dashboard = () => {
           ) : null}
         </CCardBody>
       </CCard>
-      <div className="container-postbottoms"></div>
     </div>
   );
 };

@@ -86,10 +86,7 @@
   color: grey;
 }
 .container-posts3 {
-  width: 94%;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px 0;
   padding: 40px 40px 20px 40px;
 }
 .post-left {
@@ -98,8 +95,7 @@
 
 /* หน้า entersearch, findthief */
 .container-postss3 {
-  width: 94%;
-  margin: 30px auto 0 auto;
+  margin: 30px 0;
   padding: 20px 10px 0 10px;
 }
 .spanpost {
@@ -322,6 +318,10 @@
   display: none;
 }
 
+.none-lastname {
+  display: none;
+}
+
 /*slide*/
 .btnslide {
   display: none !important;
@@ -413,7 +413,7 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-.container-postbottoms{
+.container-postbottoms {
   padding-bottom: 120px;
 }
 
@@ -597,7 +597,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 35px 10px 10px 10px !important;
+    padding: 35px auto 10px auto !important;
   }
   /* slide */
   .btnslide {
@@ -640,7 +640,6 @@
     font-size: 14px;
   }
   .facebook {
-
   }
   .post-group1,
   .post-namegroup1,
@@ -687,7 +686,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 30px 10px 10px 10px !important;
+    padding: 30px 20px 10px 20px !important;
   }
   .line-posts1 {
     margin: 20px 0 !important;
@@ -855,7 +854,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .post-lefts {
     font-size: 13px;
@@ -882,7 +881,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 30px 0 0 0 !important;
+    padding: 30px auto 0 auto !important;
   }
   .line-posts1 {
     margin: 20px 0 !important;
@@ -897,7 +896,7 @@
   .none-post {
     display: block;
   }
-  .container-postbottoms{
+  .container-postbottoms {
     padding-bottom: 90px;
   }
   .container-posts2-admin {
@@ -1033,7 +1032,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .post-lefts {
     font-size: 13px;
@@ -1074,6 +1073,9 @@
   }
   .none-post {
     display: block;
+  }
+  .none-lastname {
+    display: none;
   }
   .container-posts2-admin {
     margin: 20px auto 0 auto;
@@ -1209,7 +1211,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   .post-lefts {
     font-size: 12px;
@@ -1250,6 +1252,9 @@
     padding: 0 !important;
   }
   .none-post {
+    display: block;
+  }
+  .none-lastname {
     display: block;
   }
   .container-posts2-admin {
