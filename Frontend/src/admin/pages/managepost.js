@@ -6499,7 +6499,7 @@ const ManagePost = () => {
                           result.map((res) => {
                             return (
                               <div>
-                                <div className="container-posts2">
+                                <div className="container-posts2-admin">
                                   <button
                                     onClick={() => (
                                       Setmodalcommentid(res.uid),
