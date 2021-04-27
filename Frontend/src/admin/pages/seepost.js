@@ -466,6 +466,7 @@ const Seepost = () => {
                         <Commentmypost postid={ok.uid} />
                       </div>
                     </div>
+                    <div className="container-postbottoms"></div>
                   </div>
                 );
               })
