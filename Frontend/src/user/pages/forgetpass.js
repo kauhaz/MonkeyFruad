@@ -14,16 +14,16 @@ const Forgetpass = () => {
   let history = useHistory();
   const [showDropdown, SetshowDropdown] = useState(true);
   const [email, setEmail] = useState("");
-  const [sendEmail, setSendemail] = useState(false);
+  const [sendEmail, setSendemail] = useState();
   const ForgetEmailSubmit = (e) => {
     e.preventDefault();
     auth
       .sendPasswordResetEmail(email)
-      .then(function  () {
-       setSendemail(true);
+      .then(function () {
+        setSendemail(true);
       })
       .catch(function (error) {
-        console.log(error);
+        setSendemail(false);
       });
   };
   const Hiddendropdown = () => {
@@ -67,18 +67,19 @@ const Forgetpass = () => {
       <div className="container-forget">
         <form className="ForgetPassForm">
           <img src="/img/logoLogin.png" className="Logo-forget" />
-          <p className="h1 text-center mb-4 font-weight-bold">
-            Reset password
-          </p>
+          <p className="h1 text-center mb-4 font-weight-bold">Reset password</p>
           <p className="text-left my-0 mb-4 text2-forget">
-            กรอกอีเมลที่เชื่อมกับบัญชีของคุณ จากนั้นเราจะส่งอีเมลพร้อมคำแนะนำในการรีเซ็ทรหัสผ่านของคุณ
+            กรอกอีเมลที่เชื่อมกับบัญชีของคุณ
+            จากนั้นเราจะส่งอีเมลพร้อมคำแนะนำในการรีเซ็ทรหัสผ่านของคุณ
           </p>
           {sendEmail ? (
             <div className="alert-forgetpass">
               <span>ได้ส่งคำขอไปยัง Email ดังกล่าวแล้ว</span>
             </div>
           ) : (
-            ""
+            <div className="alert-forgetpass">
+              <span>ไม่มีอีเมลดังกล่าวในระบบ กรุณากรอกอีเมลใหม่</span>
+            </div>
           )}
           <div className="ForgetPassInputForm">
             <Formik
@@ -122,7 +123,10 @@ const Forgetpass = () => {
             </Formik>
           </div>
 
-          <button onClick={ForgetEmailSubmit} className="btn-block ForgetPassButton">
+          <button
+            onClick={ForgetEmailSubmit}
+            className="btn-block ForgetPassButton"
+          >
             <p className="mx-auto my-1">ส่งไปที่อีเมล</p>
           </button>
         </form>
