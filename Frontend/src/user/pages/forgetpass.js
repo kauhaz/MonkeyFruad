@@ -104,7 +104,11 @@ const Forgetpass = () => {
                       name="email"
                       type="email"
                       className={`form-control ${
-                       touched ?  "": sendEmailFaliure ? "is-invalid" : "is-valid" 
+                        touched
+                          ? ""
+                          : sendEmailFaliure
+                          ? "is-invalid"
+                          : "is-valid"
                       }`}
                       id="email"
                       placeholder="Email"
