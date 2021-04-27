@@ -349,25 +349,51 @@ const NavbarPage = (props) => {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            <MDBNavItem>
-              <div className=" my-0">
-                <input
-                  className="box-nav mr-sm-2"
-                  type="text"
-                  placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
-                  aria-label="Search"
-                  value={search}
-                  onChange={(e) => {
-                    Setsearch(e.target.value);
-                    props.SetshowDropdown(true);
-                  }}
-                />
+            {user ? (
+              <div>
+                <MDBNavItem>
+                  <div className=" my-0">
+                    <input
+                      className="box-nav mr-sm-2"
+                      type="text"
+                      placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
+                      aria-label="Search"
+                      value={search}
+                      onChange={(e) => {
+                        Setsearch(e.target.value);
+                        props.SetshowDropdown(true);
+                      }}
+                    />
+                  </div>
+                </MDBNavItem>
+                <button onClick={() => handlesearch()} className="button-nav">
+                  ค้นหา
+                </button>
               </div>
-            </MDBNavItem>
+            ) : (
+              <div>
+                <MDBNavItem>
+                  <div className=" my-0">
+                    <input
+                      className="box-nav mr-sm-2"
+                      type="text"
+                      placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
+                      aria-label="Search"
+                      value={search}
+                      onChange={(e) => {
+                        Setsearch(e.target.value);
+                        props.SetshowDropdown(true);
+                      }}
+                    />
+                  </div>
+                </MDBNavItem>
+                <button onClick={() => handlesearch()} className="button-nav">
+                  ค้นหา
+                </button>
+              </div>
+            )}
+            {/* Notification */}
 
-            <button onClick={() => handlesearch()} className="button-nav">
-              ค้นหา
-            </button>
             {user ? (
               <MDBNavItem>
                 <MDBDropdown>
@@ -451,8 +477,8 @@ const NavbarPage = (props) => {
                 </MDBDropdown>
               </MDBNavItem>
             ) : null}
+            {/* Notification */}
 
-            {/* test */}
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>
@@ -466,20 +492,22 @@ const NavbarPage = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default dropdown-top-profile">
                     <div className="box-nav-profile">
-                    <MDBDropdownItem href={`/profile/${user.uid}`}>
-                      {photoProfile ? (
-                        <img
-                          className="img-circle-profile-nav"
-                          src={`${photoProfile.url}`}
-                        />
-                      ) : (
-                        <img
-                          className="img-circle-profile-nav"
-                          src={"/img/profile.png"}
-                        />
-                      )}
-                      <p className="username-nav">@{displayname}</p>
-                      <p className="username-nav-settingprofile">จัดการโปรไฟล์</p>
+                      <MDBDropdownItem href={`/profile/${user.uid}`}>
+                        {photoProfile ? (
+                          <img
+                            className="img-circle-profile-nav"
+                            src={`${photoProfile.url}`}
+                          />
+                        ) : (
+                          <img
+                            className="img-circle-profile-nav"
+                            src={"/img/profile.png"}
+                          />
+                        )}
+                        <p className="username-nav">@{displayname}</p>
+                        <p className="username-nav-settingprofile">
+                          จัดการโปรไฟล์
+                        </p>
                       </MDBDropdownItem>
 
                       <div className="line-profile-nav"></div>
@@ -493,42 +521,43 @@ const NavbarPage = (props) => {
                     </div>
                   </MDBDropdownMenu>
                 </MDBDropdown>
-
               ) : (
-                <Nav.Link href="/login" className="noti-comp">เข้าสู่ระบบ</Nav.Link>
+                <Nav.Link href="/login" className="noti-comp">
+                  เข้าสู่ระบบ
+                </Nav.Link>
               )}
             </MDBNavItem>
             <MDBNavItem className="noti-mobile">
-                   {user ? (
-                    <MDBDropdown>
-                      <MDBDropdownToggle
-                        nav
-                        caret
-                        left
-                        className="dropdown-username-nav"
-                      >
-                        {displayname}
-                      </MDBDropdownToggle>
-                      <MDBDropdownMenu
-                        className="dropdown-default dropdown-bottom"
-                        right
-                      >
-                        <MDBDropdownItem href={`/profile/${user.uid}`}>
-                          จัดการโปรไฟล์
-                        </MDBDropdownItem>
-                        <MDBDropdownItem href="/post/history">
-                          ประวัติการโพสต์
-                        </MDBDropdownItem>
-                        <div className="line-nav"></div>
-                        <MDBDropdownItem href="/login" onClick={logout}>
-                          ออกจากระบบ
-                        </MDBDropdownItem>
-                      </MDBDropdownMenu>
-                    </MDBDropdown>
-                    ) : (
-                      <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
-                    )}
-                  </MDBNavItem>
+              {user ? (
+                <MDBDropdown>
+                  <MDBDropdownToggle
+                    nav
+                    caret
+                    left
+                    className="dropdown-username-nav"
+                  >
+                    {displayname}
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu
+                    className="dropdown-default dropdown-bottom"
+                    right
+                  >
+                    <MDBDropdownItem href={`/profile/${user.uid}`}>
+                      จัดการโปรไฟล์
+                    </MDBDropdownItem>
+                    <MDBDropdownItem href="/post/history">
+                      ประวัติการโพสต์
+                    </MDBDropdownItem>
+                    <div className="line-nav"></div>
+                    <MDBDropdownItem href="/login" onClick={logout}>
+                      ออกจากระบบ
+                    </MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              ) : (
+                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+              )}
+            </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
