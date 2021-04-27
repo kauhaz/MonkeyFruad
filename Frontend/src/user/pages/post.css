@@ -533,6 +533,9 @@
   .container-posts2 {
     margin-top: 30px;
   }
+  .container-posts2-admin {
+    margin: 60px auto 0 auto;
+  }
   .posts-name1 {
     font-size: 17px;
   }
@@ -628,6 +631,9 @@
   }
   .container-posts2 {
     margin-top: 30px;
+  }
+  .container-posts2-admin {
+    margin: 60px auto 0 auto;
   }
   .posts-name1 {
     font-size: 15px;
@@ -900,7 +906,7 @@
     padding-bottom: 90px;
   }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 }
 
@@ -1078,7 +1084,7 @@
     display: none;
   }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 }
 
@@ -1258,6 +1264,6 @@
     display: block;
   }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 }

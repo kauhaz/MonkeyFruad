@@ -43,8 +43,8 @@ const Findthief = () => {
         showDropdown={showDropdown}
       />
       <div className="container-bigpost1">
-        <div className="postbigrows">
-          <div className="post-left1">
+        <div className="row postbigrow">
+          <div className="column-post-left1">
             <h1 className="h1-posts">
               {" "}
               ผลการค้นหา{" "}
@@ -78,7 +78,9 @@ const Findthief = () => {
 
                                 <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
-                                    {res.name} {res.surname}
+                                    {res.name}{" "}
+                                    <div className="none-lastname"></div>{" "}
+                                    {res.surname}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -169,7 +171,7 @@ const Findthief = () => {
                               <Link
                                 className="postothers1"
                                 onClick={() => (
-                                  history.push(`/post/${res.uid}`),
+                                  history.push(`/mypost/${res.uid}`),
                                   window.location.reload(true)
                                 )}
                               >
