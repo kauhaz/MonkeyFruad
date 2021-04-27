@@ -156,7 +156,6 @@ const EditProfile = () => {
               </span>
             </div>
           </div>
-        
           <div className="col-md-12">
             <div className="form-group-editptofile my-0">
               <label className="label-form-title-editprofile pt-2">Username</label>
@@ -175,7 +174,6 @@ const EditProfile = () => {
                 />
               </div>
             </div>
-
             <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">ชื่อจริง</label>
               <div className="form-inside-editprofile">
@@ -189,11 +187,10 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setFirstname(e.target.value);
                   }}
-
+                  maxlength="30"
                 />                
               </div>
             </div>
-
             <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">นามสกุล</label>
               <div className="form-inside-editprofile">
@@ -207,10 +204,10 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setSurname(e.target.value);
                   }}
+                  maxlength="30"
                 />                        
               </div>
             </div>
-
             <div className="form-group-editptofile mb-2 mt-2">
               <label className="label-form-title-editprofile">เพศ</label>
               <div className="form-inside-editprofile">
@@ -273,7 +270,6 @@ const EditProfile = () => {
                 )}
               </div>
             </div>
-
             <div className="form-group-editptofile my-0 mt-2">
               <label className="label-form-title-editprofile pt-2">
                 เบอร์โทรศัพท์

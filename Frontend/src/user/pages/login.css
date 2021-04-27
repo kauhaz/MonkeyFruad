@@ -78,6 +78,7 @@
 .LoginButton-login:hover {
     background-color: #f76d6d;
     border: none;
+    cursor: pointer;
 }
 
 .login-signup {
@@ -92,6 +93,7 @@
 
 .login-signup a:hover, .ForgotPassword-login a:hover {
     color: #9b1b1b;
+    cursor: pointer;
 }
 
 .LoginFacebook-login {
@@ -104,6 +106,7 @@
 .LoginFacebook-login:hover {
     background-color: #3d67c2;
     border: none;
+    cursor: pointer;
 }
 
 .LoginGoogle-login {
@@ -116,6 +119,7 @@
 .LoginGoogle-login:hover {
     background-color: #fa5736 !important;
     border: none !important;
+    cursor: pointer;
 }
 
 

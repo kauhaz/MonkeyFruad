@@ -21,14 +21,6 @@ const Forgetpass = () => {
       .sendPasswordResetEmail(email)
       .then(function  () {
        setSendemail(true);
-       setTimeout(()=>{
-        history.push({
-          pathname: `/login`,
-          state : {
-            param : 'forgetpass'
-          }
-        },5000);
-       }) 
       })
       .catch(function (error) {
         console.log(error);

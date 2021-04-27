@@ -74,6 +74,7 @@
 .SaveChange:hover {
     background-color: #3c6fce;
     border: none;
+    cursor: pointer;
 }
 
 

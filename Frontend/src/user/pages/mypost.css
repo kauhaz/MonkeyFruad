@@ -23,6 +23,7 @@
   border: none;
   background-color: white;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .commentother {
   color: blue;
@@ -76,13 +77,10 @@
 }
 .mypostbuttonreported:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .modalreport {
   font-family: "Kanit", sans-serif;
-}
-.bigreport1 {
-  margin-left: auto;
-  margin-right: auto;
 }
 .namereport {
   font-size: 18px !important;
@@ -154,6 +152,7 @@
 .uploadproveeditreport1:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .uploadproveeditreport2 {
   width: 100%;
@@ -190,6 +189,7 @@
 .deleteimgreports2:hover {
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
+  cursor: pointer;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 .modalreport2 {
@@ -231,6 +231,7 @@
 }
 .mypostbuttonsetting:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .mypostmenusetting {
   background: #ffffff;
@@ -276,6 +277,7 @@
   .a-mypostmenusetting
   .a-mypostmenusetting1:hover {
   color: black;
+  cursor: pointer;
 }
 .container-myposts3 {
   width: 100%;
@@ -411,7 +413,6 @@
   .container-mypost2 {
     width: 50%;
   }
-  .
   .img-bad {
     width: 160px;
     height: 160px;
