@@ -364,10 +364,12 @@ const NavbarPage = (props) => {
                 />
               </div>
             </MDBNavItem>
-
             <button onClick={() => handlesearch()} className="button-nav">
               ค้นหา
             </button>
+
+            {/* Notification */}
+
             {user ? (
               <MDBNavItem>
                 <MDBDropdown>
@@ -451,8 +453,8 @@ const NavbarPage = (props) => {
                 </MDBDropdown>
               </MDBNavItem>
             ) : null}
+            {/* Notification */}
 
-            {/* test */}
             <MDBNavItem>
               {user ? (
                 <MDBDropdown>
@@ -466,20 +468,22 @@ const NavbarPage = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default dropdown-top-profile">
                     <div className="box-nav-profile">
-                    <MDBDropdownItem href={`/profile/${user.uid}`}>
-                      {photoProfile ? (
-                        <img
-                          className="img-circle-profile-nav"
-                          src={`${photoProfile.url}`}
-                        />
-                      ) : (
-                        <img
-                          className="img-circle-profile-nav"
-                          src={"/img/profile.png"}
-                        />
-                      )}
-                      <p className="username-nav">@{displayname}</p>
-                      <p className="username-nav-settingprofile">จัดการโปรไฟล์</p>
+                      <MDBDropdownItem href={`/profile/${user.uid}`}>
+                        {photoProfile ? (
+                          <img
+                            className="img-circle-profile-nav"
+                            src={`${photoProfile.url}`}
+                          />
+                        ) : (
+                          <img
+                            className="img-circle-profile-nav"
+                            src={"/img/profile.png"}
+                          />
+                        )}
+                        <p className="username-nav">@{displayname}</p>
+                        <p className="username-nav-settingprofile">
+                          จัดการโปรไฟล์
+                        </p>
                       </MDBDropdownItem>
 
                       <div className="line-profile-nav"></div>
@@ -493,97 +497,153 @@ const NavbarPage = (props) => {
                     </div>
                   </MDBDropdownMenu>
                 </MDBDropdown>
-
               ) : (
-                <Nav.Link href="/login" className="noti-comp">เข้าสู่ระบบ</Nav.Link>
+                <Nav.Link href="/login" className="noti-comp">
+                  เข้าสู่ระบบ
+                </Nav.Link>
               )}
             </MDBNavItem>
             <MDBNavItem className="noti-mobile">
-                   {user ? (
-                    <MDBDropdown>
-                      <MDBDropdownToggle
-                        nav
-                        caret
-                        left
-                        className="dropdown-username-nav"
-                      >
-                        {displayname}
-                      </MDBDropdownToggle>
-                      <MDBDropdownMenu
-                        className="dropdown-default dropdown-bottom"
-                        right
-                      >
-                        <MDBDropdownItem href={`/profile/${user.uid}`}>
-                          จัดการโปรไฟล์
-                        </MDBDropdownItem>
-                        <MDBDropdownItem href="/post/history">
-                          ประวัติการโพสต์
-                        </MDBDropdownItem>
-                        <div className="line-nav"></div>
-                        <MDBDropdownItem href="/login" onClick={logout}>
-                          ออกจากระบบ
-                        </MDBDropdownItem>
-                      </MDBDropdownMenu>
-                    </MDBDropdown>
-                    ) : (
-                      <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
-                    )}
-                  </MDBNavItem>
+              {user ? (
+                <MDBDropdown>
+                  <MDBDropdownToggle
+                    nav
+                    caret
+                    left
+                    className="dropdown-username-nav"
+                  >
+                    {displayname}
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu
+                    className="dropdown-default dropdown-bottom"
+                    right
+                  >
+                    <MDBDropdownItem href={`/profile/${user.uid}`}>
+                      จัดการโปรไฟล์
+                    </MDBDropdownItem>
+                    <MDBDropdownItem href="/post/history">
+                      ประวัติการโพสต์
+                    </MDBDropdownItem>
+                    <div className="line-nav"></div>
+                    <MDBDropdownItem href="/login" onClick={logout}>
+                      ออกจากระบบ
+                    </MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              ) : (
+                <Nav.Link href="/login">เข้าสู่ระบบ</Nav.Link>
+              )}
+            </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg-nologin">
-        {lastsearch
-          ? lastsearch.map((doc) => {
-              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              let thiefAccountNumber = `${doc.accountnumber}`;
-              console.log(thiefAccountNumber);
-              i++;
-              return (
-                <div className="boxsearch-nav">
-                  {i <= 10 ? (
-                    <div>
-                      {" "}
-                      {haha ? (
-                        props.showDropdown ? (
-                          <button
-                            className="search-nav"
-                            onClick={() =>
-                              handleSearchDropdown(thiefNameAndSurname)
-                            }
-                          >
-                            <div>
-                              {" "}
-                              {doc.name} {doc.surname}
-                            </div>
-                          </button>
-                        ) : null
-                      ) : accountNumber ? (
-                        props.showDropdown ? (
-                          <button
-                            className="search-nav"
-                            onClick={() =>
-                              handleSearchDropdown(thiefAccountNumber)
-                            }
-                          >
-                            <div> {doc.accountnumber}</div>
-                          </button>
-                        ) : null
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })
-          : null}
-        {lastsearch ? (
-          props.showDropdown ? (
-            <div className="dropsearch-nav" onClick={() => handlesearch()}>
-              ค้นหา {search}
-            </div>
-          ) : null
-        ) : null}
-      </div>
+      {user ? (
+        <div className="gg">
+          {lastsearch
+            ? lastsearch.map((doc) => {
+                let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                let thiefAccountNumber = `${doc.accountnumber}`;
+                console.log(thiefAccountNumber);
+                i++;
+                return (
+                  <div className="boxsearch-nav">
+                    {i <= 10 ? (
+                      <div>
+                        {" "}
+                        {haha ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefNameAndSurname)
+                              }
+                            >
+                              <div>
+                                {" "}
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          ) : null
+                        ) : accountNumber ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefAccountNumber)
+                              }
+                            >
+                              <div> {doc.accountnumber}</div>
+                            </button>
+                          ) : null
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })
+            : null}
+          {lastsearch ? (
+            props.showDropdown ? (
+              <div className="dropsearch-nav" onClick={() => handlesearch()}>
+                ค้นหา {search}
+              </div>
+            ) : null
+          ) : null}
+        </div>
+      ) : (
+        <div className="gg-nologin">
+          {lastsearch
+            ? lastsearch.map((doc) => {
+                let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                let thiefAccountNumber = `${doc.accountnumber}`;
+                console.log(thiefAccountNumber);
+                i++;
+                return (
+                  <div className="boxsearch-nav">
+                    {i <= 10 ? (
+                      <div>
+                        {" "}
+                        {haha ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefNameAndSurname)
+                              }
+                            >
+                              <div>
+                                {" "}
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          ) : null
+                        ) : accountNumber ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefAccountNumber)
+                              }
+                            >
+                              <div> {doc.accountnumber}</div>
+                            </button>
+                          ) : null
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })
+            : null}
+          {lastsearch ? (
+            props.showDropdown ? (
+              <div className="dropsearch-nav" onClick={() => handlesearch()}>
+                ค้นหา {search}
+              </div>
+            ) : null
+          ) : null}
+        </div>
+      )}
     </Router>
   );
 };
