@@ -74,7 +74,7 @@ const Forgetpass = () => {
           </p>
           {sendEmail ? (
             <div className="alert-forgetpass sent">
-              <span>ได้ส่งคำขอไปยัง Email ดังกล่าวแล้ว</span>
+              <span>ได้ส่งคำขอไปยังอีเมลดังกล่าวแล้ว</span>
             </div>
           ) : (
             <div className="alert-forgetpass unsent">
