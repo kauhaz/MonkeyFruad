@@ -138,7 +138,7 @@
 }
   
 .reportbuttonsetting {
-    margin-top: -10px;
+    margin-top: -3px;
     width: 30px;
     background: #ffffff;
     border-radius: 50px;
@@ -335,16 +335,19 @@
     }
     .reportbuttonsetting {
         margin-top: -10px;
-        width: 30px;
+        width: 25px;
         position: absolute;
-        top: -5px;
-        right: -20px;
+        top: -0px;
+        right: -15px;
     }
     .reportmenusetting {
         position: absolute;
         top: 20px;
         right: -30px;
      }
+     .reportimg-setting {
+        width: 25px;
+    }
 }
 
 /* iPad */
@@ -433,10 +436,10 @@
     }
     .reportbuttonsetting {
         margin-top: -10px;
-        width: 30px;
+        width: 25px;
         position: absolute;
-        top: -5px;
-        right: -20px;
+        top: -0px;
+        right: -15px;
     }
     .reportmenusetting {
         position: absolute;
@@ -445,9 +448,14 @@
         font-size: 12px;
         z-index: 1;
      }
-
+     .reportimg-setting {
+        width: 25px;
+    }
      .container-reportbottom{
         padding-bottom: 1px;
+    }
+    .mobile-size {
+        margin-left: -15px;
     }
 }
 
@@ -504,5 +512,15 @@
         text-align: center;
         margin: 2rem auto 2rem auto;
         width: 95%;
+    }
+    .reportbuttonsetting {
+        margin-top: -10px;
+        width: 20px;
+        position: absolute;
+        top: -3px;
+        right: -18px;
+    }
+    .reportimg-setting {
+        width: 20px;
     }
 }
