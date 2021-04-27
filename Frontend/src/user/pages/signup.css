@@ -92,13 +92,22 @@
     border-bottom: 1px solid rgb(207, 207, 207);
 }
 
-.signup-login a {
+.signup-login {
     color: #212529;
     font-size: 16px;
 }
 
+.signup-login p{
+    font-size: 16px;
+}
+
+.signup-login a {
+    color: #4d70bd;
+    cursor: pointer;
+}
+
 .signup-login a:hover {
-    color: #9b1b1b;
+    color: #3d67c2;
     cursor: pointer;
 }
 
@@ -165,7 +174,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
-    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 16px;
     }
     .alert-signup {
@@ -189,7 +198,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 18px;
     }
-    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 18px;
     }
     .alert-signup span{
@@ -220,7 +229,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 16px;
     }
-    .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 16px;
     }
     .alert-signup {
@@ -254,7 +263,7 @@
         font-size: 15px;
     }
     
-    .SignupButton, .signup-login a, .LoginFacebook-signup p, .LoginGoogle-signup p{
+    .SignupButton, .signup-login p, .LoginFacebook-signup p, .LoginGoogle-signup p{
         font-size: 15px;
     }
     .alert-signup {
@@ -284,7 +293,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .btn-block p, .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 13px;
     }
     .alert-signup {
@@ -313,7 +322,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 15px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .btn-block p, .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 15px;
     }
     .alert-signup {
@@ -345,7 +354,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .btn-block p, .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 13px;
     }
     .alert-signup {
@@ -374,7 +383,7 @@
     .form-group-signup, .label-form-title, .form-inside, .province-select option {
         font-size: 13px;
     }
-    .btn-block p, .SignupButton, .signup-login a, .LoginFacebook-signup, .LoginGoogle-signup{
+    .btn-block p, .SignupButton, .signup-login p, .LoginFacebook-signup, .LoginGoogle-signup{
         font-size: 13px;
     }
     .alert-signup {
