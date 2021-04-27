@@ -440,7 +440,6 @@ const Formpost = ({ check, Setcheck }) => {
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
-
               <Form.Row>
                 <Form.Group
                   as={Col}

@@ -31,6 +31,7 @@
 .mypostcommentbuttonsetting:hover {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .mypostcommentmenusetting {
@@ -85,6 +86,7 @@
   .a-mypostcommentmenusetting
   .a-mypostcommentmenusetting1:hover {
   color: black;
+  cursor: pointer;
 }
 
 /* .line-posts1 {
@@ -192,6 +194,7 @@
 .uploadproveeditmyposts1:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .uploadproveeditmyposts2 {
@@ -223,6 +226,7 @@
 
 .buttoncommentmypostsave2:hover {
   background-color: #3c6fce;
+  cursor: pointer;
 }
 
 .mypost-comment-name1 {
@@ -269,6 +273,7 @@
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .none-listcomment2 {
