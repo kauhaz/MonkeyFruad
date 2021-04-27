@@ -73,11 +73,11 @@ const Forgetpass = () => {
             จากนั้นเราจะส่งอีเมลพร้อมคำแนะนำในการรีเซ็ทรหัสผ่านของคุณ
           </p>
           {sendEmail ? (
-            <div className="alert-forgetpass">
+            <div className="alert-forgetpass sent">
               <span>ได้ส่งคำขอไปยัง Email ดังกล่าวแล้ว</span>
             </div>
           ) : (
-            <div className="alert-forgetpass">
+            <div className="alert-forgetpass unsent">
               <span>ไม่มีอีเมลดังกล่าวในระบบ กรุณากรอกอีเมลใหม่</span>
             </div>
           )}
