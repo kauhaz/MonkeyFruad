@@ -149,8 +149,8 @@ const Login = () => {
             <p className="mx-auto my-1">เข้าสู่ระบบ</p>
           </button>
 
-          <div className="login-signup text-center mt-2">
-            <a href="./signup">สมัครสมาชิก</a>
+          <div className="login-signup text-center mt-3">
+            <p>ยังไม่มีบัญชี? <a href="./signup">สมัครสมาชิก</a></p>
           </div>
 
           <button onClick={facebookLogin} className="btn-block LoginFacebook-login mt-3">

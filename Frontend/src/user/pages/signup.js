@@ -524,7 +524,7 @@ const Signup = () => {
             </button>
 
             <div className="signup-login text-center pt-3">
-              <a href="/login">เข้าสู่ระบบ</a>
+              <p>มีบัญชีอยู่แล้ว? <a href="/login">เข้าสู่ระบบ</a></p>
             </div>
 
             <button onClick={facebookLogin} className="btn-block LoginFacebook-signup mt-3">

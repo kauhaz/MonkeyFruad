@@ -86,13 +86,28 @@
     border-bottom: 1px solid rgb(207, 207, 207);
 }
 
-.login-signup a {
+.login-signup {
     color: #212529;
     font-size: 16px;
 }
 
-.login-signup a:hover, .ForgotPassword-login a:hover {
-    color: #9b1b1b;
+.login-signup p{
+    color: #212529;
+    font-size: 16px;
+}
+
+.login-signup a {
+    color: #4d70bd;
+    cursor: pointer;
+}
+
+.login-signup a:hover {
+    color: #3d67c2;
+    cursor: pointer;
+}
+
+.ForgotPassword-login a:hover {
+    color: #f76d6d;
     cursor: pointer;
 }
 
@@ -159,7 +174,7 @@
     .ForgotPassword-login a{
         font-size: 14px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 16px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -190,7 +205,7 @@
     .ForgotPassword-login a{
         font-size: 16px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 18px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -218,7 +233,7 @@
     .ForgotPassword-login a{
         font-size: 14px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 16px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -253,7 +268,7 @@
     .ForgotPassword-login a{
         font-size: 16px;
     }
-    .login-signup a{
+    .login-signup p{
         font-size: 18px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -285,7 +300,7 @@
     .ForgotPassword-login a{
         font-size: 12px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 13px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -319,7 +334,7 @@
     .ForgotPassword-login a{
         font-size: 13px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 15px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -352,7 +367,7 @@
     .ForgotPassword-login a{
         font-size: 11px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 13px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
@@ -385,7 +400,7 @@
     .ForgotPassword-login a{
         font-size: 11px;
     }
-    .btn-block p, .login-signup a{
+    .btn-block p, .login-signup p{
         font-size: 13px;
     }
     .LoginFacebook-login p, .LoginGoogle-login, .LoginButton-login p{
