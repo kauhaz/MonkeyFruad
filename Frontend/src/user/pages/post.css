@@ -32,6 +32,7 @@
 .container-post1:hover {
   background-color: rgb(245, 245, 245);
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .monkey {
   width: 80%;
@@ -151,6 +152,7 @@
 .container-postright1:hover {
   background-color: rgb(245, 245, 245);
   box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .post-linkpost2 {
   text-align: center;
@@ -294,6 +296,7 @@
 }
 .adminbuttonreported:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .column-post-lefts1 {
   width: 63%;

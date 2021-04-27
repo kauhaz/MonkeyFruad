@@ -131,15 +131,18 @@ const Home = () => {
   };
   const ok = async () => {
     try {
-      const getallthief = await axios.get(`https://monkeyfruad01.herokuapp.com/thief/thief`);
-      const getallpost = await axios.get(`https://monkeyfruad01.herokuapp.com/post/post`);
+      const getallthief = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/thief/thief`
+      );
+      const getallpost = await axios.get(
+        `https://monkeyfruad01.herokuapp.com/post/post`
+      );
       Setallpost(getallpost.data.item);
       const getthief = getallthief.data.item;
       if (search) {
         Setsearching(getallthief.data.item);
         Setlastsearch(
           getthief.filter((doc) => {
-          
             if (
               (
                 doc.name.toLowerCase() +
@@ -218,7 +221,7 @@ const Home = () => {
               <div className="gg-index">
                 {lastsearch
                   ? lastsearch.map((doc) => {
-                    let thiefNameAndSurname = `${doc.name} ${doc.surname}`
+                      let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
                       i++;
                       return (
                         <div>
@@ -230,7 +233,9 @@ const Home = () => {
                                   <button
                                     className="search-index"
                                     onClick={() => (
-                                      history.push(`/thief/post/${thiefNameAndSurname}`),
+                                      history.push(
+                                        `/thief/post/${thiefNameAndSurname}`
+                                      ),
                                       window.location.reload(true)
                                     )}
                                   >
@@ -337,23 +342,28 @@ const Home = () => {
                       <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
-                            <MDBCardImage
-                              src={`${element.resultfile.url}`}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={`${element.resultfile.url}`}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           ) : (
-                            <MDBCardImage
-                              src={"/img/profile.png"}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={"/img/profile.png"}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           )}
                           <MDBCardBody>
                             <div className="Fall-crisp cardbody-index">
                               <strong className="text5-index">
                                 {element.name} {element.surname}
                               </strong>
+
                               <hr />
                               <p className="text7-index">
                                 สินค้า : {element.nameproduct}
@@ -426,17 +436,21 @@ const Home = () => {
                       <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
-                            <MDBCardImage
-                              src={`${element.resultfile.url}`}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={`${element.resultfile.url}`}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           ) : (
-                            <MDBCardImage
-                              src={"/img/profile.png"}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={"/img/profile.png"}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           )}
                           <MDBCardBody>
                             <div className="Fall-crisp cardbody-index">
@@ -444,6 +458,7 @@ const Home = () => {
                                 {" "}
                                 {element.name} {element.surname}
                               </strong>
+
                               <hr />
                               <p className="text7-index">
                                 สินค้า : {element.nameproduct} <br />
@@ -515,23 +530,28 @@ const Home = () => {
                       <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
-                            <MDBCardImage
-                              src={`${element.resultfile.url}`}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={`${element.resultfile.url}`}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           ) : (
-                            <MDBCardImage
-                              src={"/img/profile.png"}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={"/img/profile.png"}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           )}
                           <MDBCardBody>
                             <div className="Fall-crisp cardbody-index">
                               <strong className="text5-index">
                                 {element.name} {element.surname}
                               </strong>
+
                               <hr />
                               <p className="text7-index">
                                 สินค้า : {element.nameproduct}
@@ -604,23 +624,28 @@ const Home = () => {
                       <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
-                            <MDBCardImage
-                              src={`${element.resultfile.url}`}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={`${element.resultfile.url}`}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           ) : (
-                            <MDBCardImage
-                              src={"/img/profile.png"}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={"/img/profile.png"}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           )}
                           <MDBCardBody>
                             <div className="Fall-crisp cardbody-index">
                               <strong className="text5-index">
                                 {element.name} {element.surname}
                               </strong>
+
                               <hr />
                               <p className="text7-index">
                                 สินค้า : {element.nameproduct}
@@ -693,23 +718,28 @@ const Home = () => {
                       <div className="column4-index" key={index}>
                         <MDBCard>
                           {element.resultfile ? (
-                            <MDBCardImage
-                              src={`${element.resultfile.url}`}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={`${element.resultfile.url}`}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           ) : (
-                            <MDBCardImage
-                              src={"/img/profile.png"}
-                              className="image3-index"
-                              hover
-                            />
+                            <a href={`/mypost/${element.uid}`}>
+                              <MDBCardImage
+                                src={"/img/profile.png"}
+                                className="image3-index"
+                                hover
+                              />
+                            </a>
                           )}
                           <MDBCardBody>
                             <div className="Fall-crisp cardbody-index">
                               <strong className="text5-index">
                                 {element.name} {element.surname}
                               </strong>
+
                               <hr />
                               <p className="text7-index">
                                 สินค้า : {element.nameproduct} <br />

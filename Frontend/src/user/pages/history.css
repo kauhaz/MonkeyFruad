@@ -54,6 +54,7 @@
 }
 .historybuttonsetting:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .historymenusetting {
   background: #ffffff;
@@ -99,6 +100,7 @@
   .a-historymenusetting
   .a-historymenusetting1:hover {
   color: #333333;
+  cursor: pointer;
 }
 .a-historymenusetting,
 .a-historymenusetting1 {

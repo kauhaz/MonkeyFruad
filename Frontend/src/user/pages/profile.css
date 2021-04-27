@@ -62,6 +62,7 @@
 .EditProfile:hover {
     background-color: #ff6464;
     border: none;
+    cursor: pointer;
 }
 
 .ChangePassword {
@@ -78,6 +79,7 @@
 .ChangePassword:hover {
     background-color: #3c6fce;
     border: none;
+    cursor: pointer;
 }
 
 .EditProfile p, .ChangePassword p {

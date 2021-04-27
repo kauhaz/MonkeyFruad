@@ -60,6 +60,7 @@
 .uploadproveedit1:hover {
   background-color: rgb(201, 200, 200);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .uploadproveedit2 {
@@ -113,6 +114,7 @@
   transition: box-shadow 0.4s ease;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .inputcomment1 {
@@ -148,6 +150,7 @@
 .postbuttonsends1:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
 .h1-postfileerror {

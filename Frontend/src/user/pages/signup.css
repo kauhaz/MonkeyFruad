@@ -84,6 +84,7 @@
 .SignupButton:hover {
     background-color: #f76d6d;
     border: none;
+    cursor: pointer;
 }
 
 .signup-login {
@@ -98,6 +99,7 @@
 
 .signup-login a:hover {
     color: #9b1b1b;
+    cursor: pointer;
 }
 
 .LoginFacebook-signup {
@@ -110,6 +112,7 @@
 .LoginFacebook-signup:hover {
     background-color: #3d67c2;
     border: none;
+    cursor: pointer;
 }
 
 .LoginGoogle-signup {
@@ -122,6 +125,7 @@
 .LoginGoogle-signup:hover {
     background-color: #fa5736 !important;
     border: none !important;
+    cursor: pointer;
 }
 
 .LoginFacebook-signup p, .LoginGoogle-signup {
