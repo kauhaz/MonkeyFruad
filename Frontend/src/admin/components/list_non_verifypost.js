@@ -84,7 +84,7 @@ const Non_listverifypost = ({ reportelement }) => {
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผู้แจ้งการรายงาน :{" "}
+                  ผู้รายงาน :{" "}
                   {usernameReport && usernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>
@@ -240,20 +240,20 @@ const Non_listverifypost = ({ reportelement }) => {
             </Form.Row>
           </Form>
 
-          <div className="report-left d-sm-none">
+          <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
                 controlId="formGridName"
               >
                 <Form.Label>
-                  ผู้แจ้งการรายงาน :{" "}
+                  ผู้รายงาน :{" "}
                   {usernameReport && usernameReport[0].username}{" "}
                 </Form.Label>
               </Form.Group>             
             </div>
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
@@ -268,7 +268,7 @@ const Non_listverifypost = ({ reportelement }) => {
               </Form.Group>           
             </div>            
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"
@@ -280,7 +280,7 @@ const Non_listverifypost = ({ reportelement }) => {
               </Form.Group>        
             </div>
 
-            <div className="report-left d-sm-none">
+            <div className="report-left d-sm-none mobile-size">
               <Form.Group
                 as={Col}
                 className="้col-md-6 col-12"

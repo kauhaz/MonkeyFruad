@@ -4,9 +4,9 @@ import "./clipLoaderDashboard.css";
 
 const clipLoaderDashboard = ({ loading }) => {
   return (
-    <div>
-      <div className="box-load">
-        <Default color="#FFCD28" loading={loading} size={60} css />
+    <div className="box-load-dashboard-master">
+      <div className="box-load-dashboard">
+        <Default color="#B23CFD" loading={loading} size={60} css />
       </div>
     </div>
   );
