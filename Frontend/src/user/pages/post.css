@@ -45,8 +45,7 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-.container-posts2,
-.container-posts2-admin {
+.container-posts2 {
   width: 90%;
   border-radius: 10px;
   background-color: white;
@@ -317,8 +316,10 @@
 .none-post {
   display: none;
 }
-
 .none-lastname {
+  display: none;
+}
+.none-search {
   display: none;
 }
 
@@ -602,6 +603,10 @@
   .container-postss3 {
     padding: 35px auto 10px auto !important;
   }
+  .post-left1 {
+    width: 75%;
+  }
+
   /* slide */
   .btnslide {
     display: none !important;
@@ -713,6 +718,9 @@
   }
   .adminbuttonreported {
     font-size: 17px;
+  }
+  .post-left1 {
+    width: 88%;
   }
 
   /* slide */
@@ -902,11 +910,17 @@
   .none-post {
     display: block;
   }
+  .none-search {
+    display: block;
+  }
   .container-postbottoms {
     padding-bottom: 90px;
   }
   .container-posts2-admin {
     margin: 10px auto 0 auto;
+  }
+  .post-left1 {
+    width: 88%;
   }
 }
 
@@ -1080,8 +1094,8 @@
   .none-post {
     display: block;
   }
-  .none-lastname {
-    display: none;
+  .none-search {
+    display: block;
   }
   .container-posts2-admin {
     margin: 10px auto 0 auto;
@@ -1261,6 +1275,9 @@
     display: block;
   }
   .none-lastname {
+    display: block;
+  }
+  .none-search {
     display: block;
   }
   .container-posts2-admin {

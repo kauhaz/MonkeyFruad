@@ -83,6 +83,7 @@ const Findthief = () => {
                   show[0].accountnumber}
                 "
               </span>{" "}
+              <div className="none-search"></div>
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 

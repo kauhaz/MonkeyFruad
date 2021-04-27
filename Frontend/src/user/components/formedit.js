@@ -310,7 +310,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="name"
-                                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]"
+                                  pattern="^[ก-๏\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={name}
@@ -332,7 +332,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="lastname"
-                                  pattern="[a-z,A-Z,ก-๛]^[a-zA-Z\s]+$^[ก-๏\s]"
+                                  pattern="^[ก-๏\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={surname}

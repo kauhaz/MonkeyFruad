@@ -43,8 +43,8 @@ const Findthief = () => {
         showDropdown={showDropdown}
       />
       <div className="container-bigpost1">
-        <div className="row postbigrow">
-          <div className="column-post-left1">
+        <div className="postbigrows">
+          <div className="post-left1">
             <h1 className="h1-posts">
               {" "}
               ผลการค้นหา{" "}
@@ -53,6 +53,7 @@ const Findthief = () => {
                 {show && show.length > 0 && show[0].surname}{" "}
                 {show && show.length > 0 && show[0].accountnumber}"
               </span>{" "}
+              <div className="none-search"></div>
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 
