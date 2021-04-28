@@ -71,7 +71,7 @@
 }
 .gg-nologin{
   position: absolute;
-  left: 1555px;
+  left: 1535px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -410,7 +410,7 @@
   }
   .gg-nologin{
     position: absolute;
-    left: 1555px;
+    left: 1535px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -599,7 +599,7 @@
     top: 65px;
   }
   .gg-nologin {
-    left: 1000px;
+    left: 982px;
     top: 65px;
   }
   .ggadmin {
