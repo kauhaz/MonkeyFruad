@@ -53,6 +53,7 @@ const Findthief = () => {
                 {show && show.length > 0 && show[0].surname}{" "}
                 {show && show.length > 0 && show[0].accountnumber}"
               </span>{" "}
+              <div className="none-search"></div>
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 
@@ -78,7 +79,9 @@ const Findthief = () => {
 
                                 <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
-                                    {res.name} {res.surname}
+                                    {res.name}{" "}
+                                    <div className="none-lastname"></div>{" "}
+                                    {res.surname}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -169,7 +172,7 @@ const Findthief = () => {
                               <Link
                                 className="postothers1"
                                 onClick={() => (
-                                  history.push(`/post/${res.uid}`),
+                                  history.push(`/mypost/${res.uid}`),
                                   window.location.reload(true)
                                 )}
                               >

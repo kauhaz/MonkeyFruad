@@ -5030,6 +5030,7 @@ const Entersearch = () => {
                 <h1 className="h1-posts-admin">
                   {" "}
                   ผลการค้นหา <span className="spansearch">"{search}"</span>{" "}
+                  <div className="none-search"></div>
                   มีทั้งหมด{" "}
                   {show ? show.length : result ? result.length : " 0 "} โพสต์
                 </h1>
@@ -5591,7 +5592,9 @@ const Entersearch = () => {
 
                                     <Form.Group className="post-right col-lg-6 col-6">
                                       <span className="spanpost">
-                                        {res.name} {res.surname}
+                                        {res.name}{" "}
+                                        <div className="none-lastname"></div>{" "}
+                                        {res.surname}
                                       </span>
                                     </Form.Group>
                                   </Form.Row>
@@ -5723,7 +5726,9 @@ const Entersearch = () => {
 
                                             <Form.Group className="post-right col-lg-6 col-6">
                                               <span className="spanpost">
-                                                {res.name} {res.surname}
+                                                {res.name}{" "}
+                                                <div className="none-lastname"></div>{" "}
+                                                {res.surname}
                                               </span>
                                             </Form.Group>
                                           </Form.Row>

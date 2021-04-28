@@ -45,8 +45,7 @@
   font-family: "Kanit", sans-serif;
   color: #5c5c5c;
 }
-.container-posts2,
-.container-posts2-admin {
+.container-posts2 {
   width: 90%;
   border-radius: 10px;
   background-color: white;
@@ -86,10 +85,7 @@
   color: grey;
 }
 .container-posts3 {
-  width: 94%;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px 0;
   padding: 40px 40px 20px 40px;
 }
 .post-left {
@@ -98,8 +94,7 @@
 
 /* หน้า entersearch, findthief */
 .container-postss3 {
-  width: 94%;
-  margin: 30px auto 0 auto;
+  margin: 30px 0;
   padding: 20px 10px 0 10px;
 }
 .spanpost {
@@ -321,6 +316,12 @@
 .none-post {
   display: none;
 }
+.none-lastname {
+  display: none;
+}
+.none-search {
+  display: none;
+}
 
 /*slide*/
 .btnslide {
@@ -413,7 +414,7 @@
   border-radius: 0.5rem;
   border: 1px solid #5c5c5c;
 }
-.container-postbottoms{
+.container-postbottoms {
   padding-bottom: 120px;
 }
 
@@ -533,6 +534,9 @@
   .container-posts2 {
     margin-top: 30px;
   }
+  .container-posts2-admin {
+    margin: 60px auto 0 auto;
+  }
   .posts-name1 {
     font-size: 17px;
   }
@@ -597,8 +601,12 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 35px 10px 10px 10px !important;
+    padding: 35px auto 10px auto !important;
   }
+  .post-left1 {
+    width: 75%;
+  }
+
   /* slide */
   .btnslide {
     display: none !important;
@@ -629,6 +637,9 @@
   .container-posts2 {
     margin-top: 30px;
   }
+  .container-posts2-admin {
+    margin: 60px auto 0 auto;
+  }
   .posts-name1 {
     font-size: 15px;
     margin: -45px 0 2px 70px;
@@ -640,7 +651,6 @@
     font-size: 14px;
   }
   .facebook {
-
   }
   .post-group1,
   .post-namegroup1,
@@ -687,7 +697,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 30px 10px 10px 10px !important;
+    padding: 30px 20px 10px 20px !important;
   }
   .line-posts1 {
     margin: 20px 0 !important;
@@ -708,6 +718,9 @@
   }
   .adminbuttonreported {
     font-size: 17px;
+  }
+  .post-left1 {
+    width: 88%;
   }
 
   /* slide */
@@ -855,7 +868,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .post-lefts {
     font-size: 13px;
@@ -882,7 +895,7 @@
   }
   .container-posts3,
   .container-postss3 {
-    padding: 30px 0 0 0 !important;
+    padding: 30px auto 0 auto !important;
   }
   .line-posts1 {
     margin: 20px 0 !important;
@@ -897,11 +910,17 @@
   .none-post {
     display: block;
   }
-  .container-postbottoms{
+  .none-search {
+    display: block;
+  }
+  .container-postbottoms {
     padding-bottom: 90px;
   }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
+  }
+  .post-left1 {
+    width: 88%;
   }
 }
 
@@ -1033,7 +1052,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .post-lefts {
     font-size: 13px;
@@ -1075,8 +1094,11 @@
   .none-post {
     display: block;
   }
+  .none-search {
+    display: block;
+  }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 }
 
@@ -1209,7 +1231,7 @@
   .post-left,
   .spanpostname,
   .spanpost1 {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   .post-lefts {
     font-size: 12px;
@@ -1252,7 +1274,13 @@
   .none-post {
     display: block;
   }
+  .none-lastname {
+    display: block;
+  }
+  .none-search {
+    display: block;
+  }
   .container-posts2-admin {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 }

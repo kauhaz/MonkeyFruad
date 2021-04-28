@@ -1,47 +1,47 @@
-.box-load{
-    position: static;
-    margin-left: 300px;
-    margin-top: 100px;
+.box-load {
+  position: static;
+  margin-left: 300px;
+  margin-top: 100px;
 }
 
 /*Responsive*/
 @media only screen and (min-width: 1920px) {
-    .box-load{
-        margin-left: 320px;
-    }
+  .box-load {
+    margin-left: 320px;
+  }
 }
 
 @media only screen and (max-width: 1367px) {
-    .box-load{
-        margin-left: 255px;
-    }
+  .box-load {
+    margin-left: 255px;
+  }
 }
 @media only screen and (max-width: 1025px) {
-    .box-load{
-        margin-left: 215px;
-    }
+  .box-load {
+    margin-left: 215px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
-    .box-load{
-        margin-left: 155px;
-    }
+  .box-load {
+    margin-left: 155px;
+  }
 }
 
 @media only screen and (max-width: 415px) {
-    .box-load{
-        margin-left: 145px;
-    }
+  .box-load {
+    margin-left: 145px;
+  }
 }
 
 @media only screen and (max-width: 376px) {
-    .box-load{
-        margin-left: 125px;
-    }
+  .box-load {
+    margin-left: 125px;
+  }
 }
 
 @media only screen and (max-width: 321px) {
-    .box-load{
-        margin-left: 100px;
-    }
+  .box-load {
+    margin-left: 100px;
+  }
 }
