@@ -917,6 +917,7 @@
     padding-bottom: 90px;
   }
   .container-posts2-admin {
+    width: 96.5%;
     margin: 10px auto 0 auto;
   }
   .post-left1 {
@@ -1098,6 +1099,7 @@
     display: block;
   }
   .container-posts2-admin {
+    width: 96.5%;
     margin: 10px auto 0 auto;
   }
 }
@@ -1281,6 +1283,7 @@
     display: block;
   }
   .container-posts2-admin {
+    width: 96.5%;
     margin: 10px auto 0 auto;
   }
 }
