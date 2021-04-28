@@ -378,6 +378,9 @@
     left: -95px !important;
     top: 25px !important;
   }
+  .mypostcommentimg-setting {
+    width: 25px;
+  }
   .mypostcommentbuttonsetting {
     margin-top: -15px;
   }
@@ -390,6 +393,7 @@
     height: 162px;
   }
   .mypost-comment-name1 {
+    margin-left: 5px;
     font-size: 17px;
   }
   .mypost-comment-time1 {
@@ -415,9 +419,9 @@
   .mypost-comment-time1 {
     font-size: 11px;
   }
-  /* .imgcommentitemmypost {
-    margin-bottom: -7px !important;
-  } */
+  .mypostcommentimg-setting {
+    width: 25px;
+  }
   .mypostcommentmenusetting {
     font-size: 11px !important;
     width: 110px !important;
@@ -637,7 +641,7 @@
     padding: 15px !important;
   }
   .mypostcommentimg-setting {
-    width: 25px;
+    width: 20px;
   }
   .mypostcommentbuttonsetting {
     margin-top: -15px;

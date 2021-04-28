@@ -221,18 +221,18 @@ const Listcommentpost = ({
     <div>
       {commentmore ? (
         <div className="postcommentrows">
-          {/* <div class="vl"></div> */}
+          <div class="vl"></div>
           <div className="post-comment-img1">
             <div className="header-post-comment">
               <div className="post-profilecomment-img1">
                 {commentmore.photoURL ? (
                   <img
-                    className="img-circle profile-comment1"
+                    className="img-circle profile-listcomment1"
                     src={`${commentmore.photoURL.url}`}
                   />
                 ) : (
                   <img
-                    className="img-circle profile-comment1"
+                    className="img-circle profile-listcomment1"
                     src="/img/profile.png"
                   />
                 )}
@@ -240,11 +240,12 @@ const Listcommentpost = ({
               <div className="post-comment-name1">
                 {commentmore ? "@" : null}
                 {commentmore.username}
+                <div className="none-postlistcomment2"></div>
                 <span className="post-comment-time1">
                   {" "}
-                  {moment(new Date(commentmore.datetime.seconds * 1000)).format(
-                    "LTS"
-                  )}{" "}
+                  {moment(new Date(commentmore.datetime.seconds * 1000))
+                    .startOf()
+                    .fromNow()}{" "}
                 </span>
               </div>
             </div>

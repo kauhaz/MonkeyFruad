@@ -1,0 +1,49 @@
+.box-load-admin {
+  position: static;
+  margin-left: 300px;
+  margin-top: 100px;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 1920px) {
+  .box-load-admin {
+    margin-left: 320px;
+  }
+}
+
+@media only screen and (max-width: 1367px) {
+  .box-load-admin {
+    margin-left: 255px;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .box-load-admin {
+    margin-left: 215px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .box-load-admin {
+    margin-left: 155px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .box-load-admin {
+    margin-left: 145px;
+    margin-top: 190px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .box-load-admin {
+    margin-left: 125px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .box-load-admin {
+    margin-left: 100px;
+    margin-top: 150px;
+  }
+}

@@ -31,9 +31,9 @@ const Findthief = () => {
     );
     Setshow(getpost.data.item);
     SetLoading(false);
-    if(uid.match(/[0-9]/g)){
-      setNumberAccount(true)
-      setNameSurname(false)
+    if (uid.match(/[0-9]/g)) {
+      setNumberAccount(true);
+      setNameSurname(false);
     }
   };
   const Hiddendropdown = () => {
@@ -42,7 +42,6 @@ const Findthief = () => {
   useEffect(() => {
     ok();
   }, []);
-
 
   console.log(show);
   return Loading ? (
@@ -75,10 +74,16 @@ const Findthief = () => {
               {" "}
               ผลการค้นหา{" "}
               <span className="spansearch">
-                "{show && show.length > 0 && nameSurname && show[0].name}{nameSurname ? " " : null}
+                "{show && show.length > 0 && nameSurname && show[0].name}
+                {nameSurname ? " " : null}
                 {show && show.length > 0 && nameSurname && show[0].surname}
-              {show && show.length > 0 && numberAccount && show[0].accountnumber}"
+                {show &&
+                  show.length > 0 &&
+                  numberAccount &&
+                  show[0].accountnumber}
+                "
               </span>{" "}
+              <div className="none-search"></div>
               มีทั้งหมด {show ? show.length : null} โพสต์
             </h1>
 
@@ -104,7 +109,9 @@ const Findthief = () => {
 
                                 <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
-                                    {res.name} {res.surname}
+                                    {res.name}{" "}
+                                    <div className="none-lastname"></div>{" "}
+                                    {res.surname}
                                   </span>
                                 </Form.Group>
                               </Form.Row>

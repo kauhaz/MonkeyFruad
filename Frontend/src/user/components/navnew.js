@@ -349,49 +349,25 @@ const NavbarPage = (props) => {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            {user ? (
-              <div>
-                <MDBNavItem>
-                  <div className=" my-0">
-                    <input
-                      className="box-nav mr-sm-2"
-                      type="text"
-                      placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
-                      aria-label="Search"
-                      value={search}
-                      onChange={(e) => {
-                        Setsearch(e.target.value);
-                        props.SetshowDropdown(true);
-                      }}
-                    />
-                  </div>
-                </MDBNavItem>
-                <button onClick={() => handlesearch()} className="button-nav">
-                  ค้นหา
-                </button>
+            <MDBNavItem>
+              <div className=" my-0">
+                <input
+                  className="box-nav mr-sm-2"
+                  type="text"
+                  placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
+                  aria-label="Search"
+                  value={search}
+                  onChange={(e) => {
+                    Setsearch(e.target.value);
+                    props.SetshowDropdown(true);
+                  }}
+                />
               </div>
-            ) : (
-              <div>
-                <MDBNavItem>
-                  <div className=" my-0">
-                    <input
-                      className="box-nav mr-sm-2"
-                      type="text"
-                      placeholder="ค้นหาด้วยชื่อหรือเลขที่บัญชี"
-                      aria-label="Search"
-                      value={search}
-                      onChange={(e) => {
-                        Setsearch(e.target.value);
-                        props.SetshowDropdown(true);
-                      }}
-                    />
-                  </div>
-                </MDBNavItem>
-                <button onClick={() => handlesearch()} className="button-nav">
-                  ค้นหา
-                </button>
-              </div>
-            )}
+            </MDBNavItem>
+            <button onClick={() => handlesearch()} className="button-nav">
+              ค้นหา
+            </button>
+
             {/* Notification */}
 
             {user ? (
@@ -561,58 +537,113 @@ const NavbarPage = (props) => {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-      <div className="gg-nologin">
-        {lastsearch
-          ? lastsearch.map((doc) => {
-              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
-              let thiefAccountNumber = `${doc.accountnumber}`;
-              console.log(thiefAccountNumber);
-              i++;
-              return (
-                <div className="boxsearch-nav">
-                  {i <= 10 ? (
-                    <div>
-                      {" "}
-                      {haha ? (
-                        props.showDropdown ? (
-                          <button
-                            className="search-nav"
-                            onClick={() =>
-                              handleSearchDropdown(thiefNameAndSurname)
-                            }
-                          >
-                            <div>
-                              {" "}
-                              {doc.name} {doc.surname}
-                            </div>
-                          </button>
-                        ) : null
-                      ) : accountNumber ? (
-                        props.showDropdown ? (
-                          <button
-                            className="search-nav"
-                            onClick={() =>
-                              handleSearchDropdown(thiefAccountNumber)
-                            }
-                          >
-                            <div> {doc.accountnumber}</div>
-                          </button>
-                        ) : null
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })
-          : null}
-        {lastsearch ? (
-          props.showDropdown ? (
-            <div className="dropsearch-nav" onClick={() => handlesearch()}>
-              ค้นหา {search}
-            </div>
-          ) : null
-        ) : null}
-      </div>
+      {user ? (
+        <div className="gg">
+          {lastsearch
+            ? lastsearch.map((doc) => {
+                let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                let thiefAccountNumber = `${doc.accountnumber}`;
+                console.log(thiefAccountNumber);
+                i++;
+                return (
+                  <div className="boxsearch-nav">
+                    {i <= 10 ? (
+                      <div>
+                        {" "}
+                        {haha ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefNameAndSurname)
+                              }
+                            >
+                              <div>
+                                {" "}
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          ) : null
+                        ) : accountNumber ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefAccountNumber)
+                              }
+                            >
+                              <div> {doc.accountnumber}</div>
+                            </button>
+                          ) : null
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })
+            : null}
+          {lastsearch ? (
+            props.showDropdown ? (
+              <div className="dropsearch-nav" onClick={() => handlesearch()}>
+                ค้นหา {search}
+              </div>
+            ) : null
+          ) : null}
+        </div>
+      ) : (
+        <div className="gg-nologin">
+          {lastsearch
+            ? lastsearch.map((doc) => {
+                let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                let thiefAccountNumber = `${doc.accountnumber}`;
+                console.log(thiefAccountNumber);
+                i++;
+                return (
+                  <div className="boxsearch-nav">
+                    {i <= 10 ? (
+                      <div>
+                        {" "}
+                        {haha ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefNameAndSurname)
+                              }
+                            >
+                              <div>
+                                {" "}
+                                {doc.name} {doc.surname}
+                              </div>
+                            </button>
+                          ) : null
+                        ) : accountNumber ? (
+                          props.showDropdown ? (
+                            <button
+                              className="search-nav"
+                              onClick={() =>
+                                handleSearchDropdown(thiefAccountNumber)
+                              }
+                            >
+                              <div> {doc.accountnumber}</div>
+                            </button>
+                          ) : null
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })
+            : null}
+          {lastsearch ? (
+            props.showDropdown ? (
+              <div className="dropsearch-nav" onClick={() => handlesearch()}>
+                ค้นหา {search}
+              </div>
+            ) : null
+          ) : null}
+        </div>
+      )}
     </Router>
   );
 };
