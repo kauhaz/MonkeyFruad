@@ -23,7 +23,7 @@
   padding-right: 20px;
   font-size: 13px;
   color: #5c5c5c;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .button-nav {
@@ -35,7 +35,7 @@
   border: 0px;
   font-size: 14px;
   margin-right: 10px;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 .button-nav:hover {
   background-color: #3c6fce;
@@ -71,7 +71,7 @@
 }
 .gg-nologin{
   position: absolute;
-  left: 1555px;
+  left: 1535px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -278,7 +278,7 @@
     top: 70px;
   }
   .gg-nologin{
-    left: 1170px;
+    left: 1150px;
     top: 70px;
   }
   .ggadmin {
@@ -296,6 +296,9 @@
   .search-nav,
   .dropsearch-nav {
     border-radius: 0px 0px 3px 3px;
+  }
+  .box-nav,.button-nav {
+    margin-top: 2px;
   }
   /*NOTIFICATION*/
   .dropdown-top-noti {
@@ -361,7 +364,7 @@
     padding-right: 20px;
     font-size: 13px;
     color: #5c5c5c;
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
   .button-nav {
@@ -373,7 +376,7 @@
     border: 0px;
     font-size: 14px;
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: 3px;
   }
   .button-nav:hover {
     background-color: #3c6fce;
@@ -407,7 +410,7 @@
   }
   .gg-nologin{
     position: absolute;
-    left: 1555px;
+    left: 1535px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -596,7 +599,7 @@
     top: 65px;
   }
   .gg-nologin {
-    left: 1000px;
+    left: 982px;
     top: 65px;
   }
   .ggadmin {
