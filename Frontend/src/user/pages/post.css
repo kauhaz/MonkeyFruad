@@ -9,12 +9,11 @@
   height: auto;
 }
 .column-post-right1 {
-  width: 34%;
+  width: 37%;
   height: 50px;
 }
 .postbigrow {
   width: 100%;
-  margin: 0 !important;
 }
 .container-post1 {
   width: 90%;
@@ -679,7 +678,7 @@
     width: 300px;
   }
   .post-groupsorting1 {
-    width: 78%;
+    width: 75%;
     height: 25px;
     font-size: 13px;
     margin: 5px 0 0 0;
@@ -744,6 +743,9 @@
 @media only screen and (max-width: 415px) {
   .container-bigpost1 {
     width: 100%;
+  }
+  .postbigrow {
+    margin: 0 !important;
   }
   /* slide */
   .bigslide {
@@ -941,6 +943,9 @@
     font-size: 17px !important;
     margin-left: -5px;
   }
+  .postbigrow {
+    margin: 0 !important;
+  }
   /* slide */
   .bigslide {
     width: 75% !important;
@@ -1119,6 +1124,9 @@
   .post-linkpost1 {
     font-size: 16px !important;
     margin-left: -10px;
+  }
+  .postbigrow {
+    margin: 0 !important;
   }
   /* slide */
   .bigslide {
