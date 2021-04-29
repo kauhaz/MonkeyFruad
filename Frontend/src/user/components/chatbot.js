@@ -19,12 +19,10 @@ const Chatbot = () => {
         {state ? (
           <div className="card-body-chatbot">
             <div>
-              <img src="/img/palo.jpg" className="image-palo" />
-              <p className="text-palo">
-                เพิ่มเพื่อนน้องพะโล้
-                <br />
-                เพื่อการค้นหาที่ไวขึ้น
-              </p>
+              <img src="/img/paloqr.jpg" className="image-palo" />
+              <a href="https://lin.ee/QlA8OaI" className="textlink-chatbot">
+                คลิกเพื่อเพิ่มเพื่อนน้องพะโล้ <br/>เพื่อการค้นหาที่ไวขึ้น
+              </a>
             </div>
           </div>
         ) : (
