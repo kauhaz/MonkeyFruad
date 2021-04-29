@@ -187,7 +187,7 @@
 }
 .post-groupsorting1 {
   margin-left: 30px;
-  width: 50%;
+  width: 60%;
   height: 35px;
   font-size: 16px;
   color: #5c5c5c;
@@ -263,8 +263,7 @@
   border: 1px solid #5c5c5c;
 }
 .post-numbergroup2 {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 5px 10px;
 }
 
 /* หน้า entersearch, findthief */
@@ -402,8 +401,7 @@
   border: 1px solid #5c5c5c;
 }
 .post-numbergroup2-slide {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 .postnumber2-slide {
   width: 30%;
@@ -569,11 +567,19 @@
     font-size: 15px;
     width: 350px;
   }
-  .post-groupsorting1,
   .postnumber1,
   .postnumber2 {
     height: 25px;
     font-size: 15px;
+  }
+  .post-groupsorting1 {
+    width: 65%;
+    height: 25px;
+    font-size: 15px;
+    margin: 0 7px;
+  }
+  .post-numbergroup2 {
+    margin: 0 10px;
   }
   .container-postrights2 {
     margin: 80px auto 0 auto;
@@ -673,9 +679,11 @@
     width: 300px;
   }
   .post-groupsorting1 {
+    width: 78%;
     height: 25px;
     font-size: 13px;
-    margin-left: 5px;
+    margin: 5px 0 0 0;
+    padding-left: 5px;
   }
   .line-postgroup1 {
     margin: 20px 0 15px 0;
@@ -688,6 +696,9 @@
   .postnumber2 {
     height: 25px;
     font-size: 13px;
+  }
+  .post-numbergroup2 {
+    margin: 0 10px;
   }
   .container-postrights2 {
     margin: 80px auto 0 auto;
