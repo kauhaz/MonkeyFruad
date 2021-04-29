@@ -224,7 +224,8 @@
   opacity: 0.8;
 }
 .box-nav-noti {
-  height: 700px;
+  height: auto;
+  max-height: 700px;
 }
 
   /*profile*/
@@ -308,7 +309,8 @@
     padding: 10px !important;
   }
   .box-nav-noti {
-    height: 550px;
+    height: auto;
+    max-height: 550px;
   }
   .name-nav-noti,
   .name-nav-noti-read {
@@ -529,7 +531,8 @@
     opacity: 0.8;
   }
   .box-nav-noti {
-    height: 700px;
+    height: auto;
+    max-height: 700px;
   }
 
   /*profile*/
@@ -655,7 +658,8 @@
     padding: 10px !important;
   }
   .box-nav-noti {
-    height: 940px;
+    height: auto;
+    max-height: 940px;
   }
 
   /*profile*/
@@ -766,7 +770,8 @@
     font-size: 11px;
   }
   .box-nav-noti {
-    height: 710px;
+    height: auto;
+    max-height: 710px;
   }
 
   /*profile*/
@@ -915,7 +920,8 @@
     height: 18px;
   }
   .box-nav-noti {
-    height: 660px;
+    height: auto;
+    max-height: 660px;
   }
 
   /*admin*/
@@ -1011,7 +1017,8 @@
     height: 16px;
   }
   .box-nav-noti {
-    height: 594px;
+    height: auto;
+    max-height: 594px;
   }
 
     /*admin*/
@@ -1089,7 +1096,8 @@
     width: 320px !important;
   }
   .box-nav-noti {
-    height: 492px;
+    height: auto;
+    max-height: 492px;
   }
 
       /*admin*/
