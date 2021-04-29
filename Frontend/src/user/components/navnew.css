@@ -333,7 +333,7 @@
 
   /*profile*/
   .dropdown-top-profile {
-    margin-left: -245px !important;
+    margin-left: -205px !important;
     width: 240px !important;
     padding: 10px !important;
     margin-top: 4px !important;
@@ -621,7 +621,7 @@
 
   /*profile*/
   .dropdown-top-profile {
-    margin-left: -245px !important;
+    margin-left: -200px !important;
     width: 240px !important;
     padding: 10px !important;
     margin-top: 4px !important;
@@ -1098,7 +1098,7 @@
   .box-nav-noti {
     height: auto;
     max-height: 492px;
-    
+
   }
 
       /*admin*/
