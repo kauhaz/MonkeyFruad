@@ -308,7 +308,7 @@ const NavbarPage = (props) => {
               </MDBDropdownMenu>
             ) : (
               <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
-                <div className="box-nav-noti"><p>ยังไม่มีการเจ้งเตือน</p></div>{" "}
+                <div className="box-nav-noti"><p className="no-noti">ยังไม่มีการเเจ้งเตือน</p></div>{" "}
               </MDBDropdownMenu>
             )}
           </MDBDropdown>
@@ -456,7 +456,7 @@ const NavbarPage = (props) => {
                   ) : (
                     <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
                       <div className="box-nav-noti">
-                        <p>ยังไม่มีการเจ้งเตือน</p>
+                        <p className="no-noti">ยังไม่มีการเเจ้งเตือน</p>
                       </div>{" "}
                     </MDBDropdownMenu>
                   )}
