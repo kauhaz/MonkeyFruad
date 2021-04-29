@@ -306,7 +306,11 @@ const NavbarPage = (props) => {
                   })}
                 </div>
               </MDBDropdownMenu>
-            ) : null}
+            ) : (
+              <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                <div className="box-nav-noti"><p>ยังไม่มีการเจ้งเตือน</p></div>{" "}
+              </MDBDropdownMenu>
+            )}
           </MDBDropdown>
         ) : null}
 
@@ -449,7 +453,13 @@ const NavbarPage = (props) => {
                         })}
                       </div>
                     </MDBDropdownMenu>
-                  ) : null}
+                  ) : (
+                    <MDBDropdownMenu className="dropdown-default dropdown-top-noti">
+                      <div className="box-nav-noti">
+                        <p>ยังไม่มีการเจ้งเตือน</p>
+                      </div>{" "}
+                    </MDBDropdownMenu>
+                  )}
                 </MDBDropdown>
               </MDBNavItem>
             ) : null}
