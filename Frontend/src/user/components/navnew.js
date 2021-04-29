@@ -469,10 +469,7 @@ const NavbarPage = (props) => {
               {user ? (
                 <MDBDropdown>
                   <MDBDropdownToggle nav className="noti-comp">
-                    <div
-                      className="navbar-noti"
-                      onClick={() => notiChangeClick()}
-                    >
+                    <div className="navbar-noti">
                       <i className="fas fa-sort-down"></i>
                     </div>
                   </MDBDropdownToggle>
