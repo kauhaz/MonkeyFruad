@@ -77,10 +77,10 @@
 
 @media only screen and (max-width: 415px) {
   .admin-card {
-    width: 100%;
+    width: 92%;
   }
   .admin-CategoriesChart {
-    margin: 5px -8px 10px 0;
+    margin: -5px -8px 10px 0;
     height: 40px;
   }
   .admin-CategoriesChart-button {
@@ -95,10 +95,11 @@
 
 @media only screen and (max-width: 376px) {
   .admin-card {
-    width: 100%;
+    width: 92%;
   }
   .admin-CategoriesChart {
-    margin: 5px -5px 10px 0;
+    margin: -5px -5px 10px -5px;
+    width: 105%;
     height: 40px;
   }
   .admin-CategoriesChart-button {
@@ -107,16 +108,17 @@
   }
   .admin-select-chart {
     font-size: 10px !important;
-    margin: 5px 0 10px 0;
+    margin: 5px -5px 10px 0;
   }
 }
 
 @media only screen and (max-width: 321px) {
   .admin-card {
-    width: 100%;
+    width: 92%;
   }
   .admin-CategoriesChart {
-    margin: 5px -5px 10px 0;
+    margin: -5px -5px 10px -9px;
+    width: 109%;
     height: 40px;
   }
   .admin-CategoriesChart-button {
@@ -125,6 +127,7 @@
   }
   .admin-select-chart {
     font-size: 10px !important;
-    margin: 5px 0 10px 0;
+    margin: 5px -9px 10px 0;
+    width: 36% !important;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "./login.css";
 import Chatbot from "../components/chatbot";
@@ -42,23 +42,9 @@ const Login = () => {
     const result = await auth.signInWithPopup(googleProvider);
     console.log(result);
     axios
-      .post("https://monkeyfruad01.herokuapp.com/user/googlesignup", { result: result })
-      .then((result) => {
-        console.log(result.data);
-        history.push("/");
+      .post("https://monkeyfruad01.herokuapp.com/user/googlesignup", {
+        result: result,
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  // ฟังกชันสำหรับ Login ผ่าน Facebook
-  const facebookLogin = async (e) => {
-    e.preventDefault();
-    const result = await auth.signInWithPopup(facebookProvider);
-    console.log(result);
-    axios
-      .post("https://monkeyfruad01.herokuapp.com/user/facebooksignup", { result: result })
       .then((result) => {
         console.log(result.data);
         history.push("/");
@@ -70,10 +56,10 @@ const Login = () => {
 
   // ฟังกชันสำหรับโชว์ alert เวลาไปหน้าสร้างโพสแล้วยังไม่ login
   const Islogin = () => {
-    if (location.state !== undefined && location.state.param !== 'forgetpass') {
+    if (location.state !== undefined && location.state.param !== "forgetpass") {
       setIsnotlogin(true);
       setEmailis_inVaild(false);
-    } else if(location.state == undefined){
+    } else if (location.state == undefined) {
       setIsnotlogin(false);
     }
   };
@@ -92,9 +78,7 @@ const Login = () => {
       <div className="container-login">
         <form className="LoginForm">
           <img src="/img/logoLogin.png" className="Logo-login" />
-          <p className="h1 text-center mb-2 font-weight-bold">
-            เข้าสู่ระบบ
-          </p>
+          <p className="h1 text-center mb-2 font-weight-bold">เข้าสู่ระบบ</p>
           {emailis_inVaild ? (
             <div className="alert-login">
               {" "}
@@ -150,26 +134,10 @@ const Login = () => {
           </button>
 
           <div className="login-signup text-center mt-3">
-            <p>ยังไม่มีบัญชี? <a href="./signup">สมัครสมาชิก</a></p>
+            <p>
+              ยังไม่มีบัญชี? <a href="./signup">สมัครสมาชิก</a>
+            </p>
           </div>
-
-          <button onClick={facebookLogin} className="btn-block LoginFacebook-login mt-3">
-            <svg
-              className="FacebookIcon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24px"
-              height="24px"
-              viewBox="0 0 90 90"
-            >
-              <g>
-                <path
-                  d="M90,15.001C90,7.119,82.884,0,75,0H15C7.116,0,0,7.119,0,15.001v59.998   C0,82.881,7.116,90,15.001,90H45V56H34V41h11v-5.844C45,25.077,52.568,16,61.875,16H74v15H61.875C60.548,31,59,32.611,59,35.024V41   h15v15H59v34h16c7.884,0,15-7.119,15-15.001V15.001z"
-                  fill="#FFFFFF"
-                ></path>
-              </g>
-            </svg>
-            <p className="mx-auto my-1">เข้าสู่ระบบด้วย Facebook</p>
-          </button>
 
           <button onClick={googleLogin} className="btn-block LoginGoogle-login">
             <svg
