@@ -233,7 +233,13 @@
     color: #5c5c5c !important;
     font-size: 25px !important;
     margin-top: -10px !important;
-    margin-left: 13px !important;
+  }
+  .no-noti{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #5c5c5c !important;
+    font-size: 15px;
   }
   .line-profile-nav{
     border-bottom: 2px solid rgba(146, 146, 146, 0.3);
@@ -299,7 +305,7 @@
     border-radius: 0px 0px 3px 3px;
   }
   .box-nav,.button-nav {
-    margin-top: 2px;
+    margin-top: 5px;
   }
   /*NOTIFICATION*/
   .dropdown-top-noti {
@@ -311,6 +317,9 @@
   .box-nav-noti {
     height: auto;
     max-height: 550px;
+  }
+  .no-noti{
+    font-size: 13px;
   }
   .name-nav-noti,
   .name-nav-noti-read {
@@ -480,6 +489,13 @@
     width: 10px;
     background: #ffffff;
   }
+  .no-noti{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #5c5c5c !important;
+    font-size: 15px;
+  }
   .name-nav-noti {
     margin-top: -42px;
     margin-left: 50px;
@@ -540,7 +556,6 @@
     color: #5c5c5c !important;
     font-size: 25px !important;
     margin-top: -10px !important;
-    margin-left: 13px !important;
   }
   .line-profile-nav{
     border-bottom: 2px solid rgba(146, 146, 146, 0.3);
@@ -617,6 +632,9 @@
   /*NOTIFICATION*/
   .dropdown-top-noti {
     margin-left: -250px !important;
+  }
+  .no-noti{
+    font-size: 13px;
   }
 
   /*profile*/
@@ -748,6 +766,9 @@
   .img-circle.profile-nav-noti {
     width: 40px;
     height: 40px;
+  }
+  .no-noti{
+    font-size: 12px;
   }
   .name-nav-noti,
   .name-nav-noti-read {
@@ -894,7 +915,10 @@
     border-left: none !important;
     border-right: none !important;
   }
-
+  .no-noti{
+    font-size: 15px;
+    margin-top: 280px !important;
+  }
   .name-nav-noti,
   .name-nav-noti-read {
     margin-top: -40px;
@@ -920,7 +944,7 @@
     height: 18px;
   }
   .box-nav-noti {
-    height: auto;
+    height: 660px;
     max-height: 660px;
   }
 
@@ -1017,8 +1041,12 @@
     height: 16px;
   }
   .box-nav-noti {
-    height: auto;
+    height: 594px;
     max-height: 594px;
+  }
+  .no-noti{
+    font-size: 15px;
+    margin-top: 250px !important;
   }
 
     /*admin*/
@@ -1096,9 +1124,13 @@
     width: 320px !important;
   }
   .box-nav-noti {
-    height: auto;
+    height: 492px;
     max-height: 492px;
 
+  }
+  .no-noti{
+    font-size: 15px;
+    margin-top: 195px !important;
   }
 
       /*admin*/
