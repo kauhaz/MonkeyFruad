@@ -744,6 +744,9 @@
   .container-bigpost1 {
     width: 100%;
   }
+  .postbigrow {
+    margin: 0 !important;
+  }
   /* slide */
   .bigslide {
     width: 70% !important;
@@ -940,6 +943,9 @@
     font-size: 17px !important;
     margin-left: -5px;
   }
+  .postbigrow {
+    margin: 0 !important;
+  }
   /* slide */
   .bigslide {
     width: 75% !important;
@@ -1118,6 +1124,9 @@
   .post-linkpost1 {
     font-size: 16px !important;
     margin-left: -10px;
+  }
+  .postbigrow {
+    margin: 0 !important;
   }
   /* slide */
   .bigslide {
