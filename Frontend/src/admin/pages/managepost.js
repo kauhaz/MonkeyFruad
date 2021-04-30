@@ -5,7 +5,7 @@ import Axios from "axios";
 import "../../user/pages/post.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import Commentitem from "../components/commentpost";
-import ClipLoader from "../../user/components/clipLoader";
+import ClipLoaderadmin from "../../user/components/clipLoaderadmin";
 import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
@@ -6276,7 +6276,7 @@ const ManagePost = () => {
         <div className="row postbigrow">
           <div className="column-post-left1">
             {loading ? (
-              <ClipLoader />
+              <ClipLoaderadmin />
             ) : (
               <div>
                 {show ? (
@@ -6347,7 +6347,9 @@ const ManagePost = () => {
 
                                 <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
-                                    {res.name} {res.surname}
+                                    {res.name}{" "}
+                                    <div className="none-lastname"></div>{" "}
+                                    {res.surname}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -6492,7 +6494,7 @@ const ManagePost = () => {
                   <div>
                     {" "}
                     {loading ? (
-                      <ClipLoader />
+                      <ClipLoaderadmin />
                     ) : (
                       <div>
                         {result ? (
@@ -6567,7 +6569,9 @@ const ManagePost = () => {
 
                                         <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
-                                            {res.name} {res.surname}
+                                            {res.name}{" "}
+                                            <div className="none-lastname"></div>{" "}
+                                            {res.surname}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>

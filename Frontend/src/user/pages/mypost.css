@@ -216,7 +216,7 @@
   align-items: center;
 }
 .mypostbuttonsetting {
-  margin-top: -38px;
+  margin-top: -70px;
   width: 30px;
   background: #ffffff;
   border-radius: 50px;
@@ -499,6 +499,15 @@
     width: 155px;
     height: 155px;
   }
+  .mypostimg-setting {
+    width: 25px;
+    height: 25px;
+  }
+  .mypostbuttonsetting {
+    margin-top: -60px;
+    width: 25px;
+    height: 25px;
+  }
   .mypostmenusetting {
     font-size: 13px !important;
     width: 100px !important;
@@ -566,8 +575,14 @@
     width: 107px;
     height: 107px;
   }
+  .mypostimg-setting {
+    width: 25px;
+    height: 25px;
+  }
   .mypostbuttonsetting {
-    margin-top: -40px;
+    margin-top: -55px;
+    width: 25px;
+    height: 25px;
   }
   .mypostmenusetting {
     font-size: 11px !important;
@@ -672,13 +687,14 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .mypostimg-setting,
-  .mypostbuttonsetting {
+  .mypostimg-setting {
     width: 25px;
     height: 25px;
   }
   .mypostbuttonsetting {
     margin-top: -55px;
+    width: 25px;
+    height: 25px;
   }
   .mypost-date {
     font-size: 11px;
@@ -900,10 +916,14 @@
   .moredetail-mypost {
     width: 96%;
   }
-  .mypostimg-setting,
+  .mypostimg-setting {
+    width: 20px;
+    height: 20px;
+  }
   .mypostbuttonsetting {
-    width: 25px;
-    height: 25px;
+    margin-top: -50px;
+    width: 20px;
+    height: 20px;
   }
   .mypost-date {
     font-size: 10px;

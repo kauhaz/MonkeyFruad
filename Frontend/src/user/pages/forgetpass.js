@@ -15,14 +15,17 @@ const Forgetpass = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [email, setEmail] = useState("");
   const [sendEmail, setSendemail] = useState();
+  const [sendEmailFaliure, setSendEmailFaliure] = useState();
   const ForgetEmailSubmit = (e) => {
     e.preventDefault();
     auth
       .sendPasswordResetEmail(email)
       .then(function () {
         setSendemail(true);
+        setSendEmailFaliure(false);
       })
       .catch(function (error) {
+        setSendEmailFaliure(true);
         setSendemail(false);
       });
   };
@@ -74,13 +77,14 @@ const Forgetpass = () => {
           </p>
           {sendEmail ? (
             <div className="alert-forgetpass sent">
-              <span>ได้ส่งคำขอไปยังอีเมลดังกล่าวแล้ว</span>
+              <span>ได้ส่งคำขอไปยัง Email ดังกล่าวแล้ว</span>
             </div>
-          ) : (
+          ) : null}
+          {sendEmailFaliure ? (
             <div className="alert-forgetpass unsent">
               <span>ไม่มีอีเมลดังกล่าวในระบบ กรุณากรอกอีเมลใหม่</span>
             </div>
-          )}
+          ) : null}
           <div className="ForgetPassInputForm">
             <Formik
               initialValues={{
@@ -100,11 +104,11 @@ const Forgetpass = () => {
                       name="email"
                       type="email"
                       className={`form-control ${
-                        touched.email
-                          ? errors.email
-                            ? "is-invalid"
-                            : "is-valid"
-                          : ""
+                        touched
+                          ? ""
+                          : sendEmailFaliure
+                          ? "is-invalid"
+                          : "is-valid"
                       }`}
                       id="email"
                       placeholder="Email"

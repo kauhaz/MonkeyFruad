@@ -14,7 +14,7 @@ const Prevent = () => {
         SetshowDropdown={SetshowDropdown}
         showDropdown={showDropdown}
       />
-      <div className="h1-prevent">รู้ไว้ไม่โดนโกง</div>
+      <div className="h1-prevent">กลโกงที่พบบ่อย</div>
       <div className="container-prevent ">
         <div className="row-prevent">
           <div className="column-prevent">

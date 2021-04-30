@@ -14,7 +14,7 @@ import usercontext from "../context/usercontext";
 
 const Post = () => {
   const [open, setOpen] = React.useState(false);
-  
+
   const [show, Setshow] = useState();
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -6319,7 +6319,9 @@ const Post = () => {
 
                                 <Form.Group className="post-right col-lg-6 col-6">
                                   <span className="spanpost">
-                                    {res.name} {res.surname}
+                                    {res.name}{" "}
+                                    <div className="none-lastname"></div>{" "}
+                                    {res.surname}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -6508,7 +6510,9 @@ const Post = () => {
 
                                         <Form.Group className="post-right col-lg-6 col-6">
                                           <span className="spanpost">
-                                            {res.name} {res.surname}
+                                            {res.name}{" "}
+                                            <div className="none-lastname"></div>{" "}
+                                            {res.surname}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>

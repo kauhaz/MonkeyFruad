@@ -23,7 +23,7 @@
   padding-right: 20px;
   font-size: 13px;
   color: #5c5c5c;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .button-nav {
@@ -35,7 +35,7 @@
   border: 0px;
   font-size: 14px;
   margin-right: 10px;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 .button-nav:hover {
   background-color: #3c6fce;
@@ -71,7 +71,7 @@
 }
 .gg-nologin{
   position: absolute;
-  left: 1555px;
+  left: 1535px;
   top: 70px;
   z-index: 1;
   background-color: white;
@@ -224,7 +224,8 @@
   opacity: 0.8;
 }
 .box-nav-noti {
-  height: 700px;
+  height: auto;
+  max-height: 700px;
 }
 
   /*profile*/
@@ -232,7 +233,13 @@
     color: #5c5c5c !important;
     font-size: 25px !important;
     margin-top: -10px !important;
-    margin-left: 13px !important;
+  }
+  .no-noti{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #5c5c5c !important;
+    font-size: 15px;
   }
   .line-profile-nav{
     border-bottom: 2px solid rgba(146, 146, 146, 0.3);
@@ -278,7 +285,7 @@
     top: 70px;
   }
   .gg-nologin{
-    left: 1170px;
+    left: 1150px;
     top: 70px;
   }
   .ggadmin {
@@ -297,6 +304,9 @@
   .dropsearch-nav {
     border-radius: 0px 0px 3px 3px;
   }
+  .box-nav,.button-nav {
+    margin-top: 5px;
+  }
   /*NOTIFICATION*/
   .dropdown-top-noti {
     /* background-color: yellow !important; */
@@ -305,7 +315,11 @@
     padding: 10px !important;
   }
   .box-nav-noti {
-    height: 550px;
+    height: auto;
+    max-height: 550px;
+  }
+  .no-noti{
+    font-size: 13px;
   }
   .name-nav-noti,
   .name-nav-noti-read {
@@ -328,7 +342,7 @@
 
   /*profile*/
   .dropdown-top-profile {
-    margin-left: -245px !important;
+    margin-left: -205px !important;
     width: 240px !important;
     padding: 10px !important;
     margin-top: 4px !important;
@@ -361,7 +375,7 @@
     padding-right: 20px;
     font-size: 13px;
     color: #5c5c5c;
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
   .button-nav {
@@ -373,7 +387,7 @@
     border: 0px;
     font-size: 14px;
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: 3px;
   }
   .button-nav:hover {
     background-color: #3c6fce;
@@ -407,7 +421,7 @@
   }
   .gg-nologin{
     position: absolute;
-    left: 1555px;
+    left: 1535px;
     top: 70px;
     z-index: 1;
     background-color: white;
@@ -475,6 +489,13 @@
     width: 10px;
     background: #ffffff;
   }
+  .no-noti{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #5c5c5c !important;
+    font-size: 15px;
+  }
   .name-nav-noti {
     margin-top: -42px;
     margin-left: 50px;
@@ -526,7 +547,8 @@
     opacity: 0.8;
   }
   .box-nav-noti {
-    height: 700px;
+    height: auto;
+    max-height: 700px;
   }
 
   /*profile*/
@@ -534,7 +556,6 @@
     color: #5c5c5c !important;
     font-size: 25px !important;
     margin-top: -10px !important;
-    margin-left: 13px !important;
   }
   .line-profile-nav{
     border-bottom: 2px solid rgba(146, 146, 146, 0.3);
@@ -596,7 +617,7 @@
     top: 65px;
   }
   .gg-nologin {
-    left: 1000px;
+    left: 982px;
     top: 65px;
   }
   .ggadmin {
@@ -612,10 +633,13 @@
   .dropdown-top-noti {
     margin-left: -250px !important;
   }
+  .no-noti{
+    font-size: 13px;
+  }
 
   /*profile*/
   .dropdown-top-profile {
-    margin-left: -245px !important;
+    margin-left: -200px !important;
     width: 240px !important;
     padding: 10px !important;
     margin-top: 4px !important;
@@ -652,7 +676,8 @@
     padding: 10px !important;
   }
   .box-nav-noti {
-    height: 940px;
+    height: auto;
+    max-height: 940px;
   }
 
   /*profile*/
@@ -742,6 +767,9 @@
     width: 40px;
     height: 40px;
   }
+  .no-noti{
+    font-size: 12px;
+  }
   .name-nav-noti,
   .name-nav-noti-read {
     margin-top: -40px;
@@ -763,7 +791,8 @@
     font-size: 11px;
   }
   .box-nav-noti {
-    height: 710px;
+    height: auto;
+    max-height: 710px;
   }
 
   /*profile*/
@@ -886,7 +915,10 @@
     border-left: none !important;
     border-right: none !important;
   }
-
+  .no-noti{
+    font-size: 15px;
+    margin-top: 280px !important;
+  }
   .name-nav-noti,
   .name-nav-noti-read {
     margin-top: -40px;
@@ -913,6 +945,7 @@
   }
   .box-nav-noti {
     height: 660px;
+    max-height: 660px;
   }
 
   /*admin*/
@@ -1009,6 +1042,11 @@
   }
   .box-nav-noti {
     height: 594px;
+    max-height: 594px;
+  }
+  .no-noti{
+    font-size: 15px;
+    margin-top: 250px !important;
   }
 
     /*admin*/
@@ -1087,6 +1125,12 @@
   }
   .box-nav-noti {
     height: 492px;
+    max-height: 492px;
+
+  }
+  .no-noti{
+    font-size: 15px;
+    margin-top: 195px !important;
   }
 
       /*admin*/
