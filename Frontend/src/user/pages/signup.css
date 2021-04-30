@@ -183,6 +183,9 @@
     .alert-signup span{
         font-size: 14px;
     }
+    .container-signupbottom{
+        padding-bottom: 1px;
+    }
 }
 
 /* คอม */
@@ -239,7 +242,7 @@
         font-size: 14px;
     }
     .container-signupbottom{
-        padding-bottom: 40px;
+        padding-bottom: 1px;
     }
 }
 
