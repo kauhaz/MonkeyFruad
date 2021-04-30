@@ -387,7 +387,7 @@ const EditProfile = () => {
             <div className="col-md-12">
               <button type="submit" className="btn-block SaveEdit">
                 <div>
-                  <i class="fas fa-save pr-1"></i>
+                  <i class="fas fa-save pr-1 mr-3"></i>
                 </div>
                 <p className="mx-auto my-1">บันทึกข้อมูล</p>
               </button>

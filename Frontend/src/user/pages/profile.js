@@ -110,14 +110,14 @@ const Profile = () => {
               className="btn-block EditProfile"
             >
               <div>
-                <i class="fas fa-user-edit"></i>
+                <i class="fas fa-user-edit mr-3"></i>
               </div>
               <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
             </a>
 
             <a href="/changepass" className="btn-block ChangePassword mt-2">
               <div>
-                <i class="fas fa-unlock"></i>
+                <i class="fas fa-unlock mr-3"></i>
               </div>
               <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
             </a>

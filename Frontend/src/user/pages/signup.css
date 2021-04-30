@@ -161,6 +161,7 @@
 /* notebook */
 @media only screen and (max-width: 1921px) {
     .container-signup {
+        margin: 3.5% auto 0 auto;
         padding: 10px 15px;
     }
     .SignupForm img {
@@ -187,6 +188,10 @@
 
 /* คอม */
 @media only screen and (min-width: 1920px) {
+    .container-login {
+        margin: 8% auto 0 auto;
+        padding: 10px 15px;
+    }
     .SignupForm img {
         width: 140px;
         height: 140px;
