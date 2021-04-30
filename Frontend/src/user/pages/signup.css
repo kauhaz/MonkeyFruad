@@ -73,7 +73,7 @@
 }
 
 .SignupButton {
-    background-color: #f87c7c;
+    background-color: #6083ce;
     border: none;
     border-radius: 1.5rem;
     padding: 4px;
@@ -82,14 +82,13 @@
 }
 
 .SignupButton:hover {
-    background-color: #f76d6d;
+    background-color: #4c76cf;
     border: none;
     cursor: pointer;
 }
 
 .signup-login {
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .signup-login {
