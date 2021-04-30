@@ -67,7 +67,7 @@
 }
 
 .LoginButton-login {
-    background-color: #f87c7c;
+    background-color: #6083ce;
     border: none;
     border-radius: 1.5rem;
     padding: 4px;
@@ -76,14 +76,13 @@
 }
 
 .LoginButton-login:hover {
-    background-color: #f76d6d;
+    background-color: #4c76cf;
     border: none;
     cursor: pointer;
 }
 
 .login-signup {
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .login-signup {
@@ -102,7 +101,7 @@
 }
 
 .login-signup a:hover {
-    color: #3d67c2;
+    color: #3557a0;
     cursor: pointer;
 }
 

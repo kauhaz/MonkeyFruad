@@ -139,7 +139,7 @@ const Login = () => {
             </p>
           </div>
 
-          <button onClick={googleLogin} className="btn-block LoginGoogle-login">
+          <button onClick={googleLogin} className="btn-block LoginGoogle-login mt-2">
             <svg
               className="GoogleIcon"
               xmlns="http://www.w3.org/2000/svg"
