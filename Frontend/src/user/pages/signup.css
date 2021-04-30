@@ -254,7 +254,7 @@
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-signup {
-        margin: 17% auto 0 auto;
+        margin: 23% auto 0 auto;
         padding: 10px 15px;
         width: 410px;
     }
@@ -285,7 +285,7 @@
 /* iPad */
 @media only screen and (max-width: 769px) {
     .container-signup {
-        margin: 9% auto 0 auto;
+        margin: 14% auto 0 auto;
         padding: 10px 15px;
         width: 400px;
     }

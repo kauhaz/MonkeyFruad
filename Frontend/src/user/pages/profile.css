@@ -194,7 +194,7 @@
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-profile {
-        margin: 28% auto 0 auto;
+        margin: 32% auto 0 auto;
         width: 410px;
     }
     .ProfileForm .h1 {
