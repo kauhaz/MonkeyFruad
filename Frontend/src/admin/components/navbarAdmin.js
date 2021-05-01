@@ -34,6 +34,7 @@ const NavbarPage = (props) => {
   const [allpost, Setallpost] = useState();
   const [haha, Sethaha] = useState();
   const [error, Seterror] = useState();
+  const [accountNumber, setAccountNumber] = useState();
   let history = useHistory();
   let i = 0; //forsearch
 
@@ -136,7 +137,7 @@ const NavbarPage = (props) => {
               Sethaha(true);
             }
             if (doc.accountnumber.startsWith(search)) {
-              Sethaha(true);
+              Sethaha(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
@@ -234,7 +235,8 @@ const NavbarPage = (props) => {
       <div className="ggadmin">
         {lastsearch
           ? lastsearch.map((doc) => {
-              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+            let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+            let thiefAccountNumber = `${doc.accountnumber}`;
               console.log(thiefNameAndSurname);
               i++;
               return (
@@ -256,11 +258,27 @@ const NavbarPage = (props) => {
                           >
                             <div>
                               {" "}
-                              {doc.name} {doc.surname} {doc.accountnumber}
+                              {doc.name} {doc.surname}
                             </div>
                           </button>
                         ) : null
-                      ) : null}
+                      ) : (
+                        props.showDropdown ? (
+                          <button
+                            className="search-nav"
+                            onClick={() =>
+                              (
+                              history.push({
+                                pathname: `/admin/thief/post/${thiefAccountNumber}`,
+                                search: "?are you ok",
+                              }),
+                              window.location.reload(true)
+                              )}
+                          >
+                            <div> {doc.accountnumber}</div>
+                          </button>
+                        ) : null
+                      ) }
                     </div>
                   ) : null}
                 </div>
@@ -321,7 +339,8 @@ const NavbarPage = (props) => {
       <div className="gg">
         {lastsearch
           ? lastsearch.map((doc) => {
-              let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+            let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+            let thiefAccountNumber = `${doc.accountnumber}`;
               console.log(thiefNameAndSurname);
               i++;
               return (
@@ -343,11 +362,28 @@ const NavbarPage = (props) => {
                           >
                             <div>
                               {" "}
-                              {doc.name} {doc.surname} {doc.accountnumber}
+                              {doc.name} {doc.surname}
                             </div>
                           </button>
                         ) : null
-                      ) : null}
+                      ) : (
+                        props.showDropdown ? (
+                          <button
+                            className="search-nav"
+                            onClick={() =>
+                              (
+                                history.push({
+                                  pathname: `/thief/post/${thiefAccountNumber}`,
+                                  search: "?are you ok",
+                                }),
+                                window.location.reload(true)
+                              )
+                            }
+                          >
+                            <div> {doc.accountnumber}</div>
+                          </button>
+                        ) : null
+                      )}
                     </div>
                   ) : null}
                 </div>

@@ -77,10 +77,7 @@ const Findthief = () => {
                 "{show && show.length > 0 && nameSurname && show[0].name}
                 {nameSurname ? " " : null}
                 {show && show.length > 0 && nameSurname && show[0].surname}
-                {show &&
-                  show.length > 0 &&
-                  numberAccount &&
-                  show[0].accountnumber}
+                {show && show.length > 0 && numberAccount && show[0].accountnumber}
                 "
               </span>{" "}
               <div className="none-search"></div>

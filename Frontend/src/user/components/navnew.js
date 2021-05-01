@@ -71,6 +71,8 @@ const NavbarPage = (props) => {
       `https://monkeyfruad01.herokuapp.com/post/notificationread/${notiId}`
     );
   };
+  console.log(haha)
+  console.log(accountNumber)
   const handlesearch = async () => {
     try {
       if (search) {
@@ -142,15 +144,19 @@ const NavbarPage = (props) => {
               ).startsWith(search.toLowerCase())
             ) {
               Sethaha(true);
+              console.log("1")
             }
-            if (doc.accountnumber.startsWith(search)) {
-              setAccountNumber(true);
+            else if (doc.accountnumber.startsWith(search)) {
+              // console.log("2")
+              Sethaha(false);
             }
-            if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
+            else if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+              console.log("3")
             }
-            if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
+            else if (doc.surname.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
+              console.log("4")
             }
             return (
               doc.name.toLowerCase().startsWith(search.toLowerCase()) ||
@@ -571,7 +577,7 @@ const NavbarPage = (props) => {
                               </div>
                             </button>
                           ) : null
-                        ) : accountNumber ? (
+                        ) : (
                           props.showDropdown ? (
                             <button
                               className="search-nav"
@@ -582,7 +588,7 @@ const NavbarPage = (props) => {
                               <div> {doc.accountnumber}</div>
                             </button>
                           ) : null
-                        ) : null}
+                        ) }
                       </div>
                     ) : null}
                   </div>
@@ -624,7 +630,7 @@ const NavbarPage = (props) => {
                               </div>
                             </button>
                           ) : null
-                        ) : accountNumber ? (
+                        ) : (
                           props.showDropdown ? (
                             <button
                               className="search-nav"
@@ -635,7 +641,7 @@ const NavbarPage = (props) => {
                               <div> {doc.accountnumber}</div>
                             </button>
                           ) : null
-                        ) : null}
+                        )}
                       </div>
                     ) : null}
                   </div>
