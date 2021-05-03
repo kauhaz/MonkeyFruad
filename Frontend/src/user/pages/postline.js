@@ -1836,7 +1836,6 @@ const Post = () => {
                   Setshow();
                 }
               }
-
               if (!searchstart && !searchstart) {
                 item.push(doc);
                 Setshow();
@@ -5685,8 +5684,8 @@ const Post = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     ok();
+    window.scrollTo(0, 0);
   }, [
     checkfacebook,
     checkinstagram,
