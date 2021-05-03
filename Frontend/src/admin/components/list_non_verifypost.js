@@ -417,7 +417,7 @@ const Non_listverifypost = ({ reportelement }) => {
 
           <div onClick={(e) => ChangeRead(e)} className="reportother">
             <Link className="reportother1" to={`/post/${reportelement.postid}`}>
-              ตรวจสอบโพสต์
+              ดูรายละเอียดโพสต์
             </Link>
           </div>
         </div>
