@@ -6,6 +6,7 @@ import Axios from "axios";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../../user/components/clipLoader";
+import ScrollToTop from "../../user/components/ScrollToTop";
 
 import "../../user/pages/post.css";
 
@@ -204,6 +205,7 @@ const Findthief = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
     </div>
   );
 };

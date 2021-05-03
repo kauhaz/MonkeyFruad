@@ -10,7 +10,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import Modaldelete from "../../user/components/Modaldelete";
-
+import ScrollToTop from "../../user/components/ScrollToTop";
 const ManagePost = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -5775,7 +5775,7 @@ const ManagePost = () => {
           <Modal.Header className="nameslide">
             ค้นหาโพสต์แบบละเอียด
           </Modal.Header>
-          <button className="btncloseslide" onClick={() => setOpen(false)}>
+          <button className="btncloseslide"  onClick={() => setOpen(false)}>
             <i class="fa fa-times"></i>
           </button>
           <Modal.Content className="slidecontent">
@@ -6270,6 +6270,7 @@ const ManagePost = () => {
                             )}
                             variant="primary"
                             className="adminbuttonreported"
+                            title="ลบโพสต์"
                           >
                             <i class="far fa-trash-alt"></i>
                           </button>
@@ -6488,6 +6489,7 @@ const ManagePost = () => {
                                     )}
                                     variant="primary"
                                     className="adminbuttonreported"
+                                    title="ลบโพสต์"
                                   >
                                     <i class="far fa-trash-alt"></i>
                                   </button>
@@ -7149,6 +7151,7 @@ const ManagePost = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
     </div>
   );
 };

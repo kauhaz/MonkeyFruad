@@ -4,6 +4,7 @@ import "./report.css";
 import ListNonverifypost from "../components/list_non_verifypost";
 import Listverifypost from "../components/list_verify_post";
 import Listhidereport from "../components/listhidereport";
+import ScrollToTop from "../../user/components/ScrollToTop";
 import Axios from "axios";
 const Report = () => {
   const [verifypost, setverifypost] = useState();
@@ -116,14 +117,14 @@ const Report = () => {
           className="status-report verify-report"
           onClick={(e) => NavVerify(e)}
         >
-          <span>ตรวจสอบแล้ว</span>
+          <span>ตรวจสอบโพสต์แล้ว</span>
           <i class="far fa-check-circle"></i>
         </div>
         <div
           className="status-report nonverify-report"
           onClick={(e) => NavNonVerify(e)}
         >
-          <span>ยังไม่ตรวจสอบ</span>
+          <span>ยังไม่ตรวจสอบโพสต์</span>
           <i class="far fa-times-circle"></i>
         </div>
         <div
@@ -180,6 +181,7 @@ const Report = () => {
           : null}
       </div>
       <div className="container-reportbottom"></div>
+      <ScrollToTop/>
     </div>
   );
 };

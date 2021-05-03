@@ -8,6 +8,7 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import * as moment from "moment";
 import "moment/locale/th";
+import ScrollToTop from "../components/ScrollToTop";
 const Rank = () => {
   const [ThiefRank, setThiefRank] = useState([]);
   const [ThiefThreeRank, setTThiefThreeRank] = useState();
@@ -375,6 +376,7 @@ const Rank = () => {
           : null}
       </div>
       <div className="container-rankbottoms"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

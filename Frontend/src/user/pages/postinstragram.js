@@ -11,6 +11,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Post = () => {
   const [open, setOpen] = React.useState(false);
@@ -7123,6 +7124,7 @@ const Post = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

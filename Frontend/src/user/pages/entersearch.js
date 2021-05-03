@@ -11,6 +11,7 @@ import Chatbot from "../components/chatbot";
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
 import "./post.css";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Entersearch = () => {
   const [open, setOpen] = React.useState(false);
@@ -6305,6 +6306,7 @@ const Entersearch = () => {
               </div>
             </div>
           </div>
+          <ScrollToTop/>
           <Chatbot />
         </div>
       ) : (

@@ -5,6 +5,7 @@ import "./history.css";
 import usercontext from "../context/usercontext";
 import Axios from "axios";
 import Chatbot from "../components/chatbot";
+import ScrollToTop from "../components/ScrollToTop";
 const { v4: uuidv4 } = require("uuid");
 
 const History = () => {
@@ -65,6 +66,7 @@ const History = () => {
         : null}
       <div className="containeremty-history"></div>
       <div className="container-historebottom"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );
