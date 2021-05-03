@@ -4,6 +4,7 @@ import Chatbot from "../components/chatbot";
 import "./helpnew.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarPage from "../components/navnew";
+import ScrollToTop from "../components/ScrollToTop";
 const Helpnew = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const Hiddendropdown = () => {
@@ -187,6 +188,7 @@ const Helpnew = () => {
         </div>
       </div>
       <div className="container-helpbottom"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

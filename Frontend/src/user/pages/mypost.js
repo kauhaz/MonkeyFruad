@@ -7,6 +7,7 @@ import ClipLoaderReport from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
+import ScrollToTop from "../components/ScrollToTop";
 
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
@@ -936,6 +937,7 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

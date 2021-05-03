@@ -7,6 +7,7 @@ import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../../user/components/clipLoader";
 
+
 import "../../user/pages/post.css";
 
 const Findthief = () => {
