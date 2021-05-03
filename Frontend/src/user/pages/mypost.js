@@ -214,7 +214,7 @@ const Mypost = () => {
       console.log(err);
     }
   };
-
+  console.log(mypost)
   const handleselect = (e) => {
     if (!checkselectone) {
       setSelectone("");
@@ -670,7 +670,8 @@ const Mypost = () => {
                             >
                               <Form.Label className="text-mypost">
                                 <div className="spanmypost text-mypost-right">
-                                  {ok.id}
+                                  {((ok.id && ok.id) === "") ? "-" : ok.id}
+                                
                                 </div>
                               </Form.Label>
                             </Form.Group>
@@ -893,7 +894,7 @@ const Mypost = () => {
                           >
                             <Form.Label className="text-mypost1">
                               รายละเอียดเพิ่มเติม{" "}
-                              <div className="spanmypostmore">{ok.other}</div>
+                              <div className="spanmypostmore">{((ok.other && ok.other) === "") ? "-" : ok.other}</div>
                             </Form.Label>
                           </Form.Group>
                           <div className="imgcommentitemmypost1">
