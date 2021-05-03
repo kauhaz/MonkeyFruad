@@ -10,6 +10,7 @@ import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 import * as moment from "moment";
+import ScrollToTop from "../components/ScrollToTop";
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
 
@@ -36,6 +37,7 @@ const Formedit = ({ check, Setcheck }) => {
   const [imagepost, Setimagepost] = useState();
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+  const [checkId, setCheckId] = useState(false);
 
   // const [files, setfiles] = useState();
 
@@ -171,9 +173,12 @@ const Formedit = ({ check, Setcheck }) => {
     const hello = await Axios.get(
       `https://monkeyfruad01.herokuapp.com/post/edit/${uid}`
     );
-
+      
     let gethistory = hello.data.item;
     let getDatetime = hello.data.datetime;
+    // if(gethistory[0].id === "-"){
+    //   setCheckId(true)
+    // }
     Setshow(gethistory);
     setName(gethistory[0].name);
     setSurname(gethistory[0].surname);
@@ -190,6 +195,7 @@ const Formedit = ({ check, Setcheck }) => {
     Setimagepost(gethistory[0].item);
   };
 
+
   useEffect(() => {
     ok();
   }, []);
@@ -199,7 +205,6 @@ const Formedit = ({ check, Setcheck }) => {
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
-
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
@@ -310,7 +315,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="name"
-                                  pattern="^[ก-๏\s]+$"
+                                  pattern="^[ก-๏\sa-zA-Z\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={name}
@@ -332,7 +337,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="lastname"
-                                  pattern="^[ก-๏\s]+$"
+                                  pattern="^[ก-๏\sa-zA-Z\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={surname}
@@ -364,7 +369,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   maxlength="13"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
-                                  value={id}
+                                  value={id} 
                                   onChange={(event) => {
                                     setId(event.target.value);
                                   }}
@@ -546,7 +551,9 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
-                                  max={`${moment(new Date()).format("YYYY-MM-DDTHH:mm")}`}
+                                  max={`${moment(new Date()).format(
+                                    "YYYY-MM-DDTHH:mm"
+                                  )}`}
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);
@@ -722,6 +729,7 @@ const Formedit = ({ check, Setcheck }) => {
                 );
               })
             : null}
+            <ScrollToTop/>
           <Chatbot />
         </div>
       )}

@@ -6,7 +6,7 @@ import NavbarPage from "../components/navbarAdmin";
 import Notfound from "../components/Notfound";
 import ClipLoader from "../../user/components/clipLoader";
 import { Link, useHistory, useLocation } from "react-router-dom";
-
+import ScrollToTop from "../../user/components/ScrollToTop";
 import { Form, Col } from "react-bootstrap";
 import "../../user/pages/post.css";
 
@@ -5528,33 +5528,6 @@ const Entersearch = () => {
                             </label>
                           </div>
                         </div>
-                        <div className="line-postgroup3-slide"></div>
-                        <div className="post-group4-slide">
-                          <div className="post-namegroup3-slide">จำนวนเงิน</div>
-                          <div className="row post-numbergroup1-slide">
-                            <input
-                              type="number"
-                              id="nameproduct"
-                              pattern="[0-9]{1,}"
-                              className="postnumber1-slide"
-                              onChange={(e) =>
-                                Setsearchstart(parseInt(e.target.value))
-                              }
-                              value={searchstart}
-                            ></input>
-                            <div className="post-numbergroup2-slide">-</div>
-                            <input
-                              type="number"
-                              id="nameproduct"
-                              pattern="[0-9]{1,}"
-                              className="postnumber2-slide"
-                              onChange={(e) =>
-                                Setsearchend(parseInt(e.target.value))
-                              }
-                              value={searchend}
-                            ></input>
-                          </div>
-                        </div>
                       </div>
                     </Modal.Description>
                   </Modal.Content>
@@ -6292,33 +6265,6 @@ const Entersearch = () => {
                         </label>
                       </div>
                     </div>
-                    <div className="line-postgroup3"></div>
-                    <div className="post-group4">
-                      <div className="post-namegroup3">จำนวนเงิน</div>
-                      <div className="row post-numbergroup1">
-                        <input
-                          type="number"
-                          id="nameproduct"
-                          pattern="[0-9]{1,}"
-                          className="postnumber1"
-                          onChange={(e) =>
-                            Setsearchstart(parseInt(e.target.value))
-                          }
-                          value={searchstart}
-                        ></input>
-                        <div className="post-numbergroup2">-</div>
-                        <input
-                          type="number"
-                          id="nameproduct"
-                          pattern="[0-9]{1,}"
-                          className="postnumber2"
-                          onChange={(e) =>
-                            Setsearchend(parseInt(e.target.value))
-                          }
-                          value={searchend}
-                        ></input>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -6332,6 +6278,7 @@ const Entersearch = () => {
           showDropdown={showDropdown}
         />
       )}
+      <ScrollToTop/>
     </div>
   );
 };

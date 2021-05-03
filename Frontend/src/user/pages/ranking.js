@@ -8,6 +8,7 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import * as moment from "moment";
 import "moment/locale/th";
+import ScrollToTop from "../components/ScrollToTop";
 const Rank = () => {
   const [ThiefRank, setThiefRank] = useState([]);
   const [ThiefThreeRank, setTThiefThreeRank] = useState();
@@ -43,6 +44,26 @@ const Rank = () => {
     let search = accountnumber;
     const getdata = allpost.filter((doc) => {
       return doc.accountnumber.includes(search);
+    });
+    if (getdata) {
+      history.push({
+        pathname: "/entersearch",
+        search: "are you ok",
+        state: {
+          getdata,
+          search,
+        },
+      });
+    }
+  };
+  const tenRankSeePost = (name, surname) => {
+    let search = name + " " + surname;
+    const getdata = allpost.filter((doc) => {
+      return (
+        doc.name.toLowerCase() +
+        " " +
+        doc.surname.toLowerCase()
+      ).includes(search.toLowerCase());
     });
     if (getdata) {
       history.push({
@@ -235,7 +256,9 @@ const Rank = () => {
               return (
                 <table className="rank-table d-none d-sm-none d-md-inline">
                   <tr
-                    onClick={() => RankSeePost(element.accountnumber)}
+                    onClick={() =>
+                      tenRankSeePost(element.name, element.surname)
+                    }
                     className="rank-data-row"
                   >
                     <th className="rank-column col-1">{index + 1}</th>
@@ -268,7 +291,9 @@ const Rank = () => {
                 return (
                   <table className="rank-table d-sm-none">
                     <tr
-                      onClick={() => RankSeePost(element.accountnumber)}
+                      onClick={() =>
+                        tenRankSeePost(element.name, element.surname)
+                      }
                       className="rank-data-row"
                     >
                       <th className="rank-column col-1">{index + 1}</th>
@@ -293,7 +318,9 @@ const Rank = () => {
                 return (
                   <table className="rank-table d-sm-none">
                     <tr
-                      onClick={() => RankSeePost(element.accountnumber)}
+                      onClick={() =>
+                        tenRankSeePost(element.name, element.surname)
+                      }
                       className="rank-data-row"
                     >
                       <th className="rank-column col-1">{index + 1}</th>
@@ -323,7 +350,9 @@ const Rank = () => {
                 return (
                   <table className="rank-table d-sm-none">
                     <tr
-                      onClick={() => RankSeePost(element.accountnumber)}
+                      onClick={() =>
+                        tenRankSeePost(element.name, element.surname)
+                      }
                       className="rank-data-row"
                     >
                       <th className="rank-column col-1">{index + 1}</th>
@@ -347,6 +376,7 @@ const Rank = () => {
           : null}
       </div>
       <div className="container-rankbottoms"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

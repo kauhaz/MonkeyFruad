@@ -137,14 +137,14 @@ const Signup = () => {
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return /[a-z,A-Z,ก-๛]+$]/.test(value);
+        return /[a-z,A-Z,ก-๛\s]+$/.test(value);
       }),
     lastname: Yup.string()
       .min(2, "สั้นเกินไป")
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return /[a-z,A-Z,ก-๛]+$/.test(value);
+        return /[a-z,A-Z,ก-๛\s]+$/.test(value);
       }),
     username: Yup.string()
       .min(2, "สั้นเกินไป")

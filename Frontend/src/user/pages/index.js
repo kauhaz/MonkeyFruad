@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import NavbarPage from "../components/navnew";
+import ScrollToTop from "../components/ScrollToTop";
 
 import axios from "axios";
 
@@ -26,6 +27,7 @@ const Home = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const [error, Seterror] = useState();
   const [allpost, Setallpost] = useState();
+  const [accountNumber, setAccountNumber] = useState();
   let history = useHistory();
   let i = 0; //forsearch
   const Getdata = async () => {
@@ -153,7 +155,7 @@ const Home = () => {
               Sethaha(true);
             }
             if (doc.accountnumber.startsWith(search)) {
-              Sethaha(true);
+              Sethaha(false);
             }
             if (doc.name.toLowerCase().startsWith(search.toLowerCase())) {
               Sethaha(true);
@@ -221,7 +223,8 @@ const Home = () => {
               <div className="gg-index">
                 {lastsearch
                   ? lastsearch.map((doc) => {
-                      let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                    let thiefNameAndSurname = `${doc.name} ${doc.surname}`;
+                    let thiefAccountNumber = `${doc.accountnumber}`;
                       i++;
                       return (
                         <div>
@@ -242,11 +245,25 @@ const Home = () => {
                                     <div className="Fall-crisp">
                                       {" "}
                                       {doc.name} {doc.surname}{" "}
-                                      {doc.accountnumber}
                                     </div>
                                   </button>
                                 ) : null
-                              ) : null}
+                              ) : (
+                                
+                                  <button
+                                    className="search-nav"
+                                    onClick={() =>
+                                      (
+                                        history.push(
+                                          `/thief/post/${thiefAccountNumber}`
+                                        ),
+                                        window.location.reload(true)
+                                      )
+                                    }
+                                  >
+                                    <div> {doc.accountnumber}</div>
+                                  </button>
+                              )}
                             </div>
                           ) : null}
                         </div>
@@ -802,6 +819,7 @@ const Home = () => {
         </div>
         <div className="container-indexbottoms"></div>
       </div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

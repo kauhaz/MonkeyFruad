@@ -6,6 +6,7 @@ import Axios from "axios";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../../user/components/clipLoader";
+import ScrollToTop from "../../user/components/ScrollToTop";
 
 import "../../user/pages/post.css";
 
@@ -19,6 +20,8 @@ const Findthief = () => {
   const [Loading, SetLoading] = useState(true);
 
   const [showDropdown, SetshowDropdown] = useState(true);
+  const [numberAccount, setNumberAccount] = useState(false);
+  const [nameSurname, setNameSurname] = useState(true);
 
   let location = useLocation();
   const ok = async () => {
@@ -27,6 +30,10 @@ const Findthief = () => {
     );
     SetLoading(false);
     Setshow(getpost.data.item);
+    if (uid.match(/[0-9]/g)) {
+      setNumberAccount(true);
+      setNameSurname(false);
+    }
   };
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -49,9 +56,14 @@ const Findthief = () => {
               {" "}
               ผลการค้นหา{" "}
               <span className="spansearch">
-                "{show && show.length > 0 && show[0].name}{" "}
-                {show && show.length > 0 && show[0].surname}{" "}
-                {show && show.length > 0 && show[0].accountnumber}"
+              "{show && show.length > 0 && nameSurname && show[0].name}
+                {nameSurname ? " " : null}
+                {show && show.length > 0 && nameSurname && show[0].surname}
+                {show &&
+                  show.length > 0 &&
+                  numberAccount &&
+                  show[0].accountnumber}
+                "
               </span>{" "}
               <div className="none-search"></div>
               มีทั้งหมด {show ? show.length : null} โพสต์
@@ -193,6 +205,7 @@ const Findthief = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
     </div>
   );
 };

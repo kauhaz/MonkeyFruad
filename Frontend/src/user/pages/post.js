@@ -20,11 +20,12 @@ import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import usercontext from "../context/usercontext";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Post = () => {
   const [open, setOpen] = React.useState(false);
 
-  const [show, Setshow] = useState();
+  const [show, Setshow] = useState(null);
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -115,6 +116,10 @@ const Post = () => {
     SetisOpen(!isOpen);
   };
 
+     
+  console.log(result);
+  console.log(show)
+
   const ok = async () => {
     Setloading(true);
     const getpost = await Axios.get(
@@ -131,9 +136,8 @@ const Post = () => {
       });
     }
     Setloading(false);
-
-    console.log(result);
     var item = [];
+
 
     getsort.filter((doc) => {
       if (checkfacebook) {
@@ -5700,6 +5704,7 @@ const Post = () => {
 
   useEffect(() => {
     ok();
+    window.scrollTo(0, 0);
   }, [
     checkfacebook,
     checkinstagram,
@@ -5756,7 +5761,7 @@ const Post = () => {
                 </div>
                 <div className="column2-postrow2">
                   <div className="post-linkpost1">
-                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
+                    คลิกที่นี่เพื่อแจ้งข้อมูลคนโกง
                   </div>
                 </div>
               </div>
@@ -5775,6 +5780,7 @@ const Post = () => {
                 </Button>
               }
             >
+
               <Modal.Header className="nameslide">
                 ค้นหาโพสต์แบบละเอียด
               </Modal.Header>
@@ -6247,33 +6253,6 @@ const Post = () => {
                         </label>
                       </div>
                     </div>
-                    <div className="line-postgroup3-slide"></div>
-                    <div className="post-group4-slide">
-                      <div className="post-namegroup3-slide">จำนวนเงิน</div>
-                      <div className="row post-numbergroup1-slide">
-                        <input
-                          type="number"
-                          id="nameproduct"
-                          pattern="[0-9]{1,}"
-                          className="postnumber1-slide"
-                          onChange={(e) =>
-                            Setsearchstart(parseInt(e.target.value))
-                          }
-                          value={searchstart}
-                        ></input>
-                        <div className="post-numbergroup2-slide">-</div>
-                        <input
-                          type="number"
-                          id="nameproduct"
-                          pattern="[0-9]{1,}"
-                          className="postnumber2-slide"
-                          onChange={(e) =>
-                            Setsearchend(parseInt(e.target.value))
-                          }
-                          value={searchend}
-                        ></input>
-                      </div>
-                    </div>
                   </div>
                 </Modal.Description>
               </Modal.Content>
@@ -6286,6 +6265,10 @@ const Post = () => {
                 </Button>
               </Modal.Actions>
             </Modal>
+
+
+           
+          
 
             {loading ? (
               <ClipLoader />
@@ -6317,7 +6300,7 @@ const Post = () => {
                               <span className="post-time">
                                 {moment(
                                   new Date(res.date.seconds * 1000)
-                                ).format("MM/DD/YYYY HH:mm")}{" "}
+                                ).format("DD/MM/YYYY HH:mm")}{" "}
                               </span>
                             </div>
                           </div>
@@ -6406,7 +6389,7 @@ const Post = () => {
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                                    ).format("DD/MM/YYYY HH:mm")}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -6480,6 +6463,12 @@ const Post = () => {
                       <ClipLoader />
                     ) : (
                       <div>
+                             { (result && result.length === 0)  ?  <h1 className="h1-posts">
+                  {" "}
+                  ไม่พบหมวดหมู่ที่คุณเลือก
+                  <div className="none-search"></div>
+              </h1>
+              : null}
                         {result ? (
                           result.map((res) => {
                             return (
@@ -6506,7 +6495,7 @@ const Post = () => {
                                       <span className="post-time">
                                         {moment(
                                           new Date(res.date.seconds * 1000)
-                                        ).format("MM/DD/YYYY HH:mm")}{" "}
+                                        ).format("DD/MM/YYYY HH:mm")}{" "}
                                       </span>
                                     </div>
                                   </div>
@@ -6602,7 +6591,7 @@ const Post = () => {
                                               new Date(
                                                 res.datetimes.seconds * 1000
                                               )
-                                            ).format("MM/DD/YYYY HH:mm")}{" "}
+                                            ).format("DD/MM/YYYY HH:mm")}{" "}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
@@ -6693,11 +6682,14 @@ const Post = () => {
           </div>
 
           <div className="column-post-right1">
-            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/MonkeyFruad-105444291586616"
+            >
               <div className="container-postright1">
                 <div className="post-linkpost2">
-                  ติดต่อเพจน้องพะโล้ <br />
-                  เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
+                  คลิกที่นี่เพื่อติดต่อเพจน้องพะโล้ <br />
+                  หรืออัพเดทข่าวสารและพูดคุยกัน
                 </div>
                 <div className="post-img1">
                   <img className="facebook" src="/img/facebooklogo.png" />
@@ -7134,34 +7126,12 @@ const Post = () => {
                     </label>
                   </div>
                 </div>
-                <div className="line-postgroup3"></div>
-                <div className="post-group4">
-                  <div className="post-namegroup3">จำนวนเงิน</div>
-                  <div className="row post-numbergroup1">
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber1"
-                      onChange={(e) => Setsearchstart(parseInt(e.target.value))}
-                      value={searchstart}
-                    ></input>
-                    <div className="post-numbergroup2">-</div>
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber2"
-                      onChange={(e) => Setsearchend(parseInt(e.target.value))}
-                      value={searchend}
-                    ></input>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

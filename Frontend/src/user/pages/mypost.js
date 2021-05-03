@@ -7,6 +7,7 @@ import ClipLoaderReport from "../components/clipLoaderReport";
 import Axios from "axios";
 import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
+import ScrollToTop from "../components/ScrollToTop";
 
 // import Commentitem from "../components/commentitem";
 import Commentitemformypost from "../components/commentitemformypost";
@@ -214,7 +215,7 @@ const Mypost = () => {
       console.log(err);
     }
   };
-
+  console.log(mypost)
   const handleselect = (e) => {
     if (!checkselectone) {
       setSelectone("");
@@ -272,7 +273,7 @@ const Mypost = () => {
                   <div>
                     <div className="container-mypost2">
                       {user && user.uid != ok.useruid ? (
-                        <div className="mypostbuttonreport">
+                        <div className="mypostbuttonreport" title="รายงานโพสต์">
                           <button
                             variant="primary"
                             onClick={handleShow}
@@ -301,7 +302,7 @@ const Mypost = () => {
                         <br />
                         <div className="mypost-date">
                           {moment(new Date(ok.date.seconds * 1000)).format(
-                            "MM/DD/YYYY HH:mm"
+                            "DD/MM/YYYY HH:mm"
                           )}{" "}
                         </div>
                       </div>
@@ -512,7 +513,7 @@ const Mypost = () => {
                                   ""
                                 )}
                                 {loading ? (
-                                    <ClipLoaderReport loading={loading} />
+                                  <ClipLoaderReport loading={loading} />
                                 ) : (
                                   <Button
                                     clsssName="buttonreportsave"
@@ -670,7 +671,8 @@ const Mypost = () => {
                             >
                               <Form.Label className="text-mypost">
                                 <div className="spanmypost text-mypost-right">
-                                  {ok.id}
+                                  {((ok.id && ok.id) === "") ? "-" : ok.id}
+                                
                                 </div>
                               </Form.Label>
                             </Form.Group>
@@ -893,7 +895,7 @@ const Mypost = () => {
                           >
                             <Form.Label className="text-mypost1">
                               รายละเอียดเพิ่มเติม{" "}
-                              <div className="spanmypostmore">{ok.other}</div>
+                              <div className="spanmypostmore">{((ok.other && ok.other) === "") ? "-" : ok.other}</div>
                             </Form.Label>
                           </Form.Group>
                           <div className="imgcommentitemmypost1">
@@ -935,6 +937,7 @@ const Mypost = () => {
             : null}{" "}
         </div>
       ) : null}
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

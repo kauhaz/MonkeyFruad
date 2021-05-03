@@ -3,6 +3,7 @@ import NavbarPage from "../components/navnew";
 import Chatbot from "../components/chatbot";
 import "./prevent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ScrollToTop from "../components/ScrollToTop";
 const Prevent = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
   const Hiddendropdown = () => {
@@ -85,6 +86,7 @@ const Prevent = () => {
         </div>
       </div>
       <div className="container-preventbottom"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

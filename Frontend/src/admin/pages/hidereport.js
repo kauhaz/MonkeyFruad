@@ -3,6 +3,7 @@ import NavbarPage from "../components/navbarAdmin";
 import Listhidereport from "../components/listhidereport";
 import "./hidereport.css";
 import Axios from "axios";
+import ScrollToTop from "../../user/components/ScrollToTop";
 const Hidereport = () => {
   const [report, setReport] = useState();
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -44,6 +45,7 @@ const Hidereport = () => {
             );
           })
         : null}
+        <ScrollToTop/>
     </div>
   );
 };

@@ -33,14 +33,16 @@ const Changepass = () => {
     e.preventDefault();
     try {
       // reauthenticating
-      await reauthenticate(oldPassword)
+      await reauthenticate(oldPassword);
       // updating password
       await user.updatePassword(newPassword);
       setSuccesspass(true);
       setInvalidpass(false);
-    history.push({
-      pathname: `/profile/${user.uid}`,
-    });
+      setTimeout(() => {
+        history.push({
+          pathname: `/profile/${user.uid}`,
+        });
+      }, 1000);
     } catch (err) {
       console.log(err);
       setInvalidpass(true);
