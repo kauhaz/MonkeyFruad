@@ -116,14 +116,14 @@ const Report = () => {
           className="status-report verify-report"
           onClick={(e) => NavVerify(e)}
         >
-          <span>ดูรายละเอียดโพสต์แล้ว</span>
+          <span>ตรวจสอบโพสต์แล้ว</span>
           <i class="far fa-check-circle"></i>
         </div>
         <div
           className="status-report nonverify-report"
           onClick={(e) => NavNonVerify(e)}
         >
-          <span>ยังไม่ดูรายละเอียดโพสต์</span>
+          <span>ยังไม่ตรวจสอบโพสต์</span>
           <i class="far fa-times-circle"></i>
         </div>
         <div

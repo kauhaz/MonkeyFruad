@@ -5775,7 +5775,7 @@ const ManagePost = () => {
           <Modal.Header className="nameslide">
             ค้นหาโพสต์แบบละเอียด
           </Modal.Header>
-          <button className="btncloseslide" onClick={() => setOpen(false)}>
+          <button className="btncloseslide"  onClick={() => setOpen(false)}>
             <i class="fa fa-times"></i>
           </button>
           <Modal.Content className="slidecontent">
@@ -6270,6 +6270,7 @@ const ManagePost = () => {
                             )}
                             variant="primary"
                             className="adminbuttonreported"
+                            title="ลบโพสต์"
                           >
                             <i class="far fa-trash-alt"></i>
                           </button>
@@ -6488,6 +6489,7 @@ const ManagePost = () => {
                                     )}
                                     variant="primary"
                                     className="adminbuttonreported"
+                                    title="ลบโพสต์"
                                   >
                                     <i class="far fa-trash-alt"></i>
                                   </button>

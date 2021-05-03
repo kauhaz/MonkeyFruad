@@ -88,6 +88,7 @@ const Seepost = () => {
                         )}
                         variant="primary"
                         className="mypostbuttonreported"
+                        title="ลบโพสต์"
                       >
                         <i class="far fa-trash-alt"></i>
                       </button>
