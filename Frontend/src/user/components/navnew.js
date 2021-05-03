@@ -222,9 +222,9 @@ const NavbarPage = (props) => {
     }
     initSearch();
     setLoading(false);
-    // setTimeout(() => {
-    //   setReFreshNoti(!reFreshNoti);
-    // }, 2000);
+    setTimeout(() => {
+      setReFreshNoti(!reFreshNoti);
+    }, 2000);
   }, [user, search, hideCountNoti, reFreshNoti]);
   return (
     <Router>
