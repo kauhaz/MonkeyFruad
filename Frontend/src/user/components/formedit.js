@@ -10,6 +10,7 @@ import Loading from "./pacmanloading";
 import { v4 as uuidv4 } from "uuid";
 import Modalimage from "./Modalimage";
 import * as moment from "moment";
+import ScrollToTop from "../components/ScrollToTop";
 const Formedit = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
 
@@ -728,6 +729,7 @@ const Formedit = ({ check, Setcheck }) => {
                 );
               })
             : null}
+            <ScrollToTop/>
           <Chatbot />
         </div>
       )}
