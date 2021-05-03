@@ -230,40 +230,6 @@
   margin-bottom: 5px;
   z-index: 0;
 }
-.line-postgroup3 {
-  text-align: center;
-  margin-top: 35px;
-  margin-bottom: 30px;
-  border-bottom: 2px solid rgba(146, 146, 146, 0.3);
-  align: center;
-}
-.post-namegroup3 {
-  color: #5c5c5c;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.postnumber1 {
-  width: 30%;
-  height: 35px;
-  font-size: 16px;
-  color: #5c5c5c;
-  margin-left: 15px;
-  padding-left: 10px;
-  border-radius: 0.5rem;
-  border: 1px solid #5c5c5c;
-}
-.postnumber2 {
-  width: 30%;
-  height: 35px;
-  font-size: 16px;
-  color: #5c5c5c;
-  padding-left: 10px;
-  border-radius: 0.5rem;
-  border: 1px solid #5c5c5c;
-}
-.post-numbergroup2 {
-  margin: 5px 10px;
-}
 
 /* หน้า entersearch, findthief */
 .h1-posts,
@@ -378,39 +344,6 @@
   margin-bottom: 5px;
   z-index: 0;
 }
-.line-postgroup3-slide {
-  text-align: center;
-  margin: 20px 0;
-  border-bottom: 2px solid rgba(146, 146, 146, 0.3);
-  align: center;
-}
-.post-namegroup3-slide {
-  color: #5c5c5c;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.postnumber1-slide {
-  width: 30%;
-  height: 35px;
-  font-size: 16px;
-  color: #5c5c5c;
-  margin-left: 15px;
-  padding-left: 10px;
-  border-radius: 0.5rem;
-  border: 1px solid #5c5c5c;
-}
-.post-numbergroup2-slide {
-  margin: 0 10px;
-}
-.postnumber2-slide {
-  width: 30%;
-  height: 35px;
-  font-size: 16px;
-  color: #5c5c5c;
-  padding-left: 10px;
-  border-radius: 0.5rem;
-  border: 1px solid #5c5c5c;
-}
 .container-postbottoms {
   padding-bottom: 120px;
 }
@@ -429,8 +362,7 @@
   .post-linkpost2,
   .post-group1,
   .post-namegroup1,
-  .post-namegroup2,
-  .post-namegroup3 {
+  .post-namegroup2 {
     font-size: 20px;
   }
   .post-date {
@@ -444,9 +376,7 @@
   .spanpostname,
   .spanpost1,
   .groupcheckbox1,
-  .groupcheckbox2,
-  .postnumber1,
-  .postnumber2 {
+  .groupcheckbox2 {
     font-size: 18px;
   }
   .post-lefts {
@@ -472,8 +402,7 @@
   .post-linkpost2,
   .post-group1,
   .post-namegroup1,
-  .post-namegroup2,
-  .post-namegroup3 {
+  .post-namegroup2 {
     font-size: 18px;
   }
   .post-date {
@@ -487,8 +416,7 @@
   .spanpostname,
   .spanpost1,
   .groupcheckbox1,
-  .groupcheckbox2 .postnumber1,
-  .postnumber2 {
+  .groupcheckbox2 {
     font-size: 16px;
   }
   .post-lefts {
@@ -548,8 +476,7 @@
   }
   .post-group1,
   .post-namegroup1,
-  .post-namegroup2,
-  .post-namegroup3 {
+  .post-namegroup2 {
     font-size: 17px;
   }
   .form-label,
@@ -566,19 +493,11 @@
     font-size: 15px;
     width: 350px;
   }
-  .postnumber1,
-  .postnumber2 {
-    height: 25px;
-    font-size: 15px;
-  }
   .post-groupsorting1 {
     width: 65%;
     height: 25px;
     font-size: 15px;
     margin: 0 7px;
-  }
-  .post-numbergroup2 {
-    margin: 0 10px;
   }
   .container-postrights2 {
     margin: 80px auto 0 auto;
@@ -659,8 +578,7 @@
   }
   .post-group1,
   .post-namegroup1,
-  .post-namegroup2,
-  .post-namegroup3 {
+  .post-namegroup2 {
     font-size: 15px;
   }
   .form-label,
@@ -687,17 +605,8 @@
   .line-postgroup1 {
     margin: 20px 0 15px 0;
   }
-  .line-postgroup2,
-  .line-postgroup3 {
+  .line-postgroup2 {
     margin: 15px 0;
-  }
-  .postnumber1,
-  .postnumber2 {
-    height: 25px;
-    font-size: 13px;
-  }
-  .post-numbergroup2 {
-    margin: 0 10px;
   }
   .container-postrights2 {
     margin: 80px auto 0 auto;
@@ -810,8 +719,7 @@
     font-family: "Kanit", sans-serif !important;
   }
   .post-namegroup1-slide,
-  .post-namegroup2-slide,
-  .post-namegroup3-slide {
+  .post-namegroup2-slide {
     font-size: 15px;
   }
   .post-group1-slide {
@@ -821,11 +729,6 @@
   .groupcheckbox1-slide,
   .groupcheckbox2-slide {
     font-size: 13px;
-  }
-  .postnumber1-slide,
-  .postnumber2-slide {
-    font-size: 13px;
-    height: 25px;
   }
   .post-groupsorting1-slide {
     font-size: 13px;
@@ -839,8 +742,7 @@
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-  .line-postgroup2-slide,
-  .line-postgroup3-slide {
+  .line-postgroup2-slide {
     margin: 10px 0;
   }
   /* end-slide */
@@ -904,7 +806,7 @@
     margin: 50px 0 30px 0;
   }
   .monkey {
-    margin-left: 30px;
+    margin-left: 5px;
   }
   .container-posts3,
   .container-postss3 {
@@ -1011,18 +913,12 @@
   }
   .post-group1-slide,
   .post-namegroup1-slide,
-  .post-namegroup2-slide,
-  .post-namegroup3-slide {
+  .post-namegroup2-slide {
     font-size: 15px;
   }
   .groupcheckbox1-slide,
   .groupcheckbox2-slide {
     font-size: 13px;
-  }
-  .postnumber1-slide,
-  .postnumber2-slide {
-    font-size: 13px;
-    height: 25px;
   }
   .post-groupsorting1-slide {
     font-size: 13px;
@@ -1036,8 +932,7 @@
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-  .line-postgroup2-slide,
-  .line-postgroup3-slide {
+  .line-postgroup2-slide {
     margin: 10px 0;
   }
   /* end-slide */
@@ -1092,7 +987,7 @@
     margin: 50px 0 30px 0;
   }
   .monkey {
-    margin-left: 30px;
+    margin-left: 5px;
   }
   .container-posts3,
   .container-postss3 {
@@ -1122,7 +1017,7 @@
 
 @media only screen and (max-width: 321px) {
   .post-linkpost1 {
-    font-size: 16px !important;
+    font-size: 14px !important;
     margin-left: -10px;
   }
   .postbigrow {
@@ -1192,18 +1087,12 @@
   }
   .post-group1-slide,
   .post-namegroup1-slide,
-  .post-namegroup2-slide,
-  .post-namegroup3-slide {
+  .post-namegroup2-slide {
     font-size: 14px;
   }
   .groupcheckbox1-slide,
   .groupcheckbox2-slide {
     font-size: 12px;
-  }
-  .postnumber1-slide,
-  .postnumber2-slide {
-    font-size: 12px;
-    height: 25px;
   }
   .post-groupsorting1-slide {
     font-size: 12px;
@@ -1217,8 +1106,7 @@
   .line-postgroup1-slide {
     margin: 15px 0;
   }
-  .line-postgroup2-slide,
-  .line-postgroup3-slide {
+  .line-postgroup2-slide {
     margin: 10px 0;
   }
   /* end-slide */
@@ -1276,7 +1164,7 @@
     margin: 50px 0 30px 0;
   }
   .monkey {
-    margin-left: 10px;
+    margin-left: 5px;
   }
   .container-posts3,
   .container-postss3 {

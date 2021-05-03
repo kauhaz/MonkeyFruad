@@ -6240,29 +6240,6 @@ const ManagePost = () => {
                     </label>
                   </div>
                 </div>
-                <div className="line-postgroup3-slide"></div>
-                <div className="post-group4-slide">
-                  <div className="post-namegroup3-slide">จำนวนเงิน</div>
-                  <div className="row post-numbergroup1-slide">
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber1-slide"
-                      onChange={(e) => Setsearchstart(parseInt(e.target.value))}
-                      value={searchstart}
-                    ></input>
-                    <div className="post-numbergroup2-slide">-</div>
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber2-slide"
-                      onChange={(e) => Setsearchend(parseInt(e.target.value))}
-                      value={searchend}
-                    ></input>
-                  </div>
-                </div>
               </div>
             </Modal.Description>
           </Modal.Content>
@@ -7165,29 +7142,6 @@ const ManagePost = () => {
                     >
                       อื่นๆ
                     </label>
-                  </div>
-                </div>
-                <div className="line-postgroup3"></div>
-                <div className="post-group4">
-                  <div className="post-namegroup3">จำนวนเงิน</div>
-                  <div className="row post-numbergroup1">
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber1"
-                      onChange={(e) => Setsearchstart(parseInt(e.target.value))}
-                      value={searchstart}
-                    ></input>
-                    <div className="post-numbergroup2">-</div>
-                    <input
-                      type="number"
-                      id="nameproduct"
-                      pattern="[0-9]{1,}"
-                      className="postnumber2"
-                      onChange={(e) => Setsearchend(parseInt(e.target.value))}
-                      value={searchend}
-                    ></input>
                   </div>
                 </div>
               </div>
