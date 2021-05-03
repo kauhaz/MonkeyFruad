@@ -5045,14 +5045,6 @@ const Entersearch = () => {
                   </div>
                 </Link>
 
-                <h1 className="h1-posts">
-                  {" "}
-                  ผลการค้นหา <span className="spansearch">"{search}"</span>{" "}
-                  <div className="none-search"></div>
-                  มีทั้งหมด{" "}
-                  {show ? show.length : result ? result.length : " 0 "} โพสต์
-                </h1>
-
                 <Modal
                   className="bigslide"
                   centered={false}
@@ -5563,6 +5555,20 @@ const Entersearch = () => {
                   <ClipLoader />
                 ) : (
                   <div>
+                      {show ? <h1 className="h1-posts">
+                  {" "}
+                  ผลการค้นหา <span className="spansearch">"{search}"</span>{" "}
+                  <div className="none-search"></div>
+                  มีทั้งหมด{" "}
+                  {show ? show.length : result ? result.length : " 0 "} โพสต์
+                </h1> : (result && result.length === 0)  ?  <h1 className="h1-posts">
+                  {" "}
+                  ไม่พบโพสจากหมวดหมู่ที่คุณเลือก
+                  <div className="none-search"></div>
+              </h1>
+              : null}   
+
+                
                     {show ? (
                       show.map((res) => {
                         return (

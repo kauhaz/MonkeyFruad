@@ -6440,6 +6440,12 @@ const Post = () => {
                       <ClipLoader />
                     ) : (
                       <div>
+                        { (result && result.length === 0)  ?  <h1 className="h1-posts">
+                  {" "}
+                  ไม่พบโพสจากหมวดหมู่ที่คุณเลือก
+                  <div className="none-search"></div>
+              </h1>
+              : null}
                         {result ? (
                           result.map((res) => {
                             return (

@@ -6465,7 +6465,7 @@ const Post = () => {
                       <div>
                              { (result && result.length === 0)  ?  <h1 className="h1-posts">
                   {" "}
-                  ไม่พบหมวดหมู่ที่คุณเลือก
+                  ไม่พบโพสจากหมวดหมู่ที่คุณเลือก
                   <div className="none-search"></div>
               </h1>
               : null}
