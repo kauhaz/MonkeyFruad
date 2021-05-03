@@ -262,7 +262,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="name"
-                    pattern="^[ก-๏\s]+$"
+                    pattern="^[ก-๏\sa-zA-Z\s]+$"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     onChange={(event) => {
@@ -279,7 +279,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="lastname"
-                    pattern="^[ก-๏\s]+$"
+                    pattern="^[ก-๏\sa-zA-Z\s]+$"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     required
