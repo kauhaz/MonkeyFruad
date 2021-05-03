@@ -7,6 +7,7 @@ import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Chatbot from "../components/chatbot";
 import { Form, Col } from "react-bootstrap";
 import ClipLoader from "../components/clipLoader";
+import ScrollToTop from "../components/ScrollToTop";
 import "./post.css";
 
 const Findthief = () => {
@@ -237,6 +238,7 @@ const Findthief = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

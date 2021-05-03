@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import NavbarPage from "../components/navnew";
+import ScrollToTop from "../components/ScrollToTop";
 
 import axios from "axios";
 
@@ -818,6 +819,7 @@ const Home = () => {
         </div>
         <div className="container-indexbottoms"></div>
       </div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );

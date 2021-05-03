@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import * as moment from "moment";
 import Modal from "react-modal";
 import Modalimage from "./Modalimage";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Formpost = ({ check, Setcheck }) => {
   // เก็บ State ทุก Input เพื่อส่งไปหลังบ้าน
@@ -577,6 +578,7 @@ const Formpost = ({ check, Setcheck }) => {
               </button>
             </Form>
           </div>
+          <ScrollToTop/>
           <Chatbot />
         </div>
       )}

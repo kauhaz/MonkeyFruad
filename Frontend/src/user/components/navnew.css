@@ -153,7 +153,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  padding: 5px 0px;
+  padding: 4px 0px;
   border-radius: 50%;
   background-color: red;
   color: white;
@@ -338,6 +338,11 @@
     font-size: 13px;
     margin-left: 50px;
     margin-top: -15px;
+  }
+  .navbar-noti .badge {
+    top: 0px;
+    right: -2px;
+    padding: 3px 0px;
   }
 
   /*profile*/
@@ -636,6 +641,11 @@
   .no-noti{
     font-size: 13px;
   }
+  .navbar-noti .badge {
+    top: 0px;
+    right: -2px;
+    padding: 5px 0px;
+  }
 
   /*profile*/
   .dropdown-top-profile {
@@ -678,6 +688,11 @@
   .box-nav-noti {
     height: auto;
     max-height: 940px;
+  }
+  .navbar-noti .badge {
+    top: 0px;
+    right: -2px;
+    padding: 4px 0px;
   }
 
   /*profile*/
@@ -789,6 +804,7 @@
   }
   .navbar-noti .badge {
     font-size: 11px;
+    padding: 5px 0px;
   }
   .box-nav-noti {
     height: auto;
@@ -938,8 +954,8 @@
   .navbar-noti .badge {
     top: 0px;
     right: -40px;
-    padding: 5px 0px;
-    font-size: 10px;
+    padding: 4px 0px;
+    font-size: 11px;
     width: 18px;
     height: 18px;
   }

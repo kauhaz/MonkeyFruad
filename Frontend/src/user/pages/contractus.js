@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 import "./contractus.css";
 import Chatbot from "../components/chatbot";
 import NavbarPage from "../components/navnew";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Contractus = () => {
   const [showDropdown, SetshowDropdown] = useState(true);
@@ -135,6 +136,7 @@ const Contractus = () => {
       }
         
       <div className="container-contractusbottom"></div>
+      <ScrollToTop/>
       <Chatbot />
     </div>
   );
