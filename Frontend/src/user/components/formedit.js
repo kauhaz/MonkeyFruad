@@ -314,7 +314,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="name"
-                                  pattern="^[ก-๏\s]+$"
+                                  pattern="^[ก-๏\sa-zA-Z\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={name}
@@ -336,7 +336,7 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="text"
                                   id="lastname"
-                                  pattern="^[ก-๏\s]+$"
+                                  pattern="^[ก-๏\sa-zA-Z\s]+$"
                                   title="กรอกตัวหนังสือเท่านั้น"
                                   placeholder=""
                                   value={surname}
@@ -550,7 +550,9 @@ const Formedit = ({ check, Setcheck }) => {
                                 <Form.Control
                                   type="datetime-local"
                                   placeholder=""
-                                  max={`${moment(new Date()).format("YYYY-MM-DDTHH:mm")}`}
+                                  max={`${moment(new Date()).format(
+                                    "YYYY-MM-DDTHH:mm"
+                                  )}`}
                                   value={datetime}
                                   onChange={(event) => {
                                     setDatetime(event.target.value);

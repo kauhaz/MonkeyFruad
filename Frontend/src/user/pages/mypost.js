@@ -301,7 +301,7 @@ const Mypost = () => {
                         <br />
                         <div className="mypost-date">
                           {moment(new Date(ok.date.seconds * 1000)).format(
-                            "MM/DD/YYYY HH:mm"
+                            "DD/MM/YYYY HH:mm"
                           )}{" "}
                         </div>
                       </div>
