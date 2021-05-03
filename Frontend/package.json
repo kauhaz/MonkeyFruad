@@ -52,6 +52,7 @@
     "react-spinners": "^0.10.4",
     "react-spinners-css": "^1.2.2",
     "react-toolbox": "^2.0.0-beta.13",
+    "react-use": "^17.2.4",
     "recursive-readdir": "^2.2.2",
     "rsuite": "^4.8.7",
     "semantic-ui-css": "^2.4.1",

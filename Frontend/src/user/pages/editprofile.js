@@ -61,7 +61,7 @@ const EditProfile = () => {
       formdata.append("province", province);
       await axios
         .post(
-          `https://monkeyfruad01.herokuapp.com/user/edit/profile/${user.uid}`,
+          `http://localhost:7000/user/edit/profile/${user.uid}`,
           formdata
         )
         .then((result) => {
