@@ -147,6 +147,10 @@ const Commentitemformypost = ({ postid }) => {
           `https://monkeyfruad01.herokuapp.com/post/comment/${postid}`,
           formdata
         );
+        const sendnoti = await Axios.post(
+          `https://monkeyfruad01.herokuapp.com/post/notificationnonread/${postid}/${user.uid}`
+        );
+
         Setclick(sentcomment);
         Settextcomment("");
         setImagesFile();
