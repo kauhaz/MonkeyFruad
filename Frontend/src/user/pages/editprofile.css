@@ -17,21 +17,6 @@
     margin: 0 auto;
 }
 
-.alert-editprofile {
-    color: #be2020;
-    border: 1px solid #be2020;
-    background-color: #f8a9a977;
-    padding: .3rem;
-    border-radius: .4rem;
-    margin: 1rem auto;
-    display: block;
-    text-align: center;
-    width: auto;
-}
-
-.alert-editprofile span{
-    font-size: 16px;
-}
 
 .EditProfileForm .h1{
     margin-top: 1rem;

@@ -135,8 +135,10 @@ const EditProfile = () => {
       <div className="container-editprofile">
         <form className="EditProfileForm" onSubmit={SubmitHandle}>
           {usernameExist ? 
-            <div className="alert-editprofile">
-              <span>Username นี้มีอยู่แล้วกรุณากรอก Username ใหม่อีกครั้ง</span>
+            <div className="alert-login">
+              <span>Username นี้มีอยู่แล้วในระบบ <br /> 
+                กรุณากรอก Username ใหม่อีกครั้ง
+              </span>
             </div>
           :null}
           <p className="h1 text-center mb-2 font-weight-bold">
