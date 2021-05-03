@@ -142,8 +142,10 @@
     padding: .175rem .55rem;
     font-size: 1rem;
     line-height: 1.5;
+    border: 1px;
     border-radius: 1.5rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .rank-sort-select:focus, .rank-sort-select:active {
