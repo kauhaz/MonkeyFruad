@@ -6,7 +6,7 @@ import NavbarPage from "../components/navbarAdmin";
 import Notfound from "../components/Notfound";
 import ClipLoader from "../../user/components/clipLoader";
 import { Link, useHistory, useLocation } from "react-router-dom";
-
+import ScrollToTop from "../../user/components/ScrollToTop";
 import { Form, Col } from "react-bootstrap";
 import "../../user/pages/post.css";
 
@@ -6278,6 +6278,7 @@ const Entersearch = () => {
           showDropdown={showDropdown}
         />
       )}
+      <ScrollToTop/>
     </div>
   );
 };

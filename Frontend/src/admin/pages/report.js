@@ -4,6 +4,7 @@ import "./report.css";
 import ListNonverifypost from "../components/list_non_verifypost";
 import Listverifypost from "../components/list_verify_post";
 import Listhidereport from "../components/listhidereport";
+import ScrollToTop from "../../user/components/ScrollToTop";
 import Axios from "axios";
 const Report = () => {
   const [verifypost, setverifypost] = useState();
@@ -180,6 +181,7 @@ const Report = () => {
           : null}
       </div>
       <div className="container-reportbottom"></div>
+      <ScrollToTop/>
     </div>
   );
 };

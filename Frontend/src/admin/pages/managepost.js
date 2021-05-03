@@ -10,7 +10,7 @@ import * as moment from "moment";
 import "moment/locale/th";
 import { Form, Col } from "react-bootstrap";
 import Modaldelete from "../../user/components/Modaldelete";
-
+import ScrollToTop from "../../user/components/ScrollToTop";
 const ManagePost = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -7151,6 +7151,7 @@ const ManagePost = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop/>
     </div>
   );
 };
