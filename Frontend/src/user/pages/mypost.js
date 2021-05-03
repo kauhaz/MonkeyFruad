@@ -272,7 +272,7 @@ const Mypost = () => {
                   <div>
                     <div className="container-mypost2">
                       {user && user.uid != ok.useruid ? (
-                        <div className="mypostbuttonreport">
+                        <div className="mypostbuttonreport" title="รายงานโพสต์">
                           <button
                             variant="primary"
                             onClick={handleShow}
@@ -512,7 +512,7 @@ const Mypost = () => {
                                   ""
                                 )}
                                 {loading ? (
-                                    <ClipLoaderReport loading={loading} />
+                                  <ClipLoaderReport loading={loading} />
                                 ) : (
                                   <Button
                                     clsssName="buttonreportsave"
