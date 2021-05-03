@@ -169,7 +169,7 @@
 /* ipad pro */
 @media only screen and (max-width: 1025px) {
     .container-changepass {
-        margin: 35% auto 0 auto;
+        margin: 40% auto 0 auto;
         width: 410;
     }
     .ChangePassForm img {
@@ -195,7 +195,7 @@
 /* iPad */
 @media only screen and (max-width: 769px) {
     .container-changepass {
-        margin: 32% auto 0 auto;
+        margin: 34% auto 0 auto;
         width: 400px;
         padding: 15px 20px;
     }

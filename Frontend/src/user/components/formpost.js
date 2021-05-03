@@ -152,7 +152,6 @@ const Formpost = ({ check, Setcheck }) => {
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
-
       let formdata = new FormData();
       let useruid = user.uid;
       _.forEach(files, (file) => {
@@ -180,6 +179,8 @@ const Formpost = ({ check, Setcheck }) => {
       if (files && files.length === 0) {
         return Seterror("** กรุณาแนบหลักฐานการโอนเงินและหลักฐานการโดนโกง **");
       }
+
+      
 
       Setloading(true);
       Setcheck(true);
@@ -261,7 +262,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="name"
-                    pattern="^[ก-๏\s]+$"
+                    pattern="^[ก-๏\sa-zA-Z\s]+$"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     onChange={(event) => {
@@ -278,7 +279,7 @@ const Formpost = ({ check, Setcheck }) => {
                   <Form.Control
                     type="text"
                     id="lastname"
-                    pattern="^[ก-๏\s]+$"
+                    pattern="^[ก-๏\sa-zA-Z\s]+$"
                     title="กรอกตัวหนังสือเท่านั้น"
                     placeholder=""
                     required

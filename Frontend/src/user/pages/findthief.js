@@ -64,7 +64,7 @@ const Findthief = () => {
                 </div>
                 <div className="column2-postrow2">
                   <div className="post-linkpost1">
-                    แจ้งข้อมูลคนโกงได้ที่นี่เลย
+                    คลิกที่นี่เพื่อแจ้งข้อมูลคนโกง
                   </div>
                 </div>
               </div>
@@ -219,15 +219,15 @@ const Findthief = () => {
                 )}
               </div>
             )}
-            <div className="container-bottoms"></div>
+            <div className="container-postbottoms"></div>
           </div>
 
           <div className="column-post-right1">
-            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+            <a target="_blank" href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
-                  ติดต่อเพจน้องพะโล้ <br />
-                  เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
+                  คลิกที่นี่เพื่อติดต่อเพจน้องพะโล้ <br />
+                  หรืออัพเดทข่าวสารและพูดคุยกัน
                 </div>
                 <div className="post-img1">
                   <img className="facebook" src="/img/facebooklogo.png" />

@@ -18,6 +18,7 @@ const Profile = () => {
   const [province, setProvince] = useState();
   const [imagesProfile, setImagesProfile] = useState(""); //สร้าง State เพื่อเก็บรูปโปรไฟล์
   const [photo, Setphoto] = useState("");
+  const [login, setLogin] = useState();
   const [loading, setLoading] = useState(true);
   const Hiddendropdown = () => {
     SetshowDropdown(false);
@@ -37,6 +38,7 @@ const Profile = () => {
       setPhone(profiledata.data.data.phone);
       setProvince(profiledata.data.data.province);
       Setphoto(profiledata.data.data.photoURL);
+      setLogin(profiledata.data.data.login);
     } catch (err) {
       console.log(err);
     }
@@ -110,17 +112,18 @@ const Profile = () => {
               className="btn-block EditProfile"
             >
               <div>
-                <i class="fas fa-user-edit"></i>
+                <i class="fas fa-user-edit mr-3"></i>
               </div>
               <p className="mx-auto my-1">แก้ไขข้อมูลส่วนตัว</p>
             </a>
-
-            <a href="/changepass" className="btn-block ChangePassword mt-2">
-              <div>
-                <i class="fas fa-unlock"></i>
-              </div>
-              <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
-            </a>
+            {login ? null : (
+              <a href="/changepass" className="btn-block ChangePassword mt-2">
+                <div>
+                  <i class="fas fa-unlock mr-3"></i>
+                </div>
+                <p className="mx-auto my-1">เปลี่ยนรหัสผ่าน</p>
+              </a>
+            )}
           </div>
         </form>
       </div>

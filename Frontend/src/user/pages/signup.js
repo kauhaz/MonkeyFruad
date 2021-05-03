@@ -44,12 +44,11 @@ const Signup = () => {
         password: password,
       })
       .then((result) => {
-        if(result.data.usernameExist === true){
-          console.log(result.data)
-          setusernameExist(true)
+        if (result.data.usernameExist === true) {
+          console.log(result.data);
+          setusernameExist(true);
           setEmailis_inVaild(false);
-        }
-        else if (result.data.usernameExist === false){
+        } else if (result.data.usernameExist === false) {
           auth
             .signInWithEmailAndPassword(email, password)
             .then((result) => {
@@ -59,12 +58,12 @@ const Signup = () => {
             .catch((err) => {
               console.log(err);
             });
-          }
-        })
+        }
+      })
       .catch((result) => {
-        console.log(result)
+        console.log(result);
         setEmailis_inVaild(true);
-        setusernameExist(false)
+        setusernameExist(false);
       });
   };
 
@@ -74,7 +73,9 @@ const Signup = () => {
     const result = await auth.signInWithPopup(googleProvider);
     console.log(result);
     axios
-      .post("https://monkeyfruad01.herokuapp.com/user/googlesignup", { result: result })
+      .post("https://monkeyfruad01.herokuapp.com/user/googlesignup", {
+        result: result,
+      })
       .then((result) => {
         console.log(result.data);
         history.push("/");
@@ -90,7 +91,9 @@ const Signup = () => {
     const result = await auth.signInWithPopup(facebookProvider);
     console.log(result);
     axios
-      .post("https://monkeyfruad01.herokuapp.com/user/facebooksignup", { result: result })
+      .post("https://monkeyfruad01.herokuapp.com/user/facebooksignup", {
+        result: result,
+      })
       .then((result) => {
         console.log(result.data);
         history.push("/");
@@ -134,19 +137,20 @@ const Signup = () => {
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return /[a-z,A-Z,ก-๛]+$/.test(value);
+        return /[a-z,A-Z,ก-๛\s]+$/.test(value);
       }),
     lastname: Yup.string()
       .min(2, "สั้นเกินไป")
       .max(50, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
       .test("", "กรุณาใส่ตัวอักษรเท่านั้น", (value) => {
-        return  /[a-z,A-Z,ก-๛]+$/.test(value);
+        return /[a-z,A-Z,ก-๛\s]+$/.test(value);
       }),
     username: Yup.string()
       .min(2, "สั้นเกินไป")
       .max(15, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้"),
+
     phone: Yup.number()
       .max(10000000000, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้")
@@ -158,6 +162,7 @@ const Signup = () => {
       .min(6, "กรุณากรอกตัวอักษรอย่างน้อย 6 ตัว")
       .max(20, "ยาวเกินไป")
       .required("จำเป็นต้องกรอกช่องนี้"),
+
     confirmPassword: Yup.string()
       .min(6, "กรุณากรอกตัวอักษรอย่างน้อย 6 ตัว")
       .max(20, "ยาวเกินไป")
@@ -177,9 +182,7 @@ const Signup = () => {
       <div className="container-signup">
         <form className="SignupForm">
           <img src="/img/logoLogin.png" className="Logo-signup" alt="" />
-          <p className="h1 text-center font-weight-bold mb-4">
-            สมัครสมาชิก
-          </p>
+          <p className="h1 text-center font-weight-bold mb-4">สมัครสมาชิก</p>
           {emailis_inVaild ? (
             <div className="alert-signup">
               <span>อีเมลนี้มีอยู่ในระบบแล้ว</span>
@@ -187,7 +190,7 @@ const Signup = () => {
           ) : (
             <p></p>
           )}
-           {usernameExist ? (
+          {usernameExist ? (
             <div className="alert-signup">
               <span>Username นี้มีอยู่ในระบบแล้ว</span>
             </div>
@@ -370,7 +373,9 @@ const Signup = () => {
                           value="ชาย"
                           className="mr-1 gender"
                         />
-                        <label htmlFor="male" className="gender">ชาย</label>
+                        <label htmlFor="male" className="gender">
+                          ชาย
+                        </label>
                       </div>
                       <div className="profile-data d-inline">
                         <input
@@ -382,7 +387,9 @@ const Signup = () => {
                           value="หญิง"
                           className="mr-1 gender"
                         />
-                        <label htmlFor="female" className="gender">หญิง</label>
+                        <label htmlFor="female" className="gender">
+                          หญิง
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -524,10 +531,15 @@ const Signup = () => {
             </button>
 
             <div className="signup-login text-center pt-3">
-              <p>มีบัญชีอยู่แล้ว? <a href="/login">เข้าสู่ระบบ</a></p>
+              <p>
+                มีบัญชีอยู่แล้ว? <a href="/login">เข้าสู่ระบบ</a>
+              </p>
             </div>
 
-            <button onClick={googleLogin} className="btn-block LoginGoogle-signup mt-2">
+            <button
+              onClick={googleLogin}
+              className="btn-block LoginGoogle-signup mt-2"
+            >
               <svg
                 className="GoogleIcon"
                 xmlns="http://www.w3.org/2000/svg"

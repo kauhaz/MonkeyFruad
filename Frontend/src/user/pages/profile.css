@@ -61,6 +61,7 @@
 
 .EditProfile:hover {
     background-color: #ff6464;
+    color: white;
     border: none;
     cursor: pointer;
 }
@@ -78,6 +79,7 @@
 
 .ChangePassword:hover {
     background-color: #3c6fce;
+    color: white;
     border: none;
     cursor: pointer;
 }
@@ -102,7 +104,7 @@
 /* notebook */
 @media only screen and (max-width: 1921px) {
     .container-profile {
-        margin: 1.5% auto 0 auto;
+        margin: 3% auto 0 auto;
     }
     .ProfileForm .h1 {
         font-size: 22px
@@ -130,7 +132,7 @@
 /* computer */
 @media only screen and (min-width: 1920px) {
     .container-profile {
-        margin: 5% auto 0 auto;
+        margin: 7% auto 0 auto;
     }
     .ProfileForm .h1 {
         font-size: 25px
@@ -192,7 +194,7 @@
 /* iPad Pro */
 @media only screen and (max-width: 1025px) {
     .container-profile {
-        margin: 28% auto 0 auto;
+        margin: 32% auto 0 auto;
         width: 410px;
     }
     .ProfileForm .h1 {

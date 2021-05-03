@@ -33,14 +33,16 @@ const Changepass = () => {
     e.preventDefault();
     try {
       // reauthenticating
-      await reauthenticate(oldPassword)
+      await reauthenticate(oldPassword);
       // updating password
       await user.updatePassword(newPassword);
       setSuccesspass(true);
       setInvalidpass(false);
-    history.push({
-      pathname: `/profile/${user.uid}`,
-    });
+      setTimeout(() => {
+        history.push({
+          pathname: `/profile/${user.uid}`,
+        });
+      }, 1000);
     } catch (err) {
       console.log(err);
       setInvalidpass(true);
@@ -210,7 +212,7 @@ const Changepass = () => {
 
             <button type="submit" className="btn-block SaveChange mt-3">
               <div>
-                <i class="fas fa-save pr-1"></i>
+                <i class="fas fa-save pr-1 mr-3"></i>
               </div>
               <p className="mx-auto my-1">บันทึกข้อมูล</p>
             </button>

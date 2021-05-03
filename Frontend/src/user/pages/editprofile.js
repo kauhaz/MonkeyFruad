@@ -9,7 +9,7 @@ import { Form, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import usercontext from "../context/usercontext";
 const EditProfile = () => {
-  var { user} = useContext(usercontext);
+  var { user } = useContext(usercontext);
   let history = useHistory();
   // ที่เก็บ state
   const [imagesProfile, setImagesProfile] = useState(""); //สร้าง State เพื่อเก็บรูปโปรไฟล์
@@ -23,6 +23,7 @@ const EditProfile = () => {
   const [male, setMale] = useState();
   const [loading, setLoading] = useState(true);
   const [showDropdown, SetshowDropdown] = useState(true);
+  const [usernameExist,setusernameExist] =  useState(false);
   // ฟังกชันการเลือกเพศใน input
   const selectSex = (e) => {
     if (e.target.value === "ชาย") {
@@ -58,12 +59,22 @@ const EditProfile = () => {
       formdata.append("sex", sex);
       formdata.append("phone", phone);
       formdata.append("province", province);
-      await axios.post(
-        `https://monkeyfruad01.herokuapp.com/user/edit/profile/${user.uid}`,
-        formdata
-      );
-      console.log("ok");
-      history.push(`/profile/${user.uid}`);
+      await axios
+        .post(
+          `https://monkeyfruad01.herokuapp.com/user/edit/profile/${user.uid}`,
+          formdata
+        )
+        .then((result) => {
+          if (result.data.usernameExist === true) {
+            setusernameExist(true);
+          } else if (result.data.usernameExist === false) {
+            setusernameExist(false)
+            history.push(`/profile/${user.uid}`);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -123,6 +134,7 @@ const EditProfile = () => {
       />
       <div className="container-editprofile">
         <form className="EditProfileForm" onSubmit={SubmitHandle}>
+          {usernameExist ? <p>Username นี้มีอยู่แล้วกรุณากรอก Username ใหม่อีกครั้ง</p>:null}
           <p className="h1 text-center mb-2 font-weight-bold">
             แก้ไขข้อมูลส่วนตัว
           </p>
@@ -158,7 +170,9 @@ const EditProfile = () => {
           </div>
           <div className="col-md-12">
             <div className="form-group-editptofile my-0">
-              <label className="label-form-title-editprofile pt-2">Username</label>
+              <label className="label-form-title-editprofile pt-2">
+                Username
+              </label>
               <div className="form-inside-editprofile">
                 <Form.Control
                   type="text"
@@ -175,7 +189,9 @@ const EditProfile = () => {
               </div>
             </div>
             <div className="form-group-editptofile my-0 mt-2">
-              <label className="label-form-title-editprofile pt-2">ชื่อจริง</label>
+              <label className="label-form-title-editprofile pt-2">
+                ชื่อจริง
+              </label>
               <div className="form-inside-editprofile">
                 <Form.Control
                   type="text"
@@ -188,11 +204,13 @@ const EditProfile = () => {
                     setFirstname(e.target.value);
                   }}
                   maxlength="30"
-                />                
+                />
               </div>
             </div>
             <div className="form-group-editptofile my-0 mt-2">
-              <label className="label-form-title-editprofile pt-2">นามสกุล</label>
+              <label className="label-form-title-editprofile pt-2">
+                นามสกุล
+              </label>
               <div className="form-inside-editprofile">
                 <Form.Control
                   type="text"
@@ -205,7 +223,7 @@ const EditProfile = () => {
                     setSurname(e.target.value);
                   }}
                   maxlength="30"
-                />                        
+                />
               </div>
             </div>
             <div className="form-group-editptofile mb-2 mt-2">
@@ -224,7 +242,9 @@ const EditProfile = () => {
                         className="mr-1 gender"
                         checked="checked"
                       />
-                      <label htmlFor="male" className="gender">ชาย</label>
+                      <label htmlFor="male" className="gender">
+                        ชาย
+                      </label>
                     </div>
                     <div className="profile-data d-inline">
                       <input
@@ -236,7 +256,9 @@ const EditProfile = () => {
                         value="หญิง"
                         className="mr-1 gender"
                       />
-                      <label htmlFor="female" className="gender">หญิง</label>
+                      <label htmlFor="female" className="gender">
+                        หญิง
+                      </label>
                     </div>
                   </div>
                 ) : (
@@ -286,12 +308,14 @@ const EditProfile = () => {
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
-                />                   
+                />
               </div>
             </div>
 
             <div className="form-group-editptofile mt-2 mb-4">
-              <label className="label-form-title-editprofile pt-1">จังหวัด</label>
+              <label className="label-form-title-editprofile pt-1">
+                จังหวัด
+              </label>
               <div className="form-inside-editprofile">
                 <Form.Control
                   as="select"
@@ -387,7 +411,7 @@ const EditProfile = () => {
             <div className="col-md-12">
               <button type="submit" className="btn-block SaveEdit">
                 <div>
-                  <i class="fas fa-save pr-1"></i>
+                  <i class="fas fa-save pr-1 mr-3"></i>
                 </div>
                 <p className="mx-auto my-1">บันทึกข้อมูล</p>
               </button>
