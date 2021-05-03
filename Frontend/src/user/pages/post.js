@@ -5699,8 +5699,8 @@ const Post = () => {
   console.log(checkfacebook);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     ok();
+    window.scrollTo(0, 0);
   }, [
     checkfacebook,
     checkinstagram,

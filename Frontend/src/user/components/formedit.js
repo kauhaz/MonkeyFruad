@@ -36,6 +36,7 @@ const Formedit = ({ check, Setcheck }) => {
   const [imagepost, Setimagepost] = useState();
   const [isopen, Setisopen] = useState(false);
   const [imagemodal, Setimagemodal] = useState();
+  const [checkId, setCheckId] = useState(false);
 
   // const [files, setfiles] = useState();
 
@@ -171,9 +172,12 @@ const Formedit = ({ check, Setcheck }) => {
     const hello = await Axios.get(
       `https://monkeyfruad01.herokuapp.com/post/edit/${uid}`
     );
-
+      
     let gethistory = hello.data.item;
     let getDatetime = hello.data.datetime;
+    // if(gethistory[0].id === "-"){
+    //   setCheckId(true)
+    // }
     Setshow(gethistory);
     setName(gethistory[0].name);
     setSurname(gethistory[0].surname);
@@ -190,6 +194,7 @@ const Formedit = ({ check, Setcheck }) => {
     Setimagepost(gethistory[0].item);
   };
 
+
   useEffect(() => {
     ok();
   }, []);
@@ -199,7 +204,6 @@ const Formedit = ({ check, Setcheck }) => {
   const handlesubmit = async (e) => {
     try {
       e.preventDefault();
-
       let formdata = new FormData();
       _.forEach(files, (file) => {
         formdata.append("eiei", file);
@@ -364,7 +368,7 @@ const Formedit = ({ check, Setcheck }) => {
                                   maxlength="13"
                                   title="กรอกตัวเลขเท่านั้น"
                                   placeholder=""
-                                  value={id}
+                                  value={id} 
                                   onChange={(event) => {
                                     setId(event.target.value);
                                   }}

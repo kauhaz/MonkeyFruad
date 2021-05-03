@@ -230,7 +230,7 @@ const Commentitem = ({ postid }) => {
       console.log(err);
     }
   };
-  useEffect(() => {
+  useEffect( async() => {
     gg();
   }, [click, showdelete, showedit, postid]);
 

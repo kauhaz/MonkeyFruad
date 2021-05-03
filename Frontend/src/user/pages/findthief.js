@@ -223,7 +223,7 @@ const Findthief = () => {
           </div>
 
           <div className="column-post-right1">
-            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+            <a target="_blank" href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
                   คลิกที่นี่เพื่อติดต่อเพจน้องพะโล้ <br />
