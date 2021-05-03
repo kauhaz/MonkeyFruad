@@ -5685,6 +5685,7 @@ const Post = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     ok();
   }, [
     checkfacebook,
@@ -6301,7 +6302,7 @@ const Post = () => {
                               <span className="post-time">
                                 {moment(
                                   new Date(res.date.seconds * 1000)
-                                ).format("MM/DD/YYYY HH:mm")}{" "}
+                                ).format("DD/MM/YYYY HH:mm")}{" "}
                               </span>
                             </div>
                           </div>
@@ -6390,7 +6391,7 @@ const Post = () => {
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                                    ).format("DD/MM/YYYY HH:mm")}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -6490,7 +6491,7 @@ const Post = () => {
                                       <span className="post-time">
                                         {moment(
                                           new Date(res.date.seconds * 1000)
-                                        ).format("MM/DD/YYYY HH:mm")}{" "}
+                                        ).format("DD/MM/YYYY HH:mm")}{" "}
                                       </span>
                                     </div>
                                   </div>
@@ -6586,7 +6587,7 @@ const Post = () => {
                                               new Date(
                                                 res.datetimes.seconds * 1000
                                               )
-                                            ).format("MM/DD/YYYY HH:mm")}{" "}
+                                            ).format("DD/MM/YYYY HH:mm")}{" "}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
@@ -6677,7 +6678,7 @@ const Post = () => {
           </div>
 
           <div className="column-post-right1">
-            <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+            <a target="_blank" href="https://www.facebook.com/MonkeyFruad-105444291586616">
               <div className="container-postright1">
                 <div className="post-linkpost2">
                   ติดต่อเพจน้องพะโล้ <br />

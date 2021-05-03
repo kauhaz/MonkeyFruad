@@ -63,7 +63,7 @@ const Contractus = () => {
                       Email : Monkey_Fraud@gmail.com
                     </div>
                     <div className="line2-contract"></div>
-                    <a href="https://www.facebook.com/MonkeyFruad-105444291586616">
+                    <a target="_blank" href="https://www.facebook.com/MonkeyFruad-105444291586616">
                       <div className="pagefb-contract">
                         ติดต่อเพจน้องพะโล้ <br />
                         เพื่ออัพเดทข่าวสารและพูดคุยกันได้ที่นี่
