@@ -24,7 +24,7 @@ import usercontext from "../context/usercontext";
 const Post = () => {
   const [open, setOpen] = React.useState(false);
 
-  const [show, Setshow] = useState();
+  const [show, Setshow] = useState(null);
   const [Show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -115,6 +115,10 @@ const Post = () => {
     SetisOpen(!isOpen);
   };
 
+     
+  console.log(result);
+  console.log(show)
+
   const ok = async () => {
     Setloading(true);
     const getpost = await Axios.get(
@@ -131,9 +135,8 @@ const Post = () => {
       });
     }
     Setloading(false);
-
-    console.log(result);
     var item = [];
+
 
     getsort.filter((doc) => {
       if (checkfacebook) {
@@ -5776,6 +5779,7 @@ const Post = () => {
                 </Button>
               }
             >
+
               <Modal.Header className="nameslide">
                 ค้นหาโพสต์แบบละเอียด
               </Modal.Header>
@@ -6288,6 +6292,10 @@ const Post = () => {
               </Modal.Actions>
             </Modal>
 
+
+           
+          
+
             {loading ? (
               <ClipLoader />
             ) : (
@@ -6481,6 +6489,12 @@ const Post = () => {
                       <ClipLoader />
                     ) : (
                       <div>
+                             { (result && result.length === 0)  ?  <h1 className="h1-posts">
+                  {" "}
+                  ไม่พบหมวดหมู่ที่คุณเลือก
+                  <div className="none-search"></div>
+              </h1>
+              : null}
                         {result ? (
                           result.map((res) => {
                             return (
