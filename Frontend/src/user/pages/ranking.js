@@ -127,7 +127,31 @@ const Rank = () => {
       <h1 className="h1-ranking">
         จัดอันดับคนโกง
         <span className="rank-sort-head">
-          เรียงตาม: <span>{TitleSort}</span>
+          เรียงตาม: 
+          <span className="rank-sort-span">
+            <select
+              as="select"
+              name="rank-sort"
+              className="rank-sort-select"
+              onChange={(e) => {
+                SelectClick(e);
+              }}
+            >
+              <option
+                selected
+                value="จำนวนครั้งที่โกงมากที่สุด"
+                className="rank-option"
+              >
+                จำนวนครั้งที่โกงมากที่สุด
+              </option>
+              <option value="ยอดเงินที่โกงสูงสุด" className="rank-option">
+                ยอดเงินที่โกงสูงสุด
+              </option>
+              <option value="วันที่โกงล่าสุด" className="rank-option">
+                วันที่โกงล่าสุด
+              </option>
+            </select>
+          </span>
         </span>
       </h1>
       <div className="container2-rank">
@@ -182,30 +206,6 @@ const Rank = () => {
       </div>
 
       <div className="container-ranking">
-        <div className="rank-sorting">
-          <select
-            as="select"
-            name="rank-sort"
-            className="rank-sort-select"
-            onChange={(e) => {
-              SelectClick(e);
-            }}
-          >
-            <option
-              selected
-              value="จำนวนครั้งที่โกงมากที่สุด"
-              className="rank-option"
-            >
-              จำนวนครั้งที่โกงมากที่สุด
-            </option>
-            <option value="ยอดเงินที่โกงสูงสุด" className="rank-option">
-              ยอดเงินที่โกงสูงสุด
-            </option>
-            <option value="วันที่โกงล่าสุด" className="rank-option">
-              วันที่โกงล่าสุด
-            </option>
-          </select>
-        </div>
         <table className="rank-table d-none d-sm-none d-md-inline">
           <tr className="rank-column-row">
             <th className="rank-column col-1 ">อันดับ</th>

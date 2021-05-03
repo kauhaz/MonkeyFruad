@@ -12,11 +12,15 @@
 }
 
 .rank-sort-head {
-    margin-top: .5rem;
+    margin-top: 1.5rem;
     font-size: 16px;
     color: #868686;
     display: block;
     justify-content: center;
+}
+
+.rank-sort-span {
+    margin-left: 1rem;
 }
 
 .container2-rank{
@@ -133,17 +137,19 @@
 
 .rank-sort-select {
     cursor: pointer;
-    background-color: inherit;
+    background-color: #fff;
     color: inherit;
     padding: .175rem .55rem;
     font-size: 1rem;
     line-height: 1.5;
-    border: none;
+    border: 1px;
+    border-radius: 1.5rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .rank-sort-select:focus, .rank-sort-select:active {
-    border: none;
+    border-radius: 1.5rem;
 }
 
 .rank-table, .rank-table-count, .rank-table-balance, .rank-table-date{
