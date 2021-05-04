@@ -19,7 +19,6 @@ const Report = () => {
   const Hiddendropdown = () => {
     SetshowDropdown(false);
   };
- 
 
   const initReport = async () => {
     try {
@@ -174,14 +173,13 @@ const Report = () => {
                   reportelement={reportelement}
                   CancleClick={CancleClick}
                   DeleteClick={DeleteClick}
-               
                 />
               );
             })
           : null}
       </div>
       <div className="container-reportbottom"></div>
-      <ScrollToTop/>
+      <ScrollToTop />
     </div>
   );
 };
