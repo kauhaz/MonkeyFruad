@@ -160,7 +160,7 @@ const Findthief = () => {
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                                    ).format("DD/MM/YYYY HH:mm")}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>

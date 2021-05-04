@@ -123,7 +123,7 @@ const Seepost = () => {
                         <br />
                         <div className="mypost-date">
                           {moment(new Date(ok.date.seconds * 1000)).format(
-                            "MM/DD/YYYY HH:mm"
+                            "DD/MM/YYYY HH:mm"
                           )}{" "}
                         </div>
                       </div>
@@ -359,7 +359,7 @@ const Seepost = () => {
                                 <div className="spanmypost text-mypost-right">
                                   {moment(
                                     new Date(ok.datetimes.seconds * 1000)
-                                  ).format("MM/DD/YYYY HH:mm")}{" "}
+                                  ).format("DD/MM/YYYY HH:mm")}{" "}
                                 </div>
                               </Form.Label>
                             </Form.Group>

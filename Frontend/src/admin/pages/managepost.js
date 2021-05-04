@@ -6307,7 +6307,7 @@ const ManagePost = () => {
                               <span className="post-time">
                                 {moment(
                                   new Date(res.date.seconds * 1000)
-                                ).format("MM/DD/YYYY HH:mm")}{" "}
+                                ).format("DD/MM/YYYY HH:mm")}{" "}
                               </span>
                             </div>
                           </div>
@@ -6396,7 +6396,7 @@ const ManagePost = () => {
                                   <span className="spanpost">
                                     {moment(
                                       new Date(res.datetimes.seconds * 1000)
-                                    ).format("MM/DD/YYYY HH:mm")}{" "}
+                                    ).format("DD/MM/YYYY HH:mm")}{" "}
                                   </span>
                                 </Form.Group>
                               </Form.Row>
@@ -6528,7 +6528,7 @@ const ManagePost = () => {
                                       <span className="post-time">
                                         {moment(
                                           new Date(res.date.seconds * 1000)
-                                        ).format("MM/DD/YYYY HH:mm")}{" "}
+                                        ).format("DD/MM/YYYY HH:mm")}{" "}
                                       </span>
                                     </div>
                                   </div>
@@ -6624,7 +6624,7 @@ const ManagePost = () => {
                                               new Date(
                                                 res.datetimes.seconds * 1000
                                               )
-                                            ).format("MM/DD/YYYY HH:mm")}{" "}
+                                            ).format("DD/MM HH:mm")}{" "}
                                           </span>
                                         </Form.Group>
                                       </Form.Row>
