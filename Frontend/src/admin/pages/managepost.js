@@ -6475,6 +6475,14 @@ const ManagePost = () => {
                       <ClipLoaderadmin />
                     ) : (
                       <div>
+
+{ (result && result.length === 0)  ?  <h1 className="h1-posts">
+                  {" "}
+                  ไม่พบโพสต์จากหมวดหมู่ที่คุณเลือก
+                  <div className="none-search"></div>
+              </h1>
+              : null}
+              
                         {result ? (
                           result.map((res) => {
                             return (
